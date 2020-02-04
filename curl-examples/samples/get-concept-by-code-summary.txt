@@ -1,0 +1,168 @@
+{
+  "code": "C3224",
+  "name": "Melanoma",
+  "terminology": "ncit",
+  "synonyms": [
+    {
+      "name": "Melanoma",
+      "type": "Preferred_Name"
+    },
+    {
+      "name": "Melanoma",
+      "type": "Legacy_Concept_Name"
+    },
+    {
+      "name": "Melanoma",
+      "type": "Display_Name"
+    },
+    {
+      "name": "MELANOMA, MALIGNANT",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "Malignant Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "CPTAC"
+    },
+    {
+      "name": "Malignant Melanoma",
+      "termGroup": "SY",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "Malignant Melanoma",
+      "termGroup": "SY",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "CTEP",
+      "code": "10053571",
+      "subSource": "SDC"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "SY",
+      "type": "FULL_SYN",
+      "source": "NCI",
+      "code": "TCGA",
+      "subSource": "caDSR"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "DN",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "Cellosaurus"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "GDC"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    },
+    {
+      "name": "Melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NICHD"
+    },
+    {
+      "name": "Melanoma, NOS",
+      "termGroup": "SY",
+      "type": "FULL_SYN",
+      "source": "GDC"
+    },
+    {
+      "name": "melanoma",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI-GLOSS",
+      "code": "CDR0000045135"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, mel
+anomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading mela
+noma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acq
+uired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastr
+ointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver,
+ lungs, and brain.",
+      "type": "DEFINITION",
+      "source": "NCI"
+    },
+    {
+      "definition": "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in
+a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.",
+      "type": "ALT_DEFINITION",
+      "source": "NCI-GLOSS"
+    },
+    {
+      "definition": "A malignant neoplasm composed of melanocytes.",
+      "type": "ALT_DEFINITION",
+      "source": "CDISC"
+    },
+    {
+      "definition": "A malignant neoplasm comprised of melanocytes typically arising in the skin.",
+      "type": "ALT_DEFINITION",
+      "source": "NICHD"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Semantic_Type",
+      "value": "Neoplastic Process"
+    },
+    {
+      "type": "Neoplastic_Status",
+      "value": "Malignant"
+    },
+    {
+      "type": "UMLS_CUI",
+      "value": "C0025202"
+    },
+    {
+      "type": "NICHD_Hierarchy_Term",
+      "value": "Melanoma"
+    },
+    {
+      "type": "ICD-O-3_Code",
+      "value": "8720/3"
+    }
+  ],
+  "contributingSources": [
+    "CDISC",
+    "CPTAC",
+    "CTEP",
+    "CTRP",
+    "Cellosaurus",
+    "GDC",
+    "NCI-GLOSS",
+    "NICHD"
+  ]
+}

@@ -56,3 +56,31 @@ curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
 ```
 
 See sample payload data from this call in `samples/get-concepts-by-list-of-codes-minimum.txt`
+
+
+### Get concept by code (summary information)
+
+Return summary concept information for a given terminology and code (note the
+'summary' is the default value for include in this context, using 'include=summary'
+would produce the same result):
+
+```
+curl "$API_URL/concept/ncit/C3224" | jq '.'
+```
+
+See sample payload data from this call in `samples/get-concept-by-code-summary.txt`
+
+
+### Get concept by code (full information)
+
+Return full concept information for a given terminology and code:
+
+```
+curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
+```
+
+See sample payload data from this call in [get-concept-by-code-full.txt](samples/get-concept-by-code-full.txt)
+
+See sample payload data from this call in [`get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
+
+

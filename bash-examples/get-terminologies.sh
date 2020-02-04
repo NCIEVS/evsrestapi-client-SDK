@@ -34,6 +34,7 @@ ct=`perl -pe 's/200$//' /tmp/x.$$ | jq '. | length'`
 echo "    count = $ct"
 echo ""
 perl -pe 's/200$//' /tmp/x.$$ | jq '.' | sed 's/^/    /'
+echo ""
 
 # ---------------------------------------------------------
 # Cleanup
