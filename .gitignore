@@ -1,0 +1,11 @@
+.gradle/*
+build/*
+setenv.sh
+/.gradle/
+.classpath
+.project
+.pydevproject
+.settings/
+bin/
+__pycache__
+/build/

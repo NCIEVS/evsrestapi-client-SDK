@@ -1,0 +1,5 @@
+{
+  "code": "C3224",
+  "name": "Melanoma",
+  "terminology": "ncit"
+}

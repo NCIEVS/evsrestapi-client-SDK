@@ -1,0 +1,12 @@
+[
+  {
+    "code": "C3224",
+    "name": "Melanoma",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C3910",
+    "name": "Molecular Abnormality",
+    "terminology": "ncit"
+  }
+]
