@@ -1,0 +1,70 @@
+[
+  {
+    "code": "C3802",
+    "name": "Amelanotic Melanoma"
+  },
+  {
+    "code": "C8410",
+    "name": "Breast Melanoma"
+  },
+  {
+    "code": "C131506",
+    "name": "Childhood Melanoma"
+  },
+  {
+    "code": "C3510",
+    "name": "Cutaneous Melanoma"
+  },
+  {
+    "code": "C4236",
+    "name": "Epithelioid Cell Melanoma"
+  },
+  {
+    "code": "C9499",
+    "name": "Melanomatosis"
+  },
+  {
+    "code": "C8925",
+    "name": "Metastatic Melanoma"
+  },
+  {
+    "code": "C66756",
+    "name": "Mixed Epithelioid and Spindle Cell Melanoma"
+  },
+  {
+    "code": "C8711",
+    "name": "Non-Cutaneous Melanoma"
+  },
+  {
+    "code": "C8562",
+    "name": "Ocular Melanoma"
+  },
+  {
+    "code": "C118828",
+    "name": "Orbital Melanoma"
+  },
+  {
+    "code": "C162547",
+    "name": "Penile Melanoma"
+  },
+  {
+    "code": "C7087",
+    "name": "Recurrent Melanoma"
+  },
+  {
+    "code": "C147983",
+    "name": "Refractory Melanoma"
+  },
+  {
+    "code": "C4228",
+    "name": "Regressing Melanoma"
+  },
+  {
+    "code": "C4237",
+    "name": "Spindle Cell Melanoma"
+  },
+  {
+    "code": "C148517",
+    "name": "Unresectable Melanoma"
+  }
+]

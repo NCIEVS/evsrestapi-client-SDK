@@ -5,8 +5,8 @@ This tutorial shows how to use bash scripts to access NCI Thesaurus content from
 
 Prerequisites
 * bash must be installed
-* curl must be installled ([cURL site](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([jq](https://stedolan.github.io/jq/download/))
+* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 
 Test Scripts

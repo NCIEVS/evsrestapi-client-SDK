@@ -1,0 +1,7 @@
+[
+  {
+    "type": "Has_NICHD_Parent",
+    "relatedCode": "C131506",
+    "relatedName": "Childhood Melanoma"
+  }
+]

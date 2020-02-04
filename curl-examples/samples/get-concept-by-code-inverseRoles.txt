@@ -1,0 +1,252 @@
+[
+  {
+    "type": "Disease_Has_Associated_Disease",
+    "relatedCode": "C40001",
+    "relatedName": "Ovarian Dermoid Cyst with Melanoma"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C36101",
+    "relatedName": "BRCA2 Syndrome"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C27264",
+    "relatedName": "Familial Atypical Mole Melanoma Syndrome"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C8495",
+    "relatedName": "Hereditary Retinoblastoma"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C3447",
+    "relatedName": "Werner Syndrome"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C21389",
+    "relatedName": "CRYBG1 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C54321",
+    "relatedName": "CRYBG1 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C21470",
+    "relatedName": "CSAG2 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C54542",
+    "relatedName": "CSAG2 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81903",
+    "relatedName": "CSAG3 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81904",
+    "relatedName": "CSAG3 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C24316",
+    "relatedName": "CSPG4 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C52436",
+    "relatedName": "CSPG4 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C82885",
+    "relatedName": "DCT Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C82886",
+    "relatedName": "DCT wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C20765",
+    "relatedName": "KISS1 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C54288",
+    "relatedName": "KISS1 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C24561",
+    "relatedName": "LTBP2 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C51270",
+    "relatedName": "LTBP2 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C21261",
+    "relatedName": "MCAM Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C54308",
+    "relatedName": "MCAM wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81756",
+    "relatedName": "MIR221 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C82171",
+    "relatedName": "MIR221 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C80700",
+    "relatedName": "MIRLET7A1 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81825",
+    "relatedName": "MIRLET7A1 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C80701",
+    "relatedName": "MIRLET7A3 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81826",
+    "relatedName": "MIRLET7A3 wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C80702",
+    "relatedName": "MIRLET7B Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C81853",
+    "relatedName": "MIRLET7B wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C28629",
+    "relatedName": "MLANA Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C54313",
+    "relatedName": "MLANA wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C18336",
+    "relatedName": "RAB8A Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C52547",
+    "relatedName": "RAB8A wt Allele"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C20335",
+    "relatedName": "XRCC3 Gene"
+  },
+  {
+    "type": "Gene_Associated_With_Disease",
+    "relatedCode": "C51014",
+    "relatedName": "XRCC3 wt Allele"
+  },
+  {
+    "type": "Gene_Product_Is_Biomarker_Of",
+    "relatedCode": "C17513",
+    "relatedName": "Melanoma-Associated Antigen 3"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C21390",
+    "relatedName": "Beta/Gamma Crystallin Domain-Containing Protein 1"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C26083",
+    "relatedName": "Chondroitin Sulfate Proteoglycan 4"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C17680",
+    "relatedName": "Cyclin-Dependent Kinase 4"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C17786",
+    "relatedName": "Cyclin-Dependent Kinase Inhibitor 2A"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C21569",
+    "relatedName": "DNA Repair Protein XRCC3"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C2646",
+    "relatedName": "L-Dopachrome Tautomerase"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C26331",
+    "relatedName": "Latent-Transforming Growth Factor Beta-Binding Protein 2"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C21141",
+    "relatedName": "Metastasis-Suppressor KiSS-1"
+  },
+  {
+    "type": "Gene_Product_Malfunction_Associated_With_Disease",
+    "relatedCode": "C84349",
+    "relatedName": "Tumor Suppressor ARF"
+  },
+  {
+    "type": "Regimen_Has_Accepted_Use_For_Disease",
+    "relatedCode": "C63785",
+    "relatedName": "CVD IL-2/IFNa2b Regimen"
+  },
+  {
+    "type": "Regimen_Has_Accepted_Use_For_Disease",
+    "relatedCode": "C63525",
+    "relatedName": "CVD Regimen"
+  },
+  {
+    "type": "Regimen_Has_Accepted_Use_For_Disease",
+    "relatedCode": "C63784",
+    "relatedName": "DTIC-BCNU-Cisplatin Regimen"
+  },
+  {
+    "type": "Regimen_Has_Accepted_Use_For_Disease",
+    "relatedCode": "C63781",
+    "relatedName": "Dartmouth Regimen"
+  },
+  {
+    "type": "Regimen_Has_Accepted_Use_For_Disease",
+    "relatedCode": "C63782",
+    "relatedName": "IFN-DTIC Regimen"
+  }
+]

@@ -31,7 +31,6 @@ The following examples will be used to demonstrate accessing the EVSREST API
 - Get concept by code (full information)
 - Get concept by code (custom include)
 - Get concept children
-- Get concept
 - Get role by code (minimal information)
 - Get association by code (minimal information)
 - Get property by code (minimal information)

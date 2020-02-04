@@ -4,8 +4,8 @@
 This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
 
 Prerequisites
-* curl must be installled ([cURL site](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([jq](https://stedolan.github.io/jq/download/))
+* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 The Browser as a terminology server
 ------------------------------------
@@ -27,60 +27,109 @@ The following examples can be types into the command line of any terminal that h
 
 ### Get terminologies
 
-Return all loaded terminologies currently hosted by the API:
+Return all loaded terminologies currently hosted by the API.
 
 ```
 curl "$API_URL/metadata/terminologies" | jq '.'
 ```
 
-See sample payload data from this call in `samples/get-terminologies.txt`
+See sample payload data from this call in [`samples/samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
 
 ### Get concept by code (minimal information)
 
-Return minimal concept information for a given terminology and code:
+Return minimal concept information for a given terminology and code.
 
 ```
 curl "$API_URL/concept/ncit/C3224?include=minimal" | jq '.'
 ```
 
-See sample payload data from this call in `samples/get-concept-by-code-minimum.txt`
+See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
 
 
 ### Get concepts by list of codes (minimal information)
 
-Return minimal concept information for a given terminology and list of codes:
+Return minimal concept information for a given terminology and list of codes.
 
 ```
 curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
 ```
 
-See sample payload data from this call in `samples/get-concepts-by-list-of-codes-minimum.txt`
+See sample payload data from this call in See sample payload data from this call in [`samples/get-concepts-by-list-of-codes-minimum.txt`](samples/get-concepts-by-list-of-codes-minimum.txt)
+
 
 
 ### Get concept by code (summary information)
 
 Return summary concept information for a given terminology and code (note the
 'summary' is the default value for include in this context, using 'include=summary'
-would produce the same result):
+would produce the same result).
 
 ```
 curl "$API_URL/concept/ncit/C3224" | jq '.'
 ```
 
-See sample payload data from this call in `samples/get-concept-by-code-summary.txt`
+See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-summary.txt)
 
 
 ### Get concept by code (full information)
 
-Return full concept information for a given terminology and code:
+Return full concept information for a given terminology and code.
 
 ```
 curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
 ```
 
-See sample payload data from this call in [get-concept-by-code-full.txt](samples/get-concept-by-code-full.txt)
+See sample payload data from this call in [`samples/get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
 
-See sample payload data from this call in [`get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
+
+### Get concept by code (custom information)
+
+Return custom concept information for a given terminology and code. To show a range
+of options, in this case, the request asks for synonyms, children, maps, and inverse
+associations.
+
+```
+curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociations" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-concept-by-code-custom.txt`](samples/get-concept-by-code-custom.txt)
+
+
+### Get concept part
+
+Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below,
+you can replace "children" in the URL with any of the following and retrieve the 
+corresponding underlying info: children, parents, roles, associations, inverseRoles,
+inverseAssociations, maps, or disjointWith.
+
+```
+curl "$API_URL/concept/ncit/C3224/children" | jq '.'
+```
+
+See the full set of examples for this "style" of call
+* [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
+* [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
+* [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
+* [`samples/get-concept-by-code-associations.txt`](samples/get-concept-by-code-associations.txt)
+* [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
+* [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
+* [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
+* [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
+
+
+### Get descendants
+
+Return concept descendants information for a given terminology and code. The call
+can be constrained by a maxLevel to prevent going deeper than a certain amount.
+The level 0 entries in the result are the direct children.
+
+```
+curl "$API_URL/concept/ncit/C3224/descendants?maxLevel=4" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)
+
+
 
 
