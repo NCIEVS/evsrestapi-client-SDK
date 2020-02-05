@@ -1,0 +1,66 @@
+[
+  [
+    {
+      "code": "C7057",
+      "name": "Disease, Disorder or Finding",
+      "level": 0
+    },
+    {
+      "code": "C2991",
+      "name": "Disease or Disorder",
+      "level": 1
+    },
+    {
+      "code": "C3262",
+      "name": "Neoplasm",
+      "level": 2
+    },
+    {
+      "code": "C4741",
+      "name": "Neoplasm by Morphology",
+      "level": 3
+    },
+    {
+      "code": "C7058",
+      "name": "Melanocytic Neoplasm",
+      "level": 4
+    },
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "level": 5
+    }
+  ],
+  [
+    {
+      "code": "C7057",
+      "name": "Disease, Disorder or Finding",
+      "level": 0
+    },
+    {
+      "code": "C2991",
+      "name": "Disease or Disorder",
+      "level": 1
+    },
+    {
+      "code": "C3262",
+      "name": "Neoplasm",
+      "level": 2
+    },
+    {
+      "code": "C7062",
+      "name": "Neoplasm by Special Category",
+      "level": 3
+    },
+    {
+      "code": "C9305",
+      "name": "Malignant Neoplasm",
+      "level": 4
+    },
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "level": 5
+    }
+  ]
+]

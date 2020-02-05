@@ -1,0 +1,42 @@
+{
+  "code": "A10",
+  "name": "Has_CDRH_Parent",
+  "synonyms": [
+    {
+      "name": "Has_CDRH_Parent",
+      "type": "Preferred_Name"
+    },
+    {
+      "name": "Has CDRH Parent",
+      "type": "Display_Name"
+    },
+    {
+      "name": "Has_CDRH_Parent",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "An association created to allow the source CDRH to assign a parent to each concept with the intent
+of creating a hierarchy that includes only terms in which they are the contributing source.",
+      "type": "DEFINITION",
+      "source": "NCI"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Semantic_Type",
+      "value": "Conceptual Entity"
+    },
+    {
+      "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    },
+    {
+      "type": "http://www.w3.org/2000/01/rdf-schema#range",
+      "value": "http://www.w3.org/2001/XMLSchema#anyURI"
+    }
+  ]
+}

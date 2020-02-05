@@ -1,0 +1,78 @@
+[
+  {
+    "code": "C12913",
+    "name": "Abnormal Cell"
+  },
+  {
+    "code": "C43431",
+    "name": "Activity"
+  },
+  {
+    "code": "C12219",
+    "name": "Anatomic Structure, System, or Substance"
+  },
+  {
+    "code": "C20633",
+    "name": "Biochemical Pathway"
+  },
+  {
+    "code": "C17828",
+    "name": "Biological Process"
+  },
+  {
+    "code": "C12218",
+    "name": "Chemotherapy Regimen or Agent Combination"
+  },
+  {
+    "code": "C20181",
+    "name": "Conceptual Entity"
+  },
+  {
+    "code": "C20047",
+    "name": "Diagnostic or Prognostic Factor"
+  },
+  {
+    "code": "C7057",
+    "name": "Disease, Disorder or Finding"
+  },
+  {
+    "code": "C1908",
+    "name": "Drug, Food, Chemical or Biomedical Material"
+  },
+  {
+    "code": "C22188",
+    "name": "Experimental Organism Anatomical Concept"
+  },
+  {
+    "code": "C22187",
+    "name": "Experimental Organism Diagnosis"
+  },
+  {
+    "code": "C16612",
+    "name": "Gene"
+  },
+  {
+    "code": "C26548",
+    "name": "Gene Product"
+  },
+  {
+    "code": "C97325",
+    "name": "Manufactured Object"
+  },
+  {
+    "code": "C3910",
+    "name": "Molecular Abnormality"
+  },
+  {
+    "code": "C14250",
+    "name": "Organism"
+  },
+  {
+    "code": "C20189",
+    "name": "Property or Attribute"
+  },
+  {
+    "code": "C28428",
+    "name": "Retired Concept"
+  }
+]

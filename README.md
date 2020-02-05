@@ -31,11 +31,11 @@ The following examples will be used to demonstrate accessing the EVSREST API
 - Get concept by code (full information)
 - Get concept by code (custom include)
 - Get concept children
-- Get role by code (minimal information)
-- Get association by code (minimal information)
-- Get property by code (minimal information)
+- Get property by code (or label)
+- Get role by code (or label)
+- Get association by code (or label)
 - Find root concepts
-- Get paths to root from a code
+- Get paths to/from root from a code
 - Get paths to an ancestor from a code
 - Find concepts by search term (use paging to get only first 5 results)
 - Find concepts by search term (restrict by concept status)

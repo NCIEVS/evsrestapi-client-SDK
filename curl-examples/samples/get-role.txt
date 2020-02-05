@@ -1,0 +1,47 @@
+{
+  "code": "R123",
+  "name": "Chemotherapy_Regimen_Has_Component",
+  "synonyms": [
+    {
+      "name": "Chemotherapy_Regimen_Has_Component",
+      "type": "Preferred_Name"
+    },
+    {
+      "name": "Has Component",
+      "type": "Display_Name"
+    },
+    {
+      "name": "Chemotherapy_Regimen_Has_Component",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "A role used to specify the component agents which are used in a particular chemotherapy regimen or
+agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Foo
+d, Chemical or Biomedical Material', respectively.",
+      "type": "DEFINITION",
+      "source": "NCI"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Semantic_Type",
+      "value": "Conceptual Entity"
+    },
+    {
+      "type": "http://www.w3.org/2000/01/rdf-schema#domain",
+      "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12218"
+    },
+    {
+      "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "value": "http://www.w3.org/2002/07/owl#ObjectProperty"
+    },
+    {
+      "type": "http://www.w3.org/2000/01/rdf-schema#range",
+      "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1908"
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "total": 1457,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C91477",
+      "name": "Melanoma Pathway",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C103113",
+      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C21790",
+      "name": "Mouse Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "terminology": "ncit"
+    }
+  ]
+}

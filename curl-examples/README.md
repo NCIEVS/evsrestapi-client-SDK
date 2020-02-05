@@ -12,7 +12,7 @@ The Browser as a terminology server
 
 The base API url for the EVSRESTAPI is: 
 
-`export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1/`
+`export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1`
 
 Run this command before the sample curl calls below as they expect $API_URL to be set.
 
@@ -131,5 +131,86 @@ curl "$API_URL/concept/ncit/C3224/descendants?maxLevel=4" | jq '.'
 See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)
 
 
+### Get property by code (or label)
 
+Return property for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
+
+
+### Get role by code (or label)
+
+Return role for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/role/R123?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
+
+
+### Get association by code (or label)
+
+Return association for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
+
+
+### Find root concepts
+
+Return concept roots for the specified terminology.
+
+```
+curl "$API_URL/concept/ncit/roots" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-roots.txt`](samples/find-roots.txt)
+
+
+### Get paths to/from root from a code
+
+Return paths to/from the root concept from a specified terminology and code.
+
+```
+curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq '.'
+curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt)
+See sample payload data from this call in [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
+
+
+### Get paths to an ancestor code from a code
+
+Return paths to/from the specified ancestor code from a specified 
+terminology and code.
+
+```
+curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](samples/get-paths-to-ancestor.txt)
+
+
+### Find concepts by search term
+
+Find concepts matching a search term within a specified terminology. This 
+example uses paging to get only the first 5 results.
+
+```
+curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
