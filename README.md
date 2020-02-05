@@ -4,13 +4,13 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 ## Table of Contents
 
-1. [Project Structure](#project-structure)
-2. [Examples](#examples)
+1. [Tutorials by Language](#tutorials-by-language)
+2. [Use Cases](#use-cases)
 3. [Resources](#resources)
 4. [Contributing](#contributing)
 5. [License](#license)
 
-## Tutorials by language
+## Tutorials by Language
 
 ### Bash
 
@@ -24,7 +24,7 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 **[Back to top](#table-of-contents)**
 
 
-## Sample Calls Included 
+## Use Cases
 
 The following cases will be used to demonstrate accessing the EVSREST API
 
