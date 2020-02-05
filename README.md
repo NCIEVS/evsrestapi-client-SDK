@@ -89,12 +89,8 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 ## License
 
-BSD 3-Clause License
-
-See the included LICENSE file for details.
+See the included [`LICENSE`](LICENSE) file for details.
 
 **[Back to top](#table-of-contents)**
 
-## Suggestions for Future Work
 
-- TBD

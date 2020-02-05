@@ -33,7 +33,7 @@ Return all loaded terminologies currently hosted by the API.
 curl "$API_URL/metadata/terminologies" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/samples/get-terminologies.txt`](samples/get-terminologies.txt)
+See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
 
 ### Get concept by code (minimal information)
@@ -187,8 +187,7 @@ curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq '.'
 curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt)
-See sample payload data from this call in [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
+See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt) and [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
 
 
 ### Get paths to an ancestor code from a code
