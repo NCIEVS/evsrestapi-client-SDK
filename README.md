@@ -10,19 +10,23 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 4. [Contributing](#contributing)
 5. [License](#license)
 
-## Project Structure
+## Tutorials by language
 
-- top-level: aggregator for sub-modules (alphabetically):
+### Bash
 
-  - bash-examples: examples with bash scripts that call curl commands
-  - curl-examples: examples with curl
-  - FUTURE: java-examples: examples with java
-  - FUTURE: javascript-examples: examples with javascript
-  - FUTURE: python3-examples: examples with python
+- [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
 
-## Examples
+### Curl
 
-The following examples will be used to demonstrate accessing the EVSREST API
+- [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
+
+
+**[Back to top](#table-of-contents)**
+
+
+## Sample Calls Included 
+
+The following cases will be used to demonstrate accessing the EVSREST API
 
 - Get terminologies
 - Get concept by code (minimum information)
@@ -52,26 +56,12 @@ The following examples will be used to demonstrate accessing the EVSREST API
 - Find concepts by property
 
 
-All of the examples use a hard coded URL for the deployment version of EVSRESTAPI
+All of the tutorials use an environment variable for the API URL of the deployment:
 
-- baseUrl = https://api-evsrest-dev.nci.nih.gov/api/v1/
-
-**[Back to top](#table-of-contents)**
-
-### Bash
-
-- [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
-
-### Curl
-
-- [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
-
+- API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1/
 
 **[Back to top](#table-of-contents)**
 
-## Further Documentation
-
-Find comprehensive documentation here: TBD
 
 ## Resources
 
