@@ -1,0 +1,40 @@
+{
+  "total": 25,
+  "parameters": {
+    "term": "Lung Carcinoma",
+    "type": "match",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C4878",
+      "name": "Lung Carcinoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C90519",
+      "name": "Lung Cancer by AJCC v6 Stage",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C5641",
+      "name": "Occult Lung Carcinoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C136467",
+      "name": "Lung Cancer by AJCC v8 Stage",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C91232",
+      "name": "Lung Cancer by AJCC v7 Stage",
+      "terminology": "ncit"
+    }
+  ]
+}

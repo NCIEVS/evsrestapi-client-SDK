@@ -1,14 +1,21 @@
 #!/bin/bash
 #
-# Script to call EVSRESTAPI to perform a code lookup for a list
+# Script to call EVSRESTAPI to perform term searches to find concept codes.
 #
-if [ $# -ne 3 ]; then
-  echo "Usage: $0 <terminology> <term> <include>"
+while [[ "$#" -gt 0 ]]; do case $1 in
+  --include) include="$2"; shift;;
+  *) arr=( "${arr[@]}" "$1" );;
+esac; shift; done
+
+if [ ${#arr[@]} -ne 2 ]; then
+  echo "Usage: $0 <terminology> "<term>" [--include <include>]"
+  echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'
+  echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --include summary"
   exit 1
 fi
-terminology=$1
-term=$2
-include=$3
+
+terminology=${arr[0]}
+term=${arr[1]}
 
 # import URL into environment from config
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
@@ -23,6 +30,10 @@ echo "term = $term"
 echo "include = $include"
 echo ""
 
+# Default include
+if [ "x$include" == "x" ]; then
+  include=minimal
+fi
 # GET call
 echo "  Find concept for $terminology $term:"
 curl -v -w "\n%{http_code}" -G "$url/concept/search" --data-urlencode "term=$term" --data-urlencode "terminology=$terminology" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$

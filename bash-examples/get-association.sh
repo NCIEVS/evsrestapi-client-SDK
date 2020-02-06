@@ -1,17 +1,19 @@
 #!/bin/bash
 #
-# Script to call EVSRESTAPI to perform a concept code lookup.
+# Script to call EVSRESTAPI to perform a association code or label lookup.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --include) include="$2"; shift;;
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
-if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> <code>[,<code>] [--include <include>]"
-  echo "  e.g. $0 ncit C3224"
-  echo "  e.g. $0 ncit C3224 --include full"
-  echo "  e.g. $0 ncit C3224,C2991 --include synonyms"
+if [ ${#arr[@]} -ne 1 ] && [ ${#arr[@]} -ne 2 ]; then
+  echo "Usage: $0 <terminology> [<associationCodeOrLabel>[,<associationCodeOrLabel>]] [--include <include>]"
+  echo "  e.g. $0 ncit"
+  echo "  e.g. $0 ncit A10"
+  echo "  e.g. $0 ncit A10 --include summary"
+  echo "  e.g. $0 ncit Role_Has_Domain --include synonyms"
+  echo "  e.g. $0 ncit A1,A2,A3 --include summary"
   exit 1
 fi
 
@@ -27,22 +29,25 @@ echo "Starting ...$(/bin/date)"
 echo "-----------------------------------------------------"
 echo "url = $url"
 echo "terminology = $terminology"
-echo "code = $code"
+echo "codeOrLabel = $code"
 echo "include = $include"
 echo ""
 
 # Default include
 if [ "x$include" == "x" ]; then
-  include=summary
+  include=minimal
 fi
 
 # GET call
-if  [[ $code =~ "," ]]; then
-  echo "  Get roles for $terminology $code:"
-  curl -v -w "\n%{http_code}" -G "$url/concept/$terminology" --data-urlencode "list=$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
+if [[ -z  $code ]]; then
+  echo "  Get associations for $terminology:"
+  curl -v -w "\n%{http_code}" -G "$url/metadata/$terminology/associations" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
+elif  [[ $code =~ "," ]]; then
+  echo "  Get associations for $terminology $code:"
+  curl -v -w "\n%{http_code}" -G "$url/metadata/$terminology/associations" --data-urlencode "list=$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
 else
-  echo "  Get role for $terminology $code:"
-  curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
+  echo "  Get association for $terminology $code:"
+  curl -v -w "\n%{http_code}" -G "$url/metadata/$terminology/association/$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
 fi
 
 if [ $? -ne 0 ]; then

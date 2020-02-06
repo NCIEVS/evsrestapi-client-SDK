@@ -1,0 +1,40 @@
+{
+  "total": 84,
+  "parameters": {
+    "term": "malignant melanoma",
+    "type": "phrase",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C16317",
+      "name": "B16 Malignant Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C16835",
+      "name": "Experimental Malignant Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C9088",
+      "name": "Iris Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C4558",
+      "name": "Ciliary Body Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C16662",
+      "name": "Harding-Passey Malignant Melanoma",
+      "terminology": "ncit"
+    }
+  ]
+}

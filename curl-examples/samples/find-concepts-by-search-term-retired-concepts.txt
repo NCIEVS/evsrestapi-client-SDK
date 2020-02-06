@@ -1,0 +1,43 @@
+{
+  "total": 13,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "conceptStatus": [
+      "Retired_Concept"
+    ],
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C4224",
+      "name": "Melanoma In Situ",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C37815",
+      "name": "Incomplete Freund's Adjuvant/Peptide 946 Melanoma Vaccine/Tetanus Peptide Melanoma Vaccine",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C60471",
+      "name": "Rat Malignant Uveal Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C9342",
+      "name": "Spindle Cell Intraocular Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C20351",
+      "name": "MAGE Family A Gene",
+      "terminology": "ncit"
+    }
+  ]
+}

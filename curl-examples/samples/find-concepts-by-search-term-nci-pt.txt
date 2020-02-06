@@ -1,0 +1,17 @@
+{
+  "total": 0,
+  "parameters": {
+    "term": "dsDNA",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 10,
+    "synonymSource": [
+      "NCI"
+    ],
+    "synonymTermGroup": "PT",
+    "terminology": [
+      "ncit"
+    ]
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "total": 1058,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "definitionSource": [
+      "NCI"
+    ],
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C35783",
+      "name": "Ciliary Body Mixed Cell Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C35782",
+      "name": "Choroid Mixed Cell Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C35781",
+      "name": "Mixed Cell Uveal Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C117183",
+      "name": "M14",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C117192",
+      "name": "UACC-62",
+      "terminology": "ncit"
+    }
+  ]
+}

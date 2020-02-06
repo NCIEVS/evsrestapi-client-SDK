@@ -1,0 +1,40 @@
+{
+  "total": 16,
+  "parameters": {
+    "term": "lentiginous melanoma",
+    "type": "AND",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C4022",
+      "name": "Acral Lentiginous Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C48622",
+      "name": "Mucosal Lentiginous Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C165535",
+      "name": "Unresectable Acral Lentiginous Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C8781",
+      "name": "Stage I Acral Lentiginous Melanoma AJCC v7",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C8783",
+      "name": "Stage III Acral Lentiginous Melanoma AJCC v7",
+      "terminology": "ncit"
+    }
+  ]
+}

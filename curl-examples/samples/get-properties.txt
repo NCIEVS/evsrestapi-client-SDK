@@ -1,0 +1,358 @@
+[
+  {
+    "code": "P325",
+    "name": "ALT_DEFINITION"
+  },
+  {
+    "code": "P302",
+    "name": "Accepted_Therapeutic_Use_For"
+  },
+  {
+    "code": "P216",
+    "name": "BioCarta_ID"
+  },
+  {
+    "code": "P210",
+    "name": "CAS_Registry"
+  },
+  {
+    "code": "P368",
+    "name": "CHEBI_ID"
+  },
+  {
+    "code": "P350",
+    "name": "Chemical_Formula"
+  },
+  {
+    "code": "P310",
+    "name": "Concept_Status"
+  },
+  {
+    "code": "P322",
+    "name": "Contributing_Source"
+  },
+  {
+    "code": "P97",
+    "name": "DEFINITION"
+  },
+  {
+    "code": "P378",
+    "name": "Definition Source"
+  },
+  {
+    "code": "P380",
+    "name": "Definition_Review_Date"
+  },
+  {
+    "code": "P379",
+    "name": "Definition_Reviewer_Name"
+  },
+  {
+    "code": "P98",
+    "name": "DesignNote"
+  },
+  {
+    "code": "P107",
+    "name": "Display_Name"
+  },
+  {
+    "code": "P321",
+    "name": "EntrezGene_ID"
+  },
+  {
+    "code": "P356",
+    "name": "Essential_Amino_Acid"
+  },
+  {
+    "code": "P357",
+    "name": "Essential_Fatty_Acid"
+  },
+  {
+    "code": "P361",
+    "name": "Extensible_List"
+  },
+  {
+    "code": "P317",
+    "name": "FDA_Table"
+  },
+  {
+    "code": "P319",
+    "name": "FDA_UNII_Code"
+  },
+  {
+    "code": "P90",
+    "name": "FULL_SYN"
+  },
+  {
+    "code": "P211",
+    "name": "GO_Annotation"
+  },
+  {
+    "code": "P102",
+    "name": "GenBank_Accession_Number"
+  },
+  {
+    "code": "P96",
+    "name": "Gene_Encodes_Product"
+  },
+  {
+    "code": "P369",
+    "name": "HGNC_ID"
+  },
+  {
+    "code": "P101",
+    "name": "Homologous_Gene"
+  },
+  {
+    "code": "P334",
+    "name": "ICD-O-3_Code"
+  },
+  {
+    "code": "P353",
+    "name": "INFOODS"
+  },
+  {
+    "code": "P167",
+    "name": "Image_Link"
+  },
+  {
+    "code": "P215",
+    "name": "KEGG_ID"
+  },
+  {
+    "code": "P366",
+    "name": "Legacy_Concept_Name"
+  },
+  {
+    "code": "P332",
+    "name": "MGI_Accession_ID"
+  },
+  {
+    "code": "P360",
+    "name": "Macronutrient"
+  },
+  {
+    "code": "P375",
+    "name": "Maps_To"
+  },
+  {
+    "code": "P359",
+    "name": "Micronutrient"
+  },
+  {
+    "code": "P331",
+    "name": "NCBI_Taxon_ID"
+  },
+  {
+    "code": "P208",
+    "name": "NCI_META_CUI"
+  },
+  {
+    "code": "P371",
+    "name": "NICHD_Hierarchy_Term"
+  },
+  {
+    "code": "P175",
+    "name": "NSC_Code"
+  },
+  {
+    "code": "P363",
+    "name": "Neoplastic_Status"
+  },
+  {
+    "code": "P358",
+    "name": "Nutrient"
+  },
+  {
+    "code": "P320",
+    "name": "OID"
+  },
+  {
+    "code": "P364",
+    "name": "OLD_ASSOCIATION"
+  },
+  {
+    "code": "P201",
+    "name": "OLD_CHILD"
+  },
+  {
+    "code": "P203",
+    "name": "OLD_KIND"
+  },
+  {
+    "code": "P200",
+    "name": "OLD_PARENT"
+  },
+  {
+    "code": "P204",
+    "name": "OLD_ROLE"
+  },
+  {
+    "code": "P365",
+    "name": "OLD_SOURCE_ASSOCIATION"
+  },
+  {
+    "code": "P205",
+    "name": "OLD_STATE"
+  },
+  {
+    "code": "P100",
+    "name": "OMIM_Number"
+  },
+  {
+    "code": "P330",
+    "name": "PDQ_Closed_Trial_Search_ID"
+  },
+  {
+    "code": "P329",
+    "name": "PDQ_Open_Trial_Search_ID"
+  },
+  {
+    "code": "P367",
+    "name": "PID_ID"
+  },
+  {
+    "code": "P108",
+    "name": "Preferred_Name"
+  },
+  {
+    "code": "P171",
+    "name": "PubMedID_Primary_Reference"
+  },
+  {
+    "code": "P372",
+    "name": "Publish_Value_Set"
+  },
+  {
+    "code": "P393",
+    "name": "Relationship_to_Target"
+  },
+  {
+    "code": "P316",
+    "name": "Relative_Enzyme_Activity"
+  },
+  {
+    "code": "P315",
+    "name": "SNP_ID"
+  },
+  {
+    "code": "P106",
+    "name": "Semantic_Type"
+  },
+  {
+    "code": "P385",
+    "name": "Source Code"
+  },
+  {
+    "code": "P92",
+    "name": "Subsource"
+  },
+  {
+    "code": "P386",
+    "name": "Subsource Name"
+  },
+  {
+    "code": "P93",
+    "name": "Swiss_Prot"
+  },
+  {
+    "code": "P395",
+    "name": "Target_Code"
+  },
+  {
+    "code": "P392",
+    "name": "Target_Term"
+  },
+  {
+    "code": "P394",
+    "name": "Target_Term_Type"
+  },
+  {
+    "code": "P396",
+    "name": "Target_Terminology"
+  },
+  {
+    "code": "P397",
+    "name": "Target_Terminology_Version"
+  },
+  {
+    "code": "P384",
+    "name": "Term Source"
+  },
+  {
+    "code": "P383",
+    "name": "Term Type"
+  },
+  {
+    "code": "P376",
+    "name": "Term_Browser_Value_Set_Description"
+  },
+  {
+    "code": "P352",
+    "name": "Tolerable_Level"
+  },
+  {
+    "code": "P207",
+    "name": "UMLS_CUI"
+  },
+  {
+    "code": "P354",
+    "name": "USDA_ID"
+  },
+  {
+    "code": "P351",
+    "name": "US_Recommended_Intake"
+  },
+  {
+    "code": "P355",
+    "name": "Unit"
+  },
+  {
+    "code": "P333",
+    "name": "Use_For"
+  },
+  {
+    "code": "P398",
+    "name": "Value_Set_Pair"
+  },
+  {
+    "code": "P381",
+    "name": "attribution"
+  },
+  {
+    "code": "NHC0",
+    "name": "code"
+  },
+  {
+    "code": "P377",
+    "name": "def-definition"
+  },
+  {
+    "code": "P389",
+    "name": "go-evi"
+  },
+  {
+    "code": "P387",
+    "name": "go-id"
+  },
+  {
+    "code": "P390",
+    "name": "go-source"
+  },
+  {
+    "code": "P388",
+    "name": "go-term"
+  },
+  {
+    "code": "P362",
+    "name": "miRBase_ID"
+  },
+  {
+    "code": "P391",
+    "name": "source-date"
+  },
+  {
+    "code": "P382",
+    "name": "term-name"
+  }
+]

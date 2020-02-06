@@ -1,0 +1,43 @@
+{
+  "total": 8,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "contributingSource": [
+      "CDISC"
+    ],
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C3802",
+      "name": "Amelanotic Melanoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C98709",
+      "name": "Benign Melanocytoma",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C77089",
+      "name": "Hartley Albino Hairless Guinea Pig",
+      "terminology": "ncit"
+    }
+  ]
+}

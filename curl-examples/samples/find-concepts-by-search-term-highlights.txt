@@ -1,0 +1,368 @@
+{
+  "total": 1457,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "synonyms,highlights",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "highlight": "<em>Melanoma</em>",
+      "synonyms": [
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Preferred_Name"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Legacy_Concept_Name"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Display_Name"
+        },
+        {
+          "name": "MELANOMA, MALIGNANT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Malignant Melanoma",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CPTAC"
+        },
+        {
+          "name": "Malignant Melanoma",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Malignant Melanoma",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CTEP",
+          "code": "10053571",
+          "subSource": "SDC"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI",
+          "code": "TCGA",
+          "subSource": "caDSR"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "DN",
+          "type": "FULL_SYN",
+          "source": "CTRP"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CTRP"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "Cellosaurus"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "GDC"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NICHD"
+        },
+        {
+          "name": "Melanoma, NOS",
+          "highlight": "<em>Melanoma</em>, NOS",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "GDC"
+        },
+        {
+          "name": "melanoma",
+          "highlight": "<em>melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI-GLOSS",
+          "code": "CDR0000045135"
+        }
+      ],
+      "contributingSources": [
+        "CDISC",
+        "CPTAC",
+        "CTEP",
+        "CTRP",
+        "Cellosaurus",
+        "GDC",
+        "NCI-GLOSS",
+        "NICHD"
+      ]
+    },
+    {
+      "code": "C91477",
+      "name": "Melanoma Pathway",
+      "terminology": "ncit",
+      "highlight": "<em>Melanoma</em> Pathway",
+      "synonyms": [
+        {
+          "name": "Melanoma Pathway",
+          "highlight": "<em>Melanoma</em> Pathway",
+          "type": "Preferred_Name"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "KEGG"
+        },
+        {
+          "name": "Melanoma Pathway",
+          "highlight": "<em>Melanoma</em> Pathway",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        }
+      ],
+      "contributingSources": [
+        "KEGG"
+      ]
+    },
+    {
+      "code": "C103113",
+      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+      "terminology": "ncit",
+      "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
+      "synonyms": [
+        {
+          "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+          "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
+          "type": "Preferred_Name"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CTEP",
+          "subSource": "SDC"
+        },
+        {
+          "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+          "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "NCI CTEP Simple Disease Classification Melanoma Sub-Category Terminology",
+          "highlight": "NCI CTEP Simple Disease Classification <em>Melanoma</em> Sub-Category Terminology",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        }
+      ],
+      "contributingSources": [
+        "CTEP"
+      ]
+    },
+    {
+      "code": "C21790",
+      "name": "Mouse Melanoma",
+      "terminology": "ncit",
+      "highlight": "Mouse <em>Melanoma</em>",
+      "synonyms": [
+        {
+          "name": "Mouse Melanoma",
+          "highlight": "Mouse <em>Melanoma</em>",
+          "type": "Preferred_Name"
+        },
+        {
+          "name": "Mouse_Melanoma",
+          "highlight": "Mouse_<em>Melanoma</em>",
+          "type": "Legacy_Concept_Name"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Display_Name"
+        },
+        {
+          "name": "Mouse Melanoma",
+          "highlight": "Mouse <em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "Cellosaurus"
+        },
+        {
+          "name": "Mouse Melanoma",
+          "highlight": "Mouse <em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        }
+      ],
+      "contributingSources": [
+        "Cellosaurus"
+      ]
+    },
+    {
+      "code": "C7712",
+      "name": "Uveal Melanoma",
+      "terminology": "ncit",
+      "highlight": "Uveal <em>Melanoma</em>",
+      "synonyms": [
+        {
+          "name": "Uveal Melanoma",
+          "highlight": "Uveal <em>Melanoma</em>",
+          "type": "Preferred_Name"
+        },
+        {
+          "name": "Uveal_Melanoma",
+          "highlight": "Uveal_<em>Melanoma</em>",
+          "type": "Legacy_Concept_Name"
+        },
+        {
+          "name": "Intraocular Melanoma",
+          "highlight": "Intraocular <em>Melanoma</em>",
+          "type": "Display_Name"
+        },
+        {
+          "name": "Intraocular Melanoma",
+          "highlight": "Intraocular <em>Melanoma</em>",
+          "termGroup": "DN",
+          "type": "FULL_SYN",
+          "source": "CTRP"
+        },
+        {
+          "name": "Intraocular Melanoma",
+          "highlight": "Intraocular <em>Melanoma</em>",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Intraocular Melanoma",
+          "highlight": "Intraocular <em>Melanoma</em>",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "MELANOMA, UVEAL, MALIGNANT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Melanoma of Uvea",
+          "highlight": "<em>Melanoma</em> of Uvea",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Melanoma of Uvea",
+          "highlight": "<em>Melanoma</em> of Uvea",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Melanoma of the Uvea",
+          "highlight": "<em>Melanoma</em> of the Uvea",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Melanoma of the Uvea",
+          "highlight": "<em>Melanoma</em> of the Uvea",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Uveal Melanoma",
+          "highlight": "Uveal <em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CPTAC"
+        },
+        {
+          "name": "Uveal Melanoma",
+          "highlight": "Uveal <em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "Cellosaurus"
+        },
+        {
+          "name": "Uveal Melanoma",
+          "highlight": "Uveal <em>Melanoma</em>",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "intraocular melanoma",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI-GLOSS",
+          "code": "CDR0000269460"
+        }
+      ],
+      "contributingSources": [
+        "CDISC",
+        "CPTAC",
+        "CTRP",
+        "Cellosaurus",
+        "NCI-GLOSS"
+      ]
+    }
+  ]
+}

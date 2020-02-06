@@ -1,0 +1,40 @@
+{
+  "total": 1816,
+  "parameters": {
+    "term": "enzyme",
+    "type": "startsWith",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C16554",
+      "name": "Enzyme",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C18072",
+      "name": "Enzyme Inhibitor Protein",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C3492",
+      "name": "Enzyme Deficiency",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C156467",
+      "name": "Enzyme Unit per Meter Squared",
+      "terminology": "ncit"
+    },
+    {
+      "code": "C147130",
+      "name": "Enzyme Unit per Liter",
+      "terminology": "ncit"
+    }
+  ]
+}

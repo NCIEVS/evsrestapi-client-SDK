@@ -35,8 +35,11 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get concept by code (full information)
 - Get concept by code (custom include)
 - Get concept children
+- Get all properties
 - Get property by code (or label)
+- Get all roles
 - Get role by code (or label)
+- Get all associations
 - Get association by code (or label)
 - Find root concepts
 - Get paths to/from root from a code
@@ -53,6 +56,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by search term (using type=fuzzy)
 - Find concepts by search term (using type=AND)
 - Find concepts by search term (using type=OR)
+- Find concepts by search term (with highlights)
 - Find concepts by property
 
 

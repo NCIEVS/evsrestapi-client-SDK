@@ -4,6 +4,14 @@
 #
 if [ $# -ne 3 ]; then
   echo "Usage: $0 <terminology> <conceptCode> <part>"
+  echo "  e.g. $0 ncit C3224 children"
+  echo "  e.g. $0 ncit C3224 parents"
+  echo "  e.g. $0 ncit C3224 roles"
+  echo "  e.g. $0 ncit C3224 associations"
+  echo "  e.g. $0 ncit C3224 inverseRoles"
+  echo "  e.g. $0 ncit C3224 inverseAssociations"
+  echo "  e.g. $0 ncit C3224 maps"
+  echo "  e.g. $0 ncit C3910 disjointWith"
   exit 1
 fi
 terminology=$1

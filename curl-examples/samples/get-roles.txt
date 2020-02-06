@@ -1,0 +1,386 @@
+[
+  {
+    "code": "R156",
+    "name": "Allele_Absent_From_Wild-type_Chromosomal_Location"
+  },
+  {
+    "code": "R153",
+    "name": "Allele_Has_Abnormality"
+  },
+  {
+    "code": "R159",
+    "name": "Allele_Has_Activity"
+  },
+  {
+    "code": "R155",
+    "name": "Allele_In_Chromosomal_Location"
+  },
+  {
+    "code": "R158",
+    "name": "Allele_Plays_Altered_Role_In_Process"
+  },
+  {
+    "code": "R160",
+    "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug"
+  },
+  {
+    "code": "R81",
+    "name": "Anatomic_Structure_Has_Location"
+  },
+  {
+    "code": "R82",
+    "name": "Anatomic_Structure_Is_Physical_Part_Of"
+  },
+  {
+    "code": "R30",
+    "name": "Biological_Process_Has_Associated_Location"
+  },
+  {
+    "code": "R32",
+    "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug"
+  },
+  {
+    "code": "R28",
+    "name": "Biological_Process_Has_Initiator_Process"
+  },
+  {
+    "code": "R31",
+    "name": "Biological_Process_Has_Result_Anatomy"
+  },
+  {
+    "code": "R34",
+    "name": "Biological_Process_Has_Result_Biological_Process"
+  },
+  {
+    "code": "R29",
+    "name": "Biological_Process_Has_Result_Chemical_Or_Drug"
+  },
+  {
+    "code": "R35",
+    "name": "Biological_Process_Is_Part_Of_Process"
+  },
+  {
+    "code": "R150",
+    "name": "Chemical_Or_Drug_Affects_Abnormal_Cell"
+  },
+  {
+    "code": "R72",
+    "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue"
+  },
+  {
+    "code": "R146",
+    "name": "Chemical_Or_Drug_Affects_Gene_Product"
+  },
+  {
+    "code": "R124",
+    "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action"
+  },
+  {
+    "code": "R125",
+    "name": "Chemical_Or_Drug_Has_Physiologic_Effect"
+  },
+  {
+    "code": "R122",
+    "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme"
+  },
+  {
+    "code": "R66",
+    "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process"
+  },
+  {
+    "code": "R123",
+    "name": "Chemotherapy_Regimen_Has_Component"
+  },
+  {
+    "code": "R27",
+    "name": "Conceptual_Part_Of"
+  },
+  {
+    "code": "R173",
+    "name": "Cytogenetic_Abnormality_Involves_Chromosome"
+  },
+  {
+    "code": "R139",
+    "name": "Disease_Excludes_Abnormal_Cell"
+  },
+  {
+    "code": "R141",
+    "name": "Disease_Excludes_Cytogenetic_Abnormality"
+  },
+  {
+    "code": "R142",
+    "name": "Disease_Excludes_Finding"
+  },
+  {
+    "code": "R136",
+    "name": "Disease_Excludes_Metastatic_Anatomic_Site"
+  },
+  {
+    "code": "R140",
+    "name": "Disease_Excludes_Molecular_Abnormality"
+  },
+  {
+    "code": "R138",
+    "name": "Disease_Excludes_Normal_Cell_Origin"
+  },
+  {
+    "code": "R137",
+    "name": "Disease_Excludes_Normal_Tissue_Origin"
+  },
+  {
+    "code": "R135",
+    "name": "Disease_Excludes_Primary_Anatomic_Site"
+  },
+  {
+    "code": "R105",
+    "name": "Disease_Has_Abnormal_Cell"
+  },
+  {
+    "code": "R100",
+    "name": "Disease_Has_Associated_Anatomic_Site"
+  },
+  {
+    "code": "R126",
+    "name": "Disease_Has_Associated_Disease"
+  },
+  {
+    "code": "R107",
+    "name": "Disease_Has_Cytogenetic_Abnormality"
+  },
+  {
+    "code": "R108",
+    "name": "Disease_Has_Finding"
+  },
+  {
+    "code": "R102",
+    "name": "Disease_Has_Metastatic_Anatomic_Site"
+  },
+  {
+    "code": "R106",
+    "name": "Disease_Has_Molecular_Abnormality"
+  },
+  {
+    "code": "R104",
+    "name": "Disease_Has_Normal_Cell_Origin"
+  },
+  {
+    "code": "R103",
+    "name": "Disease_Has_Normal_Tissue_Origin"
+  },
+  {
+    "code": "R101",
+    "name": "Disease_Has_Primary_Anatomic_Site"
+  },
+  {
+    "code": "R110",
+    "name": "Disease_Is_Grade"
+  },
+  {
+    "code": "R88",
+    "name": "Disease_Is_Stage"
+  },
+  {
+    "code": "R174",
+    "name": "Disease_Mapped_To_Chromosome"
+  },
+  {
+    "code": "R176",
+    "name": "Disease_Mapped_To_Gene"
+  },
+  {
+    "code": "R113",
+    "name": "Disease_May_Have_Abnormal_Cell"
+  },
+  {
+    "code": "R116",
+    "name": "Disease_May_Have_Associated_Disease"
+  },
+  {
+    "code": "R114",
+    "name": "Disease_May_Have_Cytogenetic_Abnormality"
+  },
+  {
+    "code": "R115",
+    "name": "Disease_May_Have_Finding"
+  },
+  {
+    "code": "R89",
+    "name": "Disease_May_Have_Molecular_Abnormality"
+  },
+  {
+    "code": "R112",
+    "name": "Disease_May_Have_Normal_Cell_Origin"
+  },
+  {
+    "code": "R111",
+    "name": "Disease_May_Have_Normal_Tissue_Origin"
+  },
+  {
+    "code": "R23",
+    "name": "EO_Disease_Has_Associated_Cell_Type"
+  },
+  {
+    "code": "R25",
+    "name": "EO_Disease_Has_Associated_EO_Anatomy"
+  },
+  {
+    "code": "R26",
+    "name": "EO_Disease_Has_Property_Or_Attribute"
+  },
+  {
+    "code": "R24",
+    "name": "EO_Disease_Maps_To_Human_Disease"
+  },
+  {
+    "code": "R38",
+    "name": "Gene_Associated_With_Disease"
+  },
+  {
+    "code": "R41",
+    "name": "Gene_Found_In_Organism"
+  },
+  {
+    "code": "R132",
+    "name": "Gene_Has_Abnormality"
+  },
+  {
+    "code": "R145",
+    "name": "Gene_Has_Physical_Location"
+  },
+  {
+    "code": "R40",
+    "name": "Gene_In_Chromosomal_Location"
+  },
+  {
+    "code": "R175",
+    "name": "Gene_Involved_In_Pathogenesis_Of_Disease"
+  },
+  {
+    "code": "R36",
+    "name": "Gene_Is_Biomarker_Type"
+  },
+  {
+    "code": "R130",
+    "name": "Gene_Is_Element_In_Pathway"
+  },
+  {
+    "code": "R178",
+    "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation"
+  },
+  {
+    "code": "R37",
+    "name": "Gene_Plays_Role_In_Process"
+  },
+  {
+    "code": "R54",
+    "name": "Gene_Product_Encoded_By_Gene"
+  },
+  {
+    "code": "R49",
+    "name": "Gene_Product_Expressed_In_Tissue"
+  },
+  {
+    "code": "R133",
+    "name": "Gene_Product_Has_Abnormality"
+  },
+  {
+    "code": "R46",
+    "name": "Gene_Product_Has_Associated_Anatomy"
+  },
+  {
+    "code": "R52",
+    "name": "Gene_Product_Has_Biochemical_Function"
+  },
+  {
+    "code": "R44",
+    "name": "Gene_Product_Has_Chemical_Classification"
+  },
+  {
+    "code": "R45",
+    "name": "Gene_Product_Has_Organism_Source"
+  },
+  {
+    "code": "R50",
+    "name": "Gene_Product_Has_Structural_Domain_Or_Motif"
+  },
+  {
+    "code": "R47",
+    "name": "Gene_Product_Is_Biomarker_Of"
+  },
+  {
+    "code": "R42",
+    "name": "Gene_Product_Is_Biomarker_Type"
+  },
+  {
+    "code": "R131",
+    "name": "Gene_Product_Is_Element_In_Pathway"
+  },
+  {
+    "code": "R51",
+    "name": "Gene_Product_Is_Physical_Part_Of"
+  },
+  {
+    "code": "R48",
+    "name": "Gene_Product_Malfunction_Associated_With_Disease"
+  },
+  {
+    "code": "R53",
+    "name": "Gene_Product_Plays_Role_In_Biological_Process"
+  },
+  {
+    "code": "R179",
+    "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant"
+  },
+  {
+    "code": "R182",
+    "name": "Gene_Product_Variant_Of_Gene_Product"
+  },
+  {
+    "code": "R177",
+    "name": "Molecular_Abnormality_Involves_Gene"
+  },
+  {
+    "code": "R171",
+    "name": "Procedure_Has_Completely_Excised_Anatomy"
+  },
+  {
+    "code": "R167",
+    "name": "Procedure_Has_Excised_Anatomy"
+  },
+  {
+    "code": "R165",
+    "name": "Procedure_Has_Imaged_Anatomy"
+  },
+  {
+    "code": "R169",
+    "name": "Procedure_Has_Partially_Excised_Anatomy"
+  },
+  {
+    "code": "R163",
+    "name": "Procedure_Has_Target_Anatomy"
+  },
+  {
+    "code": "R180",
+    "name": "Procedure_Has_Target_Disease"
+  },
+  {
+    "code": "R170",
+    "name": "Procedure_May_Have_Completely_Excised_Anatomy"
+  },
+  {
+    "code": "R166",
+    "name": "Procedure_May_Have_Excised_Anatomy"
+  },
+  {
+    "code": "R168",
+    "name": "Procedure_May_Have_Partially_Excised_Anatomy"
+  },
+  {
+    "code": "R181",
+    "name": "Procedure_Uses_Manufactured_Object"
+  },
+  {
+    "code": "R172",
+    "name": "Regimen_Has_Accepted_Use_For_Disease"
+  }
+]
