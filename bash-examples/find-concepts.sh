@@ -4,13 +4,19 @@
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --include) include="$2"; shift;;
+  --type) type="$2"; shift;;
+  --fromRecord) fromRecord="$2"; shift;;
+  --pageSize) pageSize="$2"; shift;;
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
 if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> "<term>" [--include <include>]"
+  echo "Usage: $0 <terminology> <term> [--include <include>] [--type <type>]"
+  echo "          [--fromRecord #] [--pageSize #]"
   echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'
+ echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --pageSize 5"
   echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --include summary"
+  echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --type AND"
   exit 1
 fi
 
@@ -31,12 +37,21 @@ echo "include = $include"
 echo ""
 
 # Default include
-if [ "x$include" == "x" ]; then
+if [[ -z $include ]]; then
   include=minimal
+fi
+if [[ -z $type ]]; then
+  type=contains
+fi
+if [[ -z $fromRecord ]]; then
+  fromRecord=0
+fi
+if [[ -z $pageSize ]]; then
+  pageSize=10
 fi
 # GET call
 echo "  Find concept for $terminology $term:"
-curl -v -w "\n%{http_code}" -G "$url/concept/search" --data-urlencode "term=$term" --data-urlencode "terminology=$terminology" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
+curl -v -w "\n%{http_code}" -G "$url/concept/search" --data-urlencode "term=$term" --data-urlencode "fromRecord=$fromRecord" --data-urlencode "pageSize=$pageSize" --data-urlencode "terminology=$terminology" --data-urlencode "include=$include" --data-urlencode "type=$type" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET $url/concept/search?terminology=$terminology&term=$term failed"
   exit 1
@@ -61,5 +76,5 @@ echo ""
 /bin/rm -f /tmp/x.$$
 
 echo "-----------------------------------------------------"
-echo "Finished ..`/bin/date`"
+echo "Finished ...`/bin/date`"
 echo "-----------------------------------------------------"
