@@ -20,7 +20,7 @@ Run this command before the sample curl calls below as they expect $API_URL to b
 
 All the operations described here perform a GET request.
 
-The full documentation of the REST API can be consulted in the Swagger documentation at `http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html`
+The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html">http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html</a>.
 
 Sample cURL Calls
 -----------------
