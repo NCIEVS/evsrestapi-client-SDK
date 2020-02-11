@@ -24,7 +24,7 @@ Test Scripts
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
 
-<a name="get-terminologies-sh"/>
+<a name="get-terminologies-sh"></a>
 ### get-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API:
@@ -58,8 +58,8 @@ Finished ...Tue, Feb  4, 2020 12:09:16 PM
 -----------------------------------------------------
 ```
 
-
 <a name="get-concept-sh"/>
+
 ### get-concept.sh
 
 Return concept information for a given terminology and code.  The "include" parameter
@@ -221,7 +221,7 @@ Finished ...Thu, Feb  6, 2020  4:38:53 PM
 -----------------------------------------------------
 ```
 
-<a name="get-find-sh"/>
+<a name="get-find-sh">
 ### find-concepts.sh
 
 Used to perform text searches to find matching concepts. In its simplest form the
