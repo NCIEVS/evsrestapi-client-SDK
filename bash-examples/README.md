@@ -1,3 +1,5 @@
+<a name="top"/>
+
 EVSRESTAPI CT in 5 minutes: bash Tutorial
 =========================================
 
@@ -8,7 +10,6 @@ Prerequisites
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
-<a name="top"/>
 
 Test Scripts
 ------------
