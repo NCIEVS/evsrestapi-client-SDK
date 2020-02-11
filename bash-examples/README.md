@@ -19,7 +19,7 @@ Test Scripts
 - [get-paths.sh](#get-paths-sh)
 - [get-association.sh](#get-concept-sh)
 - [get-role.sh](#get-role-sh)
-- [get-property.sh](#get-property-sh)
+- [get-property.sh](#get-property.sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
