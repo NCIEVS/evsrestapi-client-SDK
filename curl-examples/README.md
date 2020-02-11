@@ -1,4 +1,6 @@
- EVSRESTAPI client SDK: CURL Tutorial
+<a name="top" />
+
+EVSRESTAPI client SDK: CURL Tutorial
 ======================================
 
 This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
@@ -25,6 +27,41 @@ Sample cURL Calls
 
 The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimum information)](#get-concept-by-code)
+- [Get concepts by list of codes (minimum information)](#get-concepts-by-list)
+- [Get concept by code (summary information)](#get-concept-by-code-summary)
+- [Get concept by code (full information)](#get-concept-by-code-full)
+- [Get concept by code (custom include)](#get-concept-by-code-custom)
+- [Get concept part](#get-concept-part)
+- [Get concept descendants](#get-concept-descendants)
+- [Get all properties](#get-properties)
+- [Get property by code (or label)](#get-property)
+- [Get property axiom qualifiers by code (or label)](#get-property-aq)
+- [Get all roles](#get-roles)
+- [Get role by code (or label)](#get-role)
+- [Get all associations](#get-associations)
+- [Get association by code (or label)](#get-association)
+- [Find root concepts](#get-roots)
+- [Get paths to/from root from a code](#get-paths)
+- [Get paths to an ancestor from a code](#get-paths-ancestor)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
+- [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
+- [Find concepts by search term (restrict by contributing source)](#find-concepts-restrict-contributing-source)
+- [Find concepts by search term (restrict by definition source)](#find-concepts-restrict-concept-definition-source)
+- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-restrict-synonym-source)
+- [Find concepts by search term (where term is a code)](#find-concepts-by-code)
+- [Find concepts by search term (using type=match)](#find-concepts-match)
+- [Find concepts by search term (using type=startsWith)](#find-concepts-startsWith)
+- [Find concepts by search term (using type=phrase)](#find-concepts-phrase)
+- [Find concepts by search term (using type=fuzzy)](#find-concepts-fuzzy)
+- [Find concepts by search term (using type=AND)](#find-concepts-and)
+- [Find concepts by search term (using type=OR)](#find-concepts-or)
+- [Find concepts by search term (with highlights)](#find-concepts-highlights)
+- [Find concepts by property](#find-concepts-property)
+
+<a name="get-terminologies"/>
+
 ### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.
@@ -35,6 +72,9 @@ curl "$API_URL/metadata/terminologies" | jq '.'
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
+[Back to Top](#top)
+
+<a name="get-concept-by-code"/>
 
 ### Get concept by code (minimal information)
 
@@ -46,6 +86,9 @@ curl "$API_URL/concept/ncit/C3224?include=minimal" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
 
+[Back to Top](#top)
+
+<a name="get-concepts-by-list"/>
 
 ### Get concepts by list of codes (minimal information)
 
@@ -57,7 +100,9 @@ curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
 
 See sample payload data from this call in See sample payload data from this call in [`samples/get-concepts-by-list-of-codes-minimum.txt`](samples/get-concepts-by-list-of-codes-minimum.txt)
 
+[Back to Top](#top)
 
+<a name="get-concept-summary"/>
 
 ### Get concept by code (summary information)
 
@@ -71,6 +116,9 @@ curl "$API_URL/concept/ncit/C3224" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-summary.txt)
 
+[Back to Top](#top)
+
+<a name="get-concept-full"/>
 
 ### Get concept by code (full information)
 
@@ -82,6 +130,9 @@ curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
 
+[Back to Top](#top)
+
+<a name="get-concept-custom"/>
 
 ### Get concept by code (custom information)
 
@@ -95,6 +146,9 @@ curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociat
 
 See sample payload data from this call in [`samples/get-concept-by-code-custom.txt`](samples/get-concept-by-code-custom.txt)
 
+[Back to Top](#top)
+
+<a name="get-concept-part"/>
 
 ### Get concept part
 
@@ -117,6 +171,9 @@ See the full set of examples for this "style" of call
 * [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
 * [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
 
+[Back to Top](#top)
+
+<a name="get-descendants"/>
 
 ### Get descendants
 
@@ -130,6 +187,9 @@ curl "$API_URL/concept/ncit/C3224/descendants?maxLevel=4" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)
 
+[Back to Top](#top)
+
+<a name="get-properties"/>
 
 ### Get all properties
 
@@ -147,6 +207,9 @@ curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&includ
 
 See sample payload data from this call in [`samples/get-properties.txt`](samples/get-properties.txt)
 
+[Back to Top](#top)
+
+<a name="get-property"/>
 
 ### Get property by code (or label)
 
@@ -159,6 +222,24 @@ curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
 
 See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
 
+[Back to Top](#top)
+
+<a name="get-property-aq"/>
+
+### Get property axiom qualifiers by code (or label)
+
+Return property axiom qualifiers for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/property/P383/axiomQualifiers" | jq '.'
+curl "$API_URL/metadata/ncit/property/term-group?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-axiomQualifiers.txt)
+
+[Back to Top](#top)
+
+<a name="get-roles"/>
 
 ### Get all roles
 
@@ -176,6 +257,9 @@ curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_M
 
 See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
 
+[Back to Top](#top)
+
+<a name="get-role"/>
 
 ### Get role by code (or label)
 
@@ -188,6 +272,9 @@ curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=sum
 
 See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
 
+[Back to Top](#top)
+
+<a name="get-associations"/>
 
 ### Get all associations
 
@@ -205,6 +292,9 @@ curl "$API_URL/metadata/ncit/associations?list=Role_Has_Domain,Role_Has_Range,Ro
 
 See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
 
+[Back to Top](#top)
+
+<a name="get-association"/>
 
 ### Get association by code (or label)
 
@@ -217,6 +307,9 @@ curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '
 
 See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
 
+[Back to Top](#top)
+
+<a name="get-roots"/>
 
 ### Find root concepts
 
@@ -228,6 +321,9 @@ curl "$API_URL/concept/ncit/roots" | jq '.'
 
 See sample payload data from this call in [`samples/find-roots.txt`](samples/find-roots.txt)
 
+[Back to Top](#top)
+
+<a name="get-paths"/>
 
 ### Get paths to/from root from a code
 
@@ -240,6 +336,9 @@ curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq '.'
 
 See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt) and [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
 
+[Back to Top](#top)
+
+<a name="get-paths-ancestor"/>
 
 ### Get paths to an ancestor code from a code
 
@@ -252,6 +351,9 @@ curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq '.'
 
 See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](samples/get-paths-to-ancestor.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts"/>
 
 ### Find concepts by search term
 
@@ -264,6 +366,9 @@ curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq '.'
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-restrict-concept-status"/>
 
 ### Find concepts by search term (restrict by concept status)
 
@@ -277,6 +382,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-restrict-contributing-source"/>
 
 ### Find concepts by search term (restrict by contributing source)
 
@@ -290,6 +398,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&contributingSo
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-cdisc.txt`](samples/find-concepts-by-search-term-cdisc.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-restrict-definition-source"/>
 
 ### Find concepts by search term (restrict by definition source)
 
@@ -303,6 +414,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSour
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-nci.txt`](samples/find-concepts-by-search-term-definition-nci.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-restrict-synonym-source"/>
 
 ### Find concepts by search term (restrict by synonym source and termgroup)
 
@@ -316,6 +430,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-by-code"/>
 
 ### Find concepts by search term (where search term is a code)
 
@@ -328,6 +445,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq '.'
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-C3224.txt`](samples/find-concepts-by-search-term-C3224.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-match"/>
 
 ### Find concepts by search term (using type=match)
 
@@ -341,6 +461,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=m
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-match.txt`](samples/find-concepts-by-search-term-match.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-startsWith"/>
 
 ### Find concepts by search term (using type=startsWith)
 
@@ -354,6 +477,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-startsWith.txt`](samples/find-concepts-by-search-term-startsWith.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-phrase"/>
 
 ### Find concepts by search term (using type=phrase)
 
@@ -367,6 +493,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&ty
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-phrase.txt`](samples/find-concepts-by-search-term-phrase.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-fuzzy"/>
 
 ### Find concepts by search term (using type=fuzzy)
 
@@ -380,6 +509,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageS
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-fuzzy.txt`](samples/find-concepts-by-search-term-fuzzy.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-and"/>
 
 ### Find concepts by search term (using type=AND)
 
@@ -393,6 +525,10 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-AND.txt`](samples/find-concepts-by-search-term-AND.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-or"/>
+
 ### Find concepts by search term (using type=OR)
 
 Find concepts matching a search term within a specified terminology and
@@ -405,6 +541,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-OR.txt`](samples/find-concepts-by-search-term-OR.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-highlights"/>
 
 ### Find concepts by search term (with highlights)
 
@@ -418,6 +557,9 @@ curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,hi
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-highlights.txt`](samples/find-concepts-by-search-term-highlights.txt)
 
+[Back to Top](#top)
+
+<a name="find-concepts-property"/>
 
 ### Find concepts by property
 
@@ -432,3 +574,5 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&inc
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+
+[Back to Top](#top)

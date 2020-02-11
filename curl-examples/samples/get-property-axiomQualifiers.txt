@@ -1,0 +1,19 @@
+[
+  "AB",
+  "AD",
+  "AQ",
+  "AQS",
+  "BR",
+  "CA2",
+  "CA3",
+  "CN",
+  "CNU",
+  "CS",
+  "DN",
+  "EDQM-HC",
+  "FB",
+  "HD",
+  "PT",
+  "SN",
+  "SY"
+]
