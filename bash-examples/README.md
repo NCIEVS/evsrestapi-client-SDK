@@ -19,11 +19,12 @@ Test Scripts
 - [get-paths.sh](#get-paths-sh)
 - [get-association.sh](#get-concept-sh)
 - [get-role.sh](#get-role-sh)
-- [get-property.sh](#get-property.sh)
+- [get-property.sh](#get-property-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
 
+<a name="get-terminologies-sh"/>
 ### get-terminologies.sh
 
 Return all loaded terminologies currently hosted by the API:
@@ -58,6 +59,7 @@ Finished ...Tue, Feb  4, 2020 12:09:16 PM
 ```
 
 
+<a name="get-concept-sh"/>
 ### get-concept.sh
 
 Return concept information for a given terminology and code.  The "include" parameter
@@ -123,6 +125,7 @@ Finished ...Tue, Feb  4, 2020 12:20:30 PM
 ```
 
 
+<a name="get-concept-part-sh"/>
 ### get-concept-part.sh
 
 Used to call the APIs for the sub-parts of concepts.  The supported list includes:
@@ -218,6 +221,7 @@ Finished ...Thu, Feb  6, 2020  4:38:53 PM
 -----------------------------------------------------
 ```
 
+<a name="get-find-sh"/>
 ### find-concepts.sh
 
 Used to perform text searches to find matching concepts. In its simplest form the
@@ -284,6 +288,7 @@ Finished ...Thu, Feb  6, 2020  4:46:40 PM
 -----------------------------------------------------
 ```
 
+<a name="get-descendants-sh"/>
 ### get-descendants.sh
 
 Used to get descendant graph for a specified terminology and code.  The --level parameter
@@ -351,6 +356,7 @@ Finished ...Thu, Feb  6, 2020  4:35:35 PM
 ```
 
 
+<a name="get-paths-sh"/>
 ### get-paths.sh
 
 Return information about root codes, paths to root codes, or paths from
@@ -560,6 +566,7 @@ Finished ...Thu, Feb  6, 2020  4:34:23 PM
 -----------------------------------------------------
 ```
 
+<a name="get-association-sh"/>
 ### get-association.sh
 
 Return information about associations for a given terminology.  In its simplest form,
@@ -669,6 +676,7 @@ Finished ...Thu, Feb  6, 2020  3:24:22 PM
 ```
 
 
+<a name="get-role-sh"/>
 ### get-role.sh
 
 Return information about roles for a given terminology.  In its simplest form,
@@ -778,6 +786,7 @@ Finished ...Thu, Feb  6, 2020  4:28:21 PM
 ```
 
 
+<a name="get-property-sh"/>
 ### get-property.sh
 
 Return information about properties for a given terminology.  In its simplest form,
