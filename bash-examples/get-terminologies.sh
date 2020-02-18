@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to call EVSRESTAPI to perform a code lookup.
+# Script to call EVSRESTAPI to lookup terminologies
 #
 
 # import URL into environment from config
@@ -17,7 +17,7 @@ echo ""
 echo "  Performing terminologies lookup"
 curl -v -w "\n%{http_code}" -G "$url/metadata/terminologies" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
-  echo "ERROR: GET $url/search failed"
+  echo "ERROR: GET $url/metadata/terminologies failed"
   exit 1
 fi
 
