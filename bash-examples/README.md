@@ -18,6 +18,7 @@ Test Scripts
 - [get-concept-part.sh](#get-concept-part-sh)
 - [find-concepts.sh](#find-concepts-sh)
 - [get-descendants.sh](#get-descendants-sh)
+- [get-subtree.sh](#get-subtree-sh)
 - [get-paths.sh](#get-paths-sh)
 - [get-association.sh](#get-concept-sh)
 - [get-role.sh](#get-role-sh)
@@ -360,6 +361,107 @@ maxLevel = 2
 -----------------------------------------------------
 Finished ...Thu, Feb  6, 2020  4:35:35 PM
 -----------------------------------------------------
+```
+[Back to Top](#top)
+
+<a name="get-subtree-sh"/>
+
+### get-subtree.sh
+
+Used to get the entire subtree from the root node to the specified code, for a specified terminology.
+
+```
+$  ./get-subtree.sh ncit C3224 | more
+-----------------------------------------------------
+Starting ...Mon Mar 16 15:40:38 PDT 2020
+-----------------------------------------------------
+url = http://localhost:8080/evs/api/v1
+terminology = ncit
+code = C3224
+
+  Get subtree for ncit C3224:
+    count = 19
+
+    [
+      {
+	"code": "C12913",
+	"label": "Abnormal Cell",
+	"leaf": false,
+	"children": [
+	  {
+	    "code": "C36843",
+	    "label": "Abnormal Connective and Soft Tissue Cell",
+	    "level": 0,
+	    "leaf": false,
+	    "children": [
+	      {
+		"code": "C37086",
+		"label": "Abnormal Endothelial Cell",
+		"level": 1,
+		"leaf": false
+	      },
+	      {
+		"code": "C36832",
+		"label": "Abnormal Macrophage",
+		"level": 1,
+		"leaf": false
+	      },
+	      {
+		"code": "C168534",
+		"label": "Cancer-Associated Fibroblast",
+		"level": 1,
+		"leaf": false
+	      },
+	      {
+		"code": "C36887",
+		"label": "Neoplastic Connective and Soft Tissue Cell",
+		"level": 1,
+		"leaf": false
+	      }
+	    ]
+	  },
+	  ....
+	  {
+	    "code": "C83485",
+	    "label": "Retired Concept Current Year",
+	    "level": 0,
+	    "leaf": false,
+	    "children": [
+	      {
+		"code": "C166252",
+		"label": "Actual Dose of Medication",
+		"level": 1,
+		"leaf": true
+	      },
+	      {
+		"code": "C157792",
+		"label": "Assistive Devices",
+		"level": 1,
+		"leaf": true
+	      },
+	      ....
+	      {
+		"code": "C116892",
+		"label": "Urea/Lactic Acid-based Topical Cream",
+		"level": 1,
+		"leaf": true
+	      },
+	      {
+		"code": "C94838",
+		"label": "Warm Ischemia During Surgery",
+		"level": 1,
+		"leaf": true
+	      }
+	    ]
+	  }
+	]
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Mon Mar 16 15:40:39 PDT 2020
+-----------------------------------------------------
+
 ```
 [Back to Top](#top)
 
