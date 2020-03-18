@@ -2,11 +2,16 @@
 #
 # Script to call EVSRESTAPI to fetch subtree from the root node to the specified code.
 #
-arr=( "$@" )
+
+while [[ "$#" -gt 0 ]]; do case $1 in
+  --children) children=1;;
+  *) arr=( "${arr[@]}" "$1" );;
+esac; shift; done
 
 if [ ${#arr[@]} -ne 2 ]; then
   echo "Usage: $0 <terminology> <code>"
   echo "  e.g. $0 ncit C3224"
+  echo "  e.g. $0 ncit C3224 --children"
   exit 1
 fi
 
@@ -31,10 +36,15 @@ echo ""
 # fi
 
 # GET call
-echo "  Get subtree for $terminology $code:"
-curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/subtree" 2> /dev/null > /tmp/x.$$
+if [[ $children ]]; then
+    echo "  Get subtree children for $terminology $code:"
+    curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/subtree/children" 2> /dev/null > /tmp/x.$$
+else
+    echo "  Get subtree for $terminology $code:"
+    curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/subtree" 2> /dev/null > /tmp/x.$$
+fi
 if [ $? -ne 0 ]; then
-  echo "ERROR: GET $url/concept/$terminology/$code/subtree failed"
+  echo "ERROR: GET failed"
   exit 1
 fi
 
