@@ -384,85 +384,210 @@ code = C3224
 
     [
       {
-	"code": "C12913",
-	"label": "Abnormal Cell",
-	"leaf": false,
-	"children": [
-	  {
-	    "code": "C36843",
-	    "label": "Abnormal Connective and Soft Tissue Cell",
-	    "level": 0,
-	    "leaf": false,
-	    "children": [
-	      {
-		"code": "C37086",
-		"label": "Abnormal Endothelial Cell",
-		"level": 1,
-		"leaf": false
-	      },
-	      {
-		"code": "C36832",
-		"label": "Abnormal Macrophage",
-		"level": 1,
-		"leaf": false
-	      },
-	      {
-		"code": "C168534",
-		"label": "Cancer-Associated Fibroblast",
-		"level": 1,
-		"leaf": false
-	      },
-	      {
-		"code": "C36887",
-		"label": "Neoplastic Connective and Soft Tissue Cell",
-		"level": 1,
-		"leaf": false
-	      }
-	    ]
-	  },
-	  ....
-	  {
-	    "code": "C83485",
-	    "label": "Retired Concept Current Year",
-	    "level": 0,
-	    "leaf": false,
-	    "children": [
-	      {
-		"code": "C166252",
-		"label": "Actual Dose of Medication",
-		"level": 1,
-		"leaf": true
-	      },
-	      {
-		"code": "C157792",
-		"label": "Assistive Devices",
-		"level": 1,
-		"leaf": true
-	      },
-	      ....
-	      {
-		"code": "C116892",
-		"label": "Urea/Lactic Acid-based Topical Cream",
-		"level": 1,
-		"leaf": true
-	      },
-	      {
-		"code": "C94838",
-		"label": "Warm Ischemia During Surgery",
-		"level": 1,
-		"leaf": true
-	      }
-	    ]
-	  }
-	]
+        "code": "C12913",
+        "label": "Abnormal Cell",
+        "leaf": false,
+        "children": [
+          {
+            "code": "C36843",
+            "label": "Abnormal Connective and Soft Tissue Cell",
+            "level": 0,
+            "leaf": false,
+            "children": [
+              {
+                "code": "C37086",
+                "label": "Abnormal Endothelial Cell",
+                "level": 1,
+                "leaf": false
+              },
+              {
+                "code": "C36832",
+                "label": "Abnormal Macrophage",
+                "level": 1,
+                "leaf": false
+              },
+              {
+                "code": "C168534",
+                "label": "Cancer-Associated Fibroblast",
+                "level": 1,
+                "leaf": false
+              },
+              {
+                "code": "C36887",
+                "label": "Neoplastic Connective and Soft Tissue Cell",
+                "level": 1,
+                "leaf": false
+              }
+            ]
+          },
+          ....
+          {
+            "code": "C83485",
+            "label": "Retired Concept Current Year",
+            "level": 0,
+            "leaf": false,
+            "children": [
+              {
+                "code": "C166252",
+                "label": "Actual Dose of Medication",
+                "level": 1,
+                "leaf": true
+              },
+              {
+                "code": "C157792",
+                "label": "Assistive Devices",
+                "level": 1,
+                "leaf": true
+              },
+              ....
+              {
+                "code": "C116892",
+                "label": "Urea/Lactic Acid-based Topical Cream",
+                "level": 1,
+                "leaf": true
+              },
+              {
+                "code": "C94838",
+                "label": "Warm Ischemia During Surgery",
+                "level": 1,
+                "leaf": true
+              }
+            ]
+          }
+        ]
       }
     ]
 
 -----------------------------------------------------
 Finished ...Mon Mar 16 15:40:39 PDT 2020
 -----------------------------------------------------
+```
+
+Can also be used to get the children subtree nodes for the specified code. For example:
 
 ```
+$  ./get-subtree.sh ncit C3224 --children
+-----------------------------------------------------
+Starting ...Wed, Mar 18, 2020  2:15:45 PM
+-----------------------------------------------------
+url = https://api-evsrest-dev.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+
+  Get subtree children for ncit C3224:
+    count = 17
+
+    [
+      {
+        "code": "C3802",
+        "label": "Amelanotic Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C8410",
+        "label": "Breast Melanoma",
+        "level": 0,
+        "leaf": true
+      },
+      {
+        "code": "C131506",
+        "label": "Childhood Melanoma",
+        "level": 0,
+        "leaf": true
+      },
+      {
+        "code": "C3510",
+        "label": "Cutaneous Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C4236",
+        "label": "Epithelioid Cell Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C9499",
+        "label": "Melanomatosis",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C8925",
+        "label": "Metastatic Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C66756",
+        "label": "Mixed Epithelioid and Spindle Cell Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C8711",
+        "label": "Non-Cutaneous Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C8562",
+        "label": "Ocular Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C118828",
+        "label": "Orbital Melanoma",
+        "level": 0,
+        "leaf": true
+      },
+      {
+        "code": "C162547",
+        "label": "Penile Melanoma",
+        "level": 0,
+        "leaf": true
+      },
+      {
+        "code": "C7087",
+        "label": "Recurrent Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C147983",
+        "label": "Refractory Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C4228",
+        "label": "Regressing Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C4237",
+        "label": "Spindle Cell Melanoma",
+        "level": 0,
+        "leaf": false
+      },
+      {
+        "code": "C148517",
+        "label": "Unresectable Melanoma",
+        "level": 0,
+        "leaf": false
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 18, 2020  2:15:46 PM
+-----------------------------------------------------
+```
+
+
 [Back to Top](#top)
 
 <a name="get-paths-sh"/>
