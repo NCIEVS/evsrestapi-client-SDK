@@ -46,6 +46,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find root concepts
 - Get paths to/from root from a code
 - Get paths to an ancestor from a code
+- Get subtree for a code
 - Find concepts by search term (use paging to get only first 5 results)
 - Find concepts by search term (restrict by concept status)
 - Find concepts by search term (restrict by contributing source)

@@ -34,7 +34,7 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept by code (full information)](#get-concept-by-code-full)
 - [Get concept by code (custom include)](#get-concept-by-code-custom)
 - [Get concept part](#get-concept-part)
-- [Get concept descendants](#get-concept-descendants)
+- [Get concept descendants](#get-descendants)
 - [Get all properties](#get-properties)
 - [Get property by code (or label)](#get-property)
 - [Get property axiom qualifiers by code (or label)](#get-property-aq)
@@ -45,6 +45,7 @@ The following examples can be types into the command line of any terminal that h
 - [Find root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
+- [Get subtree](#get-subtree)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
 - [Find concepts by search term (restrict by contributing source)](#find-concepts-restrict-contributing-source)
@@ -350,6 +351,22 @@ curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](samples/get-paths-to-ancestor.txt)
+
+[Back to Top](#top)
+
+<a name="get-subtree"/>
+
+### Get subtree for code
+
+Return an entire subtree graph from the root concepts to a specified node.  This
+call is specifically tuned to support a tree-view based hierarchy browser in a UI.
+
+```
+curl "$API_URL/concept/ncit/C3224/subtree" | jq '.'
+curl "$API_URL/concept/ncit/C3224/subtree/children" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
 
 [Back to Top](#top)
 
