@@ -1,0 +1,73 @@
+[
+  {
+    "name": "AB",
+    "description": "Abbreviation"
+  },
+  {
+    "name": "AD",
+    "description": "Adjectival form (and other parts of grammer)"
+  },
+  {
+    "name": "AQ*",
+    "description":"Antiquated preferred term"
+  },
+  {
+    "name": "AQS",
+    "description": "Antiquated term, use when there are antiquated synonyms within a concept"
+  },
+  {
+    "name": "BR",
+    "description": "US brand name, which may be trademarked"
+  },
+  {
+    "name": "CA2",
+    "description": "ISO 3166 alpha-2 country code"
+  },
+  {
+    "name": "CA3",
+    "description": "ISO 3166 alpha-3 country code"
+  },
+  {
+    "name": "CNU",
+    "description": "ISO 3166 numeric country code"
+  },
+  {
+    "name": "CI",
+    "description": "ISO Country code (deprecated)"
+  },
+  {
+    "name": "CN",
+    "description": "Drug study code"
+  },
+  {
+    "name": "CS",
+    "description": "US State Department country code"
+  },
+  {
+    "name": "DN",
+    "description": "Display name"
+  },
+  {
+    "name": "FB",
+    "description": "Foreign brand name, which may be trademarked"
+  },
+  {
+    "name": "LLT",
+    "description": "Lower Level Term"
+  },
+  {
+    "name": "HD*",
+    "description": "Header (groups concepts, but not used for coding data)"     },
+  {
+    "name": "PT*",
+    "description": "Preferred term"
+  },
+  {
+    "name": "SN",
+    "description": "Chemical structure name"
+  },
+  {
+    "name": "SY",
+    "description": "Synonym"
+  }
+]

@@ -23,6 +23,7 @@ Test Scripts
 - [get-association.sh](#get-concept-sh)
 - [get-role.sh](#get-role-sh)
 - [get-property.sh](#get-property-sh)
+- [get-term-types.sh](#get-term-types-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -1128,6 +1129,36 @@ include = synonyms
 
 -----------------------------------------------------
 Finished ...Thu, Feb  6, 2020  4:30:19 PM
+-----------------------------------------------------
+```
+[Back to Top](#top)
+
+<a name="get-term-types-sh"/>
+
+### get-term-types.sh
+
+Return information about term types for a given terminology.
+
+```
+$ ./get-term-types.sh ncit
+-----------------------------------------------------
+Starting ...Thu, Feb  6, 2020  4:28:45 PM
+-----------------------------------------------------
+url = https://api-evsrest-dev.nci.nih.gov/api/v1
+terminology = ncit
+
+  Get term types for ncit:
+
+    [
+      {
+        "code": "AB",
+        "name": "Abbreviation"
+      },
+...
+    ]
+
+-----------------------------------------------------
+Finished ...Thu, Feb  6, 2020  4:28:47 PM
 -----------------------------------------------------
 ```
 [Back to Top](#top)

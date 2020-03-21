@@ -43,6 +43,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get role by code (or label)
 - Get all associations
 - Get association by code (or label)
+- Get all term types
 - Find root concepts
 - Get paths to/from root from a code
 - Get paths to an ancestor from a code
