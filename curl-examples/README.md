@@ -17,6 +17,7 @@ The base API url for the EVSRESTAPI is:
 `export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1`
 
 Run this command before the sample curl calls below as they expect $API_URL to be set.
+NOTE: "dev" URLs are only accessible while behind the NIH firewall.
 
 All the operations described here perform a GET request.
 
@@ -328,7 +329,7 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 
 <a name="get-contributing-sources"/>
 
-### Get all contribuging sources
+### Get all contributing sources
 
 Return metadata for all contributing sources for the specified terminology.
 
