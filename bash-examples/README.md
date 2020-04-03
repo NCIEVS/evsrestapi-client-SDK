@@ -1171,25 +1171,31 @@ Finished ...Thu, Feb  6, 2020  4:28:47 PM
 Return information about contributing sources for a given terminology.
 
 ```
-$ ./get-contributing-source.sh ncit
+$ ./get-contributing-sources.sh ncit
 -----------------------------------------------------
-Starting ...Thu, Feb  6, 2020  4:28:45 PM
+Starting ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = http://localhost:8082/api/v1
 terminology = ncit
 
-  Get term types for ncit:
+  Get contributing sources for ncit:
 
     [
       {
-        "code": "AB",
-        "name": "Abbreviation"
+        "code": "ACC",
+        "name": "American College of Cardiology",
+        "terminology": "ncit"
       },
-...
+      ...
+      {
+        "code": "Zebrafish",
+        "name": "Zebrafish Model Organism Database",
+        "terminology": "ncit"
+      }
     ]
 
 -----------------------------------------------------
-Finished ...Thu, Feb  6, 2020  4:28:47 PM
+Finished ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
 ```
 [Back to Top](#top)
