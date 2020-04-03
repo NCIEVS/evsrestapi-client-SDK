@@ -42,6 +42,8 @@ The following examples can be types into the command line of any terminal that h
 - [Get role by code (or label)](#get-role)
 - [Get all associations](#get-associations)
 - [Get association by code (or label)](#get-association)
+- [Get all term types](#get-term-types)
+- [Get all contributing sources](#get-contributing-sources)
 - [Find root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
@@ -307,6 +309,34 @@ curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '
 ```
 
 See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
+
+[Back to Top](#top)
+
+<a name="get-term-types"/>
+
+### Get all term types
+
+Return metadata for all term types for the specified terminology.
+
+```
+curl "$API_URL/metadata/ncit/termTypes" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-term-types.txt`](samples/get-term-types.txt)
+
+[Back to Top](#top)
+
+<a name="get-contributing-sources"/>
+
+### Get all contribuging sources
+
+Return metadata for all contributing sources for the specified terminology.
+
+```
+curl "$API_URL/metadata/ncit/contributingSources" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-contributing-sources.txt`](samples/get-contributing-sources.txt)
 
 [Back to Top](#top)
 

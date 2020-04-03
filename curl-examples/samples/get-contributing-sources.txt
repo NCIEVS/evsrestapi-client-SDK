@@ -1,0 +1,187 @@
+[
+  {
+    "code": "ACC",
+    "name": "American College of Cardiology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "BRIDG",
+    "name": "Biomedical Research Integrated Domain Model Group",
+    "terminology": "ncit"
+  },
+  {
+    "code": "BioCarta",
+    "name": "BioCarta online maps of molecular pathways, adapted for NCI use",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CDC",
+    "name": "U.S. Centers for Disease Control and Prevention",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CDISC",
+    "name": "Clinical Data Interchange Standards Consortium",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CDISC-GLOSS",
+    "name": "CDISC Glossary Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "COH",
+    "name": "City of Hope",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CRCH",
+    "name": "Cancer Research Center of Hawaii Nutrition Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTCAE",
+    "name": "Common Terminology Criteria for Adverse Events",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTEP",
+    "name": "Cancer Therapy Evaluation Program",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTRP",
+    "name": "Clinical Trials Reporting Program",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CareLex",
+    "name": "CareLex electronic Trial Master File Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "DCP",
+    "name": "NCI Division of Cancer Prevention Program",
+    "terminology": "ncit"
+  },
+  {
+    "code": "DICOM",
+    "name": "Digital Imaging Communications in Medicine",
+    "terminology": "ncit"
+  },
+  {
+    "code": "DTP",
+    "name": "NCI Developmental Therapeutics Program",
+    "terminology": "ncit"
+  },
+  {
+    "code": "EDQM",
+    "name": "European Directorate for the Quality of Medicines & Healthcare",
+    "terminology": "ncit"
+  },
+  {
+    "code": "FDA",
+    "name": "U.S. Food and Drug Administration",
+    "terminology": "ncit"
+  },
+  {
+    "code": "GAIA",
+    "name": "Global Alignment of Immunization safety Assessment in pregnancy Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "GENC",
+    "name": "Geopolitical Entities, Names, and Codes Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "HGNC",
+    "name": "HUGO Gene Nomenclature Committee",
+    "terminology": "ncit"
+  },
+  {
+    "code": "ICH",
+    "name": "International Conference on Harmonization",
+    "terminology": "ncit"
+  },
+  {
+    "code": "IMDRF",
+    "name": "International Medical Device Regulators Forum",
+    "terminology": "ncit"
+  },
+  {
+    "code": "JAX",
+    "name": "Jackson Laboratories Mouse Terminology, adapted for NCI use",
+    "terminology": "ncit"
+  },
+  {
+    "code": "KEGG",
+    "name": "KEGG Pathway Database",
+    "terminology": "ncit"
+  },
+  {
+    "code": "MMHCC",
+    "name": "Mouse Models of Human Cancer Consortium",
+    "terminology": "ncit"
+  },
+  {
+    "code": "MedDRA",
+    "name": "Medical Dictionary for Regulatory Activities",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NCCN",
+    "name": "National Comprehensive Cancer Network",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NCI",
+    "name": "National Cancer Institute Thesaurus",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NCI-GLOSS",
+    "name": "NCI Dictionary of Cancer Terms",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NCI-HL7",
+    "name": "NCI Health Level 7",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NCPDP",
+    "name": "National Council for Prescription Drug Programs",
+    "terminology": "ncit"
+  },
+  {
+    "code": "NICHD",
+    "name": "National Institute of Child Health and Human Development",
+    "terminology": "ncit"
+  },
+  {
+    "code": "PI-RADS",
+    "name": "Prostate Imaging-Reporting and Data System",
+    "terminology": "ncit"
+  },
+  {
+    "code": "PID",
+    "name": "NCI Nature Pathway Interaction Database",
+    "terminology": "ncit"
+  },
+  {
+    "code": "RENI",
+    "name": "Registry Nomenclature Information System",
+    "terminology": "ncit"
+  },
+  {
+    "code": "UCUM",
+    "name": "Unified Code for Units of Measure",
+    "terminology": "ncit"
+  },
+  {
+    "code": "Zebrafish",
+    "name": "Zebrafish Model Organism Database",
+    "terminology": "ncit"
+  }
+]

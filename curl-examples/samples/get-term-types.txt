@@ -57,7 +57,8 @@
   },
   {
     "name": "HD*",
-    "description": "Header (groups concepts, but not used for coding data)"     },
+    "description": "Header (groups concepts, but not used for coding data)"
+  },
   {
     "name": "PT*",
     "description": "Preferred term"
