@@ -40,6 +40,29 @@ get() {
   json=`perl -pe 's/200$//' /tmp/x.$$ | jq '.'`
 }
 
+getTerminologyVersion() {
+  tv=""
+  
+  echo "  Get first 'ncit' terminologyVersion ...`/bin/date`"
+  curl -v -w "\n%{http_code}" -G "$url/metadata/terminologies" 2> /dev/null > /tmp/x.$$
+  if [ $? -ne 0 ]; then
+    echo "    ERROR: GET $url/metadata/terminologies failed"
+    error=1
+    return 1
+  fi
+
+  # check status
+  status=`tail -1 /tmp/x.$$`
+  if [ $status -ne 200 ]; then
+    perl -pe 's/\d+$//' /tmp/x.$$ | jq '.' | sed 's/^/    /'
+    echo "    ERROR: GET $url/metadata/terminologies returned $status, expected 200"
+    error=1
+    return 1
+  fi
+
+  tv=`cat /tmp/x.$$ | jq '.' | grep terminologyVersion | perl -pe 's/.*terminologyVersion": "//; s/",//; s/\r//;'`
+}
+
 checkNotEmpty() {
   ct=`echo "$1" | jq '. | length' | sed 's/\r//'`
   if [ 1 -gt "$ct" ]; then
@@ -75,6 +98,18 @@ checkCount() {
     echo "    ERROR: expected counts do not match = $ct1 $ct2"
   fi
 }
+
+#
+# Test concept retrieval with terminologyVersion
+#
+getTerminologyVersion
+get "TEST $tv concept retrieval" "concept/$tv/C3224"
+# check synonyms count
+if [[ $(echo "$json" | jq '.synonyms | length') < 10 ]]; then
+    error=1
+    echo "ERROR: unexpected missing synonyms"
+fi 
+# no need to check the rest of it, just want to make sure this works.
 
 #
 # Test basic concept retrieval
