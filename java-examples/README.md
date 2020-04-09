@@ -1,30 +1,34 @@
 <a name="top" />
 
-EVSRESTAPI client SDK: CURL Tutorial
+EVSRESTAPI client SDK: Java Tutorial
 ======================================
 
-This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
+This tutorial shows how to use a locally defined Java client to interact with the EVSREST API.
 
 Prerequisites
 -------------
-* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+* JDK 1.8 must be installed ([Download Java](https://www.java.com/en/download/)
 
-The base API url for the EVSRESTAPI is: 
+The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the java client will connect to.
 
-`export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1`
+Building the Code
+-----------------
+Building the java-examples should be as simple as running the following command from
+this directory.
 
-Run this command before the sample curl calls below as they expect $API_URL to be set.
-NOTE: "dev" URLs are only accessible while behind the NIH firewall.
+```
+./gradlew clean build
+```
 
-All the operations described here perform a GET request.
+This will invoke Gradle to build the model objects and the clients themselves and then
+will also run the unit tests which demonstrate use of the client to make actual API
+calls against EVSRESTAPI.
 
-The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html">http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html</a>.
-
-Sample cURL Calls
+Sample Java Calls
 -----------------
 
-The following examples can be types into the command line of any terminal that has cURL and jq installed.
+The following examples are exhibited by various unit tests defined in the code in 
+`src/test/java`.
 
 - [Get terminologies](#get-terminologies)
 - [Get concept by code (minimum information)](#get-concept-by-code)
@@ -66,13 +70,11 @@ The following examples can be types into the command line of any terminal that h
 
 ### Get terminologies
 
-Return all loaded terminologies currently hosted by the API.
+`MetadataTests.testGetTerminologies()` - Return all loaded terminologies currently hosted by the API.
 
 ```
-curl "$API_URL/metadata/terminologies" | jq '.'
+TBD log
 ```
-
-See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
 [Back to Top](#top)
 

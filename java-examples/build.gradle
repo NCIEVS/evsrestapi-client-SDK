@@ -1,0 +1,54 @@
+// Top level configuration
+buildscript {
+  repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+  }
+  dependencies {
+    // n/a
+  }
+}
+
+repositories {
+    mavenLocal()
+    jcenter()
+    mavenCentral()
+}
+
+// 
+group = "gov.nih.nci.evs.api"
+version = "0.0.1-SNAPSHOT"
+
+// Plugins
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+
+dependencies {
+
+  testCompile "junit:junit:4.12"
+
+  compile "org.slf4j:slf4j-log4j12:1.7.30"
+  compile "org.glassfish.jersey.core:jersey-client:2.30.1"
+  compile "org.glassfish.jersey.inject:jersey-hk2:2.30.1"
+  compile "com.fasterxml.jackson.core:jackson-databind:2.10.3"
+  compile "com.fasterxml.jackson.core:jackson-annotations:2.10.3"
+  compile "commons-io:commons-io:2.6"
+}
+
+test {
+    /*
+     * Configure gradle to show standard out and standard error
+     * of the test JVM(s) on the console
+     */
+    testLogging.showStandardStreams = true
+}
+
+jar {
+
+}

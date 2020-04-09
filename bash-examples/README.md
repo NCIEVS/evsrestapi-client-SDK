@@ -6,10 +6,12 @@ EVSRESTAPI CT in 5 minutes: bash Tutorial
 This tutorial shows how to use bash scripts to access NCI Thesaurus content from the EVSRESTAPI.
 
 Prerequisites
+-------------
 * bash must be installed
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
+The various scripts make use of the local `url.env` file to define the EVSRESTAPI endpoint that scripts will connect to.
 
 Test Scripts
 ------------

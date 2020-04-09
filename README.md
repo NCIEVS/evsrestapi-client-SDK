@@ -20,6 +20,10 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
 
+### Java
+
+- [Click for JAva examples.](../master/java-examples/ "Java Examples")
+
 
 **[Back to top](#table-of-contents)**
 
