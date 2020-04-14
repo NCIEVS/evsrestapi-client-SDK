@@ -1,0 +1,22 @@
+{
+	"info": {
+		"_postman_id": "b7a2b8a0-f47c-4ff3-97e2-bc74b8c9a8d6",
+		"name": "EVSRESTAPI Postman Client",
+		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Terminologies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
