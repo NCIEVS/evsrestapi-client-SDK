@@ -9,9 +9,6 @@ Prerequisites
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
-The Browser as a terminology server
-------------------------------------
-
 The base API url for the EVSRESTAPI is: 
 
 `export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1`
@@ -220,8 +217,8 @@ See sample payload data from this call in [`samples/get-properties.txt`](samples
 Return property for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/P302?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
@@ -259,7 +256,7 @@ curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+See sample payload data from this call in [`samples/get-associations.txt`](samples/get-roless.txt)
 
 [Back to Top](#top)
 

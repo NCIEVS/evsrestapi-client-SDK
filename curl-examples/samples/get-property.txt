@@ -1,32 +1,25 @@
 {
-  "code": "P90",
-  "name": "FULL_SYN",
+  "code": "P302",
+  "name": "Accepted_Therapeutic_Use_For",
   "synonyms": [
     {
-      "name": "FULL_SYN",
+      "name": "Accepted_Therapeutic_Use_For",
       "type": "Preferred_Name"
     },
     {
-      "name": "Term & Source Data",
+      "name": "Accepted Therapeutic Use For",
       "type": "Display_Name"
     },
     {
-      "name": "FULL_SYN",
+      "name": "Accepted_Therapeutic_Use_For",
       "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NCI"
-    },
-    {
-      "name": "Synonym with Source Data",
-      "termGroup": "SY",
       "type": "FULL_SYN",
       "source": "NCI"
     }
   ],
   "definitions": [
     {
-      "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an o
-ptional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
+      "definition": "A property representing a disease or condition for which this drug is an accepted treatment. Used in the Drug, Food, Chemical or Biomedical Material branch.",
       "type": "DEFINITION",
       "source": "NCI"
     }
@@ -42,7 +35,7 @@ ptional source code if appropriate. Each subfield is deliniated to facilitate in
     },
     {
       "type": "http://www.w3.org/2000/01/rdf-schema#range",
-      "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#textArea"
+      "value": "http://www.w3.org/2001/XMLSchema#string"
     }
   ]
 }

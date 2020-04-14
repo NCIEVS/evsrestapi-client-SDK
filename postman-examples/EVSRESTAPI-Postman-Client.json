@@ -1,0 +1,862 @@
+{
+	"info": {
+		"_postman_id": "27af1204-77f0-4664-8592-96ebdafd6bf7",
+		"name": "EVSRESTAPI Postman Client",
+		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Terminologies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/terminologies",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"terminologies"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code (minimum information)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concepts by list of codes (minimum information)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code (summary information)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code (full information)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept by code (custom include)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociations",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "synonyms,children,maps,inverseAssociations"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept part",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below, you can replace \"children\" in the URL with any of the following and retrieve the \r\ncorresponding underlying info: children, parents, roles, associations, inverseRoles, inverseAssociations, maps, or disjointWith."
+			},
+			"response": []
+		},
+		{
+			"name": "Get concept descendants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224/descendants?maxLevel=4",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"descendants"
+					],
+					"query": [
+						{
+							"key": "maxLevel",
+							"value": "4"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all properties",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get property by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get property axiom qualifiers by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all roles",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get role by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all associations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get association by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all term types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all contributing sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find root concepts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get paths to root from a code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get paths from root from a code Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get paths to an ancestor from a code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsToAncestor",
+						"C2991"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subtree for a code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsToAncestor",
+						"C2991"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subtree children for a code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsToAncestor",
+						"C2991"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (use paging to get only first 5 results)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsToAncestor",
+						"C2991"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (restrict by concept status)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Retired_Concept&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "conceptStatus",
+							"value": "Retired_Concept"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (restrict by contributing source)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "contributingSource",
+							"value": "CDISC"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (restrict by definition source)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (restrict by synonym source and termgroup)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (where term is a code)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=match)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=startsWith)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=phrase)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=fuzzy)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=AND)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (using type=OR)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (with highlights)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionSource",
+							"value": "NCI"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by property",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&include=properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "XAV05295I5"
+						},
+						{
+							"key": "property",
+							"value": "fda_unii_code"
+						},
+						{
+							"key": "include",
+							"value": "properties"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "8ba55016-daf1-4e72-87cc-1da542326d31",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "55f33f94-e46f-4773-b2a0-e63f8fb8cf37",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "fcd28427-0061-480f-857c-a00211faff13",
+			"key": "API_URL",
+			"value": "https://api-evsrest-dev.nci.nih.gov/api/v1/",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
