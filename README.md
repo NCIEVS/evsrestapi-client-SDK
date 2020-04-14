@@ -20,6 +20,10 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
 
+### Postman
+
+- [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
+
 
 **[Back to top](#table-of-contents)**
 
@@ -75,7 +79,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 ## Resources
 
 - Swagger Documentation - https://api-evsrest-dev.nci.nih.gov/swagger-ui.html
-- [Additional Documentation](../master/doc/ "Curl Examples")
+- [Additional Documentation](../master/doc/ "Swagger")
 
 
 **[Back to top](#table-of-contents)**
