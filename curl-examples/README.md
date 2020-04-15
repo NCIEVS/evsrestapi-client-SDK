@@ -35,7 +35,9 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-properties)
 - [Get property by code (or label)](#get-property)
-- [Get property axiom qualifiers by code (or label)](#get-property-aq)
+- [Get property axiom qualifier values by code (or label)](#get-property-aq)
+- [Get all qualifiers](#get-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier)
 - [Get all roles](#get-roles)
 - [Get role by code (or label)](#get-role)
 - [Get all associations](#get-associations)
@@ -227,16 +229,51 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 <a name="get-property-aq"/>
 
-### Get property axiom qualifiers by code (or label)
+### Get property axiom qualifier values by code (or label)
 
-Return property axiom qualifiers for the specified code or label.
+Return property axiom qualifier values for the specified code or label.
 
 ```
 curl "$API_URL/metadata/ncit/property/P383/axiomQualifiers" | jq '.'
 curl "$API_URL/metadata/ncit/property/term-group/axiomQualifiers" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-axiomQualifiers.txt)
+See sample payload data from this call in [`samples/get-property-axiomQualifiers.txt`](samples/get-property-axiomQualifiers.txt)
+
+[Back to Top](#top)
+
+<a name="get-qualifiers"/>
+
+### Get all qualifiers
+
+Return all qualifiers. The first sample below returns just the names and codes
+while the include=summary yields summary level information for each code.
+The third call returns summary information for the three listed qualifiers (by code).
+The fourth call returns summary information for the three listed qualifiers (by label).
+
+```
+curl "$API_URL/metadata/ncit/qualifiers" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+
+[Back to Top](#top)
+
+<a name="get-qualifier"/>
+
+### Get qualifier by code (or label)
+
+Return qualifier for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/qualifier/P387?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
 
 [Back to Top](#top)
 
