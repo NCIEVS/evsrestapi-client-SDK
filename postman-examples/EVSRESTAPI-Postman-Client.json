@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "27af1204-77f0-4664-8592-96ebdafd6bf7",
+		"_postman_id": "01036e18-f1fb-4ca9-9606-726ab17a11ac",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -30,7 +30,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224?include=minimal",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "minimal"
+						}
+					]
 				}
 			},
 			"response": []
@@ -41,7 +55,24 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit?list=C3224,C3910&include=minimal",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit"
+					],
+					"query": [
+						{
+							"key": "list",
+							"value": "C3224,C3910"
+						},
+						{
+							"key": "include",
+							"value": "minimal"
+						}
+					]
 				}
 			},
 			"response": []
@@ -52,7 +83,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224"
+					]
 				}
 			},
 			"response": []
@@ -63,7 +102,21 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224?include=full",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "full"
+						}
+					]
 				}
 			},
 			"response": []
@@ -99,7 +152,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224/children",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"children"
+					]
 				},
 				"description": "Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below, you can replace \"children\" in the URL with any of the following and retrieve the \r\ncorresponding underlying info: children, parents, roles, associations, inverseRoles, inverseAssociations, maps, or disjointWith."
 			},
@@ -137,7 +199,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"properties"
+					]
 				}
 			},
 			"response": []
@@ -148,7 +218,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/property/P302?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"property",
+						"P302"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
 				}
 			},
 			"response": []
@@ -159,7 +244,62 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/property/P383/axiomQualifiers",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"property",
+						"P383",
+						"axiomQualifiers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all qualifiers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/qualifiers",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"qualifiers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ge qualifier by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/qualifier/P387?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"qualifier",
+						"P387"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
 				}
 			},
 			"response": []
@@ -170,7 +310,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/roles",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"roles"
+					]
 				}
 			},
 			"response": []
@@ -181,7 +329,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/role/R123?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"role",
+						"R123"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
 				}
 			},
 			"response": []
@@ -192,7 +355,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/associations",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"associations"
+					]
 				}
 			},
 			"response": []
@@ -203,7 +374,22 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/association/A10?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"association",
+						"A10"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
 				}
 			},
 			"response": []
@@ -214,7 +400,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/termTypes",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"termTypes"
+					]
 				}
 			},
 			"response": []
@@ -225,7 +419,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/metadata/ncit/contributingSources",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"contributingSources"
+					]
 				}
 			},
 			"response": []
@@ -236,7 +438,15 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/roots",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"roots"
+					]
 				}
 			},
 			"response": []
@@ -247,7 +457,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToRoot",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsToRoot"
+					]
 				}
 			},
 			"response": []
@@ -258,7 +477,16 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": ""
+					"raw": "{{API_URL}}/concept/ncit/C3224/pathsFromRoot",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"C3224",
+						"pathsFromRoot"
+					]
 				}
 			},
 			"response": []
@@ -290,7 +518,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"raw": "{{API_URL}}/concept/ncit/C3224/subtree",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -298,8 +526,7 @@
 						"concept",
 						"ncit",
 						"C3224",
-						"pathsToAncestor",
-						"C2991"
+						"subtree"
 					]
 				}
 			},
@@ -311,7 +538,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"raw": "{{API_URL}}/concept/ncit/C3224/subtree/children",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -319,8 +546,8 @@
 						"concept",
 						"ncit",
 						"C3224",
-						"pathsToAncestor",
-						"C2991"
+						"subtree",
+						"children"
 					]
 				}
 			},
@@ -332,16 +559,24 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/C3224/pathsToAncestor/C2991",
+					"raw": "{{API_URL}}/concept/ncit/search?term=melanoma&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"concept",
 						"ncit",
-						"C3224",
-						"pathsToAncestor",
-						"C2991"
+						"search"
+					],
+					"query": [
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
 					]
 				}
 			},
@@ -464,7 +699,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -480,15 +715,15 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "dsDNA"
 						},
 						{
-							"key": "definitionSource",
+							"key": "synonymSource",
 							"value": "NCI"
 						},
 						{
-							"key": "pageSize",
-							"value": "5"
+							"key": "synonymTermGroup",
+							"value": "PT"
 						}
 					]
 				}
@@ -501,7 +736,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=C3224",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -517,15 +752,7 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
-						},
-						{
-							"key": "definitionSource",
-							"value": "NCI"
-						},
-						{
-							"key": "pageSize",
-							"value": "5"
+							"value": "C3224"
 						}
 					]
 				}
@@ -538,7 +765,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=match&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -554,11 +781,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "Lung%20Carcinoma"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "match"
 						},
 						{
 							"key": "pageSize",
@@ -575,7 +802,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -591,11 +818,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "enzyme"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "startsWith"
 						},
 						{
 							"key": "pageSize",
@@ -612,7 +839,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&type=phrase&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -628,11 +855,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "malignant%20melanoma"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "phrase"
 						},
 						{
 							"key": "pageSize",
@@ -649,7 +876,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -665,11 +892,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "enzymi"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "fuzzy"
 						},
 						{
 							"key": "pageSize",
@@ -686,7 +913,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=AND&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -702,11 +929,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "lentiginous%20melanoma"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "AND"
 						},
 						{
 							"key": "pageSize",
@@ -723,7 +950,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=OR&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -739,11 +966,11 @@
 						},
 						{
 							"key": "term",
-							"value": "melanoma"
+							"value": "lentiginous%20melanoma"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "type",
+							"value": "OR"
 						},
 						{
 							"key": "pageSize",
@@ -760,13 +987,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5",
+					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=melanoma&include=synonyms,highlights&pageSize=5",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"concept",
-						"ncit",
 						"search"
 					],
 					"query": [
@@ -779,8 +1005,8 @@
 							"value": "melanoma"
 						},
 						{
-							"key": "definitionSource",
-							"value": "NCI"
+							"key": "include",
+							"value": "synonyms,highlights"
 						},
 						{
 							"key": "pageSize",
