@@ -116,6 +116,32 @@ public class Concept extends ConceptMinimal {
   }
 
   /**
+   * Instantiates a {@link Concept} from the specified parameters.
+   *
+   * @param other the other
+   */
+  public Concept(final ConceptNode other) {
+    super(other);
+  }
+
+  /**
+   * Instantiates a {@link Concept} from the specified parameters.
+   *
+   * @param other the other
+   */
+  public Concept(final HierarchyNode other) {
+    super(other.getCode());
+    setName(other.getLabel());
+    level = other.getLevel();
+    if (other.getLeaf() != null && other.getLeaf()) {
+      leaf = other.getLeaf();
+    }
+    for (final HierarchyNode child : other.getChildren()) {
+      getChildren().add(new Concept(child));
+    }
+  }
+
+  /**
    * Populate from.
    *
    * @param other the other

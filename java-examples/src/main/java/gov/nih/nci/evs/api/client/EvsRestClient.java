@@ -16,13 +16,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.Terminology;
 
 /**
- * The Class EvsRestClient.
+ * EVSRESTAPI Client.
  */
 public class EvsRestClient extends RootClient {
 
@@ -30,7 +29,7 @@ public class EvsRestClient extends RootClient {
   private static Logger logger = LoggerFactory.getLogger(RootClient.class);
 
   /**
-   * Instantiates an empty {@link EvsRestClient}.
+   * Instantiates an empty {@link EvsClientRest}.
    *
    * @throws Exception the exception
    */
@@ -53,7 +52,7 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return new ObjectMapper().readValue(json, new TypeReference<List<Terminology>>() {
+      return getMapper().readValue(json, new TypeReference<List<Terminology>>() {
         // n/a
       });
 
@@ -134,7 +133,7 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return new ObjectMapper().readValue(json, new TypeReference<List<Concept>>() {
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
         // n/a
       });
 
@@ -152,7 +151,7 @@ public class EvsRestClient extends RootClient {
    */
   public Concept getProperty(final String terminology, final String code, final String include)
     throws Exception {
-    return getMetadataHelper("property", terminology, code, include);
+    return getHelper("property", terminology, code, include);
   }
 
   /**
@@ -166,7 +165,7 @@ public class EvsRestClient extends RootClient {
    */
   public Concept getRole(final String terminology, final String code, final String include)
     throws Exception {
-    return getMetadataHelper("role", terminology, code, include);
+    return getHelper("role", terminology, code, include);
   }
 
   /**
@@ -180,30 +179,48 @@ public class EvsRestClient extends RootClient {
    */
   public Concept getAssociation(final String terminology, final String code, final String include)
     throws Exception {
-    return getMetadataHelper("association", terminology, code, include);
-    /**
-     * Returns the metadata helper.
-     *
-     * @param type the type
-     * @param terminology the terminology
-     * @param code the code
-     * @param include the include
-     * @return the metadata helper
-     * @throws Exception the exception
-     */
+    return getHelper("association", terminology, code, include);
   }
 
   /**
-   * Returns the metadata helper.
+   * Returns the concept.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param include the include
+   * @return the concept
+   * @throws Exception the exception
+   */
+  public Concept getConcept(final String terminology, final String code, final String include)
+    throws Exception {
+    return getHelper("concept", terminology, code, include);
+  }
+
+  /**
+   * Returns the concepts.
+   *
+   * @param terminology the terminology
+   * @param codes the codes
+   * @param include the include
+   * @return the concepts
+   * @throws Exception the exception
+   */
+  public List<Concept> getConcepts(final String terminology, final List<String> codes,
+    final String include) throws Exception {
+    return getListHelper("concept", terminology, codes, include);
+  }
+
+  /**
+   * Returns the helper.
    *
    * @param type the type
    * @param terminology the terminology
    * @param code the code
    * @param include the include
-   * @return the metadata helper
+   * @return the helper
    * @throws Exception the exception
    */
-  private Concept getMetadataHelper(final String type, final String terminology, final String code,
+  private Concept getHelper(final String type, final String terminology, final String code,
     final String include) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -213,18 +230,69 @@ public class EvsRestClient extends RootClient {
     if (include != null && !include.isEmpty()) {
       clauses.add("include=" + URLEncoder.encode(include, "UTF-8"));
     }
+    if (code.contains(",")) {
+      clauses.add("list=" + URLEncoder.encode(code, "UTF-8"));
+    }
     final String params = clauses.isEmpty() ? "" : ("?" + String.join("&", clauses));
 
     final Client client = getClients().get();
-    final WebTarget target =
-        client.target(getApiUrl() + "/metadata/" + terminology + "/" + type + "/" + code + params);
+    String url = null;
+    if (type.equals("concept")) {
+      url = "/concept/" + terminology + "/" + code + params;
+    } else {
+      url = "/metadata/" + terminology + "/" + type + "/" + code + params;
+    }
+
+    final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
         logger.error("Unexpected error getting " + type + " = " + terminology + ", " + code);
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return new ObjectMapper().readValue(json, Concept.class);
+      return getMapper().readValue(json, Concept.class);
+    }
+  }
+
+  /**
+   * Returns the list helper.
+   *
+   * @param type the type
+   * @param terminology the terminology
+   * @param codes the codes
+   * @param include the include
+   * @return the list helper
+   * @throws Exception the exception
+   */
+  private List<Concept> getListHelper(final String type, final String terminology,
+    final List<String> codes, final String include) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    if (codes == null || codes.isEmpty()) {
+      throw new IllegalArgumentException("Parameter codes must not be null or empty");
+    }
+
+    final Set<String> clauses = new HashSet<>();
+    if (include != null && !include.isEmpty()) {
+      clauses.add("include=" + URLEncoder.encode(include, "UTF-8"));
+    }
+    clauses.add("list=" + URLEncoder.encode(String.join(",", codes), "UTF-8"));
+    final String params = clauses.isEmpty() ? "" : ("?" + String.join("&", clauses));
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + params;
+
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + type + " = " + terminology + ", "
+            + String.join(";", codes));
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+        // n/a
+      });
     }
   }
 

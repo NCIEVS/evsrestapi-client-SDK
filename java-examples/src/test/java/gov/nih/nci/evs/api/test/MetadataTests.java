@@ -13,7 +13,7 @@ import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.Terminology;
 
 /**
- * The Class MetadataTests.
+ * Metadata tests.
  */
 public class MetadataTests {
 
@@ -45,7 +45,7 @@ public class MetadataTests {
   public void testGetTerminologies() throws Exception {
     final List<Terminology> terminologies = client.getTerminologies();
     logger.info("Get Terminologies");
-    logger.info("  url = " + client.getApiUrl());
+    logger.info("  base url = " + client.getApiUrl());
     for (final Terminology terminology : terminologies) {
       logger.info("  " + terminology.getTerminology() + " = " + terminology);
     }
@@ -86,6 +86,11 @@ public class MetadataTests {
     logger.info("  Accepted_Therapeutic_Use_For = " + property);
   }
 
+  /**
+   * Test get roles.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void testGetRoles() throws Exception {
     final List<Concept> roles = client.getRoles(terminology, null, null);

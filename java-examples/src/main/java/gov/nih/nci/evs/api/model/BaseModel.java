@@ -1,6 +1,7 @@
 
 package gov.nih.nci.evs.api.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -19,7 +20,8 @@ public class BaseModel {
   @Override
   public String toString() {
     try {
-      return new ObjectMapper().writeValueAsString(this);
+      return new ObjectMapper().setSerializationInclusion(Include.NON_EMPTY)
+          .writeValueAsString(this);
     } catch (final Exception e) {
       return e.getMessage();
     }

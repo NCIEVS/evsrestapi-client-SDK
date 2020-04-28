@@ -4,10 +4,18 @@ package gov.nih.nci.evs.api.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Represents a synonym of a concept.
  */
+@JsonIgnoreProperties(value = {
+    "code"
+})
 public class Property extends BaseModel {
+
+  /** The code. */
+  private String code;
 
   /** The type. */
   private String type;
@@ -43,10 +51,29 @@ public class Property extends BaseModel {
    * @param other the other
    */
   public void populateFrom(final Property other) {
+    code = other.getCode();
     type = other.getType();
     value = other.getValue();
     highlight = other.getHighlight();
     qualifiers = new ArrayList<>(other.getQualifiers());
+  }
+
+  /**
+   * Returns the code.  This is really for internal use for connecting qualifiers to properties.
+   *
+   * @return the code
+   */
+  public String getCode() {
+    return code;
+  }
+
+  /**
+   * Sets the code.
+   *
+   * @param code the code
+   */
+  public void setCode(final String code) {
+    this.code = code;
   }
 
   /**
@@ -124,6 +151,11 @@ public class Property extends BaseModel {
     this.qualifiers = qualifiers;
   }
 
+  /**
+   * Hash code.
+   *
+   * @return the int
+   */
   /* see superclass */
   @Override
   public int hashCode() {
@@ -134,6 +166,12 @@ public class Property extends BaseModel {
     return result;
   }
 
+  /**
+   * Equals.
+   *
+   * @param obj the obj
+   * @return true, if successful
+   */
   /* see superclass */
   @Override
   public boolean equals(final Object obj) {

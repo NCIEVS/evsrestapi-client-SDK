@@ -4,6 +4,9 @@ package gov.nih.nci.evs.api.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
+
+
 /**
  * Represents a terminology loaded into the EVSAPI.
  * 
@@ -26,6 +29,9 @@ public class Terminology extends BaseModel {
   /** The version. */
   private String version;
 
+  /** The date. */
+  private String date;
+  
   /** The name. */
   private String name;
 
@@ -34,7 +40,7 @@ public class Terminology extends BaseModel {
 
   /** The graph. */
   private String graph;
-
+  
   /** The graph source. */
   private String source;
 
@@ -52,6 +58,7 @@ public class Terminology extends BaseModel {
    */
   public Terminology() {
     // n/a
+    this.terminology = "ncit";
   }
 
   /**
@@ -71,6 +78,7 @@ public class Terminology extends BaseModel {
   public void populateFrom(final Terminology other) {
     terminology = other.getTerminology();
     version = other.getVersion();
+    date = other.getDate();
     name = other.getName();
     description = other.getDescription();
     graph = other.getGraph();
@@ -79,7 +87,7 @@ public class Terminology extends BaseModel {
     latest = other.getLatest();
     tags = new HashMap<>(other.getTags());
   }
-
+  
   /**
    * Returns the terminology.
    *
@@ -116,6 +124,24 @@ public class Terminology extends BaseModel {
     this.version = version;
   }
 
+  /**
+   * Returns the date.
+   *
+   * @return the date
+   */
+  public String getDate() {
+    return date;
+  }
+
+  /**
+   * Sets the date.
+   *
+   * @param date the date
+   */
+  public void setDate(String date) {
+    this.date = date;
+  }
+  
   /**
    * Returns the name.
    *
@@ -187,13 +213,16 @@ public class Terminology extends BaseModel {
   public void setSource(final String source) {
     this.source = source;
   }
-
+  
   /**
    * Returns the terminology version.
    *
    * @return the terminology version
    */
   public String getTerminologyVersion() {
+    if (StringUtils.isEmpty(terminologyVersion)) {
+      terminologyVersion = terminology + "_" + version;
+    }
     return terminologyVersion;
   }
 
@@ -245,32 +274,25 @@ public class Terminology extends BaseModel {
     this.tags = tags;
   }
 
-  /**
-   * Hash code.
-   *
-   * @return the int
-   */
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result = prime * result + ((description == null) ? 0 : description.hashCode());
+    result =
+        prime * result + ((description == null) ? 0 : description.hashCode());
     result = prime * result + ((graph == null) ? 0 : graph.hashCode());
     result = prime * result + ((source == null) ? 0 : source.hashCode());
     result = prime * result + ((latest == null) ? 0 : latest.hashCode());
     result = prime * result + ((name == null) ? 0 : name.hashCode());
-    result = prime * result + ((terminology == null) ? 0 : terminology.hashCode());
-    result = prime * result + ((terminologyVersion == null) ? 0 : terminologyVersion.hashCode());
+    result =
+        prime * result + ((terminology == null) ? 0 : terminology.hashCode());
+    result = prime * result
+        + ((terminologyVersion == null) ? 0 : terminologyVersion.hashCode());
     result = prime * result + ((version == null) ? 0 : version.hashCode());
+    result = prime * result + ((date == null) ? 0 : date.hashCode());
     return result;
   }
 
-  /**
-   * Equals.
-   *
-   * @param obj the obj
-   * @return true, if successful
-   */
   @Override
   public boolean equals(final Object obj) {
     if (this == obj) {
@@ -339,7 +361,14 @@ public class Terminology extends BaseModel {
     } else if (!version.equals(other.version)) {
       return false;
     }
+    if (date == null) {
+      if (other.date != null) {
+        return false;
+      }
+    } else if (!date.equals(other.date)) {
+      return false;
+    }
     return true;
   }
-
+  
 }

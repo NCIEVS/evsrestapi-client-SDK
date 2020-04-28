@@ -13,7 +13,6 @@ import org.slf4j.LoggerFactory;
  */
 public class SearchCriteriaWithoutTerminology extends BaseModel {
 
-  /** The Constant logger. */
   @SuppressWarnings("unused")
   private static final Logger logger =
       LoggerFactory.getLogger(SearchCriteriaWithoutTerminology.class);
@@ -311,6 +310,66 @@ public class SearchCriteriaWithoutTerminology extends BaseModel {
   public void setSynonymTermGroup(final String synonymTermGroup) {
     this.synonymTermGroup = synonymTermGroup;
   }
+
+  /**
+   * Returns the inverse.
+   *
+   * @return the inverse
+   */
+  // public Boolean getInverse() {
+  // return inverse;
+  // }
+
+  /**
+   * Sets the inverse.
+   *
+   * @param inverse the inverse
+   */
+  // public void setInverse(final Boolean inverse) {
+  // this.inverse = inverse;
+  // }
+
+  /**
+   * Returns the association.
+   *
+   * @return the association
+   */
+  // public List<String> getAssociation() {
+  // if (association == null) {
+  // association = new ArrayList<>();
+  // }
+  // return association;
+  // }
+
+  /**
+   * Sets the association.
+   *
+   * @param association the association
+   */
+  // public void setAssociation(final List<String> association) {
+  // this.association = association;
+  // }
+
+  /**
+   * Returns the role.
+   *
+   * @return the role
+   */
+  // public List<String> getRole() {
+  // if (role == null) {
+  // role = new ArrayList<>();
+  // }
+  // return role;
+  // }
+
+  /**
+   * Sets the role.
+   *
+   * @param role the role
+   */
+  // public void setRole(final List<String> role) {
+  // this.role = role;
+  // }
 
   /**
    * Check required fields.

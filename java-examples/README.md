@@ -73,7 +73,9 @@ The following examples are exhibited by various unit tests defined in the code i
 `MetadataTests.testGetTerminologies()` - Return all loaded terminologies currently hosted by the API.
 
 ```
-TBD log
+2020-04-28T19:36:53-04:00 INFO  : Get Terminologies
+2020-04-28T19:36:53-04:00 INFO  :   base url = https://api-evsrest-dev.nci.nih.gov/api/v1
+2020-04-28T19:36:53-04:00 INFO  :   ncit = {"terminology":"ncit","version":"20.04d","date":"April 27, 2020","name":"NCI Thesaurus 20.04d","description":"NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.","graph":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl","source":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl","terminologyVersion":"ncit_20.04d","latest":true,"tags":{"monthly":"true"}}
 ```
 
 [Back to Top](#top)
@@ -82,13 +84,13 @@ TBD log
 
 ### Get concept by code (minimal information)
 
-Return minimal concept information for a given terminology and code.
+`ConceptTests.getConceptByCode()` - Return concept object with minimal information for a specified code.
 
 ```
-curl "$API_URL/concept/ncit/C3224?include=minimal" | jq '.'
+2020-04-28T19:39:52-04:00 INFO  : Get concept by code - C3224
+2020-04-28T19:39:52-04:00 INFO  :   base url = https://api-evsrest-dev.nci.nih.gov/api/v1
+2020-04-28T19:39:52-04:00 INFO  :   concept = {"code":"C3224","name":"Melanoma","terminology":"ncit"}
 ```
-
-See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
 
 [Back to Top](#top)
 
@@ -96,15 +98,13 @@ See sample payload data from this call in [`samples/get-concept-by-code-minimum.
 
 ### Get concepts by list of codes (minimal information)
 
-Return minimal concept information for a given terminology and list of codes.
+`ConceptTests.getConceptsByList()` - Return concept objects with minimal information for a specified list of codes.
 
 ```
-curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
+2020-04-28T19:57:47-04:00 INFO  : Get concepts by list - [C3224, C3910]
+2020-04-28T19:57:47-04:00 INFO  :   base url = https://api-evsrest-dev.nci.nih.gov/api/v1
+2020-04-28T19:57:47-04:00 INFO  :   concepts = [{"code":"C3224","name":"Melanoma","terminology":"ncit"}, {"code":"C3910","name":"Molecular Abnormality","terminology":"ncit"}]
 ```
-
-See sample payload data from this call in See sample payload data from this call in [`samples/get-concepts-by-list-of-codes-minimum.txt`](samples/get-concepts-by-list-of-codes-minimum.txt)
-
-[Back to Top](#top)
 
 <a name="get-concept-summary"/>
 

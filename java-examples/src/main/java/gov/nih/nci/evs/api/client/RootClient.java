@@ -12,6 +12,9 @@ import javax.ws.rs.core.MediaType;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 /**
  * Top level class for all REST clients.
  */
@@ -99,4 +102,14 @@ public class RootClient {
     return clients;
   }
 
+  /**
+   * Returns the mapper.
+   *
+   * @return the mapper
+   */
+  public ObjectMapper getMapper() {
+    final ObjectMapper mapper = new ObjectMapper();
+    mapper.setSerializationInclusion(Include.NON_EMPTY);
+    return mapper;
+  }
 }

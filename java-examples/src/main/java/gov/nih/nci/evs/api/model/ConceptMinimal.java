@@ -23,6 +23,9 @@ public class ConceptMinimal extends BaseModel {
   /** The terminology. */
   private String terminology;
 
+  /** The version. */
+  private String version;
+
   /**
    * Instantiates an empty {@link ConceptMinimal}.
    */
@@ -62,6 +65,16 @@ public class ConceptMinimal extends BaseModel {
   }
 
   /**
+   * Instantiates a {@link ConceptMinimal} from the specified parameters.
+   *
+   * @param other the other
+   */
+  public ConceptMinimal(final ConceptNode other) {
+    code = other.getCode();
+    name = other.getLabel();
+  }
+
+  /**
    * Populate from.
    *
    * @param other the other
@@ -70,6 +83,7 @@ public class ConceptMinimal extends BaseModel {
     code = other.getCode();
     name = other.getName();
     terminology = other.getTerminology();
+    version = other.getVersion();
   }
 
   /**
@@ -126,11 +140,14 @@ public class ConceptMinimal extends BaseModel {
     this.terminology = terminology;
   }
 
-  /**
-   * Hash code.
-   *
-   * @return the int
-   */
+  public String getVersion() {
+    return version;
+  }
+
+  public void setVersion(final String version) {
+    this.version = version;
+  }
+
   /* see superclass */
   @Override
   public int hashCode() {
@@ -139,6 +156,7 @@ public class ConceptMinimal extends BaseModel {
     result = prime * result + ((code == null) ? 0 : code.hashCode());
     result = prime * result + ((name == null) ? 0 : name.hashCode());
     result = prime * result + ((terminology == null) ? 0 : terminology.hashCode());
+    result = prime * result + ((version == null) ? 0 : version.hashCode());
     return result;
   }
 
@@ -180,6 +198,13 @@ public class ConceptMinimal extends BaseModel {
         return false;
       }
     } else if (!terminology.equals(other.terminology)) {
+      return false;
+    }
+    if (version == null) {
+      if (other.version != null) {
+        return false;
+      }
+    } else if (!version.equals(other.version)) {
       return false;
     }
     return true;

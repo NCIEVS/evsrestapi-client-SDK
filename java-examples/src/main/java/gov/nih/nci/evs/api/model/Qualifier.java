@@ -1,11 +1,19 @@
 
 package gov.nih.nci.evs.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Represents a qualifier on a synonym, definition, property, or role that isn't
  * explicitly modeled as a first-class attribute.
  */
+@JsonIgnoreProperties(value = {
+    "code"
+})
 public class Qualifier extends BaseModel {
+
+  /** The code. */
+  private String code;
 
   /** The type. */
   private String type;
@@ -46,8 +54,27 @@ public class Qualifier extends BaseModel {
    * @param other the other
    */
   public void populateFrom(final Qualifier other) {
+    code = other.getCode();
     type = other.getType();
-    value = other.getValue();    
+    value = other.getValue();
+  }
+
+  /**
+   * Returns the code.
+   *
+   * @return the code
+   */
+  public String getCode() {
+    return code;
+  }
+
+  /**
+   * Sets the code.
+   *
+   * @param code the code
+   */
+  public void setCode(String code) {
+    this.code = code;
   }
 
   /**
