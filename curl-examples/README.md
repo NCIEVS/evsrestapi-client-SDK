@@ -43,14 +43,13 @@ The following examples can be types into the command line of any terminal that h
 - [Get all associations](#get-associations)
 - [Get association by code (or label)](#get-association)
 - [Get all term types](#get-term-types)
-- [Get all contributing sources](#get-contributing-sources)
+- [Get all synonym sources](#get-synonym-sources)
 - [Find root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
 - [Get subtree](#get-subtree)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
-- [Find concepts by search term (restrict by contributing source)](#find-concepts-restrict-contributing-source)
 - [Find concepts by search term (restrict by definition source)](#find-concepts-restrict-concept-definition-source)
 - [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-restrict-synonym-source)
 - [Find concepts by search term (where term is a code)](#find-concepts-by-code)
@@ -361,17 +360,17 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 
 [Back to Top](#top)
 
-<a name="get-contributing-sources"/>
+<a name="get-synonym-sources"/>
 
-### Get all contributing sources
+### Get all synonym sources
 
-Return metadata for all contributing sources for the specified terminology.
+Return metadata for all synonym sources for the specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/contributingSources" | jq '.'
+curl "$API_URL/metadata/ncit/synonymSources" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-contributing-sources.txt`](samples/get-contributing-sources.txt)
+See sample payload data from this call in [`samples/get-synonym-sources.txt`](samples/get-synonym-sources.txt)
 
 [Back to Top](#top)
 
@@ -463,22 +462,6 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
-
-[Back to Top](#top)
-
-<a name="find-concepts-restrict-contributing-source"/>
-
-### Find concepts by search term (restrict by contributing source)
-
-Find concepts matching a search term within a specified terminology and
-restrict the search results by a contributing source of "CDISC". This 
-example uses paging to get only the first 5 results.
-
-```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5" | jq '.'
-```
-
-See sample payload data from this call in [`samples/find-concepts-by-search-term-cdisc.txt`](samples/find-concepts-by-search-term-cdisc.txt)
 
 [Back to Top](#top)
 

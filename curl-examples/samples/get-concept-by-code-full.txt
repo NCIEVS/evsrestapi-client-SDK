@@ -154,17 +154,7 @@ a mole (skin melanoma), but can also begin in other pigmented tissues, such as i
       "type": "ICD-O-3_Code",
       "value": "8720/3"
     }
-  ],
-  "contributingSources": [
-    "CDISC",
-    "CPTAC",
-    "CTEP",
-    "CTRP",
-    "Cellosaurus",
-    "GDC",
-    "NCI-GLOSS",
-    "NICHD"
-  ],
+  ]
   "children": [
     {
       "code": "C3802",

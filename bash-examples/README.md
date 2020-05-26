@@ -25,7 +25,7 @@ Test Scripts
 - [get-property.sh](#get-property-sh)
 - [get-qualifier.sh](#get-qualifier-sh)
 - [get-term-types.sh](#get-term-types-sh)
-- [get-contributing-sources.sh](#get-contributing-sources-sh)
+- [get-synonym-sources.sh](#get-synonym-sources-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -1315,21 +1315,21 @@ Finished ...Thu, Feb  6, 2020  4:28:47 PM
 ```
 [Back to Top](#top)
 
-<a name="get-contributing-sources-sh"/>
+<a name="get-synonym-sources-sh"/>
 
-### get-contributing-sources.sh
+### get-synonym-sources.sh
 
-Return information about contributing sources for a given terminology.
+Return information about synonym sources for a given terminology.
 
 ```
-$ ./get-contributing-sources.sh ncit
+$ ./get-synonym-sources.sh ncit
 -----------------------------------------------------
 Starting ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
 url = http://localhost:8082/api/v1
 terminology = ncit
 
-  Get contributing sources for ncit:
+  Get synonym sources for ncit:
 
     [
       {
