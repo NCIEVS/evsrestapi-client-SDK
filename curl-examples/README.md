@@ -35,7 +35,7 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-properties)
 - [Get property by code (or label)](#get-property)
-- [Get property axiom qualifier values by code (or label)](#get-property-aq)
+- [Get qualifier values by code (or label)](#get-property-aq)
 - [Get all qualifiers](#get-qualifiers)
 - [Get qualifier by code (or label)](#get-qualifier)
 - [Get all roles](#get-roles)
@@ -228,16 +228,16 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 <a name="get-property-aq"/>
 
-### Get property axiom qualifier values by code (or label)
+### Get qualifier values by code (or label)
 
-Return property axiom qualifier values for the specified code or label.
+Return qualifier values for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/property/P383/axiomQualifiers" | jq '.'
-curl "$API_URL/metadata/ncit/property/term-group/axiomQualifiers" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/P383/values" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/term-group/values" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property-axiomQualifiers.txt`](samples/get-property-axiomQualifiers.txt)
+See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
 
 [Back to Top](#top)
 

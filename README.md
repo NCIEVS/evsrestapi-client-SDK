@@ -34,7 +34,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get concept descendants
 - Get all properties
 - Get property by code (or label)
-- Get property axiom qualifiers by code (or label)
+- Get qualifier values by code (or label)
 - Get all roles
 - Get role by code (or label)
 - Get all associations
