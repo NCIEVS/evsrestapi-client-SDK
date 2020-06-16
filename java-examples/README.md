@@ -7,7 +7,7 @@ This tutorial shows how to use a locally defined Java client to interact with th
 
 Prerequisites
 -------------
-* JDK 1.8 must be installed ([Download Java](https://www.java.com/en/download/)
+* JDK 1.8 must be installed ([Download Java](https://www.java.com/en/download/))
 
 The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the java client will connect to.
 
