@@ -124,7 +124,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-summary.
 
 ### Get concept by code (full information)
 
-Return full concept information for a given terminology and code.
+`ConceptTests.getConceptByListFull()` - Return full concept information for a given terminology and code.
 
 ```
 curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
