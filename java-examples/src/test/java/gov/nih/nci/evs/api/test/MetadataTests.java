@@ -80,7 +80,7 @@ public class MetadataTests {
     logger.info("  url = " + client.getApiUrl());
     logger.info("  P302 = " + property);
 
-    property = client.getProperty(terminology, "FULL", "minimal");
+    property = client.getProperty(terminology, "Accepted_Therapeutic_Use_For", "minimal");
     logger.info("Get Accepted_Therapeutic_Use_For (minimal information)");
     logger.info("  url = " + client.getApiUrl());
     logger.info("  Accepted_Therapeutic_Use_For = " + property);
