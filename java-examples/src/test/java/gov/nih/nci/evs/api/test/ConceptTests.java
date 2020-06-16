@@ -50,17 +50,32 @@ public class ConceptTests {
   }
 
   /**
-   * Test get concepts by list.
+   * Test get concepts by list as minimal.
    *
    * @throws Exception the exception
    */
   @Test
-  public void testGetConceptsByList() throws Exception {
+  public void testGetConceptsByListMinimal() throws Exception {
     final List<String> codes = new ArrayList<>();
     codes.add("C3224");
     codes.add("C3910");
     final List<Concept> concepts = client.getConcepts(terminology, codes, "minimal");
     logger.info("Get concepts by list - " + codes);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concepts = " + concepts);
+  }
+
+  /**
+   * Test get single concept by list as summary.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptByListSummary() throws Exception {
+    final List<String> codes = new ArrayList<>();
+    codes.add("C3224");
+    final List<Concept> concepts = client.getConcepts(terminology, codes, "summary");
+    logger.info("Get concept by list - " + codes);
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concepts = " + concepts);
   }

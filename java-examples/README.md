@@ -98,7 +98,7 @@ The following examples are exhibited by various unit tests defined in the code i
 
 ### Get concepts by list of codes (minimal information)
 
-`ConceptTests.getConceptsByList()` - Return concept objects with minimal information for a specified list of codes.
+`ConceptTests.getConceptsByListMinimal()` - Return concept objects with minimal information for a specified list of codes.
 
 ```
 2020-04-28T19:57:47-04:00 INFO  : Get concepts by list - [C3224, C3910]
@@ -110,9 +110,7 @@ The following examples are exhibited by various unit tests defined in the code i
 
 ### Get concept by code (summary information)
 
-Return summary concept information for a given terminology and code (note the
-'summary' is the default value for include in this context, using 'include=summary'
-would produce the same result).
+`ConceptTests.getConceptByListSummary()` - Return summary concept information for a given terminology and code
 
 ```
 curl "$API_URL/concept/ncit/C3224" | jq '.'
