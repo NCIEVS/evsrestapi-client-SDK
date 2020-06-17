@@ -208,12 +208,12 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  /**@Test
+  @Test
   public void testGetConceptPartDisjointWith() throws Exception {
-    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "disjointWith");
-    logger.info("Get concept by code - C3224");
+    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3910", "disjointWith");
+    logger.info("Get concept by code - C3910");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
-  }*/
+  }
 
 }
