@@ -163,7 +163,7 @@ inverseAssociations, maps, or disjointWith.
 curl "$API_URL/concept/ncit/C3224/children" | jq '.'
 ```
 
-See the full set of examples for this "style" of call
+See the full set of example payload data for this "style" of call
 * [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
 * [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
 * [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
@@ -171,7 +171,7 @@ See the full set of examples for this "style" of call
 * [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
 * [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
 * [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
-* [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
+* [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt) (using 'C3910' instead of 'C3224')
 
 [Back to Top](#top)
 
