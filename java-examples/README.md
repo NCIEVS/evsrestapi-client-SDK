@@ -138,6 +138,8 @@ See sample payload data from this call in [`samples/get-concept-by-code-full.txt
 
 ### Get concept by code (custom information)
 
+`ConceptTests.getConceptByListCustom()` - Return custom concept information for a given terminology and code.
+
 Return custom concept information for a given terminology and code. To show a range
 of options, in this case, the request asks for synonyms, children, maps, and inverse
 associations.
@@ -154,8 +156,11 @@ See sample payload data from this call in [`samples/get-concept-by-code-custom.t
 
 ### Get concept part
 
-Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below,
-you can replace "children" in the URL with any of the following and retrieve the 
+`ConceptTests.getConceptPart<x>()` - Return concept part information for a given terminology, concept part, and code.
+
+Returns sub-part of the concept for a given terminology, concept part, and code. 
+
+NOTE: in the call below, you can replace "children" in the URL with any of the following and retrieve the 
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps, or disjointWith.
 
@@ -178,6 +183,8 @@ See the full set of example payload data for this "style" of call
 <a name="get-descendants"/>
 
 ### Get descendants
+
+`ConceptTests.getDescendants()` - Return concept descendants information for a given terminology and code.
 
 Return concept descendants information for a given terminology and code. The call
 can be constrained by a maxLevel to prevent going deeper than a certain amount.
