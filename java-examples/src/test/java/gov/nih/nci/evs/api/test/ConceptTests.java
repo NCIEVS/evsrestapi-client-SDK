@@ -96,7 +96,7 @@ public class ConceptTests {
   }
 
   /**
-   * Test get single concept by list as summary.
+   * Test get single concept by list as custom.
    *
    * @throws Exception the exception
    */
@@ -108,6 +108,32 @@ public class ConceptTests {
     logger.info("Get concept by list - " + codes);
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concepts = " + concepts);
+  }
+
+  /**
+   * Test get single concept part: children.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptPartChildren() throws Exception {
+    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "children");
+    logger.info("Get concept by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test get single concept part: parents.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptPartParents() throws Exception {
+    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "parents");
+    logger.info("Get concept by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
   }
 
 }
