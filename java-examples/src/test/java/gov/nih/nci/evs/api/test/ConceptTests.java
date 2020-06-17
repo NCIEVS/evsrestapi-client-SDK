@@ -155,9 +155,9 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  /**@Test
+  @Test
   public void testGetConceptPartAssociations() throws Exception {
-    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "associations");
+    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "associations");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -168,9 +168,9 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  /**@Test
+  @Test
   public void testGetConceptPartInverseRoles() throws Exception {
-    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "inverseRoles");
+    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "inverseRoles");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -181,9 +181,9 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  /**@Test
+  @Test
   public void testGetConceptPartInverseAssociations() throws Exception {
-    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "inverseAssociations");
+    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "inverseAssociations");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
