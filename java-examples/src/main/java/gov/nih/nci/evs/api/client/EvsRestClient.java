@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 import gov.nih.nci.evs.api.model.Terminology;
 
@@ -215,6 +216,11 @@ public class EvsRestClient extends RootClient {
     return getRelationshipPartHelper(terminology, code, part);
   }
 
+  public List<Map> getMapPart(final String terminology, final String code, final String part)
+    throws Exception {
+    return getMapPartHelper(terminology, code, part);
+  }
+
   /**
    * Returns the concepts.
    *
@@ -273,6 +279,15 @@ public class EvsRestClient extends RootClient {
     }
   }
 
+  /**
+   * Returns the concept part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the concept part
+   * @return the concept part
+   * @throws Exception the exception
+   */
   private List<Concept> getConceptPartHelper(final String terminology, final String code, 
     final String part) throws Exception {
 
@@ -294,6 +309,15 @@ public class EvsRestClient extends RootClient {
     }
   }
 
+  /**
+   * Returns the relationship part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the relationship part
+   * @return the relationship part
+   * @throws Exception the exception
+   */
   private List<Relationship> getRelationshipPartHelper(final String terminology, final String code, 
     final String part) throws Exception {
 
@@ -312,6 +336,36 @@ public class EvsRestClient extends RootClient {
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, new TypeReference<List<Relationship>>() {});
+    }
+  }
+
+  /**
+   * Returns the map part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the map part
+   * @return the map part
+   * @throws Exception the exception
+   */
+  private List<Map> getMapPartHelper(final String terminology, final String code, 
+    final String part) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + "/" + code + "/" + part;
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<Map>>() {});
     }
   }
 

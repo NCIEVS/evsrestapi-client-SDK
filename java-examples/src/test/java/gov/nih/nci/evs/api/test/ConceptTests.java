@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 
 import gov.nih.nci.evs.api.client.EvsRestClient;
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 
 /**
@@ -194,9 +195,9 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  /**@Test
+  @Test
   public void testGetConceptPartMaps() throws Exception {
-    final List<Concept> concept = client.getConceptPart(terminology, "C3224", "maps");
+    final List<Map> concept = client.getMapPart(terminology, "C3224", "maps");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
