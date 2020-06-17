@@ -18,6 +18,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.Relationship;
 import gov.nih.nci.evs.api.model.Terminology;
 
 /**
@@ -209,6 +210,11 @@ public class EvsRestClient extends RootClient {
     return getConceptPartHelper(terminology, code, part);
   }
 
+  public List<Relationship> getRelationshipPart(final String terminology, final String code, final String part)
+    throws Exception {
+    return getRelationshipPartHelper(terminology, code, part);
+  }
+
   /**
    * Returns the concepts.
    *
@@ -285,6 +291,27 @@ public class EvsRestClient extends RootClient {
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
+    }
+  }
+
+  private List<Relationship> getRelationshipPartHelper(final String terminology, final String code, 
+    final String part) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + "/" + code + "/" + part;
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<Relationship>>() {});
     }
   }
 
