@@ -202,6 +202,8 @@ See sample payload data from this call in [`samples/get-concept-descendants.txt`
 
 ### Get all properties
 
+`MetadataTests.getProperties()` - Return all properties for a given terminology.
+
 Return all properties. The first sample below returns just the names and codes
 while the include=summary yields summary level information for each code.
 The third call returns summary information for the three listed properties (by code).
