@@ -216,4 +216,17 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
+  /**
+   * Test get single concept part: disjoint with.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetDescendants() throws Exception {
+    final List<Concept> concept = client.getDescendants(terminology, "C3224", "4");
+    logger.info("Get concept by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
 }

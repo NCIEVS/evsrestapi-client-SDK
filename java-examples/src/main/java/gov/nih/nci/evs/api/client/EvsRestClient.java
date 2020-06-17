@@ -221,6 +221,11 @@ public class EvsRestClient extends RootClient {
     return getMapPartHelper(terminology, code, part);
   }
 
+  public List<Concept> getDescendants(final String terminology, final String code, final String levels)
+    throws Exception {
+    return getDescendantsHelper(terminology, code, levels);
+  }
+
   /**
    * Returns the concepts.
    *
@@ -402,6 +407,40 @@ public class EvsRestClient extends RootClient {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
         logger.error("Unexpected error getting " + type + " = " + terminology + ", "
             + String.join(";", codes));
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+        // n/a
+      });
+    }
+  }
+
+  /**
+   * Returns the list helper.
+   *
+   * @param type the type
+   * @param terminology the terminology
+   * @param codes the codes
+   * @param include the include
+   * @return the list helper
+   * @throws Exception the exception
+   */
+  private List<Concept> getDescendantsHelper(final String terminology, final String codes,
+    final String levels) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    if (codes == null || codes.isEmpty()) {
+      throw new IllegalArgumentException("Parameter codes must not be null or empty");
+    }
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + "/" + codes + "/descendants" + "?maxLevel=" + levels;
+
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + "?maxLevel=" + levels);
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
