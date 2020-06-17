@@ -95,4 +95,19 @@ public class ConceptTests {
     logger.info("  concepts = " + concepts);
   }
 
+  /**
+   * Test get single concept by list as summary.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptByListCustom() throws Exception {
+    final List<String> codes = new ArrayList<>();
+    codes.add("C3224");
+    final List<Concept> concepts = client.getConcepts(terminology, codes, "synonyms,children,maps,inverseAssociations");
+    logger.info("Get concept by list - " + codes);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concepts = " + concepts);
+  }
+
 }
