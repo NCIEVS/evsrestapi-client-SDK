@@ -256,7 +256,7 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 ### Get all roles
 
-`MetadataTests.GetRolls()` - Return all roles.
+`MetadataTests.GetRoles()` - Return all roles.
 
 Return all roles. The first sample below returns just the names and codes
 while the include=summary yields summary level information for each code.
@@ -278,6 +278,8 @@ See sample payload data from this call in [`samples/get-roles.txt`](samples/get-
 
 ### Get role by code (or label)
 
+`MetadataTests.GetRolesByCode()` - Return all roles by code or label.
+
 Return role for the specified code or label.
 
 ```
@@ -285,7 +287,7 @@ curl "$API_URL/metadata/ncit/role/R123?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
+See sample payload data from this call in [`samples/get-role-by-code-or-label.txt`](samples/get-role-by-code-or-label.txt)
 
 [Back to Top](#top)
 

@@ -108,6 +108,19 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
+   * Returns the roles by code or label.
+   *
+   * @param terminology the terminology
+   * @param include the include
+   * @param codes the codes
+   * @return the roles
+   * @throws Exception the exception
+   */
+  public Concept getRolesByCode(final String terminology, final String code) throws Exception {
+    return getAllCodeHelper(terminology, code);
+  }
+
+  /**
    * Returns the associations.
    *
    * @param terminology the terminology
@@ -156,6 +169,36 @@ public class EvsRestClient extends RootClient {
       return getMapper().readValue(json, new TypeReference<List<Concept>>() {
         // n/a
       });
+
+    }
+  }
+
+  /**
+   * Returns the all metadata helper.
+   *
+   * @param type the type
+   * @param terminology the terminology
+   * @param include the include
+   * @param codes the codes
+   * @return the all metadata helper
+   * @throws Exception the exception
+   */
+  private Concept getAllCodeHelper(final String terminology,
+    final String code) throws Exception {
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    String url = "/metadata/ncit/role/" + code;
+    final Client client = getClients().get();
+    final WebTarget target =
+        client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting all " + code + " = " + terminology);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, Concept.class);
 
     }
   }

@@ -102,6 +102,19 @@ public class MetadataTests {
   }
 
   /**
+   * Test get roles by code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetRolesByCode() throws Exception {
+    final Concept roles = client.getRolesByCode(terminology, "R123");
+    logger.info("Get all roles for " + terminology + " (default include)");
+    logger.info("  url = " + client.getApiUrl());
+    logger.info("  " + roles.getCode() + " = " + roles);
+  }
+
+  /**
    * Test get property by code.
    *
    * @throws Exception the exception
