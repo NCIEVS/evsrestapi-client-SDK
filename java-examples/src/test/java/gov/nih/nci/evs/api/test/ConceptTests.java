@@ -13,6 +13,7 @@ import gov.nih.nci.evs.api.client.EvsRestClient;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
+import gov.nih.nci.evs.api.model.ResultList;
 
 /**
  * Concept tests.
@@ -306,5 +307,20 @@ public class ConceptTests {
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
+
+    /**
+   * Test get subtree graph for code with children.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTerm() throws Exception {
+    final List<ResultList> concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
+    null, null, null, null, null, null);
+    logger.info("Get subtree graph by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
 
 }

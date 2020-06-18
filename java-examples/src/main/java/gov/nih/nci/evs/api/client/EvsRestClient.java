@@ -176,11 +176,11 @@ public class EvsRestClient extends RootClient {
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public List<ResultList> getConceptBySearchTerm(final String terminology, final String code, 
-  String term, String pageSize, String conceptStatus, String contributingSource, String definitionSource,
-  String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
-    return getConceptBySearchTermHelper(terminology, code, term, pageSize, conceptStatus, contributingSource,
-                                        definitionSource, synonymSource, synonymTermGroup, type, includes);
+  public List<ResultList> getConceptBySearchTerm(final String terminology, String term, String pageSize,
+  String conceptStatus, String contributingSource, String definitionSource, String synonymSource,
+  String synonymTermGroup, String type, List<String> includes) throws Exception {
+    return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus, contributingSource, definitionSource,
+    synonymSource, synonymTermGroup, type, includes);
   }
 
   /**
@@ -761,12 +761,11 @@ public class EvsRestClient extends RootClient {
    * @return the concept
    * @throws Exception the exception
    */
-  private List<ResultList> getConceptBySearchTermHelper(final String terminology, final String code, 
-  String term, String pageSize, String conceptStatus, String contributingSource, String definitionSource,
+  private List<ResultList> getConceptBySearchTermHelper(final String terminology, String term,
+  String pageSize, String conceptStatus, String contributingSource, String definitionSource,
   String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
-    validateNotEmpty(code, "code");
     validateNotEmpty(term, "term");
 
     final Client client = getClients().get();
@@ -797,7 +796,7 @@ public class EvsRestClient extends RootClient {
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-        logger.error("Unexpected error getting " + terminology + ", " + code);
+        logger.error("Unexpected error getting " + terminology + ", " + term);
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
