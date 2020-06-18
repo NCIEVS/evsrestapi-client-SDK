@@ -2,6 +2,7 @@
 package gov.nih.nci.evs.api.test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -11,6 +12,7 @@ import org.slf4j.LoggerFactory;
 
 import gov.nih.nci.evs.api.client.EvsRestClient;
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 
@@ -277,6 +279,32 @@ public class ConceptTests {
   public void testGetPathToAncestor() throws Exception {
     final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToAncestor", "C2991");
     logger.info("Get path to ancestor code by code - C3224/C2991");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test get subtree graph for code without children.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetSubtreeForCode() throws Exception {
+    final String concept = client.getHierarchyNode(terminology, "C3224", false);
+    logger.info("Get subtree graph by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept.toString());
+  }
+
+  /**
+   * Test get subtree graph for code with children.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetSubtreeForCodeNoChildren() throws Exception {
+    final String concept = client.getHierarchyNode(terminology, "C3224", true);
+    logger.info("Get subtree graph by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }

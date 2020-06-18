@@ -409,15 +409,17 @@ See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](
 
 ### Get subtree for code
 
-Return an entire subtree graph from the root concepts to a specified node.  This
-call is specifically tuned to support a tree-view based hierarchy browser in a UI.
+`ConceptTests.GetSubtreeForCode()` - Return an entire subtree graph from the root concepts to a specified node.
+`ConceptTests.GetSubtreeForCodeNoChildren()` - Return an entire subtree graph from the root concepts to a specified node, without children.
+
+This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 ```
 curl "$API_URL/concept/ncit/C3224/subtree" | jq '.'
 curl "$API_URL/concept/ncit/C3224/subtree/children" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
+See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-no-children.txt`](samples/get-subtree-no-children.txt)
 
 [Back to Top](#top)
 

@@ -19,6 +19,7 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 import gov.nih.nci.evs.api.model.Terminology;
@@ -155,6 +156,17 @@ public class EvsRestClient extends RootClient {
    */
   public List<Concept> getRootConcepts(final String terminology) throws Exception {
     return getRootConceptsHelper(terminology);
+  }
+
+  /**
+   * Returns the hierarchy nodes.
+   *
+   * @param terminology the terminology
+   * @return the hierarchy nodes
+   * @throws Exception the exception
+   */
+  public String getHierarchyNode(final String terminology, final String code, final Boolean removeChildren) throws Exception {
+    return getHierarchyNodeHelper(terminology, code, removeChildren);
   }
 
   /**
@@ -692,6 +704,38 @@ public class EvsRestClient extends RootClient {
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, new TypeReference<List<List<Concept>>>() {});
+    }
+  }
+
+  /**
+   * Returns the concept part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the concept part
+   * @return the concept part
+   * @throws Exception the exception
+   */
+  private String getHierarchyNodeHelper(final String terminology, final String code, 
+    final Boolean removeChildren) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + "/" + code + "/subtree";
+    if(removeChildren == true)
+      url += "/children";
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return json;
     }
   }
 
