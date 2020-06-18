@@ -333,9 +333,9 @@ public class EvsRestClient extends RootClient {
    * @return the concept paths
    * @throws Exception the exception
    */
-  public List<List<Concept>> getConceptPath(final String terminology, final String code, final String part)
+  public List<List<Concept>> getConceptPath(final String terminology, final String code, final String part1, final String part2)
     throws Exception {
-    return getConceptPathHelper(terminology, code, part);
+    return getConceptPathHelper(terminology, code, part1, part2);
   }
 
   /**
@@ -673,13 +673,15 @@ public class EvsRestClient extends RootClient {
    * @throws Exception the exception
    */
   private List<List<Concept>> getConceptPathHelper(final String terminology, final String code, 
-    final String part) throws Exception {
+    final String part1, final String part2) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
 
     final Client client = getClients().get();
-    String url = "/concept/" + terminology + "/" + code + "/" + part;
+    String url = "/concept/" + terminology + "/" + code + "/" + part1;
+    if(part2 != null)
+      url += "/" + part2;
 
     System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);

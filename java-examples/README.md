@@ -392,6 +392,8 @@ See sample payload data from this call in [`samples/get-paths-to-root.txt`](samp
 
 ### Get paths to an ancestor code from a code
 
+`ConceptTests.GetPathToAncestor()` - Return paths from the root concept from a specified terminology and code.
+
 Return paths to/from the specified ancestor code from a specified 
 terminology and code.
 

@@ -249,7 +249,7 @@ public class ConceptTests {
    */
   @Test
   public void testGetPathToRoot() throws Exception {
-    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToRoot");
+    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToRoot", null);
     logger.info("Get path to root by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -262,8 +262,21 @@ public class ConceptTests {
    */
   @Test
   public void testGetPathFromRoot() throws Exception {
-    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsFromRoot");
+    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsFromRoot", null);
     logger.info("Get path to root by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test get path to ancestor node from code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetPathToAncestor() throws Exception {
+    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToAncestor", "C2991");
+    logger.info("Get path to ancestor code by code - C3224/C2991");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
