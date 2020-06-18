@@ -157,7 +157,7 @@ public class MetadataTests {
   // Get association by code (or label)
 
   /**
-   * Test get property by code.
+   * Test get association by code.
    *
    * @throws Exception the exception
    */
@@ -169,8 +169,22 @@ public class MetadataTests {
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
-  
+
   // Get all term types
+
+  /**
+   * Test get association by code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetTermTypes() throws Exception {
+
+    final List<Concept> concept = client.getTermTypes(terminology);
+    logger.info("Get term types by terminology - " + terminology);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
   // Get all contributing sources
 
 }

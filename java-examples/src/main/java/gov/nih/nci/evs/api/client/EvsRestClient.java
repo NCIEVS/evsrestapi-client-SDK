@@ -135,6 +135,17 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
+   * Returns the term types.
+   *
+   * @param terminology the terminology
+   * @return the term types
+   * @throws Exception the exception
+   */
+  public List<Concept> getTermTypes(final String terminology) throws Exception {
+    return getTermTypesHelper(terminology);
+  }
+
+  /**
    * Returns the all metadata helper.
    *
    * @param type the type
@@ -567,6 +578,32 @@ public class EvsRestClient extends RootClient {
       final String json = response.readEntity(String.class);
       final String jsonStripped = json.replaceAll("[\\[\\]\"]","");
       return Arrays.asList(jsonStripped.split(","));
+    }
+  }
+
+  /**
+   * Returns the term types by terminology.
+   *
+   * @param terminology the terminology
+   * @return the term types
+   * @throws Exception the exception
+   */
+  private List<Concept> getTermTypesHelper(final String terminology) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+
+    final Client client = getClients().get();
+    String url = "/metadata/" + terminology + "/termTypes";
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
     }
   }
 

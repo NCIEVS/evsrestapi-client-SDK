@@ -324,7 +324,7 @@ curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
+See sample payload data from this call in [`samples/get-association-by-code.txt`](samples/get-association-by-code.txt)
 
 [Back to Top](#top)
 
