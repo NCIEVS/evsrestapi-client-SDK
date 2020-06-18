@@ -19,9 +19,9 @@ import org.slf4j.LoggerFactory;
 import com.fasterxml.jackson.core.type.TypeReference;
 
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
+import gov.nih.nci.evs.api.model.ResultList;
 import gov.nih.nci.evs.api.model.Terminology;
 
 /**
@@ -165,8 +165,19 @@ public class EvsRestClient extends RootClient {
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public String getHierarchyNode(final String terminology, final String code, final Boolean removeChildren) throws Exception {
-    return getHierarchyNodeHelper(terminology, code, removeChildren);
+  public String getSubtree(final String terminology, final String code, final Boolean removeChildren) throws Exception {
+    return getSubtreeHelper(terminology, code, removeChildren);
+  }
+
+  /**
+   * Returns the hierarchy nodes.
+   *
+   * @param terminology the terminology
+   * @return the hierarchy nodes
+   * @throws Exception the exception
+   */
+  public List<ResultList> getConceptBySearchTerm(final String terminology, final String code) throws Exception {
+    return getConceptBySearchTermHelper(terminology, code);
   }
 
   /**
@@ -708,15 +719,15 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
-   * Returns the concept part.
+   * Returns the hierarchy node.
    *
    * @param terminology the terminology
    * @param code the code
-   * @param part the concept part
+   * @param children remove children or not
    * @return the concept part
    * @throws Exception the exception
    */
-  private String getHierarchyNodeHelper(final String terminology, final String code, 
+  private String getSubtreeHelper(final String terminology, final String code, 
     final Boolean removeChildren) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -738,5 +749,38 @@ public class EvsRestClient extends RootClient {
       return json;
     }
   }
+
+  /**
+   * Returns the concept by search term.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @return the concept
+   * @throws Exception the exception
+   */
+  private List<ResultList> getConceptBySearchTermHelper(final String terminology, final String code) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/concept/search?terminology=" + terminology;
+
+    if(true)
+      return null;
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<ResultList>>() {});
+    }
+  }
+
+
 
 }

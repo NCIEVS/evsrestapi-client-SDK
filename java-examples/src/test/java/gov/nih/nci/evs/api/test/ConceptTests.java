@@ -2,7 +2,6 @@
 package gov.nih.nci.evs.api.test;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import org.junit.BeforeClass;
@@ -12,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import gov.nih.nci.evs.api.client.EvsRestClient;
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 
@@ -290,7 +288,7 @@ public class ConceptTests {
    */
   @Test
   public void testGetSubtreeForCode() throws Exception {
-    final String concept = client.getHierarchyNode(terminology, "C3224", false);
+    final String concept = client.getSubtree(terminology, "C3224", false);
     logger.info("Get subtree graph by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept.toString());
@@ -303,7 +301,7 @@ public class ConceptTests {
    */
   @Test
   public void testGetSubtreeForCodeNoChildren() throws Exception {
-    final String concept = client.getHierarchyNode(terminology, "C3224", true);
+    final String concept = client.getSubtree(terminology, "C3224", true);
     logger.info("Get subtree graph by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
