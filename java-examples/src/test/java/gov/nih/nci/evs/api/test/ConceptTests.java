@@ -242,4 +242,30 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
+  /**
+   * Test get path to root.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetPathToRoot() throws Exception {
+    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToRoot");
+    logger.info("Get path to root by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test get path from root.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetPathFromRoot() throws Exception {
+    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsFromRoot");
+    logger.info("Get path to root by code - C3224");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
 }

@@ -325,6 +325,20 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
+   * Returns the concept paths.
+   *
+   * @param terminology the terminology
+   * @param codes the codes
+   * @param include the include
+   * @return the concept paths
+   * @throws Exception the exception
+   */
+  public List<List<Concept>> getConceptPath(final String terminology, final String code, final String part)
+    throws Exception {
+    return getConceptPathHelper(terminology, code, part);
+  }
+
+  /**
    * Returns the helper.
    *
    * @param type the type
@@ -646,6 +660,36 @@ public class EvsRestClient extends RootClient {
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
+    }
+  }
+
+  /**
+   * Returns the concept part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the concept part
+   * @return the concept part
+   * @throws Exception the exception
+   */
+  private List<List<Concept>> getConceptPathHelper(final String terminology, final String code, 
+    final String part) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/concept/" + terminology + "/" + code + "/" + part;
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, new TypeReference<List<List<Concept>>>() {});
     }
   }
 
