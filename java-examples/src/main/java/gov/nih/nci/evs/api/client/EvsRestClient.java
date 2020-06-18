@@ -176,8 +176,11 @@ public class EvsRestClient extends RootClient {
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public List<ResultList> getConceptBySearchTerm(final String terminology, final String code) throws Exception {
-    return getConceptBySearchTermHelper(terminology, code);
+  public List<ResultList> getConceptBySearchTerm(final String terminology, final String code, 
+  String term, String pageSize, String conceptStatus, String contributingSource, String definitionSource,
+  String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
+    return getConceptBySearchTermHelper(terminology, code, term, pageSize, conceptStatus, contributingSource,
+                                        definitionSource, synonymSource, synonymTermGroup, type, includes);
   }
 
   /**
@@ -758,14 +761,35 @@ public class EvsRestClient extends RootClient {
    * @return the concept
    * @throws Exception the exception
    */
-  private List<ResultList> getConceptBySearchTermHelper(final String terminology, final String code) throws Exception {
+  private List<ResultList> getConceptBySearchTermHelper(final String terminology, final String code, 
+  String term, String pageSize, String conceptStatus, String contributingSource, String definitionSource,
+  String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
+    validateNotEmpty(term, "term");
 
     final Client client = getClients().get();
-    String url = "/concept/search?terminology=" + terminology;
+    String url = "/concept/search?terminology=" + terminology + "&term=" + term;
 
+    if(conceptStatus != null && !conceptStatus.isEmpty()) //lots of possible parameters here
+      url += "&conceptStatus=" + conceptStatus;           //really wish java had optional parameters
+    if(contributingSource != null && !contributingSource.isEmpty())
+      url += "&contributingSource=" + contributingSource;
+    if(definitionSource != null && !definitionSource.isEmpty())
+      url += "&definitionSource=" + definitionSource;
+    if(synonymSource != null && !synonymSource.isEmpty())
+      url += "&synonymSource=" + synonymSource;
+    if(synonymTermGroup != null && !synonymTermGroup.isEmpty())
+      url += "&synonymTermGroup=" + synonymTermGroup;
+    if(type != null && !type.isEmpty())
+      url += "&type=" + type;
+    if(!includes.isEmpty())
+      url += "&includes=" + String.join(", ", includes);
+    if(pageSize != null && !pageSize.isEmpty())
+      url += "&pageSize=" + pageSize;
+
+    System.out.println(url);
     if(true)
       return null;
 
