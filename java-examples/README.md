@@ -46,7 +46,6 @@ The following examples are exhibited by various unit tests defined in the code i
 - [Get all associations](#get-associations)
 - [Get association by code (or label)](#get-association)
 - [Get all term types](#get-term-types)
-- [Get all contributing sources](#get-contributing-sources)
 - [Find root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
@@ -341,20 +340,6 @@ curl "$API_URL/metadata/ncit/termTypes" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-term-types.txt`](samples/get-term-types.txt)
-
-[Back to Top](#top)
-
-<a name="get-contributing-sources"/>
-
-### Get all contributing sources
-
-`MetadataTests.GetContributingSources()` - Return metadata for all contributing sources for the specified terminology.
-
-```
-curl "$API_URL/metadata/ncit/contributingSources" | jq '.'
-```
-
-See sample payload data from this call in [`samples/get-contributing-sources.txt`](samples/get-contributing-sources.txt)
 
 [Back to Top](#top)
 

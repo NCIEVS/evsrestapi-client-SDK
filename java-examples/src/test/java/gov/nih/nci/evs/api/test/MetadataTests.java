@@ -186,19 +186,4 @@ public class MetadataTests {
     logger.info("  concept = " + concept);
   }
 
-  // Get all contributing sources
-
-  /**
-   * Test get contributing sources by terminology.
-   *
-   * @throws Exception the exception
-   */
-  /*@Test
-  public void testGetContributingSources() throws Exception {
-
-    final List<Concept> concept = client.getTermInfo(terminology, "contributingSources");
-    logger.info("Get term types by terminology - " + terminology);
-    logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
-  }*/
 }
