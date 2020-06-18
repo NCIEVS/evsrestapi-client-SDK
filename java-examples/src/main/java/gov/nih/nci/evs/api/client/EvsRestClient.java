@@ -85,8 +85,8 @@ public class EvsRestClient extends RootClient {
    * @return the properties
    * @throws Exception the exception
    */
-  public Concept getPropertyWithCodes(final String terminology, final String code) throws Exception {
-    return getPropertyWithCodeHelper(terminology, code);
+  public Concept getInfoWithCodes(final String terminology, final String code, final String type) throws Exception {
+    return getInfoWithCodeHelper(terminology, code, type);
   }
 
   public List<String> getAxiomValues(final String terminology, final String code) throws Exception {
@@ -520,13 +520,13 @@ public class EvsRestClient extends RootClient {
    * @return the map part
    * @throws Exception the exception
    */
-  private Concept getPropertyWithCodeHelper(final String terminology, final String code) throws Exception {
+  private Concept getInfoWithCodeHelper(final String terminology, final String code, final String type) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
 
     final Client client = getClients().get();
-    String url = "/metadata/" + terminology + "/property/" + code;
+    String url = "/metadata/" + terminology + "/" + type + "/" + code;
 
     System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);

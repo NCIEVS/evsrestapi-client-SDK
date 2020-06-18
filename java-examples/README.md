@@ -295,6 +295,8 @@ See sample payload data from this call in [`samples/get-role-by-code-or-label.tx
 
 ### Get all associations
 
+`MetadataTests.GetAssociations()` - Return all associations.
+
 Return all associations. The first sample below returns just the names and codes
 while the include=summary yields summary level information for each code. The
 third call returns summary information for the three listed associations (by code).

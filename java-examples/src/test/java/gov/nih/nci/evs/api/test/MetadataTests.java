@@ -122,7 +122,7 @@ public class MetadataTests {
   @Test
   public void testGetPropertyByCode() throws Exception {
 
-    final Concept concept = client.getPropertyWithCodes(terminology, "P90");
+    final Concept concept = client.getInfoWithCodes(terminology, "P90", "property");
     logger.info("Get concept by code - P90");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -142,10 +142,34 @@ public class MetadataTests {
     logger.info("  concept = " + concept);
   }
 
-  // Get all roles
-  // Get role by code (or label)
   // Get all associations
+
+  @Test
+  public void testGetAssociations() throws Exception {
+    final List<Concept> associations = client.getAssociations(terminology, null, null);
+    logger.info("Get all associations for " + terminology + " (default include)");
+    logger.info("  url = " + client.getApiUrl());
+    for (final Concept association : associations) {
+      logger.info("  " + association.getCode() + " = " + association);
+    }
+  }
+
   // Get association by code (or label)
+
+  /**
+   * Test get property by code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetAssociationByCode() throws Exception {
+
+    final Concept concept = client.getInfoWithCodes(terminology, "A10", "association");
+    logger.info("Get concept by code - A10");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+  
   // Get all term types
   // Get all contributing sources
 
