@@ -101,6 +101,34 @@ public class MetadataTests {
     }
   }
 
+  /**
+   * Test get property by code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetPropertyByCode() throws Exception {
+
+    final Concept concept = client.getPropertyWithCodes(terminology, "P90");
+    logger.info("Get concept by code - P90");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test get property by code with axiom qualifiers.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetPropertyByCodeWithAxiomQualifiers() throws Exception {
+
+    final List<String> concept = client.getAxiomValues(terminology, "P383");
+    logger.info("Get concept by code - P383");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
   // Get all roles
   // Get role by code (or label)
   // Get all associations

@@ -2,6 +2,7 @@
 package gov.nih.nci.evs.api.client;
 
 import java.net.URLEncoder;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -73,6 +74,23 @@ public class EvsRestClient extends RootClient {
   public List<Concept> getProperties(final String terminology, final String include,
     final List<String> codes) throws Exception {
     return getAllMetadataHelper("properties", terminology, include, codes);
+  }
+
+  /**
+   * Returns the properties.
+   *
+   * @param terminology the terminology
+   * @param include the include
+   * @param codes the codes
+   * @return the properties
+   * @throws Exception the exception
+   */
+  public Concept getPropertyWithCodes(final String terminology, final String code) throws Exception {
+    return getPropertyWithCodeHelper(terminology, code);
+  }
+
+  public List<String> getAxiomValues(final String terminology, final String code) throws Exception {
+    return getAxiomValuesHelper(terminology, code);
   }
 
   /**
@@ -171,12 +189,12 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
-   * Returns the property.
+   * Returns the association.
    *
    * @param terminology the terminology
    * @param code the code
    * @param include the include
-   * @return the property
+   * @return the association
    * @throws Exception the exception
    */
   public Concept getAssociation(final String terminology, final String code, final String include)
@@ -447,6 +465,65 @@ public class EvsRestClient extends RootClient {
       return getMapper().readValue(json, new TypeReference<List<Concept>>() {
         // n/a
       });
+    }
+  }
+
+  /**
+   * Returns the properties by code.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the map part
+   * @return the map part
+   * @throws Exception the exception
+   */
+  private Concept getPropertyWithCodeHelper(final String terminology, final String code) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/metadata/" + terminology + "/property/" + code;
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, Concept.class);
+    }
+  }
+
+  /**
+   * Returns the axiom values by code.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the map part
+   * @return the map part
+   * @throws Exception the exception
+   */
+  private List<String> getAxiomValuesHelper(final String terminology, final String code) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/metadata/" + terminology + "/qualifier/" + code + "/values";
+
+    System.out.println(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      final String jsonStripped = json.replaceAll("[\\[\\]\"]","");
+      return Arrays.asList(jsonStripped.split(","));
     }
   }
 

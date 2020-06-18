@@ -231,7 +231,7 @@ curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
+See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-by-code.txt)
 
 [Back to Top](#top)
 
@@ -242,11 +242,11 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 Return property axiom qualifiers for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/property/P383/axiomQualifiers" | jq '.'
-curl "$API_URL/metadata/ncit/property/term-group/axiomQualifiers" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/P383/values" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/term-group/values" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-axiomQualifiers.txt)
+See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-by-code-with-axiom-qualifiers.txt)
 
 [Back to Top](#top)
 
