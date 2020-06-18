@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "01036e18-f1fb-4ca9-9606-726ab17a11ac",
+		"_postman_id": "16eb795c-5f36-4338-aee9-c9b09f887d9c",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -408,25 +408,6 @@
 						"metadata",
 						"ncit",
 						"termTypes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all contributing sources",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/contributingSources",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"contributingSources"
 					]
 				}
 			},
