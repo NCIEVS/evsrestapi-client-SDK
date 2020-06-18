@@ -25,8 +25,9 @@ Test Scripts
 - [get-association.sh](#get-concept-sh)
 - [get-role.sh](#get-role-sh)
 - [get-property.sh](#get-property-sh)
+- [get-qualifier.sh](#get-qualifier-sh)
 - [get-term-types.sh](#get-term-types-sh)
-- [get-contributing-sources.sh](#get-contributing-sources-sh)
+- [get-synonym-sources.sh](#get-synonym-sources-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -875,7 +876,7 @@ Finished ...Thu, Feb  6, 2020  3:23:52 PM
 -----------------------------------------------------
 ```
 
-Another example using a label instead of a code and the "include" flag to also get synonyms.
+Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
 ```
 $ ./get-association.sh ncit Role_Has_Domain --include synonyms
@@ -960,8 +961,8 @@ Finished ...Thu, Feb  6, 2020  4:25:01 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single association (by code or label), 
-or a list of associations.
+The script can also return information about a single role (by code or label), 
+or a list of role.
 
 ```
 $ ./get-role.sh ncit R156
@@ -985,7 +986,7 @@ Finished ...Thu, Feb  6, 2020  4:26:29 PM
 -----------------------------------------------------
 ```
 
-Another example using a label instead of a code and the "include" flag to also get synonyms.
+Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
 ```
 $ ./get-role.sh ncit Allele_Has_Abnormality --include synonyms
@@ -1070,8 +1071,8 @@ Finished ...Thu, Feb  6, 2020  4:28:47 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single association (by code or label), 
-or a list of associations.
+The script can also return information about a single property (by code or label), 
+or a list of property.
 
 ```
 $ ./get-property.sh ncit P325
@@ -1095,7 +1096,7 @@ Finished ...Thu, Feb  6, 2020  4:29:41 PM
 -----------------------------------------------------
 ```
 
-Another example using a label instead of a code and the "include" flag to also get synonyms.
+Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
 ```
 $ ./get-property.sh ncit Accepted_Therapeutic_Use_For --include synonyms
@@ -1136,6 +1137,156 @@ Finished ...Thu, Feb  6, 2020  4:30:19 PM
 ```
 [Back to Top](#top)
 
+<a name="get-qualifier-sh"/>
+
+### get-qualifier.sh
+
+Return information about qualifiers for a given terminology.  In its simplest form,
+this script will return basic information about all qualifiers for a terminology.
+
+```
+$ ./get-qualifier.sh  ncit
+-----------------------------------------------------
+Starting ...Wed, Apr 15, 2020  7:53:01 PM
+-----------------------------------------------------
+url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel =
+include =
+
+  Get qualifiers for ncit:
+
+    [
+      {
+        "code": "P378",
+        "name": "def-source"
+      },
+      {
+        "code": "P381",
+        "name": "attr"
+      },
+      ...
+      {
+        "code": "P396",
+        "name": "Target_Terminology"
+      },
+      {
+        "code": "P397",
+        "name": "Target_Terminology_Version"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Apr 15, 2020  7:53:01 PM
+-----------------------------------------------------
+
+```
+
+The script can also return information about a single qualifier (by code or label), 
+or a list of qualifier.
+
+```
+$ ./get-qualifier.sh  ncit P389
+-----------------------------------------------------
+Starting ...Wed, Apr 15, 2020  7:53:35 PM
+-----------------------------------------------------
+url = https://api-evsrest-dev.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = P389
+include =
+
+  Get qualifier for ncit P389:
+
+    {
+      "code": "P389",
+      "name": "go-evi",
+      "synonyms": [
+        {
+          "name": "go-evi",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A property representing a three letter code that indicates the type of supporting evidence fo
+r each GO_Annotation associated with a concept.",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        },
+        {
+          "type": "http://www.w3.org/2000/01/rdf-schema#range",
+          "value": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "type": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#required",
+          "value": "true"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Apr 15, 2020  7:53:35 PM
+
+```
+
+Another example using a label instead of a code and the "include" flag to get only additional synonyms.
+
+```
+$ ./get-qualifier.sh  ncit go-evi --include synonyms
+-----------------------------------------------------
+Starting ...Wed, Apr 15, 2020  7:54:57 PM
+-----------------------------------------------------
+url = https://api-evsrest-dev.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = go-evi
+include = synonyms
+
+  Get qualifier for ncit go-evi:
+
+    {
+      "code": "P389",
+      "name": "go-evi",
+      "synonyms": [
+        {
+          "name": "go-evi",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A property representing a three letter code that indicates the type of supporting evidence for each GO_Annotation associated with a concept.",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+          "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+        },
+        {
+          "type": "http://www.w3.org/2000/01/rdf-schema#range",
+          "value": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        {
+          "type": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#required",
+          "value": "true"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Apr 15, 2020  7:54:57 PM
+-----------------------------------------------------
+
+```
+[Back to Top](#top)
+
 <a name="get-term-types-sh"/>
 
 ### get-term-types.sh
@@ -1166,21 +1317,21 @@ Finished ...Thu, Feb  6, 2020  4:28:47 PM
 ```
 [Back to Top](#top)
 
-<a name="get-contributing-sources-sh"/>
+<a name="get-synonym-sources-sh"/>
 
-### get-contributing-sources.sh
+### get-synonym-sources.sh
 
-Return information about contributing sources for a given terminology.
+Return information about synonym sources for a given terminology.
 
 ```
-$ ./get-contributing-sources.sh ncit
+$ ./get-synonym-sources.sh ncit
 -----------------------------------------------------
 Starting ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
 url = http://localhost:8082/api/v1
 terminology = ncit
 
-  Get contributing sources for ncit:
+  Get synonym sources for ncit:
 
     [
       {

@@ -104,17 +104,7 @@
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     }
-  ],
-  "contributingSources": [
-    "CDISC",
-    "CPTAC",
-    "CTEP",
-    "CTRP",
-    "Cellosaurus",
-    "GDC",
-    "NCI-GLOSS",
-    "NICHD"
-  ],
+  ]
   "children": [
     {
       "code": "C3802",

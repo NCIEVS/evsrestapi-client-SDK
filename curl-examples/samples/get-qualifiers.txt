@@ -1,0 +1,62 @@
+[
+  {
+    "code": "P378",
+    "name": "def-source"
+  },
+  {
+    "code": "P381",
+    "name": "attr"
+  },
+  {
+    "code": "P383",
+    "name": "term-group"
+  },
+  {
+    "code": "P384",
+    "name": "term-source"
+  },
+  {
+    "code": "P385",
+    "name": "source-code"
+  },
+  {
+    "code": "P386",
+    "name": "subsource-name"
+  },
+  {
+    "code": "P387",
+    "name": "go-id"
+  },
+  {
+    "code": "P389",
+    "name": "go-evi"
+  },
+  {
+    "code": "P390",
+    "name": "go-source"
+  },
+  {
+    "code": "P391",
+    "name": "source-date"
+  },
+  {
+    "code": "P393",
+    "name": "Relationship_to_Target"
+  },
+  {
+    "code": "P394",
+    "name": "Target_Term_Type"
+  },
+  {
+    "code": "P395",
+    "name": "Target_Code"
+  },
+  {
+    "code": "P396",
+    "name": "Target_Terminology"
+  },
+  {
+    "code": "P397",
+    "name": "Target_Terminology_Version"
+  }
+]

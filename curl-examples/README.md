@@ -36,20 +36,21 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-properties)
 - [Get property by code (or label)](#get-property)
-- [Get property axiom qualifiers by code (or label)](#get-property-aq)
+- [Get property axiom qualifier values by code (or label)](#get-property-aq)
+- [Get all qualifiers](#get-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier)
 - [Get all roles](#get-roles)
 - [Get role by code (or label)](#get-role)
 - [Get all associations](#get-associations)
 - [Get association by code (or label)](#get-association)
 - [Get all term types](#get-term-types)
-- [Get all contributing sources](#get-contributing-sources)
+- [Get all synonym sources](#get-synonym-sources)
 - [Find root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
 - [Get subtree](#get-subtree)
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
 - [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
-- [Find concepts by search term (restrict by contributing source)](#find-concepts-restrict-contributing-source)
 - [Find concepts by search term (restrict by definition source)](#find-concepts-restrict-concept-definition-source)
 - [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-restrict-synonym-source)
 - [Find concepts by search term (where term is a code)](#find-concepts-by-code)
@@ -218,8 +219,8 @@ See sample payload data from this call in [`samples/get-properties.txt`](samples
 Return property for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/P302?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
@@ -228,16 +229,51 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 <a name="get-property-aq"/>
 
-### Get property axiom qualifiers by code (or label)
+### Get property axiom qualifier values by code (or label)
 
-Return property axiom qualifiers for the specified code or label.
+Return property axiom qualifier values for the specified code or label.
 
 ```
 curl "$API_URL/metadata/ncit/property/P383/axiomQualifiers" | jq '.'
 curl "$API_URL/metadata/ncit/property/term-group/axiomQualifiers" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-axiomQualifiers.txt)
+See sample payload data from this call in [`samples/get-property-axiomQualifiers.txt`](samples/get-property-axiomQualifiers.txt)
+
+[Back to Top](#top)
+
+<a name="get-qualifiers"/>
+
+### Get all qualifiers
+
+Return all qualifiers. The first sample below returns just the names and codes
+while the include=summary yields summary level information for each code.
+The third call returns summary information for the three listed qualifiers (by code).
+The fourth call returns summary information for the three listed qualifiers (by label).
+
+```
+curl "$API_URL/metadata/ncit/qualifiers" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+
+[Back to Top](#top)
+
+<a name="get-qualifier"/>
+
+### Get qualifier by code (or label)
+
+Return qualifier for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/qualifier/P387?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
 
 [Back to Top](#top)
 
@@ -257,7 +293,7 @@ curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+See sample payload data from this call in [`samples/get-associations.txt`](samples/get-roless.txt)
 
 [Back to Top](#top)
 
@@ -325,17 +361,17 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 
 [Back to Top](#top)
 
-<a name="get-contributing-sources"/>
+<a name="get-synonym-sources"/>
 
-### Get all contributing sources
+### Get all synonym sources
 
-Return metadata for all contributing sources for the specified terminology.
+Return metadata for all synonym sources for the specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/contributingSources" | jq '.'
+curl "$API_URL/metadata/ncit/synonymSources" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-contributing-sources.txt`](samples/get-contributing-sources.txt)
+See sample payload data from this call in [`samples/get-synonym-sources.txt`](samples/get-synonym-sources.txt)
 
 [Back to Top](#top)
 
@@ -427,22 +463,6 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
-
-[Back to Top](#top)
-
-<a name="find-concepts-restrict-contributing-source"/>
-
-### Find concepts by search term (restrict by contributing source)
-
-Find concepts matching a search term within a specified terminology and
-restrict the search results by a contributing source of "CDISC". This 
-example uses paging to get only the first 5 results.
-
-```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5" | jq '.'
-```
-
-See sample payload data from this call in [`samples/find-concepts-by-search-term-cdisc.txt`](samples/find-concepts-by-search-term-cdisc.txt)
 
 [Back to Top](#top)
 

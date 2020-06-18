@@ -105,7 +105,7 @@ checkCount() {
 getTerminologyVersion
 get "TEST $tv concept retrieval" "concept/$tv/C3224"
 # check synonyms count
-if [[ $(echo "$json" | jq '.synonyms | length') < 10 ]]; then
+if [[ $(echo "$json" | jq '.synonyms | length' | sed 's/\r//') -lt 10 ]]; then
     error=1
     echo "ERROR: unexpected missing synonyms"
 fi 
@@ -116,24 +116,19 @@ fi
 #
 get "TEST basic concept retrieval" "concept/ncit/C3224"
 # check synonyms count
-if [[ $(echo "$json" | jq '.synonyms | length') < 10 ]]; then
+if [[ $(echo "$json" | jq '.synonyms | length' | sed 's/\r//') -lt 10 ]]; then
     error=1
     echo "ERROR: unexpected missing synonyms"
 fi 
 # check definitions
-if [[ $(echo "$json" | jq '.definitions | length') < 2 ]]; then
+if [[ $(echo "$json" | jq '.definitions | length' | sed 's/\r//') -lt 2 ]]; then
     error=1
     echo "ERROR: unexpected missing definitions"
 fi 
 # check properties
-if [[ $(echo "$json" | jq '.properties| length') < 5 ]]; then
+if [[ $(echo "$json" | jq '.properties | length' | sed 's/\r//') -lt 5 ]]; then
     error=1
     echo "ERROR: unexpected missing properties"
-fi 
-# check contributing sources
-if [[ $(echo "$json" | jq '.contributingSources | length') < 5 ]]; then
-    error=1
-    echo "ERROR: unexpected missing contributing sources"
 fi 
 
 #
