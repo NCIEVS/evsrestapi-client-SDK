@@ -229,4 +229,17 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
+  /**
+   * Test get root concepts via terminology.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetRoots() throws Exception {
+    final List<Concept> concept = client.getRootConcepts(terminology);
+    logger.info("Get concept by terminology" + terminology);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
 }

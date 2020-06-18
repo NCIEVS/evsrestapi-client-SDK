@@ -231,7 +231,7 @@ curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/property/FULL_SYN?include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-by-code.txt)
+See sample payload data from this call in [`samples/get-property-by-code.txt`](samples/get-property-by-code.txt)
 
 [Back to Top](#top)
 
@@ -248,7 +248,7 @@ curl "$API_URL/metadata/ncit/qualifier/P383/values" | jq '.'
 curl "$API_URL/metadata/ncit/qualifier/term-group/values" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property-by-code-with-axiom-qualifiers.txt)
+See sample payload data from this call in [`samples/get-property-by-code-with-axiom-qualifiers.txt`](samples/get-property-by-code-with-axiom-qualifiers.txt)
 
 [Back to Top](#top)
 
