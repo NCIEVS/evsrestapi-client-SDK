@@ -317,6 +317,8 @@ See sample payload data from this call in [`samples/get-associations.txt`](sampl
 
 ### Get association by code (or label)
 
+`MetadataTests.GetAssociationByCode()` - Return association for the specified code or label.
+
 Return association for the specified code or label.
 
 ```
@@ -332,7 +334,7 @@ See sample payload data from this call in [`samples/get-association-by-code.txt`
 
 ### Get all term types
 
-Return metadata for all term types for the specified terminology.
+`MetadataTests.GetTermTypes()` - Return  metadata for all term types for the specified terminology.
 
 ```
 curl "$API_URL/metadata/ncit/termTypes" | jq '.'
@@ -346,7 +348,7 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 
 ### Get all contributing sources
 
-Return metadata for all contributing sources for the specified terminology.
+`MetadataTests.GetContributingSources()` - Return metadata for all contributing sources for the specified terminology.
 
 ```
 curl "$API_URL/metadata/ncit/contributingSources" | jq '.'
@@ -360,7 +362,7 @@ See sample payload data from this call in [`samples/get-contributing-sources.txt
 
 ### Find root concepts
 
-Return concept roots for the specified terminology.
+`ConceptTests.GetRoots()` - Return concept roots for the specified terminology.
 
 ```
 curl "$API_URL/concept/ncit/roots" | jq '.'
@@ -374,7 +376,8 @@ See sample payload data from this call in [`samples/find-roots.txt`](samples/fin
 
 ### Get paths to/from root from a code
 
-Return paths to/from the root concept from a specified terminology and code.
+`ConceptTests.GetPathToRoot()` - Return paths to the root concept from a specified terminology and code.
+`ConceptTests.GetPathFromRoot()` - Return paths from the root concept from a specified terminology and code.
 
 ```
 curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq '.'
