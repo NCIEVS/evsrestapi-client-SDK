@@ -428,14 +428,14 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (restrict by concept status)
 
 Find concepts matching a search term within a specified terminology and
-restrict the search results by concept status of "Retired_Concept". This 
+restrict the search results by concept status of "Header_Concept". This 
 example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Retired_Concept&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Header_Concept&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
+See sample payload data from this call in [`samples/find-concepts-by-search-term-header-concepts.txt`](samples/find-concepts-by-search-term-header-concepts.txt)
 
 [Back to Top](#top)
 
