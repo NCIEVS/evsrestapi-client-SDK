@@ -224,7 +224,7 @@ See sample payload data from this call in [`samples/get-properties.txt`](samples
 
 ### Get property by code (or label)
 
-Return property for the specified code or label.
+`MetadataTests.GetPropertyByCode()` - Return property for the specified code or label.
 
 ```
 curl "$API_URL/metadata/ncit/property/P90?include=summary" | jq '.'
@@ -239,7 +239,9 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 ### Get property axiom qualifiers by code (or label)
 
-Return property axiom qualifiers for the specified code or label.
+`MetadataTests.GetPropertyByCodeWithAxiomQualifiers()` - Return property for the specified code or label with Axiom Qualifiers.
+
+Return property axiom qualifiers for the specified code or label with Axiom Qualifiers.
 
 ```
 curl "$API_URL/metadata/ncit/qualifier/P383/values" | jq '.'
@@ -254,6 +256,8 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 ### Get all roles
 
+`MetadataTests.GetRolls()` - Return all roles.
+
 Return all roles. The first sample below returns just the names and codes
 while the include=summary yields summary level information for each code.
 The third call returns summary information for the three listed roles (by code).
@@ -266,7 +270,7 @@ curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+See sample payload data from this call in [`samples/get-roles.txt`](samples/get-roles.txt)
 
 [Back to Top](#top)
 
