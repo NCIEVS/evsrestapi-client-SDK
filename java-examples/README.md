@@ -504,12 +504,11 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=match)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "match". This example uses paging to get only the first 
-5 results.
+`ConceptTests.GetConceptBySearchTermMatch()` - Get concepts matching a search term within a specified terminology and
+a search type of "match". This example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=match&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=match&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-match.txt`](samples/get-concepts-by-search-term-match.txt)
@@ -557,7 +556,7 @@ a search type of "fuzzy". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=fuzzy&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-fuzzy.txt`](samples/get-concepts-by-search-term-fuzzy.txt)

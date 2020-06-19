@@ -393,6 +393,22 @@ public class ConceptTests {
   }
 
   /**
+   * Test concept by search term type "match".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermMatch() throws Exception {
+    List<String> includes = new ArrayList<>();
+    includes.add("properties");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "match", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
    * Test concept by property.
    *
    * @throws Exception the exception
