@@ -786,7 +786,7 @@ public class EvsRestClient extends RootClient {
     if(property != null && !property.isEmpty())
       url += "&property=" + property;
     if(includes != null && !includes.isEmpty())
-      url += "&includes=" + String.join(", ", includes);
+      url += "&includes=" + String.join(",", includes);
     if(pageSize != null && !pageSize.isEmpty())
       url += "&pageSize=" + pageSize;
 

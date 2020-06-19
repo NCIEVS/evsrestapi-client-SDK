@@ -482,6 +482,23 @@ public class ConceptTests {
    * @throws Exception the exception
    */
   @Test
+  public void testGetConceptBySearchTermHighlights() throws Exception {
+    List<String> includes = new ArrayList<>();
+    includes.add("synonyms");
+    includes.add("highlights");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, null, null, includes);
+    logger.info("Get concept by search term - XAV05295I5");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by property.
+   *
+   * @throws Exception the exception
+   */
+  @Test
   public void testGetConceptByProperty() throws Exception {
     List<String> includes = new ArrayList<>();
     includes.add("properties");
