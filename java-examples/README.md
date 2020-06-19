@@ -540,7 +540,7 @@ a search type of "phrase". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&type=phrase&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=phrase&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-phrase.txt`](samples/get-concepts-by-search-term-phrase.txt)
@@ -572,7 +572,7 @@ a search type of "AND". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=AND&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=AND&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-AND.txt`](samples/get-concepts-by-search-term-AND.txt)
@@ -588,7 +588,7 @@ a search type of "OR". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=OR&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=OR&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-OR.txt`](samples/get-concepts-by-search-term-OR.txt)
@@ -604,7 +604,7 @@ and include synonyms and highlighted text in the response. This example
 uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,highlights&pageSize=5" | jq '.'
+curl "$API_URL/concept/search?terminology=ncit&term=enzyme&include=synonyms,highlights&pageSize=5" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concepts-by-search-term-highlights.txt`](samples/get-concepts-by-search-term-highlights.txt)
