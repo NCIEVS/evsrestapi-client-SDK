@@ -309,13 +309,27 @@ public class ConceptTests {
   }
 
     /**
-   * Test get subtree graph for code with children.
+   * Test get concept by search term.
    *
    * @throws Exception the exception
    */
   @Test
   public void testGetConceptBySearchTerm() throws Exception {
     final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
+    null, null, null, null, null, null);
+    logger.info("Get concept by search term - melanoma");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+    /**
+   * Test concept by search term and concept status.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermConceptStatus() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", "Header_Concept", 
     null, null, null, null, null, null);
     logger.info("Get concept by search term - melanoma");
     logger.info("  base url = " + client.getApiUrl());

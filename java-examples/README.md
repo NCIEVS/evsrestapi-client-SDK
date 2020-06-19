@@ -429,9 +429,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term.
 
 ### Get concepts by search term (restrict by concept status)
 
-Get concepts matching a search term within a specified terminology and
-restrict the search results by concept status of "Header_Concept". This 
-example uses paging to get only the first 5 results.
+`ConceptTests.GetConceptBySearchTermConceptStatus()` - Get concepts matching a search term within a specified terminology and
+restrict the search results by concept status of "Header_Concept". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Header_Concept&pageSize=5" | jq '.'
