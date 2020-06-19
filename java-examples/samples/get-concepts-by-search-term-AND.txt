@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&type=AND&pageSize=5
+2020-06-19T11:35:44-07:00 INFO  : Get concept by search term - enzyme
+2020-06-19T11:35:44-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T11:35:44-07:00 INFO  :   concept = {"total":2642,"timeTaken":121,"parameters":{"term":"enzyme","type":"AND","include":"minimal","fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name":"Enzyme","terminology":"ncit","version":"20.05d"},{"code":"C40577","name":"Enzyme Inhibition","terminology":"ncit","version":"20.05d"},{"code":"C40498","name":"Enzyme Interaction","terminology":"ncit","version":"20.05d"},{"code":"C21281","name":"Enzyme Gene","terminology":"ncit","version":"20.05d"},{"code":"C64778","name":"Enzyme Unit","terminology":"ncit","version":"20.05d"}]}

@@ -426,9 +426,51 @@ public class ConceptTests {
    * @throws Exception the exception
    */
   @Test
-  public void testGetConceptBySearchTermStartsPhrase() throws Exception {
+  public void testGetConceptBySearchTermPhrase() throws Exception {
     final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
     null, null, null, null, "phrase", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term type "fuzzy".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermFuzzy() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "fuzzy", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term type "AND".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermAnd() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "AND", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term type "OR".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermOr() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "OR", null, null);
     logger.info("Get concept by search term - enzyme");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
