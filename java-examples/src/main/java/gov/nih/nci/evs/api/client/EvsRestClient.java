@@ -178,9 +178,9 @@ public class EvsRestClient extends RootClient {
    */
   public String getConceptBySearchTerm(final String terminology, String term, String pageSize,
   String conceptStatus, String contributingSource, String definitionSource, String synonymSource,
-  String synonymTermGroup, String type, List<String> includes) throws Exception {
+  String synonymTermGroup, String type, String property, List<String> includes) throws Exception {
     return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus, contributingSource, definitionSource,
-    synonymSource, synonymTermGroup, type, includes);
+    synonymSource, synonymTermGroup, type, property, includes);
   }
 
   /**
@@ -763,7 +763,7 @@ public class EvsRestClient extends RootClient {
    */
   private String getConceptBySearchTermHelper(final String terminology, String term,
   String pageSize, String conceptStatus, String contributingSource, String definitionSource,
-  String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
+  String synonymSource, String synonymTermGroup, String type, String property, List<String> includes) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(term, "term");
@@ -783,6 +783,8 @@ public class EvsRestClient extends RootClient {
       url += "&synonymTermGroup=" + synonymTermGroup;
     if(type != null && !type.isEmpty())
       url += "&type=" + type;
+    if(property != null && !property.isEmpty())
+      url += "&property=" + property;
     if(includes != null && !includes.isEmpty())
       url += "&includes=" + String.join(", ", includes);
     if(pageSize != null && !pageSize.isEmpty())

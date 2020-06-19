@@ -616,10 +616,9 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by property
 
-Get concepts matching a search term that is searched within a certain
-set of properties. The search results are set to include the property
-values so you can easily see the match.  The property setting here can be either
-based on code or on label
+`ConceptTests.GetConceptByProperty()` - Get concepts matching a search term that is searched within a certain
+set of properties. The search results are set to include the propertyvalues so you can easily see the match.  
+The property setting here can be either based on code or on label
 
 ```
 curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&include=properties" | jq '.'
