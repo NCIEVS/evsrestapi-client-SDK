@@ -444,9 +444,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (restrict by contributing source)
 
-Get concepts matching a search term within a specified terminology and
-restrict the search results by a contributing source of "CDISC". This 
-example uses paging to get only the first 5 results.
+`ConceptTests.GetConceptBySearchTermContributingSource()` - Get concepts matching a search term within a specified terminology and
+restrict the search results by a contributing source of "CDISC". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5" | jq '.'
@@ -460,9 +459,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (restrict by definition source)
 
-Get concepts matching a search term within a specified terminology and
-restrict the search results by a definition source of "NCI". This 
-example uses paging to get only the first 5 results.
+`ConceptTests.GetConceptBySearchTermDefinitionSource()` - Get concepts matching a search term within a specified terminology and
+restrict the search results by a definition source of "NCI". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5" | jq '.'
@@ -476,9 +474,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (restrict by synonym source and termgroup)
 
-Get concepts matching a search term within a specified terminology and
-restrict the search results by a synonym source of "NCI" and synonym
-termgroup of "PT".
+`ConceptTests.GetConceptBySearchTermSynonymSource()` - Get concepts matching a search term within a specified terminology and
+restrict the search results by a synonym source of "NCI" and synonymtermgroup of "PT".
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT" | jq '.'
@@ -492,7 +489,7 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (where search term is a code)
 
-Get concepts matching a search term within a specified terminology and
+`ConceptTests.GetConceptBySearchTermAsCode()` - Get concepts matching a search term within a specified terminology and
 restrict the search results using a code as the search term. 
 
 ```

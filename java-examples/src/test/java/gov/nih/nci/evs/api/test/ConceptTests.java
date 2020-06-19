@@ -308,7 +308,7 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
-    /**
+  /**
    * Test get concept by search term.
    *
    * @throws Exception the exception
@@ -322,7 +322,7 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
-    /**
+  /**
    * Test concept by search term and concept status.
    *
    * @throws Exception the exception
@@ -336,5 +336,60 @@ public class ConceptTests {
     logger.info("  concept = " + concept);
   }
 
+  /**
+   * Test concept by search term and contributing source.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermContributingSource() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
+    "CDISC", null, null, null, null, null);
+    logger.info("Get concept by search term - melanoma");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term and definition source.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermDefinitionSource() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
+    null, "NCI", null, null, null, null);
+    logger.info("Get concept by search term - dsDNA");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term and synonym source.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermSynonymSource() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "dsDNA", null, null, 
+    null, null, "NCI", "PT", null, null);
+    logger.info("Get concept by search term - dsDNA");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by code.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermAsCode() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "C3224", null, null, 
+    null, null, null, null, null, null);
+    logger.info("Get concept by search term - dsDNA");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
 
 }
