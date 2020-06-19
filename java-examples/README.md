@@ -46,24 +46,24 @@ The following examples are exhibited by various unit tests defined in the code i
 - [Get all associations](#get-associations)
 - [Get association by code (or label)](#get-association)
 - [Get all term types](#get-term-types)
-- [Find root concepts](#get-roots)
+- [Get root concepts](#get-roots)
 - [Get paths to/from root from a code](#get-paths)
 - [Get paths to an ancestor from a code](#get-paths-ancestor)
 - [Get subtree](#get-subtree)
-- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
-- [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
-- [Find concepts by search term (restrict by contributing source)](#find-concepts-restrict-contributing-source)
-- [Find concepts by search term (restrict by definition source)](#find-concepts-restrict-concept-definition-source)
-- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-restrict-synonym-source)
-- [Find concepts by search term (where term is a code)](#find-concepts-by-code)
-- [Find concepts by search term (using type=match)](#find-concepts-match)
-- [Find concepts by search term (using type=startsWith)](#find-concepts-startsWith)
-- [Find concepts by search term (using type=phrase)](#find-concepts-phrase)
-- [Find concepts by search term (using type=fuzzy)](#find-concepts-fuzzy)
-- [Find concepts by search term (using type=AND)](#find-concepts-and)
-- [Find concepts by search term (using type=OR)](#find-concepts-or)
-- [Find concepts by search term (with highlights)](#find-concepts-highlights)
-- [Find concepts by property](#find-concepts-property)
+- [Get concepts by search term (use paging to get only first 5 results)](#get-concepts)
+- [Get concepts by search term (restrict by concept status)](#get-concepts-restrict-concept-status)
+- [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-contributing-source)
+- [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-concept-definition-source)
+- [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-synonym-source)
+- [Get concepts by search term (where term is a code)](#get-concepts-by-code)
+- [Get concepts by search term (using type=match)](#get-concepts-match)
+- [Get concepts by search term (using type=startsWith)](#get-concepts-startsWith)
+- [Get concepts by search term (using type=phrase)](#get-concepts-phrase)
+- [Get concepts by search term (using type=fuzzy)](#get-concepts-fuzzy)
+- [Get concepts by search term (using type=AND)](#get-concepts-and)
+- [Get concepts by search term (using type=OR)](#get-concepts-or)
+- [Get concepts by search term (with highlights)](#get-concepts-highlights)
+- [Get concepts by property](#get-concepts-property)
 
 <a name="get-terminologies"/>
 
@@ -266,7 +266,7 @@ The fourth call returns summary information for the three listed roles (by label
 curl "$API_URL/metadata/ncit/roles" | jq '.'
 curl "$API_URL/metadata/ncit/roles?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Geting&include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-roles.txt`](samples/get-roles.txt)
@@ -345,7 +345,7 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 
 <a name="get-roots"/>
 
-### Find root concepts
+### Get root concepts
 
 `ConceptTests.GetRoots()` - Return concept roots for the specified terminology.
 
@@ -353,7 +353,7 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 curl "$API_URL/concept/ncit/roots" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-roots.txt`](samples/find-roots.txt)
+See sample payload data from this call in [`samples/get-roots.txt`](samples/get-roots.txt)
 
 [Back to Top](#top)
 
@@ -408,26 +408,28 @@ See sample payload data from this call in [`samples/get-subtree.txt`](samples/ge
 
 [Back to Top](#top)
 
-<a name="find-concepts"/>
+<a name="get-concepts"/>
 
-### Find concepts by search term
+### Get concepts by search term
 
-Find concepts matching a search term within a specified terminology. This 
+`ConceptTests.GetConceptBySearchTerm()` - Get concepts matching a search term within a specified terminology.
+
+Get concepts matching a search term within a specified terminology. This 
 example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term.txt`](samples/get-concepts-by-search-term.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-restrict-concept-status"/>
+<a name="get-concepts-restrict-concept-status"/>
 
-### Find concepts by search term (restrict by concept status)
+### Get concepts by search term (restrict by concept status)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 restrict the search results by concept status of "Header_Concept". This 
 example uses paging to get only the first 5 results.
 
@@ -435,15 +437,15 @@ example uses paging to get only the first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Header_Concept&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-header-concepts.txt`](samples/find-concepts-by-search-term-header-concepts.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-header-concepts.txt`](samples/get-concepts-by-search-term-header-concepts.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-restrict-contributing-source"/>
+<a name="get-concepts-restrict-contributing-source"/>
 
-### Find concepts by search term (restrict by contributing source)
+### Get concepts by search term (restrict by contributing source)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 restrict the search results by a contributing source of "CDISC". This 
 example uses paging to get only the first 5 results.
 
@@ -451,15 +453,15 @@ example uses paging to get only the first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-cdisc.txt`](samples/find-concepts-by-search-term-cdisc.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-cdisc.txt`](samples/get-concepts-by-search-term-cdisc.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-restrict-definition-source"/>
+<a name="get-concepts-restrict-definition-source"/>
 
-### Find concepts by search term (restrict by definition source)
+### Get concepts by search term (restrict by definition source)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 restrict the search results by a definition source of "NCI". This 
 example uses paging to get only the first 5 results.
 
@@ -467,15 +469,15 @@ example uses paging to get only the first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-nci.txt`](samples/find-concepts-by-search-term-definition-nci.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-definition-nci.txt`](samples/get-concepts-by-search-term-definition-nci.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-restrict-synonym-source"/>
+<a name="get-concepts-restrict-synonym-source"/>
 
-### Find concepts by search term (restrict by synonym source and termgroup)
+### Get concepts by search term (restrict by synonym source and termgroup)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 restrict the search results by a synonym source of "NCI" and synonym
 termgroup of "PT".
 
@@ -483,30 +485,30 @@ termgroup of "PT".
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-nci-pt.txt`](samples/get-concepts-by-search-term-nci-pt.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-by-code"/>
+<a name="get-concepts-by-code"/>
 
-### Find concepts by search term (where search term is a code)
+### Get concepts by search term (where search term is a code)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 restrict the search results using a code as the search term. 
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-C3224.txt`](samples/find-concepts-by-search-term-C3224.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-C3224.txt`](samples/get-concepts-by-search-term-C3224.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-match"/>
+<a name="get-concepts-match"/>
 
-### Find concepts by search term (using type=match)
+### Get concepts by search term (using type=match)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "match". This example uses paging to get only the first 
 5 results.
 
@@ -514,15 +516,15 @@ a search type of "match". This example uses paging to get only the first
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=match&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-match.txt`](samples/find-concepts-by-search-term-match.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-match.txt`](samples/get-concepts-by-search-term-match.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-startsWith"/>
+<a name="get-concepts-startsWith"/>
 
-### Find concepts by search term (using type=startsWith)
+### Get concepts by search term (using type=startsWith)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "startsWith". This example uses paging to get only the 
 first 5 results.
 
@@ -530,15 +532,15 @@ first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-startsWith.txt`](samples/find-concepts-by-search-term-startsWith.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-startsWith.txt`](samples/get-concepts-by-search-term-startsWith.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-phrase"/>
+<a name="get-concepts-phrase"/>
 
-### Find concepts by search term (using type=phrase)
+### Get concepts by search term (using type=phrase)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "phrase". This example uses paging to get only the 
 first 5 results.
 
@@ -546,15 +548,15 @@ first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&type=phrase&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-phrase.txt`](samples/find-concepts-by-search-term-phrase.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-phrase.txt`](samples/get-concepts-by-search-term-phrase.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-fuzzy"/>
+<a name="get-concepts-fuzzy"/>
 
-### Find concepts by search term (using type=fuzzy)
+### Get concepts by search term (using type=fuzzy)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "fuzzy". This example uses paging to get only the 
 first 5 results.
 
@@ -562,15 +564,15 @@ first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-fuzzy.txt`](samples/find-concepts-by-search-term-fuzzy.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-fuzzy.txt`](samples/get-concepts-by-search-term-fuzzy.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-and"/>
+<a name="get-concepts-and"/>
 
-### Find concepts by search term (using type=AND)
+### Get concepts by search term (using type=AND)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "AND". This example uses paging to get only the 
 first 5 results.
 
@@ -578,15 +580,15 @@ first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=AND&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-AND.txt`](samples/find-concepts-by-search-term-AND.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-AND.txt`](samples/get-concepts-by-search-term-AND.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-or"/>
+<a name="get-concepts-or"/>
 
-### Find concepts by search term (using type=OR)
+### Get concepts by search term (using type=OR)
 
-Find concepts matching a search term within a specified terminology and
+Get concepts matching a search term within a specified terminology and
 a search type of "OR". This example uses paging to get only the 
 first 5 results.
 
@@ -594,15 +596,15 @@ first 5 results.
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=OR&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-OR.txt`](samples/find-concepts-by-search-term-OR.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-OR.txt`](samples/get-concepts-by-search-term-OR.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-highlights"/>
+<a name="get-concepts-highlights"/>
 
-### Find concepts by search term (with highlights)
+### Get concepts by search term (with highlights)
 
-Find concepts matching a search term within a specified terminology
+Get concepts matching a search term within a specified terminology
 and include synonyms and highlighted text in the response. This example 
 uses paging to get only the first 5 results.
 
@@ -610,15 +612,15 @@ uses paging to get only the first 5 results.
 curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,highlights&pageSize=5" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-term-highlights.txt`](samples/find-concepts-by-search-term-highlights.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-term-highlights.txt`](samples/get-concepts-by-search-term-highlights.txt)
 
 [Back to Top](#top)
 
-<a name="find-concepts-property"/>
+<a name="get-concepts-property"/>
 
-### Find concepts by property
+### Get concepts by property
 
-Find concepts matching a search term that is searched within a certain
+Get concepts matching a search term that is searched within a certain
 set of properties. The search results are set to include the property
 values so you can easily see the match.  The property setting here can be either
 based on code or on label
@@ -628,6 +630,6 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii
 curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&include=properties" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+See sample payload data from this call in [`samples/get-concepts-by-search-property.txt`](samples/get-concepts-by-search-property.txt)
 
 [Back to Top](#top)

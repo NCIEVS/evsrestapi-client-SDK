@@ -176,7 +176,7 @@ public class EvsRestClient extends RootClient {
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public List<ResultList> getConceptBySearchTerm(final String terminology, String term, String pageSize,
+  public String getConceptBySearchTerm(final String terminology, String term, String pageSize,
   String conceptStatus, String contributingSource, String definitionSource, String synonymSource,
   String synonymTermGroup, String type, List<String> includes) throws Exception {
     return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus, contributingSource, definitionSource,
@@ -761,7 +761,7 @@ public class EvsRestClient extends RootClient {
    * @return the concept
    * @throws Exception the exception
    */
-  private List<ResultList> getConceptBySearchTermHelper(final String terminology, String term,
+  private String getConceptBySearchTermHelper(final String terminology, String term,
   String pageSize, String conceptStatus, String contributingSource, String definitionSource,
   String synonymSource, String synonymTermGroup, String type, List<String> includes) throws Exception {
 
@@ -769,7 +769,7 @@ public class EvsRestClient extends RootClient {
     validateNotEmpty(term, "term");
 
     final Client client = getClients().get();
-    String url = "/concept/search?terminology=" + terminology + "&term=" + term;
+    String url = "/concept/" + terminology + "/search?terminology=" + terminology + "&term=" + term;
 
     if(conceptStatus != null && !conceptStatus.isEmpty()) //lots of possible parameters here
       url += "&conceptStatus=" + conceptStatus;           //really wish java had optional parameters
@@ -783,16 +783,13 @@ public class EvsRestClient extends RootClient {
       url += "&synonymTermGroup=" + synonymTermGroup;
     if(type != null && !type.isEmpty())
       url += "&type=" + type;
-    if(!includes.isEmpty())
+    if(includes != null && !includes.isEmpty())
       url += "&includes=" + String.join(", ", includes);
     if(pageSize != null && !pageSize.isEmpty())
       url += "&pageSize=" + pageSize;
 
-    System.out.println(url);
-    if(true)
-      return null;
-
     System.out.println(getApiUrl() + url);
+
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -800,7 +797,7 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<ResultList>>() {});
+      return json;
     }
   }
 

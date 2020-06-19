@@ -315,9 +315,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTerm() throws Exception {
-    final List<ResultList> concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
     null, null, null, null, null, null);
-    logger.info("Get subtree graph by code - C3224");
+    logger.info("Get concept by search term - melanoma");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
