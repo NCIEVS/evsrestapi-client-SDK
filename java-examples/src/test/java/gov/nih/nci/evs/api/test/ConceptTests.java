@@ -399,10 +399,36 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermMatch() throws Exception {
-    List<String> includes = new ArrayList<>();
-    includes.add("properties");
     final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
     null, null, null, null, "match", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term type "startsWith".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermStartsWith() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "startsWith", null, null);
+    logger.info("Get concept by search term - enzyme");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+  }
+
+  /**
+   * Test concept by search term type "phrase".
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetConceptBySearchTermStartsPhrase() throws Exception {
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
+    null, null, null, null, "phrase", null, null);
     logger.info("Get concept by search term - enzyme");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);

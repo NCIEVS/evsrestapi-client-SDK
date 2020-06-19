@@ -519,9 +519,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=startsWith)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "startsWith". This example uses paging to get only the 
-first 5 results.
+`ConceptTests.GetConceptBySearchTermStartsWith()` - Get concepts matching a search term within a specified terminology and
+a search type of "startsWith". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&pageSize=5" | jq '.'
@@ -535,9 +534,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=phrase)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "phrase". This example uses paging to get only the 
-first 5 results.
+`ConceptTests.GetConceptBySearchTermPhrase()` - Get concepts matching a search term within a specified terminology and
+a search type of "phrase". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=phrase&pageSize=5" | jq '.'
@@ -551,9 +549,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=fuzzy)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "fuzzy". This example uses paging to get only the 
-first 5 results.
+`ConceptTests.GetConceptBySearchTermFuzzy()` - Get concepts matching a search term within a specified terminology and
+a search type of "fuzzy". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=fuzzy&pageSize=5" | jq '.'
@@ -567,9 +564,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=AND)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "AND". This example uses paging to get only the 
-first 5 results.
+`ConceptTests.GetConceptBySearchTermAnd()` - Get concepts matching a search term within a specified terminology and
+a search type of "AND". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=AND&pageSize=5" | jq '.'
@@ -583,9 +579,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (using type=OR)
 
-Get concepts matching a search term within a specified terminology and
-a search type of "OR". This example uses paging to get only the 
-first 5 results.
+`ConceptTests.GetConceptBySearchTermOr()` - Get concepts matching a search term within a specified terminology and
+a search type of "OR". This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=OR&pageSize=5" | jq '.'
@@ -599,9 +594,8 @@ See sample payload data from this call in [`samples/get-concepts-by-search-term-
 
 ### Get concepts by search term (with highlights)
 
-Get concepts matching a search term within a specified terminology
-and include synonyms and highlighted text in the response. This example 
-uses paging to get only the first 5 results.
+`ConceptTests.GetConceptBySearchTermHighlights()` - Get concepts matching a search term within a specified terminology
+and include synonyms and highlighted text in the response. This example uses paging to get only the first 5 results.
 
 ```
 curl "$API_URL/concept/search?terminology=ncit&term=enzyme&include=synonyms,highlights&pageSize=5" | jq '.'
