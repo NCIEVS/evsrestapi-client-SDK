@@ -283,7 +283,7 @@ public class ConceptTests {
   }
 
   /**
-   * Test get subtree graph for code without children.
+   * Test get subtree graph for code.
    *
    * @throws Exception the exception
    */
@@ -296,7 +296,7 @@ public class ConceptTests {
   }
 
   /**
-   * Test get subtree graph for code with children.
+   * Test get subtree graph for code's children.
    *
    * @throws Exception the exception
    */

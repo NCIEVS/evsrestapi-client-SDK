@@ -395,7 +395,7 @@ See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](
 ### Get subtree for code
 
 `ConceptTests.GetSubtreeForCode()` - Return an entire subtree graph from the root concepts to a specified node.
-`ConceptTests.GetSubtreeForCodeNoChildren()` - Return an entire subtree graph from the root concepts to a specified node, without children.
+`ConceptTests.GetSubtreeForCodeNoChildren()` - Return an entire subtree graph from the concept to its children.
 
 This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
