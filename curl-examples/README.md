@@ -11,7 +11,7 @@ Prerequisites
 
 The base API url for the EVSRESTAPI is: 
 
-`export API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1`
+`export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
 
 Run this command before the sample curl calls below as they expect $API_URL to be set.
 NOTE: "dev" URLs are only accessible while behind the NIH firewall.
