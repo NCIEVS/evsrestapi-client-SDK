@@ -239,21 +239,21 @@
 			"response": []
 		},
 		{
-			"name": "Get property axiom qualifiers by code (or label)",
+			"name": "Get qualifier values by code (or label)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/property/P383/axiomQualifiers",
+					"raw": "{{API_URL}}/metadata/ncit/qualifier/P383/values",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"metadata",
 						"ncit",
-						"property",
+						"qualifier",
 						"P383",
-						"axiomQualifiers"
+						"values"
 					]
 				}
 			},

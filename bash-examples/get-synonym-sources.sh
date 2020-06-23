@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Script to call EVSRESTAPI to perform contributing sources lookup.
+# Script to call EVSRESTAPI to perform synonym sources lookup.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
   --include) include="$2"; shift;;
@@ -26,8 +26,8 @@ echo "url = $url"
 echo "terminology = $terminology"
 echo ""
 
-echo "  Get contributing sources for $terminology:"
-curl -v -w "\n%{http_code}" -G "$url/metadata/$terminology/contributingSources" 2> /dev/null > /tmp/x.$$
+echo "  Get synonym sources for $terminology:"
+curl -v -w "\n%{http_code}" -G "$url/metadata/$terminology/synonymSources" 2> /dev/null > /tmp/x.$$
 
 if [ $? -ne 0 ]; then
   cat /tmp/x.$$

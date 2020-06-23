@@ -131,16 +131,6 @@
           "source": "NCI-GLOSS",
           "code": "CDR0000045135"
         }
-      ],
-      "contributingSources": [
-        "CDISC",
-        "CPTAC",
-        "CTEP",
-        "CTRP",
-        "Cellosaurus",
-        "GDC",
-        "NCI-GLOSS",
-        "NICHD"
       ]
     },
     {
@@ -168,9 +158,6 @@
           "type": "FULL_SYN",
           "source": "NCI"
         }
-      ],
-      "contributingSources": [
-        "KEGG"
       ]
     },
     {
@@ -206,9 +193,6 @@
           "type": "FULL_SYN",
           "source": "NCI"
         }
-      ],
-      "contributingSources": [
-        "CTEP"
       ]
     },
     {
@@ -246,9 +230,6 @@
           "type": "FULL_SYN",
           "source": "NCI"
         }
-      ],
-      "contributingSources": [
-        "Cellosaurus"
       ]
     },
     {
@@ -355,13 +336,6 @@
           "source": "NCI-GLOSS",
           "code": "CDR0000269460"
         }
-      ],
-      "contributingSources": [
-        "CDISC",
-        "CPTAC",
-        "CTRP",
-        "Cellosaurus",
-        "NCI-GLOSS"
       ]
     }
   ]

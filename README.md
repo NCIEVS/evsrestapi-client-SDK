@@ -34,20 +34,19 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get concept descendants
 - Get all properties
 - Get property by code (or label)
-- Get property axiom qualifiers by code (or label)
+- Get qualifier values by code (or label)
 - Get all roles
 - Get role by code (or label)
 - Get all associations
 - Get association by code (or label)
 - Get all term types
-- Get all contributing sources
+- Get all synonym sources
 - Find root concepts
 - Get paths to/from root from a code
 - Get paths to an ancestor from a code
 - Get subtree for a code
 - Find concepts by search term (use paging to get only first 5 results)
 - Find concepts by search term (restrict by concept status)
-- Find concepts by search term (restrict by contributing source)
 - Find concepts by search term (restrict by definition source)
 - Find concepts by search term (restrict by synonym source and termgroup)
 - Find concepts by search term (where term is a code)
