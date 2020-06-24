@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT
+2020-06-19T10:33:08-07:00 INFO  : Get concept by search term - dsDNA
+2020-06-19T10:33:08-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T10:33:08-07:00 INFO  :   concept = {"total":0,"timeTaken":1639,"parameters":{"term":"dsDNA","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"synonymSource":["NCI"],"synonymTermGroup":"PT","terminology":["ncit"]}}

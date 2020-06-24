@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Header_Concept&pageSize=5
+2020-06-19T10:12:28-07:00 INFO  : Get concept by search term - melanoma
+2020-06-19T10:12:28-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T10:12:28-07:00 INFO  :   concept = {"total":0,"timeTaken":50,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":5,"conceptStatus":["Header_Concept"],"terminology":["ncit"]}}

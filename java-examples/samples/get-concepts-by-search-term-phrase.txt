@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&type=phrase&pageSize=5
+2020-06-19T11:32:49-07:00 INFO  : Get concept by search term - enzyme
+2020-06-19T11:32:49-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T11:32:49-07:00 INFO  :   concept = {"total":3141,"timeTaken":103,"parameters":{"term":"enzyme","type":"phrase","include":"minimal","fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C471","name":"Enzyme Inhibitor","terminology":"ncit","version":"20.05d"},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"20.05d"},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"20.05d"},{"code":"C67366","name":"Enzyme Unit per Deciliter","terminology":"ncit","version":"20.05d"},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"20.05d"}]}

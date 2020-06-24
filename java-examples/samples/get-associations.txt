@@ -1,0 +1,26 @@
+2020-06-18T10:50:57-07:00 INFO  : Get all associations for ncit (default include)
+2020-06-18T10:50:57-07:00 INFO  :   url = http://localhost:8082/api/v1
+2020-06-18T10:50:57-07:00 INFO  :   A8 = {"code":"A8","name":"Concept_In_Subset","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A10 = {"code":"A10","name":"Has_CDRH_Parent","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A15 = {"code":"A15","name":"Has_CTCAE_5_Parent","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A12 = {"code":"A12","name":"Has_Data_Element","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A6 = {"code":"A6","name":"Has_Free_Acid_Or_Base_Form","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A16 = {"code":"A16","name":"Has_INC_Parent","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A11 = {"code":"A11","name":"Has_NICHD_Parent","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A24 = {"code":"A24","name":"Has_PCDC_AML_Permissible_Value","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A23 = {"code":"A23","name":"Has_PCDC_Data_Type","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A19 = {"code":"A19","name":"Has_Pharmaceutical_Administration_Method","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A18 = {"code":"A18","name":"Has_Pharmaceutical_Basic_Dose_Form","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A20 = {"code":"A20","name":"Has_Pharmaceutical_Intended_Site","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A21 = {"code":"A21","name":"Has_Pharmaceutical_Release_Characteristics","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A17 = {"code":"A17","name":"Has_Pharmaceutical_State_Of_Matter","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A22 = {"code":"A22","name":"Has_Pharmaceutical_Transformation","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A5 = {"code":"A5","name":"Has_Salt_Form","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A7 = {"code":"A7","name":"Has_Target","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A9 = {"code":"A9","name":"Is_Related_To_Endogenous_Product","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A14 = {"code":"A14","name":"Neoplasm_Has_Special_Category","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A4 = {"code":"A4","name":"Qualifier_Applies_To","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A13 = {"code":"A13","name":"Related_To_Genetic_Biomarker","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A1 = {"code":"A1","name":"Role_Has_Domain","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A3 = {"code":"A3","name":"Role_Has_Parent","terminology":"ncit","version":"20.05d"}
+2020-06-18T10:50:57-07:00 INFO  :   A2 = {"code":"A2","name":"Role_Has_Range","terminology":"ncit","version":"20.05d"}

@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5
+2020-06-19T11:39:39-07:00 INFO  : Get concept by search term - dsDNA
+2020-06-19T11:39:39-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T11:39:39-07:00 INFO  :   concept = {"total":1066,"timeTaken":85,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":5,"definitionSource":["NCI"],"terminology":["ncit"]},"concepts":[{"code":"C35783","name":"Ciliary Body Mixed Cell Melanoma","terminology":"ncit","version":"20.05d"},{"code":"C35782","name":"Choroid Mixed Cell Melanoma","terminology":"ncit","version":"20.05d"},{"code":"C35781","name":"Mixed Cell Uveal Melanoma","terminology":"ncit","version":"20.05d"},{"code":"C117183","name":"M14","terminology":"ncit","version":"20.05d"},{"code":"C117192","name":"UACC-62","terminology":"ncit","version":"20.05d"}]}

@@ -1,0 +1,4 @@
+http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=C3224
+2020-06-19T10:35:52-07:00 INFO  : Get concept by search term - dsDNA
+2020-06-19T10:35:52-07:00 INFO  :   base url = http://localhost:8082/api/v1
+2020-06-19T10:35:52-07:00 INFO  :   concept = {"total":1,"timeTaken":7250,"parameters":{"term":"C3224","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"20.05d"}]}
