@@ -1,4 +1,0 @@
-http://localhost:8082/api/v1/concept/ncit/C3224/pathsToAncestor/C2991
-2020-06-18T12:11:32-07:00 INFO  : Get path to ancestor code by code - C3224/C2991
-2020-06-18T12:11:32-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-18T12:11:32-07:00 INFO  :   concept = [[{"code":"C3224","name":"Melanoma","level":0}, {"code":"C7058","name":"Melanocytic Neoplasm","level":1}, {"code":"C4741","name":"Neoplasm by Morphology","level":2}, {"code":"C3262","name":"Neoplasm","level":3}, {"code":"C2991","name":"Disease or Disorder","level":4}], [{"code":"C3224","name":"Melanoma","level":0}, {"code":"C9305","name":"Malignant Neoplasm","level":1}, {"code":"C7062","name":"Neoplasm by Special Category","level":2}, {"code":"C3262","name":"Neoplasm","level":3}, {"code":"C2991","name":"Disease or Disorder","level":4}]]

@@ -1,4 +1,0 @@
-http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC&pageSize=5
-2020-06-19T10:28:01-07:00 INFO  : Get concept by search term - melanoma
-2020-06-19T10:28:01-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-19T10:28:01-07:00 INFO  :   concept = {"total":1329,"timeTaken":179,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"20.05d"},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"20.05d"},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"20.05d"},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"20.05d"},{"code":"C7712","name":"Uveal Melanoma","terminology":"ncit","version":"20.05d"}]}

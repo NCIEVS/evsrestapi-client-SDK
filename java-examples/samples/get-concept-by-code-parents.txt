@@ -1,3 +1,0 @@
-2020-06-17T12:32:37-07:00 INFO  : Get concept by code - C3224
-2020-06-17T12:32:37-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-17T12:32:37-07:00 INFO  :   concept = [{"code":"C9305","name":"Malignant Neoplasm"}, {"code":"C7058","name":"Melanocytic Neoplasm"}]

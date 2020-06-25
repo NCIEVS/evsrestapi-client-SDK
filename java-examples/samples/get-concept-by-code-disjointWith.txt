@@ -1,3 +1,0 @@
-2020-06-17T13:42:57-07:00 INFO  : Get concept by code - C3910
-2020-06-17T13:42:57-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-17T13:42:57-07:00 INFO  :   concept = [{"type":"disjointWith","relatedCode":"C43431","relatedName":"Activity"}, {"type":"disjointWith","relatedCode":"C7057","relatedName":"Disease, Disorder or Finding"}, {"type":"disjointWith","relatedCode":"C97325","relatedName":"Manufactured Object"}]

@@ -74,7 +74,6 @@ public class MetadataTests {
   @Test
   public void testGetProperty() throws Exception {
     Concept property = null;
-
     property = client.getProperty(terminology, "P302", "full");
     logger.info("Get P302 (full information)");
     logger.info("  url = " + client.getApiUrl());
@@ -84,6 +83,41 @@ public class MetadataTests {
     logger.info("Get Accepted_Therapeutic_Use_For (minimal information)");
     logger.info("  url = " + client.getApiUrl());
     logger.info("  Accepted_Therapeutic_Use_For = " + property);
+  }
+
+  /**
+   * Test get qualifiers.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetQualifiers() throws Exception {
+    final List<Concept> qualifiers = client.getQualifiers(terminology, null, null);
+    logger.info("Get all properties for " + terminology + " (default include)");
+    logger.info("  url = " + client.getApiUrl());
+    for (final Concept qualifier : qualifiers) {
+      logger.info("  " + qualifier.getCode() + " = " + qualifier);
+    }
+  }
+
+  /**
+   * Test get qualifier.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetQualifier() throws Exception {
+    Concept qualifier = null;
+
+    qualifier = client.getQualifier(terminology, "P387", "full");
+    logger.info("Get P387 (full information)");
+    logger.info("  url = " + client.getApiUrl());
+    logger.info("  P387 = " + qualifier);
+
+    qualifier = client.getQualifier(terminology, "go-id", "minimal");
+    logger.info("Get go-id (minimal information)");
+    logger.info("  url = " + client.getApiUrl());
+    logger.info("  go-id = " + qualifier);
   }
 
   /**
@@ -107,43 +141,38 @@ public class MetadataTests {
    * @throws Exception the exception
    */
   @Test
-  public void testGetRolesByCode() throws Exception {
-    final Concept roles = client.getRolesByCode(terminology, "R123");
-    logger.info("Get all roles for " + terminology + " (default include)");
+  public void testGetRole() throws Exception {
+    Concept role = null;
+    role = client.getRole(terminology, "R123", "full");
+    logger.info("Get R123 (full information)");
     logger.info("  url = " + client.getApiUrl());
-    logger.info("  " + roles.getCode() + " = " + roles);
+    logger.info("  R123 = " + role);
+
+    role = client.getRole(terminology, "Chemotherapy_Regimen_Has_Component", "minimal");
+    logger.info("Get Chemotherapy_Regimen_Has_Component (minimal information)");
+    logger.info("  url = " + client.getApiUrl());
+    logger.info("  Chemotherapy_Regimen_Has_Component = " + role);
   }
 
   /**
-   * Test get property by code.
+   * Test get qualifier values.
    *
    * @throws Exception the exception
    */
   @Test
-  public void testGetPropertyByCode() throws Exception {
+  public void testGetQualifierValues() throws Exception {
 
-    final Concept concept = client.getInfoWithCodes(terminology, "P90", "property");
-    logger.info("Get concept by code - P90");
-    logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
-  }
-
-  /**
-   * Test get property by code with axiom qualifiers.
-   *
-   * @throws Exception the exception
-   */
-  @Test
-  public void testGetPropertyByCodeWithAxiomQualifiers() throws Exception {
-
-    final List<String> concept = client.getAxiomValues(terminology, "P383");
+    final List<String> concept = client.getQualifierValues(terminology, "P383");
     logger.info("Get concept by code - P383");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
 
-  // Get all associations
-
+  /**
+   * Test get associations.
+   *
+   * @throws Exception the exception
+   */
   @Test
   public void testGetAssociations() throws Exception {
     final List<Concept> associations = client.getAssociations(terminology, null, null);
@@ -154,23 +183,23 @@ public class MetadataTests {
     }
   }
 
-  // Get association by code (or label)
-
   /**
    * Test get association by code.
    *
    * @throws Exception the exception
    */
   @Test
-  public void testGetAssociationByCode() throws Exception {
+  public void testGetAssociation() throws Exception {
 
-    final Concept concept = client.getInfoWithCodes(terminology, "A10", "association");
+    Concept concept = client.getInfoWithCodes(terminology, "A10", "association");
+    logger.info("Get concept by code - A10");
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  concept = " + concept);
+    concept = client.getInfoWithCodes(terminology, "A10", "association");
     logger.info("Get concept by code - A10");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
-
-  // Get all term types
 
   /**
    * Test get term types by terminology.

@@ -1,4 +1,0 @@
-http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&includes=properties
-2020-06-19T10:58:41-07:00 INFO  : Get concept by search term - XAV05295I5
-2020-06-19T10:58:41-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-19T10:58:41-07:00 INFO  :   concept = {"total":1,"timeTaken":175,"parameters":{"term":"XAV05295I5","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"property":["fda_unii_code"],"terminology":["ncit"]},"concepts":[{"code":"C61305","name":"Sivifene","terminology":"ncit","version":"20.05d"}]}

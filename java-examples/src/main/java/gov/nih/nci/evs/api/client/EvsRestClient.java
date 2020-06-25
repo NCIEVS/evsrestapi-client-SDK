@@ -21,7 +21,6 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
-import gov.nih.nci.evs.api.model.ResultList;
 import gov.nih.nci.evs.api.model.Terminology;
 
 /**
@@ -78,19 +77,43 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
-   * Returns the properties.
+   * Returns the qualifiers.
    *
    * @param terminology the terminology
    * @param include the include
    * @param codes the codes
+   * @return the qualifiers
+   * @throws Exception the exception
+   */
+  public List<Concept> getQualifiers(final String terminology, final String include,
+    final List<String> codes) throws Exception {
+    return getAllMetadataHelper("qualifiers", terminology, include, codes);
+  }
+
+  /**
+   * Returns the properties.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param type the type
    * @return the properties
    * @throws Exception the exception
    */
-  public Concept getInfoWithCodes(final String terminology, final String code, final String type) throws Exception {
+  public Concept getInfoWithCodes(final String terminology, final String code, final String type)
+    throws Exception {
     return getInfoWithCodeHelper(terminology, code, type);
   }
 
-  public List<String> getAxiomValues(final String terminology, final String code) throws Exception {
+  /**
+   * Returns the qualifier values.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @return the qualifier values
+   * @throws Exception the exception
+   */
+  public List<String> getQualifierValues(final String terminology, final String code)
+    throws Exception {
     return getAxiomValuesHelper(terminology, code);
   }
 
@@ -106,19 +129,6 @@ public class EvsRestClient extends RootClient {
   public List<Concept> getRoles(final String terminology, final String include,
     final List<String> codes) throws Exception {
     return getAllMetadataHelper("roles", terminology, include, codes);
-  }
-
-  /**
-   * Returns the roles by code or label.
-   *
-   * @param terminology the terminology
-   * @param include the include
-   * @param codes the codes
-   * @return the roles
-   * @throws Exception the exception
-   */
-  public Concept getRolesByCode(final String terminology, final String code) throws Exception {
-    return getAllCodeHelper(terminology, code);
   }
 
   /**
@@ -162,10 +172,13 @@ public class EvsRestClient extends RootClient {
    * Returns the hierarchy nodes.
    *
    * @param terminology the terminology
+   * @param code the code
+   * @param removeChildren the remove children
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public String getSubtree(final String terminology, final String code, final Boolean removeChildren) throws Exception {
+  public String getSubtree(final String terminology, final String code,
+    final Boolean removeChildren) throws Exception {
     return getSubtreeHelper(terminology, code, removeChildren);
   }
 
@@ -173,14 +186,26 @@ public class EvsRestClient extends RootClient {
    * Returns the hierarchy nodes.
    *
    * @param terminology the terminology
+   * @param term the term
+   * @param pageSize the page size
+   * @param conceptStatus the concept status
+   * @param contributingSource the contributing source
+   * @param definitionSource the definition source
+   * @param synonymSource the synonym source
+   * @param synonymTermGroup the synonym term group
+   * @param type the type
+   * @param property the property
+   * @param includes the includes
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public String getConceptBySearchTerm(final String terminology, String term, String pageSize,
-  String conceptStatus, String contributingSource, String definitionSource, String synonymSource,
-  String synonymTermGroup, String type, String property, List<String> includes) throws Exception {
-    return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus, contributingSource, definitionSource,
-    synonymSource, synonymTermGroup, type, property, includes);
+  public String getConceptBySearchTerm(final String terminology, final String term,
+    final String pageSize, final String conceptStatus, final String contributingSource,
+    final String definitionSource, final String synonymSource, final String synonymTermGroup,
+    final String type, final String property, final List<String> includes) throws Exception {
+    return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus,
+        contributingSource, definitionSource, synonymSource, synonymTermGroup, type, property,
+        includes);
   }
 
   /**
@@ -223,75 +248,59 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
-   * Returns the all metadata helper.
-   *
-   * @param type the type
-   * @param terminology the terminology
-   * @param include the include
-   * @param codes the codes
-   * @return the all metadata helper
-   * @throws Exception the exception
-   */
-  private Concept getAllCodeHelper(final String terminology,
-    final String code) throws Exception {
-    validateNotEmpty(terminology, "terminology");
-    validateNotEmpty(code, "code");
-
-    String url = "/metadata/ncit/role/" + code;
-    final Client client = getClients().get();
-    final WebTarget target =
-        client.target(getApiUrl() + url);
-    try (Response response = request(target).get()) {
-      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-        logger.error("Unexpected error getting all " + code + " = " + terminology);
-        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
-      }
-      final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, Concept.class);
-
-    }
-  }
-
-  /**
    * Returns the property.
    *
    * @param terminology the terminology
-   * @param code the code
+   * @param codeOrLabel the code or label
    * @param include the include
    * @return the property
    * @throws Exception the exception
    */
-  public Concept getProperty(final String terminology, final String code, final String include)
-    throws Exception {
-    return getHelper("property", terminology, code, include);
+  public Concept getProperty(final String terminology, final String codeOrLabel,
+    final String include) throws Exception {
+    return getHelper("property", terminology, codeOrLabel, include);
+  }
+
+  /**
+   * Returns the qualifier.
+   *
+   * @param terminology the terminology
+   * @param codeOrLabel the code or label
+   * @param include the include
+   * @return the qualifier
+   * @throws Exception the exception
+   */
+  public Concept getQualifier(final String terminology, final String codeOrLabel,
+    final String include) throws Exception {
+    return getHelper("qualifier", terminology, codeOrLabel, include);
   }
 
   /**
    * Returns the role.
    *
    * @param terminology the terminology
-   * @param code the code
+   * @param codeOrLabel the code or label
    * @param include the include
    * @return the role
    * @throws Exception the exception
    */
-  public Concept getRole(final String terminology, final String code, final String include)
+  public Concept getRole(final String terminology, final String codeOrLabel, final String include)
     throws Exception {
-    return getHelper("role", terminology, code, include);
+    return getHelper("role", terminology, codeOrLabel, include);
   }
 
   /**
    * Returns the association.
    *
    * @param terminology the terminology
-   * @param code the code
+   * @param codeOrLabel the code or label
    * @param include the include
    * @return the association
    * @throws Exception the exception
    */
-  public Concept getAssociation(final String terminology, final String code, final String include)
-    throws Exception {
-    return getHelper("association", terminology, code, include);
+  public Concept getAssociation(final String terminology, final String codeOrLabel,
+    final String include) throws Exception {
+    return getHelper("association", terminology, codeOrLabel, include);
   }
 
   /**
@@ -314,25 +323,53 @@ public class EvsRestClient extends RootClient {
    * @param terminology the terminology
    * @param code the code
    * @param part the part
+   * @return the concept part
    * @throws Exception the exception
    */
-  public List<Concept> getConceptPart(final String terminology, final String code, final String part)
-    throws Exception {
+  public List<Concept> getConceptPart(final String terminology, final String code,
+    final String part) throws Exception {
     return getConceptPartHelper(terminology, code, part);
   }
 
-  public List<Relationship> getRelationshipPart(final String terminology, final String code, final String part)
-    throws Exception {
+  /**
+   * Returns the relationship part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the part
+   * @return the relationship part
+   * @throws Exception the exception
+   */
+  public List<Relationship> getRelationshipPart(final String terminology, final String code,
+    final String part) throws Exception {
     return getRelationshipPartHelper(terminology, code, part);
   }
 
+  /**
+   * Returns the map part.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param part the part
+   * @return the map part
+   * @throws Exception the exception
+   */
   public List<Map> getMapPart(final String terminology, final String code, final String part)
     throws Exception {
     return getMapPartHelper(terminology, code, part);
   }
 
-  public List<Concept> getDescendants(final String terminology, final String code, final String levels)
-    throws Exception {
+  /**
+   * Returns the descendants.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @param levels the levels
+   * @return the descendants
+   * @throws Exception the exception
+   */
+  public List<Concept> getDescendants(final String terminology, final String code,
+    final String levels) throws Exception {
     return getDescendantsHelper(terminology, code, levels);
   }
 
@@ -354,13 +391,14 @@ public class EvsRestClient extends RootClient {
    * Returns the concept paths.
    *
    * @param terminology the terminology
-   * @param codes the codes
-   * @param include the include
+   * @param code the code
+   * @param part1 the part 1
+   * @param part2 the part 2
    * @return the concept paths
    * @throws Exception the exception
    */
-  public List<List<Concept>> getConceptPath(final String terminology, final String code, final String part1, final String part2)
-    throws Exception {
+  public List<List<Concept>> getConceptPath(final String terminology, final String code,
+    final String part1, final String part2) throws Exception {
     return getConceptPathHelper(terminology, code, part1, part2);
   }
 
@@ -417,7 +455,7 @@ public class EvsRestClient extends RootClient {
    * @return the concept part
    * @throws Exception the exception
    */
-  private List<Concept> getConceptPartHelper(final String terminology, final String code, 
+  private List<Concept> getConceptPartHelper(final String terminology, final String code,
     final String part) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -426,7 +464,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/" + part;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -434,7 +471,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+      });
     }
   }
 
@@ -447,7 +485,7 @@ public class EvsRestClient extends RootClient {
    * @return the relationship part
    * @throws Exception the exception
    */
-  private List<Relationship> getRelationshipPartHelper(final String terminology, final String code, 
+  private List<Relationship> getRelationshipPartHelper(final String terminology, final String code,
     final String part) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -456,7 +494,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/" + part;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -464,7 +501,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<Relationship>>() {});
+      return getMapper().readValue(json, new TypeReference<List<Relationship>>() {
+      });
     }
   }
 
@@ -477,8 +515,8 @@ public class EvsRestClient extends RootClient {
    * @return the map part
    * @throws Exception the exception
    */
-  private List<Map> getMapPartHelper(final String terminology, final String code, 
-    final String part) throws Exception {
+  private List<Map> getMapPartHelper(final String terminology, final String code, final String part)
+    throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
@@ -486,7 +524,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/" + part;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -494,7 +531,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<Map>>() {});
+      return getMapper().readValue(json, new TypeReference<List<Map>>() {
+      });
     }
   }
 
@@ -543,10 +581,9 @@ public class EvsRestClient extends RootClient {
   /**
    * Returns the list helper.
    *
-   * @param type the type
    * @param terminology the terminology
    * @param codes the codes
-   * @param include the include
+   * @param levels the levels
    * @return the list helper
    * @throws Exception the exception
    */
@@ -579,11 +616,12 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param part the map part
+   * @param type the type
    * @return the map part
    * @throws Exception the exception
    */
-  private Concept getInfoWithCodeHelper(final String terminology, final String code, final String type) throws Exception {
+  private Concept getInfoWithCodeHelper(final String terminology, final String code,
+    final String type) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
@@ -591,7 +629,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/metadata/" + terminology + "/" + type + "/" + code;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -608,11 +645,11 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param part the map part
    * @return the map part
    * @throws Exception the exception
    */
-  private List<String> getAxiomValuesHelper(final String terminology, final String code) throws Exception {
+  private List<String> getAxiomValuesHelper(final String terminology, final String code)
+    throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
@@ -620,7 +657,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/metadata/" + terminology + "/qualifier/" + code + "/values";
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -628,7 +664,7 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      final String jsonStripped = json.replaceAll("[\\[\\]\"]","");
+      final String jsonStripped = json.replaceAll("[\\[\\]\"]", "");
       return Arrays.asList(jsonStripped.split(","));
     }
   }
@@ -641,7 +677,8 @@ public class EvsRestClient extends RootClient {
    * @return the info
    * @throws Exception the exception
    */
-  private List<Concept> getTermInfoHelper(final String terminology, final String type) throws Exception {
+  private List<Concept> getTermInfoHelper(final String terminology, final String type)
+    throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(type, "type");
@@ -649,7 +686,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/metadata/" + terminology + "/" + type;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -657,7 +693,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+      });
     }
   }
 
@@ -665,8 +702,6 @@ public class EvsRestClient extends RootClient {
    * Returns the map part.
    *
    * @param terminology the terminology
-   * @param code the code
-   * @param part the map part
    * @return the map part
    * @throws Exception the exception
    */
@@ -677,7 +712,6 @@ public class EvsRestClient extends RootClient {
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/roots";
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -685,7 +719,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<Concept>>() {});
+      return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+      });
     }
   }
 
@@ -694,11 +729,12 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param part the concept part
+   * @param part1 the part 1
+   * @param part2 the part 2
    * @return the concept part
    * @throws Exception the exception
    */
-  private List<List<Concept>> getConceptPathHelper(final String terminology, final String code, 
+  private List<List<Concept>> getConceptPathHelper(final String terminology, final String code,
     final String part1, final String part2) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -706,10 +742,9 @@ public class EvsRestClient extends RootClient {
 
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/" + part1;
-    if(part2 != null)
+    if (part2 != null)
       url += "/" + part2;
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -717,7 +752,8 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, new TypeReference<List<List<Concept>>>() {});
+      return getMapper().readValue(json, new TypeReference<List<List<Concept>>>() {
+      });
     }
   }
 
@@ -726,11 +762,11 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param children remove children or not
+   * @param removeChildren the remove children
    * @return the concept part
    * @throws Exception the exception
    */
-  private String getSubtreeHelper(final String terminology, final String code, 
+  private String getSubtreeHelper(final String terminology, final String code,
     final Boolean removeChildren) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
@@ -738,10 +774,9 @@ public class EvsRestClient extends RootClient {
 
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/subtree";
-    if(removeChildren == true)
+    if (removeChildren == true)
       url += "/children";
 
-    System.out.println(getApiUrl() + url);
     final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
@@ -757,42 +792,61 @@ public class EvsRestClient extends RootClient {
    * Returns the concept by search term.
    *
    * @param terminology the terminology
-   * @param code the code
+   * @param term the term
+   * @param pageSize the page size
+   * @param conceptStatus the concept status
+   * @param contributingSource the contributing source
+   * @param definitionSource the definition source
+   * @param synonymSource the synonym source
+   * @param synonymTermGroup the synonym term group
+   * @param type the type
+   * @param property the property
+   * @param includes the includes
    * @return the concept
    * @throws Exception the exception
    */
   private String getConceptBySearchTermHelper(final String terminology, String term,
-  String pageSize, String conceptStatus, String contributingSource, String definitionSource,
-  String synonymSource, String synonymTermGroup, String type, String property, List<String> includes) throws Exception {
+    String pageSize, String conceptStatus, String contributingSource, String definitionSource,
+    String synonymSource, String synonymTermGroup, String type, String property,
+    List<String> includes) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(term, "term");
 
     final Client client = getClients().get();
-    String url = "/concept/" + terminology + "/search?terminology=" + terminology + "&term=" + term;
+    final String url = "/concept/" + terminology + "/search";
+    WebTarget target = client.target(getApiUrl() + url);
+    target = target.queryParam("terminology", terminology).queryParam("term", term);
+    // Lots of possible params here
+    if (conceptStatus != null && !conceptStatus.isEmpty()) {
+      target = target.queryParam("conceptStatus", conceptStatus);
+    }
 
-    if(conceptStatus != null && !conceptStatus.isEmpty()) //lots of possible parameters here
-      url += "&conceptStatus=" + conceptStatus;           //really wish java had optional parameters
-    if(contributingSource != null && !contributingSource.isEmpty())
-      url += "&contributingSource=" + contributingSource;
-    if(definitionSource != null && !definitionSource.isEmpty())
-      url += "&definitionSource=" + definitionSource;
-    if(synonymSource != null && !synonymSource.isEmpty())
-      url += "&synonymSource=" + synonymSource;
-    if(synonymTermGroup != null && !synonymTermGroup.isEmpty())
-      url += "&synonymTermGroup=" + synonymTermGroup;
-    if(type != null && !type.isEmpty())
-      url += "&type=" + type;
-    if(property != null && !property.isEmpty())
-      url += "&property=" + property;
-    if(includes != null && !includes.isEmpty())
-      url += "&includes=" + String.join(",", includes);
-    if(pageSize != null && !pageSize.isEmpty())
-      url += "&pageSize=" + pageSize;
+    if (contributingSource != null && !contributingSource.isEmpty()) {
+      target = target.queryParam("contributingSource", contributingSource);
+    }
+    if (definitionSource != null && !definitionSource.isEmpty()) {
+      target = target.queryParam("definitionSource", definitionSource);
+    }
+    if (synonymSource != null && !synonymSource.isEmpty()) {
+      target = target.queryParam("synonymSource", synonymSource);
+    }
+    if (synonymTermGroup != null && !synonymTermGroup.isEmpty()) {
+      target = target.queryParam("synonymTermGroup", synonymTermGroup);
+    }
+    if (type != null && !type.isEmpty()) {
+      target = target.queryParam("type", type);
+    }
+    if (property != null && !property.isEmpty()) {
+      target = target.queryParam("property", property);
+    }
+    if (includes != null && !includes.isEmpty()) {
+      target = target.queryParam("includes", String.join(",", includes));
+    }
+    if (pageSize != null && !pageSize.isEmpty()) {
+      target = target.queryParam("pageSize", String.valueOf(pageSize));
+    }
 
-    System.out.println(getApiUrl() + url);
-
-    final WebTarget target = client.target(getApiUrl() + url);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
         logger.error("Unexpected error getting " + terminology + ", " + term);
@@ -802,7 +856,5 @@ public class EvsRestClient extends RootClient {
       return json;
     }
   }
-
-
 
 }

@@ -1,4 +1,0 @@
-http://localhost:8082/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&type=match&pageSize=5
-2020-06-19T11:09:23-07:00 INFO  : Get concept by search term - enzyme
-2020-06-19T11:09:23-07:00 INFO  :   base url = http://localhost:8082/api/v1
-2020-06-19T11:09:23-07:00 INFO  :   concept = {"total":1446,"timeTaken":97,"parameters":{"term":"enzyme","type":"match","include":"minimal","fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name":"Enzyme","terminology":"ncit","version":"20.05d"},{"code":"C82689","name":"Ribonuclease QBI-139","terminology":"ncit","version":"20.05d"},{"code":"C150306","name":"E3 Ubiquitin-Protein Ligase RING2","terminology":"ncit","version":"20.05d"},{"code":"C158419","name":"Translocase","terminology":"ncit","version":"20.05d"},{"code":"C134700","name":"Maternal Embryonic Leucine Zipper Kinase","terminology":"ncit","version":"20.05d"}]}

@@ -13,7 +13,6 @@ import gov.nih.nci.evs.api.client.EvsRestClient;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
-import gov.nih.nci.evs.api.model.ResultList;
 
 /**
  * Concept tests.
@@ -107,7 +106,8 @@ public class ConceptTests {
   public void testGetConceptByListCustom() throws Exception {
     final List<String> codes = new ArrayList<>();
     codes.add("C3224");
-    final List<Concept> concepts = client.getConcepts(terminology, codes, "synonyms,children,maps,inverseAssociations");
+    final List<Concept> concepts =
+        client.getConcepts(terminology, codes, "synonyms,children,maps,inverseAssociations");
     logger.info("Get concept by list - " + codes);
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concepts = " + concepts);
@@ -159,7 +159,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptPartAssociations() throws Exception {
-    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "associations");
+    final List<Relationship> concept =
+        client.getRelationshipPart(terminology, "C3224", "associations");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -172,7 +173,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptPartInverseRoles() throws Exception {
-    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "inverseRoles");
+    final List<Relationship> concept =
+        client.getRelationshipPart(terminology, "C3224", "inverseRoles");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -185,7 +187,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptPartInverseAssociations() throws Exception {
-    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3224", "inverseAssociations");
+    final List<Relationship> concept =
+        client.getRelationshipPart(terminology, "C3224", "inverseAssociations");
     logger.info("Get concept by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -211,7 +214,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptPartDisjointWith() throws Exception {
-    final List<Relationship> concept = client.getRelationshipPart(terminology, "C3910", "disjointWith");
+    final List<Relationship> concept =
+        client.getRelationshipPart(terminology, "C3910", "disjointWith");
     logger.info("Get concept by code - C3910");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -250,7 +254,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetPathToRoot() throws Exception {
-    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToRoot", null);
+    final List<List<Concept>> concept =
+        client.getConceptPath(terminology, "C3224", "pathsToRoot", null);
     logger.info("Get path to root by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -263,7 +268,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetPathFromRoot() throws Exception {
-    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsFromRoot", null);
+    final List<List<Concept>> concept =
+        client.getConceptPath(terminology, "C3224", "pathsFromRoot", null);
     logger.info("Get path to root by code - C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -276,7 +282,8 @@ public class ConceptTests {
    */
   @Test
   public void testGetPathToAncestor() throws Exception {
-    final List<List<Concept>> concept = client.getConceptPath(terminology, "C3224", "pathsToAncestor", "C2991");
+    final List<List<Concept>> concept =
+        client.getConceptPath(terminology, "C3224", "pathsToAncestor", "C2991");
     logger.info("Get path to ancestor code by code - C3224/C2991");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
@@ -315,9 +322,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTerm() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
-    null, null, null, null, null, null, null);
-    logger.info("Get concept by search term - melanoma");
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, null,
+        null, null, null, null, null, null);
+    logger.info("Get concept by search term=melanoma");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -329,9 +336,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermConceptStatus() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", "Header_Concept", 
-    null, null, null, null, null, null, null);
-    logger.info("Get concept by search term - melanoma");
+    final String concept = client.getConceptBySearchTerm(terminology, "respiratory", "5",
+        "Header_Concept", null, null, null, null, null, null, null);
+    logger.info("Get concept by search term=respiratory, status=Header_Concept");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -343,9 +350,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermContributingSource() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
-    "CDISC", null, null, null, null, null, null);
-    logger.info("Get concept by search term - melanoma");
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null,
+        "CDISC", null, null, null, null, null, null);
+    logger.info("Get concept by search term=melanoma, contributingSource=CDISC");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -357,9 +364,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermDefinitionSource() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, 
-    null, "NCI", null, null, null, null, null);
-    logger.info("Get concept by search term - dsDNA");
+    final String concept = client.getConceptBySearchTerm(terminology, "melanoma", "5", null, null,
+        "NCI", null, null, null, null, null);
+    logger.info("Get concept by search term=dsDNA, definitionSource=NCI");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -371,9 +378,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermSynonymSource() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "dsDNA", null, null, 
-    null, null, "NCI", "PT", null, null, null);
-    logger.info("Get concept by search term - dsDNA");
+    final String concept = client.getConceptBySearchTerm(terminology, "dsDNA", null, null, null,
+        null, "NCI", "PT", null, null, null);
+    logger.info("Get concept by search term=dsDNA, synonymSource=NCI, synonymTermGroup=PT");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -385,9 +392,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermAsCode() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "C3224", null, null, 
-    null, null, null, null, null, null, null);
-    logger.info("Get concept by search term - dsDNA");
+    final String concept = client.getConceptBySearchTerm(terminology, "C3224", null, null, null,
+        null, null, null, null, null, null);
+    logger.info("Get concept by search term=C3224");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -399,9 +406,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermMatch() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "match", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, null,
+        null, null, null, "match", null, null);
+    logger.info("Get concept by search term=enzyme, type=match");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -413,9 +420,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermStartsWith() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "startsWith", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, null,
+        null, null, null, "startsWith", null, null);
+    logger.info("Get concept by search term=enzyme, type=startsWith");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -427,9 +434,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermPhrase() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "phrase", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "malignant melanoma", "5",
+        null, null, null, null, null, "phrase", null, null);
+    logger.info("Get concept by search term=malignant melanoma, type=phrase");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -441,9 +448,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermFuzzy() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "fuzzy", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, null,
+        null, null, null, "fuzzy", null, null);
+    logger.info("Get concept by search term=enzyme, type=fuzzy");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -455,9 +462,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermAnd() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "AND", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "malignant melanoma", "5",
+        null, null, null, null, null, "AND", null, null);
+    logger.info("Get concept by search term=malignant melanoma, type=AND");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -469,9 +476,9 @@ public class ConceptTests {
    */
   @Test
   public void testGetConceptBySearchTermOr() throws Exception {
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, "OR", null, null);
-    logger.info("Get concept by search term - enzyme");
+    final String concept = client.getConceptBySearchTerm(terminology, "malignant melanoma", "5",
+        null, null, null, null, null, "OR", null, null);
+    logger.info("Get concept by search term=malignant melanoma, type=OR");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -486,9 +493,9 @@ public class ConceptTests {
     List<String> includes = new ArrayList<>();
     includes.add("synonyms");
     includes.add("highlights");
-    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, 
-    null, null, null, null, null, null, includes);
-    logger.info("Get concept by search term - XAV05295I5");
+    final String concept = client.getConceptBySearchTerm(terminology, "enzyme", "5", null, null,
+        null, null, null, null, null, includes);
+    logger.info("Get concept by search term=XAV05295I5 (with highlights)");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
@@ -502,9 +509,9 @@ public class ConceptTests {
   public void testGetConceptByProperty() throws Exception {
     List<String> includes = new ArrayList<>();
     includes.add("properties");
-    final String concept = client.getConceptBySearchTerm(terminology, "XAV05295I5", null, null, 
-    null, null, null, null, null, "fda_unii_code", includes);
-    logger.info("Get concept by search term - XAV05295I5");
+    final String concept = client.getConceptBySearchTerm(terminology, "XAV05295I5", null, null,
+        null, null, null, null, null, "fda_unii_code", includes);
+    logger.info("Get concept by search term=XAV05295I5, property=fda_unii_code");
     logger.info("  base url = " + client.getApiUrl());
     logger.info("  concept = " + concept);
   }
