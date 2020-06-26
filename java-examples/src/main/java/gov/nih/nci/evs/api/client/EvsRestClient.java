@@ -114,7 +114,22 @@ public class EvsRestClient extends RootClient {
    */
   public List<String> getQualifierValues(final String terminology, final String code)
     throws Exception {
-    return getAxiomValuesHelper(terminology, code);
+    validateNotEmpty(terminology, "terminology");
+    validateNotEmpty(code, "code");
+
+    final Client client = getClients().get();
+    String url = "/metadata/" + terminology + "/qualifier/" + code + "/values";
+
+    final WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting " + terminology + ", " + code);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      final String jsonStripped = json.replaceAll("[\\[\\]\"]", "");
+      return Arrays.asList(jsonStripped.split(","));
+    }
   }
 
   /**
@@ -637,35 +652,6 @@ public class EvsRestClient extends RootClient {
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, Concept.class);
-    }
-  }
-
-  /**
-   * Returns the axiom values by code.
-   *
-   * @param terminology the terminology
-   * @param code the code
-   * @return the map part
-   * @throws Exception the exception
-   */
-  private List<String> getAxiomValuesHelper(final String terminology, final String code)
-    throws Exception {
-
-    validateNotEmpty(terminology, "terminology");
-    validateNotEmpty(code, "code");
-
-    final Client client = getClients().get();
-    String url = "/metadata/" + terminology + "/qualifier/" + code + "/values";
-
-    final WebTarget target = client.target(getApiUrl() + url);
-    try (Response response = request(target).get()) {
-      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-        logger.error("Unexpected error getting " + terminology + ", " + code);
-        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
-      }
-      final String json = response.readEntity(String.class);
-      final String jsonStripped = json.replaceAll("[\\[\\]\"]", "");
-      return Arrays.asList(jsonStripped.split(","));
     }
   }
 
