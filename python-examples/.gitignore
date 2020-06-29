@@ -1,3 +1,3 @@
 __pychache__
 .pytest_cache
-*.txt
+python-examples/logs.txt
