@@ -17,13 +17,16 @@ The various scripts make use of the `python-examples/config.ini` file to load ne
 ## Sample Python Calls
 
 The following examples are exhibited by various unit tests defined in the code in `python-examples`.
+All commands to run these tests should be run from that directory.
 
 * [Get terminologies](#get-terminologies)
 * [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
 
 ### Get terminologies
 
-`MetadataTests.testGetTerminologies()` - Return all loaded terminologies currently hosted by the API.
+Return all loaded terminologies currently hosted by the API.
+
+Command: `pytest test_Metadata_Tests.py::test_get_all_terminologies`
 
 ```{.python}
 2020-04-28T19:36:53-04:00 INFO  : Get Terminologies
@@ -35,7 +38,9 @@ The following examples are exhibited by various unit tests defined in the code i
 
 ### Get concept by code (minimal information)
 
-`ConceptTests.testGetConceptByCode()` - Return concept object with minimal information for a specified code.
+Return concept object with minimal information for a specified code.
+
+Command: `pytest test_Concept_Tests.py::test_get_minimal_concept_by_code`
 
 ```{.python}
 2020-04-28T19:39:52-04:00 INFO  : Get concept by code - C3224
