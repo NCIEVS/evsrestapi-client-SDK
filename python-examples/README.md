@@ -110,3 +110,17 @@ Command: `pytest test_Concept_Tests.py::test_get_custom_concept_by_code`
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concept part (children) by code
+
+Return concept part information for a given terminology, concept part, and code. Some possible concept parts include Children, Parents, Roles, Associations, InverseRoles, InverseAssociations, Maps, and DisjointWith. The example below shows Children.
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_part_children_by_code`
+
+```{.python}
+2020-06-30T16:06:24.598 INFO : test_Concept_Tests.py: Get concept part (children) by code - C3224
+2020-06-30T16:06:24.599 INFO : url = http://localhost:8082/api/v1/concept/ncit/C3224/children
+2020-06-30T16:06:25.216 INFO : [{"code":"C3802","name":"Amelanotic Melanoma"},{"code":"C8410","name":"Breast Melanoma"},{"code":"C131506","name":"Childhood Melanoma"},{"code":"C3510","name":"Cutaneous Melanoma"},{"code":"C4236","name":"Epithelioid Cell Melanoma"},{"code":"C9499","name":"Melanomatosis"},{"code":"C8925","name":"Metastatic Melanoma"},{"code":"C66756","name":"Mixed Epithelioid and Spindle Cell Melanoma"},{"code":"C8711","name":"Non-Cutaneous Melanoma"},{"code":"C8562","name":"Ocular Melanoma"},{"code":"C118828","name":"Orbital Melanoma"},{"code":"C162547","name":"Penile Melanoma"},{"code":"C7087","name":"Recurrent Melanoma"},{"code":"C147983","name":"Refractory Melanoma"},{"code":"C4228","name":"Regressing Melanoma"},{"code":"C4237","name":"Spindle Cell Melanoma"},{"code":"C148517","name":"Unresectable Melanoma"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)

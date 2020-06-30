@@ -48,3 +48,10 @@ def test_get_custom_concept_by_code(): # Return custom concept information for a
     response = requests.get(localUrl + "/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociations");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_concept_part_children_by_code(): # Return custom concept information for a given terminology and code.
+    logging.info("test_Concept_Tests.py: Get concept part (children) by code - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/children");
+    response = requests.get(localUrl + "/concept/ncit/C3224/children");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
