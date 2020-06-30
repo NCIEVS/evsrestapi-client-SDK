@@ -21,6 +21,8 @@ All commands to run these tests should be run from that directory.
 
 * [Get terminologies](#get-terminologies)
 * [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
+* [Get concept list by code (minimal information)](#get-concepts-by-list-of-codes-minimal-information)
+* [Get concept by code (summary information)](#get-concept-by-code-summary-information)
 
 ### Get terminologies
 
@@ -41,6 +43,34 @@ Command: `pytest test_Metadata_Tests.py::test_get_all_terminologies`
 Return concept object with minimal information for a specified code.
 
 Command: `pytest test_Concept_Tests.py::test_get_minimal_concept_by_code`
+
+```{.python}
+2020-04-28T19:39:52-04:00 INFO  : Get concept by code - C3224
+2020-04-28T19:39:52-04:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
+2020-04-28T19:39:52-04:00 INFO  :   concept = {"code":"C3224","name":"Melanoma","terminology":"ncit"}
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by list of codes (minimal information)
+
+Return concept objects with minimal information for a specified list of codes.
+
+Command: `pytest test_Concept_Tests.py::test_get_minimal_concept_list_by_code`
+
+```{.python}
+2020-04-28T19:39:52-04:00 INFO  : Get concept by code - C3224
+2020-04-28T19:39:52-04:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
+2020-04-28T19:39:52-04:00 INFO  :   concept = {"code":"C3224","name":"Melanoma","terminology":"ncit"}
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concept by code (summary information)
+
+Return concept object with summary information for a specified code.
+
+Command: `pytest test_Concept_Tests.py::test_get_summary_concept_by_code`
 
 ```{.python}
 2020-04-28T19:39:52-04:00 INFO  : Get concept by code - C3224
