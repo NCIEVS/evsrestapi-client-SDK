@@ -1,5 +1,3 @@
-<a name="top" />
-
 EVSRESTAPI client SDK: CURL Tutorial
 ======================================
 
@@ -27,43 +25,42 @@ Sample cURL Calls
 The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
 - [Get terminologies](#get-terminologies)
-- [Get concept by code (minimum information)](#get-concept-by-code)
-- [Get concepts by list of codes (minimum information)](#get-concepts-by-list)
-- [Get concept by code (summary information)](#get-concept-by-code-summary)
-- [Get concept by code (full information)](#get-concept-by-code-full)
-- [Get concept by code (custom include)](#get-concept-by-code-custom)
+- [Get concept by code (minimum information)](#get-concept-by-code-minimal-information)
+- [Get concepts by list of codes (minimum information)](#get-concepts-by-list-minimal-information)
+- [Get concept by code (summary information)](#get-concept-by-code-summary-information)
+- [Get concept by code (full information)](#get-concept-by-code-full-information)
+- [Get concept by code (custom include)](#get-concept-by-code-custom-include)
 - [Get concept part](#get-concept-part)
 - [Get concept descendants](#get-descendants)
-- [Get all properties](#get-properties)
-- [Get property by code (or label)](#get-property)
-- [Get qualifier values by code (or label)](#get-property-aq)
-- [Get all qualifiers](#get-qualifiers)
-- [Get qualifier by code (or label)](#get-qualifier)
-- [Get all roles](#get-roles)
-- [Get role by code (or label)](#get-role)
-- [Get all associations](#get-associations)
-- [Get association by code (or label)](#get-association)
-- [Get all term types](#get-term-types)
-- [Get all synonym sources](#get-synonym-sources)
-- [Find root concepts](#get-roots)
-- [Get paths to/from root from a code](#get-paths)
-- [Get paths to an ancestor from a code](#get-paths-ancestor)
-- [Get subtree](#get-subtree)
-- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts)
-- [Find concepts by search term (restrict by concept status)](#find-concepts-restrict-concept-status)
-- [Find concepts by search term (restrict by definition source)](#find-concepts-restrict-concept-definition-source)
-- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-restrict-synonym-source)
-- [Find concepts by search term (where term is a code)](#find-concepts-by-code)
-- [Find concepts by search term (using type=match)](#find-concepts-match)
-- [Find concepts by search term (using type=startsWith)](#find-concepts-startsWith)
-- [Find concepts by search term (using type=phrase)](#find-concepts-phrase)
-- [Find concepts by search term (using type=fuzzy)](#find-concepts-fuzzy)
-- [Find concepts by search term (using type=AND)](#find-concepts-and)
-- [Find concepts by search term (using type=OR)](#find-concepts-or)
-- [Find concepts by search term (with highlights)](#find-concepts-highlights)
-- [Find concepts by property](#find-concepts-property)
+- [Get all properties](#get-all-properties)
+- [Get property by code (or label)](#get-property-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
+- [Get all qualifiers](#get-all-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get all roles](#get-all-roles)
+- [Get role by code (or label)](#get-role-by-code-or-label)
+- [Get all associations](#get-all-associations)
+- [Get association by code (or label)](#get-association-by-code-or-label)
+- [Get all term types](#get-all-term-types)
+- [Get all synonym sources](#get-all-synonym-sources)
+- [Find root concepts](#find-root-concepts)
+- [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
+- [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
+- [Get subtree for code](#get-subtree-for-code)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
+- [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
+- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
+- [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
+- [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
+- [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
+- [Find concepts by search term (using type=phrase)](#find-concepts-by-search-term-using-type-phrase)
+- [Find concepts by search term (using type=fuzzy)](#find-concepts-by-search-term-using-type-fuzzy)
+- [Find concepts by search term (using type=AND)](#find-concepts-by-search-term-using-type-and)
+- [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
+- [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
+- [Find concepts by property](#find-concepts-by-property)
 
-<a name="get-terminologies"/>
 
 ### Get terminologies
 
@@ -75,9 +72,7 @@ curl "$API_URL/metadata/terminologies" | jq '.'
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-by-code"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get concept by code (minimal information)
 
@@ -89,11 +84,9 @@ curl "$API_URL/concept/ncit/C3224?include=minimal" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
 
-[Back to Top](#top)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-<a name="get-concepts-by-list"/>
-
-### Get concepts by list of codes (minimal information)
+### Get concepts by list (minimal information)
 
 Return minimal concept information for a given terminology and list of codes.
 
@@ -103,9 +96,7 @@ curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
 
 See sample payload data from this call in See sample payload data from this call in [`samples/get-concepts-by-list-of-codes-minimum.txt`](samples/get-concepts-by-list-of-codes-minimum.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-summary"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get concept by code (summary information)
 
@@ -119,9 +110,7 @@ curl "$API_URL/concept/ncit/C3224" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-summary.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-full"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get concept by code (full information)
 
@@ -133,11 +122,9 @@ curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
 
-[Back to Top](#top)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-<a name="get-concept-custom"/>
-
-### Get concept by code (custom information)
+### Get concept by code (custom include)
 
 Return custom concept information for a given terminology and code. To show a range
 of options, in this case, the request asks for synonyms, children, maps, and inverse
@@ -149,9 +136,7 @@ curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociat
 
 See sample payload data from this call in [`samples/get-concept-by-code-custom.txt`](samples/get-concept-by-code-custom.txt)
 
-[Back to Top](#top)
-
-<a name="get-concept-part"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get concept part
 
@@ -174,9 +159,7 @@ See the full set of examples for this "style" of call
 * [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
 * [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
 
-[Back to Top](#top)
-
-<a name="get-descendants"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get descendants
 
@@ -190,9 +173,7 @@ curl "$API_URL/concept/ncit/C3224/descendants?maxLevel=4" | jq '.'
 
 See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)
 
-[Back to Top](#top)
-
-<a name="get-properties"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all properties
 
@@ -210,9 +191,7 @@ curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&includ
 
 See sample payload data from this call in [`samples/get-properties.txt`](samples/get-properties.txt)
 
-[Back to Top](#top)
-
-<a name="get-property"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get property by code (or label)
 
@@ -225,9 +204,7 @@ curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summa
 
 See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
 
-[Back to Top](#top)
-
-<a name="get-property-aq"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get qualifier values by code (or label)
 
@@ -240,9 +217,7 @@ curl "$API_URL/metadata/ncit/qualifier/term-group/values" | jq '.'
 
 See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
 
-[Back to Top](#top)
-
-<a name="get-qualifiers"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all qualifiers
 
@@ -260,9 +235,7 @@ curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | 
 
 See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
 
-[Back to Top](#top)
-
-<a name="get-qualifier"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get qualifier by code (or label)
 
@@ -275,9 +248,7 @@ curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq '.'
 
 See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
 
-[Back to Top](#top)
-
-<a name="get-roles"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all roles
 
@@ -295,9 +266,7 @@ curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_M
 
 See sample payload data from this call in [`samples/get-associations.txt`](samples/get-roless.txt)
 
-[Back to Top](#top)
-
-<a name="get-role"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get role by code (or label)
 
@@ -310,9 +279,7 @@ curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=sum
 
 See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
 
-[Back to Top](#top)
-
-<a name="get-associations"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all associations
 
@@ -330,9 +297,7 @@ curl "$API_URL/metadata/ncit/associations?list=Role_Has_Domain,Role_Has_Range,Ro
 
 See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
 
-[Back to Top](#top)
-
-<a name="get-association"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get association by code (or label)
 
@@ -345,9 +310,7 @@ curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '
 
 See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
 
-[Back to Top](#top)
-
-<a name="get-term-types"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all term types
 
@@ -359,9 +322,7 @@ curl "$API_URL/metadata/ncit/termTypes" | jq '.'
 
 See sample payload data from this call in [`samples/get-term-types.txt`](samples/get-term-types.txt)
 
-[Back to Top](#top)
-
-<a name="get-synonym-sources"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get all synonym sources
 
@@ -373,9 +334,7 @@ curl "$API_URL/metadata/ncit/synonymSources" | jq '.'
 
 See sample payload data from this call in [`samples/get-synonym-sources.txt`](samples/get-synonym-sources.txt)
 
-[Back to Top](#top)
-
-<a name="get-roots"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find root concepts
 
@@ -387,9 +346,7 @@ curl "$API_URL/concept/ncit/roots" | jq '.'
 
 See sample payload data from this call in [`samples/find-roots.txt`](samples/find-roots.txt)
 
-[Back to Top](#top)
-
-<a name="get-paths"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get paths to/from root from a code
 
@@ -402,9 +359,7 @@ curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq '.'
 
 See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt) and [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
 
-[Back to Top](#top)
-
-<a name="get-paths-ancestor"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get paths to an ancestor code from a code
 
@@ -417,9 +372,7 @@ curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq '.'
 
 See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](samples/get-paths-to-ancestor.txt)
 
-[Back to Top](#top)
-
-<a name="get-subtree"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get subtree for code
 
@@ -433,9 +386,7 @@ curl "$API_URL/concept/ncit/C3224/subtree/children" | jq '.'
 
 See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term
 
@@ -448,9 +399,7 @@ curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq '.'
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-restrict-concept-status"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (restrict by concept status)
 
@@ -464,9 +413,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-restrict-definition-source"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (restrict by definition source)
 
@@ -480,9 +427,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSour
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-nci.txt`](samples/find-concepts-by-search-term-definition-nci.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-restrict-synonym-source"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (restrict by synonym source and termgroup)
 
@@ -496,9 +441,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-by-code"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (where search term is a code)
 
@@ -511,9 +454,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq '.'
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-C3224.txt`](samples/find-concepts-by-search-term-C3224.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-match"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=match)
 
@@ -527,9 +468,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=m
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-match.txt`](samples/find-concepts-by-search-term-match.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-startsWith"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=startsWith)
 
@@ -543,9 +482,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-startsWith.txt`](samples/find-concepts-by-search-term-startsWith.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-phrase"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=phrase)
 
@@ -559,9 +496,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&ty
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-phrase.txt`](samples/find-concepts-by-search-term-phrase.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-fuzzy"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=fuzzy)
 
@@ -575,9 +510,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageS
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-fuzzy.txt`](samples/find-concepts-by-search-term-fuzzy.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-and"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=AND)
 
@@ -591,9 +524,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-AND.txt`](samples/find-concepts-by-search-term-AND.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-or"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (using type=OR)
 
@@ -607,9 +538,7 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-OR.txt`](samples/find-concepts-by-search-term-OR.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-highlights"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by search term (with highlights)
 
@@ -623,9 +552,7 @@ curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,hi
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-highlights.txt`](samples/find-concepts-by-search-term-highlights.txt)
 
-[Back to Top](#top)
-
-<a name="find-concepts-property"/>
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Find concepts by property
 
@@ -641,4 +568,4 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&inc
 
 See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
 
-[Back to Top](#top)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
