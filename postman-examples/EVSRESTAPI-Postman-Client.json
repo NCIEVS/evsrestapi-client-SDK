@@ -1080,7 +1080,7 @@
 		{
 			"id": "fcd28427-0061-480f-857c-a00211faff13",
 			"key": "API_URL",
-			"value": "https://api-evsrest-dev.nci.nih.gov/api/v1/",
+			"value": "https://api-evsrest.nci.nih.gov/api/v1/",
 			"type": "string"
 		}
 	],
