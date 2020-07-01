@@ -34,6 +34,8 @@ All commands to run these tests should be run from that directory.
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
 * [Get all roles](#get-all-roles)
 * [Get roles by code (or label)](#get-roles-by-code-or-label)
+* [Get all associations](#get-all-associations)
+* [Get associations by code (or label)](#get-associations-by-code-or-label)
 
 ### Get terminologies
 
@@ -241,6 +243,34 @@ Command: `pytest test_Metadata_Tests.py::test_get_roles_by_code`
 2020-07-01T13:43:13.980 INFO : test_Metadata_Tests.py: Get Roles by Code - R123
 2020-07-01T13:43:13.980 INFO : url = http://localhost:8082/api/v1/metadata/ncit/role/R123
 2020-07-01T13:43:13.988 INFO : {"code":"R123","name":"Chemotherapy_Regimen_Has_Component","terminology":"ncit","version":"20.05d","synonyms":[{"name":"Chemotherapy_Regimen_Has_Component","type":"Preferred_Name"},{"name":"Chemotherapy_Regimen_Has_Component","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Chemotherapy_Regimen_Has_Component","type":"Display_Name"}],"definitions":[{"definition":"A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#ObjectProperty"},{"type":"Semantic_Type","value":"Conceptual Entity"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1908"},{"type":"http://www.w3.org/2000/01/rdf-schema#domain","value":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12218"}]}
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get all associations
+
+Return all associations.
+
+Command: `pytest test_Metadata_Tests.py::test_get_associations`
+
+```{.python}
+2020-07-01T14:04:31.324 INFO : test_Metadata_Tests.py: Get All Associations
+2020-07-01T14:04:31.324 INFO : url = http://localhost:8082/api/v1/metadata/ncit/associations
+2020-07-01T14:04:31.333 INFO : [{"code":"A8","name":"Concept_In_Subset","terminology":"ncit","version":"20.05d"},{"code":"A10","name":"Has_CDRH_Parent","terminology":"ncit","version":"20.05d"},{"code":"A15","name":"Has_CTCAE_5_Parent","terminology":"ncit","version":"20.05d"},{"code":"A12","name":"Has_Data_Element","terminology":"ncit","version":"20.05d"},{"code":"A6","name":"Has_Free_Acid_Or_Base_Form","terminology":"ncit","version":"20.05d"},{"code":"A16","name":"Has_INC_Parent","terminology":"ncit","version":"20.05d"},{"code":"A11","name":"Has_NICHD_Parent","terminology":"ncit","version":"20.05d"},{"code":"A24","name":"Has_PCDC_AML_Permissible_Value","terminology":"ncit","version":"20.05d"},{"code":"A23","name":"Has_PCDC_Data_Type","terminology":"ncit","version":"20.05d"},{"code":"A19","name":"Has_Pharmaceutical_Administration_Method","terminology":"ncit","version":"20.05d"},{"code":"A18","name":"Has_Pharmaceutical_Basic_Dose_Form","terminology":"ncit","version":"20.05d"},{"code":"A20","name":"Has_Pharmaceutical_Intended_Site","terminology":"ncit","version":"20.05d"},{"code":"A21","name":"Has_Pharmaceutical_Release_Characteristics","terminology":"ncit","version":"20.05d"},{"code":"A17","name":"Has_Pharmaceutical_State_Of_Matter","terminology":"ncit","version":"20.05d"},{"code":"A22","name":"Has_Pharmaceutical_Transformation","terminology":"ncit","version":"20.05d"},{"code":"A5","name":"Has_Salt_Form","terminology":"ncit","version":"20.05d"},{"code":"A7","name":"Has_Target","terminology":"ncit","version":"20.05d"},{"code":"A9","name":"Is_Related_To_Endogenous_Product","terminology":"ncit","version":"20.05d"},{"code":"A14","name":"Neoplasm_Has_Special_Category","terminology":"ncit","version":"20.05d"},{"code":"A4","name":"Qualifier_Applies_To","terminology":"ncit","version":"20.05d"},{"code":"A13","name":"Related_To_Genetic_Biomarker","terminology":"ncit","version":"20.05d"},{"code":"A1","name":"Role_Has_Domain","terminology":"ncit","version":"20.05d"},{"code":"A3","name":"Role_Has_Parent","terminology":"ncit","version":"20.05d"},{"code":"A2","name":"Role_Has_Range","terminology":"ncit","version":"20.05d"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get associations by code (or label)
+
+Returns associations for a specified code.
+
+Command: `pytest test_Metadata_Tests.py::test_get_associations_by_code`
+
+```{.python}
+2020-07-01T14:03:47.543 INFO : test_Metadata_Tests.py: Get Associations by Code - A10
+2020-07-01T14:03:47.543 INFO : url = http://localhost:8082/api/v1/metadata/ncit/association/A10
+2020-07-01T14:03:47.847 INFO : {"code":"A10","name":"Has_CDRH_Parent","terminology":"ncit","version":"20.05d","synonyms":[{"name":"Has_CDRH_Parent","type":"Preferred_Name"},{"name":"Has_CDRH_Parent","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Has_CDRH_Parent","type":"Display_Name"}],"definitions":[{"definition":"An association created to allow the source CDRH to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"Semantic_Type","value":"Conceptual Entity"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://www.w3.org/2001/XMLSchema#anyURI"}]}
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)

@@ -69,4 +69,18 @@ def test_get_roles_by_code(): # Return all roles.
     response = requests.get(localUrl + "/metadata/ncit/role/R123");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_associations(): # Return all associations.
+    logging.info("test_Metadata_Tests.py: Get All Associations");
+    logging.info("url = " + localUrl + "/metadata/ncit/associations");
+    response = requests.get(localUrl + "/metadata/ncit/associations");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_associations_by_code(): # Return all associations.
+    logging.info("test_Metadata_Tests.py: Get Associations by Code - A10");
+    logging.info("url = " + localUrl + "/metadata/ncit/association/A10");
+    response = requests.get(localUrl + "/metadata/ncit/association/A10");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
     
