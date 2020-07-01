@@ -204,7 +204,7 @@ Command: `pytest test_Metadata_Tests.py::test_get_qualifier_by_code`
 
 Return distinct value set for the qualifier with the specified code or label.
 
-Command: `pytest test_Metadata_Tests.py::test_get_qualifier_by_code`
+Command: `pytest test_Metadata_Tests.py::test_get_qualifier_values_by_code`
 
 ```{.python}
 2020-07-01T12:09:03.006 INFO : test_Metadata_Tests.py: Get Qualifier Value by Code - P383
