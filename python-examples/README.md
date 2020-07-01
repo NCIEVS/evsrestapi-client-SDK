@@ -2,7 +2,8 @@
 
 ======================================
 
-This tutorial shows how to use a locally installed version of Python to interact with the EVSREST API.
+This tutorial shows how to use a locally installed version of Python to interact with the EVSREST API. Shown here are examples that demonstrate
+the range of functionality that the EVSREST API has. Many of these API calls can take in different parameters than the ones shown.
 
 ## Prerequisites
 
