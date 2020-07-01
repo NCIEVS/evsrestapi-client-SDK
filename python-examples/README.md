@@ -27,6 +27,8 @@ All commands to run these tests should be run from that directory.
 * [Get concept by code (custom information)](#get-concept-by-code-custom-information)
 * [Get concept descendants by code](#get-concept-descendants-by-code)
 * [Get all properties](#get-all-properties)
+* [Get property by code or label](#get-property-by-code-or-label)
+* [Get all qualifiers](#get-all-qualifiers)
 
 ### Get terminologies
 
@@ -150,6 +152,34 @@ Command: `pytest test_Metadata_Tests.py::test_get_all_properties`
 2020-07-01T11:35:10.257 INFO : test_Metadata_Tests.py: Get Properties
 2020-07-01T11:35:10.257 INFO : url = http://localhost:8082/api/v1/metadata/ncit/properties?include=minimal
 2020-07-01T11:35:10.266 INFO : [{"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"20.05d"},{"code":"P302","name":"Accepted_Therapeutic_Use_For","terminology":"ncit","version":"20.05d"},{"code":"P216","name":"BioCarta_ID","terminology":"ncit","version":"20.05d"},{"code":"P210","name":"CAS_Registry","terminology":"ncit","version":"20.05d"},{"code":"P368","name":"CHEBI_ID","terminology":"ncit","version":"20.05d"},{"code":"P350","name":"Chemical_Formula","terminology":"ncit","version":"20.05d"},{"code":"P310","name":"Concept_Status","terminology":"ncit","version":"20.05d"},{"code":"P322","name":"Contributing_Source","terminology":"ncit","version":"20.05d"},{"code":"P97","name":"DEFINITION","terminology":"ncit","version":"20.05d"},{"code":"P98","name":"DesignNote","terminology":"ncit","version":"20.05d"},{"code":"P107","name":"Display_Name","terminology":"ncit","version":"20.05d"},{"code":"P321","name":"EntrezGene_ID","terminology":"ncit","version":"20.05d"},{"code":"P356","name":"Essential_Amino_Acid","terminology":"ncit","version":"20.05d"},{"code":"P357","name":"Essential_Fatty_Acid","terminology":"ncit","version":"20.05d"},{"code":"P361","name":"Extensible_List","terminology":"ncit","version":"20.05d"},{"code":"P317","name":"FDA_Table","terminology":"ncit","version":"20.05d"},{"code":"P319","name":"FDA_UNII_Code","terminology":"ncit","version":"20.05d"},{"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"20.05d"},{"code":"P211","name":"GO_Annotation","terminology":"ncit","version":"20.05d"},{"code":"P102","name":"GenBank_Accession_Number","terminology":"ncit","version":"20.05d"},{"code":"P96","name":"Gene_Encodes_Product","terminology":"ncit","version":"20.05d"},{"code":"P369","name":"HGNC_ID","terminology":"ncit","version":"20.05d"},{"code":"P101","name":"Homologous_Gene","terminology":"ncit","version":"20.05d"},{"code":"P334","name":"ICD-O-3_Code","terminology":"ncit","version":"20.05d"},{"code":"P353","name":"INFOODS","terminology":"ncit","version":"20.05d"},{"code":"P215","name":"KEGG_ID","terminology":"ncit","version":"20.05d"},{"code":"P366","name":"Legacy Concept Name","terminology":"ncit","version":"20.05d"},{"code":"P332","name":"MGI_Accession_ID","terminology":"ncit","version":"20.05d"},{"code":"P360","name":"Macronutrient","terminology":"ncit","version":"20.05d"},{"code":"P375","name":"Maps_To","terminology":"ncit","version":"20.05d"},{"code":"P359","name":"Micronutrient","terminology":"ncit","version":"20.05d"},{"code":"P331","name":"NCBI_Taxon_ID","terminology":"ncit","version":"20.05d"},{"code":"P208","name":"NCI_META_CUI","terminology":"ncit","version":"20.05d"},{"code":"P371","name":"NICHD_Hierarchy_Term","terminology":"ncit","version":"20.05d"},{"code":"P175","name":"NSC Number","terminology":"ncit","version":"20.05d"},{"code":"P363","name":"Neoplastic_Status","terminology":"ncit","version":"20.05d"},{"code":"P358","name":"Nutrient","terminology":"ncit","version":"20.05d"},{"code":"P100","name":"OMIM_Number","terminology":"ncit","version":"20.05d"},{"code":"P330","name":"PDQ_Closed_Trial_Search_ID","terminology":"ncit","version":"20.05d"},{"code":"P329","name":"PDQ_Open_Trial_Search_ID","terminology":"ncit","version":"20.05d"},{"code":"P367","name":"PID_ID","terminology":"ncit","version":"20.05d"},{"code":"P108","name":"Preferred_Name","terminology":"ncit","version":"20.05d"},{"code":"P171","name":"PubMedID_Primary_Reference","terminology":"ncit","version":"20.05d"},{"code":"P372","name":"Publish_Value_Set","terminology":"ncit","version":"20.05d"},{"code":"P316","name":"Relative_Enzyme_Activity","terminology":"ncit","version":"20.05d"},{"code":"P315","name":"SNP_ID","terminology":"ncit","version":"20.05d"},{"code":"P106","name":"Semantic_Type","terminology":"ncit","version":"20.05d"},{"code":"P92","name":"Subsource","terminology":"ncit","version":"20.05d"},{"code":"P93","name":"Swiss_Prot","terminology":"ncit","version":"20.05d"},{"code":"P376","name":"Term_Browser_Value_Set_Description","terminology":"ncit","version":"20.05d"},{"code":"P352","name":"Tolerable_Level","terminology":"ncit","version":"20.05d"},{"code":"P207","name":"UMLS_CUI","terminology":"ncit","version":"20.05d"},{"code":"P354","name":"USDA_ID","terminology":"ncit","version":"20.05d"},{"code":"P351","name":"US_Recommended_Intake","terminology":"ncit","version":"20.05d"},{"code":"P355","name":"Unit","terminology":"ncit","version":"20.05d"},{"code":"P333","name":"Use_For","terminology":"ncit","version":"20.05d"},{"code":"P398","name":"Value_Set_Pair","terminology":"ncit","version":"20.05d"},{"code":"NHC0","name":"code","terminology":"ncit","version":"20.05d"},{"code":"P362","name":"miRBase_ID","terminology":"ncit","version":"20.05d"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get property by code or label
+
+Return property for the specified code or label.
+
+Command: `pytest test_Metadata_Tests.py::test_get_property_by_code_or_label`
+
+```{.python}
+2020-07-01T11:54:57.579 INFO : test_Metadata_Tests.py: Get Property By Code or Label
+2020-07-01T11:54:57.579 INFO : url = http://localhost:8082/api/v1/metadata/ncit/properties?include=summary&list=P302
+2020-07-01T11:54:57.588 INFO : [{"code":"P302","name":"Accepted_Therapeutic_Use_For","terminology":"ncit","version":"20.05d","synonyms":[{"name":"Accepted_Therapeutic_Use_For","type":"Preferred_Name"},{"name":"Accepted_Therapeutic_Use_For","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Accepted_Therapeutic_Use_For","type":"Display_Name"}],"definitions":[{"definition":"A property representing a disease or condition for which this drug is an accepted treatment. Used in the Drug, Food, Chemical or Biomedical Material branch.","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"Semantic_Type","value":"Conceptual Entity"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://www.w3.org/2001/XMLSchema#string"}]}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get all qualifiers
+
+Return all qualifiers for a given terminology with default include setting (minimal).
+
+Command: `pytest test_Metadata_Tests.py::test_get_all_qualifiers`
+
+```{.python}
+2020-07-01T11:57:20.487 INFO : test_Metadata_Tests.py: Get All Qualifiers
+2020-07-01T11:57:20.487 INFO : url = http://localhost:8082/api/v1/metadata/ncit/qualifiers?include=minimal
+2020-07-01T11:57:20.496 INFO : [{"code":"P378","name":"Definition Source","terminology":"ncit","version":"20.05d"},{"code":"P379","name":"Definition_Reviewer_Name","terminology":"ncit","version":"20.05d"},{"code":"P380","name":"Definition_Review_Date","terminology":"ncit","version":"20.05d"},{"code":"P381","name":"attribution","terminology":"ncit","version":"20.05d"},{"code":"P383","name":"term-group","terminology":"ncit","version":"20.05d"},{"code":"P384","name":"term-source","terminology":"ncit","version":"20.05d"},{"code":"P385","name":"Source Code","terminology":"ncit","version":"20.05d"},{"code":"P386","name":"Subsource Name","terminology":"ncit","version":"20.05d"},{"code":"P387","name":"go-id","terminology":"ncit","version":"20.05d"},{"code":"P389","name":"go-evi","terminology":"ncit","version":"20.05d"},{"code":"P390","name":"go-source","terminology":"ncit","version":"20.05d"},{"code":"P391","name":"source-date","terminology":"ncit","version":"20.05d"},{"code":"P393","name":"Relationship_to_Target","terminology":"ncit","version":"20.05d"},{"code":"P394","name":"Target_Term_Type","terminology":"ncit","version":"20.05d"},{"code":"P395","name":"Target_Code","terminology":"ncit","version":"20.05d"},{"code":"P396","name":"Target_Terminology","terminology":"ncit","version":"20.05d"},{"code":"P397","name":"Target_Terminology_Version","terminology":"ncit","version":"20.05d"}]
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)

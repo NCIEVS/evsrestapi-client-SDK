@@ -27,4 +27,18 @@ def test_get_all_properties(): # Return all properties for a given terminology w
     response = requests.get(localUrl + "/metadata/ncit/properties?include=minimal");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_property_by_code_or_label(): # Return property for the specified code or label.
+    logging.info("test_Metadata_Tests.py: Get Property By Code or Label");
+    logging.info("url = " + localUrl + "/metadata/ncit/properties?include=summary&list=P302");
+    response = requests.get(localUrl + "/metadata/ncit/properties?include=summary&list=P302");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_all_qualifiers(): # Return all qualifiers for a given terminology with default include setting (minimal).
+    logging.info("test_Metadata_Tests.py: Get All Qualifiers");
+    logging.info("url = " + localUrl + "/metadata/ncit/qualifiers?include=minimal");
+    response = requests.get(localUrl + "/metadata/ncit/qualifiers?include=minimal");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
     
