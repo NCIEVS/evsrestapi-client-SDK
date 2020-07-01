@@ -55,4 +55,18 @@ def test_get_qualifier_values_by_code(): # Return distinct value set for the qua
     response = requests.get(localUrl + "/metadata/ncit/qualifier/P383/values");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_roles(): # Return all roles.
+    logging.info("test_Metadata_Tests.py: Get All Roles");
+    logging.info("url = " + localUrl + "/metadata/ncit/roles");
+    response = requests.get(localUrl + "/metadata/ncit/roles");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_roles_by_code(): # Return all roles.
+    logging.info("test_Metadata_Tests.py: Get Roles by Code - R123");
+    logging.info("url = " + localUrl + "/metadata/ncit/role/R123");
+    response = requests.get(localUrl + "/metadata/ncit/role/R123");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
     
