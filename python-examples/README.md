@@ -29,6 +29,8 @@ All commands to run these tests should be run from that directory.
 * [Get all properties](#get-all-properties)
 * [Get property by code or label](#get-property-by-code-or-label)
 * [Get all qualifiers](#get-all-qualifiers)
+* [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+* [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
 
 ### Get terminologies
 
@@ -163,7 +165,7 @@ Return property for the specified code or label.
 Command: `pytest test_Metadata_Tests.py::test_get_property_by_code_or_label`
 
 ```{.python}
-2020-07-01T11:54:57.579 INFO : test_Metadata_Tests.py: Get Property By Code or Label
+2020-07-01T11:54:57.579 INFO : test_Metadata_Tests.py: Get Property By Code or Label - P302
 2020-07-01T11:54:57.579 INFO : url = http://localhost:8082/api/v1/metadata/ncit/properties?include=summary&list=P302
 2020-07-01T11:54:57.588 INFO : [{"code":"P302","name":"Accepted_Therapeutic_Use_For","terminology":"ncit","version":"20.05d","synonyms":[{"name":"Accepted_Therapeutic_Use_For","type":"Preferred_Name"},{"name":"Accepted_Therapeutic_Use_For","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Accepted_Therapeutic_Use_For","type":"Display_Name"}],"definitions":[{"definition":"A property representing a disease or condition for which this drug is an accepted treatment. Used in the Drug, Food, Chemical or Biomedical Material branch.","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"Semantic_Type","value":"Conceptual Entity"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://www.w3.org/2001/XMLSchema#string"}]}]
 ```
@@ -180,6 +182,34 @@ Command: `pytest test_Metadata_Tests.py::test_get_all_qualifiers`
 2020-07-01T11:57:20.487 INFO : test_Metadata_Tests.py: Get All Qualifiers
 2020-07-01T11:57:20.487 INFO : url = http://localhost:8082/api/v1/metadata/ncit/qualifiers?include=minimal
 2020-07-01T11:57:20.496 INFO : [{"code":"P378","name":"Definition Source","terminology":"ncit","version":"20.05d"},{"code":"P379","name":"Definition_Reviewer_Name","terminology":"ncit","version":"20.05d"},{"code":"P380","name":"Definition_Review_Date","terminology":"ncit","version":"20.05d"},{"code":"P381","name":"attribution","terminology":"ncit","version":"20.05d"},{"code":"P383","name":"term-group","terminology":"ncit","version":"20.05d"},{"code":"P384","name":"term-source","terminology":"ncit","version":"20.05d"},{"code":"P385","name":"Source Code","terminology":"ncit","version":"20.05d"},{"code":"P386","name":"Subsource Name","terminology":"ncit","version":"20.05d"},{"code":"P387","name":"go-id","terminology":"ncit","version":"20.05d"},{"code":"P389","name":"go-evi","terminology":"ncit","version":"20.05d"},{"code":"P390","name":"go-source","terminology":"ncit","version":"20.05d"},{"code":"P391","name":"source-date","terminology":"ncit","version":"20.05d"},{"code":"P393","name":"Relationship_to_Target","terminology":"ncit","version":"20.05d"},{"code":"P394","name":"Target_Term_Type","terminology":"ncit","version":"20.05d"},{"code":"P395","name":"Target_Code","terminology":"ncit","version":"20.05d"},{"code":"P396","name":"Target_Terminology","terminology":"ncit","version":"20.05d"},{"code":"P397","name":"Target_Terminology_Version","terminology":"ncit","version":"20.05d"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get qualifier by code (or label)
+
+Return qualifier for the specified code or label.
+
+Command: `pytest test_Metadata_Tests.py::test_get_qualifier_by_code`
+
+```{.python}
+2020-07-01T12:05:46.062 INFO : test_Metadata_Tests.py: Get Qualifier by Code - P387
+2020-07-01T12:05:46.063 INFO : url = http://localhost:8082/api/v1/metadata/ncit/qualifiers?include=summary&list=P387
+2020-07-01T12:05:46.072 INFO : [{"code":"P387","name":"go-id","terminology":"ncit","version":"20.05d","synonyms":[{"name":"go-id","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://www.w3.org/2001/XMLSchema#string"},{"type":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#required","value":"true"}]}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get qualifier values by code (or label)
+
+Return distinct value set for the qualifier with the specified code or label.
+
+Command: `pytest test_Metadata_Tests.py::test_get_qualifier_by_code`
+
+```{.python}
+2020-07-01T12:09:03.006 INFO : test_Metadata_Tests.py: Get Qualifier Value by Code - P383
+2020-07-01T12:09:03.006 INFO : url = http://localhost:8082/api/v1/metadata/ncit/qualifier/P383/values
+2020-07-01T12:09:03.014 INFO : ["AB","AD","AQ","AQS","BR","CA2","CA3","CN","CNU","CS","DN","EDQM-HC","FB","HD","PT","SN","SY"]
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
