@@ -1,5 +1,3 @@
-<a name="top" />
-
 EVSRESTAPI client SDK: Postman Tutorial
 =======================================
 
@@ -18,4 +16,4 @@ When the collection is loaded into Postman, you will see a number
 of requests matching the scenarios defined in the top level README file of this project.  Simply choose any one and click the "Send"
 button to see the result.
 
-[Back to Top](#top)
+[Back to Top](#evsrestapi-client-sdk-postman-tutorial)

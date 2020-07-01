@@ -1,5 +1,3 @@
-<a name="top"/>
-
 EVSRESTAPI CT in 5 minutes: bash Tutorial
 =========================================
 
@@ -30,8 +28,6 @@ Test Scripts
 - [get-synonym-sources.sh](#get-synonym-sources-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
-
-<a name="get-terminologies-sh"/>
 
 ### get-terminologies.sh
 
@@ -65,9 +61,7 @@ url = https://api-evsrest-dev.nci.nih.gov/api/v1
 Finished ...Tue, Feb  4, 2020 12:09:16 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-concept-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept.sh
 
@@ -131,9 +125,7 @@ include = minimal
 Finished ...Tue, Feb  4, 2020 12:20:30 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-concept-part-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept-part.sh
 
@@ -229,9 +221,7 @@ part = children
 Finished ...Thu, Feb  6, 2020  4:38:53 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-find-sh">
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### find-concepts.sh
 
@@ -298,9 +288,7 @@ include =
 Finished ...Thu, Feb  6, 2020  4:46:40 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-descendants-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-descendants.sh
 
@@ -367,9 +355,7 @@ maxLevel = 2
 Finished ...Thu, Feb  6, 2020  4:35:35 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-subtree-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-subtree.sh
 
@@ -593,9 +579,7 @@ Finished ...Wed, Mar 18, 2020  2:15:46 PM
 ```
 
 
-[Back to Top](#top)
-
-<a name="get-paths-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-paths.sh
 
@@ -805,9 +789,7 @@ ancestor code = C2991
 Finished ...Thu, Feb  6, 2020  4:34:23 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-association-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-association.sh
 
@@ -915,9 +897,7 @@ include = synonyms
 Finished ...Thu, Feb  6, 2020  3:24:22 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-role-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-role.sh
 
@@ -1025,9 +1005,7 @@ include = synonyms
 Finished ...Thu, Feb  6, 2020  4:28:21 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-property-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-property.sh
 
@@ -1135,9 +1113,7 @@ include = synonyms
 Finished ...Thu, Feb  6, 2020  4:30:19 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-qualifier-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-qualifier.sh
 
@@ -1285,9 +1261,7 @@ Finished ...Wed, Apr 15, 2020  7:54:57 PM
 -----------------------------------------------------
 
 ```
-[Back to Top](#top)
-
-<a name="get-term-types-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-term-types.sh
 
@@ -1315,9 +1289,7 @@ terminology = ncit
 Finished ...Thu, Feb  6, 2020  4:28:47 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
-
-<a name="get-synonym-sources-sh"/>
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-synonym-sources.sh
 
@@ -1351,4 +1323,4 @@ terminology = ncit
 Finished ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
 ```
-[Back to Top](#top)
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
