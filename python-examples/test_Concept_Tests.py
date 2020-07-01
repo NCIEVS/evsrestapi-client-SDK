@@ -55,3 +55,10 @@ def test_get_concept_part_children_by_code(): # Return custom concept informatio
     response = requests.get(localUrl + "/concept/ncit/C3224/children");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_concept_descendants_by_code(): # Return concept descendants information for a given terminology and code.
+    logging.info("test_Concept_Tests.py: Get descendants by code - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/descendants?maxLevel=2");
+    response = requests.get(localUrl + "/concept/ncit/C3224/descendants?maxLevel=2");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);

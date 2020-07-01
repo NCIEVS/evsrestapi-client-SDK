@@ -20,4 +20,11 @@ def test_get_all_terminologies(): # Return all loaded terminologies currently ho
     response = requests.get(localUrl + "/metadata/terminologies");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_all_properties(): # Return all properties for a given terminology with default include setting (minimal).
+    logging.info("test_Metadata_Tests.py: Get Properties");
+    logging.info("url = " + localUrl + "/metadata/ncit/properties?include=minimal");
+    response = requests.get(localUrl + "/metadata/ncit/properties?include=minimal");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
     
