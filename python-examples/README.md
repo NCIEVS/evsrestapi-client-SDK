@@ -36,6 +36,7 @@ All commands to run these tests should be run from that directory.
 * [Get roles by code (or label)](#get-roles-by-code-or-label)
 * [Get all associations](#get-all-associations)
 * [Get associations by code (or label)](#get-associations-by-code-or-label)
+* [Get term types](#get-term-types)
 
 ### Get terminologies
 
@@ -271,6 +272,21 @@ Command: `pytest test_Metadata_Tests.py::test_get_associations_by_code`
 2020-07-01T14:03:47.543 INFO : test_Metadata_Tests.py: Get Associations by Code - A10
 2020-07-01T14:03:47.543 INFO : url = http://localhost:8082/api/v1/metadata/ncit/association/A10
 2020-07-01T14:03:47.847 INFO : {"code":"A10","name":"Has_CDRH_Parent","terminology":"ncit","version":"20.05d","synonyms":[{"name":"Has_CDRH_Parent","type":"Preferred_Name"},{"name":"Has_CDRH_Parent","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Has_CDRH_Parent","type":"Display_Name"}],"definitions":[{"definition":"An association created to allow the source CDRH to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"Semantic_Type","value":"Conceptual Entity"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://www.w3.org/2001/XMLSchema#anyURI"}]}
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get term types
+
+Return metadata for all term types for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_term_types`
+
+```{.python}
+2020-07-01T14:07:46.228 INFO : test_Metadata_Tests.py: Get Term Types
+2020-07-01T14:07:46.229 INFO : url = http://localhost:8082/api/v1/metadata/ncit/termTypes
+2020-07-01T14:07:47.431 INFO : [{"code":"AB","name":"Abbreviation","terminology":"ncit"},{"code":"AD","name":"Adjectival form (and other parts of grammar)","terminology":"ncit"},{"code":"AQ*","name":"Antiquated preferred term","terminology":"ncit"},{"code":"AQS","name":"Antiquated term, use when there are antiquated synonyms within a concept","terminology":"ncit"},{"code":"BR","name":"US brand name, which may be trademarked","terminology":"ncit"},{"code":"CA2","name":"ISO 3166 alpha-2 country code","terminology":"ncit"},{"code":"CA3","name":"ISO 3166 alpha-3 country code","terminology":"ncit"},{"code":"CN","name":"Drug study code","terminology":"ncit"},{"code":"CNU","name":"ISO 3166 numeric country code","terminology":"ncit"},{"code":"CS","name":"US State Department country code","terminology":"ncit"},{"code":"DN","name":"Display name","terminology":"ncit"},{"code":"EDQM-HC","terminology":"ncit"},{"code":"FB","name":"Foreign brand name, which may be trademarked","terminology":"ncit"},{"code":"HD*","name":"Header (groups concepts, but not used for coding data)","terminology":"ncit"},{"code":"PT*","name":"Preferred term","terminology":"ncit"},{"code":"SN","name":"Chemical structure name","terminology":"ncit"},{"code":"SY","name":"Synonym","terminology":"ncit"}]
+
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)

@@ -77,10 +77,16 @@ def test_get_associations(): # Return all associations.
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
-def test_get_associations_by_code(): # Return all associations.
+def test_get_associations_by_code(): # Return associations by code.
     logging.info("test_Metadata_Tests.py: Get Associations by Code - A10");
     logging.info("url = " + localUrl + "/metadata/ncit/association/A10");
     response = requests.get(localUrl + "/metadata/ncit/association/A10");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
-    
+
+def test_get_term_types(): # Return metadata for all term types for the specified terminology.
+    logging.info("test_Metadata_Tests.py: Get Term Types");
+    logging.info("url = " + localUrl + "/metadata/ncit/termTypes");
+    response = requests.get(localUrl + "/metadata/ncit/termTypes");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
