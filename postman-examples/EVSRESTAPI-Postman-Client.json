@@ -173,7 +173,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/C3224/descendants?maxLevel=4",
+					"raw": "{{API_URL}}/concept/ncit/C3224/descendants",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -182,12 +182,6 @@
 						"ncit",
 						"C3224",
 						"descendants"
-					],
-					"query": [
-						{
-							"key": "maxLevel",
-							"value": "4"
-						}
 					]
 				}
 			},
