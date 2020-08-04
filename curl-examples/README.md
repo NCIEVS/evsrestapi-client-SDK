@@ -164,11 +164,11 @@ See the full set of examples for this "style" of call
 ### Get descendants
 
 Return concept descendants information for a given terminology and code. The call
-can be constrained by a maxLevel to prevent going deeper than a certain amount.
-The level 0 entries in the result are the direct children.
+can page the results with standard fromRecord and pageSize parameters.  The default
+page size is 50000 which works well for all NCI Thesaurus concepts.
 
 ```
-curl "$API_URL/concept/ncit/C3224/descendants?maxLevel=4" | jq '.'
+curl "$API_URL/concept/ncit/C3224/descendants" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)

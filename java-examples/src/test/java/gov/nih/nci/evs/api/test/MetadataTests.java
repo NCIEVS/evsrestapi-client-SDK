@@ -44,7 +44,7 @@ public class MetadataTests {
   @Test
   public void testGetTerminologies() throws Exception {
     final List<Terminology> terminologies = client.getTerminologies();
-    logger.info("Get Terminologies");
+    logger.info("Get terminologies");
     logger.info("  base url = " + client.getApiUrl());
     for (final Terminology terminology : terminologies) {
       logger.info("  " + terminology.getTerminology() + " = " + terminology);
@@ -93,7 +93,7 @@ public class MetadataTests {
   @Test
   public void testGetQualifiers() throws Exception {
     final List<Concept> qualifiers = client.getQualifiers(terminology, null, null);
-    logger.info("Get all properties for " + terminology + " (default include)");
+    logger.info("Get all qualifiers for " + terminology + " (default include)");
     logger.info("  url = " + client.getApiUrl());
     for (final Concept qualifier : qualifiers) {
       logger.info("  " + qualifier.getCode() + " = " + qualifier);
@@ -162,10 +162,10 @@ public class MetadataTests {
   @Test
   public void testGetQualifierValues() throws Exception {
 
-    final List<String> concept = client.getQualifierValues(terminology, "P383");
-    logger.info("Get concept by code - P383");
+    final List<String> list = client.getQualifierValues(terminology, "P383");
+    logger.info("Get qualifier values for - P383");
     logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
+    logger.info("  qualifier values = " + list);
   }
 
   /**
@@ -175,10 +175,10 @@ public class MetadataTests {
    */
   @Test
   public void testGetAssociations() throws Exception {
-    final List<Concept> associations = client.getAssociations(terminology, null, null);
+    final List<Concept> list = client.getAssociations(terminology, null, null);
     logger.info("Get all associations for " + terminology + " (default include)");
     logger.info("  url = " + client.getApiUrl());
-    for (final Concept association : associations) {
+    for (final Concept association : list) {
       logger.info("  " + association.getCode() + " = " + association);
     }
   }
@@ -191,14 +191,14 @@ public class MetadataTests {
   @Test
   public void testGetAssociation() throws Exception {
 
-    Concept concept = client.getInfoWithCodes(terminology, "A10", "association");
-    logger.info("Get concept by code - A10");
+    Concept concept = client.getAssociation(terminology, "A10", "full");
+    logger.info("Get A10 (full information)");
     logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
-    concept = client.getInfoWithCodes(terminology, "A10", "association");
-    logger.info("Get concept by code - A10");
+    logger.info("  A10 = " + concept);
+    concept = client.getAssociation(terminology, "Has_CDRH_Parent", "minimal");
+    logger.info("Get Has_CDRH_Parent (minimal information)");
     logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
+    logger.info("  Has_CDRH_Parent = " + concept);
   }
 
   /**
@@ -209,10 +209,10 @@ public class MetadataTests {
   @Test
   public void testGetTermTypes() throws Exception {
 
-    final List<Concept> concept = client.getTermInfo(terminology, "termTypes");
+    final List<Concept> list = client.getTermInfo(terminology, "termTypes");
     logger.info("Get term types by terminology - " + terminology);
     logger.info("  base url = " + client.getApiUrl());
-    logger.info("  concept = " + concept);
+    logger.info("  term types = " + list);
   }
 
 }

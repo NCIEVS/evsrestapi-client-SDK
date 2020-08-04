@@ -120,15 +120,6 @@ public class Concept extends ConceptMinimal {
    *
    * @param other the other
    */
-  public Concept(final ConceptNode other) {
-    super(other);
-  }
-
-  /**
-   * Instantiates a {@link Concept} from the specified parameters.
-   *
-   * @param other the other
-   */
   public Concept(final HierarchyNode other) {
     super(other.getCode());
     setName(other.getLabel());
@@ -323,6 +314,7 @@ public class Concept extends ConceptMinimal {
   public void setChildren(final List<Concept> children) {
     this.children = children;
   }
+
 
   /**
    * Returns the parents.

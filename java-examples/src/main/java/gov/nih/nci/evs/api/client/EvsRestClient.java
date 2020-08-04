@@ -17,8 +17,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.ConceptResultList;
+import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.Map;
 import gov.nih.nci.evs.api.model.Relationship;
 import gov.nih.nci.evs.api.model.Terminology;
@@ -88,20 +91,6 @@ public class EvsRestClient extends RootClient {
   public List<Concept> getQualifiers(final String terminology, final String include,
     final List<String> codes) throws Exception {
     return getAllMetadataHelper("qualifiers", terminology, include, codes);
-  }
-
-  /**
-   * Returns the properties.
-   *
-   * @param terminology the terminology
-   * @param code the code
-   * @param type the type
-   * @return the properties
-   * @throws Exception the exception
-   */
-  public Concept getInfoWithCodes(final String terminology, final String code, final String type)
-    throws Exception {
-    return getInfoWithCodeHelper(terminology, code, type);
   }
 
   /**
@@ -188,13 +177,25 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param removeChildren the remove children
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public String getSubtree(final String terminology, final String code,
-    final Boolean removeChildren) throws Exception {
-    return getSubtreeHelper(terminology, code, removeChildren);
+  public List<HierarchyNode> getSubtree(final String terminology, final String code)
+    throws Exception {
+    return getSubtreeHelper(terminology, code, false);
+  }
+
+  /**
+   * Returns the subtree children.
+   *
+   * @param terminology the terminology
+   * @param code the code
+   * @return the subtree children
+   * @throws Exception the exception
+   */
+  public List<HierarchyNode> getSubtreeChildren(final String terminology, final String code)
+    throws Exception {
+    return getSubtreeHelper(terminology, code, true);
   }
 
   /**
@@ -214,7 +215,7 @@ public class EvsRestClient extends RootClient {
    * @return the hierarchy nodes
    * @throws Exception the exception
    */
-  public String getConceptBySearchTerm(final String terminology, final String term,
+  public ConceptResultList findConceptsBySearchTerm(final String terminology, final String term,
     final String pageSize, final String conceptStatus, final String contributingSource,
     final String definitionSource, final String synonymSource, final String synonymTermGroup,
     final String type, final String property, final List<String> includes) throws Exception {
@@ -379,13 +380,14 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param levels the levels
+   * @param fromRecord the from record
+   * @param pageSize the page size
    * @return the descendants
    * @throws Exception the exception
    */
   public List<Concept> getDescendants(final String terminology, final String code,
-    final String levels) throws Exception {
-    return getDescendantsHelper(terminology, code, levels);
+    final int fromRecord, final int pageSize) throws Exception {
+    return getDescendantsHelper(terminology, code, fromRecord, pageSize);
   }
 
   /**
@@ -597,61 +599,34 @@ public class EvsRestClient extends RootClient {
    * Returns the list helper.
    *
    * @param terminology the terminology
-   * @param codes the codes
-   * @param levels the levels
+   * @param code the code
+   * @param fromRecord the from record
+   * @param pageSize the page size
    * @return the list helper
    * @throws Exception the exception
    */
-  private List<Concept> getDescendantsHelper(final String terminology, final String codes,
-    final String levels) throws Exception {
+  private List<Concept> getDescendantsHelper(final String terminology, final String code,
+    final int fromRecord, final int pageSize) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
-    if (codes == null || codes.isEmpty()) {
+    if (code == null || code.isEmpty()) {
       throw new IllegalArgumentException("Parameter codes must not be null or empty");
     }
 
     final Client client = getClients().get();
-    String url = "/concept/" + terminology + "/" + codes + "/descendants" + "?maxLevel=" + levels;
+    String url = "/concept/" + terminology + "/" + code + "/descendants";
 
-    final WebTarget target = client.target(getApiUrl() + url);
+    final WebTarget target = client.target(getApiUrl() + url).queryParam("fromRecord", fromRecord)
+        .queryParam("pageSize", pageSize);
     try (Response response = request(target).get()) {
       if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-        logger.error("Unexpected error getting " + terminology + "?maxLevel=" + levels);
+        logger.error("Unexpected error getting " + url);
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
       return getMapper().readValue(json, new TypeReference<List<Concept>>() {
         // n/a
       });
-    }
-  }
-
-  /**
-   * Returns the properties by code.
-   *
-   * @param terminology the terminology
-   * @param code the code
-   * @param type the type
-   * @return the map part
-   * @throws Exception the exception
-   */
-  private Concept getInfoWithCodeHelper(final String terminology, final String code,
-    final String type) throws Exception {
-
-    validateNotEmpty(terminology, "terminology");
-    validateNotEmpty(code, "code");
-
-    final Client client = getClients().get();
-    String url = "/metadata/" + terminology + "/" + type + "/" + code;
-
-    final WebTarget target = client.target(getApiUrl() + url);
-    try (Response response = request(target).get()) {
-      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
-        logger.error("Unexpected error getting " + terminology + ", " + code);
-        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
-      }
-      final String json = response.readEntity(String.class);
-      return getMapper().readValue(json, Concept.class);
     }
   }
 
@@ -748,19 +723,19 @@ public class EvsRestClient extends RootClient {
    *
    * @param terminology the terminology
    * @param code the code
-   * @param removeChildren the remove children
+   * @param withChildren the remove children
    * @return the concept part
    * @throws Exception the exception
    */
-  private String getSubtreeHelper(final String terminology, final String code,
-    final Boolean removeChildren) throws Exception {
+  private List<HierarchyNode> getSubtreeHelper(final String terminology, final String code,
+    final Boolean withChildren) throws Exception {
 
     validateNotEmpty(terminology, "terminology");
     validateNotEmpty(code, "code");
 
     final Client client = getClients().get();
     String url = "/concept/" + terminology + "/" + code + "/subtree";
-    if (removeChildren == true)
+    if (withChildren == true)
       url += "/children";
 
     final WebTarget target = client.target(getApiUrl() + url);
@@ -770,7 +745,9 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return json;
+      return new ObjectMapper().readValue(json, new TypeReference<List<HierarchyNode>>() {
+        // n/a
+      });
     }
   }
 
@@ -791,7 +768,7 @@ public class EvsRestClient extends RootClient {
    * @return the concept
    * @throws Exception the exception
    */
-  private String getConceptBySearchTermHelper(final String terminology, String term,
+  private ConceptResultList getConceptBySearchTermHelper(final String terminology, String term,
     String pageSize, String conceptStatus, String contributingSource, String definitionSource,
     String synonymSource, String synonymTermGroup, String type, String property,
     List<String> includes) throws Exception {
@@ -839,7 +816,7 @@ public class EvsRestClient extends RootClient {
         throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
       }
       final String json = response.readEntity(String.class);
-      return json;
+      return getMapper().readValue(json, ConceptResultList.class);
     }
   }
 

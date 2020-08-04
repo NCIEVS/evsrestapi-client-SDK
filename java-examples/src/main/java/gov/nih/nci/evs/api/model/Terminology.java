@@ -53,6 +53,12 @@ public class Terminology extends BaseModel {
   /** The tags. */
   private Map<String, String> tags;
 
+  /** The index name for concepts. */
+  private String indexName;
+
+  /** The index name for generic objects. */
+  private String objectIndexName;
+  
   /**
    * Instantiates an empty {@link Terminology}.
    */
@@ -86,6 +92,8 @@ public class Terminology extends BaseModel {
     terminologyVersion = other.getTerminologyVersion();
     latest = other.getLatest();
     tags = new HashMap<>(other.getTags());
+    indexName = other.getIndexName();
+    objectIndexName = other.getObjectIndexName();
   }
   
   /**
@@ -274,6 +282,48 @@ public class Terminology extends BaseModel {
     this.tags = tags;
   }
 
+  /**
+   * Returns the index name for concepts belonging to this terminology.
+   * 
+   * @return the index name
+   */
+  public String getIndexName() {
+    if (StringUtils.isEmpty(indexName)) {
+      indexName = "concept_" + getTerminologyVersion().replaceAll("[^a-zA-Z0-9_]", "");
+    }
+    return indexName;
+  }
+
+  /**
+   * Sets the index name for concepts belonging to this terminology.
+   * 
+   * @param indexName the index name
+   */
+  public void setIndexName(String indexName) {
+    this.indexName = indexName;
+  }
+
+ /**
+  * Returns the index name for objects.
+  * 
+  * @return the object index name
+  */
+ public String getObjectIndexName() {
+   if (StringUtils.isEmpty(objectIndexName)) {
+     objectIndexName = "evs_object_" + getTerminologyVersion().replaceAll("[^a-zA-Z0-9_]", "");
+   }
+   return objectIndexName;
+ }
+
+ /**
+  * Sets the index name for objects.
+  * 
+  * @param objectIndexName the object index name
+  */
+ public void setObjectIndexName(String objectIndexName) {
+   this.objectIndexName = objectIndexName;
+ }
+  
   @Override
   public int hashCode() {
     final int prime = 31;
@@ -290,6 +340,8 @@ public class Terminology extends BaseModel {
         + ((terminologyVersion == null) ? 0 : terminologyVersion.hashCode());
     result = prime * result + ((version == null) ? 0 : version.hashCode());
     result = prime * result + ((date == null) ? 0 : date.hashCode());
+    result = prime * result + ((indexName == null) ? 0 : indexName.hashCode());
+    result = prime * result + ((objectIndexName == null) ? 0 : objectIndexName.hashCode());
     return result;
   }
 
@@ -366,6 +418,20 @@ public class Terminology extends BaseModel {
         return false;
       }
     } else if (!date.equals(other.date)) {
+      return false;
+    }
+    if (indexName == null) {
+      if (other.indexName != null) {
+        return false;
+      }
+    } else if (!indexName.equals(other.indexName)) {
+      return false;
+    }
+    if (objectIndexName == null) {
+      if (other.objectIndexName != null) {
+        return false;
+      }
+    } else if (!objectIndexName.equals(other.objectIndexName)) {
       return false;
     }
     return true;
