@@ -37,6 +37,10 @@ All commands to run these tests should be run from that directory.
 * [Get all associations](#get-all-associations)
 * [Get associations by code (or label)](#get-associations-by-code-or-label)
 * [Get term types](#get-term-types)
+* [Get root concepts](#get-root-concepts)
+* [Get paths to/from root from code](#get-root-paths-from-code)
+* [Get paths to ancestor from code](#get-ancestor-paths-from-code)
+* [Get subtree](#get-subtree)
 
 ### Get terminologies
 
@@ -287,6 +291,54 @@ Command: `pytest test_Metadata_Tests.py::test_get_term_types`
 2020-07-01T14:07:46.229 INFO : url = http://localhost:8082/api/v1/metadata/ncit/termTypes
 2020-07-01T14:07:47.431 INFO : [{"code":"AB","name":"Abbreviation","terminology":"ncit"},{"code":"AD","name":"Adjectival form (and other parts of grammar)","terminology":"ncit"},{"code":"AQ*","name":"Antiquated preferred term","terminology":"ncit"},{"code":"AQS","name":"Antiquated term, use when there are antiquated synonyms within a concept","terminology":"ncit"},{"code":"BR","name":"US brand name, which may be trademarked","terminology":"ncit"},{"code":"CA2","name":"ISO 3166 alpha-2 country code","terminology":"ncit"},{"code":"CA3","name":"ISO 3166 alpha-3 country code","terminology":"ncit"},{"code":"CN","name":"Drug study code","terminology":"ncit"},{"code":"CNU","name":"ISO 3166 numeric country code","terminology":"ncit"},{"code":"CS","name":"US State Department country code","terminology":"ncit"},{"code":"DN","name":"Display name","terminology":"ncit"},{"code":"EDQM-HC","terminology":"ncit"},{"code":"FB","name":"Foreign brand name, which may be trademarked","terminology":"ncit"},{"code":"HD*","name":"Header (groups concepts, but not used for coding data)","terminology":"ncit"},{"code":"PT*","name":"Preferred term","terminology":"ncit"},{"code":"SN","name":"Chemical structure name","terminology":"ncit"},{"code":"SY","name":"Synonym","terminology":"ncit"}]
 
+```
+
+### Get root concepts
+
+Return all root concepts for the specified terminology.
+
+Command: `pytest test_Concept_Tests.py::test_get_roots`
+
+```{.python}
+[{"code":"C12913","name":"Abnormal Cell"},{"code":"C43431","name":"Activity"},{"code":"C12219","name":"Anatomic Structure, System, or Substance"},{"code":"C20633","name":"Biochemical Pathway"},{"code":"C17828","name":"Biological Process"},{"code":"C12218","name":"Chemotherapy Regimen or Agent Combination"},{"code":"C20181","name":"Conceptual Entity"},{"code":"C20047","name":"Diagnostic or Prognostic Factor"},{"code":"C7057","name":"Disease, Disorder or Finding"},{"code":"C1908","name":"Drug, Food, Chemical or Biomedical Material"},{"code":"C22188","name":"Experimental Organism Anatomical Concept"},{"code":"C22187","name":"Experimental Organism Diagnosis"},{"code":"C16612","name":"Gene"},{"code":"C26548","name":"Gene Product"},{"code":"C97325","name":"Manufactured Object"},{"code":"C3910","name":"Molecular Abnormality"},{"code":"C14250","name":"Organism"},{"code":"C20189","name":"Property or Attribute"},{"code":"C28428","name":"Retired Concept"}]
+```
+
+### Get root paths from code
+
+Return paths to the root concept from a specified terminology and code.
+
+Command: `pytest test_Concept_Tests.py::test_get_path_to_root_by_code`
+
+```{.python}
+[[{"associations":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"children":[null],"code":"string","definitions":[{"definition":"string","highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"source":"string","type":"string"}],"disjointWith":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"highlight":"string","highlights":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"inverseAssociations":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"inverseRoles":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"leaf":true,"level":0,"maps":[{"targetCode":"string","targetName":"string","targetTermGroup":"string","targetTerminology":"string","targetTerminologyVersion":"string","type":"string"}],"name":"string","parents":[null],"properties":[{"code":"string","highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"type":"string","value":"string"}],"roles":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"synonyms":[{"code":"string","highlight":"string","name":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"source":"string","subSource":"string","termGroup":"string","type":"string"}],"terminology":"string","version":"string"}]]
+```
+
+Return paths from the root concept from a specified terminology and code.
+
+Command: `pytest test_Concept_Tests.py::test_get_path_from_root_by_code`
+
+```{.python}
+[[{"code":"C7057","name":"Disease, Disorder or Finding","level":0},{"code":"C2991","name":"Disease or Disorder","level":1},{"code":"C3262","name":"Neoplasm","level":2},{"code":"C4741","name":"Neoplasm by Morphology","level":3},{"code":"C7058","name":"Melanocytic Neoplasm","level":4},{"code":"C3224","name":"Melanoma","level":5}],[{"code":"C7057","name":"Disease, Disorder or Finding","level":0},{"code":"C2991","name":"Disease or Disorder","level":1},{"code":"C3262","name":"Neoplasm","level":2},{"code":"C7062","name":"Neoplasm by Special Category","level":3},{"code":"C9305","name":"Malignant Neoplasm","level":4},{"code":"C3224","name":"Melanoma","level":5}]]
+```
+
+### Get ancestor paths from code
+
+Return paths to the root concept for a specified terminology and code.
+
+Command: `pytest test_Concept_Tests.py::test_get_ancestor_paths_from_code`
+
+```{.python}
+[[{"code":"C3224","name":"Melanoma","level":0},{"code":"C7058","name":"Melanocytic Neoplasm","level":1},{"code":"C4741","name":"Neoplasm by Morphology","level":2},{"code":"C3262","name":"Neoplasm","level":3},{"code":"C2991","name":"Disease or Disorder","level":4}],[{"code":"C3224","name":"Melanoma","level":0},{"code":"C9305","name":"Malignant Neoplasm","level":1},{"code":"C7062","name":"Neoplasm by Special Category","level":2},{"code":"C3262","name":"Neoplasm","level":3},{"code":"C2991","name":"Disease or Disorder","level":4}]]
+```
+
+### Get subtree
+
+Return an entire subtree graph from the root concepts to a specified node. This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
+
+Command: `pytest test_Concept_Tests.py::test_get_subtree`
+
+```{.python}
+(data is too long for display on this page)
 ```
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)

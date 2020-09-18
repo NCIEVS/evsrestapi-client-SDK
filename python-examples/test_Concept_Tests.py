@@ -62,3 +62,38 @@ def test_get_concept_descendants_by_code(): # Return concept descendants informa
     response = requests.get(localUrl + "/concept/ncit/C3224/descendants?maxLevel=2");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_roots(): # Return root concepts.
+    logging.info("test_Concept_Tests.py: Get root concepts - ncit");
+    logging.info("url = " + localUrl + "/concept/ncit/roots");
+    response = requests.get(localUrl + "/concept/ncit/roots");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+  
+def test_get_path_to_root_by_code(): # Return paths to the root concept to a specified terminology and code.
+    logging.info("test_Concept_Tests.py: Return paths to the root concept - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/pathsToRoot");
+    response = requests.get(localUrl + "/concept/ncit/C3224/pathsToRoot");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_path_from_root_by_code(): # Return paths to the root concept from a specified terminology and code.
+    logging.info("test_Concept_Tests.py: Return paths from the root concept - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/pathsFromRoot");
+    response = requests.get(localUrl + "/concept/ncit/C3224/pathsFromRoot");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_ancestor_paths_from_code(): # Return ancestor paths.
+    logging.info("test_Concept_Tests.py: Return paths to the ancestor code for a specified terminology and code - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/pathsToAncestor/C2991");
+    response = requests.get(localUrl + "/concept/ncit/C3224/pathsToAncestor/C2991");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_subtree(): # Return an entire subtree graph from the root concepts to a specified node. 
+    logging.info("test_Concept_Tests.py: Return an entire subtree graph from the root concepts to a specified node - C3224");
+    logging.info("url = " + localUrl + "/concept/ncit/C3224/subtree");
+    response = requests.get(localUrl + "/concept/ncit/C3224/subtree");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
