@@ -1324,3 +1324,127 @@ Finished ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
 ```
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-synonym-types.sh
+
+Return information about synonym types for a given terminology.
+
+```
+$ ./get-synonym-types.sh ncit
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:01:27 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel =
+include =
+
+  Get synonym types for ncit:
+
+    [
+      {
+        "code": "P90",
+        "name": "FULL_SYN",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P108",
+        "name": "Preferred_Name",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P107",
+        "name": "Display_Name",
+        "terminology": "ncit",
+        "version": "21.04d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:01:27 AM
+-----------------------------------------------------
+
+$ ./get-synonym-types.sh ncit P90
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:02:26 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel = P90
+include =
+
+  Get synonym types for ncit P90:
+
+    {
+      "code": "P90",
+      "name": "FULL_SYN",
+      "terminology": "ncit",
+      "version": "21.04d"
+    }
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:02:27 AM
+-----------------------------------------------------
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-definition-types.sh
+
+Return information about definition types for a given terminology.
+
+```
+$ ./get-definition-types.sh ncit
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:03:24 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel =
+include =
+
+  Get definition types for ncit:
+
+    [
+      {
+        "code": "P325",
+        "name": "ALT_DEFINITION",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P97",
+        "name": "DEFINITION",
+        "terminology": "ncit",
+        "version": "21.04d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:03:24 AM
+-----------------------------------------------------
+
+$ ./get-definition-types.sh ncit P325
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:03:43 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel = P325
+include =
+
+  Get definition types for ncit P325:
+
+    {
+      "code": "P325",
+      "name": "ALT_DEFINITION",
+      "terminology": "ncit",
+      "version": "21.04d"
+    }
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:03:44 AM
+-----------------------------------------------------
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
