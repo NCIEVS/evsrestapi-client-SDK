@@ -215,4 +215,32 @@ public class MetadataTests {
     logger.info("  term types = " + list);
   }
 
+  /**
+   * Test get definition types by terminology.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetDefinitionTypes() throws Exception {
+
+    final List<Concept> list = client.getDefinitionInfo(terminology, "definitionTypes");
+    logger.info("Get definition types by terminology - " + terminology);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  definition types = " + list);
+  }
+
+  /**
+   * Test get synonym types by terminology.
+   *
+   * @throws Exception the exception
+   */
+  @Test
+  public void testGetSynonymTypes() throws Exception {
+
+    final List<Concept> list = client.getSynonymInfo(terminology, "synonymTypes");
+    logger.info("Get synonym types by terminology - " + terminology);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  synonym types = " + list);
+  }
+
 }
