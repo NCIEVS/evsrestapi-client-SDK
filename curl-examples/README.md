@@ -60,6 +60,10 @@ The following examples can be types into the command line of any terminal that h
 - [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
 - [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 - [Find concepts by property](#find-concepts-by-property)
+- [Find definition types](#find-definition-types)
+- [Find definition type by code](#find-definition-type-by-code)
+- [Find synonym types](#find-synonym-types)
+- [Find synonym type by code](#find-synonym-type-by-code)
 
 
 ### Get terminologies
@@ -567,5 +571,49 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&inc
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+
+
+### Find definition types
+
+Find all definition types. Include parameter allowed customizing how much data to return.
+
+```
+curl "$API_URL/metadata/ncit/definitionTypes?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-definition-types.txt`](samples/get-definition-types.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find definition type by code
+
+Find definition type by code. Include parameter allowed customizing how much data to return.
+
+```
+curl "$API_URL/metadata/ncit/definitionType/P325?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-definition-type-by-code.txt`](samples/get-definition-type-by-code.txt)
+### Find synonym types
+
+Find all synonym types. Include parameter allowed customizing how much data to return.
+
+```
+curl "$API_URL/metadata/ncit/synonymTypes?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-synonym-types.txt`](samples/get-synonym-types.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find synonym type by code
+
+Find synonym type by code. Include parameter allowed customizing how much data to return.
+
+```
+curl "$API_URL/metadata/ncit/synonymType/P90?include=summary" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-synonym-type-by-code.txt`](samples/get-synonym-type-by-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
