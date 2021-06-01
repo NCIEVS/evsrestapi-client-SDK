@@ -42,6 +42,10 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get association by code (or label)
 - Get all term types
 - Get all synonym sources
+- Get all synonym types
+- Get synonym sources by code
+- Get all definition sources
+- Get definition sources by code
 - Find root concepts
 - Get paths to/from root from a code
 - Get paths to an ancestor from a code

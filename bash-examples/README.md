@@ -26,6 +26,8 @@ Test Scripts
 - [get-qualifier.sh](#get-qualifier-sh)
 - [get-term-types.sh](#get-term-types-sh)
 - [get-synonym-sources.sh](#get-synonym-sources-sh)
+- [get-synonym-types.sh](#get-synonym-types-sh)
+- [get-definition-types.sh](#get-definition-types-sh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
