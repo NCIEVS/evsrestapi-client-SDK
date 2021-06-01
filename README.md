@@ -43,9 +43,9 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get all term types
 - Get all synonym sources
 - Get all synonym types
-- Get synonym sources by code
-- Get all definition sources
-- Get definition sources by code
+- Get synonym types by code
+- Get all definition types
+- Get definition types by code
 - Find root concepts
 - Get paths to/from root from a code
 - Get paths to an ancestor from a code
