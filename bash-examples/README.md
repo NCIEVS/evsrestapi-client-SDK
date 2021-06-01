@@ -13,19 +13,21 @@ The various scripts make use of the local `url.env` file to define the EVSRESTAP
 
 Test Scripts
 ------------
-- [get-terminologies.sh](#get-terminologies-sh)
-- [get-concept.sh](#get-concept-sh)
-- [get-concept-part.sh](#get-concept-part-sh)
-- [find-concepts.sh](#find-concepts-sh)
-- [get-descendants.sh](#get-descendants-sh)
-- [get-subtree.sh](#get-subtree-sh)
-- [get-paths.sh](#get-paths-sh)
-- [get-association.sh](#get-concept-sh)
-- [get-role.sh](#get-role-sh)
-- [get-property.sh](#get-property-sh)
-- [get-qualifier.sh](#get-qualifier-sh)
-- [get-term-types.sh](#get-term-types-sh)
-- [get-synonym-sources.sh](#get-synonym-sources-sh)
+- [get-terminologies.sh](#get-terminologiessh)
+- [get-concept.sh](#get-conceptsh)
+- [get-concept-part.sh](#get-concept-partsh)
+- [find-concepts.sh](#find-conceptssh)
+- [get-descendants.sh](#get-descendantssh)
+- [get-subtree.sh](#get-subtreesh)
+- [get-paths.sh](#get-pathssh)
+- [get-association.sh](#get-conceptsh)
+- [get-role.sh](#get-rolesh)
+- [get-property.sh](#get-propertysh)
+- [get-qualifier.sh](#get-qualifiersh)
+- [get-term-types.sh](#get-term-typessh)
+- [get-synonym-sources.sh](#get-synonym-sourcessh)
+- [get-synonym-types.sh](#get-synonym-typessh)
+- [get-definition-types.sh](#get-definition-typessh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -1321,6 +1323,130 @@ terminology = ncit
 
 -----------------------------------------------------
 Finished ...Fri, Apr  3, 2020  6:16:20 PM
+-----------------------------------------------------
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-synonym-types.sh
+
+Return information about synonym types for a given terminology.
+
+```
+$ ./get-synonym-types.sh ncit
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:01:27 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel =
+include =
+
+  Get synonym types for ncit:
+
+    [
+      {
+        "code": "P90",
+        "name": "FULL_SYN",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P108",
+        "name": "Preferred_Name",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P107",
+        "name": "Display_Name",
+        "terminology": "ncit",
+        "version": "21.04d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:01:27 AM
+-----------------------------------------------------
+
+$ ./get-synonym-types.sh ncit P90
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:02:26 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel = P90
+include =
+
+  Get synonym types for ncit P90:
+
+    {
+      "code": "P90",
+      "name": "FULL_SYN",
+      "terminology": "ncit",
+      "version": "21.04d"
+    }
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:02:27 AM
+-----------------------------------------------------
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-definition-types.sh
+
+Return information about definition types for a given terminology.
+
+```
+$ ./get-definition-types.sh ncit
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:03:24 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel =
+include =
+
+  Get definition types for ncit:
+
+    [
+      {
+        "code": "P325",
+        "name": "ALT_DEFINITION",
+        "terminology": "ncit",
+        "version": "21.04d"
+      },
+      {
+        "code": "P97",
+        "name": "DEFINITION",
+        "terminology": "ncit",
+        "version": "21.04d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:03:24 AM
+-----------------------------------------------------
+
+$ ./get-definition-types.sh ncit P325
+-----------------------------------------------------
+Starting ...Thu, May 27, 2021 11:03:43 AM
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+codeOrLabel = P325
+include =
+
+  Get definition types for ncit P325:
+
+    {
+      "code": "P325",
+      "name": "ALT_DEFINITION",
+      "terminology": "ncit",
+      "version": "21.04d"
+    }
+
+-----------------------------------------------------
+Finished ...Thu, May 27, 2021 11:03:44 AM
 -----------------------------------------------------
 ```
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)

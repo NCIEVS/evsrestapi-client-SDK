@@ -173,7 +173,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/C3224/descendants",
+					"raw": "{{API_URL}}/concept/ncit/C3224/descendants?maxLevel=4",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -182,6 +182,12 @@
 						"ncit",
 						"C3224",
 						"descendants"
+					],
+					"query": [
+						{
+							"key": "maxLevel",
+							"value": "4"
+						}
 					]
 				}
 			},
@@ -233,21 +239,21 @@
 			"response": []
 		},
 		{
-			"name": "Get qualifier values by code (or label)",
+			"name": "Get property axiom qualifiers by code (or label)",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/qualifier/P383/values",
+					"raw": "{{API_URL}}/metadata/ncit/property/P383/axiomQualifiers",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"metadata",
 						"ncit",
-						"qualifier",
+						"property",
 						"P383",
-						"values"
+						"axiomQualifiers"
 					]
 				}
 			},
@@ -1027,13 +1033,102 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get Definition Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionTypes",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Synonym Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymTypes",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Definition Type by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionType/P325?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionType",
+						"P325"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Synonym Type by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymType/P90?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymType",
+						"P90"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8ba55016-daf1-4e72-87cc-1da542326d31",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1043,7 +1138,6 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "55f33f94-e46f-4773-b2a0-e63f8fb8cf37",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1053,11 +1147,8 @@
 	],
 	"variable": [
 		{
-			"id": "fcd28427-0061-480f-857c-a00211faff13",
 			"key": "API_URL",
-			"value": "https://api-evsrest.nci.nih.gov/api/v1/",
-			"type": "string"
+			"value": "https://api-evsrest-dev.nci.nih.gov/api/v1/"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -162,6 +162,30 @@ public class EvsRestClient extends RootClient {
   }
 
   /**
+   * Returns the definition type info.
+   *
+   * @param terminology the terminology
+   * @param type the type of info
+   * @return the term info
+   * @throws Exception the exception
+   */
+  public List<Concept> getDefinitionTypeInfo(final String terminology, final String type) throws Exception {
+    return getTermInfoHelper(terminology, type);
+  }
+
+  /**
+   * Returns the synonym type info.
+   *
+   * @param terminology the terminology
+   * @param type the type of info
+   * @return the term info
+   * @throws Exception the exception
+   */
+  public List<Concept> getSynonymTypeInfo(final String terminology, final String type) throws Exception {
+    return getTermInfoHelper(terminology, type);
+  }
+
+  /**
    * Returns the root concept.
    *
    * @param terminology the terminology
