@@ -13,21 +13,21 @@ The various scripts make use of the local `url.env` file to define the EVSRESTAP
 
 Test Scripts
 ------------
-- [get-terminologies.sh](#get-terminologies-sh)
-- [get-concept.sh](#get-concept-sh)
-- [get-concept-part.sh](#get-concept-part-sh)
-- [find-concepts.sh](#find-concepts-sh)
-- [get-descendants.sh](#get-descendants-sh)
-- [get-subtree.sh](#get-subtree-sh)
-- [get-paths.sh](#get-paths-sh)
-- [get-association.sh](#get-concept-sh)
-- [get-role.sh](#get-role-sh)
-- [get-property.sh](#get-property-sh)
-- [get-qualifier.sh](#get-qualifier-sh)
-- [get-term-types.sh](#get-term-types-sh)
-- [get-synonym-sources.sh](#get-synonym-sources-sh)
-- [get-synonym-types.sh](#get-synonym-types-sh)
-- [get-definition-types.sh](#get-definition-types-sh)
+- [get-terminologies.sh](#get-terminologiessh)
+- [get-concept.sh](#get-conceptsh)
+- [get-concept-part.sh](#get-concept-partsh)
+- [find-concepts.sh](#find-conceptssh)
+- [get-descendants.sh](#get-descendantssh)
+- [get-subtree.sh](#get-subtreesh)
+- [get-paths.sh](#get-pathssh)
+- [get-association.sh](#get-conceptsh)
+- [get-role.sh](#get-rolesh)
+- [get-property.sh](#get-propertysh)
+- [get-qualifier.sh](#get-qualifiersh)
+- [get-term-types.sh](#get-term-typessh)
+- [get-synonym-sources.sh](#get-synonym-sourcessh)
+- [get-synonym-types.sh](#get-synonym-typessh)
+- [get-definition-types.sh](#get-definition-typessh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
