@@ -52,6 +52,7 @@ All commands to run these tests should be run from that directory.
 * [Get concepts by search term (using type=fuzzy)](#get-concepts-fuzzy)
 * [Get concepts by search term (using type=OR)](#get-concepts-or)
 * [Get concepts by search term (using type=AND)](#get-concepts-and)
+* [Get concepts by search term (with highlights)](#get-concepts-highlights)
 
 ### Get terminologies
 
@@ -479,6 +480,18 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_or`
 Get concepts matching a search term within a specified terminology and a search type of "and".
 
 Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_and`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (with highlights)
+
+Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_highlights`
 
 ```{.python}
 (data is too long for display on this page)

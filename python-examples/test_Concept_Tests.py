@@ -174,3 +174,10 @@ def test_get_concept_by_search_term_and(): # Get concepts matching a search term
     response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=and");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_concept_by_search_term_highlights(): # Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&include=synonyms,highlights");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&include=synonyms,highlights");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
