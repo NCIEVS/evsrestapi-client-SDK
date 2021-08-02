@@ -46,6 +46,12 @@ All commands to run these tests should be run from that directory.
 * [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-contributing-source)
 * [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-definition-source)
 * [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-synonym-source)
+* [Get concepts by search term (using type=match)](#get-concepts-match)
+* [Get concepts by search term (using type=startsWith)](#get-concepts-startsWith)
+* [Get concepts by search term (using type=phrase)](#get-concepts-phrase)
+* [Get concepts by search term (using type=fuzzy)](#get-concepts-fuzzy)
+* [Get concepts by search term (using type=OR)](#get-concepts-or)
+* [Get concepts by search term (using type=AND)](#get-concepts-and)
 
 ### Get terminologies
 
@@ -401,6 +407,78 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_definition_source`
 Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
 
 Command: `pytest test_Concept_Tests.py::test_get_concept_by_synonym_source`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=match)
+
+Get concepts matching a search term within a specified terminology and a search type of "match".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_match`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=startsWith)
+
+Get concepts matching a search term within a specified terminology and a search type of "startsWith".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_starts_with`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=phrase)
+
+Get concepts matching a search term within a specified terminology and a search type of "phrase".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_phrase`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=fuzzy)
+
+Get concepts matching a search term within a specified terminology and a search type of "fuzzy".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_fuzzy`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=or)
+
+Get concepts matching a search term within a specified terminology and a search type of "or".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_or`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (using type=and)
+
+Get concepts matching a search term within a specified terminology and a search type of "and".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_and`
 
 ```{.python}
 (data is too long for display on this page)
