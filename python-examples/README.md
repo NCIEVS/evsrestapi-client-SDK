@@ -41,6 +41,11 @@ All commands to run these tests should be run from that directory.
 * [Get paths to/from root from code](#get-root-paths-from-code)
 * [Get paths to ancestor from code](#get-ancestor-paths-from-code)
 * [Get subtree](#get-subtree)
+* [Get concepts by search term](#get-concepts)
+* [Get concepts by search term (restrict by concept status)](#get-concepts-restrict-concept-status)
+* [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-contributing-source)
+* [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-definition-source)
+* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-synonym-source)
 
 ### Get terminologies
 
@@ -336,6 +341,66 @@ Command: `pytest test_Concept_Tests.py::test_get_ancestor_paths_from_code`
 Return an entire subtree graph from the root concepts to a specified node. This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 Command: `pytest test_Concept_Tests.py::test_get_subtree`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term
+
+Get concepts matching a search term within a specified terminology.
+
+Command: `pytest test_Concept_Tests.py::test_get_concept`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (restrict by concept status)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by concept status of "Header_Concept".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_concept_status`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (restrict by contributing source)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of "CDISC".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_contributing_source`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (restrict by definition source)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by a definition source of "NCI".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_definition_source`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (restrict by synonym source)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_synonym_source`
 
 ```{.python}
 (data is too long for display on this page)

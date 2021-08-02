@@ -97,3 +97,38 @@ def test_get_subtree(): # Return an entire subtree graph from the root concepts 
     response = requests.get(localUrl + "/concept/ncit/C3224/subtree");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+
+def test_get_concept(): # Get concepts matching a search term within a specified terminology.
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_concept_by_concept_status(): # Get concepts matching a search term within a specified terminology and restrict the search results by concept status of "Header_Concept".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by concept status of \"Header_Concept\".");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+        
+def test_get_concept_by_contributing_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of "CDISC".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of \"CDISC\".");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma&contributingSource=CDISC");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma&contributingSource=CDISC");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
+def test_get_concept_by_definition_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition source of "NCI".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition source of \"NCI\".");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma&definitionSource=NCI");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma&definitionSource=NCI");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_concept_by_synonym_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of \"NCI\" and synonymTermGroup of \"PT\".");
+    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
+    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
