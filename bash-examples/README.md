@@ -40,7 +40,7 @@ $ ./get-termniologies.sh
 -----------------------------------------------------
 Starting ...Tue, Feb  4, 2020 12:09:16 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 
   Performing terminologies lookup
     count = 1
@@ -76,7 +76,7 @@ $ ./get-concept.sh ncit C3224 --include minimal
 -----------------------------------------------------
 Starting ...Tue, Feb  4, 2020 12:09:16 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 include = minimal
@@ -141,7 +141,7 @@ $  ./get-concept-part.sh ncit C3224 children
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:38:52 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 part = children
@@ -238,7 +238,7 @@ $ ./find-concepts.sh ncit "malignant melanoma" --pageSize 5
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:46:39 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 term = malignant melanoma
 include =
@@ -302,7 +302,7 @@ $  ./get-descendants.sh ncit C3224 --level 2 | more
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:49:41 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 maxLevel = 2
@@ -463,7 +463,7 @@ $  ./get-subtree.sh ncit C3224 --children
 -----------------------------------------------------
 Starting ...Wed, Mar 18, 2020  2:15:45 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 
@@ -594,7 +594,7 @@ $ ./get-paths.sh ncit
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:32:27 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code =
 ancestor code =
@@ -635,7 +635,7 @@ $ ./get-paths.sh ncit C3224
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:32:53 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 ancestor code =
@@ -723,7 +723,7 @@ $ ./get-paths.sh ncit C3224 --anc C2991
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:34:21 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 ancestor code = C2991
@@ -803,7 +803,7 @@ $ ./get-association.sh ncit
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  3:20:34 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -843,7 +843,7 @@ $ ./get-association.sh ncit A10
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  3:23:51 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = A10
 include =
@@ -867,7 +867,7 @@ $ ./get-association.sh ncit Role_Has_Domain --include synonyms
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  3:24:21 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = Role_Has_Domain
 include = synonyms
@@ -911,7 +911,7 @@ $ ./get-role.sh ncit
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:24:58 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -951,7 +951,7 @@ $ ./get-role.sh ncit R156
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:26:29 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = R156
 include =
@@ -975,7 +975,7 @@ $ ./get-role.sh ncit Allele_Has_Abnormality --include synonyms
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:28:18 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = Allele_Has_Abnormality
 include = synonyms
@@ -1019,7 +1019,7 @@ $ ./get-property.sh ncit
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:28:45 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -1059,7 +1059,7 @@ $ ./get-property.sh ncit P325
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:29:40 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = P325
 include =
@@ -1083,7 +1083,7 @@ $ ./get-property.sh ncit Accepted_Therapeutic_Use_For --include synonyms
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:30:17 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = Accepted_Therapeutic_Use_For
 include = synonyms
@@ -1127,7 +1127,7 @@ $ ./get-qualifier.sh  ncit
 -----------------------------------------------------
 Starting ...Wed, Apr 15, 2020  7:53:01 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 url = http://localhost:8082/api/v1
 terminology = ncit
 codeOrLabel =
@@ -1169,7 +1169,7 @@ $ ./get-qualifier.sh  ncit P389
 -----------------------------------------------------
 Starting ...Wed, Apr 15, 2020  7:53:35 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = P389
 include =
@@ -1220,7 +1220,7 @@ $ ./get-qualifier.sh  ncit go-evi --include synonyms
 -----------------------------------------------------
 Starting ...Wed, Apr 15, 2020  7:54:57 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = go-evi
 include = synonyms
@@ -1274,7 +1274,7 @@ $ ./get-term-types.sh ncit
 -----------------------------------------------------
 Starting ...Thu, Feb  6, 2020  4:28:45 PM
 -----------------------------------------------------
-url = https://api-evsrest-dev.nci.nih.gov/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 
   Get term types for ncit:

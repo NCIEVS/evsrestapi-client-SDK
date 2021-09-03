@@ -67,14 +67,14 @@ The following cases will be used to demonstrate accessing the EVSREST API
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 
-- API_URL=https://api-evsrest-dev.nci.nih.gov/api/v1/
+- API_URL=https://api-evsrest.nci.nih.gov/api/v1/
 
 **[Back to top](#table-of-contents)**
 
 
 ## Resources
 
-- Swagger Documentation - https://api-evsrest-dev.nci.nih.gov/swagger-ui.html
+- Swagger Documentation - https://api-evsrest.nci.nih.gov/swagger-ui.html
 - [Additional Documentation](../master/doc/ "Swagger")
 
 

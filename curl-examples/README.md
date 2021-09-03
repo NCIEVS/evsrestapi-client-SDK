@@ -17,7 +17,7 @@ NOTE: "dev" URLs are only accessible while behind the NIH firewall.
 
 All the operations described here perform a GET request.
 
-The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html">http://https://api-evsrest-dev.nci.nih.gov/swagger-ui.html</a>.
+The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest.nci.nih.gov/swagger-ui.html">http://https://api-evsrest.nci.nih.gov/swagger-ui.html</a>.
 
 Sample cURL Calls
 -----------------
