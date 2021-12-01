@@ -632,7 +632,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-prop
 Find all subsets (with minimal information) associated for a specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/subsets?include=minimal"
+curl "$API_URL/metadata/ncit/subsets"
 ```
 
 See sample payload data from this call in [`samples/find-all-subsets.txt`](samples/find-all-subsets.txt)

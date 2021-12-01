@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "16eb795c-5f36-4338-aee9-c9b09f887d9c",
+		"_postman_id": "2d49f78f-48aa-4dba-b9d3-2a5dddb6f237",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -408,6 +408,134 @@
 						"metadata",
 						"ncit",
 						"termTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all definition sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionSources",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionSources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all synonym sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymSources",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymSources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Definition Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionTypes",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Definition Type by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionType/P325?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionType",
+						"P325"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Synonym Types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymTypes",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymTypes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Synonym Type by Code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymType/P90?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymType",
+						"P90"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
 					]
 				}
 			},
@@ -1035,58 +1163,39 @@
 			"response": []
 		},
 		{
-			"name": "Get Definition Types",
+			"name": "Find all subsets",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/definitionTypes",
+					"raw": "{{API_URL}}/metadata/ncit/subsets",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"metadata",
 						"ncit",
-						"definitionTypes"
+						"subsets"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get Synonym Types",
+			"name": "Find subset by code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/synonymTypes",
+					"raw": "{{API_URL}}/metadata/ncit/subset/C81222?include=summary",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"metadata",
 						"ncit",
-						"synonymTypes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Definition Type by Code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/definitionType/P325?include=summary",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"definitionType",
-						"P325"
+						"subset",
+						"C81222"
 					],
 					"query": [
 						{
@@ -1099,25 +1208,29 @@
 			"response": []
 		},
 		{
-			"name": "Get Synonym Type by Code",
+			"name": "Find all subset members by code",
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/synonymType/P90?include=summary",
+					"raw": "{{API_URL}}/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=100",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"metadata",
+						"concept",
 						"ncit",
-						"synonymType",
-						"P90"
+						"subsetMembers",
+						"C81222"
 					],
 					"query": [
 						{
-							"key": "include",
-							"value": "summary"
+							"key": "fromRecord",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
 						}
 					]
 				}
