@@ -63,6 +63,9 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by search term (using type=OR)
 - Find concepts by search term (with highlights)
 - Find concepts by property
+- Find all subsets
+- Find subset by code
+- Find subset members by subset code
 
 
 All of the tutorials use an environment variable for the API URL of the deployment:

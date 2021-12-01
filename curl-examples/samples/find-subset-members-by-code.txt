@@ -1,0 +1,52 @@
+[
+  {
+    "code": "C117751",
+    "name": "Analysis Requested by Regulatory Agency",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C117752",
+    "name": "Analysis Specified in Protocol",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C117753",
+    "name": "Analysis Specified in Statistical Analysis Plan",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C81209",
+    "name": "Average of Value Derivation Technique",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C81201",
+    "name": "Baseline Observation Carried Forward Imputation Technique",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C92225",
+    "name": "Best Case Imputation Technique",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C92226",
+    "name": "Best Observation Carried Forward Imputation Technique",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C132340",
+    "name": "Best Observed Case Imputation Technique",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C81223",
+    "name": "CDISC ADaM Date Imputation Flag Terminology",
+    "terminology": "ncit"
+  },
+  {
+    "code": "C81224",
+    "name": "CDISC ADaM Derivation Type Terminology",
+    "terminology": "ncit"
+  }
+]
