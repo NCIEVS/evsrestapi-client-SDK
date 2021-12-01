@@ -41,6 +41,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get all associations
 - Get association by code (or label)
 - Get all term types
+- Get all definition sources
 - Get all synonym sources
 - Get all synonym types
 - Get synonym types by code
@@ -63,9 +64,9 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by search term (using type=OR)
 - Find concepts by search term (with highlights)
 - Find concepts by property
-- Find all subsets
-- Find subset by code
-- Find subset members by subset code
+- Get all subsets
+- Get subset by code
+- Get subset members by subset code
 
 
 All of the tutorials use an environment variable for the API URL of the deployment:
