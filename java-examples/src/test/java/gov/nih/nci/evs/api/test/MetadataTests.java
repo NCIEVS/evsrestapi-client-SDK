@@ -243,4 +243,12 @@ public class MetadataTests {
     logger.info("  synonym types = " + list);
   }
 
+  @Test
+  public void testGetAllSubsets() throws Exception {
+
+    final List<Concept> list = client.getSynonymInfo(terminology, "synonymTypes");
+    logger.info("Get synonym types by terminology - " + terminology);
+    logger.info("  base url = " + client.getApiUrl());
+    logger.info("  synonym types = " + list);
+  }
 }

@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Logger;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
-import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
+import javax.xml.ws.Response;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -169,7 +169,8 @@ public class EvsRestClient extends RootClient {
    * @return the term info
    * @throws Exception the exception
    */
-  public List<Concept> getDefinitionTypeInfo(final String terminology, final String type) throws Exception {
+  public List<Concept> getDefinitionTypeInfo(final String terminology, final String type)
+    throws Exception {
     return getTermInfoHelper(terminology, type);
   }
 
@@ -181,7 +182,8 @@ public class EvsRestClient extends RootClient {
    * @return the term info
    * @throws Exception the exception
    */
-  public List<Concept> getSynonymTypeInfo(final String terminology, final String type) throws Exception {
+  public List<Concept> getSynonymTypeInfo(final String terminology, final String type)
+    throws Exception {
     return getTermInfoHelper(terminology, type);
   }
 
@@ -844,4 +846,29 @@ public class EvsRestClient extends RootClient {
     }
   }
 
+  /**
+   * Returns the all subsets.
+   *
+   * @param terminology the terminology
+   * @return the all subsets
+   * @throws Exception the exception
+   */
+  private ConceptResultList getAllSubsets(final String terminology) throws Exception {
+
+    validateNotEmpty(terminology, "terminology");
+
+    final Client client = getClients().get();
+    final String url = "/metadata/" + terminology + "/subsets";
+    WebTarget target = client.target(getApiUrl() + url);
+    try (Response response = request(target).get()) {
+      if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+        logger.error("Unexpected error getting subsets for " + terminology + ", " + term);
+        throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+      }
+      final String json = response.readEntity(String.class);
+      return getMapper().readValue(json, ConceptResultList.class);
+    }
+  }
+  
+  
 }

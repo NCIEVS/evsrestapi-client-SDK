@@ -64,6 +64,9 @@ The following examples are exhibited by various unit tests defined in the code i
 - [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
 - [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 - [Find concepts by property](#find-concepts-by-property)
+- [Find all subsets](#find-all-subsets)
+- [Find subset by code](#find-subset-by-code)
+- [Find subset members by subset code](#find-subset-members-by-code)
  
 ### Get terminologies
 
@@ -620,3 +623,42 @@ cord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name"
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Find all subsets
+
+`MetadataTests.testGetAllSubsets()` - Find all subsets (with minimal information) associated for a specified terminology.
+
+```
+2020-06-24T20:28:48-04:00 INFO  : Get concept by search term - XAV05295I5
+2020-06-24T20:28:48-04:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
+2020-06-24T20:28:48-04:00 INFO  :   concept = {"total":1,"timeTaken":24,"parameters":{"term":"XAV05295I5","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"property":["fda_unii_code"],"terminology":["ncit"]},"concepts":[{"code":"C61305","name":"Sivifene","terminology":"ncit","version":"20.05d"}]}
+```
+
+See sample payload data from this call in [`samples/find-all-subsets.txt`](samples/find-all-subsets.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Find subset by code
+
+Find subset with summary information for a specified code.
+
+```
+curl "$API_URL/metadata/ncit/subset/C81222?include=summary"
+```
+
+See sample payload data from this call in [`samples/find-subset-by-code.txt`](samples/find-subset-by-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Find subset members by code
+
+Find subset members for a specified subset code. This example  uses paging to get only the first 10 results.
+
+```
+curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10"
+```
+
+See sample payload data from this call in [`samples/find-subset-members-by-code.txt`](samples/find-subset-members-by-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
