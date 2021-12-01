@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+// TODO: Auto-generated Javadoc
 /**
  * Represents a concept with a code from a terminology.
  * 
@@ -78,6 +79,9 @@ public class Concept extends ConceptMinimal {
 
   /** The maps. */
   private List<Map> maps;
+
+  /** The subset link. */
+  private String subsetLink;
 
   /**
    * Instantiates an empty {@link Concept}.
@@ -154,6 +158,7 @@ public class Concept extends ConceptMinimal {
     inverseRoles = new ArrayList<>(other.getInverseRoles());
     disjointWith = new ArrayList<>(other.getDisjointWith());
     maps = new ArrayList<>(other.getMaps());
+    subsetLink = other.getSubsetLink();
   }
 
   /**
@@ -461,6 +466,24 @@ public class Concept extends ConceptMinimal {
    */
   public void setMaps(final List<Map> maps) {
     this.maps = maps;
+  }
+  
+  /**
+   * Returns the subset link.
+   *
+   * @return the subsetLink
+   */
+  public String getSubsetLink() {
+    return subsetLink;
+  }
+
+  /**
+   * Sets the subset link.
+   *
+   * @param subsetLink the subsetLink to set
+   */
+  public void setSubsetLink(String subsetLink) {
+    this.subsetLink = subsetLink;
   }
 
 }

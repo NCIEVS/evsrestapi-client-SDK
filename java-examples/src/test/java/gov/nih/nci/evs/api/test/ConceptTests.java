@@ -4,8 +4,8 @@ package gov.nih.nci.evs.api.test;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.BeforeClass;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -34,7 +34,7 @@ public class ConceptTests {
    *
    * @throws Exception the exception
    */
-  @BeforeClass
+  @BeforeAll
   public static void setupClass() throws Exception {
     client = new EvsRestClient();
   }

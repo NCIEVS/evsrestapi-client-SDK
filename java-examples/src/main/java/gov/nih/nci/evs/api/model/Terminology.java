@@ -6,6 +6,9 @@ import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 
 /**
  * Represents a terminology loaded into the EVSAPI.
@@ -21,7 +24,8 @@ import org.apache.commons.lang3.StringUtils;
  *  }
  * </pre>
  */
-public class Terminology extends BaseModel {
+@JsonInclude(Include.NON_EMPTY)
+public class Terminology extends BaseModel implements Comparable<Terminology> {
 
   /** The terminology. */
   private String terminology;
@@ -31,7 +35,7 @@ public class Terminology extends BaseModel {
 
   /** The date. */
   private String date;
-  
+
   /** The name. */
   private String name;
 
@@ -40,7 +44,7 @@ public class Terminology extends BaseModel {
 
   /** The graph. */
   private String graph;
-  
+
   /** The graph source. */
   private String source;
 
@@ -58,7 +62,13 @@ public class Terminology extends BaseModel {
 
   /** The index name for generic objects. */
   private String objectIndexName;
-  
+
+  /** The metadata. */
+  private TerminologyMetadata metadata;
+
+  /** The flag for using sparql searches. */
+  private Boolean sparqlFlag;
+
   /**
    * Instantiates an empty {@link Terminology}.
    */
@@ -94,8 +104,10 @@ public class Terminology extends BaseModel {
     tags = new HashMap<>(other.getTags());
     indexName = other.getIndexName();
     objectIndexName = other.getObjectIndexName();
+    metadata = other.getMetadata();
+    sparqlFlag = other.getSparqlFlag();
   }
-  
+
   /**
    * Returns the terminology.
    *
@@ -149,7 +161,7 @@ public class Terminology extends BaseModel {
   public void setDate(String date) {
     this.date = date;
   }
-  
+
   /**
    * Returns the name.
    *
@@ -221,7 +233,7 @@ public class Terminology extends BaseModel {
   public void setSource(final String source) {
     this.source = source;
   }
-  
+
   /**
    * Returns the terminology version.
    *
@@ -259,6 +271,24 @@ public class Terminology extends BaseModel {
    */
   public void setLatest(final Boolean latest) {
     this.latest = latest;
+  }
+
+  /**
+   * Returns the metadata.
+   *
+   * @return the metadata
+   */
+  public TerminologyMetadata getMetadata() {
+    return metadata;
+  }
+
+  /**
+   * Sets the metadata.
+   *
+   * @param metadata the metadata
+   */
+  public void setMetadata(TerminologyMetadata metadata) {
+    this.metadata = metadata;
   }
 
   /**
@@ -303,48 +333,66 @@ public class Terminology extends BaseModel {
     this.indexName = indexName;
   }
 
- /**
-  * Returns the index name for objects.
-  * 
-  * @return the object index name
-  */
- public String getObjectIndexName() {
-   if (StringUtils.isEmpty(objectIndexName)) {
-     objectIndexName = "evs_object_" + getTerminologyVersion().replaceAll("[^a-zA-Z0-9_]", "");
-   }
-   return objectIndexName;
- }
+  /**
+   * Returns the index name for objects.
+   * 
+   * @return the object index name
+   */
+  public String getObjectIndexName() {
+    if (StringUtils.isEmpty(objectIndexName)) {
+      objectIndexName = "evs_object_" + getTerminologyVersion().replaceAll("[^a-zA-Z0-9_]", "");
+    }
+    return objectIndexName;
+  }
 
- /**
-  * Sets the index name for objects.
-  * 
-  * @param objectIndexName the object index name
-  */
- public void setObjectIndexName(String objectIndexName) {
-   this.objectIndexName = objectIndexName;
- }
-  
+  /**
+   * Sets the index name for objects.
+   * 
+   * @param objectIndexName the object index name
+   */
+  public void setObjectIndexName(String objectIndexName) {
+    this.objectIndexName = objectIndexName;
+  }
+
+  /**
+   * Returns the sparql flag.
+   *
+   * @return the sparql flag
+   */
+  public Boolean getSparqlFlag() {
+    return sparqlFlag;
+  }
+
+  /**
+   * Sets the sparql flag.
+   *
+   * @param sparqlFlag the sparql flag
+   */
+  public void setSparqlFlag(Boolean sparqlFlag) {
+    this.sparqlFlag = sparqlFlag;
+  }
+
+  /* see superclass */
   @Override
   public int hashCode() {
     final int prime = 31;
     int result = 1;
-    result =
-        prime * result + ((description == null) ? 0 : description.hashCode());
+    result = prime * result + ((description == null) ? 0 : description.hashCode());
     result = prime * result + ((graph == null) ? 0 : graph.hashCode());
     result = prime * result + ((source == null) ? 0 : source.hashCode());
     result = prime * result + ((latest == null) ? 0 : latest.hashCode());
     result = prime * result + ((name == null) ? 0 : name.hashCode());
-    result =
-        prime * result + ((terminology == null) ? 0 : terminology.hashCode());
-    result = prime * result
-        + ((terminologyVersion == null) ? 0 : terminologyVersion.hashCode());
+    result = prime * result + ((terminology == null) ? 0 : terminology.hashCode());
+    result = prime * result + ((terminologyVersion == null) ? 0 : terminologyVersion.hashCode());
     result = prime * result + ((version == null) ? 0 : version.hashCode());
     result = prime * result + ((date == null) ? 0 : date.hashCode());
     result = prime * result + ((indexName == null) ? 0 : indexName.hashCode());
     result = prime * result + ((objectIndexName == null) ? 0 : objectIndexName.hashCode());
+    result = prime * result + ((sparqlFlag == null) ? 0 : sparqlFlag.hashCode());
     return result;
   }
 
+  /* see superclass */
   @Override
   public boolean equals(final Object obj) {
     if (this == obj) {
@@ -434,7 +482,26 @@ public class Terminology extends BaseModel {
     } else if (!objectIndexName.equals(other.objectIndexName)) {
       return false;
     }
+    if (sparqlFlag == null) {
+      if (other.sparqlFlag != null) {
+        return false;
+      }
+    } else if (!sparqlFlag.equals(other.sparqlFlag)) {
+      return false;
+    }
     return true;
   }
-  
+
+  /**
+   * Compare to.
+   *
+   * @param o the o
+   * @return the int
+   */
+  /* see superclass */
+  @Override
+  public int compareTo(Terminology o) {
+    return (terminology + version).compareToIgnoreCase(o.getTerminology() + o.getVersion());
+  }
+
 }

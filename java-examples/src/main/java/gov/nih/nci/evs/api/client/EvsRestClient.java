@@ -6,14 +6,14 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.logging.Logger;
 
 import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.WebTarget;
+import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status.Family;
-import javax.xml.ws.Response;
 
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -840,9 +840,9 @@ public class EvsRestClient extends RootClient {
 	 * @return the all subsets
 	 * @throws Exception the exception
 	 */
-	private ConceptResultList getAllSubsets(final String terminology) throws Exception {
+	public List<Concept> getAllSubsets(final String terminology) throws Exception {
 
-		validatesNotEmpty(terminology, "terminology");
+		validateNotEmpty(terminology, "terminology");
 
 		final Client client = getClients().get();
 		final String url = "/metadata/" + terminology + "/subsets";
@@ -853,8 +853,75 @@ public class EvsRestClient extends RootClient {
 				throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
 			}
 			final String json = response.readEntity(String.class);
-			return getMapper().readValue(json, ConceptResultList.class);
+			return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+				// n/a
+			});
 		}
 	}
 
+	/**
+	 * Gets the subset by code.
+	 *
+	 * @param terminology the terminology
+	 * @param code        the code
+	 * @return the subset by code
+	 * @throws Exception the exception
+	 */
+	public Concept getSubsetByCode(final String terminology, final String code, final String includes)
+			throws Exception {
+
+		validateNotEmpty(terminology, "terminology");
+		validateNotEmpty(code, "code");
+
+		final Client client = getClients().get();
+		final String url = "/metadata/" + terminology + "/subset/" + code;
+		WebTarget target = client.target(getApiUrl() + url);
+		if (includes != null && !includes.isEmpty()) {
+			target = target.queryParam("includes", String.join(",", includes));
+		}
+		try (Response response = request(target).get()) {
+			if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+				logger.error("Unexpected error getting subsets fo " + terminology + ", " + code);
+				throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+			}
+			final String json = response.readEntity(String.class);
+			return getMapper().readValue(json, Concept.class);
+		}
+	}
+
+	/**
+	 * Gets the subset members by code.
+	 *
+	 * @param terminology the terminology
+	 * @param code        the code
+	 * @return the subset members by code
+	 * @throws Exception the exception
+	 */
+	public List<Concept> getSubsetMembersByCode(final String terminology, final String code, 
+			final Integer fromRecord,
+			final Integer pageSize) throws Exception {
+
+		validateNotEmpty(terminology, "terminology");
+		validateNotEmpty(code, "code");
+
+		final Client client = getClients().get();
+		final String url = "/concept/" + terminology + "/subsetMembers/" + code;
+		WebTarget target = client.target(getApiUrl() + url);
+		if (fromRecord != null) {
+			target = target.queryParam("fromRecord", String.valueOf(fromRecord));
+		}
+		if (pageSize != null) {
+			target = target.queryParam("pageSize", String.valueOf(pageSize));
+		}
+		try (Response response = request(target).get()) {
+			if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
+				logger.error("Unexpected error getting subset members for " + terminology + ", " + code);
+				throw new WebApplicationException(response.readEntity(String.class), response.getStatus());
+			}
+			final String json = response.readEntity(String.class);
+			return getMapper().readValue(json, new TypeReference<List<Concept>>() {
+				// n/a
+			});
+		}
+	}
 }
