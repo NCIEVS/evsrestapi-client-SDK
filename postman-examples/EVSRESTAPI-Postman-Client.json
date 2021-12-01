@@ -239,27 +239,6 @@
 			"response": []
 		},
 		{
-			"name": "Get property axiom qualifiers by code (or label)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/property/P383/axiomQualifiers",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"property",
-						"P383",
-						"axiomQualifiers"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get all qualifiers",
 			"request": {
 				"method": "GET",
@@ -279,7 +258,7 @@
 			"response": []
 		},
 		{
-			"name": "Ge qualifier by code (or label)",
+			"name": "Get qualifier by code (or label)",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -299,6 +278,27 @@
 							"key": "include",
 							"value": "summary"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get qualifier values by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/qualifier/P390/values",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"qualifier",
+						"P390",
+						"values"
 					]
 				}
 			},
@@ -1163,7 +1163,7 @@
 			"response": []
 		},
 		{
-			"name": "Find all subsets",
+			"name": "Get all subsets",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -1182,7 +1182,7 @@
 			"response": []
 		},
 		{
-			"name": "Find subset by code",
+			"name": "Get subset by code",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -1208,7 +1208,7 @@
 			"response": []
 		},
 		{
-			"name": "Find all subset members by code",
+			"name": "Get all subset members by code",
 			"request": {
 				"method": "GET",
 				"header": [],

@@ -34,9 +34,9 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-all-properties)
 - [Get property by code (or label)](#get-property-by-code-or-label)
-- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
 - [Get all qualifiers](#get-all-qualifiers)
 - [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
 - [Get all roles](#get-all-roles)
 - [Get role by code (or label)](#get-role-by-code-or-label)
 - [Get all associations](#get-all-associations)
@@ -64,9 +64,9 @@ The following examples can be types into the command line of any terminal that h
 - [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
 - [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 - [Find concepts by property](#find-concepts-by-property)
-- [Find all subsets](#find-all-subsets)
-- [Find subset by code](#find-subset-by-code)
-- [Find subset members by subset code](#find-subset-members-by-code)
+- [Get all subsets](#get-all-subsets)
+- [Get subset by code](#get-subset-by-code)
+- [Get subset members by subset code](#get-subset-members-by-code)
 
 
 
@@ -214,19 +214,6 @@ See sample payload data from this call in [`samples/get-property.txt`](samples/g
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Get qualifier values by code (or label)
-
-Return qualifier values for the specified code or label.
-
-```
-curl "$API_URL/metadata/ncit/qualifier/P383/values" | jq '.'
-curl "$API_URL/metadata/ncit/qualifier/term-group/values" | jq '.'
-```
-
-See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
-
-[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
-
 ### Get all qualifiers
 
 Return all qualifiers. The first sample below returns just the names and codes
@@ -255,6 +242,19 @@ curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get qualifier values by code (or label)
+
+Return qualifier values for the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/qualifier/P390/values" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/go-source/values" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -627,39 +627,39 @@ See sample payload data from this call in [`samples/find-concepts-by-search-prop
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Find all subsets
+### Get all subsets
 
-Find all subsets (with minimal information) associated for a specified terminology.
+Get all subsets (with minimal information) associated for a specified terminology.
 
 ```
 curl "$API_URL/metadata/ncit/subsets"
 ```
 
-See sample payload data from this call in [`samples/find-all-subsets.txt`](samples/find-all-subsets.txt)
+See sample payload data from this call in [`samples/get-all-subsets.txt`](samples/get-all-subsets.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Find subset by code
+### Get subset by code
 
-Find subset with summary information for a specified code.
+Get subset with summary information for a specified code.
 
 ```
 curl "$API_URL/metadata/ncit/subset/C81222?include=summary"
 ```
 
-See sample payload data from this call in [`samples/find-subset-by-code.txt`](samples/find-subset-by-code.txt)
+See sample payload data from this call in [`samples/get-subset-by-code.txt`](samples/get-subset-by-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Find subset members by code
+### Get subset members by code
 
-Find subset members for a specified subset code. This example  uses paging to get only the first 10 results.
+Get subset members for a specified subset code. This example  uses paging to get only the first 10 results.
 
 ```
 curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10"
 ```
 
-See sample payload data from this call in [`samples/find-subset-members-by-code.txt`](samples/find-subset-members-by-code.txt)
+See sample payload data from this call in [`samples/get-subset-members-by-code.txt`](samples/get-subset-members-by-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
