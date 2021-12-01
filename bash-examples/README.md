@@ -28,6 +28,7 @@ Test Scripts
 - [get-synonym-sources.sh](#get-synonym-sourcessh)
 - [get-synonym-types.sh](#get-synonym-typessh)
 - [get-definition-types.sh](#get-definition-typessh)
+- [get-subsets.sh](#get-subsetssh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -103,7 +104,7 @@ $ ./get-concepts.sh ncit C3224,C3910 --include minimal
 -----------------------------------------------------
 Starting ...Tue, Feb  4, 2020 12:20:29 PM
 -----------------------------------------------------
-url = http://localhost:8080/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 list = C3224,C3910
 include = minimal
@@ -368,7 +369,7 @@ $  ./get-subtree.sh ncit C3224 | more
 -----------------------------------------------------
 Starting ...Mon Mar 16 15:40:38 PDT 2020
 -----------------------------------------------------
-url = http://localhost:8080/evs/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 
@@ -1128,7 +1129,6 @@ $ ./get-qualifier.sh  ncit
 Starting ...Wed, Apr 15, 2020  7:53:01 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
-url = http://localhost:8082/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -1302,7 +1302,7 @@ $ ./get-synonym-sources.sh ncit
 -----------------------------------------------------
 Starting ...Fri, Apr  3, 2020  6:16:20 PM
 -----------------------------------------------------
-url = http://localhost:8082/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 
   Get synonym sources for ncit:
@@ -1336,7 +1336,7 @@ $ ./get-synonym-types.sh ncit
 -----------------------------------------------------
 Starting ...Thu, May 27, 2021 11:01:27 AM
 -----------------------------------------------------
-url = http://localhost:8082/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -1372,7 +1372,7 @@ $ ./get-synonym-types.sh ncit P90
 -----------------------------------------------------
 Starting ...Thu, May 27, 2021 11:02:26 AM
 -----------------------------------------------------
-url = http://localhost:8082/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = P90
 include =
@@ -1401,7 +1401,7 @@ $ ./get-definition-types.sh ncit
 -----------------------------------------------------
 Starting ...Thu, May 27, 2021 11:03:24 AM
 -----------------------------------------------------
-url = http://localhost:8082/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel =
 include =
@@ -1431,7 +1431,7 @@ $ ./get-definition-types.sh ncit P325
 -----------------------------------------------------
 Starting ...Thu, May 27, 2021 11:03:43 AM
 -----------------------------------------------------
-url = http://localhost:8082/api/v1
+url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 codeOrLabel = P325
 include =
@@ -1449,4 +1449,171 @@ include =
 Finished ...Thu, May 27, 2021 11:03:44 AM
 -----------------------------------------------------
 ```
+
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-subsets.sh
+
+Return information about all subsets for the specified terminology. The result
+includes the hierarchical structure of the subsets where they have parent/child
+relationships.
+
+```
+$ ./get-subsets.sh ncit
+-----------------------------------------------------
+Starting ...Tue, Nov 30, 2021  9:33:05 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+
+  Get all subsets
+  
+
+    [
+      {
+        "code": "C167405",
+        "name": "ACC/AHA EHR Terminology",
+        "terminology": "ncit",
+        "version": "21.11e",
+        "properties": [
+          {
+            "type": "Contributing_Source",
+            "value": "ACC/AHA"
+          },
+          {
+            "type": "NCI_META_CUI",
+            "value": "CL972587"
+...
+          {
+            "type": "Term_Browser_Value_Set_Description",
+            "value": "The <a href=http://unitsofmeasure.org/trac/>Unified Code for Units of Measure (UCUM)</a> is a code system intended to include all units of measure being used in international science, engineering, and business. The purpose is to facilitate unambiguous electronic communication of quantities together with their units. The focus is on electronic communication, as opposed to communication between humans."
+          },
+          {
+            "type": "UMLS_CUI",
+            "value": "C2348843"
+          }
+        ]
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Tue, Nov 30, 2021  9:33:22 PM
+-----------------------------------------------------
+
+```
+
+Return information about a single subset for a specified terminology and code.
+
+```
+$ ./get-subsets.sh ncit C81222
+-----------------------------------------------------
+Starting ...Tue, Nov 30, 2021  9:34:41 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C81222
+
+  Get subset for C81222
+
+    {
+      "code": "C81222",
+      "name": "CDISC ADaM Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+...
+            {
+              "type": "UMLS_CUI",
+              "value": "C2825529"
+            },
+            {
+              "type": "Value_Set_Pair",
+              "value": "No"
+            }
+          ]
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Tue, Nov 30, 2021  9:34:46 PM
+-----------------------------------------------------
+```
+
+Return subset members for a specified terminology and code.
+
+```
+$ ./get-subsets.sh ncit C81222 --members --fromRecord 0 --pageSize 10
+-----------------------------------------------------
+Starting ...Tue, Nov 30, 2021  9:36:56 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C81222
+members = 1
+
+  Get subset members (fromRecord=0, pageSize=10)
+
+    [
+      {
+        "code": "C117751",
+        "name": "Analysis Requested by Regulatory Agency",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C117752",
+        "name": "Analysis Specified in Protocol",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C117753",
+        "name": "Analysis Specified in Statistical Analysis Plan",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C81209",
+        "name": "Average of Value Derivation Technique",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C81201",
+        "name": "Baseline Observation Carried Forward Imputation Technique",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C92225",
+        "name": "Best Case Imputation Technique",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C92226",
+        "name": "Best Observation Carried Forward Imputation Technique",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C132340",
+        "name": "Best Observed Case Imputation Technique",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C81223",
+        "name": "CDISC ADaM Date Imputation Flag Terminology",
+        "terminology": "ncit"
+      },
+      {
+        "code": "C81224",
+        "name": "CDISC ADaM Derivation Type Terminology",
+        "terminology": "ncit"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Tue, Nov 30, 2021  9:36:57 PM
+-----------------------------------------------------
+```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
