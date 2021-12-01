@@ -1467,7 +1467,6 @@ url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 
   Get all subsets
-  
 
     [
       {
