@@ -237,7 +237,7 @@ public class EvsRestClient extends RootClient {
 	 * @throws Exception the exception
 	 */
 	public ConceptResultList findConceptsBySearchTerm(final String terminology, final String term,
-			final String pageSize, final String conceptStatus, final String contributingSource,
+			final Integer pageSize, final String conceptStatus, final String contributingSource,
 			final String definitionSource, final String synonymSource, final String synonymTermGroup, final String type,
 			final String property, final List<String> includes) throws Exception {
 		return getConceptBySearchTermHelper(terminology, term, pageSize, conceptStatus, contributingSource,
@@ -401,8 +401,8 @@ public class EvsRestClient extends RootClient {
 	 * @return the descendants
 	 * @throws Exception the exception
 	 */
-	public List<Concept> getDescendants(final String terminology, final String code, final int fromRecord,
-			final int pageSize) throws Exception {
+	public List<Concept> getDescendants(final String terminology, final String code, final Integer fromRecord,
+			final Integer pageSize) throws Exception {
 		return getDescendantsHelper(terminology, code, fromRecord, pageSize);
 	}
 
@@ -620,8 +620,8 @@ public class EvsRestClient extends RootClient {
 	 * @return the list helper
 	 * @throws Exception the exception
 	 */
-	private List<Concept> getDescendantsHelper(final String terminology, final String code, final int fromRecord,
-			final int pageSize) throws Exception {
+	private List<Concept> getDescendantsHelper(final String terminology, final String code, final Integer fromRecord,
+			final Integer pageSize) throws Exception {
 
 		validateNotEmpty(terminology, "terminology");
 		if (code == null || code.isEmpty()) {
@@ -631,8 +631,14 @@ public class EvsRestClient extends RootClient {
 		final Client client = getClients().get();
 		String url = "/concept/" + terminology + "/" + code + "/descendants";
 
-		final WebTarget target = client.target(getApiUrl() + url).queryParam("fromRecord", fromRecord)
-				.queryParam("pageSize", pageSize);
+		WebTarget target = client.target(getApiUrl() + url);
+		if (fromRecord != null) {
+			target = target.queryParam("fromRecord", String.valueOf(fromRecord));
+		}
+		if (pageSize != null) {
+			target = target.queryParam("pageSize", String.valueOf(pageSize));
+		}
+
 		try (Response response = request(target).get()) {
 			if (response.getStatusInfo().getFamily() != Family.SUCCESSFUL) {
 				logger.error("Unexpected error getting " + url);
@@ -782,7 +788,7 @@ public class EvsRestClient extends RootClient {
 	 * @return the concept
 	 * @throws Exception the exception
 	 */
-	private ConceptResultList getConceptBySearchTermHelper(final String terminology, String term, String pageSize,
+	private ConceptResultList getConceptBySearchTermHelper(final String terminology, String term, Integer pageSize,
 			String conceptStatus, String contributingSource, String definitionSource, String synonymSource,
 			String synonymTermGroup, String type, String property, List<String> includes) throws Exception {
 
@@ -819,7 +825,7 @@ public class EvsRestClient extends RootClient {
 		if (includes != null && !includes.isEmpty()) {
 			target = target.queryParam("includes", String.join(",", includes));
 		}
-		if (pageSize != null && !pageSize.isEmpty()) {
+		if (pageSize != null) {
 			target = target.queryParam("pageSize", String.valueOf(pageSize));
 		}
 
@@ -897,8 +903,7 @@ public class EvsRestClient extends RootClient {
 	 * @return the subset members by code
 	 * @throws Exception the exception
 	 */
-	public List<Concept> getSubsetMembersByCode(final String terminology, final String code, 
-			final Integer fromRecord,
+	public List<Concept> getSubsetMembersByCode(final String terminology, final String code, final Integer fromRecord,
 			final Integer pageSize) throws Exception {
 
 		validateNotEmpty(terminology, "terminology");

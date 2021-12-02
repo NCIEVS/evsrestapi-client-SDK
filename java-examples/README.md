@@ -5,7 +5,7 @@ This tutorial shows how to use a locally defined Java client to interact with th
 
 Prerequisites
 -------------
-* JDK 1.8 must be installed ([Download Java](https://www.java.com/en/download/))
+* JDK 11 must be installed
 
 The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the java client will connect to.
 
@@ -650,13 +650,13 @@ cord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name"
 
 ### Get subset members by code
 
-Find subset members for a specified subset code. This example  uses paging to get only the first 10 results.
+`MetadataTests.testGetSubsetMembersByCode()` - Get subset members paging parameters for a specified terminology and code.
 
 ```
-curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10"
+2021-12-01T21:35:12-05:00 INFO  : Get all subset members - ncit, C81222
+2021-12-01T21:35:12-05:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
+2021-12-01T21:35:12-05:00 INFO  :   subset members = [{"code":"C117751","name":"Analysis Requested by Regulatory Agency","terminology":"ncit"}, {"code":"C117752","name":"Analysis Specified in Protocol","terminology":"ncit"}, {"code":"C117753","name":"Analysis Specified in Statistical Analysis Plan","terminology":"ncit"}, {"code":"C81209","name":"Average of Value Derivation Technique","terminology":"ncit"}, {"code":"C81201","name":"Baseline Observation Carried Forward Imputation Technique","terminology":"ncit"}, {"code":"C92225","name":"Best Case Imputation Technique","terminology":"ncit"}, {"code":"C92226","name":"Best Observation Carried Forward Imputation Technique","terminology":"ncit"}, {"code":"C132340","name":"Best Observed Case Imputation Technique","terminology":"ncit"}, {"code":"C81223","name":"CDISC ADaM Date Imputation Flag Terminology","terminology":"ncit"}, {"code":"C81224","name":"CDISC ADaM Derivation Type Terminology","terminology":"ncit"}]
 ```
-
-See sample payload data from this call in [`samples/find-subset-members-by-code.txt`](samples/find-subset-members-by-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
