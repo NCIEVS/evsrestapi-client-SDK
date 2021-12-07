@@ -72,18 +72,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "Date Imputation Flag",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "DATEFL",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-DATEFL",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -94,6 +82,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Date Imputation Flag",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "DATEFL",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Date Imputation Flag Terminology",
@@ -155,18 +155,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "Derivation Type",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "DTYPE",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-DTYPE",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -177,6 +165,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Derivation Type",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "DTYPE",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Derivation Type Terminology",
@@ -238,18 +238,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "GAD02PC",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Code",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-GAD02PC",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -260,6 +248,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "GAD02PC",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Code",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
@@ -317,18 +317,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "GAD02PN",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Name",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-GAD02PN",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -339,6 +327,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "GAD02PN",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Name",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
@@ -396,18 +396,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "GDS02PC",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Code",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-GDS02PC",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -418,6 +406,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "GDS02PC",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Code",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
@@ -475,18 +475,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "GDS02PN",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Name",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-GDS02PN",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -497,6 +485,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "GDS02PN",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Name",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology",
@@ -554,18 +554,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "Parameter Type",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "PARAMTYP",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-PARAMTYP",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -576,6 +564,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Parameter Type",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "PARAMTYP",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Parameter Type Terminology",
@@ -637,18 +637,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "Pool for Integration",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "POOLINT",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-POOLINT",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -659,6 +647,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Pool for Integration",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "POOLINT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Pool for Integration Terminology",
@@ -716,18 +716,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "SBJTSTAT",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Subject Trial Status",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-SBJTSTAT",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -738,6 +726,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "SBJTSTAT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Subject Trial Status",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Subject Trial Status Terminology",
@@ -795,18 +795,6 @@
       "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
       "synonyms": [
         {
-          "name": "Time Imputation Flag",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "TIMEFL",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
           "name": "ADaM-TIMEFL",
           "termGroup": "AB",
           "type": "FULL_SYN",
@@ -817,6 +805,18 @@
           "termGroup": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Time Imputation Flag",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "TIMEFL",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
         },
         {
           "name": "CDISC ADaM Time Imputation Flag Terminology",

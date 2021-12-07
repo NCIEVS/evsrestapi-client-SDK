@@ -1,358 +1,380 @@
 [
   {
-    "code": "P325",
-    "name": "ALT_DEFINITION"
-  },
-  {
     "code": "P302",
-    "name": "Accepted_Therapeutic_Use_For"
+    "name": "Accepted_Therapeutic_Use_For",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P216",
-    "name": "BioCarta_ID"
+    "name": "BioCarta_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P210",
-    "name": "CAS_Registry"
+    "name": "CAS_Registry",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P368",
-    "name": "CHEBI_ID"
+    "name": "CHEBI_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P350",
-    "name": "Chemical_Formula"
+    "name": "Chemical_Formula",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P310",
-    "name": "Concept_Status"
+    "name": "Concept_Status",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P322",
-    "name": "Contributing_Source"
-  },
-  {
-    "code": "P97",
-    "name": "DEFINITION"
-  },
-  {
-    "code": "P378",
-    "name": "Definition Source"
-  },
-  {
-    "code": "P380",
-    "name": "Definition_Review_Date"
-  },
-  {
-    "code": "P379",
-    "name": "Definition_Reviewer_Name"
+    "name": "Contributing_Source",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P98",
-    "name": "DesignNote"
-  },
-  {
-    "code": "P107",
-    "name": "Display_Name"
+    "name": "DesignNote",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P321",
-    "name": "EntrezGene_ID"
+    "name": "EntrezGene_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P356",
-    "name": "Essential_Amino_Acid"
+    "name": "Essential_Amino_Acid",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P357",
-    "name": "Essential_Fatty_Acid"
+    "name": "Essential_Fatty_Acid",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P361",
-    "name": "Extensible_List"
+    "name": "Extensible_List",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P317",
-    "name": "FDA_Table"
+    "name": "FDA_Table",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P319",
-    "name": "FDA_UNII_Code"
-  },
-  {
-    "code": "P90",
-    "name": "FULL_SYN"
+    "name": "FDA_UNII_Code",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P211",
-    "name": "GO_Annotation"
+    "name": "GO_Annotation",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P102",
-    "name": "GenBank_Accession_Number"
+    "name": "GenBank_Accession_Number",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P96",
-    "name": "Gene_Encodes_Product"
+    "name": "Gene_Encodes_Product",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P369",
-    "name": "HGNC_ID"
+    "name": "HGNC_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P101",
-    "name": "Homologous_Gene"
+    "name": "Homologous_Gene",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P334",
-    "name": "ICD-O-3_Code"
+    "name": "ICD-O-3_Code",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P353",
-    "name": "INFOODS"
+    "name": "INFOODS",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P167",
-    "name": "Image_Link"
+    "name": "Image_Link",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P215",
-    "name": "KEGG_ID"
+    "name": "KEGG_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P366",
-    "name": "Legacy_Concept_Name"
+    "name": "Legacy Concept Name",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P332",
-    "name": "MGI_Accession_ID"
+    "name": "MGI_Accession_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P360",
-    "name": "Macronutrient"
+    "name": "Macronutrient",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P375",
-    "name": "Maps_To"
+    "name": "Maps_To",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P359",
-    "name": "Micronutrient"
+    "name": "Micronutrient",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P331",
-    "name": "NCBI_Taxon_ID"
+    "name": "NCBI_Taxon_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "P399",
+    "name": "NCI_Drug_Dictionary_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P208",
-    "name": "NCI_META_CUI"
+    "name": "NCI_META_CUI",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P371",
-    "name": "NICHD_Hierarchy_Term"
+    "name": "NICHD_Hierarchy_Term",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P175",
-    "name": "NSC_Code"
+    "name": "NSC Number",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P363",
-    "name": "Neoplastic_Status"
+    "name": "Neoplastic_Status",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P358",
-    "name": "Nutrient"
+    "name": "Nutrient",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P320",
-    "name": "OID"
+    "name": "OID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P364",
-    "name": "OLD_ASSOCIATION"
+    "name": "OLD_ASSOCIATION",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P201",
-    "name": "OLD_CHILD"
+    "name": "OLD_CHILD",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P203",
-    "name": "OLD_KIND"
+    "name": "OLD_KIND",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P200",
-    "name": "OLD_PARENT"
+    "name": "OLD_PARENT",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P204",
-    "name": "OLD_ROLE"
+    "name": "OLD_ROLE",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P365",
-    "name": "OLD_SOURCE_ASSOCIATION"
+    "name": "OLD_SOURCE_ASSOCIATION",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P205",
-    "name": "OLD_STATE"
+    "name": "OLD_STATE",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P100",
-    "name": "OMIM_Number"
+    "name": "OMIM_Number",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P330",
-    "name": "PDQ_Closed_Trial_Search_ID"
+    "name": "PDQ_Closed_Trial_Search_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P329",
-    "name": "PDQ_Open_Trial_Search_ID"
+    "name": "PDQ_Open_Trial_Search_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P367",
-    "name": "PID_ID"
-  },
-  {
-    "code": "P108",
-    "name": "Preferred_Name"
+    "name": "PID_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P171",
-    "name": "PubMedID_Primary_Reference"
+    "name": "PubMedID_Primary_Reference",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P372",
-    "name": "Publish_Value_Set"
-  },
-  {
-    "code": "P393",
-    "name": "Relationship_to_Target"
+    "name": "Publish_Value_Set",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P316",
-    "name": "Relative_Enzyme_Activity"
+    "name": "Relative_Enzyme_Activity",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P315",
-    "name": "SNP_ID"
+    "name": "SNP_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P106",
-    "name": "Semantic_Type"
-  },
-  {
-    "code": "P385",
-    "name": "Source Code"
+    "name": "Semantic_Type",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P92",
-    "name": "Subsource"
-  },
-  {
-    "code": "P386",
-    "name": "Subsource Name"
+    "name": "Subsource",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P93",
-    "name": "Swiss_Prot"
-  },
-  {
-    "code": "P395",
-    "name": "Target_Code"
-  },
-  {
-    "code": "P392",
-    "name": "Target_Term"
-  },
-  {
-    "code": "P394",
-    "name": "Target_Term_Type"
-  },
-  {
-    "code": "P396",
-    "name": "Target_Terminology"
-  },
-  {
-    "code": "P397",
-    "name": "Target_Terminology_Version"
-  },
-  {
-    "code": "P384",
-    "name": "Term Source"
-  },
-  {
-    "code": "P383",
-    "name": "Term Type"
+    "name": "Swiss_Prot",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P376",
-    "name": "Term_Browser_Value_Set_Description"
+    "name": "Term_Browser_Value_Set_Description",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P352",
-    "name": "Tolerable_Level"
+    "name": "Tolerable_Level",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P207",
-    "name": "UMLS_CUI"
+    "name": "UMLS_CUI",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P354",
-    "name": "USDA_ID"
+    "name": "USDA_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P351",
-    "name": "US_Recommended_Intake"
+    "name": "US_Recommended_Intake",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P355",
-    "name": "Unit"
+    "name": "Unit",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P333",
-    "name": "Use_For"
+    "name": "Use_For",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P398",
-    "name": "Value_Set_Pair"
-  },
-  {
-    "code": "P381",
-    "name": "attribution"
-  },
-  {
-    "code": "NHC0",
-    "name": "code"
-  },
-  {
-    "code": "P377",
-    "name": "def-definition"
-  },
-  {
-    "code": "P389",
-    "name": "go-evi"
-  },
-  {
-    "code": "P387",
-    "name": "go-id"
-  },
-  {
-    "code": "P390",
-    "name": "go-source"
-  },
-  {
-    "code": "P388",
-    "name": "go-term"
+    "name": "Value_Set_Pair",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "P362",
-    "name": "miRBase_ID"
-  },
-  {
-    "code": "P391",
-    "name": "source-date"
-  },
-  {
-    "code": "P382",
-    "name": "term-name"
+    "name": "miRBase_ID",
+    "terminology": "ncit",
+    "version": "21.11e"
   }
 ]

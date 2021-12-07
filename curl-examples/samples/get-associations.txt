@@ -1,90 +1,242 @@
 [
   {
     "code": "A8",
-    "name": "Concept_In_Subset"
+    "name": "Concept_In_Subset",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A10",
-    "name": "Has_CDRH_Parent"
+    "name": "Has_CDRH_Parent",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A15",
-    "name": "Has_CTCAE_5_Parent"
+    "name": "Has_CTCAE_5_Parent",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A27",
+    "name": "Has_CTDC_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A40",
+    "name": "Has_DIPG_DMG_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A12",
-    "name": "Has_Data_Element"
+    "name": "Has_Data_Element",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A6",
-    "name": "Has_Free_Acid_Or_Base_Form"
+    "name": "Has_Free_Acid_Or_Base_Form",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A31",
+    "name": "Has_GDC_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A30",
+    "name": "Has_ICDC_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A16",
-    "name": "Has_INC_Parent"
+    "name": "Has_INC_Parent",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A11",
-    "name": "Has_NICHD_Parent"
+    "name": "Has_NICHD_Parent",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A36",
+    "name": "Has_PCDC_ALL_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A26",
+    "name": "Has_PCDC_AML_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A23",
+    "name": "Has_PCDC_Data_Type",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A29",
+    "name": "Has_PCDC_EWS_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A34",
+    "name": "Has_PCDC_GCT_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A39",
+    "name": "Has_PCDC_HL_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A38",
+    "name": "Has_PCDC_OS_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A19",
-    "name": "Has_Pharmaceutical_Administration_Method"
+    "name": "Has_Pharmaceutical_Administration_Method",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A18",
-    "name": "Has_Pharmaceutical_Basic_Dose_Form"
+    "name": "Has_Pharmaceutical_Basic_Dose_Form",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A20",
-    "name": "Has_Pharmaceutical_Intended_Site"
+    "name": "Has_Pharmaceutical_Intended_Site",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A21",
-    "name": "Has_Pharmaceutical_Release_Characteristics"
+    "name": "Has_Pharmaceutical_Release_Characteristics",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A17",
-    "name": "Has_Pharmaceutical_State_Of_Matter"
+    "name": "Has_Pharmaceutical_State_Of_Matter",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A22",
-    "name": "Has_Pharmaceutical_Transformation"
+    "name": "Has_Pharmaceutical_Transformation",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A5",
-    "name": "Has_Salt_Form"
+    "name": "Has_Salt_Form",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A37",
+    "name": "Has_SeroNet_Permissible_Value",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A7",
-    "name": "Has_Target"
+    "name": "Has_Target",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A35",
+    "name": "Is_PCDC_ALL_Permissible_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A24",
+    "name": "Is_PCDC_AML_Permissible_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A28",
+    "name": "Is_PCDC_EWS_Permissible_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A33",
+    "name": "Is_PCDC_GCT_Permissible_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A9",
-    "name": "Is_Related_To_Endogenous_Product"
+    "name": "Is_Related_To_Endogenous_Product",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A32",
+    "name": "Is_Value_For_GDC_Property",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A14",
-    "name": "Neoplasm_Has_Special_Category"
+    "name": "Neoplasm_Has_Special_Category",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A4",
-    "name": "Qualifier_Applies_To"
+    "name": "Qualifier_Applies_To",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A13",
-    "name": "Related_To_Genetic_Biomarker"
+    "name": "Related_To_Genetic_Biomarker",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A1",
-    "name": "Role_Has_Domain"
+    "name": "Role_Has_Domain",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A3",
-    "name": "Role_Has_Parent"
+    "name": "Role_Has_Parent",
+    "terminology": "ncit",
+    "version": "21.11e"
   },
   {
     "code": "A2",
-    "name": "Role_Has_Range"
+    "name": "Role_Has_Range",
+    "terminology": "ncit",
+    "version": "21.11e"
+  },
+  {
+    "code": "A25",
+    "name": "Value_Set_Is_Paired_With",
+    "terminology": "ncit",
+    "version": "21.11e"
   }
 ]

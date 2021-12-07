@@ -1,74 +1,82 @@
 [
   {
-    "name": "AB",
-    "description": "Abbreviation"
+    "code": "AB",
+    "name": "Abbreviation",
+    "terminology": "ncit"
   },
   {
-    "name": "AD",
-    "description": "Adjectival form (and other parts of grammer)"
+    "code": "AD",
+    "name": "Adjectival form (and other parts of grammar)",
+    "terminology": "ncit"
   },
   {
-    "name": "AQ*",
-    "description":"Antiquated preferred term"
+    "code": "AQ*",
+    "name": "Antiquated preferred term",
+    "terminology": "ncit"
   },
   {
-    "name": "AQS",
-    "description": "Antiquated term, use when there are antiquated synonyms within a concept"
+    "code": "AQS",
+    "name": "Antiquated term, use when there are antiquated synonyms within a concept",
+    "terminology": "ncit"
   },
   {
-    "name": "BR",
-    "description": "US brand name, which may be trademarked"
+    "code": "BR",
+    "name": "US brand name, which may be trademarked",
+    "terminology": "ncit"
   },
   {
-    "name": "CA2",
-    "description": "ISO 3166 alpha-2 country code"
+    "code": "CA2",
+    "name": "ISO 3166 alpha-2 country code",
+    "terminology": "ncit"
   },
   {
-    "name": "CA3",
-    "description": "ISO 3166 alpha-3 country code"
+    "code": "CA3",
+    "name": "ISO 3166 alpha-3 country code",
+    "terminology": "ncit"
   },
   {
-    "name": "CNU",
-    "description": "ISO 3166 numeric country code"
+    "code": "CN",
+    "name": "Drug study code",
+    "terminology": "ncit"
   },
   {
-    "name": "CI",
-    "description": "ISO Country code (deprecated)"
+    "code": "CNU",
+    "name": "ISO 3166 numeric country code",
+    "terminology": "ncit"
   },
   {
-    "name": "CN",
-    "description": "Drug study code"
+    "code": "CS",
+    "name": "US State Department country code",
+    "terminology": "ncit"
   },
   {
-    "name": "CS",
-    "description": "US State Department country code"
+    "code": "DN",
+    "name": "Display name",
+    "terminology": "ncit"
   },
   {
-    "name": "DN",
-    "description": "Display name"
+    "code": "FB",
+    "name": "Foreign brand name, which may be trademarked",
+    "terminology": "ncit"
   },
   {
-    "name": "FB",
-    "description": "Foreign brand name, which may be trademarked"
+    "code": "HD*",
+    "name": "Header (groups concepts, but not used for coding data)",
+    "terminology": "ncit"
   },
   {
-    "name": "LLT",
-    "description": "Lower Level Term"
+    "code": "PT*",
+    "name": "Preferred term",
+    "terminology": "ncit"
   },
   {
-    "name": "HD*",
-    "description": "Header (groups concepts, but not used for coding data)"
+    "code": "SN",
+    "name": "Chemical structure name",
+    "terminology": "ncit"
   },
   {
-    "name": "PT*",
-    "description": "Preferred term"
-  },
-  {
-    "name": "SN",
-    "description": "Chemical structure name"
-  },
-  {
-    "name": "SY",
-    "description": "Synonym"
+    "code": "SY",
+    "name": "Synonym",
+    "terminology": "ncit"
   }
 ]
