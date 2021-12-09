@@ -231,8 +231,8 @@ public class SearchTests {
 		List<String> includes = new ArrayList<>();
 		includes.add("properties");
 		final ConceptResultList list = client.findConceptsBySearchTerm(terminology, "XAV05295I5", null, null, null,
-				null, null, null, null, "fda_unii_code", includes);
-		logger.info("Get concept by search term=XAV05295I5, property=fda_unii_code");
+				null, null, null, null, "FDA_UNII_Code", includes);
+		logger.info("Get concept by search term=XAV05295I5, property=FDA_UNII_Code");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  concepts = " + list);
 	}

@@ -122,7 +122,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartChildren() throws Exception {
 		final List<Concept> list = client.getConceptPart(terminology, "C3224", "children");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part children - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  children = " + list);
 	}
@@ -135,7 +135,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartParents() throws Exception {
 		final List<Concept> list = client.getConceptPart(terminology, "C3224", "parents");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part parents - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  parents = " + list);
 	}
@@ -148,7 +148,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartRoles() throws Exception {
 		final List<Relationship> list = client.getRelationshipPart(terminology, "C3224", "roles");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part roles - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  roles = " + list);
 	}
@@ -161,7 +161,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartAssociations() throws Exception {
 		final List<Relationship> list = client.getRelationshipPart(terminology, "C3224", "associations");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part associations - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  associations = " + list);
 	}
@@ -174,7 +174,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartInverseRoles() throws Exception {
 		final List<Relationship> list = client.getRelationshipPart(terminology, "C3224", "inverseRoles");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part inverseRoles - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  inverse roles = " + list);
 	}
@@ -187,7 +187,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartInverseAssociations() throws Exception {
 		final List<Relationship> list = client.getRelationshipPart(terminology, "C3224", "inverseAssociations");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part inverseAssociations - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  inverse associations = " + list);
 	}
@@ -200,7 +200,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartMaps() throws Exception {
 		final List<Map> list = client.getMapPart(terminology, "C3224", "maps");
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept part maps - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  maps = " + list);
 	}
@@ -213,7 +213,7 @@ public class ConceptTests {
 	@Test
 	public void testGetConceptPartDisjointWith() throws Exception {
 		final List<Relationship> list = client.getRelationshipPart(terminology, "C3910", "disjointWith");
-		logger.info("Get concept by code - C3910");
+		logger.info("Get concept part disjointWith - C3910");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  disjoint with = " + list);
 	}
@@ -226,7 +226,7 @@ public class ConceptTests {
 	@Test
 	public void testGetDescendants() throws Exception {
 		final List<Concept> list = client.getDescendants(terminology, "C3224", 0, 50000);
-		logger.info("Get concept by code - C3224");
+		logger.info("Get concept descendants - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  descendants = " + list);
 	}
@@ -250,9 +250,9 @@ public class ConceptTests {
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testGetPathToRoot() throws Exception {
+	public void testGetPathsToRoot() throws Exception {
 		final List<List<Concept>> list = client.getConceptPath(terminology, "C3224", "pathsToRoot", null);
-		logger.info("Get path to root by code - C3224");
+		logger.info("Get paths to root by code - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  paths to root = " + list);
 	}
@@ -263,9 +263,9 @@ public class ConceptTests {
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testGetPathFromRoot() throws Exception {
+	public void testGetPathsFromRoot() throws Exception {
 		final List<List<Concept>> list = client.getConceptPath(terminology, "C3224", "pathsFromRoot", null);
-		logger.info("Get path to root by code - C3224");
+		logger.info("Get paths to root by code - C3224");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  paths from root = " + list);
 	}
@@ -276,9 +276,9 @@ public class ConceptTests {
 	 * @throws Exception the exception
 	 */
 	@Test
-	public void testGetPathToAncestor() throws Exception {
+	public void testGetPathsToAncestor() throws Exception {
 		final List<List<Concept>> list = client.getConceptPath(terminology, "C3224", "pathsToAncestor", "C2991");
-		logger.info("Get path to ancestor code by code - C3224/C2991");
+		logger.info("Get paths to ancestor code by code - C3224/C2991");
 		logger.info("  base url = " + client.getApiUrl());
 		logger.info("  path to ancestor = " + list);
 	}

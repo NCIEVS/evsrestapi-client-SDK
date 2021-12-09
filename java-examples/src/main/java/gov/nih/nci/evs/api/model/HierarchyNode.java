@@ -8,7 +8,7 @@ import java.util.List;
  * Represents a node in a hierarchy and is directly compatible with the primeng
  * "TreeNode" structure.
  */
-public class HierarchyNode {
+public class HierarchyNode extends BaseModel {
 
 	/** The code. */
 	private String code;

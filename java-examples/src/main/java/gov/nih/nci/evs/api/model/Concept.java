@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-// TODO: Auto-generated Javadoc
 /**
  * Represents a concept with a code from a terminology.
  * 
