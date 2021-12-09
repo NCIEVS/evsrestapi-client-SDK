@@ -73,9 +73,12 @@ The following examples can be types into the command line of any terminal that h
 ### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.
+Use "terminology", "latest", and "tag" parameters to limit the results. This
+sample call finds the latest monthly version of NCI Thesaurus.
+
 
 ```
-curl "$API_URL/metadata/terminologies" | jq '.'
+curl "$API_URL/metadata/terminologies?terminology=ncit&latest=true&tag=monthly" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
@@ -272,7 +275,7 @@ curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-roless.txt)
+See sample payload data from this call in [`samples/get-roles.txt`](samples/get-roles.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -619,7 +622,7 @@ values so you can easily see the match.  The property setting here can be either
 based on code or on label
 
 ```
-curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&include=properties" | jq '.'
+curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII_Code&include=properties" | jq '.'
 curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&include=properties" | jq '.'
 ```
 
@@ -632,7 +635,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-prop
 Get all subsets (with minimal information) associated for a specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/subsets"
+curl "$API_URL/metadata/ncit/subsets" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-all-subsets.txt`](samples/get-all-subsets.txt)
@@ -644,7 +647,7 @@ See sample payload data from this call in [`samples/get-all-subsets.txt`](sample
 Get subset with summary information for a specified code.
 
 ```
-curl "$API_URL/metadata/ncit/subset/C81222?include=summary"
+curl "$API_URL/metadata/ncit/subset/C81222?include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-subset-by-code.txt`](samples/get-subset-by-code.txt)
@@ -656,7 +659,7 @@ See sample payload data from this call in [`samples/get-subset-by-code.txt`](sam
 Get subset members for a specified subset code. This example  uses paging to get only the first 10 results.
 
 ```
-curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10"
+curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-subset-members-by-code.txt`](samples/get-subset-members-by-code.txt)

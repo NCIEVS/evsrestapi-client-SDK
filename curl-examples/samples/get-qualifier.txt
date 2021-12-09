@@ -1,6 +1,8 @@
 {
   "code": "P387",
   "name": "go-id",
+  "terminology": "ncit",
+  "version": "21.11e",
   "synonyms": [
     {
       "name": "go-id",
@@ -9,11 +11,17 @@
   ],
   "definitions": [
     {
-      "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".",
+      "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meani
+ng or relation to the position of the term in GO and is prefixed by \"GO:\".",
+      "type": "DEFINITION",
       "source": "NCI"
     }
   ],
   "properties": [
+    {
+      "type": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#required",
+      "value": "true"
+    },
     {
       "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
       "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
@@ -21,10 +29,6 @@
     {
       "type": "http://www.w3.org/2000/01/rdf-schema#range",
       "value": "http://www.w3.org/2001/XMLSchema#string"
-    },
-    {
-      "type": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#required",
-      "value": "true"
     }
   ]
 }

@@ -1,7 +1,17 @@
 [
   {
-    "type": "Has_NICHD_Parent",
-    "relatedCode": "C131506",
-    "relatedName": "Childhood Melanoma"
+    "type": "Has_GDC_Value",
+    "relatedCode": "C178243",
+    "relatedName": "Family Cancer History Relative Primary Diagnosis Question"
+  },
+  {
+    "type": "Has_GDC_Value",
+    "relatedCode": "C176985",
+    "relatedName": "Histology ICD-O Morphology Code"
+  },
+  {
+    "type": "Has_GDC_Value",
+    "relatedCode": "C177621",
+    "relatedName": "ICD-O-3 Morphology Term Diagnosis Question"
   }
 ]

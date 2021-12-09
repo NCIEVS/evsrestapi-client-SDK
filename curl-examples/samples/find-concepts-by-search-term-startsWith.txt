@@ -1,5 +1,6 @@
 {
-  "total": 1816,
+  "total": 53,
+  "timeTaken": 27,
   "parameters": {
     "term": "enzyme",
     "type": "startsWith",
@@ -14,27 +15,37 @@
     {
       "code": "C16554",
       "name": "Enzyme",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C18072",
-      "name": "Enzyme Inhibitor Protein",
-      "terminology": "ncit"
+      "code": "C102632",
+      "name": "Enzyme-linked Immunosorbent Spot Assay",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
-      "code": "C3492",
-      "name": "Enzyme Deficiency",
-      "terminology": "ncit"
+      "code": "C111196",
+      "name": "Enzyme Multiplied Immunoassay Technique",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
-      "code": "C156467",
-      "name": "Enzyme Unit per Meter Squared",
-      "terminology": "ncit"
+      "code": "C122205",
+      "name": "Enzyme Immunoassay Unit",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
       "code": "C147130",
       "name": "Enzyme Unit per Liter",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     }
   ]
 }

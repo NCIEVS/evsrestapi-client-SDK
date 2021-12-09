@@ -1,5 +1,6 @@
 {
-  "total": 4288,
+  "total": 1445,
+  "timeTaken": 162,
   "parameters": {
     "term": "enzymi",
     "type": "fuzzy",
@@ -14,27 +15,37 @@
     {
       "code": "C16554",
       "name": "Enzyme",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C40577",
-      "name": "Enzyme Inhibition",
-      "terminology": "ncit"
+      "code": "C17455",
+      "name": "Enzyme Immunoassay",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C21281",
-      "name": "Enzyme Gene",
-      "terminology": "ncit"
+      "code": "C471",
+      "name": "Enzyme Inhibitor",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C64778",
-      "name": "Enzyme Unit",
-      "terminology": "ncit"
+      "code": "C41564",
+      "name": "Enzyme Induction",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
-      "code": "C40498",
-      "name": "Enzyme Interaction",
-      "terminology": "ncit"
+      "code": "C20626",
+      "name": "Enzyme Kinetics",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     }
   ]
 }
