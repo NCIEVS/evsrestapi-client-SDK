@@ -9,22 +9,21 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  */
 public class BaseModel {
 
-  /**
-   * Instantiates an empty {@link BaseModel}.
-   */
-  public BaseModel() {
-    // n/a
-  }
+	/**
+	 * Instantiates an empty {@link BaseModel}.
+	 */
+	public BaseModel() {
+		// n/a
+	}
 
-  /* see superclass */
-  @Override
-  public String toString() {
-    try {
-      return new ObjectMapper().setSerializationInclusion(Include.NON_EMPTY)
-          .writeValueAsString(this);
-    } catch (final Exception e) {
-      return e.getMessage();
-    }
-  }
+	/* see superclass */
+	@Override
+	public String toString() {
+		try {
+			return new ObjectMapper().setSerializationInclusion(Include.NON_EMPTY).writeValueAsString(this);
+		} catch (final Exception e) {
+			return e.getMessage();
+		}
+	}
 
 }

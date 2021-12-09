@@ -1,17 +1,1 @@
-[
-  {
-    "type": "disjointWith",
-    "relatedCode": "C43431",
-    "relatedName": "Activity"
-  },
-  {
-    "type": "disjointWith",
-    "relatedCode": "C7057",
-    "relatedName": "Disease, Disorder or Finding"
-  },
-  {
-    "type": "disjointWith",
-    "relatedCode": "C97325",
-    "relatedName": "Manufactured Object"
-  }
-]
+[]

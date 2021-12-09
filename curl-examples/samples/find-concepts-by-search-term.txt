@@ -1,5 +1,6 @@
 {
-  "total": 1457,
+  "total": 1362,
+  "timeTaken": 65,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -14,27 +15,37 @@
     {
       "code": "C3224",
       "name": "Melanoma",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
       "code": "C91477",
       "name": "Melanoma Pathway",
-      "terminology": "ncit"
-    },
-    {
-      "code": "C103113",
-      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
       "code": "C21790",
       "name": "Mouse Melanoma",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C7712",
-      "name": "Uveal Melanoma",
-      "terminology": "ncit"
+      "code": "C103113",
+      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C114828",
+      "name": "Mucosal Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     }
   ]
 }

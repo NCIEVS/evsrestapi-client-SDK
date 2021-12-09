@@ -1,7 +1,12 @@
 [
   {
-    "code": "ACC",
-    "name": "American College of Cardiology",
+    "code": "ACC/AHA",
+    "name": "American College of Cardiology / American Heart Association",
+    "terminology": "ncit"
+  },
+  {
+    "code": "BIOCARTA",
+    "name": "BioCarta online maps of molecular pathways, adapted for NCI use",
     "terminology": "ncit"
   },
   {
@@ -10,8 +15,23 @@
     "terminology": "ncit"
   },
   {
-    "code": "BioCarta",
-    "name": "BioCarta online maps of molecular pathways, adapted for NCI use",
+    "code": "BRIDG 3.0.3",
+    "name": "Biomedical Research Integrated Domain Model Group, version 3.0.3",
+    "terminology": "ncit"
+  },
+  {
+    "code": "BRIDG 5.3",
+    "name": "Biomedical Research Integrated Domain Model Group, version 5.3",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CBDD",
+    "name": "Chemical Biology and Drug Development",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CCPS",
+    "name": "Childhood Cancer Predisposition Study",
     "terminology": "ncit"
   },
   {
@@ -30,8 +50,8 @@
     "terminology": "ncit"
   },
   {
-    "code": "COH",
-    "name": "City of Hope",
+    "code": "CPTAC",
+    "name": "Clinical Proteomic Tumor Analysis Consortium",
     "terminology": "ncit"
   },
   {
@@ -42,6 +62,21 @@
   {
     "code": "CTCAE",
     "name": "Common Terminology Criteria for Adverse Events",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTCAE 3.0",
+    "name": "Common Terminology Criteria for Adverse Events, version 3.0",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTCAE 5.0",
+    "name": "Common Terminology Criteria for Adverse Events, version 5.0",
+    "terminology": "ncit"
+  },
+  {
+    "code": "CTDC",
+    "name": "Clinical Trials Data Commons",
     "terminology": "ncit"
   },
   {
@@ -60,6 +95,11 @@
     "terminology": "ncit"
   },
   {
+    "code": "Cellosaurus",
+    "name": "Cellosaurus - a knowledge resource on cell lines",
+    "terminology": "ncit"
+  },
+  {
     "code": "DCP",
     "name": "NCI Division of Cancer Prevention Program",
     "terminology": "ncit"
@@ -70,12 +110,16 @@
     "terminology": "ncit"
   },
   {
+    "code": "DIPG/DMG",
+    "terminology": "ncit"
+  },
+  {
     "code": "DTP",
     "name": "NCI Developmental Therapeutics Program",
     "terminology": "ncit"
   },
   {
-    "code": "EDQM",
+    "code": "EDQM-HC",
     "name": "European Directorate for the Quality of Medicines & Healthcare",
     "terminology": "ncit"
   },
@@ -90,6 +134,11 @@
     "terminology": "ncit"
   },
   {
+    "code": "GDC",
+    "name": "Genomic Data Commons",
+    "terminology": "ncit"
+  },
+  {
     "code": "GENC",
     "name": "Geopolitical Entities, Names, and Codes Terminology",
     "terminology": "ncit"
@@ -100,13 +149,27 @@
     "terminology": "ncit"
   },
   {
+    "code": "HL7",
+    "name": "Health Level Seven International",
+    "terminology": "ncit"
+  },
+  {
+    "code": "ICD-10",
+    "terminology": "ncit"
+  },
+  {
+    "code": "ICDC",
+    "name": "International Cancer Genome Consortium",
+    "terminology": "ncit"
+  },
+  {
     "code": "ICH",
     "name": "International Conference on Harmonization",
     "terminology": "ncit"
   },
   {
-    "code": "IMDRF",
-    "name": "International Medical Device Regulators Forum",
+    "code": "INC",
+    "name": "International Neonatal Consortium",
     "terminology": "ncit"
   },
   {
@@ -120,21 +183,6 @@
     "terminology": "ncit"
   },
   {
-    "code": "MMHCC",
-    "name": "Mouse Models of Human Cancer Consortium",
-    "terminology": "ncit"
-  },
-  {
-    "code": "MedDRA",
-    "name": "Medical Dictionary for Regulatory Activities",
-    "terminology": "ncit"
-  },
-  {
-    "code": "NCCN",
-    "name": "National Comprehensive Cancer Network",
-    "terminology": "ncit"
-  },
-  {
     "code": "NCI",
     "name": "National Cancer Institute Thesaurus",
     "terminology": "ncit"
@@ -145,18 +193,23 @@
     "terminology": "ncit"
   },
   {
-    "code": "NCI-HL7",
-    "name": "NCI Health Level 7",
-    "terminology": "ncit"
-  },
-  {
     "code": "NCPDP",
     "name": "National Council for Prescription Drug Programs",
     "terminology": "ncit"
   },
   {
+    "code": "NDC",
+    "name": "National Drug Code",
+    "terminology": "ncit"
+  },
+  {
     "code": "NICHD",
     "name": "National Institute of Child Health and Human Development",
+    "terminology": "ncit"
+  },
+  {
+    "code": "PCDC",
+    "name": "Pediatric Cancer Data Commons",
     "terminology": "ncit"
   },
   {
@@ -175,13 +228,33 @@
     "terminology": "ncit"
   },
   {
+    "code": "SEER",
+    "name": "Surveillance, Epidemiology, and End Results Program",
+    "terminology": "ncit"
+  },
+  {
+    "code": "SeroNet",
+    "name": "NCI Serological Sciences Network for COVID-19",
+    "terminology": "ncit"
+  },
+  {
     "code": "UCUM",
     "name": "Unified Code for Units of Measure",
     "terminology": "ncit"
   },
   {
-    "code": "Zebrafish",
-    "name": "Zebrafish Model Organism Database",
+    "code": "WHO",
+    "name": "World Health Organization",
+    "terminology": "ncit"
+  },
+  {
+    "code": "ZFin",
+    "name": "Zebrafish Information Network",
+    "terminology": "ncit"
+  },
+  {
+    "code": "caDSR",
+    "name": "Cancer Data Standards Registry and Repository",
     "terminology": "ncit"
   }
 ]

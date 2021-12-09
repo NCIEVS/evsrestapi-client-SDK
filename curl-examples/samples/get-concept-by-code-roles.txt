@@ -5,9 +5,24 @@
     "relatedName": "Benign Cellular Infiltrate"
   },
   {
+    "type": "Disease_May_Have_Finding",
+    "relatedCode": "C43268",
+    "relatedName": "HMB-45-Positive Neoplastic Cells Present"
+  },
+  {
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C12917",
     "relatedName": "Malignant Cell"
+  },
+  {
+    "type": "Disease_Has_Finding",
+    "relatedCode": "C36115",
+    "relatedName": "Malignant Cellular Infiltrate"
+  },
+  {
+    "type": "Disease_Has_Normal_Cell_Origin",
+    "relatedCode": "C12591",
+    "relatedName": "Melanocyte"
   },
   {
     "type": "Disease_Has_Abnormal_Cell",
@@ -23,21 +38,6 @@
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C36862",
     "relatedName": "Neoplastic Melanocyte"
-  },
-  {
-    "type": "Disease_Has_Finding",
-    "relatedCode": "C36115",
-    "relatedName": "Malignant Cellular Infiltrate"
-  },
-  {
-    "type": "Disease_Has_Normal_Cell_Origin",
-    "relatedCode": "C12591",
-    "relatedName": "Melanocyte"
-  },
-  {
-    "type": "Disease_May_Have_Finding",
-    "relatedCode": "C43268",
-    "relatedName": "HMB-45-Positive Neoplastic Cells Present"
   },
   {
     "type": "Disease_May_Have_Finding",

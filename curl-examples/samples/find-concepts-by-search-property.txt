@@ -1,5 +1,6 @@
 {
   "total": 1,
+  "timeTaken": 134,
   "parameters": {
     "term": "XAV05295I5",
     "type": "contains",
@@ -7,7 +8,7 @@
     "fromRecord": 0,
     "pageSize": 10,
     "property": [
-      "P319"
+      "FDA_UNII_Code"
     ],
     "terminology": [
       "ncit"
@@ -18,7 +19,41 @@
       "code": "C61305",
       "name": "Sivifene",
       "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true,
       "properties": [
+        {
+          "type": "CAS_Registry",
+          "value": "2675-35-6"
+        },
+        {
+          "type": "Chemical_Formula",
+          "value": "C19H14N4O6"
+        },
+        {
+          "type": "Contributing_Source",
+          "value": "FDA"
+        },
+        {
+          "type": "FDA_UNII_Code",
+          "value": "XAV05295I5"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "A-007"
+        },
+        {
+          "type": "NCI_Drug_Dictionary_ID",
+          "value": "485274"
+        },
+        {
+          "type": "PDQ_Closed_Trial_Search_ID",
+          "value": "485274"
+        },
+        {
+          "type": "PDQ_Open_Trial_Search_ID",
+          "value": "485274"
+        },
         {
           "type": "Semantic_Type",
           "value": "Pharmacologic Substance"
@@ -26,26 +61,6 @@
         {
           "type": "UMLS_CUI",
           "value": "C0385861"
-        },
-        {
-          "type": "PDQ_Open_Trial_Search_ID",
-          "value": "485274"
-        },
-        {
-          "type": "FDA_UNII_Code",
-          "value": "XAV05295I5"
-        },
-        {
-          "type": "Chemical_Formula",
-          "value": "C19H14N4O6"
-        },
-        {
-          "type": "CAS_Registry",
-          "value": "2675-35-6"
-        },
-        {
-          "type": "PDQ_Closed_Trial_Search_ID",
-          "value": "485274"
         }
       ]
     }
