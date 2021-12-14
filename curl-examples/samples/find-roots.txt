@@ -1,78 +1,135 @@
 [
   {
     "code": "C12913",
-    "name": "Abnormal Cell"
+    "name": "Abnormal Cell",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C43431",
-    "name": "Activity"
+    "name": "Activity",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C12219",
-    "name": "Anatomic Structure, System, or Substance"
+    "name": "Anatomic Structure, System, or Substance",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C20633",
-    "name": "Biochemical Pathway"
+    "name": "Biochemical Pathway",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C17828",
-    "name": "Biological Process"
+    "name": "Biological Process",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C12218",
-    "name": "Chemotherapy Regimen or Agent Combination"
+    "name": "Chemotherapy Regimen or Agent Combination",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C20181",
-    "name": "Conceptual Entity"
+    "name": "Conceptual Entity",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C20047",
-    "name": "Diagnostic or Prognostic Factor"
+    "name": "Diagnostic or Prognostic Factor",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C7057",
-    "name": "Disease, Disorder or Finding"
+    "name": "Disease, Disorder or Finding",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C1908",
-    "name": "Drug, Food, Chemical or Biomedical Material"
+    "name": "Drug, Food, Chemical or Biomedical Material",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C22188",
-    "name": "Experimental Organism Anatomical Concept"
+    "name": "Experimental Organism Anatomical Concept",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C22187",
-    "name": "Experimental Organism Diagnosis"
+    "name": "Experimental Organism Diagnosis",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C16612",
-    "name": "Gene"
+    "name": "Gene",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C26548",
-    "name": "Gene Product"
+    "name": "Gene Product",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C97325",
-    "name": "Manufactured Object"
+    "name": "Manufactured Object",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C3910",
-    "name": "Molecular Abnormality"
+    "name": "Molecular Abnormality",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C14250",
-    "name": "Organism"
+    "name": "Organism",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C20189",
-    "name": "Property or Attribute"
+    "name": "Property or Attribute",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   },
   {
     "code": "C28428",
-    "name": "Retired Concept"
+    "name": "Retired Concept",
+    "terminology": "ncit",
+    "version": "21.11e",
+    "leaf": false
   }
 ]

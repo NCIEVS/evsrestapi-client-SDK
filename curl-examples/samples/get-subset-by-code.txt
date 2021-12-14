@@ -1,0 +1,874 @@
+{
+  "code": "C81222",
+  "name": "CDISC ADaM Terminology",
+  "terminology": "ncit",
+  "version": "21.11e",
+  "synonyms": [
+    {
+      "name": "ADaM",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "CDISC ADaM Terminology",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    },
+    {
+      "name": "CDISC ADaM Terminology",
+      "type": "Preferred_Name"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+      "type": "ALT_DEFINITION",
+      "source": "CDISC"
+    },
+    {
+      "definition": "The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+      "type": "DEFINITION",
+      "source": "NCI"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Contributing_Source",
+      "value": "CDISC"
+    },
+    {
+      "type": "Legacy Concept Name",
+      "value": "CDISC_ADaM_Terminology"
+    },
+    {
+      "type": "Publish_Value_Set",
+      "value": "Yes"
+    },
+    {
+      "type": "Semantic_Type",
+      "value": "Intellectual Product"
+    },
+    {
+      "type": "Term_Browser_Value_Set_Description",
+      "value": "<p>The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+    },
+    {
+      "type": "UMLS_CUI",
+      "value": "C2825525"
+    },
+    {
+      "type": "Value_Set_Pair",
+      "value": "No"
+    }
+  ],
+  "children": [
+    {
+      "code": "C81223",
+      "name": "CDISC ADaM Date Imputation Flag Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-DATEFL",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Date Imputation Flag Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Date Imputation Flag",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "DATEFL",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Date Imputation Flag Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Date Imputation Flag: Indicates the level of imputation reflected in a date value.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Date Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "CDISC_ADaM_Date_Imputation_Flag_Terminology"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Date Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C2825526"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "code": "C81224",
+      "name": "CDISC ADaM Derivation Type Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-DTYPE",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Derivation Type Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Derivation Type",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "DTYPE",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Derivation Type Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Derivation Type: Analysis value derivation method.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Derivation Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "Yes"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "CDISC_ADaM_Derivation_Type_Terminology"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Derivation Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C2825527"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "code": "C172334",
+      "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-GAD02PC",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "GAD02PC",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Code",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A parameter code codelist for the Generalized Anxiety Disorder - 7 Version 2 Questionnaire (GAD-7 V2) to support the calculation of total score in ADaM.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "NCI_META_CUI",
+          "value": "CL1406497"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "Yes"
+        }
+      ]
+    },
+    {
+      "code": "C172335",
+      "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-GAD02PN",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "GAD02PN",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Generalized Anxiety Disorder - 7 Version 2 Questionnaire Parameter Name",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A parameter name codelist for the Generalized Anxiety Disorder - 7 Version 2 Questionnaire (GAD-7 V2) to support the calculation of total score in ADaM.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "NCI_META_CUI",
+          "value": "CL1406496"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "Yes"
+        }
+      ]
+    },
+    {
+      "code": "C158114",
+      "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-GDS02PC",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "GDS02PC",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Code",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A parameter code codelist for the Geriatric Depression Scale Short Form questionnaire (GDS02) to support the calculation of total score in ADaM.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "NCI_META_CUI",
+          "value": "CL937724"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "Yes"
+        }
+      ]
+    },
+    {
+      "code": "C158115",
+      "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-GDS02PN",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "GDS02PN",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Geriatric Depression Scale Short Form Questionnaire Parameter Name",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A parameter name codelist for the Geriatric Depression Scale Short Form questionnaire (GDS02) to support the calculation of total score in ADaM.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "NCI_META_CUI",
+          "value": "CL937725"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "Yes"
+        }
+      ]
+    },
+    {
+      "code": "C81225",
+      "name": "CDISC ADaM Parameter Type Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-PARAMTYP",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Parameter Type Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Parameter Type",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "PARAMTYP",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Parameter Type Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Parameter Type: Indicates whether the parameter is derived as a function of one or more other parameters.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the Parameter Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "CDISC_ADaM_Parameter_Type_Terminology"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Parameter Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C2825528"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "code": "C165644",
+      "name": "CDISC ADaM Pool for Integration Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-POOLINT",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Pool for Integration Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Pool for Integration",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "POOLINT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Pool for Integration Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Terminology associated with the Pool for Integration codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        },
+        {
+          "definition": "Terminology relevant to the name of the Pool, often defined in the integrated statistical analysis plan, which identifies the combination of subjects' clinical trial experience and will be the focus of the integrated analysis.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "Yes"
+        },
+        {
+          "type": "NCI_META_CUI",
+          "value": "CL978787"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Pool for Integration codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "code": "C124296",
+      "name": "CDISC ADaM Subject Trial Status Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-SBJTSTAT",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Subject Trial Status Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "SBJTSTAT",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Subject Trial Status",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Subject Trial Status Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Indicates the status of the subject in the trial.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        },
+        {
+          "definition": "Terminology associated with the subject trial status codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "Yes"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Subject Trial Status codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C4086047"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    },
+    {
+      "code": "C81226",
+      "name": "CDISC ADaM Time Imputation Flag Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM/",
+      "synonyms": [
+        {
+          "name": "ADaM-TIMEFL",
+          "termGroup": "AB",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "CDISC ADaM Time Imputation Flag Terminology",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI"
+        },
+        {
+          "name": "Time Imputation Flag",
+          "termGroup": "SY",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "TIMEFL",
+          "termGroup": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "CDISC ADaM Time Imputation Flag Terminology",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "Terminology associated with the Time Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).",
+          "type": "DEFINITION",
+          "source": "NCI"
+        },
+        {
+          "definition": "Time Imputation Flag: Indicates the level of imputation reflected in a time value.",
+          "type": "ALT_DEFINITION",
+          "source": "CDISC"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Contributing_Source",
+          "value": "CDISC"
+        },
+        {
+          "type": "Extensible_List",
+          "value": "No"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "CDISC_ADaM_Time_Imputation_Flag_Terminology"
+        },
+        {
+          "type": "Publish_Value_Set",
+          "value": "Yes"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Intellectual Product"
+        },
+        {
+          "type": "Term_Browser_Value_Set_Description",
+          "value": "<p>Terminology associated with the Time Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C2825529"
+        },
+        {
+          "type": "Value_Set_Pair",
+          "value": "No"
+        }
+      ]
+    }
+  ]
+}

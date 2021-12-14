@@ -1,5 +1,6 @@
 {
-  "total": 0,
+  "total": 12,
+  "timeTaken": 81,
   "parameters": {
     "term": "dsDNA",
     "type": "contains",
@@ -9,9 +10,83 @@
     "synonymSource": [
       "NCI"
     ],
-    "synonymTermGroup": "PT",
+    "synonymTermGroup": [
+      "PT"
+    ],
     "terminology": [
       "ncit"
     ]
-  }
+  },
+  "concepts": [
+    {
+      "code": "C449",
+      "name": "DNA",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    },
+    {
+      "code": "C14348",
+      "name": "Double Stranded DNA Virus",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    },
+    {
+      "code": "C114565",
+      "name": "Anti-ds DNA Antibody",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C121337",
+      "name": "Systemic Lupus International Collaborating Clinics Classification Criteria",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C148186",
+      "name": "TALEN-edited HPV16/18 E6/E7 Plasmid",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C151956",
+      "name": "HPV16-E6-T27",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C151958",
+      "name": "HPV16-E7-T512",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C158432",
+      "name": "PicoGreen Dye",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C16517",
+      "name": "DNA Helicase",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    },
+    {
+      "code": "C20064",
+      "name": "Conformation Dependent Mutation Detection",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    }
+  ]
 }

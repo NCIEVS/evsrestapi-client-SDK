@@ -1,5 +1,6 @@
 {
-  "total": 1058,
+  "total": 1294,
+  "timeTaken": 2034,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -15,29 +16,39 @@
   },
   "concepts": [
     {
-      "code": "C35783",
-      "name": "Ciliary Body Mixed Cell Melanoma",
-      "terminology": "ncit"
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C35782",
-      "name": "Choroid Mixed Cell Melanoma",
-      "terminology": "ncit"
+      "code": "C103113",
+      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
-      "code": "C35781",
-      "name": "Mixed Cell Uveal Melanoma",
-      "terminology": "ncit"
+      "code": "C114828",
+      "name": "Mucosal Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     },
     {
-      "code": "C117183",
-      "name": "M14",
-      "terminology": "ncit"
+      "code": "C118828",
+      "name": "Orbital Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     },
     {
-      "code": "C117192",
-      "name": "UACC-62",
-      "terminology": "ncit"
+      "code": "C120298",
+      "name": "Canine Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
     }
   ]
 }

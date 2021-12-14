@@ -1,5 +1,6 @@
 {
   "total": 1,
+  "timeTaken": 57,
   "parameters": {
     "term": "C3224",
     "type": "contains",
@@ -14,7 +15,9 @@
     {
       "code": "C3224",
       "name": "Melanoma",
-      "terminology": "ncit"
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
     }
   ]
 }
