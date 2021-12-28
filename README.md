@@ -54,7 +54,9 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by search term (use paging to get only first 5 results)
 - Find concepts by search term (restrict by concept status)
 - Find concepts by search term (restrict by definition source)
+- Find concepts by search term (restrict by definition type)
 - Find concepts by search term (restrict by synonym source and termgroup)
+- Find concepts by search term (restrict by synonym type)
 - Find concepts by search term (where term is a code)
 - Find concepts by search term (using type=match)
 - Find concepts by search term (using type=startsWith)
@@ -64,6 +66,7 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by search term (using type=OR)
 - Find concepts by search term (with highlights)
 - Find concepts by property
+- Find concepts by subset
 - Get all subsets
 - Get subset by code
 - Get subset members by subset code

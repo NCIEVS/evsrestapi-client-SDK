@@ -1,1 +1,22 @@
-[]
+[
+  {
+    "code": "C2950",
+    "name": "Cytogenetic Abnormality",
+    "leaf": false
+  },
+  {
+    "code": "C36340",
+    "name": "Molecular Pathway Deregulation",
+    "leaf": false
+  },
+  {
+    "code": "C97926",
+    "name": "Molecular Sequence Variation",
+    "leaf": false
+  },
+  {
+    "code": "C45594",
+    "name": "Protein Sequence Abnormality",
+    "leaf": false
+  }
+]

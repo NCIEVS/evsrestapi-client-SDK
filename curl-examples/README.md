@@ -54,7 +54,9 @@ The following examples can be types into the command line of any terminal that h
 - [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
 - [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
 - [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
+- [Find concepts by search term (restrict by definition type)](#find-concepts-by-search-term-restrict-by-definition-type)
 - [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
+- [Find concepts by search term (restrict by synonym type)](#find-concepts-by-search-term-restrict-by-synonym-type)
 - [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
 - [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
 - [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
@@ -64,6 +66,7 @@ The following examples can be types into the command line of any terminal that h
 - [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
 - [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 - [Find concepts by property](#find-concepts-by-property)
+- [Find concepts by subset](#find-concepts-by-subset)
 - [Get all subsets](#get-all-subsets)
 - [Get subset by code](#get-subset-by-code)
 - [Get subset members by subset code](#get-subset-members-by-code)
@@ -154,7 +157,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-custom.t
 Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below,
 you can replace "children" in the URL with any of the following and retrieve the 
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
-inverseAssociations, maps, or disjointWith.
+inverseAssociations, maps.
 
 ```
 curl "$API_URL/concept/ncit/C3224/children" | jq '.'
@@ -168,7 +171,14 @@ See the full set of examples for this "style" of call
 * [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
 * [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
 * [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
-* [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
+
+For disjointWith, a different concept id is needed
+
+```
+curl "$API_URL/concept/ncit/C3910/children" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -489,6 +499,20 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
+### Find concepts by search term (restrict by definition type)
+
+Find concepts matching a search term within a specified terminology and
+restrict the search results by a definition type of "DEFINITION". This 
+example uses paging to get only the first 5 results.
+
+```
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=DEFINITION&pageSize=5" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-type.txt`](samples/find-concepts-by-search-term-definition-type.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
 ### Find concepts by search term (restrict by synonym source and termgroup)
 
 Find concepts matching a search term within a specified terminology and
@@ -500,6 +524,18 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
+
+
+### Find concepts by search term (restrict by synonym type)
+
+Find concepts matching a search term with a specified synonym type. This 
+example restricts results to matching FULL_SYNs.
+
+```
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-term-synonym-type.txt`](samples/find-concepts-by-search-term-synonym-type.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -627,6 +663,19 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&inc
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find concepts by subset
+
+Find concepts matching a search term and restrict results to members of
+one or more subsets. This example searches within C165258 (e.g. Cellosaurus Disease Terminology).
+
+```
+curl "$API_URL/concept/search?terminology=ncit&term=immune&subset=C165258" | jq '.'
+```
+
+See sample payload data from this call in [`samples/find-concepts-by-search-subset.txt`](samples/find-concepts-by-search-subset.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
