@@ -1132,7 +1132,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&include=properties",
+					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII_Code&include=properties",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -1151,7 +1151,7 @@
 						},
 						{
 							"key": "property",
-							"value": "fda_unii_code"
+							"value": "FDA_UNII_Code"
 						},
 						{
 							"key": "include",
