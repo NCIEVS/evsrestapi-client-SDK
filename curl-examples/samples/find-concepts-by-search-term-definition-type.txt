@@ -1,0 +1,54 @@
+{
+  "total": 1294,
+  "timeTaken": 175,
+  "parameters": {
+    "term": "melanoma",
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5,
+    "definitionType": [
+      "DEFINITION"
+    ],
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    },
+    {
+      "code": "C103113",
+      "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C114828",
+      "name": "Mucosal Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": false
+    },
+    {
+      "code": "C118828",
+      "name": "Orbital Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    },
+    {
+      "code": "C120298",
+      "name": "Canine Melanoma",
+      "terminology": "ncit",
+      "version": "21.11e",
+      "leaf": true
+    }
+  ]
+}

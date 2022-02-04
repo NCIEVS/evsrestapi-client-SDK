@@ -3,14 +3,15 @@
 # Script to call EVSRESTAPI to lookup descendants for a code.
 #
 while [[ "$#" -gt 0 ]]; do case $1 in
-  --level) maxLevel="$2"; shift;;
+  --fromRecord) fromRecord="$2"; shift;;
+  --pageSize) pageSize="$2"; shift;;
   *) arr=( "${arr[@]}" "$1" );;
 esac; shift; done
 
 if [ ${#arr[@]} -ne 2 ]; then
-  echo "Usage: $0 <terminology> <code> [--level <maxLevel>]"
+  echo "Usage: $0 <terminology> <code> [--fromRecord #] [--pageSize #]"
   echo "  e.g. $0 ncit C3224"
-  echo "  e.g. $0 ncit C3224 --level 2"
+  echo "  e.g. $0 ncit C3224 --fromRecord 100 --pageSize 100"
   exit 1
 fi
 
@@ -27,21 +28,20 @@ echo "-----------------------------------------------------"
 echo "url = $url"
 echo "terminology = $terminology"
 echo "code = $code"
-echo "maxLevel = $maxLevel"
+echo "fromRecord = $fromRecord"
+echo "pageSize = $pageSize"
 echo ""
 
-if  [[ $maxLevel ]] && [[ ! $maxLevel =~ ^[0-9]+$ ]]; then
-  echo "ERROR: maxLevel must be blank or a number = $maxLevel"
-  exit 1
+if [[ -z $fromRecord ]]; then
+  fromRecord=0
+fi
+if [[ -z $pageSize ]]; then
+  pageSize=50000
 fi
 
 # GET call
 echo "  Get descendants for $terminology $code:"
-if [[ ! $maxLevel ]]; then
-  curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/descendants" 2> /dev/null > /tmp/x.$$
-else
-  curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/descendants" --data-urlencode "maxLevel=$maxLevel" 2> /dev/null > /tmp/x.$$
-fi
+curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code/descendants" --data-urlencode "fromRecord=$fromRecord" --data-urlencode "pageSize=$pageSize" 2> /dev/null > /tmp/x.$$
 if [ $? -ne 0 ]; then
   echo "ERROR: GET $url/concept/$terminology/$code/descendants failed"
   exit 1
@@ -56,7 +56,7 @@ if [ $status -ne 200 ]; then
 fi
 
 # write output
-perl -pe 's/200$//' /tmp/x.$$ | jq '. | length' | sed 's/^/    child count = /'
+perl -pe 's/200$//' /tmp/x.$$ | jq '. | length' | sed 's/^/    count = /'
 echo ""
 perl -pe 's/200$//' /tmp/x.$$ | jq '.' | sed 's/^/    /'
 echo ""

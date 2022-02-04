@@ -1,17 +1,22 @@
 [
   {
-    "type": "disjointWith",
-    "relatedCode": "C43431",
-    "relatedName": "Activity"
+    "code": "C2950",
+    "name": "Cytogenetic Abnormality",
+    "leaf": false
   },
   {
-    "type": "disjointWith",
-    "relatedCode": "C7057",
-    "relatedName": "Disease, Disorder or Finding"
+    "code": "C36340",
+    "name": "Molecular Pathway Deregulation",
+    "leaf": false
   },
   {
-    "type": "disjointWith",
-    "relatedCode": "C97325",
-    "relatedName": "Manufactured Object"
+    "code": "C97926",
+    "name": "Molecular Sequence Variation",
+    "leaf": false
+  },
+  {
+    "code": "C45594",
+    "name": "Protein Sequence Abnormality",
+    "leaf": false
   }
 ]

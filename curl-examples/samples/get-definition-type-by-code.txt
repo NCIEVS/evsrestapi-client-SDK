@@ -1,0 +1,43 @@
+{
+  "code": "P325",
+  "name": "ALT_DEFINITION",
+  "terminology": "ncit",
+  "version": "21.11e",
+  "synonyms": [
+    {
+      "name": "[source] Definition",
+      "type": "Display_Name"
+    },
+    {
+      "name": "ALT_DEFINITION",
+      "termGroup": "PT",
+      "type": "FULL_SYN",
+      "source": "NCI"
+    },
+    {
+      "name": "ALT_DEFINITION",
+      "type": "Preferred_Name"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "A property representing the English language definition of a concept from a source other than NCI.",
+      "type": "DEFINITION",
+      "source": "NCI"
+    }
+  ],
+  "properties": [
+    {
+      "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+      "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
+    },
+    {
+      "type": "http://www.w3.org/2000/01/rdf-schema#range",
+      "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#textArea"
+    },
+    {
+      "type": "Semantic_Type",
+      "value": "Conceptual Entity"
+    }
+  ]
+}

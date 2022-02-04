@@ -1,16 +1,39 @@
 [
   {
     "type": "Related To",
-    "targetName": "Malignant melanoma, NOS",
+    "targetName": "8720/3",
     "targetTermGroup": "PT",
-    "targetCode": "8720/3",
-    "targetTerminology": "ICDO3"
+    "targetCode": "morphology",
+    "targetTerminology": "GDC"
   },
   {
     "type": "Related To",
     "targetName": "Malignant melanoma, NOS",
     "targetTermGroup": "PT",
-    "targetCode": "PD",
+    "targetCode": "8720/3",
+    "targetTerminology": "ICDO3",
+    "targetTerminologyVersion": "3.2"
+  },
+  {
+    "type": "Related To",
+    "targetName": "Malignant melanoma, NOS",
+    "targetTermGroup": "PT",
+    "targetCode": "8720/3",
+    "targetTerminology": "ICDO3",
+    "targetTerminologyVersion": "3.1"
+  },
+  {
+    "type": "Related To",
+    "targetName": "Malignant melanoma, NOS",
+    "targetTermGroup": "PT",
+    "targetCode": "primary_diagnosis",
+    "targetTerminology": "GDC"
+  },
+  {
+    "type": "Has Synonym",
+    "targetName": "Melanoma, NOS",
+    "targetTermGroup": "PT",
+    "targetCode": "primary_diagnosis",
     "targetTerminology": "GDC"
   },
   {
@@ -18,20 +41,14 @@
     "targetName": "Melanoma",
     "targetTermGroup": "LLT",
     "targetCode": "10053571",
-    "targetTerminology": "MedDRA"
+    "targetTerminology": "MedDRA",
+    "targetTerminologyVersion": "18.1"
   },
   {
     "type": "Has Synonym",
     "targetName": "Melanoma",
     "targetTermGroup": "PT",
-    "targetCode": "RPD",
-    "targetTerminology": "GDC"
-  },
-  {
-    "type": "Has Synonym",
-    "targetName": "Melanoma, NOS",
-    "targetTermGroup": "PT",
-    "targetCode": "PD",
+    "targetCode": "relationship_primary_diagnosis",
     "targetTerminology": "GDC"
   }
 ]
