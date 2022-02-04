@@ -49,9 +49,11 @@ All commands to run these tests should be run from that directory.
 * [Get subtree](#get-subtree)
 * [Get concepts by search term](#get-concepts)
 * [Get concepts by search term (restrict by concept status)](#get-concepts-restrict-concept-status)
-* [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-contributing-source)
-* [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-definition-source)
-* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-synonym-source)
+* [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-by-contributing-source)
+* [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-by-definition-source)
+* [Get concepts by search term (restrict by definition type)](#get-concepts-restrict-by-definition-type)
+* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-by-synonym-source)
+* [Get concepts by search term (restrict by synonym type)](#get-concepts-restrict-by-synonym-type)
 * [Get concepts by search term (using type=match)](#get-concepts-match)
 * [Get concepts by search term (using type=startsWith)](#get-concepts-startsWith)
 * [Get concepts by search term (using type=phrase)](#get-concepts-phrase)
@@ -59,6 +61,7 @@ All commands to run these tests should be run from that directory.
 * [Get concepts by search term (using type=OR)](#get-concepts-or)
 * [Get concepts by search term (using type=AND)](#get-concepts-and)
 * [Get concepts by search term (with highlights)](#get-concepts-highlights)
+* [Get concept by subset](#get-concept-by-subset)
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
 * [Get subset members by code](#get-subset-members-by-code)
@@ -492,11 +495,35 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_definition_source`
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
+### Get concepts by search term (restrict by definition type)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by a definition type of "P97".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_definition_type`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
 ### Get concepts by search term (restrict by synonym source)
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
 
 Command: `pytest test_Concept_Tests.py::test_get_concept_by_synonym_source`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by search term (restrict by synonym type)
+
+Get concepts matching a search term within a specified terminology and restrict the search results by a synonym type of "FULL_SYN".
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_synonym_type`
 
 ```{.python}
 (data is too long for display on this page)
@@ -581,6 +608,18 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_and`
 Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
 
 Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_highlights`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get concepts by subset
+
+Get concepts matching a search term within a specified terminology and subset.
+
+Command: `pytest test_Concept_Tests.py::test_get_concept_by_subset`
 
 ```{.python}
 (data is too long for display on this page)

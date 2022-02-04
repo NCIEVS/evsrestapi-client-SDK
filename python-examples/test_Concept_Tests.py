@@ -100,84 +100,105 @@ def test_get_subtree(): # Return an entire subtree graph from the root concepts 
 
 def test_get_concept(): # Get concepts matching a search term within a specified terminology.
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
     
 def test_get_concept_by_concept_status(): # Get concepts matching a search term within a specified terminology and restrict the search results by concept status of "Header_Concept".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by concept status of \"Header_Concept\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=respiratory&conceptStatus=Header_Concept");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
         
 def test_get_concept_by_contributing_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of "CDISC".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of \"CDISC\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma&contributingSource=CDISC");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma&contributingSource=CDISC");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_definition_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition source of "NCI".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition source of \"NCI\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=melanoma&definitionSource=NCI");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=melanoma&definitionSource=NCI");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_concept_by_definition_type(): # Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition type of "P97".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition type of \"P97\".");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=P97");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=P97");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
     
 def test_get_concept_by_synonym_source(): # Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of \"NCI\" and synonymTermGroup of \"PT\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_concept_by_synonym_type(): # Get concepts matching a search term within a specified terminology and restrict the search results by a synonym type of "FULL_SYN".
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and restrict the search results by a synonym type of \"FULL_SYN\"");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_match(): # Get concepts matching a search term within a specified terminology and a search type of "match".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"match\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=match");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=match");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=match");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=match");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_starts_with(): # Get concepts matching a search term within a specified terminology and a search type of "startsWith".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"startsWith\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=startsWith");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=startsWith");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=startsWith");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=startsWith");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_phrase(): # Get concepts matching a search term within a specified terminology and a search type of "phrase".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"phrase\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=phrase");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=phrase");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=phrase");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=phrase");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_fuzzy(): # Get concepts matching a search term within a specified terminology and a search type of "fuzzy".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"fuzzy\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=fuzzy");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=fuzzy");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=fuzzy");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=fuzzy");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_or(): # Get concepts matching a search term within a specified terminology and a search type of "or".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"or\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=or");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=or");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=or");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=or");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_and(): # Get concepts matching a search term within a specified terminology and a search type of "and".
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and a search type of \"and\".");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=and");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&term=and");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=and");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&term=and");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
 def test_get_concept_by_search_term_highlights(): # Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
     logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.");
-    logging.info("url = " + localUrl + "/concept/search/?terminology=ncit&term=enzyme&include=synonyms,highlights");
-    response = requests.get(localUrl + "/concept/search/?terminology=ncit&term=enzyme&include=synonyms,highlights");
+    logging.info("url = " + localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&include=synonyms,highlights");
+    response = requests.get(localUrl + "/concept/ncit/search?terminology=ncit&term=enzyme&include=synonyms,highlights");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_concept_by_subset(): # Get concepts matching a search term within a specified terminology and subset.
+    logging.info("test_Concept_Tests.py: Get concepts matching a search term within a specified terminology and subset");
+    logging.info("url = " + localUrl + "/concept/ncit/search?subset=C157225&term=Hydrogenation");
+    response = requests.get(localUrl + "/concept/ncit/search?subset=C157225&term=Hydrogenation");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
