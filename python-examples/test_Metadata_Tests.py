@@ -50,9 +50,9 @@ def test_get_qualifier_by_code(): # Return qualifier for the specified code or l
     logging.info(response.text);
 
 def test_get_qualifier_values_by_code(): # Return distinct value set for the qualifier with the specified code or label.
-    logging.info("test_Metadata_Tests.py: Get Qualifier Value by Code - P383");
-    logging.info("url = " + localUrl + "/metadata/ncit/qualifier/P383/values");
-    response = requests.get(localUrl + "/metadata/ncit/qualifier/P383/values");
+    logging.info("test_Metadata_Tests.py: Get Qualifier Value by Code - P390");
+    logging.info("url = " + localUrl + "/metadata/ncit/qualifier/P390/values");
+    response = requests.get(localUrl + "/metadata/ncit/qualifier/P390/values");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
 
@@ -90,3 +90,25 @@ def test_get_term_types(): # Return metadata for all term types for the specifie
     response = requests.get(localUrl + "/metadata/ncit/termTypes");
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
+    
+def test_get_subsets(): # Return all subsets (with minimal information) for a specified terminology
+    logging.info("test_Metadata_Tests.py: Get all subsets");
+    logging.info("url = " + localUrl + "/metadata/ncit/subsets");
+    response = requests.get(localUrl + "/metadata/ncit/subsets");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_subset_by_code(): # Return subset (with summary information) for a specified terminology and code.
+    logging.info("test_Metadata_Tests.py: Get subset by code");
+    logging.info("url = " + localUrl + "/metadata/ncit/subsets");
+    response = requests.get(localUrl + "/metadata/ncit/subsets");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_subset_members_by_code(): # Return subset members paging parameters for a specified terminology and code.
+    logging.info("test_Metadata_Tests.py: Get subset by code");
+    logging.info("url = " + localUrl + "/metadata/ncit/subset/C116978");
+    response = requests.get(localUrl + "/metadata/ncit/subset/C116978");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+
