@@ -91,6 +91,48 @@ def test_get_term_types(): # Return metadata for all term types for the specifie
     assert response.status_code == requests.codes.ok;
     logging.info(response.text);
     
+def test_get_definition_sources(): # Return definition sources for the specified terminology.
+    logging.info("test_Metadata_Tests.py: Get Definition Sources");
+    logging.info("url = " + localUrl + "/metadata/ncit/definitionSources");
+    response = requests.get(localUrl + "/metadata/ncit/definitionSources");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_definition_types(): # Return metadata for all definition types for the specified terminology.
+    logging.info("test_Metadata_Tests.py: Get Definition Types");
+    logging.info("url = " + localUrl + "/metadata/ncit/definitionTypes");
+    response = requests.get(localUrl + "/metadata/ncit/definitionTypes");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_definition_type_by_code(): # Return metadata for definition type for the specified terminology and code.
+    logging.info("test_Metadata_Tests.py: Get Definition Types");
+    logging.info("url = " + localUrl + "/metadata/ncit/definitionType/P325");
+    response = requests.get(localUrl + "/metadata/ncit/definitionType/P325");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_synonym_types(): # Return metadata for all synonym types for the specified terminology.
+    logging.info("test_Metadata_Tests.py: Get Synonym Types");
+    logging.info("url = " + localUrl + "/metadata/ncit/synonymTypes");
+    response = requests.get(localUrl + "/metadata/ncit/synonymTypes");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_synonym_sources(): # Return metadata for all synonym sources for the specified terminology.
+    logging.info("test_Metadata_Tests.py: Get Synonym Sources");
+    logging.info("url = " + localUrl + "/metadata/ncit/synonymSources");
+    response = requests.get(localUrl + "/metadata/ncit/synonymSources");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
+def test_get_synonym_type_by_code(): # Return metadata for synonym type for the specified terminology and code.
+    logging.info("test_Metadata_Tests.py: Get Synonym Sources by code");
+    logging.info("url = " + localUrl + "/metadata/ncit/synonymType/P90");
+    response = requests.get(localUrl + "/metadata/ncit/synonymType/P90");
+    assert response.status_code == requests.codes.ok;
+    logging.info(response.text);
+    
 def test_get_subsets(): # Return all subsets (with minimal information) for a specified terminology
     logging.info("test_Metadata_Tests.py: Get all subsets");
     logging.info("url = " + localUrl + "/metadata/ncit/subsets");

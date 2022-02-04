@@ -37,6 +37,12 @@ All commands to run these tests should be run from that directory.
 * [Get all associations](#get-all-associations)
 * [Get associations by code (or label)](#get-associations-by-code-or-label)
 * [Get term types](#get-term-types)
+* [Get definition sources](#get-definition-sources)
+* [Get synonym sources](#get-synonym-sources)
+* [Get synonym types](#get-synonym-types)
+* [Get synonym types by code](#get-synonym-types-by-code)
+* [Get definition types](#get-definition-types)
+* [Get definition types by code](#get-definition-types-by-code)
 * [Get root concepts](#get-root-concepts)
 * [Get paths to/from root from code](#get-root-paths-from-code)
 * [Get paths to ancestor from code](#get-ancestor-paths-from-code)
@@ -53,6 +59,9 @@ All commands to run these tests should be run from that directory.
 * [Get concepts by search term (using type=OR)](#get-concepts-or)
 * [Get concepts by search term (using type=AND)](#get-concepts-and)
 * [Get concepts by search term (with highlights)](#get-concepts-highlights)
+* [Get all subsets](#get-all-subsets)
+* [Get subset by code](#get-subset-by-code)
+* [Get subset members by code](#get-subset-members-by-code)
 
 ### Get terminologies
 
@@ -305,6 +314,78 @@ Command: `pytest test_Metadata_Tests.py::test_get_term_types`
 
 ```
 
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get definition sources
+
+Return metadata for all definition sources for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_definition_sources`
+
+```{.python}
+[{"code":"ACC/AHA","name":"American College of Cardiology / American Heart Association","terminology":"ncit"},{"code":"BIOCARTA","name":"BioCarta online maps of molecular pathways, adapted for NCI use","terminology":"ncit"},{"code":"BRIDG","name":"Biomedical Research Integrated Domain Model Group","terminology":"ncit"},{"code":"BRIDG 3.0.3","name":"Biomedical Research Integrated Domain Model Group, version 3.0.3","terminology":"ncit"},{"code":"BRIDG 5.3","name":"Biomedical Research Integrated Domain Model Group, version 5.3","terminology":"ncit"},{"code":"CCPS","name":"Childhood Cancer Predisposition Study","terminology":"ncit"},{"code":"CDISC","name":"Clinical Data Interchange Standards Consortium","terminology":"ncit"},{"code":"CDISC-GLOSS","name":"CDISC Glossary Terminology","terminology":"ncit"},{"code":"CRCH","name":"Cancer Research Center of Hawaii Nutrition Terminology","terminology":"ncit"},{"code":"CTCAE","name":"Common Terminology Criteria for Adverse Events","terminology":"ncit"},{"code":"CTCAE 3.0","name":"Common Terminology Criteria for Adverse Events, version 3.0","terminology":"ncit"},{"code":"CTCAE 5.0","name":"Common Terminology Criteria for Adverse Events, version 5.0","terminology":"ncit"},{"code":"CTEP","name":"Cancer Therapy Evaluation Program","terminology":"ncit"},{"code":"CareLex","name":"CareLex electronic Trial Master File Terminology","terminology":"ncit"},{"code":"DICOM","name":"Digital Imaging Communications in Medicine","terminology":"ncit"},{"code":"EDQM-HC","name":"European Directorate for the Quality of Medicines & Healthcare","terminology":"ncit"},{"code":"FDA","name":"U.S. Food and Drug Administration","terminology":"ncit"},{"code":"GAIA","name":"Global Alignment of Immunization safety Assessment in pregnancy Terminology","terminology":"ncit"},{"code":"ICDO3","name":"International Classification of Diseases for Oncology, 3rd edition","terminology":"ncit"},{"code":"INC","name":"International Neonatal Consortium","terminology":"ncit"},{"code":"KEGG","name":"KEGG Pathway Database","terminology":"ncit"},{"code":"MMHCC","name":"Mouse Models of Human Cancer Consortium","terminology":"ncit"},{"code":"NCI","name":"National Cancer Institute Thesaurus","terminology":"ncit"},{"code":"NCI-GLOSS","name":"NCI Dictionary of Cancer Terms","terminology":"ncit"},{"code":"NICHD","name":"National Institute of Child Health and Human Development","terminology":"ncit"},{"code":"PCDC","name":"Pediatric Cancer Data Commons","terminology":"ncit"},{"code":"PQCMC","name":"Pharmaceutical Quality/Chemistry, Manufacturing, and Controls","terminology":"ncit"},{"code":"UMD2001","name":"Universal Medical Device Nomenclature System, Version 2001","terminology":"ncit"},{"code":"UWDA142","name":"University of Washington Digital Anatomist, Version 1.4.2","terminology":"ncit"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get synonym sources
+
+Return metadata for all synonym sources for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_synonym_sources`
+
+```{.python}
+[{"code":"ACC/AHA","name":"American College of Cardiology / American Heart Association","terminology":"ncit"},{"code":"BIOCARTA","name":"BioCarta online maps of molecular pathways, adapted for NCI use","terminology":"ncit"},{"code":"BRIDG","name":"Biomedical Research Integrated Domain Model Group","terminology":"ncit"},{"code":"BRIDG 3.0.3","name":"Biomedical Research Integrated Domain Model Group, version 3.0.3","terminology":"ncit"},{"code":"BRIDG 5.3","name":"Biomedical Research Integrated Domain Model Group, version 5.3","terminology":"ncit"},{"code":"CBDD","name":"Chemical Biology and Drug Development","terminology":"ncit"},{"code":"CCPS","name":"Childhood Cancer Predisposition Study","terminology":"ncit"},{"code":"CDC","name":"U.S. Centers for Disease Control and Prevention","terminology":"ncit"},{"code":"CDISC","name":"Clinical Data Interchange Standards Consortium","terminology":"ncit"},{"code":"CDISC-GLOSS","name":"CDISC Glossary Terminology","terminology":"ncit"},{"code":"CPTAC","name":"Clinical Proteomic Tumor Analysis Consortium","terminology":"ncit"},{"code":"CRCH","name":"Cancer Research Center of Hawaii Nutrition Terminology","terminology":"ncit"},{"code":"CTCAE","name":"Common Terminology Criteria for Adverse Events","terminology":"ncit"},{"code":"CTCAE 3.0","name":"Common Terminology Criteria for Adverse Events, version 3.0","terminology":"ncit"},{"code":"CTCAE 5.0","name":"Common Terminology Criteria for Adverse Events, version 5.0","terminology":"ncit"},{"code":"CTDC","name":"Clinical Trials Data Commons","terminology":"ncit"},{"code":"CTEP","name":"Cancer Therapy Evaluation Program","terminology":"ncit"},{"code":"CTRP","name":"Clinical Trials Reporting Program","terminology":"ncit"},{"code":"CareLex","name":"CareLex electronic Trial Master File Terminology","terminology":"ncit"},{"code":"Cellosaurus","name":"Cellosaurus - a knowledge resource on cell lines","terminology":"ncit"},{"code":"DCP","name":"NCI Division of Cancer Prevention Program","terminology":"ncit"},{"code":"DICOM","name":"Digital Imaging Communications in Medicine","terminology":"ncit"},{"code":"DTP","name":"NCI Developmental Therapeutics Program","terminology":"ncit"},{"code":"EDQM-HC","name":"European Directorate for the Quality of Medicines & Healthcare","terminology":"ncit"},{"code":"FDA","name":"U.S. Food and Drug Administration","terminology":"ncit"},{"code":"GAIA","name":"Global Alignment of Immunization safety Assessment in pregnancy Terminology","terminology":"ncit"},{"code":"GDC","name":"Genomic Data Commons","terminology":"ncit"},{"code":"GENC","name":"Geopolitical Entities, Names, and Codes Terminology","terminology":"ncit"},{"code":"HGNC","name":"HUGO Gene Nomenclature Committee","terminology":"ncit"},{"code":"HL7","name":"Health Level Seven International","terminology":"ncit"},{"code":"ICDC","name":"International Cancer Genome Consortium","terminology":"ncit"},{"code":"ICH","name":"International Conference on Harmonization","terminology":"ncit"},{"code":"INC","name":"International Neonatal Consortium","terminology":"ncit"},{"code":"JAX","name":"Jackson Laboratories Mouse Terminology, adapted for NCI use","terminology":"ncit"},{"code":"KEGG","name":"KEGG Pathway Database","terminology":"ncit"},{"code":"NCI","name":"National Cancer Institute Thesaurus","terminology":"ncit"},{"code":"NCI-GLOSS","name":"NCI Dictionary of Cancer Terms","terminology":"ncit"},{"code":"NCPDP","name":"National Council for Prescription Drug Programs","terminology":"ncit"},{"code":"NDC","name":"National Drug Code","terminology":"ncit"},{"code":"NICHD","name":"National Institute of Child Health and Human Development","terminology":"ncit"},{"code":"PCDC","name":"Pediatric Cancer Data Commons","terminology":"ncit"},{"code":"PI-RADS","name":"Prostate Imaging-Reporting and Data System","terminology":"ncit"},{"code":"PID","name":"NCI Nature Pathway Interaction Database","terminology":"ncit"},{"code":"RENI","name":"Registry Nomenclature Information System","terminology":"ncit"},{"code":"SEER","name":"Surveillance, Epidemiology, and End Results Program","terminology":"ncit"},{"code":"SeroNet","name":"NCI Serological Sciences Network for COVID-19","terminology":"ncit"},{"code":"UCUM","name":"Unified Code for Units of Measure","terminology":"ncit"},{"code":"WHO","name":"World Health Organization","terminology":"ncit"},{"code":"ZFin","name":"Zebrafish Information Network","terminology":"ncit"},{"code":"caDSR","name":"Cancer Data Standards Registry and Repository","terminology":"ncit"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get synonym types
+
+Return metadata for all synonym types for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_synonym_types`
+
+```{.python}
+[{"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"21.06e"},{"code":"P108","name":"Preferred_Name","terminology":"ncit","version":"21.06e"},{"code":"P107","name":"Display_Name","terminology":"ncit","version":"21.06e"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get synonym types by code
+
+Return metadata for all synonym types for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_synonym_type_by_code`
+
+```{.python}
+{"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"21.06e","synonyms":[{"name":"FULL_SYN","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Synonym with Source Data","termGroup":"SY","type":"FULL_SYN","source":"NCI"},{"name":"Term & Source Data","type":"Display_Name"},{"name":"FULL_SYN","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.","type":"DEFINITION","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#textArea"},{"type":"Semantic_Type","value":"Conceptual Entity"}]}
+```
+
+### Get definition types
+
+Return metadata for all definition types for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_definition_types`
+
+```{.python}
+[{"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"21.06e"},{"code":"P97","name":"DEFINITION","terminology":"ncit","version":"21.06e"}]
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get definition types by code
+
+Return metadata for all definition types for the specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_definition_type_by_code`
+
+```{.python}
+{"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"21.06e","synonyms":[{"name":"ALT_DEFINITION","termGroup":"PT","type":"FULL_SYN","source":"NCI"},{"name":"[source] Definition","type":"Display_Name"},{"name":"ALT_DEFINITION","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing the English language definition of a concept from a source other than NCI.","type":"DEFINITION","source":"NCI"}],"properties":[{"type":"http://www.w3.org/1999/02/22-rdf-syntax-ns#type","value":"http://www.w3.org/2002/07/owl#AnnotationProperty"},{"type":"http://www.w3.org/2000/01/rdf-schema#range","value":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#textArea"},{"type":"Semantic_Type","value":"Conceptual Entity"}]}
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
 ### Get root concepts
 
 Return all root concepts for the specified terminology.
@@ -314,6 +395,8 @@ Command: `pytest test_Concept_Tests.py::test_get_roots`
 ```{.python}
 [{"code":"C12913","name":"Abnormal Cell"},{"code":"C43431","name":"Activity"},{"code":"C12219","name":"Anatomic Structure, System, or Substance"},{"code":"C20633","name":"Biochemical Pathway"},{"code":"C17828","name":"Biological Process"},{"code":"C12218","name":"Chemotherapy Regimen or Agent Combination"},{"code":"C20181","name":"Conceptual Entity"},{"code":"C20047","name":"Diagnostic or Prognostic Factor"},{"code":"C7057","name":"Disease, Disorder or Finding"},{"code":"C1908","name":"Drug, Food, Chemical or Biomedical Material"},{"code":"C22188","name":"Experimental Organism Anatomical Concept"},{"code":"C22187","name":"Experimental Organism Diagnosis"},{"code":"C16612","name":"Gene"},{"code":"C26548","name":"Gene Product"},{"code":"C97325","name":"Manufactured Object"},{"code":"C3910","name":"Molecular Abnormality"},{"code":"C14250","name":"Organism"},{"code":"C20189","name":"Property or Attribute"},{"code":"C28428","name":"Retired Concept"}]
 ```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
 ### Get root paths from code
 
@@ -325,6 +408,8 @@ Command: `pytest test_Concept_Tests.py::test_get_path_to_root_by_code`
 [[{"associations":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"children":[null],"code":"string","definitions":[{"definition":"string","highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"source":"string","type":"string"}],"disjointWith":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"highlight":"string","highlights":{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"},"inverseAssociations":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"inverseRoles":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"leaf":true,"level":0,"maps":[{"targetCode":"string","targetName":"string","targetTermGroup":"string","targetTerminology":"string","targetTerminologyVersion":"string","type":"string"}],"name":"string","parents":[null],"properties":[{"code":"string","highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"type":"string","value":"string"}],"roles":[{"highlight":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"relatedCode":"string","relatedName":"string","type":"string"}],"synonyms":[{"code":"string","highlight":"string","name":"string","qualifiers":[{"code":"string","type":"string","value":"string"}],"source":"string","subSource":"string","termGroup":"string","type":"string"}],"terminology":"string","version":"string"}]]
 ```
 
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
 Return paths from the root concept from a specified terminology and code.
 
 Command: `pytest test_Concept_Tests.py::test_get_path_from_root_by_code`
@@ -332,6 +417,8 @@ Command: `pytest test_Concept_Tests.py::test_get_path_from_root_by_code`
 ```{.python}
 [[{"code":"C7057","name":"Disease, Disorder or Finding","level":0},{"code":"C2991","name":"Disease or Disorder","level":1},{"code":"C3262","name":"Neoplasm","level":2},{"code":"C4741","name":"Neoplasm by Morphology","level":3},{"code":"C7058","name":"Melanocytic Neoplasm","level":4},{"code":"C3224","name":"Melanoma","level":5}],[{"code":"C7057","name":"Disease, Disorder or Finding","level":0},{"code":"C2991","name":"Disease or Disorder","level":1},{"code":"C3262","name":"Neoplasm","level":2},{"code":"C7062","name":"Neoplasm by Special Category","level":3},{"code":"C9305","name":"Malignant Neoplasm","level":4},{"code":"C3224","name":"Melanoma","level":5}]]
 ```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
 ### Get ancestor paths from code
 
@@ -342,6 +429,8 @@ Command: `pytest test_Concept_Tests.py::test_get_ancestor_paths_from_code`
 ```{.python}
 [[{"code":"C3224","name":"Melanoma","level":0},{"code":"C7058","name":"Melanocytic Neoplasm","level":1},{"code":"C4741","name":"Neoplasm by Morphology","level":2},{"code":"C3262","name":"Neoplasm","level":3},{"code":"C2991","name":"Disease or Disorder","level":4}],[{"code":"C3224","name":"Melanoma","level":0},{"code":"C9305","name":"Malignant Neoplasm","level":1},{"code":"C7062","name":"Neoplasm by Special Category","level":2},{"code":"C3262","name":"Neoplasm","level":3},{"code":"C2991","name":"Disease or Disorder","level":4}]]
 ```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
 ### Get subtree
 
@@ -492,6 +581,42 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_and`
 Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
 
 Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_highlights`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get all subsets
+
+Get all subsets for a specified terminology.
+
+Command: `pytest test_Metadata_Tests.py::test_get_subsets`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get subsets by code
+
+Get subset for a specified terminology and code.
+
+Command: `pytest test_Metadata_Tests.py::test_get_subset_by_code`
+
+```{.python}
+(data is too long for display on this page)
+```
+
+[Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
+
+### Get subset members by subset code
+
+Get subset members for a specified terminology and code.
+
+Command: `pytest test_Metadata_Tests.py::test_get_subset_members_by_code`
 
 ```{.python}
 (data is too long for display on this page)
