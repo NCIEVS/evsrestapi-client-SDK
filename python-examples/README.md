@@ -47,20 +47,20 @@ All commands to run these tests should be run from that directory.
 * [Get paths to/from root from code](#get-root-paths-from-code)
 * [Get paths to ancestor from code](#get-ancestor-paths-from-code)
 * [Get subtree](#get-subtree)
-* [Get concepts by search term](#get-concepts)
-* [Get concepts by search term (restrict by concept status)](#get-concepts-restrict-concept-status)
-* [Get concepts by search term (restrict by contributing source)](#get-concepts-restrict-by-contributing-source)
-* [Get concepts by search term (restrict by definition source)](#get-concepts-restrict-by-definition-source)
-* [Get concepts by search term (restrict by definition type)](#get-concepts-restrict-by-definition-type)
-* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-restrict-by-synonym-source)
-* [Get concepts by search term (restrict by synonym type)](#get-concepts-restrict-by-synonym-type)
-* [Get concepts by search term (using type=match)](#get-concepts-match)
-* [Get concepts by search term (using type=startsWith)](#get-concepts-startsWith)
-* [Get concepts by search term (using type=phrase)](#get-concepts-phrase)
-* [Get concepts by search term (using type=fuzzy)](#get-concepts-fuzzy)
-* [Get concepts by search term (using type=OR)](#get-concepts-or)
-* [Get concepts by search term (using type=AND)](#get-concepts-and)
-* [Get concepts by search term (with highlights)](#get-concepts-highlights)
+* [Get concepts by search term](#get-concepts-by-search-term)
+* [Get concepts by search term (restrict by concept status)](#get-concepts-by-search-term-restrict-concept-status)
+* [Get concepts by search term (restrict by contributing source)](#get-concepts-by-search-term-restrict-by-contributing-source)
+* [Get concepts by search term (restrict by definition source)](#get-concepts-by-search-term-restrict-by-definition-source)
+* [Get concepts by search term (restrict by definition type)](#get-concepts-by-search-term-restrict-by-definition-type)
+* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-by-search-term-restrict-by-synonym-source)
+* [Get concepts by search term (restrict by synonym type)](#get-concepts-by-search-term-restrict-by-synonym-type)
+* [Get concepts by search term (using type=match)](#get-concepts-by-search-term-using-type=match)
+* [Get concepts by search term (using type=startsWith)](#get-concepts-by-search-term-using-type=startsWith)
+* [Get concepts by search term (using type=phrase)](#get-concepts-by-search-term-using-type=phrase)
+* [Get concepts by search term (using type=fuzzy)](#get-concepts-by-search-term-using-type=fuzzy)
+* [Get concepts by search term (using type=OR)](#get-concepts-by-search-term-using-type=or)
+* [Get concepts by search term (using type=AND)](#get-concepts-by-search-term-using-type=and)
+* [Get concepts by search term (with highlights)](#get-concepts-by-search-term-with-highlights)
 * [Get concept by subset](#get-concept-by-subset)
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
@@ -136,7 +136,7 @@ Command: `pytest test_Concept_Tests.py::test_get_full_concept_by_code`
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
-### Get concepts by code (custom information)
+### Get concept by code (custom information)
 
 Return custom concept information for a given terminology and code. To show a range of options, in this case, the request asks for synonyms, children, maps, and inverse associations.
 
@@ -615,7 +615,7 @@ Command: `pytest test_Concept_Tests.py::test_get_concept_by_search_term_highligh
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
-### Get concepts by subset
+### Get concept by subset
 
 Get concepts matching a search term within a specified terminology and subset.
 
@@ -639,7 +639,7 @@ Command: `pytest test_Metadata_Tests.py::test_get_subsets`
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
-### Get subsets by code
+### Get subset by code
 
 Get subset for a specified terminology and code.
 
@@ -651,7 +651,7 @@ Command: `pytest test_Metadata_Tests.py::test_get_subset_by_code`
 
 [Back to Top](#EVSRESTAPI-client-SDK-Python-Tutorial)
 
-### Get subset members by subset code
+### Get subset members by code
 
 Get subset members for a specified terminology and code.
 
