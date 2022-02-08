@@ -7,7 +7,7 @@ the range of functionality that the EVSREST API has. Many of these API calls can
 
 ## Prerequisites
 
-* Python 3.5 or higher must be installed. The latest version (3.8) can be found [here](https://www.python.org/downloads/).
+* Python 3.5 or higher must be installed. The latest version can be found [here](https://www.python.org/downloads/).
 
 * All libraries in 'requirements.txt' must be installed.
   * Run the command 'pip install -r requirements.txt' in a console window to check these libraries and install any that are not already installed.
