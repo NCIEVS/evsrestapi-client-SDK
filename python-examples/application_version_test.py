@@ -8,8 +8,8 @@ prodUrl = config['default']['prod-url']
 terminology = config['default']['terminology']
 
 
-def test_get_version(): # Return all loaded terminologies currently hosted by the API.
-    logging.info("test_ApplicationVersion_Test.py: Get Application Version");
+def get_version(): # Return all loaded terminologies currently hosted by the API.
+    logging.info("application_version_test.py: Get Application Version");
     logging.info("url = " + prodUrl.replace("/api/v1","") + "/version");
     response = requests.get(prodUrl.replace("/api/v1","") + "/version");
     assert response.status_code == requests.codes.ok;
