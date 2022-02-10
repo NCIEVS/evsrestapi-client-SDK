@@ -1,6 +1,8 @@
 import configparser
+import json
 import logging
 import requests
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -13,5 +15,6 @@ def test_get_version(): # Return all loaded terminologies currently hosted by th
     logging.info("url = " + prodUrl.replace("/api/v1","") + "/version");
     response = requests.get(prodUrl.replace("/api/v1","") + "/version");
     assert response.status_code == requests.codes.ok;
-    logging.info(response.text);
+    pretty_print = json.loads(response.text);
+    logging.info(json.dumps(pretty_print, indent=2));
     
