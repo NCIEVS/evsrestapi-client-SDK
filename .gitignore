@@ -9,3 +9,4 @@ setenv.sh
 bin/
 __pycache__
 /build/
+python-examples/logs.txt
