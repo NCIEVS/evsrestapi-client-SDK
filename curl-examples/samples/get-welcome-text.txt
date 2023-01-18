@@ -1,0 +1,70 @@
+<p>
+    NCI Thesaurus (NCIt) provides reference terminology for many
+    NCI and other systems. It covers vocabulary for clinical care,
+    translational and basic research, and public information and
+    administrative activities.
+</p>
+<br />
+<div class="welcome-title-small">
+    NCIt features:
+</div>
+<ul>
+    <li>
+        Stable, unique codes for biomedical concepts.
+    </li>
+    <li>
+        Preferred terms, synonyms, research codes, external source codes, and other
+        information.
+    </li>
+    <li>
+        Over 100,000 textual definitions.
+    </li>
+    <li>
+        Over 400,000 cross-links between concepts, providing formal logic-based definition of
+        many concepts.
+    </li>
+    <li>
+        Extensive content integrated from NCI and other partners, much available as separate
+        NCIt <a [routerLink]="['/subsets', getTerminology()]" target="_top"
+            class="regular-link">subsets</a>
+    </li>
+    <li>
+        Updated frequently by a team of subject matter experts.
+    </li>
+</ul>
+<p>
+    NCIt is a widely recognized standard for biomedical coding and reference, used by a
+    broad variety of public
+    and private partners both nationally
+    and internationally including the Clinical Data Interchange Standards Consortium
+    Terminology (CDISC), the
+    U.S. Food and Drug Administration (FDA),
+    the Federal Medication Terminologies (FMT), and the National Council for Prescription
+    Drug Programs (NCPDP).
+</p>
+<p>
+    Term Suggestion Form:
+    <a href="https://ncitermform.nci.nih.gov/ncitermform/?dictionary=NCI" target="_blank"
+        class="regular-link">https://ncitermform.nci.nih.gov/ncitermform/?dictionary=NCI</a>
+</p>
+
+<p>
+    Download:
+    <a href="https://evs.nci.nih.gov/ftp1/NCI_Thesaurus" target="_blank"
+        class="regular-link">https://evs.nci.nih.gov/ftp1/NCI_Thesaurus</a>
+</p>
+
+<p>
+    More Information:
+    <a href="https://wiki.nci.nih.gov/x/lAVy" target="_blank" class="regular-link">
+        https://wiki.nci.nih.gov/x/lAVy
+    </a>
+</p>
+
+<p>
+    NCIt Terms of Service:
+    <a href="https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm" target="_blank"
+        class="regular-link">
+        https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm
+    </a>
+</p>

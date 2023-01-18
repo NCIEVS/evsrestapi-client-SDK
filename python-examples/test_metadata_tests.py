@@ -168,3 +168,11 @@ def test_get_subset_members_by_code(): # Return subset members paging parameters
     pretty_print = json.loads(response.text);
     logging.info(json.dumps(pretty_print, indent=2));
 
+def test_get_welcome_text(): # Return welcome text for a given terminology.
+    logging.info("test_metadata_tests.py: Get Welcome Text");
+    logging.info("url = " + prodUrl + "/metadata/ncit/welcomeText");
+    response = requests.get(prodUrl + "/metadata/ncit/welcomeText");
+    assert response.status_code == requests.codes.ok;
+    pretty_print = json.loads(response.text);
+    logging.info(json.dumps(pretty_print, indent=2));
+    

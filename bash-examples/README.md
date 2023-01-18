@@ -5,6 +5,7 @@ This tutorial shows how to use bash scripts to access NCI Thesaurus content from
 
 Prerequisites
 -------------
+
 * bash must be installed
 * curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
 * jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
@@ -13,22 +14,24 @@ The various scripts make use of the local `url.env` file to define the EVSRESTAP
 
 Test Scripts
 ------------
-- [get-terminologies.sh](#get-terminologiessh)
-- [get-concept.sh](#get-conceptsh)
-- [get-concept-part.sh](#get-concept-partsh)
-- [find-concepts.sh](#find-conceptssh)
-- [get-descendants.sh](#get-descendantssh)
-- [get-subtree.sh](#get-subtreesh)
-- [get-paths.sh](#get-pathssh)
-- [get-association.sh](#get-conceptsh)
-- [get-role.sh](#get-rolesh)
-- [get-property.sh](#get-propertysh)
-- [get-qualifier.sh](#get-qualifiersh)
-- [get-term-types.sh](#get-term-typessh)
-- [get-synonym-sources.sh](#get-synonym-sourcessh)
-- [get-synonym-types.sh](#get-synonym-typessh)
-- [get-definition-types.sh](#get-definition-typessh)
-- [get-subsets.sh](#get-subsetssh)
+
+* [get-terminologies.sh](#get-terminologiessh)
+* [get-concept.sh](#get-conceptsh)
+* [get-concept-part.sh](#get-concept-partsh)
+* [find-concepts.sh](#find-conceptssh)
+* [get-descendants.sh](#get-descendantssh)
+* [get-subtree.sh](#get-subtreesh)
+* [get-paths.sh](#get-pathssh)
+* [get-association.sh](#get-conceptsh)
+* [get-role.sh](#get-rolesh)
+* [get-property.sh](#get-propertysh)
+* [get-qualifier.sh](#get-qualifiersh)
+* [get-term-types.sh](#get-term-typessh)
+* [get-synonym-sources.sh](#get-synonym-sourcessh)
+* [get-synonym-types.sh](#get-synonym-typessh)
+* [get-definition-types.sh](#get-definition-typessh)
+* [get-subsets.sh](#get-subsetssh)
+* [get-welcome-text.sh](#get-welcome-text)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -39,7 +42,7 @@ filter the results by terminology, by latest flag, and by tags associated with
 the terminology (primarily for ncit "monthly" and "weekly").  This example returns
 the latest monthly version of NCI Thesaurus.
 
-```
+```text
 $ ./get-terminologies.sh  --terminology ncit --latest true --tag monthly
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:06:30 PM
@@ -122,6 +125,7 @@ utes of Health, Bethesda, MD 20892, U.S.A.",
 Finished ...Tue, Dec  7, 2021  5:06:31 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept.sh
@@ -130,7 +134,7 @@ Return concept information for a specified terminology and code.  The "include" 
 can be used to specify the amount of information you want back.  Try with "minimal",
 "summary", and "full".
 
-```
+```text
 $ ./get-concept.sh ncit C3224 --include minimal
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:08:01 PM
@@ -156,10 +160,10 @@ Finished ...Tue, Dec  7, 2021  5:08:02 PM
 ```
 
 This script can also concept information for a list of concept codes.  
-The "include" parameter can be used to specify the amount of information you 
+The "include" parameter can be used to specify the amount of information you
 want back.  Try with "minimal", "summary", and "full".
 
-```
+```text
 $ ./get-concept.sh ncit C3224,C3910 --include minimal
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:08:30 PM
@@ -192,6 +196,7 @@ include  = minimal
 Finished ...Tue, Dec  7, 2021  5:08:31 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept-part.sh
@@ -201,7 +206,7 @@ children, parents, roles, associations, inverseRoles, inverseAssociations, maps,
 and disjointWith. The following examples shows the "children", but this parameter
 could be easily replaced by any of the options listed above.
 
-```
+```text
 $ ./get-concept-part.sh ncit C3224 children
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:09:34 PM
@@ -305,6 +310,7 @@ part = children
 Finished ...Tue, Dec  7, 2021  5:09:35 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### find-concepts.sh
@@ -313,9 +319,9 @@ Used to perform text searches to find matching concepts. In its simplest form th
 script will perform a simple "contains" text search for concepts within the specified
 terminology.  Use the --include parameter to control how much information to get back,
 use the --type to change the nature of the search, and use --fromRecord and --pageSize
-to control which records to return. 
+to control which records to return.
 
-```
+```text
 $ ./find-concepts.sh ncit "malignant melanoma" --pageSize 5
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:09:59 PM
@@ -383,6 +389,7 @@ include =
 Finished ...Tue, Dec  7, 2021  5:10:00 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-descendants.sh
@@ -391,7 +398,7 @@ Used to get descendant graph for a specified terminology and code.
 The --fromRecord and --pageSize parameters allow the descendant list to
 be paged for very large results.  This example shows just five descendants.
 
-```
+```text
 $ ./get-descendants.sh ncit C3224 --pageSize 5
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:10:45 PM
@@ -442,13 +449,14 @@ pageSize = 5
 Finished ...Tue, Dec  7, 2021  5:10:46 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-subtree.sh
 
 Used to get the entire subtree from the root node to the specified code, for a specified terminology. The result includes the sibling nodes at each level as well.
 
-```
+```text
 $ ./get-subtree.sh ncit C3224
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:12:05 PM
@@ -486,7 +494,7 @@ Finished ...Tue, Dec  7, 2021  5:12:07 PM
 
 Can also be used to get the children subtree nodes for the specified code. For example:
 
-```
+```text
 $ ./get-subtree.sh ncit C3224 --children
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:13:50 PM
@@ -590,6 +598,7 @@ code = C3224
 Finished ...Tue, Dec  7, 2021  5:13:51 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-paths.sh
@@ -598,7 +607,7 @@ Return information about root codes, paths to root codes, or paths from
 a code to an ancestor code.  In its simplest form, the script will return
 a list of root concepts.
 
-```
+```text
 $ ./get-paths.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:14:26 PM
@@ -752,11 +761,11 @@ Finished ...Tue, Dec  7, 2021  5:14:28 PM
 -----------------------------------------------------
 ```
 
-By specifying a code, the script will produce a list of paths from that 
+By specifying a code, the script will produce a list of paths from that
 code to the corresponding root concept.  There may be more than one path through
 the tree.
 
-```
+```text
 $ ./get-paths.sh ncit C3224
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:14:50 PM
@@ -877,11 +886,11 @@ Finished ...Tue, Dec  7, 2021  5:14:52 PM
 -----------------------------------------------------
 ```
 
-By specifying a code and an optional ancestor code, the script will produce a list of 
-paths from that code to the corresponding ancestor code.  There may be more than one 
+By specifying a code and an optional ancestor code, the script will produce a list of
+paths from that code to the corresponding ancestor code.  There may be more than one
 path through the tree.
 
-```
+```text
 $ ./get-paths.sh ncit C3224 --anc C2991
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:15:13 PM
@@ -985,6 +994,7 @@ include =
 Finished ...Tue, Dec  7, 2021  5:15:15 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-association.sh
@@ -992,7 +1002,7 @@ Finished ...Tue, Dec  7, 2021  5:15:15 PM
 Return information about associations for a specified terminology.  In its simplest form,
 this script will return basic information about all associations for a terminology.
 
-```
+```text
 $ ./get-association.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:15:39 PM
@@ -1252,10 +1262,10 @@ Finished ...Tue, Dec  7, 2021  5:15:40 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single association (by code or label), 
+The script can also return information about a single association (by code or label),
 or a list of associations.
 
-```
+```text
 $ ./get-association.sh ncit A10
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:16:12 PM
@@ -1281,7 +1291,7 @@ Finished ...Tue, Dec  7, 2021  5:16:14 PM
 
 Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
-```
+```text
 $ ./get-association.sh ncit Role_Has_Domain --include synonyms
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:16:28 PM
@@ -1320,6 +1330,7 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:16:29 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-role.sh
@@ -1327,7 +1338,7 @@ Finished ...Tue, Dec  7, 2021  5:16:29 PM
 Return information about roles for a specified terminology.  In its simplest form,
 this script will return basic information about all roles for a terminology.
 
-```
+```text
 $ ./get-role.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:16:46 PM
@@ -1923,10 +1934,10 @@ Finished ...Tue, Dec  7, 2021  5:16:47 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single role (by code or label), 
+The script can also return information about a single role (by code or label),
 or a list of role.
 
-```
+```text
 $ ./get-role.sh ncit R156
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:17:27 PM
@@ -1952,7 +1963,7 @@ Finished ...Tue, Dec  7, 2021  5:17:28 PM
 
 Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
-```
+```text
 $ ./get-role.sh ncit Allele_Has_Abnormality --include synonyms
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:17:41 PM
@@ -1991,6 +2002,7 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:17:43 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-property.sh
@@ -1998,7 +2010,7 @@ Finished ...Tue, Dec  7, 2021  5:17:43 PM
 Return information about properties for a specified terminology.  In its simplest form,
 this script will return basic information about all properties for a terminology.
 
-```
+```text
 $ ./get-property.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:17:58 PM
@@ -2396,10 +2408,10 @@ Finished ...Tue, Dec  7, 2021  5:17:59 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single property (by code or label), 
+The script can also return information about a single property (by code or label),
 or a list of property.
 
-```
+```text
 $ ./get-property.sh ncit P302
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:19:18 PM
@@ -2425,7 +2437,7 @@ Finished ...Tue, Dec  7, 2021  5:19:20 PM
 
 Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
-```
+```text
 $ ./get-property.sh ncit Accepted_Therapeutic_Use_For --include synonyms
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:19:36 PM
@@ -2464,6 +2476,7 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:19:37 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-qualifier.sh
@@ -2471,7 +2484,7 @@ Finished ...Tue, Dec  7, 2021  5:19:37 PM
 Return information about qualifiers for a specified terminology.  In its simplest form,
 this script will return basic information about all qualifiers for a terminology.
 
-```
+```text
 $ ./get-qualifier.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:19:56 PM
@@ -2521,10 +2534,10 @@ Finished ...Tue, Dec  7, 2021  5:19:57 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single qualifier (by code or label), 
+The script can also return information about a single qualifier (by code or label),
 or a list of qualifier.
 
-```
+```text
 $ ./get-qualifier.sh  ncit P389
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:20:13 PM
@@ -2550,7 +2563,7 @@ Finished ...Tue, Dec  7, 2021  5:20:14 PM
 
 Another example using a label instead of a code and the "include" flag to get only additional synonyms.
 
-```
+```text
 $ ./get-qualifier.sh ncit go-evi --include synonyms
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:20:32 PM
@@ -2579,13 +2592,14 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:20:33 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-term-types.sh
 
 Return information about term types for a specified terminology.
 
-```
+```text
 $ ./get-term-types.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:20:53 PM
@@ -2682,13 +2696,14 @@ terminology = ncit
 Finished ...Tue, Dec  7, 2021  5:20:57 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-synonym-sources.sh
 
 Return information about synonym sources for a specified terminology.
 
-```
+```text
 $ ./get-synonym-sources.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:21:17 PM
@@ -2963,13 +2978,14 @@ terminology = ncit
 Finished ...Tue, Dec  7, 2021  5:21:18 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-synonym-types.sh
 
 Return information about all synonym types for a specified terminology.
 
-```
+```text
 $ ./get-synonym-types.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:21:41 PM
@@ -3009,7 +3025,7 @@ Finished ...Tue, Dec  7, 2021  5:21:42 PM
 
 Return information about a specific synonym type for a specified terminology.
 
-```
+```text
 $ ./get-synonym-types.sh ncit P90 --include summary
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:24:11 PM
@@ -3075,13 +3091,14 @@ include = summary
 Finished ...Tue, Dec  7, 2021  5:24:12 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-definition-types.sh
 
 Return information about all definition types for a specified terminology.
 
-```
+```text
 $ ./get-definition-types.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:23:06 PM
@@ -3115,7 +3132,7 @@ Finished ...Tue, Dec  7, 2021  5:23:07 PM
 
 Return information about a specific definition type for a specified terminology.
 
-```
+```text
 $ ./get-definition-types.sh ncit P325 --include summary
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:23:49 PM
@@ -3175,6 +3192,7 @@ include = summary
 Finished ...Tue, Dec  7, 2021  5:23:50 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-subsets.sh
@@ -3183,7 +3201,7 @@ Return information about all subsets for the specified terminology. The result
 includes the hierarchical structure of the subsets where they have parent/child
 relationships.
 
-```
+```text
 $ ./get-subsets.sh ncit
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:24:33 PM
@@ -3227,7 +3245,7 @@ Finished ...Tue, Dec  7, 2021  5:25:14 PM
 
 Return information about a single subset for a specified terminology and code.
 
-```
+```text
 $ ./get-subsets.sh ncit C81222
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:25:24 PM
@@ -3670,7 +3688,7 @@ Finished ...Tue, Dec  7, 2021  5:25:26 PM
 
 Return subset members for a specified terminology and code.
 
-```
+```text
 $ ./get-subsets.sh ncit C81222 --members --fromRecord 0 --pageSize 10
 -----------------------------------------------------
 Starting ...Tue, Dec  7, 2021  5:26:06 PM
@@ -3739,4 +3757,100 @@ members = 1
 Finished ...Tue, Dec  7, 2021  5:26:07 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-welcome-text.sh
+
+Return welcome text from specific terminology.
+
+```text
+$ ./get-welcome-text.sh ncit
+ncit
+-----------------------------------------------------
+Starting ...Wed, Jan 18, 2023 11:26:43 AM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+
+Get terminology welcome text
+```
+
+```html
+<p>
+    NCI Thesaurus (NCIt) provides reference terminology for many
+    NCI and other systems. It covers vocabulary for clinical care,
+    translational and basic research, and public information and
+    administrative activities.
+</p>
+<br />
+<div class="welcome-title-small">
+    NCIt features:
+</div>
+<ul>
+    <li>
+        Stable, unique codes for biomedical concepts.
+    </li>
+    <li>
+        Preferred terms, synonyms, research codes, external source codes, and other
+        information.
+    </li>
+    <li>
+        Over 100,000 textual definitions.
+    </li>
+    <li>
+        Over 400,000 cross-links between concepts, providing formal logic-based definition of
+        many concepts.
+    </li>
+    <li>
+        Extensive content integrated from NCI and other partners, much available as separate
+        NCIt <a [routerLink]="['/subsets', getTerminology()]" target="_top"
+            class="regular-link">subsets</a>
+    </li>
+    <li>
+        Updated frequently by a team of subject matter experts.
+    </li>
+</ul>
+<p>
+    NCIt is a widely recognized standard for biomedical coding and reference, used by a
+    broad variety of public
+    and private partners both nationally
+    and internationally including the Clinical Data Interchange Standards Consortium
+    Terminology (CDISC), the
+    U.S. Food and Drug Administration (FDA),
+    the Federal Medication Terminologies (FMT), and the National Council for Prescription
+    Drug Programs (NCPDP).
+</p>
+<p>
+    Term Suggestion Form:
+    <a href="https://ncitermform.nci.nih.gov/ncitermform/?dictionary=NCI" target="_blank"
+        class="regular-link">https://ncitermform.nci.nih.gov/ncitermform/?dictionary=NCI</a>
+</p>
+
+<p>
+    Download:
+    <a href="https://evs.nci.nih.gov/ftp1/NCI_Thesaurus" target="_blank"
+        class="regular-link">https://evs.nci.nih.gov/ftp1/NCI_Thesaurus</a>
+</p>
+
+<p>
+    More Information:
+    <a href="https://wiki.nci.nih.gov/x/lAVy" target="_blank" class="regular-link">
+        https://wiki.nci.nih.gov/x/lAVy
+    </a>
+</p>
+
+<p>
+    NCIt Terms of Service:
+    <a href="https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm" target="_blank"
+        class="regular-link">
+        https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm
+    </a>
+</p>
+```
+
+```text
+-----------------------------------------------------
+Ending ...Wed, Jan 18, 2023 11:26:46 AM
+-----------------------------------------------------
+```
