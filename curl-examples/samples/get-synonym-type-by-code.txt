@@ -2,7 +2,7 @@
   "code": "P90",
   "name": "FULL_SYN",
   "terminology": "ncit",
-  "version": "21.04d",
+  "version": "21.11e",
   "synonyms": [
     {
       "name": "Term & Source Data",

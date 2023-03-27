@@ -1,5 +1,7 @@
 {
   "code": "C3224",
   "name": "Melanoma",
-  "terminology": "ncit"
+  "terminology": "ncit",
+  "version": "21.11e",
+  "leaf": false
 }

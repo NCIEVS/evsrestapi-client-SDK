@@ -3,64 +3,100 @@
     {
       "code": "C3224",
       "name": "Melanoma",
-      "level": 0
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 0,
+      "leaf": false
     },
     {
       "code": "C7058",
       "name": "Melanocytic Neoplasm",
-      "level": 1
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 1,
+      "leaf": false
     },
     {
       "code": "C4741",
       "name": "Neoplasm by Morphology",
-      "level": 2
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 2,
+      "leaf": false
     },
     {
       "code": "C3262",
       "name": "Neoplasm",
-      "level": 3
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 3,
+      "leaf": false
     },
     {
       "code": "C2991",
       "name": "Disease or Disorder",
-      "level": 4
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 4,
+      "leaf": false
     },
     {
       "code": "C7057",
       "name": "Disease, Disorder or Finding",
-      "level": 5
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 5,
+      "leaf": false
     }
   ],
   [
     {
       "code": "C3224",
       "name": "Melanoma",
-      "level": 0
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 0,
+      "leaf": false
     },
     {
       "code": "C9305",
       "name": "Malignant Neoplasm",
-      "level": 1
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 1,
+      "leaf": false
     },
     {
       "code": "C7062",
       "name": "Neoplasm by Special Category",
-      "level": 2
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 2,
+      "leaf": false
     },
     {
       "code": "C3262",
       "name": "Neoplasm",
-      "level": 3
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 3,
+      "leaf": false
     },
     {
       "code": "C2991",
       "name": "Disease or Disorder",
-      "level": 4
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 4,
+      "leaf": false
     },
     {
       "code": "C7057",
       "name": "Disease, Disorder or Finding",
-      "level": 5
+      "terminology": "ncit",
+      "version": "21.11e",
+      "level": 5,
+      "leaf": false
     }
   ]
 ]

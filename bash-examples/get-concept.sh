@@ -86,10 +86,10 @@ if  [[ $file -eq 1 ]]; then
 
 else
   if  [[ $code =~ "," ]]; then
-  echo "  Get roles for $terminology $code:"
+  echo "  Get concepts for $terminology $code:"
     curl -v -w "\n%{http_code}" -G "$url/concept/$terminology" --data-urlencode "list=$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
   else
-  echo "  Get role for $terminology $code:"
+  echo "  Get concept for $terminology $code:"
     curl -v -w "\n%{http_code}" -G "$url/concept/$terminology/$code" --data-urlencode "include=$include" 2> /dev/null > /tmp/x.$$
   fi
   
