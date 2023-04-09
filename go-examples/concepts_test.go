@@ -148,3 +148,80 @@ func TestGetSubtree(t *testing.T) {
 	ProcessData(url)
 
 }
+
+// Get concepts matching a search term within a specified terminology.
+func TestGetConceptBySearchTerm(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get concept by search term")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by concept status of "Header_Concept".
+func TestGetConceptByConceptStatus(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by Concept Status")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=respiratory&conceptStatus=Header_Concept\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=respiratory&conceptStatus=Header_Concept"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of "CDISC".
+func TestGetConceptByContributingSource(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by contributing source")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by a definition source of "NCI".
+func TestGetConceptByDefinitionSource(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by definition source")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by a by a definition type of "P97".
+func TestGetConceptByDefinitionType(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by definition source")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=P97\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=P97"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
+func TestGetConceptBySynonymSource(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by synonym source")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and restrict the search results by a synonym type of "FULL_SYN".
+func TestGetConceptBySynonymType(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by synonym type")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN"
+
+	ProcessData(url)
+}

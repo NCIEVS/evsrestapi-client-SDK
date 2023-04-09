@@ -14,7 +14,7 @@ The various scripts make use of the `go-examples/config.ini` file to load necess
 ## Sample Go Calls
 
 The following examples are exhibited by various unit tests defined in the code in `go-examples`.
-All commands to run these tests should be run from that directory.
+All commands to run these tests should be run from that directory. It may be necessary to move the console into that directory from the top level with the command `cd go-examples`.
 
 A script file (containing multiple test scripts) can be run with the following command from the go-examples directory:
 
@@ -30,7 +30,7 @@ go test <file name> <test name>
 e.g. go test -v -run main.go applicationVersion_test.go TestGetVersion
 ```
 
-All tests can be run with the command 'go -v test *.go'
+All tests can be run with the command 'go test -v *.go'
 
 * [Get terminologies](#get-terminologies)
 * [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
@@ -651,10 +651,18 @@ ok      EVSRESTAPI-tests        0.786s
 
 Get concepts matching a search term within a specified terminology.
 
-Command: go test -v -run test_get_concept`
+Command: go test -v -run TestGetConceptBySearchTerm`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTerm
+concept_test.go: Get concept by search term
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=melanoma
+
+{"total":1455,"timeTaken":252,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C160667","name":"Melanoma and Non-Melanoma Related Event Occurred after Initial Treatment","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C157920","name":"Melanoma Surgery","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C1830","name":"Melanoma Theraccine","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C2517","name":"Melanoma Vaccine","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C46091","name":"Melanoma Biomarker","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C36873","name":"Melanoma Cell","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptBySearchTerm (1.06s)
+PASS
+ok      EVSRESTAPI-tests        1.094s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -663,10 +671,18 @@ Command: go test -v -run test_get_concept`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by concept status of "Header_Concept".
 
-Command: go test -v -run test_get_concept_by_concept_status`
+Command: go test -v -run TestGetConceptByConceptStatus`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptByConceptStatus
+concept_test.go: Get Concept by Concept Status
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=respiratory&conceptStatus=Header_Concept
+
+{"total":1,"timeTaken":100,"parameters":{"term":"respiratory","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"conceptStatus":["Header_Concept"],"terminology":["ncit"]},"concepts":[{"code":"C13037","name":"Respiratory System Part","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptByConceptStatus (0.91s)
+PASS
+ok      EVSRESTAPI-tests        0.949s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -675,10 +691,19 @@ Command: go test -v -run test_get_concept_by_concept_status`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a contributing source of "CDISC".
 
-Command: go test -v -run test_get_concept_by_contributing_source`
+Command: go test -v -run TestGetConceptByContributingSource`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptByContributingSource
+concept_test.go: Get Concept by contributing source
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC
+
+{"total":1455,"timeTaken":75,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C160667","name":"Melanoma and Non-Melanoma Related 
+Event Occurred after Initial Treatment","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C157920","name":"Melanoma Surgery","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C1830","name":"Melanoma Theraccine","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C2517","name":"Melanoma Vaccine","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C46091","name":"Melanoma Biomarker","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C36873","name":"Melanoma Cell","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptByContributingSource (0.90s)
+PASS
+ok      EVSRESTAPI-tests        0.935s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -687,10 +712,18 @@ Command: go test -v -run test_get_concept_by_contributing_source`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition source of "NCI".
 
-Command: go test -v -run test_get_concept_by_definition_source`
+Command: go test -v -run TestGetConceptByDefinitionSource`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptByDefinitionSource
+concept_test.go: Get Concept by definition source
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI
+
+{"total":1333,"timeTaken":115,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"definitionSource":["NCI"],"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C160667","name":"Melanoma and Non-Melanoma Related Event Occurred after Initial Treatment","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C157920","name":"Melanoma Surgery","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C1830","name":"Melanoma Theraccine","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C46091","name":"Melanoma Biomarker","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C104498","name":"Melanoma-Associated Antigen 10","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C104501","name":"Melanoma-Associated Antigen 2","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156749","name":"Melanoma Risk Factor","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C176905","name":"Melanoma-Astrocytoma Syndrome","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptByDefinitionSource (0.98s)
+PASS
+ok      EVSRESTAPI-tests        1.020s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -699,10 +732,18 @@ Command: go test -v -run test_get_concept_by_definition_source`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition type of "P97".
 
-Command: go test -v -run test_get_concept_by_definition_type`
+Command: go test -v -run TestGetConceptByDefinitionType`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptByDefinitionType
+concept_test.go: Get Concept by definition source
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=P97
+
+{"total":1333,"timeTaken":87,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"definitionType":["P97"],"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C160667","name":"Melanoma and Non-Melanoma Related Event Occurred after Initial Treatment","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C157920","name":"Melanoma Surgery","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C1830","name":"Melanoma Theraccine","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C46091","name":"Melanoma Biomarker","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C104498","name":"Melanoma-Associated Antigen 10","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C104501","name":"Melanoma-Associated Antigen 2","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156749","name":"Melanoma Risk Factor","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C176905","name":"Melanoma-Astrocytoma Syndrome","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptByDefinitionType (0.88s)
+PASS
+ok      EVSRESTAPI-tests        0.916s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -711,10 +752,18 @@ Command: go test -v -run test_get_concept_by_definition_type`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
 
-Command: go test -v -run test_get_concept_by_synonym_source`
+Command: go test -v -run TestGetConceptBySynonymSource`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySynonymSource
+concept_test.go: Get Concept by synonym source
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT
+
+{"total":12,"timeTaken":86,"parameters":{"term":"dsDNA","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"synonymSource":["NCI"],"terminology":["ncit"]},"concepts":[{"code":"C449","name":"DNA","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C14348","name":"Double Stranded DNA Virus","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C114565","name":"Anti-ds DNA Antibody","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C148186","name":"TALEN-edited HPV16/18 E6/E7 Plasmid","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C121337","name":"Systemic Lupus International Collaborating Clinics Classification Criteria","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C151956","name":"HPV16-E6-T27","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C151958","name":"HPV16-E7-T512","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C16517","name":"DNA Helicase","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C3201","name":"Systemic Lupus Erythematosus","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C158432","name":"PicoGreen Dye","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySynonymSource (0.92s)
+PASS
+ok      EVSRESTAPI-tests        0.946s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -723,10 +772,18 @@ Command: go test -v -run test_get_concept_by_synonym_source`
 
 Get concepts matching a search term within a specified terminology and restrict the search results by a synonym type of "FULL_SYN".
 
-Command: go test -v -run test_get_concept_by_synonym_type`
+Command: go test -v -run TestGetConceptBySynonymType`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySynonymType
+concept_test.go: Get Concept by synonym type
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN
+
+{"total":12,"timeTaken":26,"parameters":{"term":"dsDNA","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"synonymType":["FULL_SYN"],"terminology":["ncit"]},"concepts":[{"code":"C449","name":"DNA","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C14348","name":"Double Stranded DNA Virus","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C114565","name":"Anti-ds DNA Antibody","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C3201","name":"Systemic Lupus Erythematosus","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C121337","name":"Systemic Lupus International Collaborating Clinics Classification Criteria","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C148186","name":"TALEN-edited HPV16/18 E6/E7 Plasmid","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C151956","name":"HPV16-E6-T27","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C151958","name":"HPV16-E7-T512","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C158432","name":"PicoGreen Dye","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C16517","name":"DNA Helicase","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptBySynonymType (0.82s)
+PASS
+ok      EVSRESTAPI-tests        0.854s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -735,7 +792,7 @@ Command: go test -v -run test_get_concept_by_synonym_type`
 
 Get concepts matching a search term within a specified terminology and a search type of "match".
 
-Command: go test -v -run test_get_concept_by_search_term_match`
+Command: go test -v -run TestGetConceptBySearchTermMatch`
 
 ```{.go}
 (data is too long for display on this page)
@@ -747,7 +804,7 @@ Command: go test -v -run test_get_concept_by_search_term_match`
 
 Get concepts matching a search term within a specified terminology and a search type of "startsWith".
 
-Command: go test -v -run test_get_concept_by_search_term_starts_with`
+Command: go test -v -run TestGetConceptBySearchTermStartsWith`
 
 ```{.go}
 (data is too long for display on this page)
@@ -759,7 +816,7 @@ Command: go test -v -run test_get_concept_by_search_term_starts_with`
 
 Get concepts matching a search term within a specified terminology and a search type of "phrase".
 
-Command: go test -v -run test_get_concept_by_search_term_phrase`
+Command: go test -v -run TestGetConceptBySearchTermPhrase`
 
 ```{.go}
 (data is too long for display on this page)
@@ -771,7 +828,7 @@ Command: go test -v -run test_get_concept_by_search_term_phrase`
 
 Get concepts matching a search term within a specified terminology and a search type of "fuzzy".
 
-Command: go test -v -run test_get_concept_by_search_term_fuzzy`
+Command: go test -v -run TestGetConceptBySearchTermFuzzy`
 
 ```{.go}
 (data is too long for display on this page)
@@ -783,7 +840,7 @@ Command: go test -v -run test_get_concept_by_search_term_fuzzy`
 
 Get concepts matching a search term within a specified terminology and a search type of "or".
 
-Command: go test -v -run test_get_concept_by_search_term_or`
+Command: go test -v -run TestGetConceptBySearchTermOr`
 
 ```{.go}
 (data is too long for display on this page)
@@ -795,7 +852,7 @@ Command: go test -v -run test_get_concept_by_search_term_or`
 
 Get concepts matching a search term within a specified terminology and a search type of "and".
 
-Command: go test -v -run test_get_concept_by_search_term_and`
+Command: go test -v -run TestGetConceptBySearchTermAnd`
 
 ```{.go}
 (data is too long for display on this page)
@@ -807,7 +864,7 @@ Command: go test -v -run test_get_concept_by_search_term_and`
 
 Get concepts matching a search term within a specified terminology and include synonyms and highlighted text in the response.
 
-Command: go test -v -run test_get_concept_by_search_term_highlights`
+Command: go test -v -run TestGetConceptBySearchTermHighlights`
 
 ```{.go}
 (data is too long for display on this page)
@@ -819,7 +876,7 @@ Command: go test -v -run test_get_concept_by_search_term_highlights`
 
 Get concepts matching a search term within a specified terminology and subset.
 
-Command: go test -v -run test_get_concept_by_subset`
+Command: go test -v -run TestGetConceptBySubset`
 
 ```{.go}
 (data is too long for display on this page)
@@ -831,7 +888,7 @@ Command: go test -v -run test_get_concept_by_subset`
 
 Get all subsets for a specified terminology.
 
-Command: go test -v -run test_get_subsets`
+Command: go test -v -run TestGetSubsets`
 
 ```{.go}
 (data is too long for display on this page)
@@ -843,7 +900,7 @@ Command: go test -v -run test_get_subsets`
 
 Get subset for a specified terminology and code.
 
-Command: go test -v -run test_get_subset_by_code`
+Command: go test -v -run TestGetSubsetsByCode`
 
 ```{.go}
 (data is too long for display on this page)
@@ -855,7 +912,7 @@ Command: go test -v -run test_get_subset_by_code`
 
 Get subset members for a specified terminology and code.
 
-Command: go test -v -run test_get_subset_members_by_code`
+Command: go test -v -run TestGetSubsetMembersByCode`
 
 ```{.go}
 (data is too long for display on this page)
