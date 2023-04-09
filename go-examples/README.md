@@ -795,7 +795,15 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermMatch`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermMatch
+concept_test.go: Get Concept by search term match
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=match
+
+{"total":2205,"timeTaken":156,"parameters":{"term":"enzyme,match","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C131675","name":"Matched Related Donor","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C131676","name":"Matched Unrelated Donor","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147466","name":"Enzyme-Linked Lectin Assay","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C168821","name":"Match at Both HLA Alleles","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C172251","name":"MATCH Step at Time of Assignment","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySearchTermMatch (0.95s)
+PASS
+ok      EVSRESTAPI-tests        0.979s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -807,7 +815,15 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermStartsWith`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermStartsWith
+concept_test.go: Get Concept by search term startsWith
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=startsWith
+
+{"total":2021,"timeTaken":58,"parameters":{"term":"enzyme,startsWith","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147466","name":"Enzyme-Linked Lectin Assay","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C175212","name":"Enzyme-inducing Antiepileptic Drug","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180669","name":"Enzyme Substrate","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySearchTermStartsWith (0.74s)
+PASS
+ok      EVSRESTAPI-tests        0.776s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -819,7 +835,15 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermPhrase`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermPhrase
+concept_test.go: Get Concept by search term phrase
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=phrase
+
+{"total":2047,"timeTaken":32,"parameters":{"term":"enzyme,phrase","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147466","name":"Enzyme-Linked Lectin Assay","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C175212","name":"Enzyme-inducing Antiepileptic Drug","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180669","name":"Enzyme Substrate","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySearchTermPhrase (0.72s)
+PASS
+ok      EVSRESTAPI-tests        0.746s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -831,7 +855,15 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermFuzzy`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermFuzzy
+concept_test.go: Get Concept by search term fuzzy
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=fuzzy
+
+{"total":2027,"timeTaken":30,"parameters":{"term":"enzyme,fuzzy","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147466","name":"Enzyme-Linked Lectin Assay","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C175212","name":"Enzyme-inducing Antiepileptic Drug","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180669","name":"Enzyme Substrate","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySearchTermFuzzy (0.77s)
+PASS
+ok      EVSRESTAPI-tests        0.795s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -843,7 +875,16 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermOr`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermOr
+concept_test.go: Get Concept by search term or
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=or
+
+{"total":48299,"timeTaken":57,"parameters":{"term":"enzyme,or","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C29726","name":"Enzyme Replacement 
+or Supplement Agent","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C64430","name":"Protein or Enzyme Type Measurement","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C193556","name":"Choriogonadotropin Beta Subunit [Units/Volume] in Serum or Plasma by Enzyme Immunoassay Third International Standard","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C38430","name":"Guanylate Cyclase Soluble Subunit Beta-1","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C153137","name":"Orludodstat","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180669","name":"Enzyme Substrate","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C188961","name":"Oral Irinotecan Hydrochloride Formulation VAL-413","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySearchTermOr (0.75s)
+PASS
+ok      EVSRESTAPI-tests        0.785s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -855,7 +896,15 @@ Get concepts matching a search term within a specified terminology and a search 
 Command: go test -v -run TestGetConceptBySearchTermAnd`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermAnd
+concept_test.go: Get Concept by search term and
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=and
+
+{"total":62658,"timeTaken":57,"parameters":{"term":"enzyme,and","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C181803","name":"UBA1 wt Allele","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C49722","name":"ADAM17 wt Allele","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C38430","name":"Guanylate Cyclase Soluble Subunit Beta-1","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C175212","name":"Enzyme-inducing Antiepileptic Drug","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C20626","name":"Enzyme Kinetics","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C21281","name":"Enzyme Gene","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C40498","name":"Enzyme Interaction","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptBySearchTermAnd (0.76s)
+PASS
+ok      EVSRESTAPI-tests        0.794s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -867,7 +916,15 @@ Get concepts matching a search term within a specified terminology and include s
 Command: go test -v -run TestGetConceptBySearchTermHighlights`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySearchTermHighlights
+concept_test.go: Get Concept by search term highlights
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=synonym,highlights
+
+{"total":2077,"timeTaken":34,"parameters":{"term":"enzyme,synonym,highlights","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C147466","name":"Enzyme-Linked Lectin Assay","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C154856","name":"Enzyme Unit per Gram Hemoglobin","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C156467","name":"Enzyme Unit per Meter Squared","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C164637","name":"Synonym Code","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C175212","name":"Enzyme-inducing Antiepileptic Drug","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false}]}
+
+--- PASS: TestGetConceptBySearchTermHighlights (0.84s)
+PASS
+ok      EVSRESTAPI-tests        0.867s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)

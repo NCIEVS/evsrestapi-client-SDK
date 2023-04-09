@@ -225,3 +225,80 @@ func TestGetConceptBySynonymType(t *testing.T) {
 
 	ProcessData(url)
 }
+
+// Get concepts matching a search term within a specified terminology and a search type of "match".
+func TestGetConceptBySearchTermMatch(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term match")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=match\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=match"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "startsWith".
+func TestGetConceptBySearchTermStartsWith(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term startsWith")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=startsWith\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=startsWith"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "phrase".
+func TestGetConceptBySearchTermPhrase(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term phrase")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=phrase\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=phrase"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "fuzzy".
+func TestGetConceptBySearchTermFuzzy(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term fuzzy")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=fuzzy\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=fuzzy"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "or".
+func TestGetConceptBySearchTermOr(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term or")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=or\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=or"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "and".
+func TestGetConceptBySearchTermAnd(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term and")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=and\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=and"
+
+	ProcessData(url)
+}
+
+// Get concepts matching a search term within a specified terminology and a search type of "highlights".
+func TestGetConceptBySearchTermHighlights(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by search term highlights")
+	fmt.Println(string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=synonym,highlights\n")
+	var url = string(used_url) + "/concept/ncit/search?terminology=ncit&term=enzyme&term=synonym,highlights"
+
+	ProcessData(url)
+}
