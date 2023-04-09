@@ -191,3 +191,36 @@ func TestGetDefinitionTypeByCode(t *testing.T) {
 
 	ProcessData(url)
 }
+
+// Get Subsets for a terminology
+func TestGetSubsets(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("metadata_test.go: Get Subsets")
+	fmt.Println(string(used_url) + "/metadata/ncit/subsets\n")
+	var url = string(used_url) + "/metadata/ncit/subsets"
+
+	ProcessData(url)
+}
+
+// Return subset (with summary information) for a specified terminology and code.
+func TestGetSubsetByCode(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("metadata_test.go: Get Subset by code")
+	fmt.Println(string(used_url) + "/metadata/ncit/subsets?list=C81222&include=summary\n")
+	var url = string(used_url) + "/metadata/ncit/subsets?list=C81222&include=summary"
+
+	ProcessData(url)
+}
+
+// Return subset members paging parameters for a specified terminology and code.
+func TestGetSubsetMembersByCode(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("metadata_test.go: Get Subset by code")
+	fmt.Println(string(used_url) + "/metadata/ncit/subset/C116978\n")
+	var url = string(used_url) + "/metadata/ncit/subset/C116978"
+
+	ProcessData(url)
+}

@@ -154,8 +154,8 @@ def test_get_subsets(): # Return all subsets (with minimal information) for a sp
     
 def test_get_subset_by_code(): # Return subset (with summary information) for a specified terminology and code.
     logging.info("test_metadata_tests.py: Get subset by code");
-    logging.info("url = " + prodUrl + "/metadata/ncit/subsets");
-    response = requests.get(prodUrl + "/metadata/ncit/subsets");
+    logging.info("url = " + prodUrl + "/metadata/ncit/subsets?list=C81222&include=summary");
+    response = requests.get(prodUrl + "/metadata/ncit/subsets?list=C81222&include=summary");
     assert response.status_code == requests.codes.ok;
     pretty_print = json.loads(response.text);
     logging.info(json.dumps(pretty_print, indent=2));

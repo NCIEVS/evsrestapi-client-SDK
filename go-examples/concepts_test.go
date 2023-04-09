@@ -302,3 +302,14 @@ func TestGetConceptBySearchTermHighlights(t *testing.T) {
 
 	ProcessData(url)
 }
+
+// Get concepts matching a search term within a specified terminology and subset.
+func TestGetConceptBySubset(t *testing.T) {
+	var used_url = ValidateUrlFile()
+
+	fmt.Println("concept_test.go: Get Concept by subset")
+	fmt.Println(string(used_url) + "/concept/ncit/search?subset=C157225&term=Hydrogenation\n")
+	var url = string(used_url) + "/concept/ncit/search?subset=C157225&term=Hydrogenation"
+
+	ProcessData(url)
+}

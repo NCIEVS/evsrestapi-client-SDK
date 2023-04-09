@@ -936,7 +936,15 @@ Get concepts matching a search term within a specified terminology and subset.
 Command: go test -v -run TestGetConceptBySubset`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetConceptBySubset
+concept_test.go: Get Concept by subset
+https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?subset=C157225&term=Hydrogenation
+
+{"total":1,"timeTaken":30,"parameters":{"term":"Hydrogenation","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"subset":["C157225"],"terminology":["ncit"]},"concepts":[{"code":"C157199","name":"Hydrogenation","terminology":"ncit","version":"23.03d","leaf":true}]}
+
+--- PASS: TestGetConceptBySubset (0.73s)
+PASS
+ok      EVSRESTAPI-tests        0.764s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
@@ -972,7 +980,15 @@ Get subset members for a specified terminology and code.
 Command: go test -v -run TestGetSubsetMembersByCode`
 
 ```{.go}
-(data is too long for display on this page)
+=== RUN   TestGetSubsetMembersByCode
+metadata_test.go: Get Subset by code
+https://api-evsrest.nci.nih.gov/api/v1/metadata/ncit/subset/C116978
+
+{"code":"C116978","name":"CTRP Agent Terminology","terminology":"ncit","version":"23.03d","subsetLink":"https://evs.nci.nih.gov/ftp1/CTRP","leaf":true}
+
+--- PASS: TestGetSubsetMembersByCode (0.91s)
+PASS
+ok      EVSRESTAPI-tests        0.937s
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
