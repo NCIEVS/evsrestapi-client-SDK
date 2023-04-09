@@ -12,7 +12,7 @@ terminology = config['default']['terminology']
 def test_get_minimal_concept_by_code(): # Return concept by code.
     logging.info("test_concept_tests.py: Get minimal concept by code - C3224");
     logging.info("url = " + prodUrl + "/concept/ncit/C3224?include=minimal");
-    response = requests.get(prodUrl + "/concept/ncit/C3224?include=minimal");
+    response = requests.get(prodUrl + "/concept/ncit/C3224?include=minimal", timeout=0.25);
     assert response.status_code == requests.codes.ok;
     pretty_print = json.loads(response.text);
     logging.info(json.dumps(pretty_print, indent=2));
