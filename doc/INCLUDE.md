@@ -36,6 +36,7 @@ The remaining supported "include" values represent individual parts of the conce
  - **children**: indicates children should be included.
  - **definitions**: indicates definitions should be included.
  - **disjointWith**: indicates "disjoint with" associations should be included.
+ - **history**: indicates history should be included.
  - **inverseAssociations**: indicates inverse associations should be included.
  - **inverseRoles**: indicates inverse roles should be included.
  - **maps**: indicates maps should be included.

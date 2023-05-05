@@ -29,6 +29,8 @@ Test Scripts
 - [get-synonym-types.sh](#get-synonym-typessh)
 - [get-definition-types.sh](#get-definition-typessh)
 - [get-subsets.sh](#get-subsetssh)
+- [get-mapsets.sh](#get-mapsetsssh)
+- [get-inactive-replacements.sh](#get-inactive-replacementsssh)
 
 The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
 
@@ -3738,5 +3740,381 @@ members = 1
 -----------------------------------------------------
 Finished ...Tue, Dec  7, 2021  5:26:07 PM
 -----------------------------------------------------
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-mapsets.sh
+
+Return information about all mapsets. The include parameter allows customizing 
+how much data to return.
+
+```
+$ ./get-mapsets.sh --include properties
+-----------------------------------------------------
+Starting ...Mon May  1 09:53:06 HST 2023
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+include = properties
+
+  Get all mapsets
+  
+	[
+	   {
+		  "code":"GO_to_NCIt_Mapping",
+		  "name":"GO_to_NCIt_Mapping",
+		  "version":"1.1",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: GO (Gene Ontology) February2020\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: NCIt (NCI Thesaurus) 20.02d\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe first GO to NCIt mapping was manually curated by editors working at NCI in 2009. Automated term matching was\r\nperformed to create a preliminary map of the content in the Biological Process branch of NCIt and the GO\r\nbiological_process branch. The preliminary map was reviewed and validated by editors working at NCI to ensure that terms\r\nwith the same definitions were mapped. The map is updated when changes to the GO content invalidate current mapped\r\nentries.\r\n<br><br>\r\nThe Version shows the month and year that the mapping data were extracted. The Release Date shows the day that this\r\nmapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"SNOMEDCT_US_2022_09_01_TO_ICD10_2016",
+		  "name":"SNOMEDCT_US_2022_09_01_TO_ICD10_2016",
+		  "version":"20220901",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This mapping is extracted from the SNOMED CT US Edition release files via the UMLS Metathesaurus.<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: SNOMEDCT_US (SNOMED CT US Edition)<br>\r\n&nbsp;&nbsp;&nbsp;Target: ICD-10 (International Classification of Diseases, Tenth Revision)<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology (if\r\nthat concept is present in the current version).<br><br>\r\nThe SNOMED CT US Edition to ICD-10 Mapping is extracted from the SNOMED CT US Edition release files.<br><br>\r\nThe Version shows the SNOMED CT US Edition release date from which the data were extracted. The Release Date shows the\r\nday that this mapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"NCIT_TO_SWISSPROT",
+		  "name":"NCIT_TO_SWISSPROT",
+		  "version":"20230307",
+		  "properties":[
+			 {
+				"type":"downloadOnly",
+				"value":"true"
+			 },
+			 {
+				"type":"mapsetLink",
+				"value":"https://ncit.nci.nih.gov/ncitbrowser/ajax?action=exportMapping&uri=https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Mappings/NCIt-SwissProt_Mapping.txt"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"ICDO_TO_NCI_MORPHOLOGY",
+		  "name":"ICDO_TO_NCI_MORPHOLOGY",
+		  "properties":[
+			 {
+				"type":"downloadOnly",
+				"value":"true"
+			 },
+			 {
+				"type":"mapsetLink",
+				"value":"https://ncit.nci.nih.gov/ncitbrowser/ajax?action=exportMapping&uri=https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Mappings/ICD-O-3_Mappings/ICD-O-3.1-NCIt_Morphology_Mapping.txt"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"SNOMEDCT_US_2022_09_01_TO_ICD10CM_2023",
+		  "name":"SNOMEDCT_US_2022_09_01_TO_ICD10CM_2023",
+		  "version":"20220901",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This mapping is extracted from the SNOMED CT US Edition release files via the UMLS Metathesaurus.<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: SNOMEDCT_US (SNOMED CT US Edition)<br>\r\n&nbsp;&nbsp;&nbsp;Target: ICD-10-CM (International Classification of Diseases, Tenth Revision, Clinical\r\nModification)<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology (if\r\nthat concept is present in the current version).<br><br>\r\nThe SNOMED CT US Edition to ICD-10-CM Mapping is extracted from the SNOMED CT US Edition release files.<br><br>\r\nThe Version shows the SNOMED CT US Edition release date from which the data were extracted. The Release Date shows the\r\nday that this mapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"PDQ_2016_07_31_TO_NCI_2016_10E",
+		  "name":"PDQ_2016_07_31_TO_NCI_2016_10E",
+		  "version":"2016_07_31",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"The PDQ to NCIt mapping is extracted from the NCI Metathesaurus (NCIm), and it reflects the mappings created by EVS NCIm\r\neditors and available in the NCIm MRMAP.RRF file. This mapping is updated when a new version of PDQ is published in\r\nNCIm. The current mapping is based on the source and target terminology versions shown below:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: PDQ (Physician Data Query) 2016_07\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: NCIt (NCI Thesaurus) 16.10e\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe Version shows the year followed by the month and reflects the version of NCIm from which the MRMAP.RRF was\r\nextracted. The Release Date shows the day that this mapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"NCIt_to_HGNC_Mapping",
+		  "name":"NCIt_to_HGNC_Mapping",
+		  "version":"1.0",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: NCIt (NCI Thesaurus) 23.02d\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: HGNC (HUGO Gene Nomenclature Committee) February2023\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe first NCIt to HGNC mapping was manually curated by editors working at NCI in March of 2012. Automated term matching\r\nwas performed to create a preliminary mapping from the Gene branch of NCIt to the Approved Symbols in HGNC. The\r\npreliminary map was reviewed by editors at NCI to map the HGNC to the wild-type (wt) allele concepts in NCIt. In\r\nNovember 2016, the map was revised to better reflect the nature of both HGNC and NCIt concepts by mapping the HGNC codes\r\nto the NCIt parent gene concepts. When new gene concepts are published in NCIt, they are mapped to the appropriate HGNC\r\nconcept, the mapping data file is updated, and the new mapping relationships are published\r\n<br><br>\r\nThe Version shows the month and year that the mapping data were extracted. The Release Date shows the day that this\r\nmapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"ICDO_TO_NCI_TOPOGRAPHY",
+		  "name":"ICDO_TO_NCI_TOPOGRAPHY",
+		  "properties":[
+			 {
+				"type":"downloadOnly",
+				"value":"true"
+			 },
+			 {
+				"type":"mapsetLink",
+				"value":"https://ncit.nci.nih.gov/ncitbrowser/ajax?action=exportMapping&uri=https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Mappings/ICD-O-3_Mappings/ICD-O-3.1-NCIt_Topography_Mapping.txt"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"ICDO_TO_NCI_AXIS",
+		  "name":"ICDO_TO_NCI_AXIS",
+		  "properties":[
+			 {
+				"type":"downloadOnly",
+				"value":"true"
+			 },
+			 {
+				"type":"mapsetLink",
+				"value":"https://ncit.nci.nih.gov/ncitbrowser/ajax?action=exportMapping&uri=https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/Mappings/ICD-O-3_Mappings/ICD-O-3.1-NCIt_Axis_Mappings.xls"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"NCIt_to_ChEBI_Mapping",
+		  "name":"NCIt_to_ChEBI_Mapping",
+		  "version":"1.0",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: NCIt (NCI Thesaurus) 23.02d\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: CHEBI (Chemical Entities of Biological Interest) v218\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe first NCIt to CHEBI mapping was manually curated by editors working at NCI in November of 2011. Automated term\r\nmatching was performed to create a preliminary map of all of the content in NCIt with all of the content in CHEBI. The\r\npreliminary map was reviewed and validated by editors working at NCI to ensure accuracy. Minor updates occur when new\r\nchemical concepts published in NCIt are mapped to CHEBI concepts, and when changes in the CHEBI content invalidate\r\ncurrent mapped entries. Major updates, which involve the manual review of all of the unmapped content in NCIt against\r\nall of the unmapped content in CHEBI, may occur approximately once every 2 or 3 years.\r\n<br><br>\r\nThe Version shows the month and year that the mapping data were extracted. The Release Date shows the day that this\r\nmapping was approved for publication."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   },
+	   {
+		  "code":"MA_to_NCIt_Mapping",
+		  "name":"MA_to_NCIt_Mapping",
+		  "version":"1.0",
+		  "properties":[
+			 {
+				"type":"welcomeText",
+				"value":"This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;Source: MA (Anatomical Dictionary for the Adult Mouse) July2011\r\n<br>\r\n&nbsp;&nbsp;&nbsp;&nbsp;Target: NCIt (NCI Thesaurus) 11.09d\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nAs part of the caBIG-funded Mouse-Human Anatomy Project (MHAP), the Adult Mouse Anatomy (MA) ontology and the set of\r\nanatomy concepts contained in the NCI Thesaurus (NCIt) were compared and harmonized. Matches between mouse and human\r\nanatomy terms were identified and validated, resulting in a highly curated set of mappings between the two ontologies.\r\nAs both anatomical ontologies are being used to annotate different types of research data for mouse and human,\r\nrespectively, cross-mappings between the two ontologies will facilitate the integration of mouse and human data, and the\r\ntranslation of basic research discoveries into clinical settings."
+			 },
+			 {
+				"type":"downloadOnly",
+				"value":"false"
+			 }
+		  ]
+	   }
+	]
+
+-----------------------------------------------------
+Finished ...Mon May  1 09:53:07 HST 2023
+-----------------------------------------------------
+```
+
+Return information about a single mapset for a specified code. The include 
+parameter allows customizing how much data to return.
+
+```
+$ ./get-mapsets.sh GO_to_NCIt_Mapping --include properties
+-----------------------------------------------------
+Starting ...Mon May  1 10:00:47 HST 2023
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+code = GO_to_NCIt_Mapping
+include = properties
+
+  Get mapset for GO_to_NCIt_Mapping
+
+    {
+      "code": "GO_to_NCIt_Mapping",
+      "name": "GO_to_NCIt_Mapping",
+      "version": "1.1",
+      "properties": [
+        {
+          "type": "welcomeText",
+          "value": "This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: GO (Gene Ontology) February2020\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: NCIt (NCI Thesaurus) 20.02d\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe first GO to NCIt mapping was manually curated by editors working at NCI in 2009. Automated term matching was\r\nperformed to create a preliminary map of the content in the Biological Process branch of NCIt and the GO\r\nbiological_process branch. The preliminary map was reviewed and validated by editors working at NCI to ensure that terms\r\nwith the same definitions were mapped. The map is updated when changes to the GO content invalidate current mapped\r\nentries.\r\n<br><br>\r\nThe Version shows the month and year that the mapping data were extracted. The Release Date shows the day that this\r\nmapping was approved for publication."
+        },
+        {
+          "type": "downloadOnly",
+          "value": "false"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon May  1 10:00:47 HST 2023
+-----------------------------------------------------
+```
+
+Get the maps for a specified mapset code.
+
+```
+$ ./get-mapsets.sh GO_to_NCIt_Mapping --maps --fromRecord 0 --pageSize 5
+-----------------------------------------------------
+Starting ...Mon May  1 10:01:47 HST 2023
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+code = GO_to_NCIt_Mapping
+include = minimal
+
+  Get maps for mapset GO_to_NCIt_Mapping (fromRecord=0, pageSize=5)
+
+    {
+      "total": 305,
+      "parameters": {
+        "fromRecord": 0,
+        "pageSize": 5
+      },
+      "maps": [
+        {
+          "source": "GO",
+          "sourceName": "activation of cysteine-type endopeptidase activity involved in apoptotic process",
+          "sourceCode": "GO:0006919",
+          "type": "mapsTo",
+          "rank": "1",
+          "targetName": "Caspase Activation",
+          "targetCode": "C42784",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d"
+        },
+        {
+          "source": "GO",
+          "sourceName": "aerobic respiration",
+          "sourceCode": "GO:0009060",
+          "type": "mapsTo",
+          "rank": "1",
+          "targetName": "Cell Respiration",
+          "targetCode": "C17894",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d"
+        },
+        {
+          "source": "GO",
+          "sourceName": "aging",
+          "sourceCode": "GO:0007568",
+          "type": "mapsTo",
+          "rank": "1",
+          "targetName": "Aging",
+          "targetCode": "C16269",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d"
+        },
+        {
+          "source": "GO",
+          "sourceName": "anatomical structure morphogenesis",
+          "sourceCode": "GO:0009653",
+          "type": "mapsTo",
+          "rank": "1",
+          "targetName": "Morphogenesis",
+          "targetCode": "C16879",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d"
+        },
+        {
+          "source": "GO",
+          "sourceName": "androgen metabolic process",
+          "sourceCode": "GO:0008209",
+          "type": "mapsTo",
+          "rank": "1",
+          "targetName": "Androgen Metabolism Process",
+          "targetCode": "C19958",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Mon May  1 10:01:47 HST 2023
+-----------------------------------------------------
+
+```
+[Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
+
+### get-inactive-replacements.sh
+
+Return replacement concepts for a specified inactive concept code.
+
+```
+$ ./get-inactive-replacements.sh ncit C12658
+-----------------------------------------------------
+Starting ...Mon May  1 12:04:22 HST 2023
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C12658
+  Get replacement concepts for C12658
+
+    [
+      {
+        "code": "C12658",
+        "action": "retire",
+        "date": "2003-08-22",
+        "replacementCode": "C19157",
+        "replacementName": "Specimen"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Mon May  1 12:04:22 HST 2023
+-----------------------------------------------------
+
+```
+
+Return replacement concepts for a specified list of inactive concept codes.
+
+```
+$ ./get-inactive-replacements.sh ncit C12658,C13320
+-----------------------------------------------------
+Starting ...Mon May  1 12:015:07 HST 2023
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+list = C12658,C13320
+  Get replacement concepts for C12658,C13320
+
+    [
+      {
+        "code": "C12658",
+        "action": "retire",
+        "date": "2003-08-22",
+        "replacementCode": "C19157",
+        "replacementName": "Specimen"
+      },
+      {
+        "code": "C13320",
+        "action": "merge",
+        "date": "2003-08-22",
+        "replacementCode": "C12756",
+        "replacementName": "Nose"
+      },
+      {
+        "code": "C13320",
+        "action": "retire",
+        "date": "2003-08-22"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Mon May  1 12:15:07 HST 2023
+-----------------------------------------------------
+
 ```
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)

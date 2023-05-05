@@ -70,8 +70,11 @@ The following examples can be types into the command line of any terminal that h
 - [Get all subsets](#get-all-subsets)
 - [Get subset by code](#get-subset-by-code)
 - [Get subset members by subset code](#get-subset-members-by-code)
-
-
+- [Get all mapsets](#get-all-mapsets)
+- [Get mapset by code](#get-mapset-by-code)
+- [Get maps by mapset code](#get-maps-by-mapset-code)
+- [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+- [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 
 ### Get terminologies
 
@@ -715,3 +718,62 @@ See sample payload data from this call in [`samples/get-subset-members-by-code.t
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
+### Get all mapsets
+
+Get all mapsets. Include parameter allows customizing how much data to return.
+
+```
+curl "$API_URL/mapset?include=properties" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-mapsets.txt`](samples/get-mapsets.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get mapset by code
+
+Get mapset information for a specified code. Include parameter allows customizing how much data to return. 
+
+```
+curl "$API_URL/mapset/GO_to_NCIt_Mapping?include=properties" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-mapset-by-code.txt`](samples/get-mapset-by-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get maps by mapset code
+
+Get the maps for a specified mapset code.
+
+```
+curl "$API_URL/mapset/GO_to_NCIt_Mapping/maps?pageSize=5" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-maps-by-mapset-code.txt`](samples/get-maps-by-mapset-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get replacement concepts for an inactive concept code
+
+Get the replacement concepts for a specified inactive concept code.
+
+```
+curl "$API_URL/history/ncit/C12658/replacements" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-replacements-for-concept-code.txt`](samples/get-replacements-for-concept-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get replacement concepts for a list of inactive concept codes
+
+Get the replacement concepts for a specified list of inactive concept codes.
+
+```
+curl "$API_URL/history/ncit/replacements?list=C12658,C13320" | jq '.'
+```
+
+See sample payload data from this call in [`samples/get-replacements-for-concept-code-list.txt`](samples/get-replacements-for-concept-code-list.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
