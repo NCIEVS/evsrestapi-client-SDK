@@ -52,7 +52,7 @@ if  [[ $file -eq 1 ]]; then
   offset=1
   limit=500
   length=`cat $filename | wc -l`
-  bin/rm -f $out >> /dev/null 2>&1
+  /bin/rm -f $out >> /dev/null 2>&1
   touch $out
   echo "    count = $length"
   while [ $offset -le $length ]
