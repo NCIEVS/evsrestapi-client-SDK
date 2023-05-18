@@ -167,4 +167,3 @@ def test_get_subset_members_by_code(): # Return subset members paging parameters
     assert response.status_code == requests.codes.ok;
     pretty_print = json.loads(response.text);
     logging.info(json.dumps(pretty_print, indent=2));
-

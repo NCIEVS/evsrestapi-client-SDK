@@ -77,6 +77,11 @@ All tests can be run with the command 'go test -v *.go'
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
 * [Get subset members by code](#get-subset-members-by-code)
+* [Get all mapsets](#get-all-mapsets)
+* [Get mapset by code](#get-mapset-by-code)
+* [Get maps by mapset code](#get-maps-by-mapset-code)
+* [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+* [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 
 ### Get terminologies
 
@@ -989,6 +994,66 @@ https://api-evsrest.nci.nih.gov/api/v1/metadata/ncit/subset/C116978
 --- PASS: TestGetSubsetMembersByCode (0.91s)
 PASS
 ok      EVSRESTAPI-tests        0.937s
+```
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get all mapsets
+
+Get all mapsets. Include parameter allows customizing how much data to return.
+
+Command: go test -v -run TestGetAllMaps`
+
+```{.go}
+[{"code":"GO_to_NCIt_Mapping","name":"GO_to_NCIt_Mapping","version":"1.1"},{"code":"NCIt_Maps_To_GDC","name":"NCIt_Maps_To_GDC","version":"ncit_21.06e"},{"code":"NCIt_Maps_To_ICDO3","name":"NCIt_Maps_To_ICDO3","version":"ncit_21.06e"},{"code":"NCIt_Maps_To_ICD10","name":"NCIt_Maps_To_ICD10","version":"ncit_21.06e"},{"code":"NCIT_TO_SWISSPROT","name":"NCIT_TO_SWISSPROT","version":"20230307"},{"code":"ICDO_TO_NCI_MORPHOLOGY","name":"ICDO_TO_NCI_MORPHOLOGY"},{"code":"NCIt_Maps_To_ICD10CM","name":"NCIt_Maps_To_ICD10CM","version":"ncit_21.06e"},{"code":"PDQ_2016_07_31_TO_NCI_2016_10E","name":"PDQ_2016_07_31_TO_NCI_2016_10E","version":"2016_07_31"},{"code":"NCIt_to_HGNC_Mapping","name":"NCIt_to_HGNC_Mapping","version":"1.0"},{"code":"ICDO_TO_NCI_TOPOGRAPHY","name":"ICDO_TO_NCI_TOPOGRAPHY"},{"code":"ICDO_TO_NCI_AXIS","name":"ICDO_TO_NCI_AXIS"},{"code":"SNOMEDCT_US_2020_09_01_to_ICD10_2016_Mappings","name":"SNOMEDCT_US_2020_09_01 to ICD10_2016 Mappings","terminology":"SNOMEDCT_US","version":"2020_09_01"},{"code":"NCIt_Maps_To_ICD9CM","name":"NCIt_Maps_To_ICD9CM","version":"ncit_21.06e"},{"code":"SNOMEDCT_US_2020_09_01_to_ICD10CM_2021_Mappings","name":"SNOMEDCT_US_2020_09_01 to ICD10CM_2021 Mappings","terminology":"SNOMEDCT_US","version":"2020_09_01"},{"code":"NCIt_Maps_To_MedDRA","name":"NCIt_Maps_To_MedDRA","version":"ncit_21.06e"},{"code":"NCIt_to_ChEBI_Mapping","name":"NCIt_to_ChEBI_Mapping","version":"1.0"},{"code":"MA_to_NCIt_Mapping","name":"MA_to_NCIt_Mapping","version":"1.0"}]
+```
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get mapset by code
+
+Get mapset information for a specified code. Include parameter allows customizing how much data to return.
+
+Command: go test -v -run TestGetMapsetByCode`
+
+```{.go}
+{"code":"GO_to_NCIt_Mapping","name":"GO_to_NCIt_Mapping","version":"1.1"}
+```
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get maps by mapset code
+
+Get the maps for a specified mapset code.
+
+Command: go test -v -run TestGetMapsByMapsetCode`
+
+```{.go}
+{"total":305,"maps":[{"source":"GO","sourceName":"ATP hydrolysis activity","sourceCode":"GO:0016887","type":"mapsTo","rank":"1","targetName":"ATP Hydrolysis","targetCode":"C19939","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"B cell activation","sourceCode":"GO:0042113","type":"mapsTo","rank":"1","targetName":"B-Cell Activation","targetCode":"C19255","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"B cell proliferation","sourceCode":"GO:0042100","type":"mapsTo","rank":"1","targetName":"B Cell Proliferation","targetCode":"C19385","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA alkylation","sourceCode":"GO:0006305","type":"mapsTo","rank":"1","targetName":"DNA Alkylation","targetCode":"C25826","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA binding","sourceCode":"GO:0003677","type":"mapsTo","rank":"1","targetName":"DNA Binding","targetCode":"C18597","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA integration","sourceCode":"GO:0015074","type":"mapsTo","rank":"1","targetName":"DNA Integration","targetCode":"C18855","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA methylation","sourceCode":"GO:0006306","type":"mapsTo","rank":"1","targetName":"DNA Methylation","targetCode":"C17961","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA modification","sourceCode":"GO:0006304","type":"mapsTo","rank":"1","targetName":"DNA Modification Process","targetCode":"C19449","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA recombination","sourceCode":"GO:0006310","type":"mapsTo","rank":"1","targetName":"DNA Recombination Process","targetCode":"C17082","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"},{"source":"GO","sourceName":"DNA repair","sourceCode":"GO:0006281","type":"mapsTo","rank":"1","targetName":"DNA Repair","targetCode":"C16513","targetTerminology":"NCI_Thesaurus","targetTerminologyVersion":"23.02d"}]}
+```
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get replacement concepts for an inactive concept code
+
+Get the replacement concepts for a specified inactive concept code.
+
+Command: go test -v -run TestGetInactiveReplacementCode`
+
+```{.go}
+[{"code":"C12658","name":"Prokaryotic Cell","action":"active"}]
+```
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get replacement concepts for a list of inactive concept codes
+
+Get the replacement concepts for a specified list of inactive concept codes.
+
+Command: go test -v -run TestGetInactiveReplacementCodes`
+
+```{.go}
+[{"code":"C12658","name":"Prokaryotic Cell","action":"active"},{"code":"C13320","name":"Nose, Nasal Passages","action":"active"}]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
