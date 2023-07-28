@@ -1236,6 +1236,127 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Get all mapsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset?include=properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "properties"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get mapset by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping?include=properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset",
+						"GO_to_NCIt_Mapping"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "properties"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get maps by mapset code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping/maps?fromRecord=0&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset",
+						"GO_to_NCIt_Mapping",
+						"maps"
+					],
+					"query": [
+						{
+							"key": "fromRecord",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get replacement concepts for a specified inactive concept code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/history/ncit/C12658/replacements",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"history",
+						"ncit",
+						"C12658",
+						"replacements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get replacement concepts for a specified list of inactive concept codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/history/ncit/replacements?list=C12658,C13320",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"history",
+						"ncit",
+						"replacements"
+					],
+					"query": [
+						{
+							"key": "list",
+							"value": "C12658,C13320"
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	],
 	"event": [

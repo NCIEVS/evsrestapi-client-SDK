@@ -1,0 +1,64 @@
+{
+   "total":305,
+   "parameters":{
+      "fromRecord":0,
+      "pageSize":5
+   },
+   "maps":[
+      {
+         "source":"GO",
+         "sourceName":"activation of cysteine-type endopeptidase activity involved in apoptotic process",
+         "sourceCode":"GO:0006919",
+         "type":"mapsTo",
+         "rank":"1",
+         "targetName":"Caspase Activation",
+         "targetCode":"C42784",
+         "targetTerminology":"NCI_Thesaurus",
+         "targetTerminologyVersion":"23.02d"
+      },
+      {
+         "source":"GO",
+         "sourceName":"aerobic respiration",
+         "sourceCode":"GO:0009060",
+         "type":"mapsTo",
+         "rank":"1",
+         "targetName":"Cell Respiration",
+         "targetCode":"C17894",
+         "targetTerminology":"NCI_Thesaurus",
+         "targetTerminologyVersion":"23.02d"
+      },
+      {
+         "source":"GO",
+         "sourceName":"aging",
+         "sourceCode":"GO:0007568",
+         "type":"mapsTo",
+         "rank":"1",
+         "targetName":"Aging",
+         "targetCode":"C16269",
+         "targetTerminology":"NCI_Thesaurus",
+         "targetTerminologyVersion":"23.02d"
+      },
+      {
+         "source":"GO",
+         "sourceName":"anatomical structure morphogenesis",
+         "sourceCode":"GO:0009653",
+         "type":"mapsTo",
+         "rank":"1",
+         "targetName":"Morphogenesis",
+         "targetCode":"C16879",
+         "targetTerminology":"NCI_Thesaurus",
+         "targetTerminologyVersion":"23.02d"
+      },
+      {
+         "source":"GO",
+         "sourceName":"androgen metabolic process",
+         "sourceCode":"GO:0008209",
+         "type":"mapsTo",
+         "rank":"1",
+         "targetName":"Androgen Metabolism Process",
+         "targetCode":"C19958",
+         "targetTerminology":"NCI_Thesaurus",
+         "targetTerminologyVersion":"23.02d"
+      }
+   ]
+}

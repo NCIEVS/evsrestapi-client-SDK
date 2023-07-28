@@ -71,6 +71,11 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get all subsets
 - Get subset by code
 - Get subset members by subset code
+- Get all mapsets
+- Get mapset by code
+- Get maps by mapset code
+- Get replacement concepts for an inactive concept code
+- Get replacement concepts for a list of inactive concept codes
 
 
 All of the tutorials use an environment variable for the API URL of the deployment:

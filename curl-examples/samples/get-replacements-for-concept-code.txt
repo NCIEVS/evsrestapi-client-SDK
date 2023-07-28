@@ -1,0 +1,9 @@
+[
+  {
+    "code": "C12658",
+    "action": "retire",
+    "date": "2003-08-22",
+    "replacementCode": "C19157",
+    "replacementName": "Specimen"
+  }
+]
