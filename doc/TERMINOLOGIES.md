@@ -26,7 +26,8 @@ Additional terminologies will be supported in the future.
  - icd10cm - ICD-10-CM: The International Classification of Diseases, Tenth Revision, Clinical Modification
  - icd9cm - ICD-9-CM: The International Classification of Diseases, Ninth Revision, Clinical Modification
  - mdr - MedDRA: Medical Dictionary for Regulatory Activities (**NOTE: license restricted)
- - ncim - NCI Metathesaurus
+ - medrt - Medication Reference Terminology)
+ - umlssemnet - UMLS Semantic Network
 
 ### Sample Codes
 
@@ -40,4 +41,5 @@ Following are sample codes you can use with each terminology for testing.
  - icd10cm - D03.9 - Melanoma in situ, unspecified
  - icd9cm - 172.9 - Melanoma of skin, site unspecified
  - mdr - 10053571 - Melanoma
-
+ - medrt - N0000177915 - Acetaminophen
+ - umlssemnet - T046 - Disorder
