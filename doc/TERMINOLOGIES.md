@@ -19,10 +19,25 @@ the case of 'ncit').
 Additional terminologies will be supported in the future.
 
  - ncit - NCI Thesaurus
+ - ncim - NCI Metathesaurus
  - chebi - Chemical Entities of Biological Interest
  - go - Gene Ontology
  - hgnc - HUGO Gene Nomenclature Committee
  - icd10cm - ICD-10-CM: The International Classification of Diseases, Tenth Revision, Clinical Modification
  - icd9cm - ICD-9-CM: The International Classification of Diseases, Ninth Revision, Clinical Modification
- - mdr - MedDRA: Medical Dictionary for Regulatory Activities
+ - mdr - MedDRA: Medical Dictionary for Regulatory Activities (**NOTE: license restricted)
  - ncim - NCI Metathesaurus
+
+### Sample Codes
+
+Following are sample codes you can use with each terminology for testing.
+
+ - ncit - C3224 - Melanoma
+ - ncim - C0025202 - Melanoma
+ - chebi - CHEBI:119915	- Fentanyl
+ - go - GO:0008152 - metabolic process
+ - hgnc - HGNC:3430	- ERBB2
+ - icd10cm - D03.9 - Melanoma in situ, unspecified
+ - icd9cm - 172.9 - Melanoma of skin, site unspecified
+ - mdr - 10053571 - Melanoma
+
