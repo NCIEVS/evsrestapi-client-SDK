@@ -1,45 +1,33 @@
 <a name="top" />
 
-EVSRESTAPI Supported Terminologies
-==================================
+EVSRESTAPI License Restrictions
+===============================
 
-Many of the API endpoints make use of an "terminology" parameter that indicates
-which underlying terminology should be used for a given call.  The list of valid
-terminology parameters can be determined by making the metadata "get termionlogies"
-call (e.g. https://api-evsrest.nci.nih.gov/api/v1/metadata/terminologies) and extracting
-the "terminology" values from each array element.
+Some terminologies hosted in the deployed versions of evsrestapi contain license
+restricted content.  The user interface (evs explore) requires acceptance of
+a licence agreement statement in order to view and interact with content of
+this nature. 
 
-NOTE: the "terminology_version" values can be used as well for this parameter to
-identify a specific version.  Using a terminology value, like 'ncit' without using
-a version will always select the latest version (and latest "monthly" version in
-the case of 'ncit').
+The API requires license key information to be passed via a X-EVSRESTAPI-License
+header parameter to those REST endpoints that take a "terminology" parameter. 
+If a license key is required and not passed, it will result in a 403 response from
+the API with a message pointing to this page.
 
-### Terminologies currently supported
+### Terminologies Requiring a License
 
-Additional terminologies will be supported in the future.
+The following sections document terminologies that require a license with more information.
 
- - ncit - NCI Thesaurus
- - ncim - NCI Metathesaurus
- - chebi - Chemical Entities of Biological Interest
- - go - Gene Ontology
- - hgnc - HUGO Gene Nomenclature Committee
- - icd10cm - ICD-10-CM: The International Classification of Diseases, Tenth Revision, Clinical Modification
- - icd9cm - ICD-9-CM: The International Classification of Diseases, Ninth Revision, Clinical Modification
- - mdr - MedDRA: Medical Dictionary for Regulatory Activities (**NOTE: license restricted)
- - medrt - Medication Reference Terminology)
- - umlssemnet - UMLS Semantic Network
+#### MedDRA - terminology=mdr
 
-### Sample Codes
+MedDRA is maintained by its Maintenance and Support Services Organization (MSSO)
+ - [https://www.meddra.org/about-meddra/organisation/msso](https://www.meddra.org/about-meddra/organisation/msso)
 
-Following are sample codes you can use with each terminology for testing.
+Just as an id and api key is needed to programmatically access its APIs ([https://www.meddra.org/meddra-apis](https://www.meddra.org/meddra-apis)), 
+the same information is needed here to access MedDRA data directly through the EVS REST API.
 
- - ncit - C3224 - Melanoma
- - ncim - C0025202 - Melanoma
- - chebi - CHEBI:119915	- Fentanyl
- - go - GO:0008152 - metabolic process
- - hgnc - HGNC:3430	- ERBB2
- - icd10cm - D03.9 - Melanoma in situ, unspecified
- - icd9cm - 172.9 - Melanoma of skin, site unspecified
- - mdr - 10053571 - Melanoma
- - medrt - N0000177915 - Acetaminophen
- - umlssemnet - T046 - Disorder
+ - For more information visit the [MedDRA Self Service Application](https://www.meddra.org/meddra-self-service-application).
+ - An API can be requested with your MedDRA ID and password at [https://midt.meddra.org/account/register](https://midt.meddra.org/account/register)
+
+*Instructions for NIH Users - <link to NIH users instructions>
+
+
