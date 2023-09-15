@@ -26,8 +26,5 @@ Just as an id and api key is needed to programmatically access its APIs ([https:
 the same information is needed here to access MedDRA data directly through the EVS REST API.
 
  - For more information visit the [MedDRA Self Service Application](https://www.meddra.org/meddra-self-service-application).
- - An API can be requested with your MedDRA ID and password at [https://midt.meddra.org/account/register](https://midt.meddra.org/account/register)
-
-*Instructions for NIH Users - <link to NIH users instructions>
-
-
+ - An API key can be requested with your MedDRA ID and password at [https://midt.meddra.org/account/register](https://midt.meddra.org/account/register)
+ - Values of `X-EVSRESTAPI-License` for MedDRA follow this kind of pattern: `12384:8TB5ax1yxa3593dA123B`
