@@ -8,7 +8,7 @@ restricted content.  The user interface (evs explore) requires acceptance of
 a licence agreement statement in order to view and interact with content of
 this nature. 
 
-The API requires license key information to be passed via a X-EVSRESTAPI-License
+The API requires license key information to be passed via a X-EVSRESTAPI-License-Key
 header parameter to those REST endpoints that take a "terminology" parameter. 
 If a license key is required and not passed, it will result in a 403 response from
 the API with a message pointing to this page.
@@ -27,4 +27,4 @@ the same information is needed here to access MedDRA data directly through the E
 
  - For more information visit the [MedDRA Self Service Application](https://www.meddra.org/meddra-self-service-application).
  - An API key can be requested with your MedDRA ID and password at [https://midt.meddra.org/account/register](https://midt.meddra.org/account/register)
- - Values of `X-EVSRESTAPI-License` for MedDRA follow this kind of pattern: `12384:8TB5ax1yxa3593dA123B`
+ - Values of `X-EVSRESTAPI-License-Key` for MedDRA follow this kind of pattern: `12384:8TB5ax1yxa3593dA123B`
