@@ -25,6 +25,6 @@ MedDRA is maintained by its Maintenance and Support Services Organization (MSSO)
 Just as an id and api key is needed to programmatically access its APIs ([https://www.meddra.org/meddra-apis](https://www.meddra.org/meddra-apis)), 
 the same information is needed here to access MedDRA data directly through the EVS REST API.
 
- - For more information visit the [MedDRA Self Service Application](https://www.meddra.org/meddra-self-service-application).
+ - For MedDRA ID and password, visit the [MedDRA Self Service Application](https://www.meddra.org/meddra-self-service-application).
  - An API key can be requested with your MedDRA ID and password at [https://midt.meddra.org/account/register](https://midt.meddra.org/account/register)
  - Values of `X-EVSRESTAPI-License-Key` for MedDRA follow this kind of pattern: `12384:8TB5ax1yxa3593dA123B`
