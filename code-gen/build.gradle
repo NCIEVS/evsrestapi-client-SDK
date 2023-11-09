@@ -29,7 +29,7 @@ test {
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
     inputSpec.set("$projectDir/src/evs-swagger.json")
-    outputDir.set("$buildDir/java-examples")
+    outputDir.set("$rootDir/java-examples")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
     modelPackage.set("gov.nih.nci.evs.api.model")
@@ -42,7 +42,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 //tasks.register('buildPythonSdk', GenerateTask) {
 //    generatorName = "python"
 //    inputSpec = "$projectDir/src/evs-swagger.json"
-//    outputDir.set("$buildDir/python-examples")
+//    outputDir.set("$rootDir/python-examples")
 //    apiPackage.set("gov.nih.nci.evs.api")
 //    invokerPackage.set("gov.nih.nci.evs.api.invoker")
 //    modelPackage.set("gov.nih.nci.evs.api.model")
@@ -54,7 +54,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 //tasks.register('buildGoSdk', GenerateTask) {
 //    generatorName = "go"
 //    inputSpec = "$projectDir/src/evs-swagger.json".toString()
-//    outputDir = "$buildDir/go-examples".toString()
+//    outputDir = "$rootDir/go-examples".toString()
 //    configOptions.set([
 //            dateLibrary: "threetenp"
 //    ])
@@ -67,7 +67,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 //tasks.register('buildKotlinSdk', GenerateTask) {
 //    generatorName.set("kotlin")
 //    inputSpec.set("$projectDir/src/evs-swagger.json")
-//    outputDir.set("$buildDir/kotlin-examples")
+//    outputDir.set("$rootDir/kotlin-examples")
 //    apiPackage.set("gov.nih.nci.evs.api")
 //    invokerPackage.set("gov.nih.nci.evs.api.invoker")
 //    modelPackage.set("gov.nih.nci.evs.api.model")
@@ -83,14 +83,14 @@ tasks.register('buildJavaSdk', GenerateTask) {
 //tasks.register('buildBashSdk', GenerateTask) {
 //    generatorName.set("bash")
 //    inputSpec.set("$projectDir/src/evs-swagger.json")
-//    outputDir.set("$buildDir/bash-examples")
+//    outputDir.set("$rootDir/bash-examples")
 //}
 //
 // /* Build a typescript client: https://openapi-generator.tech/docs/generators/typescript/ */
 //tasks.register('buildTypescriptSdk', GenerateTask) {
 //    generatorName.set("typescript")
 //    inputSpec.set("$projectDir/src/evs-swagger.json")
-//    outputDir.set("$buildDir/typescript-examples")
+//    outputDir.set("$rootDir/typescript-examples")
 //}
 
 
@@ -105,13 +105,12 @@ tasks.register("buildDependentTasks") {
 //            "buildTypescriptSdk"
     )
     doLast {
-        println 'All client sdk generated. They can be found in the code-gen/build folder.'
+        println 'All client sdks generated in the root folder.'
     }
 }
 
 /**
- * When build is run, all of the generated code will populate in the build folder.
- * Instructions will print to the command line to instruct how to handle the new files or language
+ * When build is run, all of the generated code for all languages will populate in the root folder.
  */
 tasks.named('build').configure {
     dependsOn('buildDependentTask')
