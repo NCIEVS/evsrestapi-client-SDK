@@ -10,3 +10,5 @@ bin/
 __pycache__
 /build/
 python-examples/logs.txt
+.DS_Store
+.idea
