@@ -1,0 +1,128 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id 'java'
+    id "org.openapi.generator" version "6.6.0"
+    id 'maven-publish'
+}
+
+group = 'gov.nih.nci.evs.api'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/** Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/  */
+tasks.register('buildJavaSdk', GenerateTask) {
+    generatorName.set("java")
+    inputSpec.set("$projectDir/src/evs-swagger.json")
+    outputDir.set("$buildDir/java-examples")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.model")
+    configOptions.set([
+            dateLibrary: "java8"
+    ])
+}
+
+// /** Build a python client: https://openapi-generator.tech/docs/generators/python/ */
+//tasks.register('buildPythonSdk', GenerateTask) {
+//    generatorName = "python"
+//    inputSpec = "$projectDir/src/evs-swagger.json"
+//    outputDir.set("$buildDir/python-examples")
+//    apiPackage.set("gov.nih.nci.evs.api")
+//    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+//    modelPackage.set("gov.nih.nci.evs.api.model")
+//    globalProperties.set([
+//            modelDocs: "false"
+//    ])
+//}
+// /** Build a Go client: https://openapi-generator.tech/docs/generators/go/ */
+//tasks.register('buildGoSdk', GenerateTask) {
+//    generatorName = "go"
+//    inputSpec = "$projectDir/src/evs-swagger.json".toString()
+//    outputDir = "$buildDir/go-examples".toString()
+//    configOptions.set([
+//            dateLibrary: "threetenp"
+//    ])
+//    globalProperties.set([
+//            modelDocs: "false"
+//    ])
+//}
+//
+// /** Build a Kotlin client: https://openapi-generator.tech/docs/generators/kotlin/ */
+//tasks.register('buildKotlinSdk', GenerateTask) {
+//    generatorName.set("kotlin")
+//    inputSpec.set("$projectDir/src/evs-swagger.json")
+//    outputDir.set("$buildDir/kotlin-examples")
+//    apiPackage.set("gov.nih.nci.evs.api")
+//    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+//    modelPackage.set("gov.nih.nci.evs.api.model")
+//    configOptions.set([
+//            dateLibrary: "java8"
+//    ])
+//    globalProperties.set([
+//            modelDocs: "false"
+//    ])
+//}
+//
+// /** Build a Bash client: https://openapi-generator.tech/docs/generators/bash/ */
+//tasks.register('buildBashSdk', GenerateTask) {
+//    generatorName.set("bash")
+//    inputSpec.set("$projectDir/src/evs-swagger.json")
+//    outputDir.set("$buildDir/bash-examples")
+//}
+//
+// /* Build a typescript client: https://openapi-generator.tech/docs/generators/typescript/ */
+//tasks.register('buildTypescriptSdk', GenerateTask) {
+//    generatorName.set("typescript")
+//    inputSpec.set("$projectDir/src/evs-swagger.json")
+//    outputDir.set("$buildDir/typescript-examples")
+//}
+
+
+/** Task for running all code-gen tasks for each language */
+tasks.register("buildDependentTasks") {
+    dependsOn(
+            "buildJavaSdk",
+//            "buildPythonSdk",
+//            "buildGoSdk",
+//            "buildKotlinSdk",
+//            "buildBashSdk",
+//            "buildTypescriptSdk"
+    )
+    doLast {
+        println 'All client sdk generated. They can be found in the code-gen/build folder.'
+    }
+}
+
+/**
+ * When build is run, all of the generated code will populate in the build folder.
+ * Instructions will print to the command line to instruct how to handle the new files or language
+ */
+tasks.named('build').configure {
+    dependsOn('buildDependentTask')
+}
+
+compileJava.dependsOn tasks.named("buildJavaSdk")
+build.dependsOn ('buildDepedentTask')
+publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+//                                 "buildPythonSdk",
+//                                 "buildGoSdk",
+//                                 "buildKotlinSdk",
+//                                 "buildBashSdk",
+//                                 "buildTypescriptSdk"
+                                 ]

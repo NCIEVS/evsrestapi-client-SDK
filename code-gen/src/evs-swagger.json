@@ -1,0 +1,5004 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "NCI EVS Rest API",
+    "description": "Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>",
+    "termsOfService": "https://evs.nci.nih.gov/ftp1/NCI_Thesaurus/ThesaurusTermsofUse.htm",
+    "contact": {
+      "name": "NCI EVS",
+      "email": "NCIAppSupport@nih.gov"
+    },
+    "version": "1.7.2.RELEASE"
+  },
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "paths": {
+    "/api/v1/version": {
+      "get": {
+        "tags": [
+          "Application version endpoint"
+        ],
+        "summary": "Get the application version information",
+        "operationId": "getApplicationVersion",
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ApplicationVersion"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subset/{terminology}/{code}/members": {
+      "get": {
+        "tags": [
+          "Subset endpoints"
+        ],
+        "summary": "Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.",
+        "operationId": "getSubsetMembers",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": 10000
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subset/{terminology}/{code}": {
+      "get": {
+        "tags": [
+          "Subset endpoints"
+        ],
+        "description": "Get the subset for the specified terminology and code.",
+        "operationId": "getSubset",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/subset/{terminology}": {
+      "get": {
+        "tags": [
+          "Subset endpoints"
+        ],
+        "summary": "Get all subsets (or those specified by list parameter) for the specified terminology",
+        "operationId": "getSubsets",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/welcomeText": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get welcome text for the specified terminology",
+        "operationId": "getWelcomeText",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "text/html": {
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/termTypes": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all term types for the specified terminology",
+        "operationId": "getTermTypes",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptMinimal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/synonymTypes": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all synonym types (or those specified by list parameter) for the specified terminology",
+        "operationId": "getSynonymTypes",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/synonymType/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the synonym type for the specified terminology and code/name",
+        "operationId": "getSynonymType",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/synonymSources": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all synonym sources for the specified terminology",
+        "operationId": "getSynonymSources",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptMinimal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/subsets": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all subsets (or those specified by list parameter) for the specified terminology.",
+        "description": "This endpoint will be deprecated in v2 in favor of top level subset endpoints.",
+        "operationId": "getSubsets_1",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/subset/{code}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the subset for the specified terminology and code.",
+        "description": "This endpoint will be deprecated in v2 in favor of top level subset endpoints.",
+        "operationId": "getSubset_1",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/roles": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all roles (or those specified by list parameter) for the specified terminology",
+        "operationId": "getRoles",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/role/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the role for the specified terminology and code/name",
+        "operationId": "getRole",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/qualifiers": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all qualifiers (properties on properties) for the specified terminology",
+        "operationId": "getQualifiers",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return qualifiers for (or leave blank for all)",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/qualifier/{codeOrName}/values": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get qualifier values for the specified terminology and code/name",
+        "operationId": "getQualifierValues",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/qualifier/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the qualifier for the specified terminology and code/name",
+        "operationId": "getQualifier",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/property/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the property for the specified terminology and code/name",
+        "operationId": "getProperty",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/properties": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all properties (or those specified by list parameter) for the specified terminology",
+        "operationId": "getProperties",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/definitionTypes": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all definition types (or those specified by list parameter) for the specified terminology",
+        "operationId": "getDefinitionTypes",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/definitionType/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the definition type for the specified terminology and code/name.",
+        "operationId": "getDefinitionType",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/definitionSources": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all definition sources for the specified terminology",
+        "operationId": "getDefinitionSources",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ConceptMinimal"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/conceptStatuses": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all concept status values for the specified terminology",
+        "operationId": "getConceptStatuses",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/associations": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all associations (or those specified by list parameter) for the specified terminology",
+        "operationId": "getAssociations",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/{terminology}/association/{codeOrName}": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get the association for the specified terminology and code/name",
+        "operationId": "getAssociation",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrName",
+            "in": "path",
+            "description": "Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/metadata/terminologies": {
+      "get": {
+        "tags": [
+          "Metadata endpoints"
+        ],
+        "summary": "Get all available terminologies",
+        "operationId": "getTerminologies",
+        "parameters": [
+          {
+            "name": "latest",
+            "in": "query",
+            "description": "Return terminologies with matching <i>latest</i> value. e.g. true or false",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            },
+            "example": true
+          },
+          {
+            "name": "tag",
+            "in": "query",
+            "description": "Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "terminology",
+            "in": "query",
+            "description": "Return entries with matching terminology, e.g. 'ncit' or 'ncim'",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Terminology"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/mapset/{code}/maps": {
+      "get": {
+        "tags": [
+          "Mapset endpoints"
+        ],
+        "summary": "Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)",
+        "operationId": "getMapsetMappingsByCode",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Mapset code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ascending",
+            "in": "query",
+            "description": "Sort ascending (if true) or descending (if false)",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "The search parameter to sort results by",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/MapResultList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/mapset/{code}": {
+      "get": {
+        "tags": [
+          "Mapset endpoints"
+        ],
+        "summary": "Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)",
+        "operationId": "getMapsetByCode",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Mapset code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/mapset": {
+      "get": {
+        "tags": [
+          "Mapset endpoints"
+        ],
+        "summary": "Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)",
+        "operationId": "getMapsets",
+        "parameters": [
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/history/{terminology}/{code}/replacements": {
+      "get": {
+        "tags": [
+          "History endpoints"
+        ],
+        "summary": "Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".",
+        "operationId": "getReplacements",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/History"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/history/{terminology}/replacements": {
+      "get": {
+        "tags": [
+          "History endpoints"
+        ],
+        "summary": "Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".",
+        "operationId": "getReplacementsFromList",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/History"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/subtree/children": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get the entire subtree from the root node to the specified code",
+        "operationId": "getSubtreeChildren",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HierarchyNode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/subtree": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get the entire subtree from the root node to the specified code",
+        "operationId": "getSubtree",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/HierarchyNode"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/roles": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get roles for the specified terminology and code",
+        "operationId": "getRoles_1",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/pathsToRoot": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get paths to the hierarchy root from the specified code",
+        "operationId": "getPathsToRoot",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Concept"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/pathsToAncestor/{ancestorCode}": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get paths from the specified code to the specified ancestor code",
+        "operationId": "getPathsToAncestor",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ancestorCode",
+            "in": "path",
+            "description": "Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Concept"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/pathsFromRoot": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get paths from the hierarchy root to the specified concept.",
+        "operationId": "getPathsFromRoot",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Concept"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/parents": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get parent concepts for the specified terminology and code",
+        "operationId": "getParents",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/maps": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get maps for the specified terminology and code",
+        "operationId": "getMaps",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Map"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/inverseRoles": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get inverse roles for the specified terminology and code",
+        "operationId": "getInverseRoles",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Role"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/inverseAssociations": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get inverse associations for the specified terminology and code",
+        "operationId": "getInverseAssociations",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Association"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/history": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get history for the specified terminology and code",
+        "operationId": "getHistory",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/disjointWith": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get \"disjoint with\" info for the specified terminology and code",
+        "operationId": "getDisjointWith",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DisjointWith"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/descendants": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get descendant concepts for the specified terminology and code",
+        "operationId": "getDescendants",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit''",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 50000
+          },
+          {
+            "name": "maxLevel",
+            "in": "query",
+            "description": "Max level of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10000
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/children": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get child concepts for the specified terminology and code",
+        "operationId": "getChildren",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}/associations": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get the associations for the specified terminology and code",
+        "operationId": "getAssociations_1",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Association"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/{code}": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get the concept for the specified terminology and code",
+        "operationId": "getConcept",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 100
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "summary"
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Concept"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/subsetMembers/{code}": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get subset members for the specified terminology and code.",
+        "description": "This endpoint will be deprecated in v2 in favor of a top level subset member endpoint.",
+        "operationId": "getSubsetMembers_1",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10000
+          },
+          {
+            "name": "code",
+            "in": "path",
+            "description": "Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/search": {
+      "get": {
+        "tags": [
+          "Search endpoint"
+        ],
+        "summary": "Get concept search results for a specified terminology",
+        "description": "Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href='https://github.com/NCIEVS/evsrestapi-client-SDK' target='_blank'>Github client SDK library created for the NCI EVS Rest API</a>.",
+        "operationId": "searchSingleTerminology",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Single terminology to search, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "The term, phrase, or code to be searched, e.g. 'melanoma'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "contains"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "The search parameter to sort results by",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ascending",
+            "in": "query",
+            "description": "Sort ascending (if true) or descending (if false)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10
+          },
+          {
+            "name": "conceptStatus",
+            "in": "query",
+            "description": "Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "property",
+            "in": "query",
+            "description": "Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "definitionSource",
+            "in": "query",
+            "description": "Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "definitionType",
+            "in": "query",
+            "description": "Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymSource",
+            "in": "query",
+            "description": "Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymType",
+            "in": "query",
+            "description": "Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymTermType",
+            "in": "query",
+            "description": "Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subset",
+            "in": "query",
+            "description": "Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConceptResultList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/roots": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get root concepts for the specified terminology",
+        "operationId": "getRoots",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}/associations/{codeOrLabel}": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get the association entries for the specified terminology and code. Associations used to define subset membership are not resolved by this call",
+        "operationId": "getAssociationEntries",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "codeOrLabel",
+            "in": "path",
+            "description": "Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10
+          }
+        ],
+        "responses": {
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/AssociationEntryResultList"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/{terminology}": {
+      "get": {
+        "tags": [
+          "Concept endpoints"
+        ],
+        "summary": "Get concepts specified by list parameter",
+        "operationId": "getConcepts",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "path",
+            "description": "Terminology, e.g. 'ncit' or 'ncim'",
+            "required": true,
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "list",
+            "in": "query",
+            "description": "List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Concept"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/concept/search": {
+      "get": {
+        "tags": [
+          "Search endpoint"
+        ],
+        "summary": "Get concept search results",
+        "description": "Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href='https://github.com/NCIEVS/evsrestapi-client-SDK' target='_blank'>Github client SDK library created for the NCI EVS Rest API</a>.",
+        "operationId": "search",
+        "parameters": [
+          {
+            "name": "terminology",
+            "in": "query",
+            "description": "Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim'",
+            "schema": {
+              "type": "string"
+            },
+            "example": "ncit"
+          },
+          {
+            "name": "term",
+            "in": "query",
+            "description": "The term, phrase, or code to be searched, e.g. 'melanoma'",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "contains"
+          },
+          {
+            "name": "sort",
+            "in": "query",
+            "description": "The search parameter to sort results by",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "ascending",
+            "in": "query",
+            "description": "Sort ascending (if true) or descending (if false)",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "include",
+            "in": "query",
+            "description": "Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.",
+            "schema": {
+              "type": "string"
+            },
+            "example": "minimal"
+          },
+          {
+            "name": "fromRecord",
+            "in": "query",
+            "description": "Start index of the search results",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 0
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "Max number of results to return",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "example": 10
+          },
+          {
+            "name": "conceptStatus",
+            "in": "query",
+            "description": "Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "property",
+            "in": "query",
+            "description": "Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "value",
+            "in": "query",
+            "description": "A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "definitionSource",
+            "in": "query",
+            "description": "Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "definitionType",
+            "in": "query",
+            "description": "Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymSource",
+            "in": "query",
+            "description": "Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymType",
+            "in": "query",
+            "description": "Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "synonymTermType",
+            "in": "query",
+            "description": "Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subset",
+            "in": "query",
+            "description": "Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "417": {
+            "description": "Expectation failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Resource not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RestException"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "Successfully retrieved the requested information",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ConceptResultList"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RestException": {
+        "type": "object",
+        "properties": {
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          },
+          "path": {
+            "type": "string"
+          }
+        },
+        "description": "Payload for JSON error responses"
+      },
+      "ApplicationVersion": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          }
+        }
+      },
+      "Association": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "relatedCode": {
+            "type": "string"
+          },
+          "relatedName": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          }
+        }
+      },
+      "Concept": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "terminology": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "highlights": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "normName": {
+            "type": "string",
+            "readOnly": true
+          },
+          "subsetLink": {
+            "type": "string"
+          },
+          "mapsetLink": {
+            "type": "string"
+          },
+          "conceptStatus": {
+            "type": "string",
+            "readOnly": true
+          },
+          "source": {
+            "type": "string"
+          },
+          "leaf": {
+            "type": "boolean"
+          },
+          "synonyms": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Synonym"
+            }
+          },
+          "definitions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Definition"
+            }
+          },
+          "history": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/History"
+            }
+          },
+          "properties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Property"
+            }
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Concept"
+            }
+          },
+          "parents": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Concept"
+            }
+          },
+          "descendants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Concept"
+            }
+          },
+          "associations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Association"
+            }
+          },
+          "inverseAssociations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Association"
+            }
+          },
+          "roles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          },
+          "disjointWith": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DisjointWith"
+            }
+          },
+          "inverseRoles": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Role"
+            }
+          },
+          "maps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Map"
+            }
+          },
+          "paths": {
+            "$ref": "#/components/schemas/Paths"
+          },
+          "extensions": {
+            "$ref": "#/components/schemas/Extensions"
+          }
+        }
+      },
+      "ConceptMinimal": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "terminology": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          }
+        }
+      },
+      "Definition": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "definition": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          }
+        }
+      },
+      "DisjointWith": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "relatedCode": {
+            "type": "string"
+          },
+          "relatedName": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          }
+        }
+      },
+      "Extensions": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "isDisease": {
+            "type": "boolean"
+          },
+          "isDiseaseGrade": {
+            "type": "boolean"
+          },
+          "isDiseaseStage": {
+            "type": "boolean"
+          },
+          "isMainType": {
+            "type": "boolean"
+          },
+          "isSubtype": {
+            "type": "boolean"
+          },
+          "isBiomarker": {
+            "type": "boolean"
+          },
+          "isReferenceGene": {
+            "type": "boolean"
+          },
+          "mainMenuAncestors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Paths"
+            }
+          }
+        }
+      },
+      "History": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "action": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "replacementCode": {
+            "type": "string"
+          },
+          "replacementName": {
+            "type": "string"
+          }
+        }
+      },
+      "Map": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "source": {
+            "type": "string"
+          },
+          "sourceName": {
+            "type": "string"
+          },
+          "sourceTermType": {
+            "type": "string"
+          },
+          "sourceCode": {
+            "type": "string"
+          },
+          "sourceTerminology": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "rank": {
+            "type": "string"
+          },
+          "group": {
+            "type": "string"
+          },
+          "rule": {
+            "type": "string"
+          },
+          "targetName": {
+            "type": "string"
+          },
+          "targetTermType": {
+            "type": "string"
+          },
+          "targetCode": {
+            "type": "string"
+          },
+          "targetTerminology": {
+            "type": "string"
+          },
+          "targetTerminologyVersion": {
+            "type": "string"
+          },
+          "targetTermGroup": {
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "Path": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "direction": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "concepts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ConceptMinimal"
+            }
+          }
+        }
+      },
+      "Paths": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "paths": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Path"
+            }
+          }
+        }
+      },
+      "Property": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          },
+          "source": {
+            "type": "string"
+          }
+        }
+      },
+      "Qualifier": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "type": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
+        }
+      },
+      "Role": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string",
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "relatedCode": {
+            "type": "string"
+          },
+          "relatedName": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          }
+        }
+      },
+      "Synonym": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string"
+          },
+          "normName": {
+            "type": "string",
+            "readOnly": true
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "termType": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "typeCode": {
+            "type": "string",
+            "readOnly": true
+          },
+          "source": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "subSource": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          },
+          "termGroup": {
+            "type": "string",
+            "writeOnly": true
+          }
+        }
+      },
+      "Terminology": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "terminology": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "graph": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "terminologyVersion": {
+            "type": "string"
+          },
+          "latest": {
+            "type": "boolean"
+          },
+          "tags": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "indexName": {
+            "type": "string"
+          },
+          "objectIndexName": {
+            "type": "string"
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/TerminologyMetadata"
+          },
+          "sparqlFlag": {
+            "type": "boolean"
+          }
+        }
+      },
+      "TerminologyMetadata": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "uiLabel": {
+            "type": "string"
+          },
+          "maxVersions": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "loader": {
+            "type": "string"
+          },
+          "code": {
+            "type": "string"
+          },
+          "conceptStatus": {
+            "type": "string"
+          },
+          "conceptStatuses": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "retiredStatusValue": {
+            "type": "string"
+          },
+          "preferredName": {
+            "type": "string"
+          },
+          "relationshipToTarget": {
+            "type": "string"
+          },
+          "synonym": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "synonymTermType": {
+            "type": "string"
+          },
+          "synonymSource": {
+            "type": "string"
+          },
+          "synonymCode": {
+            "type": "string"
+          },
+          "synonymSubSource": {
+            "type": "string"
+          },
+          "definition": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitionSource": {
+            "type": "string"
+          },
+          "mapRelation": {
+            "type": "string"
+          },
+          "map": {
+            "type": "string"
+          },
+          "mapTarget": {
+            "type": "string"
+          },
+          "mapTargetTermType": {
+            "type": "string"
+          },
+          "mapTargetTerminology": {
+            "type": "string"
+          },
+          "mapTargetTerminologyVersion": {
+            "type": "string"
+          },
+          "sources": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "detailsColumns": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "boolean"
+            }
+          },
+          "hierarchy": {
+            "type": "boolean"
+          },
+          "history": {
+            "type": "boolean"
+          },
+          "mapsets": {
+            "type": "boolean"
+          },
+          "sourceCt": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "definitionSourceSet": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "synonymSourceSet": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "termTypes": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "subsetPrefix": {
+            "type": "string"
+          },
+          "subsetLink": {
+            "type": "string"
+          },
+          "sourcesToRemove": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "subsetMember": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "unpublished": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "monthlyDb": {
+            "type": "string"
+          },
+          "subset": {
+            "uniqueItems": true,
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "licenseText": {
+            "type": "string"
+          },
+          "metaConceptField": {
+            "type": "string"
+          },
+          "preferredTermTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "codeLabel": {
+            "type": "string"
+          },
+          "welcomeText": {
+            "type": "string"
+          },
+          "synonymTermGroup": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "mapTargetTermGroup": {
+            "type": "string",
+            "writeOnly": true
+          },
+          "termGroups": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            },
+            "writeOnly": true
+          },
+          "preferredTermGroups": {
+            "type": "array",
+            "writeOnly": true,
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "MapResultList": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeTaken": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/SearchCriteria"
+          },
+          "maps": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Map"
+            }
+          }
+        }
+      },
+      "SearchCriteria": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "term": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "include": {
+            "type": "string"
+          },
+          "sort": {
+            "type": "string"
+          },
+          "ascending": {
+            "type": "boolean"
+          },
+          "fromRecord": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "conceptStatus": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "property": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "value": {
+            "type": "string"
+          },
+          "synonymSource": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "synonymType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitionSource": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "definitionType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "synonymTermType": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "subset": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "terminology": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "HierarchyNode": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "level": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "leaf": {
+            "type": "boolean"
+          },
+          "expanded": {
+            "type": "boolean"
+          },
+          "highlight": {
+            "type": "boolean"
+          },
+          "children": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/HierarchyNode"
+            }
+          }
+        }
+      },
+      "ConceptResultList": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeTaken": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/SearchCriteria"
+          },
+          "concepts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Concept"
+            }
+          }
+        }
+      },
+      "AssociationEntry": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "code": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          },
+          "relatedCode": {
+            "type": "string"
+          },
+          "relatedName": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string"
+          },
+          "highlight": {
+            "type": "string"
+          },
+          "qualifiers": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Qualifier"
+            }
+          },
+          "terminology": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "association": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        }
+      },
+      "AssociationEntryResultList": {
+        "type": "object",
+        "properties": {
+          "uri": {
+            "type": "string"
+          },
+          "ct": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "total": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "timeTaken": {
+            "type": "integer",
+            "format": "int64"
+          },
+          "parameters": {
+            "$ref": "#/components/schemas/SearchCriteria"
+          },
+          "associationEntries": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/AssociationEntry"
+            }
+          }
+        }
+      }
+    }
+  }
+}
