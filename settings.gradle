@@ -1,2 +1,3 @@
 rootProject.name = "evsrestapi-client-SDK"
-include 'code-gen'
+include 'openapi-code-generator'
+

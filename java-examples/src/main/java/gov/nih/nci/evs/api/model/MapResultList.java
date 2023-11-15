@@ -54,7 +54,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * MapResultList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-09T12:42:15.095444-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T15:33:40.603361-08:00[America/Los_Angeles]")
 public class MapResultList {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
