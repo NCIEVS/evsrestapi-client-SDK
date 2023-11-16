@@ -2592,7 +2592,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Map"
+                    "$ref": "#/components/schemas/ConceptMap"
                   }
                 }
               }
@@ -4050,7 +4050,7 @@
           "maps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Map"
+              "$ref": "#/components/schemas/ConceptMap"
             }
           },
           "paths": {
@@ -4229,7 +4229,7 @@
           }
         }
       },
-      "Map": {
+      "ConceptMap": {
         "type": "object",
         "properties": {
           "uri": {
@@ -4760,7 +4760,7 @@
           "maps": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Map"
+              "$ref": "#/components/schemas/ConceptMap"
             }
           }
         }
