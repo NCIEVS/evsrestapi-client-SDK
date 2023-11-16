@@ -2,7 +2,7 @@
 
 NCI EVS Rest API
 - API version: 1.7.2.RELEASE
-  - Build date: 2023-11-15T15:33:40.603361-08:00[America/Los_Angeles]
+  - Build date: 2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
@@ -89,7 +89,7 @@ import gov.nih.nci.evs.api.ApplicationVersionEndpointApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     ApplicationVersionEndpointApi apiInstance = new ApplicationVersionEndpointApi(defaultClient);
     try {
@@ -109,7 +109,7 @@ public class Example {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------

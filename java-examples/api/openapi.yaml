@@ -11,7 +11,8 @@ info:
   title: NCI EVS Rest API
   version: 1.7.2.RELEASE
 servers:
-- url: /
+- description: Production server
+  url: https://api-evsrest.nci.nih.gov/api/v1
 paths:
   /api/v1/version:
     get:

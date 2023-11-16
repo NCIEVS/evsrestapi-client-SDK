@@ -1,6 +1,6 @@
 # SubsetEndpointsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -29,7 +29,7 @@ import gov.nih.nci.evs.api.SubsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     SubsetEndpointsApi apiInstance = new SubsetEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'.
@@ -94,7 +94,7 @@ import gov.nih.nci.evs.api.SubsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     SubsetEndpointsApi apiInstance = new SubsetEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'
@@ -164,7 +164,7 @@ import gov.nih.nci.evs.api.SubsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     SubsetEndpointsApi apiInstance = new SubsetEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.

@@ -1,6 +1,6 @@
 # SearchEndpointApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -28,7 +28,7 @@ import gov.nih.nci.evs.api.SearchEndpointApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     SearchEndpointApi apiInstance = new SearchEndpointApi(defaultClient);
     String terminology = "ncit"; // String | Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim'
@@ -125,7 +125,7 @@ import gov.nih.nci.evs.api.SearchEndpointApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     SearchEndpointApi apiInstance = new SearchEndpointApi(defaultClient);
     String terminology = "ncit"; // String | Single terminology to search, e.g. 'ncit' or 'ncim'

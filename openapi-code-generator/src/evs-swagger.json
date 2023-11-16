@@ -12,7 +12,8 @@
   },
   "servers": [
     {
-      "url": "/"
+      "url": "https://api-evsrest.nci.nih.gov/api/v1",
+      "description": "Production server"
     }
   ],
   "paths": {

@@ -1,6 +1,6 @@
 # MapsetEndpointsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -27,7 +27,7 @@ import gov.nih.nci.evs.api.MapsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MapsetEndpointsApi apiInstance = new MapsetEndpointsApi(defaultClient);
     String code = "code_example"; // String | Mapset code
@@ -91,7 +91,7 @@ import gov.nih.nci.evs.api.MapsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MapsetEndpointsApi apiInstance = new MapsetEndpointsApi(defaultClient);
     String code = "code_example"; // String | Mapset code
@@ -163,7 +163,7 @@ import gov.nih.nci.evs.api.MapsetEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MapsetEndpointsApi apiInstance = new MapsetEndpointsApi(defaultClient);
     String include = "minimal"; // String | Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.

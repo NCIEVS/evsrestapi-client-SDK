@@ -1,6 +1,6 @@
 # MetadataEndpointsApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -45,7 +45,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -111,7 +111,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -177,7 +177,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.
@@ -238,7 +238,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -299,7 +299,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -365,7 +365,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -431,7 +431,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -497,7 +497,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -563,7 +563,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -629,7 +629,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -692,7 +692,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -758,7 +758,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'
@@ -824,7 +824,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.
@@ -891,7 +891,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'.
@@ -959,7 +959,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.
@@ -1025,7 +1025,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -1086,7 +1086,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -1152,7 +1152,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -1218,7 +1218,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'
@@ -1279,7 +1279,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     Boolean latest = true; // Boolean | Return terminologies with matching <i>latest</i> value. e.g. true or false
@@ -1344,7 +1344,7 @@ import gov.nih.nci.evs.api.MetadataEndpointsApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     MetadataEndpointsApi apiInstance = new MetadataEndpointsApi(defaultClient);
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit' or 'ncim'

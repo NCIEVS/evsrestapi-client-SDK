@@ -1,6 +1,6 @@
 # ApplicationVersionEndpointApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://api-evsrest.nci.nih.gov/api/v1*
 
 | Method | HTTP request | Description |
 |------------- | ------------- | -------------|
@@ -25,7 +25,7 @@ import gov.nih.nci.evs.api.ApplicationVersionEndpointApi;
 public class Example {
   public static void main(String[] args) {
     ApiClient defaultClient = Configuration.getDefaultApiClient();
-    defaultClient.setBasePath("http://localhost");
+    defaultClient.setBasePath("https://api-evsrest.nci.nih.gov/api/v1");
 
     ApplicationVersionEndpointApi apiInstance = new ApplicationVersionEndpointApi(defaultClient);
     try {
