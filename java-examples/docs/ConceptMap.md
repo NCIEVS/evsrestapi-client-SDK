@@ -1,6 +1,6 @@
 
 
-# Map
+# ConceptMap
 
 
 ## Properties

@@ -20,11 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
+import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.SearchCriteria;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -54,7 +54,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * MapResultList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T13:37:54.673308-08:00[America/Los_Angeles]")
 public class MapResultList {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -78,7 +78,7 @@ public class MapResultList {
 
   public static final String SERIALIZED_NAME_MAPS = "maps";
   @SerializedName(SERIALIZED_NAME_MAPS)
-  private List<Map> maps;
+  private List<ConceptMap> maps;
 
   public MapResultList() {
   }
@@ -188,13 +188,13 @@ public class MapResultList {
   }
 
 
-  public MapResultList maps(List<Map> maps) {
+  public MapResultList maps(List<ConceptMap> maps) {
     
     this.maps = maps;
     return this;
   }
 
-  public MapResultList addMapsItem(Map mapsItem) {
+  public MapResultList addMapsItem(ConceptMap mapsItem) {
     if (this.maps == null) {
       this.maps = new ArrayList<>();
     }
@@ -207,12 +207,12 @@ public class MapResultList {
    * @return maps
   **/
   @javax.annotation.Nullable
-  public List<Map> getMaps() {
+  public List<ConceptMap> getMaps() {
     return maps;
   }
 
 
-  public void setMaps(List<Map> maps) {
+  public void setMaps(List<ConceptMap> maps) {
     this.maps = maps;
   }
 
@@ -320,7 +320,7 @@ public class MapResultList {
 
           // validate the optional field `maps` (array)
           for (int i = 0; i < jsonArraymaps.size(); i++) {
-            Map.validateJsonObject(jsonArraymaps.get(i).getAsJsonObject());
+            ConceptMap.validateJsonObject(jsonArraymaps.get(i).getAsJsonObject());
           };
         }
       }

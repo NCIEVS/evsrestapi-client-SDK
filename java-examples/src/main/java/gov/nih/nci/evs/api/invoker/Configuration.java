@@ -13,7 +13,7 @@
 
 package gov.nih.nci.evs.api.invoker;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T13:37:54.673308-08:00[America/Los_Angeles]")
 public class Configuration {
     public static final String VERSION = "1.7.2.RELEASE";
 

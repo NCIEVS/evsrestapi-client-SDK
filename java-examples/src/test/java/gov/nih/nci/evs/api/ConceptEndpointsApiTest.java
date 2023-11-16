@@ -17,6 +17,7 @@ import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.RestException;
@@ -184,7 +185,7 @@ public class ConceptEndpointsApiTest {
     public void getMapsTest() throws ApiException {
         String terminology = null;
         String code = null;
-        List<Map> response = api.getMaps(terminology, code);
+        List<ConceptMap> response = api.getMaps(terminology, code);
         // TODO: test validations
     }
 

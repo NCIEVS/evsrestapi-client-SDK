@@ -98,6 +98,7 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.AssociationEntry.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.AssociationEntryResultList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Concept.CustomTypeAdapterFactory());
+        gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.ConceptMap.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.ConceptMinimal.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.ConceptResultList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Definition.CustomTypeAdapterFactory());
@@ -105,7 +106,6 @@ public class JSON {
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Extensions.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.HierarchyNode.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.History.CustomTypeAdapterFactory());
-        gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Map.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.MapResultList.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Path.CustomTypeAdapterFactory());
         gsonBuilder.registerTypeAdapterFactory(new gov.nih.nci.evs.api.model.Paths.CustomTypeAdapterFactory());

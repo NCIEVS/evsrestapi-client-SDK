@@ -2073,7 +2073,7 @@ paths:
             application/json:
               schema:
                 items:
-                  $ref: '#/components/schemas/Map'
+                  $ref: '#/components/schemas/ConceptMap'
                 type: array
           description: Successfully retrieved the requested information
       summary: Get maps for the specified terminology and code
@@ -3849,7 +3849,7 @@ components:
           type: array
         maps:
           items:
-            $ref: '#/components/schemas/Map'
+            $ref: '#/components/schemas/ConceptMap'
           type: array
         paths:
           $ref: '#/components/schemas/Paths'
@@ -4110,7 +4110,7 @@ components:
         replacementName:
           type: string
       type: object
-    Map:
+    ConceptMap:
       example:
         targetName: targetName
         targetCode: targetCode
@@ -4858,7 +4858,7 @@ components:
           $ref: '#/components/schemas/SearchCriteria'
         maps:
           items:
-            $ref: '#/components/schemas/Map'
+            $ref: '#/components/schemas/ConceptMap'
           type: array
       type: object
     SearchCriteria:

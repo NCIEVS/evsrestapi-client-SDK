@@ -21,6 +21,7 @@ import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import gov.nih.nci.evs.api.model.Association;
+import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.Definition;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.Extensions;
@@ -64,7 +65,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Concept
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T13:37:54.673308-08:00[America/Los_Angeles]")
 public class Concept {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -180,7 +181,7 @@ public class Concept {
 
   public static final String SERIALIZED_NAME_MAPS = "maps";
   @SerializedName(SERIALIZED_NAME_MAPS)
-  private List<Map> maps;
+  private List<ConceptMap> maps;
 
   public static final String SERIALIZED_NAME_PATHS = "paths";
   @SerializedName(SERIALIZED_NAME_PATHS)
@@ -885,13 +886,13 @@ public class Concept {
   }
 
 
-  public Concept maps(List<Map> maps) {
+  public Concept maps(List<ConceptMap> maps) {
     
     this.maps = maps;
     return this;
   }
 
-  public Concept addMapsItem(Map mapsItem) {
+  public Concept addMapsItem(ConceptMap mapsItem) {
     if (this.maps == null) {
       this.maps = new ArrayList<>();
     }
@@ -904,12 +905,12 @@ public class Concept {
    * @return maps
   **/
   @javax.annotation.Nullable
-  public List<Map> getMaps() {
+  public List<ConceptMap> getMaps() {
     return maps;
   }
 
 
-  public void setMaps(List<Map> maps) {
+  public void setMaps(List<ConceptMap> maps) {
     this.maps = maps;
   }
 
@@ -1342,7 +1343,7 @@ public class Concept {
 
           // validate the optional field `maps` (array)
           for (int i = 0; i < jsonArraymaps.size(); i++) {
-            Map.validateJsonObject(jsonArraymaps.get(i).getAsJsonObject());
+            ConceptMap.validateJsonObject(jsonArraymaps.get(i).getAsJsonObject());
           };
         }
       }

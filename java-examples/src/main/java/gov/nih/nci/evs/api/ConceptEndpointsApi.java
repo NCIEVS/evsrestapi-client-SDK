@@ -30,6 +30,7 @@ import java.io.IOException;
 import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.HierarchyNode;
 import gov.nih.nci.evs.api.model.RestException;
@@ -1621,7 +1622,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
-     * @return List&lt;Map&gt;
+     * @return List&lt;ConceptMap&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1630,8 +1631,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Map> getMaps(String terminology, String code) throws ApiException {
-        ApiResponse<List<Map>> localVarResp = getMapsWithHttpInfo(terminology, code);
+    public List<ConceptMap> getMaps(String terminology, String code) throws ApiException {
+        ApiResponse<List<ConceptMap>> localVarResp = getMapsWithHttpInfo(terminology, code);
         return localVarResp.getData();
     }
 
@@ -1640,7 +1641,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
-     * @return ApiResponse&lt;List&lt;Map&gt;&gt;
+     * @return ApiResponse&lt;List&lt;ConceptMap&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
@@ -1649,9 +1650,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Map>> getMapsWithHttpInfo(String terminology, String code) throws ApiException {
+    public ApiResponse<List<ConceptMap>> getMapsWithHttpInfo(String terminology, String code) throws ApiException {
         okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, null);
-        Type localVarReturnType = new TypeToken<List<Map>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ConceptMap>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -1670,10 +1671,10 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMapsAsync(String terminology, String code, final ApiCallback<List<Map>> _callback) throws ApiException {
+    public okhttp3.Call getMapsAsync(String terminology, String code, final ApiCallback<List<ConceptMap>> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, _callback);
-        Type localVarReturnType = new TypeToken<List<Map>>(){}.getType();
+        Type localVarReturnType = new TypeToken<List<ConceptMap>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

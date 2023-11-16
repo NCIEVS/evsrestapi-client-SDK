@@ -35,7 +35,7 @@
 |**roles** | [**List&lt;Role&gt;**](Role.md) |  |  [optional] |
 |**disjointWith** | [**List&lt;DisjointWith&gt;**](DisjointWith.md) |  |  [optional] |
 |**inverseRoles** | [**List&lt;Role&gt;**](Role.md) |  |  [optional] |
-|**maps** | [**List&lt;Map&gt;**](Map.md) |  |  [optional] |
+|**maps** | [**List&lt;ConceptMap&gt;**](ConceptMap.md) |  |  [optional] |
 |**paths** | [**Paths**](Paths.md) |  |  [optional] |
 |**extensions** | [**Extensions**](Extensions.md) |  |  [optional] |
 

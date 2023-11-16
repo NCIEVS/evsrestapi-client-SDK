@@ -48,10 +48,10 @@ import java.util.Set;
 import gov.nih.nci.evs.api.invoker.JSON;
 
 /**
- * Map
+ * ConceptMap
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]")
-public class Map {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T13:37:54.673308-08:00[America/Los_Angeles]")
+public class ConceptMap {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
   private String uri;
@@ -120,10 +120,10 @@ public class Map {
   @SerializedName(SERIALIZED_NAME_TARGET_TERM_GROUP)
   private String targetTermGroup;
 
-  public Map() {
+  public ConceptMap() {
   }
 
-  public Map uri(String uri) {
+  public ConceptMap uri(String uri) {
     
     this.uri = uri;
     return this;
@@ -144,7 +144,7 @@ public class Map {
   }
 
 
-  public Map ct(Integer ct) {
+  public ConceptMap ct(Integer ct) {
     
     this.ct = ct;
     return this;
@@ -165,7 +165,7 @@ public class Map {
   }
 
 
-  public Map source(String source) {
+  public ConceptMap source(String source) {
     
     this.source = source;
     return this;
@@ -186,7 +186,7 @@ public class Map {
   }
 
 
-  public Map sourceName(String sourceName) {
+  public ConceptMap sourceName(String sourceName) {
     
     this.sourceName = sourceName;
     return this;
@@ -207,7 +207,7 @@ public class Map {
   }
 
 
-  public Map sourceTermType(String sourceTermType) {
+  public ConceptMap sourceTermType(String sourceTermType) {
     
     this.sourceTermType = sourceTermType;
     return this;
@@ -228,7 +228,7 @@ public class Map {
   }
 
 
-  public Map sourceCode(String sourceCode) {
+  public ConceptMap sourceCode(String sourceCode) {
     
     this.sourceCode = sourceCode;
     return this;
@@ -249,7 +249,7 @@ public class Map {
   }
 
 
-  public Map sourceTerminology(String sourceTerminology) {
+  public ConceptMap sourceTerminology(String sourceTerminology) {
     
     this.sourceTerminology = sourceTerminology;
     return this;
@@ -270,7 +270,7 @@ public class Map {
   }
 
 
-  public Map type(String type) {
+  public ConceptMap type(String type) {
     
     this.type = type;
     return this;
@@ -291,7 +291,7 @@ public class Map {
   }
 
 
-  public Map rank(String rank) {
+  public ConceptMap rank(String rank) {
     
     this.rank = rank;
     return this;
@@ -312,7 +312,7 @@ public class Map {
   }
 
 
-  public Map group(String group) {
+  public ConceptMap group(String group) {
     
     this.group = group;
     return this;
@@ -333,7 +333,7 @@ public class Map {
   }
 
 
-  public Map rule(String rule) {
+  public ConceptMap rule(String rule) {
     
     this.rule = rule;
     return this;
@@ -354,7 +354,7 @@ public class Map {
   }
 
 
-  public Map targetName(String targetName) {
+  public ConceptMap targetName(String targetName) {
     
     this.targetName = targetName;
     return this;
@@ -375,7 +375,7 @@ public class Map {
   }
 
 
-  public Map targetTermType(String targetTermType) {
+  public ConceptMap targetTermType(String targetTermType) {
     
     this.targetTermType = targetTermType;
     return this;
@@ -396,7 +396,7 @@ public class Map {
   }
 
 
-  public Map targetCode(String targetCode) {
+  public ConceptMap targetCode(String targetCode) {
     
     this.targetCode = targetCode;
     return this;
@@ -417,7 +417,7 @@ public class Map {
   }
 
 
-  public Map targetTerminology(String targetTerminology) {
+  public ConceptMap targetTerminology(String targetTerminology) {
     
     this.targetTerminology = targetTerminology;
     return this;
@@ -438,7 +438,7 @@ public class Map {
   }
 
 
-  public Map targetTerminologyVersion(String targetTerminologyVersion) {
+  public ConceptMap targetTerminologyVersion(String targetTerminologyVersion) {
     
     this.targetTerminologyVersion = targetTerminologyVersion;
     return this;
@@ -459,7 +459,7 @@ public class Map {
   }
 
 
-  public Map targetTermGroup(String targetTermGroup) {
+  public ConceptMap targetTermGroup(String targetTermGroup) {
     
     this.targetTermGroup = targetTermGroup;
     return this;
@@ -489,24 +489,24 @@ public class Map {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Map map = (Map) o;
-    return Objects.equals(this.uri, map.uri) &&
-        Objects.equals(this.ct, map.ct) &&
-        Objects.equals(this.source, map.source) &&
-        Objects.equals(this.sourceName, map.sourceName) &&
-        Objects.equals(this.sourceTermType, map.sourceTermType) &&
-        Objects.equals(this.sourceCode, map.sourceCode) &&
-        Objects.equals(this.sourceTerminology, map.sourceTerminology) &&
-        Objects.equals(this.type, map.type) &&
-        Objects.equals(this.rank, map.rank) &&
-        Objects.equals(this.group, map.group) &&
-        Objects.equals(this.rule, map.rule) &&
-        Objects.equals(this.targetName, map.targetName) &&
-        Objects.equals(this.targetTermType, map.targetTermType) &&
-        Objects.equals(this.targetCode, map.targetCode) &&
-        Objects.equals(this.targetTerminology, map.targetTerminology) &&
-        Objects.equals(this.targetTerminologyVersion, map.targetTerminologyVersion) &&
-        Objects.equals(this.targetTermGroup, map.targetTermGroup);
+    ConceptMap conceptMap = (ConceptMap) o;
+    return Objects.equals(this.uri, conceptMap.uri) &&
+        Objects.equals(this.ct, conceptMap.ct) &&
+        Objects.equals(this.source, conceptMap.source) &&
+        Objects.equals(this.sourceName, conceptMap.sourceName) &&
+        Objects.equals(this.sourceTermType, conceptMap.sourceTermType) &&
+        Objects.equals(this.sourceCode, conceptMap.sourceCode) &&
+        Objects.equals(this.sourceTerminology, conceptMap.sourceTerminology) &&
+        Objects.equals(this.type, conceptMap.type) &&
+        Objects.equals(this.rank, conceptMap.rank) &&
+        Objects.equals(this.group, conceptMap.group) &&
+        Objects.equals(this.rule, conceptMap.rule) &&
+        Objects.equals(this.targetName, conceptMap.targetName) &&
+        Objects.equals(this.targetTermType, conceptMap.targetTermType) &&
+        Objects.equals(this.targetCode, conceptMap.targetCode) &&
+        Objects.equals(this.targetTerminology, conceptMap.targetTerminology) &&
+        Objects.equals(this.targetTerminologyVersion, conceptMap.targetTerminologyVersion) &&
+        Objects.equals(this.targetTermGroup, conceptMap.targetTermGroup);
   }
 
   @Override
@@ -517,7 +517,7 @@ public class Map {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Map {\n");
+    sb.append("class ConceptMap {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
@@ -583,20 +583,20 @@ public class Map {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Map
+  * @throws IOException if the JSON Object is invalid with respect to ConceptMap
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!Map.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in Map is not found in the empty JSON string", Map.openapiRequiredFields.toString()));
+        if (!ConceptMap.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConceptMap is not found in the empty JSON string", ConceptMap.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!Map.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Map` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ConceptMap.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConceptMap` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
@@ -653,22 +653,22 @@ public class Map {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!Map.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'Map' and its subtypes
+       if (!ConceptMap.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConceptMap' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<Map> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(Map.class));
+       final TypeAdapter<ConceptMap> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConceptMap.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<Map>() {
+       return (TypeAdapter<T>) new TypeAdapter<ConceptMap>() {
            @Override
-           public void write(JsonWriter out, Map value) throws IOException {
+           public void write(JsonWriter out, ConceptMap value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public Map read(JsonReader in) throws IOException {
+           public ConceptMap read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -679,18 +679,18 @@ public class Map {
   }
 
  /**
-  * Create an instance of Map given an JSON string
+  * Create an instance of ConceptMap given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of Map
-  * @throws IOException if the JSON string is invalid with respect to Map
+  * @return An instance of ConceptMap
+  * @throws IOException if the JSON string is invalid with respect to ConceptMap
   */
-  public static Map fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, Map.class);
+  public static ConceptMap fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConceptMap.class);
   }
 
  /**
-  * Convert an instance of Map to an JSON string
+  * Convert an instance of ConceptMap to an JSON string
   *
   * @return JSON string
   */

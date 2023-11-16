@@ -24,17 +24,17 @@ import org.junit.jupiter.api.Test;
 
 
 /**
- * Model tests for Map
+ * Model tests for ConceptMap
  */
-public class MapTest {
-    private final Map model = new Map();
+public class ConceptMapTest {
+    private final ConceptMap model = new ConceptMap();
 
     /**
-     * Model tests for Map
+     * Model tests for ConceptMap
      */
     @Test
-    public void testMap() {
-        // TODO: test Map
+    public void testConceptMap() {
+        // TODO: test ConceptMap
     }
 
     /**

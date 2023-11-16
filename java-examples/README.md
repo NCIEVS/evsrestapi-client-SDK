@@ -2,7 +2,7 @@
 
 NCI EVS Rest API
 - API version: 1.7.2.RELEASE
-  - Build date: 2023-11-15T16:28:28.893302-08:00[America/Los_Angeles]
+  - Build date: 2023-11-16T13:37:54.673308-08:00[America/Los_Angeles]
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
@@ -174,6 +174,7 @@ Class | Method | HTTP request | Description
  - [AssociationEntry](docs/AssociationEntry.md)
  - [AssociationEntryResultList](docs/AssociationEntryResultList.md)
  - [Concept](docs/Concept.md)
+ - [ConceptMap](docs/ConceptMap.md)
  - [ConceptMinimal](docs/ConceptMinimal.md)
  - [ConceptResultList](docs/ConceptResultList.md)
  - [Definition](docs/Definition.md)
@@ -181,7 +182,6 @@ Class | Method | HTTP request | Description
  - [Extensions](docs/Extensions.md)
  - [HierarchyNode](docs/HierarchyNode.md)
  - [History](docs/History.md)
- - [Map](docs/Map.md)
  - [MapResultList](docs/MapResultList.md)
  - [Path](docs/Path.md)
  - [Paths](docs/Paths.md)

@@ -680,7 +680,7 @@ No authorization required
 
 <a id="getMaps"></a>
 # **getMaps**
-> List&lt;Map&gt; getMaps(terminology, code)
+> List&lt;ConceptMap&gt; getMaps(terminology, code)
 
 Get maps for the specified terminology and code
 
@@ -702,7 +702,7 @@ public class Example {
     String terminology = "ncit"; // String | Terminology, e.g. 'ncit'
     String code = "code_example"; // String | Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.
     try {
-      List<Map> result = apiInstance.getMaps(terminology, code);
+      List<ConceptMap> result = apiInstance.getMaps(terminology, code);
       System.out.println(result);
     } catch (ApiException e) {
       System.err.println("Exception when calling ConceptEndpointsApi#getMaps");
@@ -724,7 +724,7 @@ public class Example {
 
 ### Return type
 
-[**List&lt;Map&gt;**](Map.md)
+[**List&lt;ConceptMap&gt;**](ConceptMap.md)
 
 ### Authorization
 
