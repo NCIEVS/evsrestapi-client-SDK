@@ -31,7 +31,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 
     generatorName.set("java")
     inputSpec.set("$projectDir/src/evs-swagger.json")
-    outputDir.set("$rootDir/java-examples")
+    outputDir.set("$rootDir/openapi-java-client")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
     modelPackage.set("gov.nih.nci.evs.api.model")
@@ -41,7 +41,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 }
 
 tasks.register('cleanJavaSDK', Delete) {
-    delete "$rootDir/java-examples"
+    delete "$rootDir/openapi-java-client/src"
 }
 
 compileJava.dependsOn tasks.named("buildJavaSdk")
