@@ -14,7 +14,7 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 - [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
-- [Click for Java examples.](../master/java-examples/ "Java Examples")
+- [Click for Java examples.](../master/openapi-java-client/java-demo/ "Java Examples")
 - [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
 - [Click for Python examples.](../master/python-examples/ "Python Examples")
 
