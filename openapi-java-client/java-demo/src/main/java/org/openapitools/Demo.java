@@ -13,8 +13,10 @@ import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.ApplicationVersionEndpointApi;
 import gov.nih.nci.evs.api.model.ApplicationVersion;
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.ConceptResultList;
 import gov.nih.nci.evs.api.model.History;
 import gov.nih.nci.evs.api.model.MapResultList;
+import gov.nih.nci.evs.api.model.Terminology;
 
 import java.util.List;
 
@@ -67,25 +69,25 @@ public class Demo {
    */
   public static void ConceptDemo(ConceptEndpointsApi api) throws ApiException {
     // Get a single concept
-    Concept conceptResult = api.getConcept(ncitTerm, "C3224", null, "minimal");
     System.out.println("Result for single concept:");
+    Concept conceptResult = api.getConcept(ncitTerm, "C3224", null, "minimal");
     System.out.println(conceptResult);
 
     // Get a list of concepts
     String codes = "C3224,C3910";
-    List<Concept> conceptListResult = api.getConcepts(ncitTerm, codes, "minimal");
     System.out.println("Result for a list of concepts:");
+    List<Concept> conceptListResult = api.getConcepts(ncitTerm, codes, "minimal");
     System.out.println(conceptListResult);
 
     // Get descendents of single concept
+    System.out.println("Result for a list of descendents of code C3224:");
     List<Concept> conceptDescendentListResult =
         api.getDescendants(ncitTerm, "C3224", 0, 50000, null);
-    System.out.println("Result for a list of descendents of code C3224:");
     System.out.println(conceptListResult);
 
     // Get history for specified terminology and code
-    Concept historyResult = api.getHistory(ncitTerm, "C3224");
     System.out.println("Result for history of C3224:");
+    Concept historyResult = api.getHistory(ncitTerm, "C3224");
     System.out.println(historyResult);
   }
 
@@ -97,14 +99,14 @@ public class Demo {
    */
   public static void HistoryDemo(HistoryEndpointsApi api) throws ApiException {
     // Get the list of suggested replacements for a retired code
-    List<History> replacementsResult = api.getReplacements(ncitTerm, "C4743");
     System.out.println("Result for replacement codes for retired code C4743:");
+    List<History> replacementsResult = api.getReplacements(ncitTerm, "C4743");
     System.out.println(replacementsResult);
 
     // Get the list of suggested replacements from a list of retired codes
     String codes = "C4743,C12597";
-    List<History> replacementsListResult = api.getReplacementsFromList(ncitTerm, codes);
     System.out.println("Result for replacement codes for a list of retired codes:");
+    List<History> replacementsListResult = api.getReplacementsFromList(ncitTerm, codes);
     System.out.println(replacementsResult);
   }
 
@@ -116,29 +118,44 @@ public class Demo {
    */
   public static void MapsetDemo(MapsetEndpointsApi api) throws ApiException {
     // demo for getting mapsets
-    List<Concept> mapsetListResult = api.getMapsets("minimal");
     System.out.println("Result for all mapsets:");
+    List<Concept> mapsetListResult = api.getMapsets("minimal");
     System.out.println(mapsetListResult);
 
     // demo for getting mapset by code
-    Concept mapsetResult = api.getMapsetByCode("GO_to_NCIt_Mapping", "minimal");
     System.out.println("Result for mapset of code 'GO_to_NCIt_Mapping':");
+    Concept mapsetResult = api.getMapsetByCode("GO_to_NCIt_Mapping", "minimal");
     System.out.println(mapsetResult);
 
     // demo for mappings by code
+    System.out.println("Result for mapset mappings:");
     MapResultList mapResult =
         api.getMapsetMappingsByCode("GO_to_NCIt_Mapping", 0, 50000, null, true, null);
-    System.out.println("Result for mapset mappings:");
     System.out.println(mapResult);
   }
 
   /**
-   * Demo for Metadata api call
+   * Demo for Metadata api calls
    *
    * @param api Metadata api
    * @throws ApiException thrown exception
    */
-  public static void MetadataDemo(MetadataEndpointsApi api) throws ApiException {}
+  public static void MetadataDemo(MetadataEndpointsApi api) throws ApiException {
+    // demo for getting all associations for a terminology
+    System.out.println("Result for all ncit associations:");
+    List<Concept> result = api.getAssociations(ncitTerm, "minimal", null);
+    System.out.println(result);
+
+    // demo for get definition type of specified term and code
+    System.out.println("Result for definition type of ncit P325:");
+    Concept defResult = api.getDefinitionType(ncitTerm, "P325", "minimal");
+    System.out.println(defResult);
+
+    // demo for getting all available terminologies
+    System.out.println("Result for all NCIT terminologies:");
+    List<Terminology> terminologyResult = api.getTerminologies(true, "monthly", ncitTerm);
+    System.out.println(terminologyResult);
+  }
 
   /**
    * Demo for Search api calls
@@ -146,7 +163,30 @@ public class Demo {
    * @param api Search api
    * @throws ApiException thrown exception
    */
-  public static void SearchDemo(SearchEndpointApi api) throws ApiException {}
+  public static void SearchDemo(SearchEndpointApi api) throws ApiException {
+    // demo for generic search of a terminology
+    System.out.println("Result for concept search:");
+    ConceptResultList resultList =
+        api.search(
+            ncitTerm,
+            "cancer",
+            "contains",
+            null,
+            false,
+            "associations",
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+    System.out.println(resultList);
+  }
 
   /**
    * Demo for Subset api calls
@@ -154,6 +194,17 @@ public class Demo {
    * @param api Subset api
    * @throws ApiException thrown exception
    */
-  public static void SubsetDemo(SubsetEndpointsApi api) throws ApiException {}
-  ;
+  public static void SubsetDemo(SubsetEndpointsApi api) throws ApiException {
+    // demo for getting subset members
+    System.out.println("Result for subsets of C157225:");
+    List<Concept> subsetMemberResult = api.getSubsetMembers(ncitTerm, "C157225", "0", "10", "summary");
+    System.out.println(subsetMemberResult);
+
+    // demo for get subsets for specified terms, where P325 isn't found
+    String codes = "P325,C157225";
+    System.out.println("Result for subsets of terms P325 & C157225:");
+    List<Concept> subsetResult = api.getSubsets(ncitTerm, "minimal", codes);
+    System.out.println(subsetResult);
+  }
+
 }
