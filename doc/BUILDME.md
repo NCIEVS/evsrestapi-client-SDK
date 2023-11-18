@@ -23,15 +23,15 @@ location the generated code is generated is also provided.
 
 If you need to regenerate a single client for a given language:
 
-1. Navigate to the `openapi-code-generator` module in your terminal.
-2. Execute `./gradlew <nameOfTask>`
+1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk`
+2. Execute `./gradlew <nameOfTask>` in your terminal
 3. Follow the README in the directory generated to build and compile the client.
 
 ## How to Build All Clients
 
 If you need to rebuild all the clients for all languages, typically after a big update to the `.yaml` file:
 
-1. Navigate to the `openapi-code-generator` module in your terminal
+1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk`
 2. Execute `./gradlew buildDependentTasks`
 
 ### Notes
