@@ -20,3 +20,10 @@ respective results. The java demo can be run from within your IDE or on the comm
 1. Open `java-demo` in a new project
 2. Navigate to the `Demo.java` file and click on the green run arrow or run from config
 
+## Current Contributors
+
+- [Brian Carlsen](https://github.com/bcarlsenca)
+- [Alicia Garcia](https://github.com/gaaliciA1990)
+- [Other Contributors](https://github.com/NCIEVS/evsrestapi-client-SDK/graphs/contributors)
+
+**[Back to top](#evsrestapi-java-demo)**
