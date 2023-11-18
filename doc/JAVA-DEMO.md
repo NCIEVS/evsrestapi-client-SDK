@@ -12,13 +12,15 @@ respective results. The java demo can be run from within your IDE or on the comm
 
 ### Run the demo from the command line
 
-1. cd into the `openapi-java-client`directory in your terminal
-2. `./gradlew java-demo:run`
+1. Verify `include java-demo` is added in the `openapi-java-client/settings.gradle` file. If not, add it.  
+2. cd into the `openapi-java-client`directory in your terminal
+3. `./gradlew java-demo:run`
 
 ### Run the demo from the IDE
 
-1. Open `java-demo` in a new project
-2. Navigate to the `Demo.java` file and click on the green run arrow or run from config
+1. Verify `include java-demo` is added in the `openapi-java-client/settings.gradle` file. If not, add it.
+2. Open `java-demo` in a new project
+3. Navigate to the `Demo.java` file and click on the green run arrow or run from config
 
 ## Current Contributors
 
