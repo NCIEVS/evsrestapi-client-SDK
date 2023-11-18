@@ -56,7 +56,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * TerminologyMetadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T14:31:12.372518-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-17T16:14:51.063238-08:00[America/Los_Angeles]")
 public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)

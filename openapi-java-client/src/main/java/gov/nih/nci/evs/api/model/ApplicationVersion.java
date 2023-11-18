@@ -50,7 +50,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * ApplicationVersion
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-16T14:31:12.372518-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-17T16:14:51.063238-08:00[America/Los_Angeles]")
 public class ApplicationVersion {
   public static final String SERIALIZED_NAME_NAME = "name";
   @SerializedName(SERIALIZED_NAME_NAME)
