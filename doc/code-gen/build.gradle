@@ -1,23 +1,72 @@
-// Top level configuration
-buildscript {
-    repositories {
-        mavenLocal()
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        // n/a
-    }
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id 'java'
+    id "org.openapi.generator" version "6.6.0"
+    id 'maven-publish'
 }
 
+group = 'gov.nih.nci.evs.api'
+version = '0.0.1-SNAPSHOT'
+
 repositories {
-    mavenLocal()
-    jcenter()
     mavenCentral()
 }
 
-//
-group = "gov.nih.nci.evs.api"
-version = "0.0.1-SNAPSHOT"
+sourceCompatibility = 17
+targetCompatibility = 17
 
-ext['log4j2.version'] = '2.17.0'
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/**
+ * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+ * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
+tasks.register('buildJavaSdk', GenerateTask) {
+    dependsOn 'cleanJavaSdk'
+    generatorName.set("java")
+    inputSpec.set("$projectDir/src/evs-swagger.yaml")
+    outputDir.set("$buildDir/openapi-java-client")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.model")
+    configOptions.set([dateLibrary: "java8"])
+}
+
+/**
+ * When regenerating the code, we want to replace all of the new code in the src folder. This task will delete the src
+ * folder for the Java SDK previously generated.*/
+tasks.register('cleanJavaSdk', Delete) {
+    delete "$rootDir/openapi-java-client/src"
+}
+
+
+/** Runs all code-gen tasks for each language to generate the clients */
+tasks.register("buildDependentTasks") {
+    dependsOn("buildJavaSdk",
+//            "buildPythonSdk",
+//            "buildGoSdk",
+//            "buildKotlinSdk",
+//            "buildBashSdk",
+//            "buildTypescriptSdk"
+    )
+    doLast {
+        println 'All client sdk generated. They can be found in the code-gen/build folder.'
+    }
+}
+
+compileJava.dependsOn tasks.named("buildJavaSdk")
+build.dependsOn('buildDepedentTask')
+publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+//                                 "buildPythonSdk",
+//                                 "buildGoSdk",
+//                                 "buildKotlinSdk",
+//                                 "buildBashSdk",
+//                                 "buildTypescriptSdk"
+]
