@@ -43,7 +43,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
  * When regenerating the code, we want to replace all of the new code in the src folder. This task will delete the src
  * folder for the Java SDK previously generated.*/
 tasks.register('cleanJavaSdk', Delete) {
-    delete "$rootDir/openapi-java-client/src"
+    delete "$buildDir/openapi-java-client"
 }
 
 
