@@ -31,6 +31,7 @@ test {
 tasks.register('buildJavaSdk', GenerateTask) {
     dependsOn 'cleanJavaSdk'
     generatorName.set("java")
+    //remoteInputSpec.set("https://api-evsrest.nci.nih.gov/v3/api-docs")
     inputSpec.set("$projectDir/src/evs-swagger.yaml")
     outputDir.set("$buildDir/openapi-java-client")
     apiPackage.set("gov.nih.nci.evs.api")

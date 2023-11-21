@@ -28,9 +28,9 @@ If you need to regenerate a single client for a given language:
 2. Execute `gradle <nameOfTask>` in your terminal
 3. The code will generate in a `build` folder. Navigate to the project in the `build` folder.
 4. From the `build` folder, copy the generated code files and any other files required to build the project to the
-   corresponding examples folder. 
-   1. e.g. For Java, the `src` folder and `gradle` files will need to be copied to the
-      `java-examples` directory.
+   corresponding examples folder.
+    1. e.g. For Java, copy the files from the `src/main` folder and verify the `gradle` files match between what was
+       generated vs what exists in `java-examples`.
 
 ## How to Build All Clients
 
@@ -40,9 +40,9 @@ If you need to rebuild all the clients for all languages, typically after a big 
 2. Execute `gradle buildDependentTasks`
 3. All generated projects will be in a `build` folder. Navigate to the `build` folder to see the generated code
 4. From the `build` folder, copy the generated code files and additional files needs to build/compile the project to the
-   corresponding examples folder. 
-    1. e.g. For Java, the `src` folder and `gradle` files will need to be copied to the
-       `java-examples` directory.
+   corresponding examples folder.
+    1. e.g. For Java, copy the files from the `src/main` folder and verify the `gradle` files match between what was
+       generated vs what exists in `java-examples`.
 
 ## Current Contributors
 

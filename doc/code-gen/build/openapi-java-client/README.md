@@ -2,7 +2,7 @@
 
 NCI EVS Rest API
 - API version: 1.7.2.RELEASE
-  - Build date: 2023-11-20T11:26:00.410613-08:00[America/Los_Angeles]
+  - Build date: 2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
