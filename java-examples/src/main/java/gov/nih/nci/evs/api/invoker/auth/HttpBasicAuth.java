@@ -13,16 +13,12 @@
 
 package gov.nih.nci.evs.api.invoker.auth;
 
-import gov.nih.nci.evs.api.invoker.Pair;
 import gov.nih.nci.evs.api.invoker.ApiException;
-
-import okhttp3.Credentials;
-
+import gov.nih.nci.evs.api.invoker.Pair;
 import java.net.URI;
-import java.util.Map;
 import java.util.List;
-
-import java.io.UnsupportedEncodingException;
+import java.util.Map;
+import okhttp3.Credentials;
 
 public class HttpBasicAuth implements Authentication {
     private String username;

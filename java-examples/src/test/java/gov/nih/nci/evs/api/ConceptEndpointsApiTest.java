@@ -17,7 +17,6 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
@@ -53,6 +52,9 @@ public class ConceptEndpointsApiTest {
   /* Logger */
   private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
+  /**
+   * Instantiate the ConceptEndpointApi
+   */
   @BeforeAll
   public static void beforeAll() {
     api = new ConceptEndpointsApi();
@@ -92,11 +94,11 @@ public class ConceptEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getAssociationsTest() throws ApiException {
+  public void getAssociations1Test() throws ApiException {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<Association> response = api.getAssociations(terminology, code);
+    List<Association> response = api.getAssociations1(terminology, code);
     assertFalse(response.isEmpty()); // verify we got data
     Association assoc = response.get(0);
 
@@ -438,10 +440,10 @@ public class ConceptEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getRolesTest() throws ApiException {
+  public void getRoles1Test() throws ApiException {
     // ARRANGE - using global variables unless otherwise listed below
     // ACT
-    List<Role> response = api.getRoles(terminology, code);
+    List<Role> response = api.getRoles1(terminology, code);
 
     // ASSERT
     assertFalse(response.isEmpty());

@@ -13,28 +13,6 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.TypeAdapter;
-import com.google.gson.annotations.JsonAdapter;
-import com.google.gson.annotations.SerializedName;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.model.Association;
-import gov.nih.nci.evs.api.model.ConceptMap;
-import gov.nih.nci.evs.api.model.Definition;
-import gov.nih.nci.evs.api.model.DisjointWith;
-import gov.nih.nci.evs.api.model.Extensions;
-import gov.nih.nci.evs.api.model.History;
-import gov.nih.nci.evs.api.model.Paths;
-import gov.nih.nci.evs.api.model.Property;
-import gov.nih.nci.evs.api.model.Qualifier;
-import gov.nih.nci.evs.api.model.Role;
-import gov.nih.nci.evs.api.model.Synonym;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 

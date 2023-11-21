@@ -10,52 +10,91 @@
  * Do not edit the class manually.
  */
 
-
 package gov.nih.nci.evs.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.History;
-import gov.nih.nci.evs.api.model.RestException;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * API tests for HistoryEndpointsApi
+ * API tests for HistoryEndpointsApi. These tests will demonstrate how to call the API and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
  */
-@Disabled
 public class HistoryEndpointsApiTest {
 
-    private final HistoryEndpointsApi api = new HistoryEndpointsApi();
+  /* History client api */
+  private static HistoryEndpointsApi api = null;
 
-    /**
-     * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \&quot;active\&quot;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getReplacementsTest() throws ApiException {
-        String terminology = null;
-        String code = null;
-        List<History> response = api.getReplacements(terminology, code);
-        // TODO: test validations
-    }
+  /* Test terminology */
+  private static final String terminology = "ncit";
 
-    /**
-     * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \&quot;active\&quot;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getReplacementsFromListTest() throws ApiException {
-        String terminology = null;
-        String _list = null;
-        List<History> response = api.getReplacementsFromList(terminology, _list);
-        // TODO: test validations
-    }
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
+  /** Instantiate the HistoryEndpointApi */
+  @BeforeAll
+  public static void beforeAll() {
+    api = new HistoryEndpointsApi();
+  }
+
+  /**
+   * Gets suggested replacements for a specified terminology and retired code. Active codes will
+   * return entries as well with an action of \&quot;active\&quot;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getReplacementsTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String code = "C4654";
+    // ACT
+    List<History> response = api.getReplacements(terminology, code);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C27789", response.get(0).getCode());
+
+    // LOG
+    log.info("Get suggested replacements for code - C4654");
+    log.info("   replacements = " + response);
+  }
+
+  /**
+   * Gets suggested replacements for a specified terminology and a comma-separated list of retired
+   * codes. Active codes will return entries as well with an action of \&quot;active\&quot;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getReplacementsFromListTest() throws ApiException {
+    // ARRANGE - using global variable plus listed
+    String _list = "C4654,C40117";
+
+    // ACT
+    List<History> response = api.getReplacementsFromList(terminology, _list);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C27789", response.get(0).getReplacementCode());
+    assertEquals(
+        "Endometrial Atypical Hyperplasia/Endometrioid Intraepithelial Neoplasia",
+        response.get(0).getReplacementName());
+    assertEquals("C126461", response.get(1).getReplacementCode());
+    assertEquals("Tubal Hyperplasia", response.get(1).getReplacementName());
+
+    // LOG
+    log.info("Get list of suggested replacements for retired codes - C4654 & C40117");
+    log.info("   suggested replacements = " + response);
+  }
 }
