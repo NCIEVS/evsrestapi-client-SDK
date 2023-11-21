@@ -12,6 +12,12 @@
 
 package gov.nih.nci.evs.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
@@ -19,26 +25,38 @@ import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.HierarchyNode;
-import gov.nih.nci.evs.api.model.RestException;
 import gov.nih.nci.evs.api.model.Role;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-
-/** API tests for ConceptEndpointsApi */
+/**
+ * API tests for ConceptEndpointsApi. These tests will demonstrate how to call the APIs and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
+ */
 public class ConceptEndpointsApiTest {
 
-  private final ConceptEndpointsApi api = new ConceptEndpointsApi();
-  private final String terminology = "ncit";
+  /* Concept client api */
+  private static ConceptEndpointsApi api = null;
+  /* Test terminology */
+  private static final String terminology = "ncit";
+
+  /* Most commonly used ncit code */
+  private static final String code = "C3224";
+
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+
+  @BeforeAll
+  public static void beforeAll() {
+    api = new ConceptEndpointsApi();
+  }
 
   /**
    * Get the association entries for the specified terminology and code. Associations used to define
@@ -48,7 +66,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getAssociationEntriesTest() throws ApiException {
-    // ARRANGE
+    // ARRANGE - using global variables unless otherwise listed below
     String codeOrLabel = "A5";
     Integer fromRecord = 0;
     Integer pageSize = 100;
@@ -56,13 +74,16 @@ public class ConceptEndpointsApiTest {
     // ACT
     AssociationEntryResultList response =
         api.getAssociationEntries(terminology, codeOrLabel, fromRecord, pageSize);
-    System.out.println(response);
 
     // ASSERT
     assertNotNull(response);
     assertEquals(1882, response.getTotal());
     assertNotNull(response.getAssociationEntries());
     assertEquals("Tamoxifen Citrate", response.getAssociationEntries().get(0).getRelatedName());
+
+    // LOG
+    log.info("Get association entries for code/label - A5");
+    log.info("   association entries = " + response);
   }
 
   /**
@@ -72,8 +93,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getAssociationsTest() throws ApiException {
-    // ARRANGE
-    String code = "C3224";
+    // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
     List<Association> response = api.getAssociations(terminology, code);
@@ -83,6 +103,10 @@ public class ConceptEndpointsApiTest {
     // ASSERT
     assertEquals("CDISC SEND Terminology", assoc.getRelatedName());
     assertEquals("Concept_In_Subset", assoc.getType());
+
+    // LOG
+    log.info("Get associations for code - C3224");
+    log.info("   associations = " + response);
   }
 
   /**
@@ -92,8 +116,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getChildrenTest() throws ApiException {
-    // ARRANGE
-    String code = "C3224";
+    // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
     List<Concept> response = api.getChildren(terminology, code);
@@ -102,6 +125,10 @@ public class ConceptEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertNotNull(response.get(0).getName());
     assertTrue(response.get(0).getName().contains("Melanoma"));
+
+    // LOG
+    log.info("Get children for code - C3224");
+    log.info("   children = " + response);
   }
 
   /**
@@ -111,8 +138,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getConceptTest() throws ApiException {
-    // ARRANGE
-    String code = "C3224";
+    // ARRANGE - using global variables plus listed below
     Integer limit = null;
     String include = "minimal";
 
@@ -122,6 +148,10 @@ public class ConceptEndpointsApiTest {
     // ASSERT
     assertNotNull(response.getName());
     assertEquals("Melanoma", response.getName());
+
+    // LOG
+    log.info("Get a single concept for code - C3224");
+    log.info("   concept = " + response);
   }
 
   /**
@@ -131,7 +161,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getConceptsTest() throws ApiException {
-    // ARRANGE
+    // ARRANGE - using global variables unless otherwise listed below
     String _list = "C3224,C3910";
     String include = "minimal";
 
@@ -142,6 +172,10 @@ public class ConceptEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertEquals("Molecular Abnormality", response.get(0).getName());
     assertEquals("Melanoma", response.get(1).getName());
+
+    // LOG
+    log.info("Get list of concepts for codes - C3224 & C3910");
+    log.info("   concepts = " + response);
   }
 
   /**
@@ -151,8 +185,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getDescendantsTest() throws ApiException {
-    // ARRANGE
-    String code = "C3224";
+    // ARRANGE - using global variables plus listed below
     Integer fromRecord = 3;
     Integer pageSize = 100;
     Integer maxLevel = 10;
@@ -164,6 +197,10 @@ public class ConceptEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertEquals(pageSize, response.size());
     assertEquals("Advanced Cutaneous Melanoma of the Extremity", response.get(0).getName());
+
+    // LOG
+    log.info("Get list of descendents for code - C3224");
+    log.info("   descendents = " + response);
   }
 
   /**
@@ -173,7 +210,7 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getDisjointWithTest() throws ApiException {
-    // ARRANGE
+    // ARRANGE - using global variables unless otherwise listed below
     String code = "C3910";
 
     // ACT
@@ -183,6 +220,10 @@ public class ConceptEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertEquals("C12913", response.get(0).getRelatedCode());
     assertEquals("Abnormal Cell", response.get(0).getRelatedName());
+
+    // LOG
+    log.info("Get list of disjoint with for code - C3910");
+    log.info("   disjoint with = " + response);
   }
 
   /**
@@ -192,9 +233,19 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getHistoryTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables unless otherwise listed below
+
+    // ACT
     Concept response = api.getHistory(terminology, code);
-    // TODO: test validations
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("Melanoma", response.getName());
+    assertNotNull(response.getHistory());
+
+    // LOG
+    log.info("Get history for code - C3224");
+    log.info("   history = " + response);
   }
 
   /**
@@ -204,9 +255,19 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getInverseAssociationsTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables unless otherwise listed below
+
+    // ACT
     List<Association> response = api.getInverseAssociations(terminology, code);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("Has_GDC_Value", response.get(0).getType());
+    assertEquals("C178243", response.get(0).getRelatedCode());
+
+    // LOG
+    log.info("Get inverse associations for code - C3224");
+    log.info("   inverse associates = " + response);
   }
 
   /**
@@ -216,9 +277,20 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getInverseRolesTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables unless otherwise listed below
+
+    // ACT
     List<Role> response = api.getInverseRoles(terminology, code);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C21390", response.get(0).getRelatedCode());
+    assertEquals(
+        "Beta/Gamma Crystallin Domain-Containing Protein 1", response.get(0).getRelatedName());
+
+    // LOG
+    log.info("Get inverse roles for code - C3224");
+    log.info("    inverse roles = " + response);
   }
 
   /**
@@ -228,9 +300,19 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getMapsTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables unless otherwise listed below
+
+    // ACT
     List<ConceptMap> response = api.getMaps(terminology, code);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("morphology", response.get(0).getTargetCode());
+    assertEquals("Malignant melanoma, NOS", response.get(1).getTargetName());
+
+    // LOG
+    log.info("Get maps for code - C3224");
+    log.info("    maps = " + response);
   }
 
   /**
@@ -240,9 +322,18 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getParentsTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables unless otherwise listed below
+    // ACT
     List<Concept> response = api.getParents(terminology, code);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C9305", response.get(0).getCode());
+    assertEquals("Malignant Neoplasm", response.get(0).getName());
+
+    // LOG
+    log.info("Get parents for code - C3224");
+    log.info("    parents = " + response);
   }
 
   /**
@@ -252,13 +343,25 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getPathsFromRootTest() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables plus listed below
     String include = null;
     Integer fromRecord = null;
     Integer pageSize = null;
+
+    // ACT
     List<List<Concept>> response =
         api.getPathsFromRoot(terminology, code, include, fromRecord, pageSize);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertFalse(response.get(0).isEmpty());
+    Concept firstMapConcept = response.get(0).get(0);
+    assertEquals("C7057", firstMapConcept.getCode());
+    assertEquals("Disease, Disorder or Finding", firstMapConcept.getName());
+
+    // LOG
+    log.info("Get paths from hierarchy root for code - C3224");
+    log.info("    paths from root = " + response);
   }
 
   /**
@@ -268,14 +371,31 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getPathsToAncestorTest() throws ApiException {
-    String code = null;
-    String ancestorCode = null;
-    String include = null;
-    Integer fromRecord = null;
-    Integer pageSize = null;
+    // ARRANGE - using global variables plus listed below
+    String ancestorCode = "C2991";
+    String include = "minimal";
+    Integer fromRecord = 0;
+
+    // ACT
     List<List<Concept>> response =
-        api.getPathsToAncestor(terminology, code, ancestorCode, include, fromRecord, pageSize);
-    // TODO: test validations
+        api.getPathsToAncestor(terminology, code, ancestorCode, include, fromRecord, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertFalse(response.get(0).isEmpty());
+
+    // grab the first two concepts in the first list
+    Concept firstAncestor = response.get(0).get(0);
+    Concept secondAncestor = response.get(0).get(1);
+
+    assertEquals("Melanoma", firstAncestor.getName());
+    assertEquals("C3224", firstAncestor.getCode());
+    assertEquals("Melanocytic Neoplasm", secondAncestor.getName());
+    assertEquals("C7058", secondAncestor.getCode());
+
+    // LOG
+    log.info("Get paths from code to ancestor code - C3224 to C2991");
+    log.info("   paths to ancestor code = " + response);
   }
 
   /**
@@ -285,13 +405,31 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getPathsToRootTest() throws ApiException {
-    String code = null;
-    String include = null;
-    Integer fromRecord = null;
-    Integer pageSize = null;
+    // ARRANGE - using global variables plus listed below
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 50000;
+
+    // ACT
     List<List<Concept>> response =
         api.getPathsToRoot(terminology, code, include, fromRecord, pageSize);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertFalse(response.get(0).isEmpty());
+
+    // grab the first two concepts from the first list
+    Concept firstPath = response.get(0).get(0);
+    Concept secondPath = response.get(0).get(1);
+
+    assertEquals("C3224", firstPath.getCode());
+    assertEquals("Melanoma", firstPath.getName());
+    assertEquals("C7058", secondPath.getCode());
+    assertEquals("Melanocytic Neoplasm", secondPath.getName());
+
+    // LOG
+    log.info("Get paths to hierarchy root from code - C3224");
+    log.info("    paths to root = " + response);
   }
 
   /**
@@ -300,10 +438,19 @@ public class ConceptEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getRoles1Test() throws ApiException {
-    String code = null;
-    List<Role> response = api.getRoles1(terminology, code);
-    // TODO: test validations
+  public void getRolesTest() throws ApiException {
+    // ARRANGE - using global variables unless otherwise listed below
+    // ACT
+    List<Role> response = api.getRoles(terminology, code);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C36122", response.get(0).getRelatedCode());
+    assertEquals("Benign Cellular Infiltrate", response.get(0).getRelatedName());
+
+    // LOG
+    log.info("Get roles for code - C3224");
+    log.info("    roles = " + response);
   }
 
   /**
@@ -313,9 +460,20 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getRootsTest() throws ApiException {
-    String include = null;
+    // ARRANGE - using global variables plus listed below
+    String include = "minimal";
+
+    // ACT
     List<Concept> response = api.getRoots(terminology, include);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C12913", response.get(0).getCode());
+    assertEquals("Abnormal Cell", response.get(0).getName());
+
+    // LOG
+    log.info("Get root concepts for terminology - ncit");
+    log.info("   root concepts = " + response);
   }
 
   /**
@@ -327,13 +485,23 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getSubsetMembers1Test() throws ApiException {
-    String code = null;
+    // ARRANGE - using global variables plus listed below
     Integer fromRecord = null;
     Integer pageSize = null;
     String include = null;
+
+    // ACT
     List<Concept> response =
         api.getSubsetMembers1(terminology, code, fromRecord, pageSize, include);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C178243", response.get(0).getCode());
+    assertEquals(Boolean.TRUE, response.get(0).getLeaf());
+
+    // LOG
+    log.info("Get subset members for code - C3224");
+    log.info("    subset members = " + response);
   }
 
   /**
@@ -343,22 +511,43 @@ public class ConceptEndpointsApiTest {
    */
   @Test
   public void getSubtreeTest() throws ApiException {
-    String code = null;
-    Integer limit = null;
+    // ARRANGE - using global variables plus listed below
+    Integer limit = 50;
+
+    // ACT
     List<HierarchyNode> response = api.getSubtree(terminology, code, limit);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C12913", response.get(0).getCode());
+    assertEquals("C43431", response.get(1).getCode());
+
+    // LOG
+    log.info("Get the entire subtree from the root node of code - C3224");
+    log.info("   subtree = " + response);
   }
 
   /**
-   * Get the entire subtree from the root node to the specified code
+   * Get the entire subtree children from the root node to the specified code
    *
    * @throws ApiException if the Api call fails
    */
   @Test
   public void getSubtreeChildrenTest() throws ApiException {
-    String code = null;
-    Integer limit = null;
+    // ARRANGE - using global variables plus listed below
+    Integer limit = 100;
+
+    // ACT
     List<HierarchyNode> response = api.getSubtreeChildren(terminology, code, limit);
-    // TODO: test validations
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C3802", response.get(0).getCode());
+    assertEquals("Amelanotic Melanoma", response.get(0).getLabel());
+    assertEquals(Boolean.FALSE, response.get(0).getLeaf());
+
+    // LOG
+    log.info("Get all subtree children for code - C3224");
+    log.info("   subtree children = " + response);
   }
 }

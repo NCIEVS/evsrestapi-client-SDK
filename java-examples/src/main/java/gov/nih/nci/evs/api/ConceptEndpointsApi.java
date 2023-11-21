@@ -2321,7 +2321,7 @@ public class ConceptEndpointsApi {
         return localVarCall;
     }
     /**
-     * Build call for getRoles1
+     * Build call for getRoles
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param _callback Callback for upload/download progress
@@ -2334,7 +2334,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoles1Call(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRolesCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2381,18 +2381,18 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoles1ValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRolesValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
-            throw new ApiException("Missing the required parameter 'terminology' when calling getRoles1(Async)");
+            throw new ApiException("Missing the required parameter 'terminology' when calling getRoles(Async)");
         }
 
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new ApiException("Missing the required parameter 'code' when calling getRoles1(Async)");
+            throw new ApiException("Missing the required parameter 'code' when calling getRoles(Async)");
         }
 
-        return getRoles1Call(terminology, code, _callback);
+        return getRolesCall(terminology, code, _callback);
 
     }
 
@@ -2410,8 +2410,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Role> getRoles1(String terminology, String code) throws ApiException {
-        ApiResponse<List<Role>> localVarResp = getRoles1WithHttpInfo(terminology, code);
+    public List<Role> getRoles(String terminology, String code) throws ApiException {
+        ApiResponse<List<Role>> localVarResp = getRolesWithHttpInfo(terminology, code);
         return localVarResp.getData();
     }
 
@@ -2429,8 +2429,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Role>> getRoles1WithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Role>> getRolesWithHttpInfo(String terminology, String code) throws ApiException {
+        okhttp3.Call localVarCall = getRolesValidateBeforeCall(terminology, code, null);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2450,9 +2450,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoles1Async(String terminology, String code, final ApiCallback<List<Role>> _callback) throws ApiException {
+    public okhttp3.Call getRolesAsync(String terminology, String code, final ApiCallback<List<Role>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getRolesValidateBeforeCall(terminology, code, _callback);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
