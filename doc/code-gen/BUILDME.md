@@ -8,7 +8,8 @@ This is a how-to guide for rebuilding openapi generated code as updates to the s
 
 1. Java 17+
 2. Gradle 8.2+
-3. Add the updated `evs-swagger.yaml` to `openapi-code-generator/src`. Be sure the old on is removed from the /src folder 
+3. Add the updated `evs-swagger.yaml` to `openapi-code-generator/src`. Be sure the old on is removed from the /src
+   folder
 
 ## Task Names to Regenerate Code
 
@@ -24,22 +25,24 @@ location the generated code is generated is also provided.
 If you need to regenerate a single client for a given language:
 
 1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk`
-2. Execute `./gradlew <nameOfTask>` in your terminal
-3. Follow the README in the directory generated to build and compile the client.
+2. Execute `gradle <nameOfTask>` in your terminal
+3. The code will generate in a `build` folder. Navigate to the project in the `build` folder.
+4. From the `build` folder, copy the generated code files and any other files required to build the project to the
+   corresponding examples folder. 
+   1. e.g. For Java, the `src` folder and `gradle` files will need to be copied to the
+      `java-examples` directory.
 
 ## How to Build All Clients
 
 If you need to rebuild all the clients for all languages, typically after a big update to the `.yaml` file:
 
 1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk`
-2. Execute `./gradlew buildDependentTasks`
-
-### Notes
-
-The projects will have a demo directory that can be run to test the client's functionality. If major changes have been
-made to the `.yaml` file, be sure to run the demo project associated with the client of your choice and update as needed.
-Any additional api calls that have been added to the `.yaml` documentation should be included in the demo project,
-following the existing format.
+2. Execute `gradle buildDependentTasks`
+3. All generated projects will be in a `build` folder. Navigate to the `build` folder to see the generated code
+4. From the `build` folder, copy the generated code files and additional files needs to build/compile the project to the
+   corresponding examples folder. 
+    1. e.g. For Java, the `src` folder and `gradle` files will need to be copied to the
+       `java-examples` directory.
 
 ## Current Contributors
 
