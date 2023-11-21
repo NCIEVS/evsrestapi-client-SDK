@@ -238,7 +238,7 @@ public class ConceptEndpointsApi {
         return localVarCall;
     }
     /**
-     * Build call for getAssociations1
+     * Build call for getAssociations
      * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param _callback Callback for upload/download progress
@@ -251,7 +251,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociations1Call(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssociationsCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -298,18 +298,18 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssociations1ValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssociationsValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
-            throw new ApiException("Missing the required parameter 'terminology' when calling getAssociations1(Async)");
+            throw new ApiException("Missing the required parameter 'terminology' when calling getAssociations(Async)");
         }
 
         // verify the required parameter 'code' is set
         if (code == null) {
-            throw new ApiException("Missing the required parameter 'code' when calling getAssociations1(Async)");
+            throw new ApiException("Missing the required parameter 'code' when calling getAssociations(Async)");
         }
 
-        return getAssociations1Call(terminology, code, _callback);
+        return getAssociationsCall(terminology, code, _callback);
 
     }
 
@@ -327,8 +327,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Association> getAssociations1(String terminology, String code) throws ApiException {
-        ApiResponse<List<Association>> localVarResp = getAssociations1WithHttpInfo(terminology, code);
+    public List<Association> getAssociations(String terminology, String code) throws ApiException {
+        ApiResponse<List<Association>> localVarResp = getAssociationsWithHttpInfo(terminology, code);
         return localVarResp.getData();
     }
 
@@ -346,8 +346,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Association>> getAssociations1WithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Association>> getAssociationsWithHttpInfo(String terminology, String code) throws ApiException {
+        okhttp3.Call localVarCall = getAssociationsValidateBeforeCall(terminology, code, null);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -367,9 +367,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociations1Async(String terminology, String code, final ApiCallback<List<Association>> _callback) throws ApiException {
+    public okhttp3.Call getAssociationsAsync(String terminology, String code, final ApiCallback<List<Association>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getAssociationsValidateBeforeCall(terminology, code, _callback);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
