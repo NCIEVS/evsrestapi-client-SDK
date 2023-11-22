@@ -10,69 +10,109 @@
  * Do not edit the class manually.
  */
 
-
 package gov.nih.nci.evs.api;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.MapResultList;
-import gov.nih.nci.evs.api.model.RestException;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-/**
- * API tests for MapsetEndpointsApi
- */
-@Disabled
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+/** API tests for MapsetEndpointsApi */
 public class MapsetEndpointsApiTest {
 
-    private final MapsetEndpointsApi api = new MapsetEndpointsApi();
+  /* MapsetEndpoint api */
+  private static MapsetEndpointsApi api = null;
 
-    /**
-     * Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMapsetByCodeTest() throws ApiException {
-        String code = null;
-        String include = null;
-        Concept response = api.getMapsetByCode(code, include);
-        // TODO: test validations
-    }
+  /* Most commonly used ncit code */
+  private static final String code = "C3224";
 
-    /**
-     * Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMapsetMappingsByCodeTest() throws ApiException {
-        String code = null;
-        Integer fromRecord = null;
-        Integer pageSize = null;
-        String term = null;
-        Boolean ascending = null;
-        String sort = null;
-        MapResultList response = api.getMapsetMappingsByCode(code, fromRecord, pageSize, term, ascending, sort);
-        // TODO: test validations
-    }
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
-    /**
-     * Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getMapsetsTest() throws ApiException {
-        String include = null;
-        List<Concept> response = api.getMapsets(include);
-        // TODO: test validations
-    }
+  /** Instantiate the MapsetEndpointsApi */
+  @BeforeAll
+  public static void beforeAll() {
+    api = new MapsetEndpointsApi();
+  }
 
+  /**
+   * Get the mapset for the specified code (no terminology parameter is needed as mapsets connect
+   * codes in one terminology to another)
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getMapsetByCodeTest() throws ApiException {
+    // ARRANGE
+    String code = "NCIt_Maps_To_ICDO3";
+    String include = "minimal";
+
+    // ACT
+    Concept response = api.getMapsetByCode(code, include);
+
+    // ASSERT
+    assertNotNull(response);
+
+    // LOG
+    log.info("Get mapset for code - NCIt_Maps_To_ICDO3");
+    log.info(" mapset = " + response);
+  }
+
+  /**
+   * Get the maps for the mapset mappings specified by the code (no terminology parameter is needed as
+   * mapsets connect codes in one terminology to another)
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getMapsetMappingsByCodeTest() throws ApiException {
+    // ARRANGE
+    String code = "GO_to_NCIt_Mapping";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+    Boolean ascending = true;
+
+    // ACT
+    MapResultList response =
+        api.getMapsetMappingsByCode(code, fromRecord, pageSize, null, ascending, null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(305, response.getTotal());
+
+    // LOG
+    log.info("Get mappings for mapsets by code");
+    log.info("   mappings = " + response);
+  }
+
+  /**
+   * Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology
+   * to another)
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getMapsetsTest() throws ApiException {
+    // ARRANGE
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getMapsets(include);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals(15, response.size());
+
+    // LOG
+    log.info("Get all mapsets");
+    log.info("   mapsets = " + response);
+  }
 }

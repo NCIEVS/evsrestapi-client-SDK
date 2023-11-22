@@ -43,6 +43,7 @@ public class ConceptEndpointsApiTest {
 
   /* Concept client api */
   private static ConceptEndpointsApi api = null;
+
   /* Test terminology */
   private static final String terminology = "ncit";
 
@@ -52,9 +53,7 @@ public class ConceptEndpointsApiTest {
   /* Logger */
   private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
-  /**
-   * Instantiate the ConceptEndpointApi
-   */
+  /** Instantiate the ConceptEndpointApi */
   @BeforeAll
   public static void beforeAll() {
     api = new ConceptEndpointsApi();
