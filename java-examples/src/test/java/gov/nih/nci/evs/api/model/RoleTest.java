@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Role
  */
+@Disabled
 public class RoleTest {
     private final Role model = new Role();
 

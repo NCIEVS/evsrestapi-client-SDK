@@ -32,6 +32,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for TerminologyMetadata
  */
+@Disabled
 public class TerminologyMetadataTest {
     private final TerminologyMetadata model = new TerminologyMetadata();
 

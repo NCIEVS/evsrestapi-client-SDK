@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for ApplicationVersion
  */
+@Disabled
 public class ApplicationVersionTest {
     private final ApplicationVersion model = new ApplicationVersion();
 

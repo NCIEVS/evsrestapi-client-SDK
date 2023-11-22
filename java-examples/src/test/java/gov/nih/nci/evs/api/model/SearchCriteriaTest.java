@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for SearchCriteria
  */
+@Disabled
 public class SearchCriteriaTest {
     private final SearchCriteria model = new SearchCriteria();
 

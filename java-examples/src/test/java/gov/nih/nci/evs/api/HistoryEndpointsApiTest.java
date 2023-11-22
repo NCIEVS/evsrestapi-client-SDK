@@ -63,7 +63,7 @@ public class HistoryEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("C27789", response.get(0).getCode());
+    assertEquals("C27789", response.get(0).getReplacementCode());
 
     // LOG
     log.info("Get suggested replacements for code - C4654");

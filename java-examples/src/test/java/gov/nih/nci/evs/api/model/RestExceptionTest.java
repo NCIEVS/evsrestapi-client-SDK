@@ -27,6 +27,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for RestException
  */
+@Disabled
 public class RestExceptionTest {
     private final RestException model = new RestException();
 

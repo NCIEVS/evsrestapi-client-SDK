@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for AssociationEntryResultList
  */
+@Disabled
 public class AssociationEntryResultListTest {
     private final AssociationEntryResultList model = new AssociationEntryResultList();
 

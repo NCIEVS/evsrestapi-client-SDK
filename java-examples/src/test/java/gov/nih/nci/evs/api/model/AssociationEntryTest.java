@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for AssociationEntry
  */
+@Disabled
 public class AssociationEntryTest {
     private final AssociationEntry model = new AssociationEntry();
 

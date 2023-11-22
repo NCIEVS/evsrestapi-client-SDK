@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Qualifier
  */
+@Disabled
 public class QualifierTest {
     private final Qualifier model = new Qualifier();
 

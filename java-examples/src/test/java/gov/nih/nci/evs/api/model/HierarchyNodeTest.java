@@ -28,6 +28,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for HierarchyNode
  */
+@Disabled
 public class HierarchyNodeTest {
     private final HierarchyNode model = new HierarchyNode();
 

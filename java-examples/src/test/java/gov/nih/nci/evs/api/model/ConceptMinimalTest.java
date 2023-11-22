@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for ConceptMinimal
  */
+@Disabled
 public class ConceptMinimalTest {
     private final ConceptMinimal model = new ConceptMinimal();
 

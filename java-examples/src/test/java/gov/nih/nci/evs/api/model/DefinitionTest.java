@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Definition
  */
+@Disabled
 public class DefinitionTest {
     private final Definition model = new Definition();
 

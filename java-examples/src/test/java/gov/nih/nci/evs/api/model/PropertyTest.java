@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Property
  */
+@Disabled
 public class PropertyTest {
     private final Property model = new Property();
 

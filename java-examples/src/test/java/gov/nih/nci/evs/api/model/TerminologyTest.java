@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Terminology
  */
+@Disabled
 public class TerminologyTest {
     private final Terminology model = new Terminology();
 

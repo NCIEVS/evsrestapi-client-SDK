@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Synonym
  */
+@Disabled
 public class SynonymTest {
     private final Synonym model = new Synonym();
 

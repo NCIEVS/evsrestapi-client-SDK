@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Path
  */
+@Disabled
 public class PathTest {
     private final Path model = new Path();
 

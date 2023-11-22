@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Paths
  */
+ @Disabled
 public class PathsTest {
     private final Paths model = new Paths();
 

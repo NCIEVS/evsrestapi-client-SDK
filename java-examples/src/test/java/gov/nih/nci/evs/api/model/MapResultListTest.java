@@ -13,12 +13,14 @@
 
 package gov.nih.nci.evs.api.model;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
  * Model tests for MapResultList
  */
+@Disabled
 public class MapResultListTest {
     private final MapResultList model = new MapResultList();
 

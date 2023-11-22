@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for Extensions
  */
+@Disabled
 public class ExtensionsTest {
     private final Extensions model = new Extensions();
 

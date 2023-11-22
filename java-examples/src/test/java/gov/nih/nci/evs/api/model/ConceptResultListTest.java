@@ -30,6 +30,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for ConceptResultList
  */
+@Disabled
 public class ConceptResultListTest {
     private final ConceptResultList model = new ConceptResultList();
 

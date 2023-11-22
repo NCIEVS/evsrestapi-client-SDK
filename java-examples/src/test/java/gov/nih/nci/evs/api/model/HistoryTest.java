@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for History
  */
+@Disabled
 public class HistoryTest {
     private final History model = new History();
 

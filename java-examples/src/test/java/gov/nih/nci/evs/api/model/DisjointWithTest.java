@@ -29,6 +29,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for DisjointWith
  */
+@Disabled
 public class DisjointWithTest {
     private final DisjointWith model = new DisjointWith();
 

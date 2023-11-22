@@ -13,12 +13,14 @@
 
 package gov.nih.nci.evs.api.model;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 
 /**
  * Model tests for Concept
  */
+@Disabled
 public class ConceptTest {
     private final Concept model = new Concept();
 

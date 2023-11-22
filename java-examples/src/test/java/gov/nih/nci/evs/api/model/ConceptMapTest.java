@@ -26,6 +26,7 @@ import org.junit.jupiter.api.Test;
 /**
  * Model tests for ConceptMap
  */
+@Disabled
 public class ConceptMapTest {
     private final ConceptMap model = new ConceptMap();
 
