@@ -10,315 +10,532 @@
  * Do not edit the class manually.
  */
 
-
 package gov.nih.nci.evs.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMinimal;
-import gov.nih.nci.evs.api.model.RestException;
 import gov.nih.nci.evs.api.model.Terminology;
+import java.util.List;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * API tests for MetadataEndpointsApi
+ * API tests for MetadataEndpointsApi. These tests will demonstrate how to call the API and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
  */
-@Disabled
 public class MetadataEndpointsApiTest {
 
-    private final MetadataEndpointsApi api = new MetadataEndpointsApi();
+  /* Metadata api  */
+  private static MetadataEndpointsApi api = null;
 
-    /**
-     * Get the association for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getAssociationTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getAssociation(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+  /* Test terminology */
+  private static final String terminology = "ncit";
 
-    /**
-     * Get all associations (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getAssociationsTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getAssociations(terminology, include, _list);
-        // TODO: test validations
-    }
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
-    /**
-     * Get all concept status values for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getConceptStatusesTest() throws ApiException {
-        String terminology = null;
-        List<String> response = api.getConceptStatuses(terminology);
-        // TODO: test validations
-    }
+  /** Instantiate the MetadataEndpointsApi */
+  @BeforeAll
+  public static void beforeAll() {
+    api = new MetadataEndpointsApi();
+  }
 
-    /**
-     * Get all definition sources for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getDefinitionSourcesTest() throws ApiException {
-        String terminology = null;
-        List<ConceptMinimal> response = api.getDefinitionSources(terminology);
-        // TODO: test validations
-    }
+  /**
+   * Get the association for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getAssociationTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "A18";
+    String include = "minimal";
 
-    /**
-     * Get the definition type for the specified terminology and code/name.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getDefinitionTypeTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getDefinitionType(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+    // ACT
+    Concept response = api.getAssociation(terminology, codeOrName, include);
 
-    /**
-     * Get all definition types (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getDefinitionTypesTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getDefinitionTypes(terminology, include, _list);
-        // TODO: test validations
-    }
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("Has_Pharmaceutical_Basic_Dose_Form", response.getName());
 
-    /**
-     * Get all properties (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getPropertiesTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getProperties(terminology, include, _list);
-        // TODO: test validations
-    }
+    // LOG
+    log.info("Get all associates for code - A18");
+    log.info("    associations = " + response);
+  }
 
-    /**
-     * Get the property for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getPropertyTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getProperty(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+  /**
+   * Get all associations (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getAssociationsTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
 
-    /**
-     * Get the qualifier for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getQualifierTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getQualifier(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+    // ACT
+    List<Concept> response = api.getAssociations(terminology, include, null);
 
-    /**
-     * Get qualifier values for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getQualifierValuesTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        List<String> response = api.getQualifierValues(terminology, codeOrName);
-        // TODO: test validations
-    }
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals(40, response.size());
+    assertEquals("A1", response.get(0).getCode());
 
-    /**
-     * Get all qualifiers (properties on properties) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getQualifiersTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getQualifiers(terminology, include, _list);
-        // TODO: test validations
-    }
+    // LOG
+    log.info("Get all associates for terminology - ncit");
+    log.info("    associations = " + response);
+  }
 
-    /**
-     * Get the role for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getRoleTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getRole(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+  /**
+   * Get all concept status values for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getConceptStatusesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    // ACT
+    List<String> response = api.getConceptStatuses(terminology);
 
-    /**
-     * Get all roles (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getRolesTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getRoles(terminology, include, _list);
-        // TODO: test validations
-    }
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals(5, response.size());
+    assertEquals("Obsolete_Concept", response.get(0));
 
-    /**
-     * Get the subset for the specified terminology and code.
-     *
-     * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubset1Test() throws ApiException {
-        String terminology = null;
-        String code = null;
-        String include = null;
-        Concept response = api.getSubset1(terminology, code, include);
-        // TODO: test validations
-    }
+    // LOG
+    log.info("Get all statuses associated with terminology - ncit");
+    log.info(" concept statuses = " + response);
+  }
 
-    /**
-     * Get all subsets (or those specified by list parameter) for the specified terminology.
-     *
-     * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubsets1Test() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getSubsets1(terminology, include, _list);
-        // TODO: test validations
-    }
+  /**
+   * Get all definition sources for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getDefinitionSourcesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
 
-    /**
-     * Get all synonym sources for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSynonymSourcesTest() throws ApiException {
-        String terminology = null;
-        List<ConceptMinimal> response = api.getSynonymSources(terminology);
-        // TODO: test validations
-    }
+    // ACT
+    List<ConceptMinimal> response = api.getDefinitionSources(terminology);
 
-    /**
-     * Get the synonym type for the specified terminology and code/name
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSynonymTypeTest() throws ApiException {
-        String terminology = null;
-        String codeOrName = null;
-        String include = null;
-        Concept response = api.getSynonymType(terminology, codeOrName, include);
-        // TODO: test validations
-    }
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("ACC/AHA", response.get(0).getCode());
+    assertEquals(
+        "American College of Cardiology / American Heart Association", response.get(0).getName());
 
-    /**
-     * Get all synonym types (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSynonymTypesTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getSynonymTypes(terminology, include, _list);
-        // TODO: test validations
-    }
+    // LOG
+    log.info("Get all definitions for term - ncit");
+    log.info("   definitions = " + response);
+  }
 
-    /**
-     * Get all term types for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getTermTypesTest() throws ApiException {
-        String terminology = null;
-        List<ConceptMinimal> response = api.getTermTypes(terminology);
-        // TODO: test validations
-    }
+  /**
+   * Get the definition type for the specified terminology and code/name.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getDefinitionTypeTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P325";
+    String include = "minimal";
 
-    /**
-     * Get all available terminologies
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getTerminologiesTest() throws ApiException {
-        Boolean latest = null;
-        String tag = null;
-        String terminology = null;
-        List<Terminology> response = api.getTerminologies(latest, tag, terminology);
-        // TODO: test validations
-    }
+    // ACT
+    Concept response = api.getDefinitionType(terminology, codeOrName, include);
 
-    /**
-     * Get welcome text for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getWelcomeTextTest() throws ApiException {
-        String terminology = null;
-        String response = api.getWelcomeText(terminology);
-        // TODO: test validations
-    }
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(terminology, response.getTerminology());
+    assertEquals("ALT_DEFINITION", response.getName());
 
+    // LOG
+    log.info("Get the definition type for code - P325");
+    log.info("   definition type = " + response);
+  }
+
+  /**
+   * Get all definition types (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getDefinitionTypesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getDefinitionTypes(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("P97", response.get(0).getCode());
+    assertEquals("DEFINITION", response.get(0).getName());
+    assertEquals("P325", response.get(1).getCode());
+    assertEquals("ALT_DEFINITION", response.get(1).getName());
+    // LOG
+    log.info("Get all definition types for list of codes - A1 & A12");
+    log.info("   definition types = " + response);
+  }
+
+  /**
+   * Get all properties (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getPropertiesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getProperties(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("NHC0", response.get(0).getCode());
+    assertEquals("code", response.get(0).getName());
+    assertEquals("P106", response.get(1).getCode());
+    assertEquals("Semantic_Type", response.get(1).getName());
+
+    // LOG
+    log.info("Get all properties for a term & list of codes/labels - ncit");
+    log.info("   properties = " + response);
+  }
+
+  /**
+   * Get the property for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getPropertyTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P216";
+    String include = "full";
+
+    // ACT
+    Concept response = api.getProperty(terminology, codeOrName, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("BioCarta_ID", response.getName());
+    assertEquals("BioCarta ID", response.getSynonyms().get(0).getName());
+
+    // LOG
+    log.info("Get property for code - P216");
+    log.info("   property = " + response);
+  }
+
+  /**
+   * Get the qualifier for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getQualifierTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P390";
+    String include = "summary";
+
+    // ACT
+    Concept response = api.getQualifier(terminology, codeOrName, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("go-source", response.getName());
+    assertNotNull(response.getSynonyms());
+    assertNotNull(response.getDefinitions());
+
+    // LOG
+    log.info("Get qualified for code - P390");
+    log.info("   qualifier = " + response);
+  }
+
+  /**
+   * Get qualifier values for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getQualifierValuesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P390";
+
+    // ACT
+    List<String> response = api.getQualifierValues(terminology, codeOrName);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("CGAP", response.get(0));
+
+    // LOG
+    log.info("Get qualifier values for code/name - P390");
+    log.info("    qualifier values = " + response);
+  }
+
+  /**
+   * Get all qualifiers (properties on properties) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getQualifiersTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getQualifiers(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("P383", response.get(0).getCode());
+    assertEquals("P384", response.get(1).getCode());
+
+    // LOG
+    log.info("Get all qualifiers for ncit");
+    log.info("   qualifiers = " + response);
+  }
+
+  /**
+   * Get the role for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getRoleTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "R123";
+    String include = "full";
+
+    // ACT
+    Concept response = api.getRole(terminology, codeOrName, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("Chemotherapy_Regimen_Has_Component", response.getName());
+    assertNotNull(response.getSynonyms());
+
+    // LOG
+    log.info("Get the role for code - R123");
+    log.info("   role = " + response);
+  }
+
+  /**
+   * Get all roles (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getRolesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getRoles(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("R123", response.get(0).getCode());
+    assertEquals("R163", response.get(1).getCode());
+
+    // LOG
+    log.info("Get all roles for ncit");
+    log.info("   roles = " + response);
+  }
+
+  /**
+   * Get the subset for the specified terminology and code.
+   *
+   * <p>This endpoint will be deprecated in v2 in favor of top level subset endpoints.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSubset1Test() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String code = "C116978";
+    String include = "minimal";
+
+    // ACT
+    Concept response = api.getSubset1(terminology, code, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("CTRP Agent Terminology", response.getName());
+
+    // LOG
+    log.info("Get the subset for code - ??");
+    log.info("    subset = " + response);
+  }
+
+  /**
+   * Get all subsets (or those specified by list parameter) for the specified terminology.
+   *
+   * <p>This endpoint will be deprecated in v2 in favor of top level subset endpoints.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSubsets1Test() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getSubsets1(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C167405", response.get(0).getCode());
+
+    // LOG
+    log.info("Get all subsets for ncit");
+    log.info("   subsets = " + response);
+  }
+
+  /**
+   * Get all synonym sources for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSynonymSourcesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    // ACT
+    List<ConceptMinimal> response = api.getSynonymSources(terminology);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("ACC/AHA", response.get(0).getCode());
+    assertEquals("BIOCARTA", response.get(1).getCode());
+
+    // LOG
+    log.info("Get all synonyms for ncit");
+    log.info("   synonyms = " + response);
+  }
+
+  /**
+   * Get the synonym type for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSynonymTypeTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P90";
+    String include = "minimal";
+
+    // ACT
+    Concept response = api.getSynonymType(terminology, codeOrName, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("FULL_SYN", response.getName());
+
+    // LOG
+    log.info("Get synonym for code/name - P90");
+    log.info("   synonym = " + response);
+  }
+
+  /**
+   * Get all synonym types (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSynonymTypesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "full";
+
+    // ACT
+    List<Concept> response = api.getSynonymTypes(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("ncit", response.get(0).getTerminology());
+    assertEquals("P108", response.get(0).getCode());
+
+    // LOG
+    log.info("Get all synonym types for ncit");
+    log.info("   synonym types = " + response);
+  }
+
+  /**
+   * Get all term types for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getTermTypesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    // ACT
+    List<ConceptMinimal> response = api.getTermTypes(terminology);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("AB", response.get(0).getCode());
+    assertEquals("AD", response.get(1).getCode());
+
+    // LOG
+    log.info("Get all term types for ncit");
+    log.info("   term types = " + response);
+  }
+
+  /**
+   * Get all available terminologies
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getTerminologiesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    Boolean latest = true;
+    String tag = "monthly";
+
+    // ACT
+    List<Terminology> response = api.getTerminologies(latest, tag, terminology);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("NCI Thesaurus 23.10e", response.get(0).getName());
+
+    // LOG
+    log.info("Get all terminologies for ncit");
+    log.info("   terminologies = " + response);
+  }
+
+  /**
+   * TODO: VALIDATE THIS IS A VALID API CALL
+   * Get welcome text for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Disabled
+  @Test
+  public void getWelcomeTextTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+
+    // ACT
+    String response = api.getWelcomeText(terminology);
+
+    // ASSERT
+    assertNotNull(response);
+
+
+    // LOG
+    log.info("Get welcome text for ncit");
+    log.info("    text = " + terminology);
+  }
 }

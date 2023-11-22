@@ -12,6 +12,10 @@
 
 package gov.nih.nci.evs.api;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.MapResultList;
@@ -21,18 +25,18 @@ import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-/** API tests for MapsetEndpointsApi */
+/**
+ * API tests for MapsetEndpointsApi These tests will demonstrate how to call the API and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
+ */
 public class MapsetEndpointsApiTest {
 
   /* MapsetEndpoint api */
   private static MapsetEndpointsApi api = null;
-
-  /* Most commonly used ncit code */
-  private static final String code = "C3224";
 
   /* Logger */
   private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
@@ -67,8 +71,8 @@ public class MapsetEndpointsApiTest {
   }
 
   /**
-   * Get the maps for the mapset mappings specified by the code (no terminology parameter is needed as
-   * mapsets connect codes in one terminology to another)
+   * Get the maps for the mapset mappings specified by the code (no terminology parameter is needed
+   * as mapsets connect codes in one terminology to another)
    *
    * @throws ApiException if the Api call fails
    */
