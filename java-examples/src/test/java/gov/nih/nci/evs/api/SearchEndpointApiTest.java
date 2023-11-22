@@ -10,86 +10,151 @@
  * Do not edit the class manually.
  */
 
-
 package gov.nih.nci.evs.api;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.ConceptResultList;
-import gov.nih.nci.evs.api.model.RestException;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 /**
- * API tests for SearchEndpointApi
+ * API tests for SearchEndpointApi. These tests will demonstrate how to call the API and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
  */
-@Disabled
 public class SearchEndpointApiTest {
 
-    private final SearchEndpointApi api = new SearchEndpointApi();
+  /* Search api*/
+  private static SearchEndpointApi api = null;
 
-    /**
-     * Get concept search results
-     *
-     * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void searchTest() throws ApiException {
-        String terminology = null;
-        String term = null;
-        String type = null;
-        String sort = null;
-        Boolean ascending = null;
-        String include = null;
-        Integer fromRecord = null;
-        Integer pageSize = null;
-        String conceptStatus = null;
-        String property = null;
-        String value = null;
-        String definitionSource = null;
-        String definitionType = null;
-        String synonymSource = null;
-        String synonymType = null;
-        String synonymTermType = null;
-        String subset = null;
-        ConceptResultList response = api.search(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
-        // TODO: test validations
-    }
+  /* Test terminology */
+  private static final String terminology = "ncit";
 
-    /**
-     * Get concept search results for a specified terminology
-     *
-     * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void searchSingleTerminologyTest() throws ApiException {
-        String terminology = null;
-        String term = null;
-        String type = null;
-        String sort = null;
-        Boolean ascending = null;
-        String include = null;
-        Integer fromRecord = null;
-        Integer pageSize = null;
-        String conceptStatus = null;
-        String property = null;
-        String value = null;
-        String definitionSource = null;
-        String definitionType = null;
-        String synonymSource = null;
-        String synonymType = null;
-        String synonymTermType = null;
-        String subset = null;
-        ConceptResultList response = api.searchSingleTerminology(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
-        // TODO: test validations
-    }
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
+  /** Instantiate the SearchEndpointApi */
+  @BeforeAll
+  public static void beforeAll() {
+    api = new SearchEndpointApi();
+  }
+
+  /**
+   * Get concept search results
+   *
+   * <p>Use cases for search range from very simple term searches, use of paging parameters,
+   * additional filters, searches properties, roles, and associations, and so on. To further explore
+   * the range of search options, take a look at the &lt;a
+   * href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39;
+   * target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest
+   * API&lt;/a&gt;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "melanoma";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal,children,definitions";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1464, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+    assertEquals("C3224", response.getConcepts().get(0).getCode());
+
+    // LOG
+    log.info("Get search results from NCIT for - Melanoma");
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results for a specified terminology
+   *
+   * <p>Use cases for search range from very simple term searches, use of paging parameters,
+   * additional filters, searches properties, roles, and associations, and so on. To further explore
+   * the range of search options, take a look at the &lt;a
+   * href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39;
+   * target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest
+   * API&lt;/a&gt;.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchSingleTerminologyTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "melanoma";
+    Boolean ascending = false;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 50;
+
+    // ACT
+    ConceptResultList response =
+        api.searchSingleTerminology(
+            terminology,
+            term,
+            null,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1464, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+    assertEquals("C3224", response.getConcepts().get(0).getCode());
+
+    // LOG
+    log.info("Get search results for specific term - melanoma");
+    log.info("   search results = " + response);
+
+  }
 }
