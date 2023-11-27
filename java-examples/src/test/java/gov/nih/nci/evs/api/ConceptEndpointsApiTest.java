@@ -140,11 +140,10 @@ public class ConceptEndpointsApiTest {
   @Test
   public void getConceptTest() throws ApiException {
     // ARRANGE - using global variables plus listed below
-    Integer limit = null;
     String include = "minimal";
 
     // ACT
-    Concept response = api.getConcept(terminology, code, limit, include);
+    Concept response = api.getConcept(terminology, code, null, include);
 
     // ASSERT
     assertNotNull(response.getName());
@@ -152,6 +151,75 @@ public class ConceptEndpointsApiTest {
 
     // LOG
     log.info("Get a single concept for code - C3224");
+    log.info("   concept = " + response);
+  }
+
+  /**
+   * Get the summary concept for the specified terminology and code
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getConceptSummaryTest() throws ApiException {
+    // ARRANGE - using global variables plus listed below
+    Integer limit = null;
+    String include = "summary";
+
+    // ACT
+    Concept response = api.getConcept(terminology, code, null, include);
+
+    // ASSERT
+    assertNotNull(response.getName());
+    assertEquals("Melanoma", response.getName());
+
+    // LOG
+    log.info("Get a summary concept for code - C3224");
+    log.info("   concept = " + response);
+  }
+
+  /**
+   * Get the summary concept for the specified terminology and code
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getConceptFullTest() throws ApiException {
+    // ARRANGE - using global variables plus listed below
+    Integer limit = null;
+    String include = "full";
+
+    // ACT
+    Concept response = api.getConcept(terminology, code, null, include);
+
+    // ASSERT
+    assertNotNull(response.getName());
+    assertEquals("Melanoma", response.getName());
+
+    // LOG
+    log.info("Get a full concept for code - C3224");
+    log.info("   concept = " + response);
+  }
+
+  /**
+   * Get the summary concept for the specified terminology and code
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getConceptCustomIncludeTest() throws ApiException {
+    // ARRANGE - using global variables plus listed below
+    Integer limit = null;
+    String include = "synonyms,children,maps,inverseAssociations";
+
+    // ACT
+    Concept response = api.getConcept(terminology, code, null, include);
+
+    // ASSERT
+    assertNotNull(response.getName());
+    assertEquals("Melanoma", response.getName());
+
+    // LOG
+    log.info("Get a custom include concept for code - C3224");
     log.info("   concept = " + response);
   }
 
