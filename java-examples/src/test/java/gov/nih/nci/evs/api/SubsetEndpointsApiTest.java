@@ -10,70 +10,113 @@
  * Do not edit the class manually.
  */
 
-
 package gov.nih.nci.evs.api;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.RestException;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * API tests for SubsetEndpointsApi
+ * API tests for SubsetEndpointsApi. These tests will demonstrate how to call the API and log the
+ * information that is returned. The asserts are used to ensure that the data we are pulling align
+ * with what is expected based on how we are modeling the information.
+ *
+ * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
+ * to align with the data we expect may be needed.
  */
-@Disabled
 public class SubsetEndpointsApiTest {
 
-    private final SubsetEndpointsApi api = new SubsetEndpointsApi();
+  private static SubsetEndpointsApi api = null;
 
-    /**
-     * Get the subset for the specified terminology and code.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubsetTest() throws ApiException {
-        String terminology = null;
-        String code = null;
-        String include = null;
-        Concept response = api.getSubset(terminology, code, include);
-        // TODO: test validations
-    }
+  /* Test terminology */
+  private static final String terminology = "ncit";
 
-    /**
-     * Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubsetMembersTest() throws ApiException {
-        String terminology = null;
-        String code = null;
-        String fromRecord = null;
-        String pageSize = null;
-        String include = null;
-        List<Concept> response = api.getSubsetMembers(terminology, code, fromRecord, pageSize, include);
-        // TODO: test validations
-    }
+  /* Logger */
+  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
 
-    /**
-     * Get all subsets (or those specified by list parameter) for the specified terminology
-     *
-     * @throws ApiException if the Api call fails
-     */
-    @Test
-    public void getSubsetsTest() throws ApiException {
-        String terminology = null;
-        String include = null;
-        String _list = null;
-        List<Concept> response = api.getSubsets(terminology, include, _list);
-        // TODO: test validations
-    }
+  /** Instantiate the SearchEndpointApi */
+  @BeforeAll
+  public static void beforeAll() {
+    api = new SubsetEndpointsApi();
+  }
 
+  /**
+   * Get the subset for the specified terminology and code.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSubsetTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String code = "C116978";
+    String include = "minimal,summary";
+
+    // ACT
+    Concept response = api.getSubset(terminology, code, include);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals("CTRP Agent Terminology", response.getName());
+
+    // LOG
+    log.info("Get the subset for code - C116978");
+    log.info("    subets = " + response);
+  }
+
+  /**
+   * Get subset members for the specified terminology and code. Concept subset endpoints will be
+   * deprecated in v2 in favor of top level subset endpoints.
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSubsetMembersTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String code = "C157225";
+    String fromRecord = "0";
+    String pageSize = "25";
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getSubsetMembers(terminology, code, fromRecord, pageSize, include);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals("C16255", response.get(0).getCode());
+    assertEquals("Acetylation", response.get(0).getName());
+
+    // LOG
+    log.info("Get subset members for code - C157225");
+    log.info("   subset members = " + response);
+  }
+
+  /**
+   * Get all subsets (or those specified by list parameter) for the specified terminology
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getSubsetsTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+
+    // ACT
+    List<Concept> response = api.getSubsets(terminology, include, null);
+
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertEquals(29, response.size());
+
+    // LOG
+    log.info("Get all subset for ncit");
+    log.info("    subsets = " + response);
+  }
 }
