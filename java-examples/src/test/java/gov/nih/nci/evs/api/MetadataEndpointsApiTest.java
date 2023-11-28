@@ -235,7 +235,7 @@ public class MetadataEndpointsApiTest {
     assertEquals("BioCarta ID", response.getSynonyms().get(0).getName());
 
     // LOG
-    log.info("Get property for code - P216");
+    log.info("Get full property for code - P216");
     log.info("   property = " + response);
   }
 
