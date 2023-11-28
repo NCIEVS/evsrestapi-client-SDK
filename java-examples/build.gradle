@@ -150,14 +150,18 @@ spotless {
         // don't need to set target, it is inferred from java
 
         // apply a specific flavor of google-java-format
-        googleJavaFormat('1.8').aosp().reflowLongStrings()
+        //googleJavaFormat('1.8').aosp().reflowLongStrings()
 
         removeUnusedImports()
         importOrder()
     }
 }
 
+
+import org.gradle.api.tasks.testing.logging.TestLogEvent
+
 test {
+
     // Enable JUnit 5 (Gradle 4.6+).
     useJUnitPlatform()
 
@@ -166,7 +170,15 @@ test {
 
     // Show test results.
     testLogging {
-        events "passed", "skipped", "failed"
+        // set options for log level LIFECYCLE
+        events TestLogEvent.FAILED,
+                TestLogEvent.PASSED,
+                TestLogEvent.SKIPPED,
+                TestLogEvent.STANDARD_OUT
+        showStandardStreams true
+        showExceptions true
+        showCauses true
+        showStackTraces true
     }
 
 }
