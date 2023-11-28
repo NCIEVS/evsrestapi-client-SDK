@@ -12,3 +12,6 @@ __pycache__
 python-examples/logs.txt
 .DS_Store
 .idea
+
+doc/code-gen/.idea
+doc/code-gen/.gradle/*
