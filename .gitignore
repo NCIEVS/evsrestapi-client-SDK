@@ -14,4 +14,4 @@ python-examples/logs.txt
 .idea
 
 doc/code-gen/.idea
-doc/code-gen/.gradle/*
+doc/code-gen/.gradle
