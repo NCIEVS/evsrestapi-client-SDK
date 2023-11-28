@@ -257,7 +257,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables plus listed below
     Integer fromRecord = 3;
     Integer pageSize = 100;
-    Integer maxLevel = 10;
+    Integer maxLevel = 4;
 
     // ACT
     List<Concept> response = api.getDescendants(terminology, code, fromRecord, pageSize, maxLevel);
