@@ -63,7 +63,7 @@ public class SearchEndpointApiTest {
   public void searchTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     Boolean ascending = true;
-    String include = "minimals";
+    String include = "minimal";
     Integer fromRecord = 0;
     Integer pageSize = 25;
 
@@ -90,10 +90,10 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1464, response.getTotal());
+    assertEquals(187520, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
-    assertEquals("C3224", response.getConcepts().get(0).getCode());
+    assertEquals("C1000", response.getConcepts().get(0).getCode());
 
     // LOG
     log.info("Get search results from NCIT for - " + terminology);
@@ -108,8 +108,7 @@ public class SearchEndpointApiTest {
   @Test
   public void searchFilterByConceptStatusTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String term = "melanoma";
-    String type = "contains";
+    String term = "respiratory";
     Boolean ascending = true;
     String include = "minimal";
     String conceptStatus = "Header_Concept";
@@ -121,7 +120,7 @@ public class SearchEndpointApiTest {
         api.search(
             terminology,
             term,
-            type,
+            null,
             null,
             ascending,
             include,
@@ -139,7 +138,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1464, response.getTotal());
+    assertEquals(1, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -188,7 +187,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1294, response.getTotal());
+    assertEquals(12, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -241,7 +240,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(12, response.getTotal());
+    assertEquals(13, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -294,7 +293,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(112, response.getTotal());
+    assertEquals(1, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -341,7 +340,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(112, response.getTotal());
+    assertEquals(1, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -388,7 +387,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(53, response.getTotal());
+    assertEquals(41, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -435,7 +434,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(75, response.getTotal());
+    assertEquals(251, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -482,7 +481,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(3351, response.getTotal());
+    assertEquals(2173, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -529,7 +528,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(122, response.getTotal());
+    assertEquals(149, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -576,7 +575,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(4786, response.getTotal());
+    assertEquals(5469, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -622,12 +621,59 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(2045, response.getTotal());
+    assertEquals(1, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
     // LOG
     log.info("Get search results from NCIT for term = " + term + " (with highlights)");
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with highlights
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchConceptsByPropertyTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "XAV05295I5";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+    String property = "FDA_UNII_Code";
+
+    // ACT
+    ConceptResultList response =
+            api.search(
+                    terminology,
+                    term,
+                    null,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    property,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", property = " + property);
     log.info("   search results = " + response);
   }
 

@@ -477,7 +477,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables plus listed below
     String include = "minimal";
     Integer fromRecord = 0;
-    Integer pageSize = 50000;
+    Integer pageSize = 10;
 
     // ACT
     List<List<Concept>> response =

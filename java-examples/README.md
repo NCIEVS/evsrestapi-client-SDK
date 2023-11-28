@@ -1624,7 +1624,108 @@ Run the gradle command in the terminal to return all associations.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationsTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for terminology - ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = [class Concept {
+    uri: null
+    ct: null
+    code: A1
+    name: Role_Has_Domain
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: A12
+    name: Has_Data_Element
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: A13
+    name: Related_To_Genetic_Biomarker
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
+...
+...
+...
+}]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1649,7 +1750,40 @@ Run the gradle command in the terminal to return metadata for all term types for
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getTermTypesTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for code - A18
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = class Concept {
+    uri: null
+    ct: null
+    code: A18
+    name: Has_Pharmaceutical_Basic_Dose_Form
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1661,7 +1795,108 @@ Run the gradle command in the terminal to return concept roots for the specified
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getRootsTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get root concepts for terminology - ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    root concepts = [class Concept {
+    uri: null
+    ct: null
+    code: C12913
+    name: Abnormal Cell
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C43431
+    name: Activity
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C12219
+    name: Anatomic Structure, System, or Substance
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
+...
+...
+...
+}]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1673,7 +1908,108 @@ Run the gradle command in the terminal to return paths to the root concept from 
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsToRootTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths to hierarchy root from code - C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     paths to root = [[class Concept {
+    uri: null
+    ct: null
+    code: C3224
+    name: Melanoma
+    terminology: ncit
+    version: 23.10e
+    level: 0
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C7058
+    name: Melanocytic Neoplasm
+    terminology: ncit
+    version: 23.10e
+    level: 1
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C4741
+    name: Neoplasm by Morphology
+    terminology: ncit
+    version: 23.10e
+    level: 2
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, 
+...
+...
+...
+}]
 ```
 
 Run the gradle command in the terminal to return paths from the root concept from a specified terminology and code.
@@ -1681,7 +2017,139 @@ Run the gradle command in the terminal to return paths from the root concept fro
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsFromRootTest` -
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths from hierarchy root for code - C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     paths from root = [[class Concept {
+    uri: null
+    ct: null
+    code: C7057
+    name: Disease, Disorder or Finding
+    terminology: ncit
+    version: 23.10e
+    level: 0
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C2991
+    name: Disease or Disorder
+    terminology: ncit
+    version: 23.10e
+    level: 1
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C3262
+    name: Neoplasm
+    terminology: ncit
+    version: 23.10e
+    level: 2
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C4741
+    name: Neoplasm by Morphology
+    terminology: ncit
+    version: 23.10e
+    level: 3
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
+...
+...
+}]
 ```
 
 XXX
@@ -1694,7 +2162,108 @@ Run the gradle command in the terminal to return paths to the root concept for a
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsToAncestorTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths from code to ancestor code - C3224 to C2991
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    paths to ancestor code = [[class Concept {
+    uri: null
+    ct: null
+    code: C3224
+    name: Melanoma
+    terminology: ncit
+    version: 23.10e
+    level: 0
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C7058
+    name: Melanocytic Neoplasm
+    terminology: ncit
+    version: 23.10e
+    level: 1
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C4741
+    name: Neoplasm by Morphology
+    terminology: ncit
+    version: 23.10e
+    level: 2
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
+...
+...
+...
+}]]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1702,8 +2271,7 @@ Run the gradle command in the terminal to return paths to the root concept for a
 ### Get subtree
 
 Run the gradle command in the terminal to return an entire subtree graph from the root concepts to a specified node.
-This
-call is specifically tuned to support a tree-view based hierarchy browser in a UI.
+This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getSubtreeTest`
 
@@ -1721,7 +2289,168 @@ set to minimal
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the entire subtree from the root node of code - C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subtree = [class HierarchyNode {
+    uri: null
+    ct: null
+    code: C12913
+    label: Abnormal Cell
+    level: null
+    leaf: false
+    expanded: null
+    highlight: null
+    children: null
+}, class HierarchyNode {
+    uri: null
+    ct: null
+    code: C43431
+    label: Activity
+    level: null
+    leaf: false
+    expanded: null
+    highlight: null
+    children: null
+}, 
+...
+...
+}, class HierarchyNode {
+    uri: null
+    ct: null
+    code: C7057
+    label: Disease, Disorder or Finding
+    level: null
+    leaf: false
+    expanded: true
+    highlight: null
+    children: [class HierarchyNode {
+        uri: null
+        ct: null
+        code: C2991
+        label: Disease or Disorder
+        level: null
+        leaf: false
+        expanded: true
+        highlight: null
+        children: [class HierarchyNode {
+            uri: null
+            ct: null
+            code: C35470
+            label: Behavioral Disorder
+            level: null
+            leaf: false
+            expanded: null
+            highlight: null
+            children: null
+        },
+        ...
+        ...
+        }, class HierarchyNode {
+            uri: null
+            ct: null
+            code: C3262
+            label: Neoplasm
+            level: null
+            leaf: false
+            expanded: true
+            highlight: null
+            children: [class HierarchyNode {
+                uri: null
+                ct: null
+                code: C4741
+                label: Neoplasm by Morphology
+                level: null
+                leaf: false
+                expanded: true
+                highlight: null
+                children: [class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C3709
+                    label: Epithelial Neoplasm
+                    level: null
+                    leaf: false
+                    expanded: null
+                    highlight: null
+                    children: null
+                },
+                 ...
+                 ...
+                }, class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C7058
+                    label: Melanocytic Neoplasm
+                    level: null
+                    leaf: false
+                    expanded: true
+                    highlight: null
+                    children: [class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C5504
+                        label: Central Nervous System Melanocytic Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        highlight: null
+                        children: null
+                    },
+                    ...
+                    ...
+                    }]
+                }, class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C7059
+                    label: Mesenchymal Cell Neoplasm
+                    level: null
+                    leaf: false
+                    expanded: null
+                    highlight: null
+                    children: null
+                },
+                ...
+                ...
+                }]
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C3263
+                label: Neoplasm by Site
+                level: null
+                leaf: false
+                expanded: null
+                highlight: null
+                children: null
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C7062
+                label: Neoplasm by Special Category
+                level: null
+                leaf: false
+                expanded: true
+                highlight: null
+                children: [class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C3677
+                    label: Benign Neoplasm
+                    level: null
+                    leaf: false
+                    expanded: null
+                    highlight: null
+                    children: null
+                }, 
+                ...
+                ...
+            ...
+            ...
+        ...
+        ...
+    ...
+    ...
+    }]                    
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1735,12 +2464,73 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Header_Concept
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1
+    timeTaken: 41
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: respiratory
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 25
+        conceptStatus: [Header_Concept]
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C13037
+        name: Respiratory System Part
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (restrict by contributing source) 
+### Find concepts by search term (restrict by contributing source)
+
 // TODO: Find this method!
 
 Run the gradle command in the terminal to get concepts matching a search term within a specified
@@ -1763,10 +2553,198 @@ Run the gradle command in the terminal to get concepts matching a search term wi
 terminology and restrict the search results by a definition source of "NCI". This example uses paging to get only the
 first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest()`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 12
+    timeTaken: 38
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: dsDNA
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: [NCI]
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C449
+        name: DNA
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14348
+        name: Double Stranded DNA Virus
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C25832
+        name: DNA Double Strand Break
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C114565
+        name: Anti-ds DNA Antibody
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C121337
+        name: Systemic Lupus International Collaborating Clinics Classification Criteria
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1779,7 +2757,195 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermGroupTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 13
+    timeTaken: 49
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: dsDNA
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: [NCI]
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: [PT]
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C449
+        name: DNA
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14348
+        name: Double Stranded DNA Virus
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C25832
+        name: DNA Double Strand Break
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C114565
+        name: Anti-ds DNA Antibody
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C121337
+        name: Systemic Lupus International Collaborating Clinics Classification Criteria
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1792,7 +2958,67 @@ and restrict the search results using a code as the search term.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term code = C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1
+    timeTaken: 28
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: C3224
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 25
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1805,7 +3031,67 @@ and a search type of "match". This example uses paging to get only the first 5 r
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = match
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1
+    timeTaken: 60
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: enzyme
+        type: match
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16554
+        name: Enzyme
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1818,7 +3104,195 @@ terminology and a search type of "startsWith". This example uses paging to get o
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = startsWith
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 41
+    timeTaken: 29
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: enzyme
+        type: startsWith
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16554
+        name: Enzyme
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C102632
+        name: Enzyme-linked Immunosorbent Spot Assay
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C111196
+        name: Enzyme Multiplied Immunoassay Technique
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C122205
+        name: Enzyme Immunoassay Unit
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C147130
+        name: Enzyme Unit per Liter
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1844,7 +3318,195 @@ and a search type of "fuzzy". This example uses paging to get only the first 5 r
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeFuzzyTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 251
+    timeTaken: 29
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: enzyme
+        type: phrase
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16554
+        name: Enzyme
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C17455
+        name: Enzyme Immunoassay
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C180567
+        name: Enzyme Activity
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C180669
+        name: Enzyme Substrate
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C18296
+        name: Pancreatic Enzyme
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1857,7 +3519,195 @@ a search type of "AND". This example uses paging to get only the first 5 results
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeANDTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = AND
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 149
+    timeTaken: 30
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: malignant melanoma
+        type: AND
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16835
+        name: Experimental Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C60451
+        name: Rat Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C16317
+        name: B16 Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C194143
+        name: Malignant Melanoma of Lip
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1870,7 +3720,195 @@ a search type of "OR". This example uses paging to get only the first 5 results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeORTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = OR
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 5469
+    timeTaken: 30
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: malignant melanoma
+        type: OR
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16835
+        name: Experimental Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C60451
+        name: Rat Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C16317
+        name: B16 Malignant Melanoma
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C194143
+        name: Malignant Melanoma of Lip
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1884,7 +3922,67 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchWithHighlightsTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = XAV05295I5 (with highlights)
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1
+    timeTaken: 33
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: XAV05295I5
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: null
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C61305
+        name: Sivifene
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1895,12 +3993,70 @@ Run the gradle command in the terminal to get concepts matching a search term th
 of properties. The search results are set to include the property values so you can easily see the match. The property
 setting here can be either based on code or on label
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.testFindConceptsByProperty()`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsByPropertyTest`
 
 ```
-2021-12-08T21:34:23-05:00 INFO  : Get concept by search term=XAV05295I5, property=FDA_UNII_Code
-2021-12-08T21:34:23-05:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
-2021-12-08T21:34:23-05:00 INFO  :   concepts = {"total":1,"timeTaken":74,"parameters":{"term":"XAV05295I5","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"property":["FDA_UNII_Code"],"terminology":["ncit"]},"concepts":[{"code":"C61305","name":"Sivifene","terminology":"ncit","version":"21.11e","leaf":true}]}
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = XAV05295I5, property = FDA_UNII_Code
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1
+    timeTaken: 32
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: XAV05295I5
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: null
+        property: [FDA_UNII_Code]
+        value: null
+        synonymSource: null
+        synonymType: null
+        definitionSource: null
+        definitionType: null
+        synonymTermType: null
+        subset: null
+        terminology: [ncit]
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C61305
+        name: Sivifene
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: null
+        parents: null
+        descendants: null
+        associations: null
+        inverseAssociations: null
+        roles: null
+        disjointWith: null
+        inverseRoles: null
+        maps: null
+        paths: null
+        extensions: null
+    }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1909,11 +4065,88 @@ setting here can be either based on code or on label
 
 Run the gradle command in the terminal to get all subsets (with minimal information) for a specified terminology.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.testGetAllSubsets()`
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSubsets1Test`
 
 ```
-2021-12-01T15:09:19-05:00 INFO  :   subsets = [{"code":"C167405","name":"ACC/AHA EHR Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"ACC/AHA"},{"type":"NCI_META_CUI","value":"CL972587"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>The American College of Cardiology (ACC)/ American Heart Association (AHA) Terminology is a set of terms intended to represent key data elements and definitions for electronic health records (EHRs) created for patients with cardiovascular disorders. The primary goal for the development of these clinical data standards is to optimize uniform data collection by providing a platform of harmonized clinical terms and corresponding definitions that will promote interoperability among EHRs and thus improve their application to research and to clinical practice.</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/ACC-AHA_EHR_Terminology/\"> ACC-AHA EHR Terminology</a></p>."}],
-...
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all subsets for ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subsets = [class Concept {
+    uri: null
+    ct: null
+    code: C167405
+    name: ACC/AHA EHR Terminology
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: [class Concept {
+        uri: null
+        ct: null
+        code: C191200
+        name: ACC/AHA Cardiovascular and Noncardiovascular Complications of COVID-19 Terminology
+        terminology: ncit
+        version: 23.10e
+        level: null
+        highlight: null
+        highlights: {}
+        normName: null
+        subsetLink: https://evs.nci.nih.gov/ftp1/ACC-AHA_EHR_Terminology
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        synonyms: null
+        definitions: null
+        history: null
+        properties: null
+        qualifiers: null
+        children: [class Concept {
+            uri: null
+            ct: null
+            code: C191389
+            name: Appendix 10: End-of-Life Management Terminology
+            terminology: ncit
+            version: 23.10e
+            level: null
+            highlight: null
+            highlights: {}
+            normName: null
+            subsetLink: https://evs.nci.nih.gov/ftp1/ACC-AHA_EHR_Terminology
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: null
+            synonyms: null
+            definitions: null
+            history: null
+            properties: null
+            qualifiers: null
+            children: null
+            parents: null
+            descendants: null
+            associations: null
+            inverseAssociations: null
+            roles: null
+            disjointWith: null
+            inverseRoles: null
+            maps: null
+            paths: null
+            extensions: null
+        },
+        ...
+        ...
+        }]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1922,12 +4155,82 @@ Run the gradle command in the terminal to get all subsets (with minimal informat
 
 Run the gradle command in the terminal to get subsets (with summary information) for a specified terminology and code.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.testGetSubsetByCode()`
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSubset1Test`
 
 ```
-2021-12-01T15:14:28-05:00 INFO  : Get subset - ncit, C81222
-2021-12-01T15:14:28-05:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
-2021-12-01T15:14:28-05:00 INFO  :   subset = {"code":"C81222","name":"CDISC ADaM Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Legacy Concept Name","value":"CDISC_ADaM_Terminology"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C2825525"},{"type":"Value_Set_Pair","value":"No"}],"children":[{"code":"C81223","name":"CDISC ADaM Date Imputation Flag Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"Legacy Concept Name","value":"CDISC_ADaM_Date_Imputation_Flag_Terminology"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Date Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C2825526"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C81224","name":"CDISC ADaM Derivation Type Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"Yes"},{"type":"Legacy Concept Name","value":"CDISC_ADaM_Derivation_Type_Terminology"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Derivation Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C2825527"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C172334","name":"CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"NCI_META_CUI","value":"CL1406497"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"Value_Set_Pair","value":"Yes"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C172335","name":"CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"NCI_META_CUI","value":"CL1406496"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Generalized Anxiety Disorder-7 version 2 questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"Value_Set_Pair","value":"Yes"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C158114","name":"CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"NCI_META_CUI","value":"CL937724"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter code codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"Value_Set_Pair","value":"Yes"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C158115","name":"CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"NCI_META_CUI","value":"CL937725"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Geriatric Depression Scale Short Form questionnaire parameter name codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"Value_Set_Pair","value":"Yes"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C81225","name":"CDISC ADaM Parameter Type Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"Legacy Concept Name","value":"CDISC_ADaM_Parameter_Type_Terminology"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Parameter Type codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C2825528"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C165644","name":"CDISC ADaM Pool for Integration Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"Yes"},{"type":"NCI_META_CUI","value":"CL978787"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Pool for Integration codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C124296","name":"CDISC ADaM Subject Trial Status Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"Yes"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Subject Trial Status codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C4086047"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"},{"code":"C81226","name":"CDISC ADaM Time Imputation Flag Terminology","terminology":"ncit","version":"21.11e","properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Extensible_List","value":"No"},{"type":"Legacy Concept Name","value":"CDISC_ADaM_Time_Imputation_Flag_Terminology"},{"type":"Publish_Value_Set","value":"Yes"},{"type":"Semantic_Type","value":"Intellectual Product"},{"type":"Term_Browser_Value_Set_Description","value":"<p>Terminology associated with the Time Imputation Flag codelist of the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).</p> <p>The terminology can be downloaded at this location: <a href=\"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/\"> CDISC ADaM Terminology</a>.</p>"},{"type":"UMLS_CUI","value":"C2825529"},{"type":"Value_Set_Pair","value":"No"}],"subsetLink":"https://evs.nci.nih.gov/ftp1/CDISC/ADaM/"}]}
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the subset for code - C81222
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     subset = class Concept {
+    uri: null
+    ct: null
+    code: C81222
+    name: CDISC ADaM Terminology
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: https://evs.nci.nih.gov/ftp1/CDISC/ADaM
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: [class Synonym {
+        uri: null
+        ct: null
+        name: ADaM
+        normName: null
+        highlight: null
+        termType: PT
+        type: FULL_SYN
+        typeCode: null
+        source: CDISC
+        code: null
+        subSource: null
+        qualifiers: null
+        termGroup: null
+    }, class Synonym {
+        uri: null
+        ct: null
+        name: CDISC ADaM Terminology
+        normName: null
+        highlight: null
+        termType: PT
+        type: FULL_SYN
+        typeCode: null
+        source: NCI
+        code: null
+        subSource: null
+        qualifiers: null
+        termGroup: null
+    }, class Synonym {
+        uri: null
+        ct: null
+        name: CDISC ADaM Terminology
+        normName: null
+        highlight: null
+        termType: null
+        type: Preferred_Name
+        typeCode: null
+        source: null
+        code: null
+        subSource: null
+        qualifiers: null
+        termGroup: null
+    }]
+    definitions: [class Definition {
+        uri: null
+        ct: null
+        definition: The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).
+        highlight: null
+        code: null
+        type: DEFINITION
+        source: NCI
+        qualifiers: null
+    }, 
+    ...
+    ...
+}                   
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1937,12 +4240,107 @@ Run the gradle command in the terminal to get subsets (with summary information)
 Run the gradle command in the terminal to get subset members paging parameters for a specified terminology and
 code.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.testGetSubsetMembersByCode()`
+`./gradlew test --tests gov.nih.nci.evs.api.SubsetEndpointsApiTest.getSubsetMembersTest`
 
 ```
-2021-12-01T21:35:12-05:00 INFO  : Get all subset members - ncit, C81222
-2021-12-01T21:35:12-05:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
-2021-12-01T21:35:12-05:00 INFO  :   subset members = [{"code":"C117751","name":"Analysis Requested by Regulatory Agency","terminology":"ncit"}, {"code":"C117752","name":"Analysis Specified in Protocol","terminology":"ncit"}, {"code":"C117753","name":"Analysis Specified in Statistical Analysis Plan","terminology":"ncit"}, {"code":"C81209","name":"Average of Value Derivation Technique","terminology":"ncit"}, {"code":"C81201","name":"Baseline Observation Carried Forward Imputation Technique","terminology":"ncit"}, {"code":"C92225","name":"Best Case Imputation Technique","terminology":"ncit"}, {"code":"C92226","name":"Best Observation Carried Forward Imputation Technique","terminology":"ncit"}, {"code":"C132340","name":"Best Observed Case Imputation Technique","terminology":"ncit"}, {"code":"C81223","name":"CDISC ADaM Date Imputation Flag Terminology","terminology":"ncit"}, {"code":"C81224","name":"CDISC ADaM Derivation Type Terminology","terminology":"ncit"}]
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get subset members for code - C157225
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subset members = [class Concept {
+    uri: null
+    ct: null
+    code: C16255
+    name: Acetylation
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C157214
+    name: Acylation
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: true
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C157206
+    name: Adsorption
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: true
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)

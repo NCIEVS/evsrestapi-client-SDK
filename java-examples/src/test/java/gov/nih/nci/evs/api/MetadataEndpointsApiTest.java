@@ -366,18 +366,18 @@ public class MetadataEndpointsApiTest {
   @Test
   public void getSubset1Test() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String code = "C116978";
-    String include = "minimal";
+    String code = "C81222";
+    String include = "summary";
 
     // ACT
     Concept response = api.getSubset1(terminology, code, include);
 
     // ASSERT
     assertNotNull(response);
-    assertEquals("CTRP Agent Terminology", response.getName());
+    assertEquals("CDISC ADaM Terminology", response.getName());
 
     // LOG
-    log.info("Get the subset for code - ??");
+    log.info("Get the subset for code - " + code);
     log.info("    subset = " + response);
   }
 
