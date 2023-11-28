@@ -62,10 +62,212 @@ public class SearchEndpointApiTest {
   @Test
   public void searchTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
+    Boolean ascending = true;
+    String include = "minimals";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            null,
+            null,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1464, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+    assertEquals("C3224", response.getConcepts().get(0).getCode());
+
+    // LOG
+    log.info("Get search results from NCIT for - " + terminology);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with concept status filter added
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchFilterByConceptStatusTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
     String term = "melanoma";
     String type = "contains";
     Boolean ascending = true;
-    String include = "minimal,children,definitions";
+    String include = "minimal";
+    String conceptStatus = "Header_Concept";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            conceptStatus,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1464, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info(
+        "Get search results from NCIT for term =  " + term + ", concept status = " + conceptStatus);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with definition source filter added
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchFilterByDefinitionSourceTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "dsDNA";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    String definitionSource = "NCI";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            definitionSource,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1294, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info(
+        "Get search results from NCIT for term = "
+            + term
+            + ", definition source =  "
+            + definitionSource);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with synonym source and synonym term type filter added
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchFilterBySynonymSourceAndTermGroupTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "dsDNA";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    String synonymSource = "NCI";
+    String synonymTermType = "PT";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            synonymSource,
+            null,
+            synonymTermType,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(12, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info(
+        "Get search results from NCIT for term = "
+            + term
+            + ", synonym source =  "
+            + synonymSource
+            + ", synonym term type = "
+            + synonymTermType);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results using term code
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByCodeTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "C3224";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
     Integer fromRecord = 0;
     Integer pageSize = 25;
 
@@ -92,13 +294,340 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1464, response.getTotal());
+    assertEquals(112, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
-    assertEquals("C3224", response.getConcepts().get(0).getCode());
 
     // LOG
-    log.info("Get search results from NCIT for - Melanoma");
+    log.info("Get search results from NCIT for term code = " + term);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results using type match
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypeMatchTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "enzyme";
+    String type = "match";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(112, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results using type starts with
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypeStartsWithTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "enzyme";
+    String type = "startsWith";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(53, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results using type phrase
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypePhraseTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "enzyme";
+    String type = "phrase";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(75, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results using type fuzzy
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypeFuzzyTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "enzyme";
+    String type = "fuzzy";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(3351, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with type AND
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypeANDTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "malignant melanoma";
+    String type = "AND";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+        api.search(
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(122, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with type OR
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchByTypeORTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "malignant melanoma";
+    String type = "OR";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+            api.search(
+                    terminology,
+                    term,
+                    type,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(4786, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + ", type = " + type);
+    log.info("   search results = " + response);
+  }
+
+  /**
+   * Get concept search results with highlights
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchWithHighlightsTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "XAV05295I5";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+            api.search(
+                    terminology,
+                    term,
+                    null,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(2045, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get search results from NCIT for term = " + term + " (with highlights)");
     log.info("   search results = " + response);
   }
 
@@ -152,8 +681,7 @@ public class SearchEndpointApiTest {
     assertEquals("C3224", response.getConcepts().get(0).getCode());
 
     // LOG
-    log.info("Get search results for specific term - melanoma");
+    log.info("Get search results for specific term - " + term);
     log.info("   search results = " + response);
-
   }
 }
