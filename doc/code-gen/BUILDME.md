@@ -46,9 +46,12 @@ location the generated code is generated is also provided.
 
 * **Java client** - `buildJavaSdk`
     * **Generate Location** = `build/openapi-java-client`
-        * Copy the new files generated from the `src/` folder to the `java-examples/src` folder. Update tests to demo the
-          new api calls
+        * Copy the new files generated from the `src/` folder to the `java-examples/src` folder. DO NOT replace tests,
+          update tests to demo the new api calls.
         * Verify the `gradle` files match between what was generated vs what exists in `java-examples`.
+        * The java-examples uses `src/main/resources/url.properties` to set the basePath url. This should not be changed
+          unless the url needs to be updated. 
+        * Verify the project builds and the tests run successfully before pushing changes
 
 **[Back to top](#evsrestapi-generate-client-code)**
 
