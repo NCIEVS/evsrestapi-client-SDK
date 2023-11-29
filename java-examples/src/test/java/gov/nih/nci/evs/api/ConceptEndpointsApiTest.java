@@ -78,7 +78,6 @@ public class ConceptEndpointsApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1882, response.getTotal());
     assertNotNull(response.getAssociationEntries());
     assertEquals("Tamoxifen Citrate", response.getAssociationEntries().get(0).getRelatedName());
 

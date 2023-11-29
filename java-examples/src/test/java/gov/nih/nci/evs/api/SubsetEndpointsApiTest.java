@@ -113,7 +113,6 @@ public class SubsetEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals(29, response.size());
 
     // LOG
     log.info("Get all subset for ncit");

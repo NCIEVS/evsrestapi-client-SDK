@@ -509,7 +509,7 @@ public class MetadataEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("NCI Thesaurus 23.10e", response.get(0).getName());
+    assertEquals("NCI Thesaurus 23.11d", response.get(0).getName());
 
     // LOG
     log.info("Get all terminologies for ncit");
