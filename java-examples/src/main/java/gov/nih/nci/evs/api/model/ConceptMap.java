@@ -13,26 +13,44 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * ConceptMap
+ * Represents a map from a concept to concepts in other terminologies
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class ConceptMap {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -61,6 +79,14 @@ public class ConceptMap {
   public static final String SERIALIZED_NAME_SOURCE_TERMINOLOGY = "sourceTerminology";
   @SerializedName(SERIALIZED_NAME_SOURCE_TERMINOLOGY)
   private String sourceTerminology;
+
+  public static final String SERIALIZED_NAME_SOURCE_TERMINOLOGY_VERSION = "sourceTerminologyVersion";
+  @SerializedName(SERIALIZED_NAME_SOURCE_TERMINOLOGY_VERSION)
+  private String sourceTerminologyVersion;
+
+  public static final String SERIALIZED_NAME_SOURCE_LOADED = "sourceLoaded";
+  @SerializedName(SERIALIZED_NAME_SOURCE_LOADED)
+  private Boolean sourceLoaded;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -98,6 +124,10 @@ public class ConceptMap {
   @SerializedName(SERIALIZED_NAME_TARGET_TERMINOLOGY_VERSION)
   private String targetTerminologyVersion;
 
+  public static final String SERIALIZED_NAME_TARGET_LOADED = "targetLoaded";
+  @SerializedName(SERIALIZED_NAME_TARGET_LOADED)
+  private Boolean targetLoaded;
+
   public static final String SERIALIZED_NAME_TARGET_TERM_GROUP = "targetTermGroup";
   @SerializedName(SERIALIZED_NAME_TARGET_TERM_GROUP)
   private String targetTermGroup;
@@ -112,7 +142,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -133,7 +163,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -154,7 +184,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get source
+   * Source terminology of the map
    * @return source
   **/
   @javax.annotation.Nullable
@@ -175,7 +205,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get sourceName
+   * Preferred name of the source code
    * @return sourceName
   **/
   @javax.annotation.Nullable
@@ -196,7 +226,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get sourceTermType
+   * Term type of the source code
    * @return sourceTermType
   **/
   @javax.annotation.Nullable
@@ -217,7 +247,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get sourceCode
+   * Source code of the map (the thing being mapped &#39;from&#39;)
    * @return sourceCode
   **/
   @javax.annotation.Nullable
@@ -238,7 +268,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get sourceTerminology
+   * Terminology of the source code
    * @return sourceTerminology
   **/
   @javax.annotation.Nullable
@@ -249,6 +279,48 @@ public class ConceptMap {
 
   public void setSourceTerminology(String sourceTerminology) {
     this.sourceTerminology = sourceTerminology;
+  }
+
+
+  public ConceptMap sourceTerminologyVersion(String sourceTerminologyVersion) {
+    
+    this.sourceTerminologyVersion = sourceTerminologyVersion;
+    return this;
+  }
+
+   /**
+   * Terminology version of the source code
+   * @return sourceTerminologyVersion
+  **/
+  @javax.annotation.Nullable
+  public String getSourceTerminologyVersion() {
+    return sourceTerminologyVersion;
+  }
+
+
+  public void setSourceTerminologyVersion(String sourceTerminologyVersion) {
+    this.sourceTerminologyVersion = sourceTerminologyVersion;
+  }
+
+
+  public ConceptMap sourceLoaded(Boolean sourceLoaded) {
+    
+    this.sourceLoaded = sourceLoaded;
+    return this;
+  }
+
+   /**
+   * Indicates whether the source code terminology/version is currently loaded
+   * @return sourceLoaded
+  **/
+  @javax.annotation.Nullable
+  public Boolean getSourceLoaded() {
+    return sourceLoaded;
+  }
+
+
+  public void setSourceLoaded(Boolean sourceLoaded) {
+    this.sourceLoaded = sourceLoaded;
   }
 
 
@@ -385,7 +457,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get targetCode
+   * Target code of the map (the thing being mapped &#39;to&#39;)
    * @return targetCode
   **/
   @javax.annotation.Nullable
@@ -406,7 +478,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get targetTerminology
+   * Terminology of the target code
    * @return targetTerminology
   **/
   @javax.annotation.Nullable
@@ -427,7 +499,7 @@ public class ConceptMap {
   }
 
    /**
-   * Get targetTerminologyVersion
+   * Terminology version of the target code
    * @return targetTerminologyVersion
   **/
   @javax.annotation.Nullable
@@ -438,6 +510,27 @@ public class ConceptMap {
 
   public void setTargetTerminologyVersion(String targetTerminologyVersion) {
     this.targetTerminologyVersion = targetTerminologyVersion;
+  }
+
+
+  public ConceptMap targetLoaded(Boolean targetLoaded) {
+    
+    this.targetLoaded = targetLoaded;
+    return this;
+  }
+
+   /**
+   * Indicates whether the target terminology/version is currently loaded
+   * @return targetLoaded
+  **/
+  @javax.annotation.Nullable
+  public Boolean getTargetLoaded() {
+    return targetLoaded;
+  }
+
+
+  public void setTargetLoaded(Boolean targetLoaded) {
+    this.targetLoaded = targetLoaded;
   }
 
 
@@ -479,6 +572,8 @@ public class ConceptMap {
         Objects.equals(this.sourceTermType, conceptMap.sourceTermType) &&
         Objects.equals(this.sourceCode, conceptMap.sourceCode) &&
         Objects.equals(this.sourceTerminology, conceptMap.sourceTerminology) &&
+        Objects.equals(this.sourceTerminologyVersion, conceptMap.sourceTerminologyVersion) &&
+        Objects.equals(this.sourceLoaded, conceptMap.sourceLoaded) &&
         Objects.equals(this.type, conceptMap.type) &&
         Objects.equals(this.rank, conceptMap.rank) &&
         Objects.equals(this.group, conceptMap.group) &&
@@ -488,12 +583,13 @@ public class ConceptMap {
         Objects.equals(this.targetCode, conceptMap.targetCode) &&
         Objects.equals(this.targetTerminology, conceptMap.targetTerminology) &&
         Objects.equals(this.targetTerminologyVersion, conceptMap.targetTerminologyVersion) &&
+        Objects.equals(this.targetLoaded, conceptMap.targetLoaded) &&
         Objects.equals(this.targetTermGroup, conceptMap.targetTermGroup);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, source, sourceName, sourceTermType, sourceCode, sourceTerminology, type, rank, group, rule, targetName, targetTermType, targetCode, targetTerminology, targetTerminologyVersion, targetTermGroup);
+    return Objects.hash(uri, ct, source, sourceName, sourceTermType, sourceCode, sourceTerminology, sourceTerminologyVersion, sourceLoaded, type, rank, group, rule, targetName, targetTermType, targetCode, targetTerminology, targetTerminologyVersion, targetLoaded, targetTermGroup);
   }
 
   @Override
@@ -507,6 +603,8 @@ public class ConceptMap {
     sb.append("    sourceTermType: ").append(toIndentedString(sourceTermType)).append("\n");
     sb.append("    sourceCode: ").append(toIndentedString(sourceCode)).append("\n");
     sb.append("    sourceTerminology: ").append(toIndentedString(sourceTerminology)).append("\n");
+    sb.append("    sourceTerminologyVersion: ").append(toIndentedString(sourceTerminologyVersion)).append("\n");
+    sb.append("    sourceLoaded: ").append(toIndentedString(sourceLoaded)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    rank: ").append(toIndentedString(rank)).append("\n");
     sb.append("    group: ").append(toIndentedString(group)).append("\n");
@@ -516,6 +614,7 @@ public class ConceptMap {
     sb.append("    targetCode: ").append(toIndentedString(targetCode)).append("\n");
     sb.append("    targetTerminology: ").append(toIndentedString(targetTerminology)).append("\n");
     sb.append("    targetTerminologyVersion: ").append(toIndentedString(targetTerminologyVersion)).append("\n");
+    sb.append("    targetLoaded: ").append(toIndentedString(targetLoaded)).append("\n");
     sb.append("    targetTermGroup: ").append(toIndentedString(targetTermGroup)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -546,6 +645,8 @@ public class ConceptMap {
     openapiFields.add("sourceTermType");
     openapiFields.add("sourceCode");
     openapiFields.add("sourceTerminology");
+    openapiFields.add("sourceTerminologyVersion");
+    openapiFields.add("sourceLoaded");
     openapiFields.add("type");
     openapiFields.add("rank");
     openapiFields.add("group");
@@ -555,6 +656,7 @@ public class ConceptMap {
     openapiFields.add("targetCode");
     openapiFields.add("targetTerminology");
     openapiFields.add("targetTerminologyVersion");
+    openapiFields.add("targetLoaded");
     openapiFields.add("targetTermGroup");
 
     // a set of required properties/fields (JSON key names)
@@ -598,6 +700,9 @@ public class ConceptMap {
       }
       if ((jsonObj.get("sourceTerminology") != null && !jsonObj.get("sourceTerminology").isJsonNull()) && !jsonObj.get("sourceTerminology").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `sourceTerminology` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceTerminology").toString()));
+      }
+      if ((jsonObj.get("sourceTerminologyVersion") != null && !jsonObj.get("sourceTerminologyVersion").isJsonNull()) && !jsonObj.get("sourceTerminologyVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sourceTerminologyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sourceTerminologyVersion").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

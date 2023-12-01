@@ -13,25 +13,35 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.HierarchyNode;
+import gov.nih.nci.evs.api.model.RestException;
 import gov.nih.nci.evs.api.model.Role;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ConceptEndpointsApi {
     private ApiClient localVarApiClient;
@@ -76,18 +86,19 @@ public class ConceptEndpointsApi {
      * @param codeOrLabel Code/label in the specified terminology, e.g. &#39;A5&#39; or &#39;Has_Salt_Form&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociationEntriesCall(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssociationEntriesCall(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -122,6 +133,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -142,7 +157,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssociationEntriesValidateBeforeCall(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssociationEntriesValidateBeforeCall(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getAssociationEntries(Async)");
@@ -153,7 +168,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'codeOrLabel' when calling getAssociationEntries(Async)");
         }
 
-        return getAssociationEntriesCall(terminology, codeOrLabel, fromRecord, pageSize, _callback);
+        return getAssociationEntriesCall(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -164,18 +179,19 @@ public class ConceptEndpointsApi {
      * @param codeOrLabel Code/label in the specified terminology, e.g. &#39;A5&#39; or &#39;Has_Salt_Form&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return AssociationEntryResultList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public AssociationEntryResultList getAssociationEntries(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize) throws ApiException {
-        ApiResponse<AssociationEntryResultList> localVarResp = getAssociationEntriesWithHttpInfo(terminology, codeOrLabel, fromRecord, pageSize);
+    public AssociationEntryResultList getAssociationEntries(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<AssociationEntryResultList> localVarResp = getAssociationEntriesWithHttpInfo(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -186,18 +202,19 @@ public class ConceptEndpointsApi {
      * @param codeOrLabel Code/label in the specified terminology, e.g. &#39;A5&#39; or &#39;Has_Salt_Form&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;AssociationEntryResultList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<AssociationEntryResultList> getAssociationEntriesWithHttpInfo(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getAssociationEntriesValidateBeforeCall(terminology, codeOrLabel, fromRecord, pageSize, null);
+    public ApiResponse<AssociationEntryResultList> getAssociationEntriesWithHttpInfo(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getAssociationEntriesValidateBeforeCall(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<AssociationEntryResultList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -209,28 +226,30 @@ public class ConceptEndpointsApi {
      * @param codeOrLabel Code/label in the specified terminology, e.g. &#39;A5&#39; or &#39;Has_Salt_Form&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociationEntriesAsync(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, final ApiCallback<AssociationEntryResultList> _callback) throws ApiException {
+    public okhttp3.Call getAssociationEntriesAsync(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<AssociationEntryResultList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssociationEntriesValidateBeforeCall(terminology, codeOrLabel, fromRecord, pageSize, _callback);
+        okhttp3.Call localVarCall = getAssociationEntriesValidateBeforeCall(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<AssociationEntryResultList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getAssociations1
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -241,7 +260,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociations1Call(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getAssociations1Call(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -268,6 +287,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -288,7 +311,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getAssociations1ValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getAssociations1ValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getAssociations1(Async)");
@@ -299,15 +322,16 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getAssociations1(Async)");
         }
 
-        return getAssociations1Call(terminology, code, _callback);
+        return getAssociations1Call(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get the associations for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Association&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -317,16 +341,17 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Association> getAssociations1(String terminology, String code) throws ApiException {
-        ApiResponse<List<Association>> localVarResp = getAssociations1WithHttpInfo(terminology, code);
+    public List<Association> getAssociations1(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Association>> localVarResp = getAssociations1WithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get the associations for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Association&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -336,8 +361,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Association>> getAssociations1WithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Association>> getAssociations1WithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -345,8 +370,9 @@ public class ConceptEndpointsApi {
     /**
      * Get the associations for the specified terminology and code (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -357,17 +383,18 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getAssociations1Async(String terminology, String code, final ApiCallback<List<Association>> _callback) throws ApiException {
+    public okhttp3.Call getAssociations1Async(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Association>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getAssociations1ValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getChildren
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -378,7 +405,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getChildrenCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getChildrenCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -405,6 +432,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -425,7 +456,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getChildrenValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getChildrenValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getChildren(Async)");
@@ -436,15 +467,16 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getChildren(Async)");
         }
 
-        return getChildrenCall(terminology, code, _callback);
+        return getChildrenCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get child concepts for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -454,16 +486,17 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getChildren(String terminology, String code) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getChildrenWithHttpInfo(terminology, code);
+    public List<Concept> getChildren(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getChildrenWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get child concepts for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -473,8 +506,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getChildrenWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getChildrenValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Concept>> getChildrenWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getChildrenValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -482,8 +515,9 @@ public class ConceptEndpointsApi {
     /**
      * Get child concepts for the specified terminology and code (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -494,32 +528,33 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getChildrenAsync(String terminology, String code, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getChildrenAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getChildrenValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getChildrenValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getConcept
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConceptCall(String terminology, String code, Integer limit, String include, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getConceptCall(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -554,6 +589,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -574,7 +613,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getConceptValidateBeforeCall(String terminology, String code, Integer limit, String include, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getConceptValidateBeforeCall(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getConcept(Async)");
@@ -585,53 +624,55 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getConcept(Async)");
         }
 
-        return getConceptCall(terminology, code, limit, include, _callback);
+        return getConceptCall(terminology, code, limit, include, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get the concept for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public Concept getConcept(String terminology, String code, Integer limit, String include) throws ApiException {
-        ApiResponse<Concept> localVarResp = getConceptWithHttpInfo(terminology, code, limit, include);
+    public Concept getConcept(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<Concept> localVarResp = getConceptWithHttpInfo(terminology, code, limit, include, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get the concept for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Concept> getConceptWithHttpInfo(String terminology, String code, Integer limit, String include) throws ApiException {
-        okhttp3.Call localVarCall = getConceptValidateBeforeCall(terminology, code, limit, include, null);
+    public ApiResponse<Concept> getConceptWithHttpInfo(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getConceptValidateBeforeCall(terminology, code, limit, include, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<Concept>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -639,47 +680,49 @@ public class ConceptEndpointsApi {
     /**
      * Get the concept for the specified terminology and code (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConceptAsync(String terminology, String code, Integer limit, String include, final ApiCallback<Concept> _callback) throws ApiException {
+    public okhttp3.Call getConceptAsync(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey, final ApiCallback<Concept> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getConceptValidateBeforeCall(terminology, code, limit, include, _callback);
+        okhttp3.Call localVarCall = getConceptValidateBeforeCall(terminology, code, limit, include, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<Concept>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getConcepts
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;&#39;C2291,C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0010137,C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConceptsCall(String terminology, String _list, String include, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getConceptsCall(String terminology, String _list, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -713,6 +756,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("list", _list));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -733,7 +780,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getConceptsValidateBeforeCall(String terminology, String _list, String include, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getConceptsValidateBeforeCall(String terminology, String _list, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getConcepts(Async)");
@@ -744,51 +791,53 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter '_list' when calling getConcepts(Async)");
         }
 
-        return getConceptsCall(terminology, _list, include, _callback);
+        return getConceptsCall(terminology, _list, include, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get concepts specified by list parameter
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;&#39;C2291,C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0010137,C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getConcepts(String terminology, String _list, String include) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getConceptsWithHttpInfo(terminology, _list, include);
+    public List<Concept> getConcepts(String terminology, String _list, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getConceptsWithHttpInfo(terminology, _list, include, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get concepts specified by list parameter
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;&#39;C2291,C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0010137,C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getConceptsWithHttpInfo(String terminology, String _list, String include) throws ApiException {
-        okhttp3.Call localVarCall = getConceptsValidateBeforeCall(terminology, _list, include, null);
+    public ApiResponse<List<Concept>> getConceptsWithHttpInfo(String terminology, String _list, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getConceptsValidateBeforeCall(terminology, _list, include, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -796,24 +845,25 @@ public class ConceptEndpointsApi {
     /**
      * Get concepts specified by list parameter (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;&#39;C2291,C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0010137,C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getConceptsAsync(String terminology, String _list, String include, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getConceptsAsync(String terminology, String _list, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getConceptsValidateBeforeCall(terminology, _list, include, _callback);
+        okhttp3.Call localVarCall = getConceptsValidateBeforeCall(terminology, _list, include, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -825,18 +875,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param maxLevel Max level of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDescendantsCall(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDescendantsCall(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -875,6 +926,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("maxLevel", maxLevel));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -895,7 +950,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDescendantsValidateBeforeCall(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDescendantsValidateBeforeCall(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getDescendants(Async)");
@@ -906,7 +961,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getDescendants(Async)");
         }
 
-        return getDescendantsCall(terminology, code, fromRecord, pageSize, maxLevel, _callback);
+        return getDescendantsCall(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -918,18 +973,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param maxLevel Max level of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getDescendants(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getDescendantsWithHttpInfo(terminology, code, fromRecord, pageSize, maxLevel);
+    public List<Concept> getDescendants(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getDescendantsWithHttpInfo(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -941,18 +997,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param maxLevel Max level of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getDescendantsWithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel) throws ApiException {
-        okhttp3.Call localVarCall = getDescendantsValidateBeforeCall(terminology, code, fromRecord, pageSize, maxLevel, null);
+    public ApiResponse<List<Concept>> getDescendantsWithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getDescendantsValidateBeforeCall(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -965,20 +1022,21 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param maxLevel Max level of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDescendantsAsync(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getDescendantsAsync(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDescendantsValidateBeforeCall(terminology, code, fromRecord, pageSize, maxLevel, _callback);
+        okhttp3.Call localVarCall = getDescendantsValidateBeforeCall(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -987,6 +1045,7 @@ public class ConceptEndpointsApi {
      * Build call for getDisjointWith
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3910&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -997,7 +1056,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDisjointWithCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getDisjointWithCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1024,6 +1083,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1044,7 +1107,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getDisjointWithValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getDisjointWithValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getDisjointWith(Async)");
@@ -1055,7 +1118,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getDisjointWith(Async)");
         }
 
-        return getDisjointWithCall(terminology, code, _callback);
+        return getDisjointWithCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -1064,6 +1127,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3910&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;DisjointWith&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1073,8 +1137,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<DisjointWith> getDisjointWith(String terminology, String code) throws ApiException {
-        ApiResponse<List<DisjointWith>> localVarResp = getDisjointWithWithHttpInfo(terminology, code);
+    public List<DisjointWith> getDisjointWith(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<DisjointWith>> localVarResp = getDisjointWithWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -1083,6 +1147,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3910&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;DisjointWith&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1092,8 +1157,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<DisjointWith>> getDisjointWithWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getDisjointWithValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<DisjointWith>> getDisjointWithWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getDisjointWithValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<DisjointWith>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1103,6 +1168,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3910&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1113,9 +1179,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getDisjointWithAsync(String terminology, String code, final ApiCallback<List<DisjointWith>> _callback) throws ApiException {
+    public okhttp3.Call getDisjointWithAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<DisjointWith>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getDisjointWithValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getDisjointWithValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<DisjointWith>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1124,6 +1190,7 @@ public class ConceptEndpointsApi {
      * Build call for getHistory
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1134,7 +1201,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getHistoryCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getHistoryCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1161,6 +1228,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1181,7 +1252,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getHistoryValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getHistoryValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getHistory(Async)");
@@ -1192,7 +1263,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getHistory(Async)");
         }
 
-        return getHistoryCall(terminology, code, _callback);
+        return getHistoryCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -1201,6 +1272,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1210,8 +1282,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public Concept getHistory(String terminology, String code) throws ApiException {
-        ApiResponse<Concept> localVarResp = getHistoryWithHttpInfo(terminology, code);
+    public Concept getHistory(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<Concept> localVarResp = getHistoryWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -1220,6 +1292,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1229,8 +1302,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<Concept> getHistoryWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getHistoryValidateBeforeCall(terminology, code, null);
+    public ApiResponse<Concept> getHistoryWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getHistoryValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<Concept>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1240,6 +1313,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1250,17 +1324,18 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getHistoryAsync(String terminology, String code, final ApiCallback<Concept> _callback) throws ApiException {
+    public okhttp3.Call getHistoryAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<Concept> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getHistoryValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getHistoryValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<Concept>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getInverseAssociations
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1271,7 +1346,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInverseAssociationsCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInverseAssociationsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1298,6 +1373,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1318,7 +1397,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInverseAssociationsValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInverseAssociationsValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getInverseAssociations(Async)");
@@ -1329,15 +1408,16 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getInverseAssociations(Async)");
         }
 
-        return getInverseAssociationsCall(terminology, code, _callback);
+        return getInverseAssociationsCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get inverse associations for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Association&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1347,16 +1427,17 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Association> getInverseAssociations(String terminology, String code) throws ApiException {
-        ApiResponse<List<Association>> localVarResp = getInverseAssociationsWithHttpInfo(terminology, code);
+    public List<Association> getInverseAssociations(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Association>> localVarResp = getInverseAssociationsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get inverse associations for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Association&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1366,8 +1447,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Association>> getInverseAssociationsWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getInverseAssociationsValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Association>> getInverseAssociationsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getInverseAssociationsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1375,8 +1456,9 @@ public class ConceptEndpointsApi {
     /**
      * Get inverse associations for the specified terminology and code (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1387,9 +1469,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInverseAssociationsAsync(String terminology, String code, final ApiCallback<List<Association>> _callback) throws ApiException {
+    public okhttp3.Call getInverseAssociationsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Association>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInverseAssociationsValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getInverseAssociationsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Association>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1398,6 +1480,7 @@ public class ConceptEndpointsApi {
      * Build call for getInverseRoles
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1408,7 +1491,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInverseRolesCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getInverseRolesCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1435,6 +1518,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1455,7 +1542,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getInverseRolesValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getInverseRolesValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getInverseRoles(Async)");
@@ -1466,7 +1553,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getInverseRoles(Async)");
         }
 
-        return getInverseRolesCall(terminology, code, _callback);
+        return getInverseRolesCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -1475,6 +1562,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Role&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1484,8 +1572,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Role> getInverseRoles(String terminology, String code) throws ApiException {
-        ApiResponse<List<Role>> localVarResp = getInverseRolesWithHttpInfo(terminology, code);
+    public List<Role> getInverseRoles(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Role>> localVarResp = getInverseRolesWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -1494,6 +1582,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Role&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1503,8 +1592,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Role>> getInverseRolesWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getInverseRolesValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Role>> getInverseRolesWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getInverseRolesValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1514,6 +1603,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1524,9 +1614,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getInverseRolesAsync(String terminology, String code, final ApiCallback<List<Role>> _callback) throws ApiException {
+    public okhttp3.Call getInverseRolesAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Role>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getInverseRolesValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getInverseRolesValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1535,6 +1625,7 @@ public class ConceptEndpointsApi {
      * Build call for getMaps
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1545,7 +1636,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMapsCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getMapsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1572,6 +1663,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1592,7 +1687,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getMapsValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getMapsValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getMaps(Async)");
@@ -1603,7 +1698,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getMaps(Async)");
         }
 
-        return getMapsCall(terminology, code, _callback);
+        return getMapsCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -1612,6 +1707,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;ConceptMap&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1621,8 +1717,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<ConceptMap> getMaps(String terminology, String code) throws ApiException {
-        ApiResponse<List<ConceptMap>> localVarResp = getMapsWithHttpInfo(terminology, code);
+    public List<ConceptMap> getMaps(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<ConceptMap>> localVarResp = getMapsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -1631,6 +1727,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;ConceptMap&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1640,8 +1737,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<ConceptMap>> getMapsWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<ConceptMap>> getMapsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<ConceptMap>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1651,6 +1748,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1661,17 +1759,18 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMapsAsync(String terminology, String code, final ApiCallback<List<ConceptMap>> _callback) throws ApiException {
+    public okhttp3.Call getMapsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<ConceptMap>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getMapsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<ConceptMap>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for getParents
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -1682,7 +1781,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getParentsCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getParentsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1709,6 +1808,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1729,7 +1832,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getParentsValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getParentsValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getParents(Async)");
@@ -1740,15 +1843,16 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getParents(Async)");
         }
 
-        return getParentsCall(terminology, code, _callback);
+        return getParentsCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
     /**
      * Get parent concepts for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1758,16 +1862,17 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getParents(String terminology, String code) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getParentsWithHttpInfo(terminology, code);
+    public List<Concept> getParents(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getParentsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
     /**
      * Get parent concepts for the specified terminology and code
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -1777,8 +1882,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getParentsWithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getParentsValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Concept>> getParentsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getParentsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1786,8 +1891,9 @@ public class ConceptEndpointsApi {
     /**
      * Get parent concepts for the specified terminology and code (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0025202&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -1798,9 +1904,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getParentsAsync(String terminology, String code, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getParentsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getParentsValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getParentsValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1812,18 +1918,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsFromRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPathsFromRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -1862,6 +1969,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -1882,7 +1993,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPathsFromRootValidateBeforeCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPathsFromRootValidateBeforeCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getPathsFromRoot(Async)");
@@ -1893,7 +2004,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getPathsFromRoot(Async)");
         }
 
-        return getPathsFromRootCall(terminology, code, include, fromRecord, pageSize, _callback);
+        return getPathsFromRootCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -1905,18 +2016,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<List<Concept>> getPathsFromRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        ApiResponse<List<List<Concept>>> localVarResp = getPathsFromRootWithHttpInfo(terminology, code, include, fromRecord, pageSize);
+    public List<List<Concept>> getPathsFromRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<List<Concept>>> localVarResp = getPathsFromRootWithHttpInfo(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -1928,18 +2040,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;List&lt;Concept&gt;&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<List<Concept>>> getPathsFromRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getPathsFromRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, null);
+    public ApiResponse<List<List<Concept>>> getPathsFromRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getPathsFromRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -1952,20 +2065,21 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsFromRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
+    public okhttp3.Call getPathsFromRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPathsFromRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, _callback);
+        okhttp3.Call localVarCall = getPathsFromRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -1978,18 +2092,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsToAncestorCall(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPathsToAncestorCall(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2029,6 +2144,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2049,7 +2168,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPathsToAncestorValidateBeforeCall(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPathsToAncestorValidateBeforeCall(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getPathsToAncestor(Async)");
@@ -2065,7 +2184,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'ancestorCode' when calling getPathsToAncestor(Async)");
         }
 
-        return getPathsToAncestorCall(terminology, code, ancestorCode, include, fromRecord, pageSize, _callback);
+        return getPathsToAncestorCall(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2078,18 +2197,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<List<Concept>> getPathsToAncestor(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        ApiResponse<List<List<Concept>>> localVarResp = getPathsToAncestorWithHttpInfo(terminology, code, ancestorCode, include, fromRecord, pageSize);
+    public List<List<Concept>> getPathsToAncestor(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<List<Concept>>> localVarResp = getPathsToAncestorWithHttpInfo(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2102,18 +2222,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;List&lt;Concept&gt;&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<List<Concept>>> getPathsToAncestorWithHttpInfo(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getPathsToAncestorValidateBeforeCall(terminology, code, ancestorCode, include, fromRecord, pageSize, null);
+    public ApiResponse<List<List<Concept>>> getPathsToAncestorWithHttpInfo(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getPathsToAncestorValidateBeforeCall(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2127,20 +2248,21 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsToAncestorAsync(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
+    public okhttp3.Call getPathsToAncestorAsync(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPathsToAncestorValidateBeforeCall(terminology, code, ancestorCode, include, fromRecord, pageSize, _callback);
+        okhttp3.Call localVarCall = getPathsToAncestorValidateBeforeCall(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2152,18 +2274,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsToRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getPathsToRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2202,6 +2325,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2222,7 +2349,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getPathsToRootValidateBeforeCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getPathsToRootValidateBeforeCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getPathsToRoot(Async)");
@@ -2233,7 +2360,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getPathsToRoot(Async)");
         }
 
-        return getPathsToRootCall(terminology, code, include, fromRecord, pageSize, _callback);
+        return getPathsToRootCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2245,18 +2372,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<List<Concept>> getPathsToRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        ApiResponse<List<List<Concept>>> localVarResp = getPathsToRootWithHttpInfo(terminology, code, include, fromRecord, pageSize);
+    public List<List<Concept>> getPathsToRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<List<Concept>>> localVarResp = getPathsToRootWithHttpInfo(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2268,18 +2396,19 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;List&lt;Concept&gt;&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<List<Concept>>> getPathsToRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize) throws ApiException {
-        okhttp3.Call localVarCall = getPathsToRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, null);
+    public ApiResponse<List<List<Concept>>> getPathsToRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getPathsToRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2292,20 +2421,21 @@ public class ConceptEndpointsApi {
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results.  (optional)
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getPathsToRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
+    public okhttp3.Call getPathsToRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getPathsToRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, _callback);
+        okhttp3.Call localVarCall = getPathsToRootValidateBeforeCall(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<List<Concept>>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2314,6 +2444,7 @@ public class ConceptEndpointsApi {
      * Build call for getRoles1
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2324,7 +2455,7 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoles1Call(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRoles1Call(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2351,6 +2482,10 @@ public class ConceptEndpointsApi {
         Map<String, String> localVarCookieParams = new HashMap<String, String>();
         Map<String, Object> localVarFormParams = new HashMap<String, Object>();
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2371,7 +2506,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRoles1ValidateBeforeCall(String terminology, String code, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRoles1ValidateBeforeCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getRoles1(Async)");
@@ -2382,7 +2517,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getRoles1(Async)");
         }
 
-        return getRoles1Call(terminology, code, _callback);
+        return getRoles1Call(terminology, code, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2391,6 +2526,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Role&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2400,8 +2536,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Role> getRoles1(String terminology, String code) throws ApiException {
-        ApiResponse<List<Role>> localVarResp = getRoles1WithHttpInfo(terminology, code);
+    public List<Role> getRoles1(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Role>> localVarResp = getRoles1WithHttpInfo(terminology, code, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2410,6 +2546,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Role&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2419,8 +2556,8 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Role>> getRoles1WithHttpInfo(String terminology, String code) throws ApiException {
-        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, null);
+    public ApiResponse<List<Role>> getRoles1WithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2430,6 +2567,7 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2440,9 +2578,9 @@ public class ConceptEndpointsApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRoles1Async(String terminology, String code, final ApiCallback<List<Role>> _callback) throws ApiException {
+    public okhttp3.Call getRoles1Async(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Role>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, _callback);
+        okhttp3.Call localVarCall = getRoles1ValidateBeforeCall(terminology, code, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Role>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2451,18 +2589,19 @@ public class ConceptEndpointsApi {
      * Build call for getRoots
      * @param terminology Terminology, e.g. &#39;ncit&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRootsCall(String terminology, String include, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getRootsCall(String terminology, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2492,6 +2631,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2512,13 +2655,13 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getRootsValidateBeforeCall(String terminology, String include, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getRootsValidateBeforeCall(String terminology, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getRoots(Async)");
         }
 
-        return getRootsCall(terminology, include, _callback);
+        return getRootsCall(terminology, include, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2527,18 +2670,19 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getRoots(String terminology, String include) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getRootsWithHttpInfo(terminology, include);
+    public List<Concept> getRoots(String terminology, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getRootsWithHttpInfo(terminology, include, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2547,18 +2691,19 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getRootsWithHttpInfo(String terminology, String include) throws ApiException {
-        okhttp3.Call localVarCall = getRootsValidateBeforeCall(terminology, include, null);
+    public ApiResponse<List<Concept>> getRootsWithHttpInfo(String terminology, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getRootsValidateBeforeCall(terminology, include, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2568,20 +2713,21 @@ public class ConceptEndpointsApi {
      * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getRootsAsync(String terminology, String include, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getRootsAsync(String terminology, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getRootsValidateBeforeCall(terminology, include, _callback);
+        okhttp3.Call localVarCall = getRootsValidateBeforeCall(terminology, include, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2593,18 +2739,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubsetMembers1Call(String terminology, String code, Integer fromRecord, Integer pageSize, String include, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubsetMembers1Call(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2643,6 +2790,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2663,7 +2814,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubsetMembers1ValidateBeforeCall(String terminology, String code, Integer fromRecord, Integer pageSize, String include, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubsetMembers1ValidateBeforeCall(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getSubsetMembers1(Async)");
@@ -2674,7 +2825,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getSubsetMembers1(Async)");
         }
 
-        return getSubsetMembers1Call(terminology, code, fromRecord, pageSize, include, _callback);
+        return getSubsetMembers1Call(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2686,18 +2837,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;Concept&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<Concept> getSubsetMembers1(String terminology, String code, Integer fromRecord, Integer pageSize, String include) throws ApiException {
-        ApiResponse<List<Concept>> localVarResp = getSubsetMembers1WithHttpInfo(terminology, code, fromRecord, pageSize, include);
+    public List<Concept> getSubsetMembers1(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<Concept>> localVarResp = getSubsetMembers1WithHttpInfo(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2709,18 +2861,19 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<Concept>> getSubsetMembers1WithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, String include) throws ApiException {
-        okhttp3.Call localVarCall = getSubsetMembers1ValidateBeforeCall(terminology, code, fromRecord, pageSize, include, null);
+    public ApiResponse<List<Concept>> getSubsetMembers1WithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getSubsetMembers1ValidateBeforeCall(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2733,20 +2886,21 @@ public class ConceptEndpointsApi {
      * @param fromRecord Start index of the search results (optional)
      * @param pageSize Max number of results to return (optional)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubsetMembers1Async(String terminology, String code, Integer fromRecord, Integer pageSize, String include, final ApiCallback<List<Concept>> _callback) throws ApiException {
+    public okhttp3.Call getSubsetMembers1Async(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubsetMembers1ValidateBeforeCall(terminology, code, fromRecord, pageSize, include, _callback);
+        okhttp3.Call localVarCall = getSubsetMembers1ValidateBeforeCall(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<Concept>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2756,18 +2910,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubtreeCall(String terminology, String code, Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubtreeCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2798,6 +2953,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2818,7 +2977,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubtreeValidateBeforeCall(String terminology, String code, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubtreeValidateBeforeCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getSubtree(Async)");
@@ -2829,7 +2988,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getSubtree(Async)");
         }
 
-        return getSubtreeCall(terminology, code, limit, _callback);
+        return getSubtreeCall(terminology, code, limit, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2839,18 +2998,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;HierarchyNode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<HierarchyNode> getSubtree(String terminology, String code, Integer limit) throws ApiException {
-        ApiResponse<List<HierarchyNode>> localVarResp = getSubtreeWithHttpInfo(terminology, code, limit);
+    public List<HierarchyNode> getSubtree(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<HierarchyNode>> localVarResp = getSubtreeWithHttpInfo(terminology, code, limit, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -2860,18 +3020,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;HierarchyNode&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<HierarchyNode>> getSubtreeWithHttpInfo(String terminology, String code, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getSubtreeValidateBeforeCall(terminology, code, limit, null);
+    public ApiResponse<List<HierarchyNode>> getSubtreeWithHttpInfo(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getSubtreeValidateBeforeCall(terminology, code, limit, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<HierarchyNode>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -2882,20 +3043,21 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubtreeAsync(String terminology, String code, Integer limit, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {
+    public okhttp3.Call getSubtreeAsync(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubtreeValidateBeforeCall(terminology, code, limit, _callback);
+        okhttp3.Call localVarCall = getSubtreeValidateBeforeCall(terminology, code, limit, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<HierarchyNode>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
@@ -2905,18 +3067,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubtreeChildrenCall(String terminology, String code, Integer limit, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call getSubtreeChildrenCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -2947,6 +3110,10 @@ public class ConceptEndpointsApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("limit", limit));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -2967,7 +3134,7 @@ public class ConceptEndpointsApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call getSubtreeChildrenValidateBeforeCall(String terminology, String code, Integer limit, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call getSubtreeChildrenValidateBeforeCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling getSubtreeChildren(Async)");
@@ -2978,7 +3145,7 @@ public class ConceptEndpointsApi {
             throw new ApiException("Missing the required parameter 'code' when calling getSubtreeChildren(Async)");
         }
 
-        return getSubtreeChildrenCall(terminology, code, limit, _callback);
+        return getSubtreeChildrenCall(terminology, code, limit, xEVSRESTAPILicenseKey, _callback);
 
     }
 
@@ -2988,18 +3155,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return List&lt;HierarchyNode&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public List<HierarchyNode> getSubtreeChildren(String terminology, String code, Integer limit) throws ApiException {
-        ApiResponse<List<HierarchyNode>> localVarResp = getSubtreeChildrenWithHttpInfo(terminology, code, limit);
+    public List<HierarchyNode> getSubtreeChildren(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<List<HierarchyNode>> localVarResp = getSubtreeChildrenWithHttpInfo(terminology, code, limit, xEVSRESTAPILicenseKey);
         return localVarResp.getData();
     }
 
@@ -3009,18 +3177,19 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;List&lt;HierarchyNode&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<List<HierarchyNode>> getSubtreeChildrenWithHttpInfo(String terminology, String code, Integer limit) throws ApiException {
-        okhttp3.Call localVarCall = getSubtreeChildrenValidateBeforeCall(terminology, code, limit, null);
+    public ApiResponse<List<HierarchyNode>> getSubtreeChildrenWithHttpInfo(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getSubtreeChildrenValidateBeforeCall(terminology, code, limit, xEVSRESTAPILicenseKey, null);
         Type localVarReturnType = new TypeToken<List<HierarchyNode>>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -3031,20 +3200,21 @@ public class ConceptEndpointsApi {
      * @param terminology Terminology, e.g. &#39;ncit&#39; (required)
      * @param code Code in the specified terminology, e.g. &#39;C3224&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getSubtreeChildrenAsync(String terminology, String code, Integer limit, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {
+    public okhttp3.Call getSubtreeChildrenAsync(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = getSubtreeChildrenValidateBeforeCall(terminology, code, limit, _callback);
+        okhttp3.Call localVarCall = getSubtreeChildrenValidateBeforeCall(terminology, code, limit, xEVSRESTAPILicenseKey, _callback);
         Type localVarReturnType = new TypeToken<List<HierarchyNode>>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

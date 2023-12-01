@@ -74,7 +74,7 @@ public class ConceptEndpointsApiTest {
 
     // ACT
     AssociationEntryResultList response =
-        api.getAssociationEntries(terminology, codeOrLabel, fromRecord, pageSize);
+        api.getAssociationEntries(terminology, codeOrLabel, fromRecord, pageSize, null);
 
     // ASSERT
     assertNotNull(response);
@@ -96,7 +96,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<Association> response = api.getAssociations1(terminology, code);
+    List<Association> response = api.getAssociations1(terminology, code, null);
     assertFalse(response.isEmpty()); // verify we got data
     Association assoc = response.get(0);
 
@@ -119,7 +119,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<Concept> response = api.getChildren(terminology, code);
+    List<Concept> response = api.getChildren(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -142,7 +142,7 @@ public class ConceptEndpointsApiTest {
     String include = "minimal";
 
     // ACT
-    Concept response = api.getConcept(terminology, code, null, include);
+    Concept response = api.getConcept(terminology, code, null, include, null);
 
     // ASSERT
     assertNotNull(response.getName());
@@ -165,7 +165,7 @@ public class ConceptEndpointsApiTest {
     String include = "summary";
 
     // ACT
-    Concept response = api.getConcept(terminology, code, null, include);
+    Concept response = api.getConcept(terminology, code, null, include, null);
 
     // ASSERT
     assertNotNull(response.getName());
@@ -188,7 +188,7 @@ public class ConceptEndpointsApiTest {
     String include = "full";
 
     // ACT
-    Concept response = api.getConcept(terminology, code, null, include);
+    Concept response = api.getConcept(terminology, code, null, include, null);
 
     // ASSERT
     assertNotNull(response.getName());
@@ -211,7 +211,7 @@ public class ConceptEndpointsApiTest {
     String include = "synonyms,children,maps,inverseAssociations";
 
     // ACT
-    Concept response = api.getConcept(terminology, code, null, include);
+    Concept response = api.getConcept(terminology, code, null, include, null);
 
     // ASSERT
     assertNotNull(response.getName());
@@ -234,7 +234,7 @@ public class ConceptEndpointsApiTest {
     String include = "minimal";
 
     // ACT
-    List<Concept> response = api.getConcepts(terminology, _list, include);
+    List<Concept> response = api.getConcepts(terminology, _list, include, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -259,7 +259,8 @@ public class ConceptEndpointsApiTest {
     Integer maxLevel = 4;
 
     // ACT
-    List<Concept> response = api.getDescendants(terminology, code, fromRecord, pageSize, maxLevel);
+    List<Concept> response =
+        api.getDescendants(terminology, code, fromRecord, pageSize, maxLevel, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -282,7 +283,7 @@ public class ConceptEndpointsApiTest {
     String code = "C3910";
 
     // ACT
-    List<DisjointWith> response = api.getDisjointWith(terminology, code);
+    List<DisjointWith> response = api.getDisjointWith(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -304,7 +305,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    Concept response = api.getHistory(terminology, code);
+    Concept response = api.getHistory(terminology, code, null);
 
     // ASSERT
     assertNotNull(response);
@@ -326,7 +327,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<Association> response = api.getInverseAssociations(terminology, code);
+    List<Association> response = api.getInverseAssociations(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -348,7 +349,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<Role> response = api.getInverseRoles(terminology, code);
+    List<Role> response = api.getInverseRoles(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -371,7 +372,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<ConceptMap> response = api.getMaps(terminology, code);
+    List<ConceptMap> response = api.getMaps(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -392,7 +393,7 @@ public class ConceptEndpointsApiTest {
   public void getParentsTest() throws ApiException {
     // ARRANGE - using global variables unless otherwise listed below
     // ACT
-    List<Concept> response = api.getParents(terminology, code);
+    List<Concept> response = api.getParents(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -418,7 +419,7 @@ public class ConceptEndpointsApiTest {
 
     // ACT
     List<List<Concept>> response =
-        api.getPathsFromRoot(terminology, code, include, fromRecord, pageSize);
+        api.getPathsFromRoot(terminology, code, include, fromRecord, pageSize, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -446,7 +447,7 @@ public class ConceptEndpointsApiTest {
 
     // ACT
     List<List<Concept>> response =
-        api.getPathsToAncestor(terminology, code, ancestorCode, include, fromRecord, null);
+        api.getPathsToAncestor(terminology, code, ancestorCode, include, fromRecord, null, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -480,7 +481,7 @@ public class ConceptEndpointsApiTest {
 
     // ACT
     List<List<Concept>> response =
-        api.getPathsToRoot(terminology, code, include, fromRecord, pageSize);
+        api.getPathsToRoot(terminology, code, include, fromRecord, pageSize, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -509,7 +510,7 @@ public class ConceptEndpointsApiTest {
   public void getRoles1Test() throws ApiException {
     // ARRANGE - using global variables unless otherwise listed below
     // ACT
-    List<Role> response = api.getRoles1(terminology, code);
+    List<Role> response = api.getRoles1(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -532,7 +533,7 @@ public class ConceptEndpointsApiTest {
     String include = "minimal";
 
     // ACT
-    List<Concept> response = api.getRoots(terminology, include);
+    List<Concept> response = api.getRoots(terminology, include, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -560,7 +561,7 @@ public class ConceptEndpointsApiTest {
 
     // ACT
     List<Concept> response =
-        api.getSubsetMembers1(terminology, code, fromRecord, pageSize, include);
+        api.getSubsetMembers1(terminology, code, fromRecord, pageSize, include, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -583,7 +584,7 @@ public class ConceptEndpointsApiTest {
     Integer limit = 50;
 
     // ACT
-    List<HierarchyNode> response = api.getSubtree(terminology, code, limit);
+    List<HierarchyNode> response = api.getSubtree(terminology, code, limit, null);
 
     // ASSERT
     assertFalse(response.isEmpty());
@@ -606,7 +607,7 @@ public class ConceptEndpointsApiTest {
     Integer limit = 100;
 
     // ACT
-    List<HierarchyNode> response = api.getSubtreeChildren(terminology, code, limit);
+    List<HierarchyNode> response = api.getSubtreeChildren(terminology, code, limit, null);
 
     // ASSERT
     assertFalse(response.isEmpty());

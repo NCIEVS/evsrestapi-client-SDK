@@ -13,19 +13,29 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.RestException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class SubsetEndpointsApi {
     private ApiClient localVarApiClient;
@@ -146,8 +156,8 @@ public class SubsetEndpointsApi {
     }
 
     /**
-     * 
      * Get the subset for the specified terminology and code.
+     * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
      * @param code Subset code, e.g. &#39;C116978&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
@@ -166,8 +176,8 @@ public class SubsetEndpointsApi {
     }
 
     /**
-     * 
      * Get the subset for the specified terminology and code.
+     * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
      * @param code Subset code, e.g. &#39;C116978&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
@@ -187,8 +197,8 @@ public class SubsetEndpointsApi {
     }
 
     /**
-     *  (asynchronously)
-     * Get the subset for the specified terminology and code.
+     * Get the subset for the specified terminology and code. (asynchronously)
+     * 
      * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
      * @param code Subset code, e.g. &#39;C116978&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
      * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
@@ -222,8 +232,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -314,8 +324,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -337,8 +347,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -362,8 +372,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */

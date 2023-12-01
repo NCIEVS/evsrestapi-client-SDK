@@ -13,26 +13,44 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * ConceptMinimal
+ * Represents minimal information about a concept in a terminology
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class ConceptMinimal {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -72,7 +90,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -93,7 +111,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -114,7 +132,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get code
+   * Code (unique identifier) for this meaning
    * @return code
   **/
   @javax.annotation.Nullable
@@ -135,7 +153,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get name
+   * Preferred name for the code
    * @return name
   **/
   @javax.annotation.Nullable
@@ -156,7 +174,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get terminology
+   * Terminology abbreviation, e.g. &#39;nci&#39;
    * @return terminology
   **/
   @javax.annotation.Nullable
@@ -177,7 +195,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get version
+   * Terminology version, e.g. &#39;23.11d&#39;
    * @return version
   **/
   @javax.annotation.Nullable
@@ -198,7 +216,7 @@ public class ConceptMinimal {
   }
 
    /**
-   * Get level
+   * Level of depth in a hierarchy (when this object is used to represent an element in a path)
    * @return level
   **/
   @javax.annotation.Nullable

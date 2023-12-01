@@ -13,29 +13,47 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
+import gov.nih.nci.evs.api.model.Qualifier;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * Synonym
+ * Represents one of the (potentially many) names for a concept
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class Synonym {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -49,10 +67,6 @@ public class Synonym {
   @SerializedName(SERIALIZED_NAME_NAME)
   private String name;
 
-  public static final String SERIALIZED_NAME_NORM_NAME = "normName";
-  @SerializedName(SERIALIZED_NAME_NORM_NAME)
-  private String normName;
-
   public static final String SERIALIZED_NAME_HIGHLIGHT = "highlight";
   @SerializedName(SERIALIZED_NAME_HIGHLIGHT)
   private String highlight;
@@ -64,10 +78,6 @@ public class Synonym {
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
-
-  public static final String SERIALIZED_NAME_TYPE_CODE = "typeCode";
-  @SerializedName(SERIALIZED_NAME_TYPE_CODE)
-  private String typeCode;
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -85,21 +95,11 @@ public class Synonym {
   @SerializedName(SERIALIZED_NAME_QUALIFIERS)
   private List<Qualifier> qualifiers;
 
-  public static final String SERIALIZED_NAME_TERM_GROUP = "termGroup";
-  @SerializedName(SERIALIZED_NAME_TERM_GROUP)
-  private String termGroup;
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
 
   public Synonym() {
-  }
-
-  
-  public Synonym(
-     String normName, 
-     String typeCode
-  ) {
-    this();
-    this.normName = normName;
-    this.typeCode = typeCode;
   }
 
   public Synonym uri(String uri) {
@@ -109,7 +109,7 @@ public class Synonym {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -130,7 +130,7 @@ public class Synonym {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -151,7 +151,7 @@ public class Synonym {
   }
 
    /**
-   * Get name
+   * Name for a concept
    * @return name
   **/
   @javax.annotation.Nullable
@@ -165,18 +165,6 @@ public class Synonym {
   }
 
 
-   /**
-   * Get normName
-   * @return normName
-  **/
-  @javax.annotation.Nullable
-  public String getNormName() {
-    return normName;
-  }
-
-
-
-
   public Synonym highlight(String highlight) {
     
     this.highlight = highlight;
@@ -184,7 +172,7 @@ public class Synonym {
   }
 
    /**
-   * Get highlight
+   * Used by search calls to provide information for highlighting a view of results
    * @return highlight
   **/
   @javax.annotation.Nullable
@@ -205,7 +193,7 @@ public class Synonym {
   }
 
    /**
-   * Get termType
+   * Synonym term type
    * @return termType
   **/
   @javax.annotation.Nullable
@@ -226,7 +214,7 @@ public class Synonym {
   }
 
    /**
-   * Get type
+   * Synonym type
    * @return type
   **/
   @javax.annotation.Nullable
@@ -240,18 +228,6 @@ public class Synonym {
   }
 
 
-   /**
-   * Get typeCode
-   * @return typeCode
-  **/
-  @javax.annotation.Nullable
-  public String getTypeCode() {
-    return typeCode;
-  }
-
-
-
-
   public Synonym source(String source) {
     
     this.source = source;
@@ -259,7 +235,7 @@ public class Synonym {
   }
 
    /**
-   * Get source
+   * Synonym source
    * @return source
   **/
   @javax.annotation.Nullable
@@ -280,7 +256,7 @@ public class Synonym {
   }
 
    /**
-   * Get code
+   * Code of the synonym, used in particular for Metathesaurus data where the source of the synonym is not the terminology itself
    * @return code
   **/
   @javax.annotation.Nullable
@@ -301,7 +277,7 @@ public class Synonym {
   }
 
    /**
-   * Get subSource
+   * Synonym sub-source
    * @return subSource
   **/
   @javax.annotation.Nullable
@@ -330,7 +306,7 @@ public class Synonym {
   }
 
    /**
-   * Get qualifiers
+   * Type/value qualifiers on the synonym
    * @return qualifiers
   **/
   @javax.annotation.Nullable
@@ -344,24 +320,24 @@ public class Synonym {
   }
 
 
-  public Synonym termGroup(String termGroup) {
+  public Synonym active(Boolean active) {
     
-    this.termGroup = termGroup;
+    this.active = active;
     return this;
   }
 
    /**
-   * Get termGroup
-   * @return termGroup
+   * Indicates whether the synonym is active
+   * @return active
   **/
   @javax.annotation.Nullable
-  public String getTermGroup() {
-    return termGroup;
+  public Boolean getActive() {
+    return active;
   }
 
 
-  public void setTermGroup(String termGroup) {
-    this.termGroup = termGroup;
+  public void setActive(Boolean active) {
+    this.active = active;
   }
 
 
@@ -378,21 +354,19 @@ public class Synonym {
     return Objects.equals(this.uri, synonym.uri) &&
         Objects.equals(this.ct, synonym.ct) &&
         Objects.equals(this.name, synonym.name) &&
-        Objects.equals(this.normName, synonym.normName) &&
         Objects.equals(this.highlight, synonym.highlight) &&
         Objects.equals(this.termType, synonym.termType) &&
         Objects.equals(this.type, synonym.type) &&
-        Objects.equals(this.typeCode, synonym.typeCode) &&
         Objects.equals(this.source, synonym.source) &&
         Objects.equals(this.code, synonym.code) &&
         Objects.equals(this.subSource, synonym.subSource) &&
         Objects.equals(this.qualifiers, synonym.qualifiers) &&
-        Objects.equals(this.termGroup, synonym.termGroup);
+        Objects.equals(this.active, synonym.active);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, name, normName, highlight, termType, type, typeCode, source, code, subSource, qualifiers, termGroup);
+    return Objects.hash(uri, ct, name, highlight, termType, type, source, code, subSource, qualifiers, active);
   }
 
   @Override
@@ -402,16 +376,14 @@ public class Synonym {
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
-    sb.append("    normName: ").append(toIndentedString(normName)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    termType: ").append(toIndentedString(termType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
-    sb.append("    typeCode: ").append(toIndentedString(typeCode)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    subSource: ").append(toIndentedString(subSource)).append("\n");
     sb.append("    qualifiers: ").append(toIndentedString(qualifiers)).append("\n");
-    sb.append("    termGroup: ").append(toIndentedString(termGroup)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -437,16 +409,14 @@ public class Synonym {
     openapiFields.add("uri");
     openapiFields.add("ct");
     openapiFields.add("name");
-    openapiFields.add("normName");
     openapiFields.add("highlight");
     openapiFields.add("termType");
     openapiFields.add("type");
-    openapiFields.add("typeCode");
     openapiFields.add("source");
     openapiFields.add("code");
     openapiFields.add("subSource");
     openapiFields.add("qualifiers");
-    openapiFields.add("termGroup");
+    openapiFields.add("active");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -478,9 +448,6 @@ public class Synonym {
       if ((jsonObj.get("name") != null && !jsonObj.get("name").isJsonNull()) && !jsonObj.get("name").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `name` to be a primitive type in the JSON string but got `%s`", jsonObj.get("name").toString()));
       }
-      if ((jsonObj.get("normName") != null && !jsonObj.get("normName").isJsonNull()) && !jsonObj.get("normName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `normName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("normName").toString()));
-      }
       if ((jsonObj.get("highlight") != null && !jsonObj.get("highlight").isJsonNull()) && !jsonObj.get("highlight").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `highlight` to be a primitive type in the JSON string but got `%s`", jsonObj.get("highlight").toString()));
       }
@@ -489,9 +456,6 @@ public class Synonym {
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("typeCode") != null && !jsonObj.get("typeCode").isJsonNull()) && !jsonObj.get("typeCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `typeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("typeCode").toString()));
       }
       if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
@@ -515,9 +479,6 @@ public class Synonym {
             Qualifier.validateJsonObject(jsonArrayqualifiers.get(i).getAsJsonObject());
           };
         }
-      }
-      if ((jsonObj.get("termGroup") != null && !jsonObj.get("termGroup").isJsonNull()) && !jsonObj.get("termGroup").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `termGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("termGroup").toString()));
       }
   }
 

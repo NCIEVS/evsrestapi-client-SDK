@@ -70,6 +70,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             null,
             null,
@@ -117,6 +118,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             null,
@@ -166,6 +168,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -219,6 +222,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -272,6 +276,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -319,6 +324,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -366,6 +372,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -413,6 +420,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -460,6 +468,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -506,6 +515,7 @@ public class SearchEndpointApiTest {
     // ACT
     ConceptResultList response =
         api.search(
+            null,
             terminology,
             term,
             type,
@@ -552,24 +562,25 @@ public class SearchEndpointApiTest {
 
     // ACT
     ConceptResultList response =
-            api.search(
-                    terminology,
-                    term,
-                    type,
-                    null,
-                    ascending,
-                    include,
-                    fromRecord,
-                    pageSize,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+        api.search(
+            null,
+            terminology,
+            term,
+            type,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
 
     // ASSERT
     assertNotNull(response);
@@ -597,24 +608,25 @@ public class SearchEndpointApiTest {
 
     // ACT
     ConceptResultList response =
-            api.search(
-                    terminology,
-                    term,
-                    null,
-                    null,
-                    ascending,
-                    include,
-                    fromRecord,
-                    pageSize,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+        api.search(
+            null,
+            terminology,
+            term,
+            null,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
 
     // ASSERT
     assertNotNull(response);
@@ -644,24 +656,25 @@ public class SearchEndpointApiTest {
 
     // ACT
     ConceptResultList response =
-            api.search(
-                    terminology,
-                    term,
-                    null,
-                    null,
-                    ascending,
-                    include,
-                    fromRecord,
-                    pageSize,
-                    null,
-                    property,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null,
-                    null);
+        api.search(
+            null,
+            terminology,
+            term,
+            null,
+            null,
+            ascending,
+            include,
+            fromRecord,
+            pageSize,
+            null,
+            property,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
 
     // ASSERT
     assertNotNull(response);
@@ -699,6 +712,7 @@ public class SearchEndpointApiTest {
     ConceptResultList response =
         api.searchSingleTerminology(
             terminology,
+            null,
             term,
             null,
             null,

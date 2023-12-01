@@ -52,10 +52,10 @@ import java.util.Set;
 import gov.nih.nci.evs.api.invoker.JSON;
 
 /**
- * MapResultList
+ * Represents a list of maps returned from a search or find call
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:24:21.740176-08:00[America/Los_Angeles]")
-public class MapResultList {
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+public class ConceptMapResultList {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
   private String uri;
@@ -80,17 +80,17 @@ public class MapResultList {
   @SerializedName(SERIALIZED_NAME_MAPS)
   private List<ConceptMap> maps;
 
-  public MapResultList() {
+  public ConceptMapResultList() {
   }
 
-  public MapResultList uri(String uri) {
+  public ConceptMapResultList uri(String uri) {
     
     this.uri = uri;
     return this;
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -104,14 +104,14 @@ public class MapResultList {
   }
 
 
-  public MapResultList ct(Integer ct) {
+  public ConceptMapResultList ct(Integer ct) {
     
     this.ct = ct;
     return this;
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -125,14 +125,14 @@ public class MapResultList {
   }
 
 
-  public MapResultList total(Integer total) {
+  public ConceptMapResultList total(Integer total) {
     
     this.total = total;
     return this;
   }
 
    /**
-   * Get total
+   * Total nubmer of results (if paging is not considered)
    * @return total
   **/
   @javax.annotation.Nullable
@@ -146,14 +146,14 @@ public class MapResultList {
   }
 
 
-  public MapResultList timeTaken(Long timeTaken) {
+  public ConceptMapResultList timeTaken(Long timeTaken) {
     
     this.timeTaken = timeTaken;
     return this;
   }
 
    /**
-   * Get timeTaken
+   * Total time taken to compute the result
    * @return timeTaken
   **/
   @javax.annotation.Nullable
@@ -167,7 +167,7 @@ public class MapResultList {
   }
 
 
-  public MapResultList parameters(SearchCriteria parameters) {
+  public ConceptMapResultList parameters(SearchCriteria parameters) {
     
     this.parameters = parameters;
     return this;
@@ -188,13 +188,13 @@ public class MapResultList {
   }
 
 
-  public MapResultList maps(List<ConceptMap> maps) {
+  public ConceptMapResultList maps(List<ConceptMap> maps) {
     
     this.maps = maps;
     return this;
   }
 
-  public MapResultList addMapsItem(ConceptMap mapsItem) {
+  public ConceptMapResultList addMapsItem(ConceptMap mapsItem) {
     if (this.maps == null) {
       this.maps = new ArrayList<>();
     }
@@ -203,7 +203,7 @@ public class MapResultList {
   }
 
    /**
-   * Get maps
+   * List of maps
    * @return maps
   **/
   @javax.annotation.Nullable
@@ -226,13 +226,13 @@ public class MapResultList {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    MapResultList mapResultList = (MapResultList) o;
-    return Objects.equals(this.uri, mapResultList.uri) &&
-        Objects.equals(this.ct, mapResultList.ct) &&
-        Objects.equals(this.total, mapResultList.total) &&
-        Objects.equals(this.timeTaken, mapResultList.timeTaken) &&
-        Objects.equals(this.parameters, mapResultList.parameters) &&
-        Objects.equals(this.maps, mapResultList.maps);
+    ConceptMapResultList conceptMapResultList = (ConceptMapResultList) o;
+    return Objects.equals(this.uri, conceptMapResultList.uri) &&
+        Objects.equals(this.ct, conceptMapResultList.ct) &&
+        Objects.equals(this.total, conceptMapResultList.total) &&
+        Objects.equals(this.timeTaken, conceptMapResultList.timeTaken) &&
+        Objects.equals(this.parameters, conceptMapResultList.parameters) &&
+        Objects.equals(this.maps, conceptMapResultList.maps);
   }
 
   @Override
@@ -243,7 +243,7 @@ public class MapResultList {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class MapResultList {\n");
+    sb.append("class ConceptMapResultList {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
@@ -287,20 +287,20 @@ public class MapResultList {
   * Validates the JSON Object and throws an exception if issues found
   *
   * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to MapResultList
+  * @throws IOException if the JSON Object is invalid with respect to ConceptMapResultList
   */
   public static void validateJsonObject(JsonObject jsonObj) throws IOException {
       if (jsonObj == null) {
-        if (!MapResultList.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
-          throw new IllegalArgumentException(String.format("The required field(s) %s in MapResultList is not found in the empty JSON string", MapResultList.openapiRequiredFields.toString()));
+        if (!ConceptMapResultList.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+          throw new IllegalArgumentException(String.format("The required field(s) %s in ConceptMapResultList is not found in the empty JSON string", ConceptMapResultList.openapiRequiredFields.toString()));
         }
       }
 
       Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
       // check to see if the JSON string contains additional fields
       for (Entry<String, JsonElement> entry : entries) {
-        if (!MapResultList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `MapResultList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+        if (!ConceptMapResultList.openapiFields.contains(entry.getKey())) {
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `ConceptMapResultList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
         }
       }
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
@@ -330,22 +330,22 @@ public class MapResultList {
     @SuppressWarnings("unchecked")
     @Override
     public <T> TypeAdapter<T> create(Gson gson, TypeToken<T> type) {
-       if (!MapResultList.class.isAssignableFrom(type.getRawType())) {
-         return null; // this class only serializes 'MapResultList' and its subtypes
+       if (!ConceptMapResultList.class.isAssignableFrom(type.getRawType())) {
+         return null; // this class only serializes 'ConceptMapResultList' and its subtypes
        }
        final TypeAdapter<JsonElement> elementAdapter = gson.getAdapter(JsonElement.class);
-       final TypeAdapter<MapResultList> thisAdapter
-                        = gson.getDelegateAdapter(this, TypeToken.get(MapResultList.class));
+       final TypeAdapter<ConceptMapResultList> thisAdapter
+                        = gson.getDelegateAdapter(this, TypeToken.get(ConceptMapResultList.class));
 
-       return (TypeAdapter<T>) new TypeAdapter<MapResultList>() {
+       return (TypeAdapter<T>) new TypeAdapter<ConceptMapResultList>() {
            @Override
-           public void write(JsonWriter out, MapResultList value) throws IOException {
+           public void write(JsonWriter out, ConceptMapResultList value) throws IOException {
              JsonObject obj = thisAdapter.toJsonTree(value).getAsJsonObject();
              elementAdapter.write(out, obj);
            }
 
            @Override
-           public MapResultList read(JsonReader in) throws IOException {
+           public ConceptMapResultList read(JsonReader in) throws IOException {
              JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
              validateJsonObject(jsonObj);
              return thisAdapter.fromJsonTree(jsonObj);
@@ -356,18 +356,18 @@ public class MapResultList {
   }
 
  /**
-  * Create an instance of MapResultList given an JSON string
+  * Create an instance of ConceptMapResultList given an JSON string
   *
   * @param jsonString JSON string
-  * @return An instance of MapResultList
-  * @throws IOException if the JSON string is invalid with respect to MapResultList
+  * @return An instance of ConceptMapResultList
+  * @throws IOException if the JSON string is invalid with respect to ConceptMapResultList
   */
-  public static MapResultList fromJson(String jsonString) throws IOException {
-    return JSON.getGson().fromJson(jsonString, MapResultList.class);
+  public static ConceptMapResultList fromJson(String jsonString) throws IOException {
+    return JSON.getGson().fromJson(jsonString, ConceptMapResultList.class);
   }
 
  /**
-  * Convert an instance of MapResultList to an JSON string
+  * Convert an instance of ConceptMapResultList to an JSON string
   *
   * @return JSON string
   */

@@ -13,26 +13,44 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * History
+ * Represents a history record, generally for a retired concept
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class History {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -76,7 +94,7 @@ public class History {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -97,7 +115,7 @@ public class History {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -118,7 +136,7 @@ public class History {
   }
 
    /**
-   * Get code
+   * Code for this history record
    * @return code
   **/
   @javax.annotation.Nullable
@@ -139,7 +157,7 @@ public class History {
   }
 
    /**
-   * Get name
+   * Last known preferred name for the code
    * @return name
   **/
   @javax.annotation.Nullable
@@ -160,7 +178,7 @@ public class History {
   }
 
    /**
-   * Get action
+   * Indicates the history action, e.g. &#39;merge&#39;, &#39;active&#39;, &#39;retire&#39;, &#39;SY&#39;, &#39;RB&#39;, etc.
    * @return action
   **/
   @javax.annotation.Nullable
@@ -181,7 +199,7 @@ public class History {
   }
 
    /**
-   * Get date
+   * Date of the history record
    * @return date
   **/
   @javax.annotation.Nullable
@@ -202,7 +220,7 @@ public class History {
   }
 
    /**
-   * Get replacementCode
+   * Code replacing this code
    * @return replacementCode
   **/
   @javax.annotation.Nullable
@@ -223,7 +241,7 @@ public class History {
   }
 
    /**
-   * Get replacementName
+   * Preferred name of the code replacing this code
    * @return replacementName
   **/
   @javax.annotation.Nullable

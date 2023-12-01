@@ -13,19 +13,29 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.ApplicationVersion;
+import gov.nih.nci.evs.api.model.RestException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class ApplicationVersionEndpointApi {
     private ApiClient localVarApiClient;
@@ -72,8 +82,8 @@ public class ApplicationVersionEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -135,8 +145,8 @@ public class ApplicationVersionEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -153,8 +163,8 @@ public class ApplicationVersionEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -173,8 +183,8 @@ public class ApplicationVersionEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */

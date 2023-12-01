@@ -13,28 +13,47 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
+import gov.nih.nci.evs.api.model.TerminologyMetadata;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * Terminology
+ * Represents a terminology loaded into the API
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class Terminology {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -68,10 +87,6 @@ public class Terminology {
   @SerializedName(SERIALIZED_NAME_GRAPH)
   private String graph;
 
-  public static final String SERIALIZED_NAME_SOURCE = "source";
-  @SerializedName(SERIALIZED_NAME_SOURCE)
-  private String source;
-
   public static final String SERIALIZED_NAME_TERMINOLOGY_VERSION = "terminologyVersion";
   @SerializedName(SERIALIZED_NAME_TERMINOLOGY_VERSION)
   private String terminologyVersion;
@@ -83,14 +98,6 @@ public class Terminology {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = new HashMap<>();
-
-  public static final String SERIALIZED_NAME_INDEX_NAME = "indexName";
-  @SerializedName(SERIALIZED_NAME_INDEX_NAME)
-  private String indexName;
-
-  public static final String SERIALIZED_NAME_OBJECT_INDEX_NAME = "objectIndexName";
-  @SerializedName(SERIALIZED_NAME_OBJECT_INDEX_NAME)
-  private String objectIndexName;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -110,7 +117,7 @@ public class Terminology {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -131,7 +138,7 @@ public class Terminology {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -152,7 +159,7 @@ public class Terminology {
   }
 
    /**
-   * Get terminology
+   * Terminology abbreviation, e.g. &#39;ncit&#39;
    * @return terminology
   **/
   @javax.annotation.Nullable
@@ -173,7 +180,7 @@ public class Terminology {
   }
 
    /**
-   * Get version
+   * Terminology version, e.g. &#39;23.11d&#39;
    * @return version
   **/
   @javax.annotation.Nullable
@@ -194,7 +201,7 @@ public class Terminology {
   }
 
    /**
-   * Get date
+   * Terminology publication/release date
    * @return date
   **/
   @javax.annotation.Nullable
@@ -215,7 +222,7 @@ public class Terminology {
   }
 
    /**
-   * Get name
+   * Terminology name
    * @return name
   **/
   @javax.annotation.Nullable
@@ -236,7 +243,7 @@ public class Terminology {
   }
 
    /**
-   * Get description
+   * Terminology description
    * @return description
   **/
   @javax.annotation.Nullable
@@ -257,7 +264,7 @@ public class Terminology {
   }
 
    /**
-   * Get graph
+   * Name of the RDF triplestore graph if this data is backed by a triplestore
    * @return graph
   **/
   @javax.annotation.Nullable
@@ -271,27 +278,6 @@ public class Terminology {
   }
 
 
-  public Terminology source(String source) {
-    
-    this.source = source;
-    return this;
-  }
-
-   /**
-   * Get source
-   * @return source
-  **/
-  @javax.annotation.Nullable
-  public String getSource() {
-    return source;
-  }
-
-
-  public void setSource(String source) {
-    this.source = source;
-  }
-
-
   public Terminology terminologyVersion(String terminologyVersion) {
     
     this.terminologyVersion = terminologyVersion;
@@ -299,7 +285,7 @@ public class Terminology {
   }
 
    /**
-   * Get terminologyVersion
+   * Underscore-separated value for terminology and version used by the API to precisely pinpoint a particular version, e.g. &#39;ncit_23.11d&#39;
    * @return terminologyVersion
   **/
   @javax.annotation.Nullable
@@ -320,7 +306,7 @@ public class Terminology {
   }
 
    /**
-   * Get latest
+   * Indicates whether this is the latest version
    * @return latest
   **/
   @javax.annotation.Nullable
@@ -349,7 +335,7 @@ public class Terminology {
   }
 
    /**
-   * Get tags
+   * Additional terminology tags
    * @return tags
   **/
   @javax.annotation.Nullable
@@ -360,48 +346,6 @@ public class Terminology {
 
   public void setTags(Map<String, String> tags) {
     this.tags = tags;
-  }
-
-
-  public Terminology indexName(String indexName) {
-    
-    this.indexName = indexName;
-    return this;
-  }
-
-   /**
-   * Get indexName
-   * @return indexName
-  **/
-  @javax.annotation.Nullable
-  public String getIndexName() {
-    return indexName;
-  }
-
-
-  public void setIndexName(String indexName) {
-    this.indexName = indexName;
-  }
-
-
-  public Terminology objectIndexName(String objectIndexName) {
-    
-    this.objectIndexName = objectIndexName;
-    return this;
-  }
-
-   /**
-   * Get objectIndexName
-   * @return objectIndexName
-  **/
-  @javax.annotation.Nullable
-  public String getObjectIndexName() {
-    return objectIndexName;
-  }
-
-
-  public void setObjectIndexName(String objectIndexName) {
-    this.objectIndexName = objectIndexName;
   }
 
 
@@ -433,7 +377,7 @@ public class Terminology {
   }
 
    /**
-   * Get sparqlFlag
+   * Indicates whether the terminology can be used with SPARQL
    * @return sparqlFlag
   **/
   @javax.annotation.Nullable
@@ -465,19 +409,16 @@ public class Terminology {
         Objects.equals(this.name, terminology.name) &&
         Objects.equals(this.description, terminology.description) &&
         Objects.equals(this.graph, terminology.graph) &&
-        Objects.equals(this.source, terminology.source) &&
         Objects.equals(this.terminologyVersion, terminology.terminologyVersion) &&
         Objects.equals(this.latest, terminology.latest) &&
         Objects.equals(this.tags, terminology.tags) &&
-        Objects.equals(this.indexName, terminology.indexName) &&
-        Objects.equals(this.objectIndexName, terminology.objectIndexName) &&
         Objects.equals(this.metadata, terminology.metadata) &&
         Objects.equals(this.sparqlFlag, terminology.sparqlFlag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, terminology, version, date, name, description, graph, source, terminologyVersion, latest, tags, indexName, objectIndexName, metadata, sparqlFlag);
+    return Objects.hash(uri, ct, terminology, version, date, name, description, graph, terminologyVersion, latest, tags, metadata, sparqlFlag);
   }
 
   @Override
@@ -492,12 +433,9 @@ public class Terminology {
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    description: ").append(toIndentedString(description)).append("\n");
     sb.append("    graph: ").append(toIndentedString(graph)).append("\n");
-    sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    terminologyVersion: ").append(toIndentedString(terminologyVersion)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
-    sb.append("    indexName: ").append(toIndentedString(indexName)).append("\n");
-    sb.append("    objectIndexName: ").append(toIndentedString(objectIndexName)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    sparqlFlag: ").append(toIndentedString(sparqlFlag)).append("\n");
     sb.append("}");
@@ -530,12 +468,9 @@ public class Terminology {
     openapiFields.add("name");
     openapiFields.add("description");
     openapiFields.add("graph");
-    openapiFields.add("source");
     openapiFields.add("terminologyVersion");
     openapiFields.add("latest");
     openapiFields.add("tags");
-    openapiFields.add("indexName");
-    openapiFields.add("objectIndexName");
     openapiFields.add("metadata");
     openapiFields.add("sparqlFlag");
 
@@ -584,17 +519,8 @@ public class Terminology {
       if ((jsonObj.get("graph") != null && !jsonObj.get("graph").isJsonNull()) && !jsonObj.get("graph").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `graph` to be a primitive type in the JSON string but got `%s`", jsonObj.get("graph").toString()));
       }
-      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
-      }
       if ((jsonObj.get("terminologyVersion") != null && !jsonObj.get("terminologyVersion").isJsonNull()) && !jsonObj.get("terminologyVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `terminologyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminologyVersion").toString()));
-      }
-      if ((jsonObj.get("indexName") != null && !jsonObj.get("indexName").isJsonNull()) && !jsonObj.get("indexName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `indexName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("indexName").toString()));
-      }
-      if ((jsonObj.get("objectIndexName") != null && !jsonObj.get("objectIndexName").isJsonNull()) && !jsonObj.get("objectIndexName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `objectIndexName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("objectIndexName").toString()));
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {

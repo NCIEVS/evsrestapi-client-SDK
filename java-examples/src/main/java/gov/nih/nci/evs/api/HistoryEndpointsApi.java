@@ -13,19 +13,29 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.History;
+import gov.nih.nci.evs.api.model.RestException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class HistoryEndpointsApi {
     private ApiClient localVarApiClient;
@@ -66,7 +76,7 @@ public class HistoryEndpointsApi {
 
     /**
      * Build call for getReplacements
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -144,7 +154,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \&quot;active\&quot;.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @return List&lt;History&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -164,7 +174,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \&quot;active\&quot;.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @return ApiResponse&lt;List&lt;History&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -185,7 +195,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \&quot;active\&quot;. (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -207,7 +217,7 @@ public class HistoryEndpointsApi {
     }
     /**
      * Build call for getReplacementsFromList
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654,C40117&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733,C3551741&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -288,7 +298,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \&quot;active\&quot;.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654,C40117&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733,C3551741&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @return List&lt;History&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -308,7 +318,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \&quot;active\&quot;.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654,C40117&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733,C3551741&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @return ApiResponse&lt;List&lt;History&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -329,7 +339,7 @@ public class HistoryEndpointsApi {
     /**
      * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \&quot;active\&quot;. (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;&#39;C4654,C40117&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;C0000733,C3551741&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;. (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call

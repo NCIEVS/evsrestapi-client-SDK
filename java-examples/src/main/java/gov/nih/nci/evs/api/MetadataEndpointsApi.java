@@ -13,21 +13,32 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMinimal;
+import gov.nih.nci.evs.api.model.RestException;
+import gov.nih.nci.evs.api.model.StatisticsEntry;
 import gov.nih.nci.evs.api.model.Terminology;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class MetadataEndpointsApi {
     private ApiClient localVarApiClient;
@@ -68,7 +79,7 @@ public class MetadataEndpointsApi {
 
     /**
      * Build call for getAssociation
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;A10&#39; or &#39;Has_CDRH_Parent&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RB&#39; or &#39;has a broader relationship&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
@@ -77,8 +88,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -151,7 +162,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the association for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;A10&#39; or &#39;Has_CDRH_Parent&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RB&#39; or &#39;has a broader relationship&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
@@ -159,8 +170,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -172,7 +183,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the association for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;A10&#39; or &#39;Has_CDRH_Parent&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RB&#39; or &#39;has a broader relationship&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
@@ -180,8 +191,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -194,7 +205,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the association for the specified terminology and code/name (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;A10&#39; or &#39;Has_CDRH_Parent&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RB&#39; or &#39;has a broader relationship&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -203,8 +214,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -217,7 +228,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getAssociations
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback Callback for upload/download progress
@@ -226,8 +237,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -298,7 +309,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all associations (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return List&lt;Concept&gt;
@@ -306,8 +317,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -319,7 +330,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all associations (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
@@ -327,8 +338,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -341,7 +352,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all associations (or those specified by list parameter) for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -350,8 +361,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -491,7 +502,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getDefinitionSources
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -561,7 +572,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition sources for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return List&lt;ConceptMinimal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -579,7 +590,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition sources for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return ApiResponse&lt;List&lt;ConceptMinimal&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -598,7 +609,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition sources for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -618,7 +629,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getDefinitionType
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P325&#39; or &#39;DEFINITION&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;DEFINITION&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
@@ -627,8 +638,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -701,7 +712,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the definition type for the specified terminology and code/name.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P325&#39; or &#39;DEFINITION&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;DEFINITION&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
@@ -709,8 +720,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -722,7 +733,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the definition type for the specified terminology and code/name.
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P325&#39; or &#39;DEFINITION&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;DEFINITION&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
@@ -730,8 +741,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -744,7 +755,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the definition type for the specified terminology and code/name. (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P325&#39; or &#39;DEFINITION&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;DEFINITION&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -753,8 +764,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -767,7 +778,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getDefinitionTypes
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback Callback for upload/download progress
@@ -776,8 +787,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -848,7 +859,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition types (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return List&lt;Concept&gt;
@@ -856,8 +867,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -869,7 +880,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition types (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
@@ -877,8 +888,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -891,7 +902,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all definition types (or those specified by list parameter) for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -900,8 +911,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -914,7 +925,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getProperties
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback Callback for upload/download progress
@@ -923,8 +934,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -995,7 +1006,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all properties (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return List&lt;Concept&gt;
@@ -1003,8 +1014,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1016,7 +1027,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all properties (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
@@ -1024,8 +1035,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1038,7 +1049,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all properties (or those specified by list parameter) for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1047,8 +1058,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1061,7 +1072,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getProperty
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
@@ -1070,8 +1081,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1144,7 +1155,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the property for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
@@ -1152,8 +1163,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1165,7 +1176,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the property for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
@@ -1173,8 +1184,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1187,7 +1198,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the property for the specified terminology and code/name (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1196,8 +1207,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1210,7 +1221,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getQualifier
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
@@ -1219,8 +1230,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1293,7 +1304,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the qualifier for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
@@ -1301,8 +1312,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1314,7 +1325,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the qualifier for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
@@ -1322,8 +1333,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1336,7 +1347,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the qualifier for the specified terminology and code/name (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1345,8 +1356,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1359,7 +1370,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getQualifierValues
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
@@ -1436,7 +1447,7 @@ public class MetadataEndpointsApi {
     /**
      * Get qualifier values for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @return List&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1455,7 +1466,7 @@ public class MetadataEndpointsApi {
     /**
      * Get qualifier values for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @return ApiResponse&lt;List&lt;String&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
@@ -1475,7 +1486,7 @@ public class MetadataEndpointsApi {
     /**
      * Get qualifier values for the specified terminology and code/name (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P390&#39; or &#39;go-source&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;RG&#39; or &#39;Relationship group&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
@@ -1496,7 +1507,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getQualifiers
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return qualifiers for (or leave blank for all) (optional)
      * @param _callback Callback for upload/download progress
@@ -1505,8 +1516,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1577,7 +1588,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all qualifiers (properties on properties) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return qualifiers for (or leave blank for all) (optional)
      * @return List&lt;Concept&gt;
@@ -1585,8 +1596,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1598,7 +1609,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all qualifiers (properties on properties) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return qualifiers for (or leave blank for all) (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
@@ -1606,8 +1617,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1620,7 +1631,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all qualifiers (properties on properties) for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return qualifiers for (or leave blank for all) (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -1629,8 +1640,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1652,8 +1663,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1734,8 +1745,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1755,8 +1766,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1778,8 +1789,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -1934,6 +1945,147 @@ public class MetadataEndpointsApi {
         return localVarCall;
     }
     /**
+     * Build call for getSourceStats
+     * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
+     * @param source terminology source code, e.g. &#39;AOD&#39; for &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSourceStatsCall(String terminology, String source, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/metadata/{terminology}/stats/{source}"
+            .replace("{" + "terminology" + "}", localVarApiClient.escapeString(terminology.toString()))
+            .replace("{" + "source" + "}", localVarApiClient.escapeString(source.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "GET", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSourceStatsValidateBeforeCall(String terminology, String source, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'terminology' is set
+        if (terminology == null) {
+            throw new ApiException("Missing the required parameter 'terminology' when calling getSourceStats(Async)");
+        }
+
+        // verify the required parameter 'source' is set
+        if (source == null) {
+            throw new ApiException("Missing the required parameter 'source' when calling getSourceStats(Async)");
+        }
+
+        return getSourceStatsCall(terminology, source, _callback);
+
+    }
+
+    /**
+     * Get the subset for the specified terminology and code.
+     * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
+     * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
+     * @param source terminology source code, e.g. &#39;AOD&#39; for &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @return Map&lt;String, List&lt;StatisticsEntry&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+     </table>
+     */
+    public Map<String, List<StatisticsEntry>> getSourceStats(String terminology, String source) throws ApiException {
+        ApiResponse<Map<String, List<StatisticsEntry>>> localVarResp = getSourceStatsWithHttpInfo(terminology, source);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get the subset for the specified terminology and code.
+     * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
+     * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
+     * @param source terminology source code, e.g. &#39;AOD&#39; for &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @return ApiResponse&lt;Map&lt;String, List&lt;StatisticsEntry&gt;&gt;&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<Map<String, List<StatisticsEntry>>> getSourceStatsWithHttpInfo(String terminology, String source) throws ApiException {
+        okhttp3.Call localVarCall = getSourceStatsValidateBeforeCall(terminology, source, null);
+        Type localVarReturnType = new TypeToken<Map<String, List<StatisticsEntry>>>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get the subset for the specified terminology and code. (asynchronously)
+     * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
+     * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
+     * @param source terminology source code, e.g. &#39;AOD&#39; for &lt;i&gt;ncim&lt;/i&gt;. (required)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSourceStatsAsync(String terminology, String source, final ApiCallback<Map<String, List<StatisticsEntry>>> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSourceStatsValidateBeforeCall(terminology, source, _callback);
+        Type localVarReturnType = new TypeToken<Map<String, List<StatisticsEntry>>>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for getSubset1
      * @param terminology Terminology, e.g. &#39;ncit&#39;. (required)
      * @param code Subset code, e.g. &#39;C116978&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;. (required)
@@ -1944,8 +2096,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2026,8 +2178,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2047,8 +2199,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2070,8 +2222,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2093,8 +2245,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2173,8 +2325,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2194,8 +2346,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2217,8 +2369,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2231,7 +2383,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getSynonymSources
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2301,7 +2453,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym sources for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return List&lt;ConceptMinimal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2319,7 +2471,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym sources for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return ApiResponse&lt;List&lt;ConceptMinimal&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2338,7 +2490,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym sources for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2358,7 +2510,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getSynonymType
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P90&#39; or &#39;FULL_SYN&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;Preferred_Name&#39; or &#39;Preferred name&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback Callback for upload/download progress
@@ -2367,8 +2519,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2441,7 +2593,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the synonym type for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P90&#39; or &#39;FULL_SYN&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;Preferred_Name&#39; or &#39;Preferred name&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return Concept
@@ -2449,8 +2601,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2462,7 +2614,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the synonym type for the specified terminology and code/name
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P90&#39; or &#39;FULL_SYN&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;Preferred_Name&#39; or &#39;Preferred name&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @return ApiResponse&lt;Concept&gt;
@@ -2470,8 +2622,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2484,7 +2636,7 @@ public class MetadataEndpointsApi {
     /**
      * Get the synonym type for the specified terminology and code/name (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;&#39;P90&#39; or &#39;FULL_SYN&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;Preferred_Name&#39; or &#39;Preferred name&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2493,8 +2645,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2507,7 +2659,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getSynonymTypes
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback Callback for upload/download progress
@@ -2516,8 +2668,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2588,7 +2740,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym types (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return List&lt;Concept&gt;
@@ -2596,8 +2748,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2609,7 +2761,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym types (or those specified by list parameter) for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @return ApiResponse&lt;List&lt;Concept&gt;&gt;
@@ -2617,8 +2769,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2631,7 +2783,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all synonym types (or those specified by list parameter) for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param _list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values. (optional)
      * @param _callback The callback to be executed when the API call finishes
@@ -2640,8 +2792,8 @@ public class MetadataEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -2654,7 +2806,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getTermTypes
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2724,7 +2876,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all term types for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return List&lt;ConceptMinimal&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2742,7 +2894,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all term types for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return ApiResponse&lt;List&lt;ConceptMinimal&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2761,7 +2913,7 @@ public class MetadataEndpointsApi {
     /**
      * Get all term types for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2783,7 +2935,7 @@ public class MetadataEndpointsApi {
      * Build call for getTerminologies
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false (optional)
      * @param tag Return terminologies with matching tag. e.g. &#39;monthly&#39; or &#39;weekly&#39; for &lt;i&gt;ncit&lt;/i&gt; (optional)
-     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2861,7 +3013,7 @@ public class MetadataEndpointsApi {
      * 
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false (optional)
      * @param tag Return terminologies with matching tag. e.g. &#39;monthly&#39; or &#39;weekly&#39; for &lt;i&gt;ncit&lt;/i&gt; (optional)
-     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @return List&lt;Terminology&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2881,7 +3033,7 @@ public class MetadataEndpointsApi {
      * 
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false (optional)
      * @param tag Return terminologies with matching tag. e.g. &#39;monthly&#39; or &#39;weekly&#39; for &lt;i&gt;ncit&lt;/i&gt; (optional)
-     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @return ApiResponse&lt;List&lt;Terminology&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -2902,7 +3054,7 @@ public class MetadataEndpointsApi {
      * 
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false (optional)
      * @param tag Return terminologies with matching tag. e.g. &#39;monthly&#39; or &#39;weekly&#39; for &lt;i&gt;ncit&lt;/i&gt; (optional)
-     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param terminology Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
@@ -2922,7 +3074,7 @@ public class MetadataEndpointsApi {
     }
     /**
      * Build call for getWelcomeText
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback Callback for upload/download progress
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
@@ -2993,7 +3145,7 @@ public class MetadataEndpointsApi {
     /**
      * Get welcome text for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return String
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3011,7 +3163,7 @@ public class MetadataEndpointsApi {
     /**
      * Get welcome text for the specified terminology
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @return ApiResponse&lt;String&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
@@ -3030,7 +3182,7 @@ public class MetadataEndpointsApi {
     /**
      * Get welcome text for the specified terminology (asynchronously)
      * 
-     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
      * @param _callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object

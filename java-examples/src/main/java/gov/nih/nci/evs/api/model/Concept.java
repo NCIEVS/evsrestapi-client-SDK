@@ -13,31 +13,55 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
+import gov.nih.nci.evs.api.model.Association;
+import gov.nih.nci.evs.api.model.ConceptMap;
+import gov.nih.nci.evs.api.model.Definition;
+import gov.nih.nci.evs.api.model.DisjointWith;
+import gov.nih.nci.evs.api.model.History;
+import gov.nih.nci.evs.api.model.Paths;
+import gov.nih.nci.evs.api.model.Property;
+import gov.nih.nci.evs.api.model.Role;
+import gov.nih.nci.evs.api.model.Synonym;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * Concept
+ * Represents a concept in a terminology
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class Concept {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -71,14 +95,6 @@ public class Concept {
   @SerializedName(SERIALIZED_NAME_HIGHLIGHT)
   private String highlight;
 
-  public static final String SERIALIZED_NAME_HIGHLIGHTS = "highlights";
-  @SerializedName(SERIALIZED_NAME_HIGHLIGHTS)
-  private Map<String, String> highlights = new HashMap<>();
-
-  public static final String SERIALIZED_NAME_NORM_NAME = "normName";
-  @SerializedName(SERIALIZED_NAME_NORM_NAME)
-  private String normName;
-
   public static final String SERIALIZED_NAME_SUBSET_LINK = "subsetLink";
   @SerializedName(SERIALIZED_NAME_SUBSET_LINK)
   private String subsetLink;
@@ -99,6 +115,10 @@ public class Concept {
   @SerializedName(SERIALIZED_NAME_LEAF)
   private Boolean leaf;
 
+  public static final String SERIALIZED_NAME_ACTIVE = "active";
+  @SerializedName(SERIALIZED_NAME_ACTIVE)
+  private Boolean active;
+
   public static final String SERIALIZED_NAME_SYNONYMS = "synonyms";
   @SerializedName(SERIALIZED_NAME_SYNONYMS)
   private List<Synonym> synonyms;
@@ -114,10 +134,6 @@ public class Concept {
   public static final String SERIALIZED_NAME_PROPERTIES = "properties";
   @SerializedName(SERIALIZED_NAME_PROPERTIES)
   private List<Property> properties;
-
-  public static final String SERIALIZED_NAME_QUALIFIERS = "qualifiers";
-  @SerializedName(SERIALIZED_NAME_QUALIFIERS)
-  private List<Qualifier> qualifiers;
 
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
@@ -159,21 +175,7 @@ public class Concept {
   @SerializedName(SERIALIZED_NAME_PATHS)
   private Paths paths;
 
-  public static final String SERIALIZED_NAME_EXTENSIONS = "extensions";
-  @SerializedName(SERIALIZED_NAME_EXTENSIONS)
-  private Extensions extensions;
-
   public Concept() {
-  }
-
-  
-  public Concept(
-     String normName, 
-     String conceptStatus
-  ) {
-    this();
-    this.normName = normName;
-    this.conceptStatus = conceptStatus;
   }
 
   public Concept uri(String uri) {
@@ -183,7 +185,7 @@ public class Concept {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -204,7 +206,7 @@ public class Concept {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -225,7 +227,7 @@ public class Concept {
   }
 
    /**
-   * Get code
+   * Code (unique identifier) for this meaning
    * @return code
   **/
   @javax.annotation.Nullable
@@ -246,7 +248,7 @@ public class Concept {
   }
 
    /**
-   * Get name
+   * Preferred name for the code
    * @return name
   **/
   @javax.annotation.Nullable
@@ -267,7 +269,7 @@ public class Concept {
   }
 
    /**
-   * Get terminology
+   * Terminology abbreviation, e.g. &#39;nci&#39;
    * @return terminology
   **/
   @javax.annotation.Nullable
@@ -288,7 +290,7 @@ public class Concept {
   }
 
    /**
-   * Get version
+   * Terminology version, e.g. &#39;23.11d&#39;
    * @return version
   **/
   @javax.annotation.Nullable
@@ -309,7 +311,7 @@ public class Concept {
   }
 
    /**
-   * Get level
+   * Level of depth in a hierarchy (when this object is used to represent an element in a path)
    * @return level
   **/
   @javax.annotation.Nullable
@@ -330,7 +332,7 @@ public class Concept {
   }
 
    /**
-   * Get highlight
+   * Used by search calls to provide information for highlighting a view of results
    * @return highlight
   **/
   @javax.annotation.Nullable
@@ -344,47 +346,6 @@ public class Concept {
   }
 
 
-  public Concept highlights(Map<String, String> highlights) {
-    
-    this.highlights = highlights;
-    return this;
-  }
-
-  public Concept putHighlightsItem(String key, String highlightsItem) {
-    if (this.highlights == null) {
-      this.highlights = new HashMap<>();
-    }
-    this.highlights.put(key, highlightsItem);
-    return this;
-  }
-
-   /**
-   * Get highlights
-   * @return highlights
-  **/
-  @javax.annotation.Nullable
-  public Map<String, String> getHighlights() {
-    return highlights;
-  }
-
-
-  public void setHighlights(Map<String, String> highlights) {
-    this.highlights = highlights;
-  }
-
-
-   /**
-   * Get normName
-   * @return normName
-  **/
-  @javax.annotation.Nullable
-  public String getNormName() {
-    return normName;
-  }
-
-
-
-
   public Concept subsetLink(String subsetLink) {
     
     this.subsetLink = subsetLink;
@@ -392,7 +353,7 @@ public class Concept {
   }
 
    /**
-   * Get subsetLink
+   * Link to download data for a subset, used when the concept represents subset metadata
    * @return subsetLink
   **/
   @javax.annotation.Nullable
@@ -413,7 +374,7 @@ public class Concept {
   }
 
    /**
-   * Get mapsetLink
+   * Metadata for downloading a mapset
    * @return mapsetLink
   **/
   @javax.annotation.Nullable
@@ -427,8 +388,14 @@ public class Concept {
   }
 
 
+  public Concept conceptStatus(String conceptStatus) {
+    
+    this.conceptStatus = conceptStatus;
+    return this;
+  }
+
    /**
-   * Get conceptStatus
+   * Status value for the concept, e.g. Retired_Concept
    * @return conceptStatus
   **/
   @javax.annotation.Nullable
@@ -437,6 +404,9 @@ public class Concept {
   }
 
 
+  public void setConceptStatus(String conceptStatus) {
+    this.conceptStatus = conceptStatus;
+  }
 
 
   public Concept source(String source) {
@@ -446,7 +416,7 @@ public class Concept {
   }
 
    /**
-   * Get source
+   * Associations from this concept to other ones
    * @return source
   **/
   @javax.annotation.Nullable
@@ -467,7 +437,7 @@ public class Concept {
   }
 
    /**
-   * Get leaf
+   * Indicates whether concept is a leaf node
    * @return leaf
   **/
   @javax.annotation.Nullable
@@ -478,6 +448,27 @@ public class Concept {
 
   public void setLeaf(Boolean leaf) {
     this.leaf = leaf;
+  }
+
+
+  public Concept active(Boolean active) {
+    
+    this.active = active;
+    return this;
+  }
+
+   /**
+   * Indicates whether the concept is active
+   * @return active
+  **/
+  @javax.annotation.Nullable
+  public Boolean getActive() {
+    return active;
+  }
+
+
+  public void setActive(Boolean active) {
+    this.active = active;
   }
 
 
@@ -496,7 +487,7 @@ public class Concept {
   }
 
    /**
-   * Get synonyms
+   * Synonyms, or all of the names for this concept, including the preferred name
    * @return synonyms
   **/
   @javax.annotation.Nullable
@@ -525,7 +516,7 @@ public class Concept {
   }
 
    /**
-   * Get definitions
+   * Text definitions
    * @return definitions
   **/
   @javax.annotation.Nullable
@@ -554,7 +545,7 @@ public class Concept {
   }
 
    /**
-   * Get history
+   * History records
    * @return history
   **/
   @javax.annotation.Nullable
@@ -583,7 +574,7 @@ public class Concept {
   }
 
    /**
-   * Get properties
+   * Key/value properties
    * @return properties
   **/
   @javax.annotation.Nullable
@@ -594,35 +585,6 @@ public class Concept {
 
   public void setProperties(List<Property> properties) {
     this.properties = properties;
-  }
-
-
-  public Concept qualifiers(List<Qualifier> qualifiers) {
-    
-    this.qualifiers = qualifiers;
-    return this;
-  }
-
-  public Concept addQualifiersItem(Qualifier qualifiersItem) {
-    if (this.qualifiers == null) {
-      this.qualifiers = new ArrayList<>();
-    }
-    this.qualifiers.add(qualifiersItem);
-    return this;
-  }
-
-   /**
-   * Get qualifiers
-   * @return qualifiers
-  **/
-  @javax.annotation.Nullable
-  public List<Qualifier> getQualifiers() {
-    return qualifiers;
-  }
-
-
-  public void setQualifiers(List<Qualifier> qualifiers) {
-    this.qualifiers = qualifiers;
   }
 
 
@@ -641,7 +603,7 @@ public class Concept {
   }
 
    /**
-   * Get children
+   * Child concepts in the hierarchy
    * @return children
   **/
   @javax.annotation.Nullable
@@ -670,7 +632,7 @@ public class Concept {
   }
 
    /**
-   * Get parents
+   * Parent concepts in the hierarchy
    * @return parents
   **/
   @javax.annotation.Nullable
@@ -699,7 +661,7 @@ public class Concept {
   }
 
    /**
-   * Get descendants
+   * Descendant concepts in the hierarchy
    * @return descendants
   **/
   @javax.annotation.Nullable
@@ -728,7 +690,7 @@ public class Concept {
   }
 
    /**
-   * Get associations
+   * Associations from this concept to other ones
    * @return associations
   **/
   @javax.annotation.Nullable
@@ -757,7 +719,7 @@ public class Concept {
   }
 
    /**
-   * Get inverseAssociations
+   * Associations to this concept from other ones
    * @return inverseAssociations
   **/
   @javax.annotation.Nullable
@@ -786,7 +748,7 @@ public class Concept {
   }
 
    /**
-   * Get roles
+   * Roles from this concept to other ones
    * @return roles
   **/
   @javax.annotation.Nullable
@@ -815,7 +777,7 @@ public class Concept {
   }
 
    /**
-   * Get disjointWith
+   * Assertions of disjointness with respect to other concepts
    * @return disjointWith
   **/
   @javax.annotation.Nullable
@@ -844,7 +806,7 @@ public class Concept {
   }
 
    /**
-   * Get inverseRoles
+   * Roles to this concept from other ones
    * @return inverseRoles
   **/
   @javax.annotation.Nullable
@@ -873,7 +835,7 @@ public class Concept {
   }
 
    /**
-   * Get maps
+   * Maps from this concept to concepts in other terminologies
    * @return maps
   **/
   @javax.annotation.Nullable
@@ -908,27 +870,6 @@ public class Concept {
   }
 
 
-  public Concept extensions(Extensions extensions) {
-    
-    this.extensions = extensions;
-    return this;
-  }
-
-   /**
-   * Get extensions
-   * @return extensions
-  **/
-  @javax.annotation.Nullable
-  public Extensions getExtensions() {
-    return extensions;
-  }
-
-
-  public void setExtensions(Extensions extensions) {
-    this.extensions = extensions;
-  }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -947,18 +888,16 @@ public class Concept {
         Objects.equals(this.version, concept.version) &&
         Objects.equals(this.level, concept.level) &&
         Objects.equals(this.highlight, concept.highlight) &&
-        Objects.equals(this.highlights, concept.highlights) &&
-        Objects.equals(this.normName, concept.normName) &&
         Objects.equals(this.subsetLink, concept.subsetLink) &&
         Objects.equals(this.mapsetLink, concept.mapsetLink) &&
         Objects.equals(this.conceptStatus, concept.conceptStatus) &&
         Objects.equals(this.source, concept.source) &&
         Objects.equals(this.leaf, concept.leaf) &&
+        Objects.equals(this.active, concept.active) &&
         Objects.equals(this.synonyms, concept.synonyms) &&
         Objects.equals(this.definitions, concept.definitions) &&
         Objects.equals(this.history, concept.history) &&
         Objects.equals(this.properties, concept.properties) &&
-        Objects.equals(this.qualifiers, concept.qualifiers) &&
         Objects.equals(this.children, concept.children) &&
         Objects.equals(this.parents, concept.parents) &&
         Objects.equals(this.descendants, concept.descendants) &&
@@ -968,13 +907,12 @@ public class Concept {
         Objects.equals(this.disjointWith, concept.disjointWith) &&
         Objects.equals(this.inverseRoles, concept.inverseRoles) &&
         Objects.equals(this.maps, concept.maps) &&
-        Objects.equals(this.paths, concept.paths) &&
-        Objects.equals(this.extensions, concept.extensions);
+        Objects.equals(this.paths, concept.paths);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, code, name, terminology, version, level, highlight, highlights, normName, subsetLink, mapsetLink, conceptStatus, source, leaf, synonyms, definitions, history, properties, qualifiers, children, parents, descendants, associations, inverseAssociations, roles, disjointWith, inverseRoles, maps, paths, extensions);
+    return Objects.hash(uri, ct, code, name, terminology, version, level, highlight, subsetLink, mapsetLink, conceptStatus, source, leaf, active, synonyms, definitions, history, properties, children, parents, descendants, associations, inverseAssociations, roles, disjointWith, inverseRoles, maps, paths);
   }
 
   @Override
@@ -989,18 +927,16 @@ public class Concept {
     sb.append("    version: ").append(toIndentedString(version)).append("\n");
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
-    sb.append("    highlights: ").append(toIndentedString(highlights)).append("\n");
-    sb.append("    normName: ").append(toIndentedString(normName)).append("\n");
     sb.append("    subsetLink: ").append(toIndentedString(subsetLink)).append("\n");
     sb.append("    mapsetLink: ").append(toIndentedString(mapsetLink)).append("\n");
     sb.append("    conceptStatus: ").append(toIndentedString(conceptStatus)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
+    sb.append("    active: ").append(toIndentedString(active)).append("\n");
     sb.append("    synonyms: ").append(toIndentedString(synonyms)).append("\n");
     sb.append("    definitions: ").append(toIndentedString(definitions)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
     sb.append("    properties: ").append(toIndentedString(properties)).append("\n");
-    sb.append("    qualifiers: ").append(toIndentedString(qualifiers)).append("\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("    parents: ").append(toIndentedString(parents)).append("\n");
     sb.append("    descendants: ").append(toIndentedString(descendants)).append("\n");
@@ -1011,7 +947,6 @@ public class Concept {
     sb.append("    inverseRoles: ").append(toIndentedString(inverseRoles)).append("\n");
     sb.append("    maps: ").append(toIndentedString(maps)).append("\n");
     sb.append("    paths: ").append(toIndentedString(paths)).append("\n");
-    sb.append("    extensions: ").append(toIndentedString(extensions)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -1042,18 +977,16 @@ public class Concept {
     openapiFields.add("version");
     openapiFields.add("level");
     openapiFields.add("highlight");
-    openapiFields.add("highlights");
-    openapiFields.add("normName");
     openapiFields.add("subsetLink");
     openapiFields.add("mapsetLink");
     openapiFields.add("conceptStatus");
     openapiFields.add("source");
     openapiFields.add("leaf");
+    openapiFields.add("active");
     openapiFields.add("synonyms");
     openapiFields.add("definitions");
     openapiFields.add("history");
     openapiFields.add("properties");
-    openapiFields.add("qualifiers");
     openapiFields.add("children");
     openapiFields.add("parents");
     openapiFields.add("descendants");
@@ -1064,7 +997,6 @@ public class Concept {
     openapiFields.add("inverseRoles");
     openapiFields.add("maps");
     openapiFields.add("paths");
-    openapiFields.add("extensions");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -1107,9 +1039,6 @@ public class Concept {
       }
       if ((jsonObj.get("highlight") != null && !jsonObj.get("highlight").isJsonNull()) && !jsonObj.get("highlight").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `highlight` to be a primitive type in the JSON string but got `%s`", jsonObj.get("highlight").toString()));
-      }
-      if ((jsonObj.get("normName") != null && !jsonObj.get("normName").isJsonNull()) && !jsonObj.get("normName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `normName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("normName").toString()));
       }
       if ((jsonObj.get("subsetLink") != null && !jsonObj.get("subsetLink").isJsonNull()) && !jsonObj.get("subsetLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subsetLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetLink").toString()));
@@ -1176,20 +1105,6 @@ public class Concept {
           // validate the optional field `properties` (array)
           for (int i = 0; i < jsonArrayproperties.size(); i++) {
             Property.validateJsonObject(jsonArrayproperties.get(i).getAsJsonObject());
-          };
-        }
-      }
-      if (jsonObj.get("qualifiers") != null && !jsonObj.get("qualifiers").isJsonNull()) {
-        JsonArray jsonArrayqualifiers = jsonObj.getAsJsonArray("qualifiers");
-        if (jsonArrayqualifiers != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("qualifiers").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `qualifiers` to be an array in the JSON string but got `%s`", jsonObj.get("qualifiers").toString()));
-          }
-
-          // validate the optional field `qualifiers` (array)
-          for (int i = 0; i < jsonArrayqualifiers.size(); i++) {
-            Qualifier.validateJsonObject(jsonArrayqualifiers.get(i).getAsJsonObject());
           };
         }
       }
@@ -1322,10 +1237,6 @@ public class Concept {
       // validate the optional field `paths`
       if (jsonObj.get("paths") != null && !jsonObj.get("paths").isJsonNull()) {
         Paths.validateJsonObject(jsonObj.getAsJsonObject("paths"));
-      }
-      // validate the optional field `extensions`
-      if (jsonObj.get("extensions") != null && !jsonObj.get("extensions").isJsonNull()) {
-        Extensions.validateJsonObject(jsonObj.getAsJsonObject("extensions"));
       }
   }
 

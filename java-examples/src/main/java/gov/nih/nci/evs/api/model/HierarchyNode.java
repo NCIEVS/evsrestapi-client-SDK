@@ -13,29 +13,46 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * HierarchyNode
+ * Represents a node in a subtree rendering of the hierarchy
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class HierarchyNode {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -65,10 +82,6 @@ public class HierarchyNode {
   @SerializedName(SERIALIZED_NAME_EXPANDED)
   private Boolean expanded;
 
-  public static final String SERIALIZED_NAME_HIGHLIGHT = "highlight";
-  @SerializedName(SERIALIZED_NAME_HIGHLIGHT)
-  private Boolean highlight;
-
   public static final String SERIALIZED_NAME_CHILDREN = "children";
   @SerializedName(SERIALIZED_NAME_CHILDREN)
   private List<HierarchyNode> children;
@@ -83,7 +96,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -104,7 +117,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -125,7 +138,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get code
+   * Code of the hierarchy node
    * @return code
   **/
   @javax.annotation.Nullable
@@ -146,7 +159,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get label
+   * Code label for the hierarchy node
    * @return label
   **/
   @javax.annotation.Nullable
@@ -167,7 +180,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get level
+   * Indicates level of depth in the (respective) hierarchy
    * @return level
   **/
   @javax.annotation.Nullable
@@ -188,7 +201,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get leaf
+   * Indicates whether the code has children
    * @return leaf
   **/
   @javax.annotation.Nullable
@@ -209,7 +222,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get expanded
+   * Indicates whether the node has been expanded
    * @return expanded
   **/
   @javax.annotation.Nullable
@@ -220,27 +233,6 @@ public class HierarchyNode {
 
   public void setExpanded(Boolean expanded) {
     this.expanded = expanded;
-  }
-
-
-  public HierarchyNode highlight(Boolean highlight) {
-    
-    this.highlight = highlight;
-    return this;
-  }
-
-   /**
-   * Get highlight
-   * @return highlight
-  **/
-  @javax.annotation.Nullable
-  public Boolean getHighlight() {
-    return highlight;
-  }
-
-
-  public void setHighlight(Boolean highlight) {
-    this.highlight = highlight;
   }
 
 
@@ -259,7 +251,7 @@ public class HierarchyNode {
   }
 
    /**
-   * Get children
+   * Child nodes
    * @return children
   **/
   @javax.annotation.Nullable
@@ -290,13 +282,12 @@ public class HierarchyNode {
         Objects.equals(this.level, hierarchyNode.level) &&
         Objects.equals(this.leaf, hierarchyNode.leaf) &&
         Objects.equals(this.expanded, hierarchyNode.expanded) &&
-        Objects.equals(this.highlight, hierarchyNode.highlight) &&
         Objects.equals(this.children, hierarchyNode.children);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, code, label, level, leaf, expanded, highlight, children);
+    return Objects.hash(uri, ct, code, label, level, leaf, expanded, children);
   }
 
   @Override
@@ -310,7 +301,6 @@ public class HierarchyNode {
     sb.append("    level: ").append(toIndentedString(level)).append("\n");
     sb.append("    leaf: ").append(toIndentedString(leaf)).append("\n");
     sb.append("    expanded: ").append(toIndentedString(expanded)).append("\n");
-    sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    children: ").append(toIndentedString(children)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -341,7 +331,6 @@ public class HierarchyNode {
     openapiFields.add("level");
     openapiFields.add("leaf");
     openapiFields.add("expanded");
-    openapiFields.add("highlight");
     openapiFields.add("children");
 
     // a set of required properties/fields (JSON key names)

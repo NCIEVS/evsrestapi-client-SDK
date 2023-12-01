@@ -13,19 +13,29 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.ConceptResultList;
+import gov.nih.nci.evs.api.model.RestException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class SearchEndpointApi {
     private ApiClient localVarApiClient;
@@ -66,7 +76,8 @@ public class SearchEndpointApi {
 
     /**
      * Build call for search
-     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -89,13 +100,13 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchCall(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchCall(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -188,6 +199,10 @@ public class SearchEndpointApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("subset", subset));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -208,15 +223,16 @@ public class SearchEndpointApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchValidateBeforeCall(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
-        return searchCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+    private okhttp3.Call searchValidateBeforeCall(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+        return searchCall(xEVSRESTAPILicenseKey, terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
 
     }
 
     /**
      * Get concept search results
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -238,21 +254,22 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ConceptResultList search(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
-        ApiResponse<ConceptResultList> localVarResp = searchWithHttpInfo(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
+    public ConceptResultList search(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        ApiResponse<ConceptResultList> localVarResp = searchWithHttpInfo(xEVSRESTAPILicenseKey, terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
         return localVarResp.getData();
     }
 
     /**
      * Get concept search results
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -274,14 +291,14 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConceptResultList> searchWithHttpInfo(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
-        okhttp3.Call localVarCall = searchValidateBeforeCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, null);
+    public ApiResponse<ConceptResultList> searchWithHttpInfo(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        okhttp3.Call localVarCall = searchValidateBeforeCall(xEVSRESTAPILicenseKey, terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, null);
         Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -289,7 +306,8 @@ public class SearchEndpointApi {
     /**
      * Get concept search results (asynchronously)
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -312,22 +330,23 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchAsync(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
+    public okhttp3.Call searchAsync(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchValidateBeforeCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+        okhttp3.Call localVarCall = searchValidateBeforeCall(xEVSRESTAPILicenseKey, terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
         Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }
     /**
      * Build call for searchSingleTerminology
-     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -355,7 +374,7 @@ public class SearchEndpointApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchSingleTerminologyCall(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+    public okhttp3.Call searchSingleTerminologyCall(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
         String basePath = null;
         // Operation Servers
         String[] localBasePaths = new String[] {  };
@@ -445,6 +464,10 @@ public class SearchEndpointApi {
             localVarQueryParams.addAll(localVarApiClient.parameterToPair("subset", subset));
         }
 
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
         final String[] localVarAccepts = {
             "application/json"
         };
@@ -465,20 +488,21 @@ public class SearchEndpointApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private okhttp3.Call searchSingleTerminologyValidateBeforeCall(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+    private okhttp3.Call searchSingleTerminologyValidateBeforeCall(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
         // verify the required parameter 'terminology' is set
         if (terminology == null) {
             throw new ApiException("Missing the required parameter 'terminology' when calling searchSingleTerminology(Async)");
         }
 
-        return searchSingleTerminologyCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+        return searchSingleTerminologyCall(terminology, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
 
     }
 
     /**
      * Get concept search results for a specified terminology
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -505,15 +529,16 @@ public class SearchEndpointApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ConceptResultList searchSingleTerminology(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
-        ApiResponse<ConceptResultList> localVarResp = searchSingleTerminologyWithHttpInfo(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
+    public ConceptResultList searchSingleTerminology(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        ApiResponse<ConceptResultList> localVarResp = searchSingleTerminologyWithHttpInfo(terminology, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
         return localVarResp.getData();
     }
 
     /**
      * Get concept search results for a specified terminology
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -540,8 +565,8 @@ public class SearchEndpointApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<ConceptResultList> searchSingleTerminologyWithHttpInfo(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
-        okhttp3.Call localVarCall = searchSingleTerminologyValidateBeforeCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, null);
+    public ApiResponse<ConceptResultList> searchSingleTerminologyWithHttpInfo(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        okhttp3.Call localVarCall = searchSingleTerminologyValidateBeforeCall(terminology, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, null);
         Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
@@ -549,7 +574,8 @@ public class SearchEndpointApi {
     /**
      * Get concept search results for a specified terminology (asynchronously)
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
-     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (required)
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
      * @param sort The search parameter to sort results by (optional)
@@ -577,9 +603,9 @@ public class SearchEndpointApi {
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call searchSingleTerminologyAsync(String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
+    public okhttp3.Call searchSingleTerminologyAsync(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
 
-        okhttp3.Call localVarCall = searchSingleTerminologyValidateBeforeCall(terminology, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+        okhttp3.Call localVarCall = searchSingleTerminologyValidateBeforeCall(terminology, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
         Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;

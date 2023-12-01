@@ -13,29 +13,47 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
+import gov.nih.nci.evs.api.model.Qualifier;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * AssociationEntry
+ * Represents an entry in a table of associations between two concepts
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class AssociationEntry {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -99,7 +117,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -120,7 +138,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -141,7 +159,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get code
+   * Code on the &#39;from&#39; side of the association
    * @return code
   **/
   @javax.annotation.Nullable
@@ -162,7 +180,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get type
+   * Relationship type
    * @return type
   **/
   @javax.annotation.Nullable
@@ -183,7 +201,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get relatedCode
+   * Code on the &#39;to&#39; side of the association
    * @return relatedCode
   **/
   @javax.annotation.Nullable
@@ -204,7 +222,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get relatedName
+   * Preferred name of the related code
    * @return relatedName
   **/
   @javax.annotation.Nullable
@@ -225,7 +243,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get source
+   * Relationship source
    * @return source
   **/
   @javax.annotation.Nullable
@@ -246,7 +264,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get highlight
+   * Used by search calls to provide information for highlighting a view of results
    * @return highlight
   **/
   @javax.annotation.Nullable
@@ -275,7 +293,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get qualifiers
+   * Type/value qualifiers on the relationship
    * @return qualifiers
   **/
   @javax.annotation.Nullable
@@ -296,7 +314,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get terminology
+   * Terminology abbreviation, e.g. &#39;nci&#39;
    * @return terminology
   **/
   @javax.annotation.Nullable
@@ -317,7 +335,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get version
+   * Terminology version, e.g. &#39;23.11d&#39;
    * @return version
   **/
   @javax.annotation.Nullable
@@ -338,7 +356,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get association
+   * Type of relationship between code and related code
    * @return association
   **/
   @javax.annotation.Nullable
@@ -359,7 +377,7 @@ public class AssociationEntry {
   }
 
    /**
-   * Get name
+   * Preferred name of the code
    * @return name
   **/
   @javax.annotation.Nullable

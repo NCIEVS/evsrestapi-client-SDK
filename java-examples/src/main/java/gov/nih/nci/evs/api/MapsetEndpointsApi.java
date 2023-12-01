@@ -13,20 +13,30 @@
 
 package gov.nih.nci.evs.api;
 
-import com.google.gson.reflect.TypeToken;
 import gov.nih.nci.evs.api.invoker.ApiCallback;
 import gov.nih.nci.evs.api.invoker.ApiClient;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.ApiResponse;
 import gov.nih.nci.evs.api.invoker.Configuration;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ProgressRequestBody;
+import gov.nih.nci.evs.api.invoker.ProgressResponseBody;
+
+import com.google.gson.reflect.TypeToken;
+
+import java.io.IOException;
+
+
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.MapResultList;
+import gov.nih.nci.evs.api.model.ConceptMapResultList;
+import gov.nih.nci.evs.api.model.RestException;
+
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.ws.rs.core.GenericType;
 
 public class MapsetEndpointsApi {
     private ApiClient localVarApiClient;
@@ -75,8 +85,8 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -150,8 +160,8 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -170,8 +180,8 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -192,8 +202,8 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -218,8 +228,8 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
@@ -308,18 +318,18 @@ public class MapsetEndpointsApi {
      * @param term  (optional)
      * @param ascending Sort ascending (if true) or descending (if false) (optional)
      * @param sort The search parameter to sort results by (optional)
-     * @return MapResultList
+     * @return ConceptMapResultList
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public MapResultList getMapsetMappingsByCode(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
-        ApiResponse<MapResultList> localVarResp = getMapsetMappingsByCodeWithHttpInfo(code, fromRecord, pageSize, term, ascending, sort);
+    public ConceptMapResultList getMapsetMappingsByCode(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
+        ApiResponse<ConceptMapResultList> localVarResp = getMapsetMappingsByCodeWithHttpInfo(code, fromRecord, pageSize, term, ascending, sort);
         return localVarResp.getData();
     }
 
@@ -332,19 +342,19 @@ public class MapsetEndpointsApi {
      * @param term  (optional)
      * @param ascending Sort ascending (if true) or descending (if false) (optional)
      * @param sort The search parameter to sort results by (optional)
-     * @return ApiResponse&lt;MapResultList&gt;
+     * @return ApiResponse&lt;ConceptMapResultList&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public ApiResponse<MapResultList> getMapsetMappingsByCodeWithHttpInfo(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
+    public ApiResponse<ConceptMapResultList> getMapsetMappingsByCodeWithHttpInfo(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
         okhttp3.Call localVarCall = getMapsetMappingsByCodeValidateBeforeCall(code, fromRecord, pageSize, term, ascending, sort, null);
-        Type localVarReturnType = new TypeToken<MapResultList>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConceptMapResultList>(){}.getType();
         return localVarApiClient.execute(localVarCall, localVarReturnType);
     }
 
@@ -363,15 +373,15 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
-    public okhttp3.Call getMapsetMappingsByCodeAsync(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort, final ApiCallback<MapResultList> _callback) throws ApiException {
+    public okhttp3.Call getMapsetMappingsByCodeAsync(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort, final ApiCallback<ConceptMapResultList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = getMapsetMappingsByCodeValidateBeforeCall(code, fromRecord, pageSize, term, ascending, sort, _callback);
-        Type localVarReturnType = new TypeToken<MapResultList>(){}.getType();
+        Type localVarReturnType = new TypeToken<ConceptMapResultList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
     }

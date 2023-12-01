@@ -13,31 +13,50 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * TerminologyMetadata
+ * Represents additional terminology metadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -135,10 +154,6 @@ public class TerminologyMetadata {
   @SerializedName(SERIALIZED_NAME_MAP_TARGET_TERMINOLOGY_VERSION)
   private String mapTargetTerminologyVersion;
 
-  public static final String SERIALIZED_NAME_SOURCES = "sources";
-  @SerializedName(SERIALIZED_NAME_SOURCES)
-  private Map<String, String> sources = new HashMap<>();
-
   public static final String SERIALIZED_NAME_DETAILS_COLUMNS = "detailsColumns";
   @SerializedName(SERIALIZED_NAME_DETAILS_COLUMNS)
   private Map<String, Boolean> detailsColumns = new HashMap<>();
@@ -151,49 +166,17 @@ public class TerminologyMetadata {
   @SerializedName(SERIALIZED_NAME_HISTORY)
   private Boolean history;
 
-  public static final String SERIALIZED_NAME_MAPSETS = "mapsets";
-  @SerializedName(SERIALIZED_NAME_MAPSETS)
-  private Boolean mapsets;
-
   public static final String SERIALIZED_NAME_SOURCE_CT = "sourceCt";
   @SerializedName(SERIALIZED_NAME_SOURCE_CT)
   private Integer sourceCt;
-
-  public static final String SERIALIZED_NAME_DEFINITION_SOURCE_SET = "definitionSourceSet";
-  @SerializedName(SERIALIZED_NAME_DEFINITION_SOURCE_SET)
-  private Set<String> definitionSourceSet;
-
-  public static final String SERIALIZED_NAME_SYNONYM_SOURCE_SET = "synonymSourceSet";
-  @SerializedName(SERIALIZED_NAME_SYNONYM_SOURCE_SET)
-  private Set<String> synonymSourceSet;
 
   public static final String SERIALIZED_NAME_TERM_TYPES = "termTypes";
   @SerializedName(SERIALIZED_NAME_TERM_TYPES)
   private Map<String, String> termTypes = new HashMap<>();
 
-  public static final String SERIALIZED_NAME_SUBSET_PREFIX = "subsetPrefix";
-  @SerializedName(SERIALIZED_NAME_SUBSET_PREFIX)
-  private String subsetPrefix;
-
   public static final String SERIALIZED_NAME_SUBSET_LINK = "subsetLink";
   @SerializedName(SERIALIZED_NAME_SUBSET_LINK)
   private String subsetLink;
-
-  public static final String SERIALIZED_NAME_SOURCES_TO_REMOVE = "sourcesToRemove";
-  @SerializedName(SERIALIZED_NAME_SOURCES_TO_REMOVE)
-  private Set<String> sourcesToRemove;
-
-  public static final String SERIALIZED_NAME_SUBSET_MEMBER = "subsetMember";
-  @SerializedName(SERIALIZED_NAME_SUBSET_MEMBER)
-  private Set<String> subsetMember;
-
-  public static final String SERIALIZED_NAME_UNPUBLISHED = "unpublished";
-  @SerializedName(SERIALIZED_NAME_UNPUBLISHED)
-  private Set<String> unpublished;
-
-  public static final String SERIALIZED_NAME_MONTHLY_DB = "monthlyDb";
-  @SerializedName(SERIALIZED_NAME_MONTHLY_DB)
-  private String monthlyDb;
 
   public static final String SERIALIZED_NAME_SUBSET = "subset";
   @SerializedName(SERIALIZED_NAME_SUBSET)
@@ -245,7 +228,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -266,7 +249,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -287,7 +270,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get uiLabel
+   * Human-readable name for the terminology to use in a UI label
    * @return uiLabel
   **/
   @javax.annotation.Nullable
@@ -308,7 +291,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get maxVersions
+   * Max number of versions to keep at the same time
    * @return maxVersions
   **/
   @javax.annotation.Nullable
@@ -329,7 +312,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get loader
+   * Label for the loader used to populate this data
    * @return loader
   **/
   @javax.annotation.Nullable
@@ -350,7 +333,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get code
+   * OWL property metadata for building concept
    * @return code
   **/
   @javax.annotation.Nullable
@@ -371,7 +354,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get conceptStatus
+   * OWL property metadata for building concept
    * @return conceptStatus
   **/
   @javax.annotation.Nullable
@@ -400,7 +383,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get conceptStatuses
+   * Concept status values used by the terminology
    * @return conceptStatuses
   **/
   @javax.annotation.Nullable
@@ -421,7 +404,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get retiredStatusValue
+   * Concept status value for retired concepts
    * @return retiredStatusValue
   **/
   @javax.annotation.Nullable
@@ -442,7 +425,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get preferredName
+   * OWL property metadata for building concept
    * @return preferredName
   **/
   @javax.annotation.Nullable
@@ -463,7 +446,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get relationshipToTarget
+   * OWL property metadata for building maps
    * @return relationshipToTarget
   **/
   @javax.annotation.Nullable
@@ -492,7 +475,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get synonym
+   * OWL property metadata for building concept
    * @return synonym
   **/
   @javax.annotation.Nullable
@@ -513,7 +496,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get synonymTermType
+   * OWL property metadata for building concept
    * @return synonymTermType
   **/
   @javax.annotation.Nullable
@@ -534,7 +517,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get synonymSource
+   * OWL property metadata for building concept
    * @return synonymSource
   **/
   @javax.annotation.Nullable
@@ -555,7 +538,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get synonymCode
+   * OWL property metadata for building concept
    * @return synonymCode
   **/
   @javax.annotation.Nullable
@@ -576,7 +559,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get synonymSubSource
+   * OWL property metadata for building concept
    * @return synonymSubSource
   **/
   @javax.annotation.Nullable
@@ -605,7 +588,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get definition
+   * OWL property metadata for building concept
    * @return definition
   **/
   @javax.annotation.Nullable
@@ -626,7 +609,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get definitionSource
+   * OWL property metadata for building concept
    * @return definitionSource
   **/
   @javax.annotation.Nullable
@@ -647,7 +630,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapRelation
+   * OWL property metadata for building maps
    * @return mapRelation
   **/
   @javax.annotation.Nullable
@@ -668,7 +651,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get map
+   * OWL property metadata for building maps
    * @return map
   **/
   @javax.annotation.Nullable
@@ -689,7 +672,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapTarget
+   * OWL property metadata for building maps
    * @return mapTarget
   **/
   @javax.annotation.Nullable
@@ -710,7 +693,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapTargetTermType
+   * OWL property metadata for building maps
    * @return mapTargetTermType
   **/
   @javax.annotation.Nullable
@@ -731,7 +714,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapTargetTerminology
+   * OWL property metadata for building maps
    * @return mapTargetTerminology
   **/
   @javax.annotation.Nullable
@@ -752,7 +735,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapTargetTerminologyVersion
+   * OWL property metadata for building maps
    * @return mapTargetTerminologyVersion
   **/
   @javax.annotation.Nullable
@@ -763,35 +746,6 @@ public class TerminologyMetadata {
 
   public void setMapTargetTerminologyVersion(String mapTargetTerminologyVersion) {
     this.mapTargetTerminologyVersion = mapTargetTerminologyVersion;
-  }
-
-
-  public TerminologyMetadata sources(Map<String, String> sources) {
-    
-    this.sources = sources;
-    return this;
-  }
-
-  public TerminologyMetadata putSourcesItem(String key, String sourcesItem) {
-    if (this.sources == null) {
-      this.sources = new HashMap<>();
-    }
-    this.sources.put(key, sourcesItem);
-    return this;
-  }
-
-   /**
-   * Get sources
-   * @return sources
-  **/
-  @javax.annotation.Nullable
-  public Map<String, String> getSources() {
-    return sources;
-  }
-
-
-  public void setSources(Map<String, String> sources) {
-    this.sources = sources;
   }
 
 
@@ -810,7 +764,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get detailsColumns
+   * Metadata for displaying concept
    * @return detailsColumns
   **/
   @javax.annotation.Nullable
@@ -831,7 +785,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get hierarchy
+   * Indicates whether or not the terminology has a hierarchy
    * @return hierarchy
   **/
   @javax.annotation.Nullable
@@ -852,7 +806,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get history
+   * Indicates whether or not the terminology has history records
    * @return history
   **/
   @javax.annotation.Nullable
@@ -866,27 +820,6 @@ public class TerminologyMetadata {
   }
 
 
-  public TerminologyMetadata mapsets(Boolean mapsets) {
-    
-    this.mapsets = mapsets;
-    return this;
-  }
-
-   /**
-   * Get mapsets
-   * @return mapsets
-  **/
-  @javax.annotation.Nullable
-  public Boolean getMapsets() {
-    return mapsets;
-  }
-
-
-  public void setMapsets(Boolean mapsets) {
-    this.mapsets = mapsets;
-  }
-
-
   public TerminologyMetadata sourceCt(Integer sourceCt) {
     
     this.sourceCt = sourceCt;
@@ -894,7 +827,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get sourceCt
+   * Count of included sources
    * @return sourceCt
   **/
   @javax.annotation.Nullable
@@ -905,64 +838,6 @@ public class TerminologyMetadata {
 
   public void setSourceCt(Integer sourceCt) {
     this.sourceCt = sourceCt;
-  }
-
-
-  public TerminologyMetadata definitionSourceSet(Set<String> definitionSourceSet) {
-    
-    this.definitionSourceSet = definitionSourceSet;
-    return this;
-  }
-
-  public TerminologyMetadata addDefinitionSourceSetItem(String definitionSourceSetItem) {
-    if (this.definitionSourceSet == null) {
-      this.definitionSourceSet = new LinkedHashSet<>();
-    }
-    this.definitionSourceSet.add(definitionSourceSetItem);
-    return this;
-  }
-
-   /**
-   * Get definitionSourceSet
-   * @return definitionSourceSet
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getDefinitionSourceSet() {
-    return definitionSourceSet;
-  }
-
-
-  public void setDefinitionSourceSet(Set<String> definitionSourceSet) {
-    this.definitionSourceSet = definitionSourceSet;
-  }
-
-
-  public TerminologyMetadata synonymSourceSet(Set<String> synonymSourceSet) {
-    
-    this.synonymSourceSet = synonymSourceSet;
-    return this;
-  }
-
-  public TerminologyMetadata addSynonymSourceSetItem(String synonymSourceSetItem) {
-    if (this.synonymSourceSet == null) {
-      this.synonymSourceSet = new LinkedHashSet<>();
-    }
-    this.synonymSourceSet.add(synonymSourceSetItem);
-    return this;
-  }
-
-   /**
-   * Get synonymSourceSet
-   * @return synonymSourceSet
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getSynonymSourceSet() {
-    return synonymSourceSet;
-  }
-
-
-  public void setSynonymSourceSet(Set<String> synonymSourceSet) {
-    this.synonymSourceSet = synonymSourceSet;
   }
 
 
@@ -981,7 +856,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get termTypes
+   * OWL property metadata for building concept
    * @return termTypes
   **/
   @javax.annotation.Nullable
@@ -995,27 +870,6 @@ public class TerminologyMetadata {
   }
 
 
-  public TerminologyMetadata subsetPrefix(String subsetPrefix) {
-    
-    this.subsetPrefix = subsetPrefix;
-    return this;
-  }
-
-   /**
-   * Get subsetPrefix
-   * @return subsetPrefix
-  **/
-  @javax.annotation.Nullable
-  public String getSubsetPrefix() {
-    return subsetPrefix;
-  }
-
-
-  public void setSubsetPrefix(String subsetPrefix) {
-    this.subsetPrefix = subsetPrefix;
-  }
-
-
   public TerminologyMetadata subsetLink(String subsetLink) {
     
     this.subsetLink = subsetLink;
@@ -1023,7 +877,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get subsetLink
+   * Metadata for downloading a subset
    * @return subsetLink
   **/
   @javax.annotation.Nullable
@@ -1034,114 +888,6 @@ public class TerminologyMetadata {
 
   public void setSubsetLink(String subsetLink) {
     this.subsetLink = subsetLink;
-  }
-
-
-  public TerminologyMetadata sourcesToRemove(Set<String> sourcesToRemove) {
-    
-    this.sourcesToRemove = sourcesToRemove;
-    return this;
-  }
-
-  public TerminologyMetadata addSourcesToRemoveItem(String sourcesToRemoveItem) {
-    if (this.sourcesToRemove == null) {
-      this.sourcesToRemove = new LinkedHashSet<>();
-    }
-    this.sourcesToRemove.add(sourcesToRemoveItem);
-    return this;
-  }
-
-   /**
-   * Get sourcesToRemove
-   * @return sourcesToRemove
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getSourcesToRemove() {
-    return sourcesToRemove;
-  }
-
-
-  public void setSourcesToRemove(Set<String> sourcesToRemove) {
-    this.sourcesToRemove = sourcesToRemove;
-  }
-
-
-  public TerminologyMetadata subsetMember(Set<String> subsetMember) {
-    
-    this.subsetMember = subsetMember;
-    return this;
-  }
-
-  public TerminologyMetadata addSubsetMemberItem(String subsetMemberItem) {
-    if (this.subsetMember == null) {
-      this.subsetMember = new LinkedHashSet<>();
-    }
-    this.subsetMember.add(subsetMemberItem);
-    return this;
-  }
-
-   /**
-   * Get subsetMember
-   * @return subsetMember
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getSubsetMember() {
-    return subsetMember;
-  }
-
-
-  public void setSubsetMember(Set<String> subsetMember) {
-    this.subsetMember = subsetMember;
-  }
-
-
-  public TerminologyMetadata unpublished(Set<String> unpublished) {
-    
-    this.unpublished = unpublished;
-    return this;
-  }
-
-  public TerminologyMetadata addUnpublishedItem(String unpublishedItem) {
-    if (this.unpublished == null) {
-      this.unpublished = new LinkedHashSet<>();
-    }
-    this.unpublished.add(unpublishedItem);
-    return this;
-  }
-
-   /**
-   * Get unpublished
-   * @return unpublished
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getUnpublished() {
-    return unpublished;
-  }
-
-
-  public void setUnpublished(Set<String> unpublished) {
-    this.unpublished = unpublished;
-  }
-
-
-  public TerminologyMetadata monthlyDb(String monthlyDb) {
-    
-    this.monthlyDb = monthlyDb;
-    return this;
-  }
-
-   /**
-   * Get monthlyDb
-   * @return monthlyDb
-  **/
-  @javax.annotation.Nullable
-  public String getMonthlyDb() {
-    return monthlyDb;
-  }
-
-
-  public void setMonthlyDb(String monthlyDb) {
-    this.monthlyDb = monthlyDb;
   }
 
 
@@ -1160,7 +906,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get subset
+   * OWL property metadata for building subsets
    * @return subset
   **/
   @javax.annotation.Nullable
@@ -1181,7 +927,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get licenseText
+   * License text for the UI
    * @return licenseText
   **/
   @javax.annotation.Nullable
@@ -1202,7 +948,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get metaConceptField
+   * Metadata for concept display
    * @return metaConceptField
   **/
   @javax.annotation.Nullable
@@ -1231,7 +977,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get preferredTermTypes
+   * OWL property metadata for building concept
    * @return preferredTermTypes
   **/
   @javax.annotation.Nullable
@@ -1252,7 +998,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get codeLabel
+   * Metadata for concept display
    * @return codeLabel
   **/
   @javax.annotation.Nullable
@@ -1273,7 +1019,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get welcomeText
+   * Metadata for landing page welcome text
    * @return welcomeText
   **/
   @javax.annotation.Nullable
@@ -1315,7 +1061,7 @@ public class TerminologyMetadata {
   }
 
    /**
-   * Get mapTargetTermGroup
+   * OWL property metadata for building maps
    * @return mapTargetTermGroup
   **/
   @javax.annotation.Nullable
@@ -1421,21 +1167,12 @@ public class TerminologyMetadata {
         Objects.equals(this.mapTargetTermType, terminologyMetadata.mapTargetTermType) &&
         Objects.equals(this.mapTargetTerminology, terminologyMetadata.mapTargetTerminology) &&
         Objects.equals(this.mapTargetTerminologyVersion, terminologyMetadata.mapTargetTerminologyVersion) &&
-        Objects.equals(this.sources, terminologyMetadata.sources) &&
         Objects.equals(this.detailsColumns, terminologyMetadata.detailsColumns) &&
         Objects.equals(this.hierarchy, terminologyMetadata.hierarchy) &&
         Objects.equals(this.history, terminologyMetadata.history) &&
-        Objects.equals(this.mapsets, terminologyMetadata.mapsets) &&
         Objects.equals(this.sourceCt, terminologyMetadata.sourceCt) &&
-        Objects.equals(this.definitionSourceSet, terminologyMetadata.definitionSourceSet) &&
-        Objects.equals(this.synonymSourceSet, terminologyMetadata.synonymSourceSet) &&
         Objects.equals(this.termTypes, terminologyMetadata.termTypes) &&
-        Objects.equals(this.subsetPrefix, terminologyMetadata.subsetPrefix) &&
         Objects.equals(this.subsetLink, terminologyMetadata.subsetLink) &&
-        Objects.equals(this.sourcesToRemove, terminologyMetadata.sourcesToRemove) &&
-        Objects.equals(this.subsetMember, terminologyMetadata.subsetMember) &&
-        Objects.equals(this.unpublished, terminologyMetadata.unpublished) &&
-        Objects.equals(this.monthlyDb, terminologyMetadata.monthlyDb) &&
         Objects.equals(this.subset, terminologyMetadata.subset) &&
         Objects.equals(this.licenseText, terminologyMetadata.licenseText) &&
         Objects.equals(this.metaConceptField, terminologyMetadata.metaConceptField) &&
@@ -1450,7 +1187,7 @@ public class TerminologyMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, code, conceptStatus, conceptStatuses, retiredStatusValue, preferredName, relationshipToTarget, synonym, synonymTermType, synonymSource, synonymCode, synonymSubSource, definition, definitionSource, mapRelation, map, mapTarget, mapTargetTermType, mapTargetTerminology, mapTargetTerminologyVersion, sources, detailsColumns, hierarchy, history, mapsets, sourceCt, definitionSourceSet, synonymSourceSet, termTypes, subsetPrefix, subsetLink, sourcesToRemove, subsetMember, unpublished, monthlyDb, subset, licenseText, metaConceptField, preferredTermTypes, codeLabel, welcomeText, synonymTermGroup, mapTargetTermGroup, termGroups, preferredTermGroups);
+    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, code, conceptStatus, conceptStatuses, retiredStatusValue, preferredName, relationshipToTarget, synonym, synonymTermType, synonymSource, synonymCode, synonymSubSource, definition, definitionSource, mapRelation, map, mapTarget, mapTargetTermType, mapTargetTerminology, mapTargetTerminologyVersion, detailsColumns, hierarchy, history, sourceCt, termTypes, subsetLink, subset, licenseText, metaConceptField, preferredTermTypes, codeLabel, welcomeText, synonymTermGroup, mapTargetTermGroup, termGroups, preferredTermGroups);
   }
 
   @Override
@@ -1481,21 +1218,12 @@ public class TerminologyMetadata {
     sb.append("    mapTargetTermType: ").append(toIndentedString(mapTargetTermType)).append("\n");
     sb.append("    mapTargetTerminology: ").append(toIndentedString(mapTargetTerminology)).append("\n");
     sb.append("    mapTargetTerminologyVersion: ").append(toIndentedString(mapTargetTerminologyVersion)).append("\n");
-    sb.append("    sources: ").append(toIndentedString(sources)).append("\n");
     sb.append("    detailsColumns: ").append(toIndentedString(detailsColumns)).append("\n");
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
-    sb.append("    mapsets: ").append(toIndentedString(mapsets)).append("\n");
     sb.append("    sourceCt: ").append(toIndentedString(sourceCt)).append("\n");
-    sb.append("    definitionSourceSet: ").append(toIndentedString(definitionSourceSet)).append("\n");
-    sb.append("    synonymSourceSet: ").append(toIndentedString(synonymSourceSet)).append("\n");
     sb.append("    termTypes: ").append(toIndentedString(termTypes)).append("\n");
-    sb.append("    subsetPrefix: ").append(toIndentedString(subsetPrefix)).append("\n");
     sb.append("    subsetLink: ").append(toIndentedString(subsetLink)).append("\n");
-    sb.append("    sourcesToRemove: ").append(toIndentedString(sourcesToRemove)).append("\n");
-    sb.append("    subsetMember: ").append(toIndentedString(subsetMember)).append("\n");
-    sb.append("    unpublished: ").append(toIndentedString(unpublished)).append("\n");
-    sb.append("    monthlyDb: ").append(toIndentedString(monthlyDb)).append("\n");
     sb.append("    subset: ").append(toIndentedString(subset)).append("\n");
     sb.append("    licenseText: ").append(toIndentedString(licenseText)).append("\n");
     sb.append("    metaConceptField: ").append(toIndentedString(metaConceptField)).append("\n");
@@ -1552,21 +1280,12 @@ public class TerminologyMetadata {
     openapiFields.add("mapTargetTermType");
     openapiFields.add("mapTargetTerminology");
     openapiFields.add("mapTargetTerminologyVersion");
-    openapiFields.add("sources");
     openapiFields.add("detailsColumns");
     openapiFields.add("hierarchy");
     openapiFields.add("history");
-    openapiFields.add("mapsets");
     openapiFields.add("sourceCt");
-    openapiFields.add("definitionSourceSet");
-    openapiFields.add("synonymSourceSet");
     openapiFields.add("termTypes");
-    openapiFields.add("subsetPrefix");
     openapiFields.add("subsetLink");
-    openapiFields.add("sourcesToRemove");
-    openapiFields.add("subsetMember");
-    openapiFields.add("unpublished");
-    openapiFields.add("monthlyDb");
     openapiFields.add("subset");
     openapiFields.add("licenseText");
     openapiFields.add("metaConceptField");
@@ -1671,34 +1390,8 @@ public class TerminologyMetadata {
       if ((jsonObj.get("mapTargetTerminologyVersion") != null && !jsonObj.get("mapTargetTerminologyVersion").isJsonNull()) && !jsonObj.get("mapTargetTerminologyVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `mapTargetTerminologyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTargetTerminologyVersion").toString()));
       }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("definitionSourceSet") != null && !jsonObj.get("definitionSourceSet").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `definitionSourceSet` to be an array in the JSON string but got `%s`", jsonObj.get("definitionSourceSet").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("synonymSourceSet") != null && !jsonObj.get("synonymSourceSet").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonymSourceSet` to be an array in the JSON string but got `%s`", jsonObj.get("synonymSourceSet").toString()));
-      }
-      if ((jsonObj.get("subsetPrefix") != null && !jsonObj.get("subsetPrefix").isJsonNull()) && !jsonObj.get("subsetPrefix").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subsetPrefix` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetPrefix").toString()));
-      }
       if ((jsonObj.get("subsetLink") != null && !jsonObj.get("subsetLink").isJsonNull()) && !jsonObj.get("subsetLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subsetLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetLink").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("sourcesToRemove") != null && !jsonObj.get("sourcesToRemove").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `sourcesToRemove` to be an array in the JSON string but got `%s`", jsonObj.get("sourcesToRemove").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("subsetMember") != null && !jsonObj.get("subsetMember").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subsetMember` to be an array in the JSON string but got `%s`", jsonObj.get("subsetMember").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("unpublished") != null && !jsonObj.get("unpublished").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `unpublished` to be an array in the JSON string but got `%s`", jsonObj.get("unpublished").toString()));
-      }
-      if ((jsonObj.get("monthlyDb") != null && !jsonObj.get("monthlyDb").isJsonNull()) && !jsonObj.get("monthlyDb").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `monthlyDb` to be a primitive type in the JSON string but got `%s`", jsonObj.get("monthlyDb").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("subset") != null && !jsonObj.get("subset").isJsonArray()) {

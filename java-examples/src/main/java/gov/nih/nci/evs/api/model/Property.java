@@ -13,29 +13,47 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
+import gov.nih.nci.evs.api.model.Qualifier;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * Property
+ * Represents a type/value property on a concept
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class Property {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -44,10 +62,6 @@ public class Property {
   public static final String SERIALIZED_NAME_CT = "ct";
   @SerializedName(SERIALIZED_NAME_CT)
   private Integer ct;
-
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
 
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
@@ -72,14 +86,6 @@ public class Property {
   public Property() {
   }
 
-  
-  public Property(
-     String code
-  ) {
-    this();
-    this.code = code;
-  }
-
   public Property uri(String uri) {
     
     this.uri = uri;
@@ -87,7 +93,7 @@ public class Property {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -108,7 +114,7 @@ public class Property {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -122,18 +128,6 @@ public class Property {
   }
 
 
-   /**
-   * Get code
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-
-
   public Property type(String type) {
     
     this.type = type;
@@ -141,7 +135,7 @@ public class Property {
   }
 
    /**
-   * Get type
+   * Property type
    * @return type
   **/
   @javax.annotation.Nullable
@@ -162,7 +156,7 @@ public class Property {
   }
 
    /**
-   * Get value
+   * Property value
    * @return value
   **/
   @javax.annotation.Nullable
@@ -183,7 +177,7 @@ public class Property {
   }
 
    /**
-   * Get highlight
+   * Used by search calls to provide information for highlighting a view of results
    * @return highlight
   **/
   @javax.annotation.Nullable
@@ -212,7 +206,7 @@ public class Property {
   }
 
    /**
-   * Get qualifiers
+   * Type/value qualifiers on the property
    * @return qualifiers
   **/
   @javax.annotation.Nullable
@@ -233,7 +227,7 @@ public class Property {
   }
 
    /**
-   * Get source
+   * Property source
    * @return source
   **/
   @javax.annotation.Nullable
@@ -259,7 +253,6 @@ public class Property {
     Property property = (Property) o;
     return Objects.equals(this.uri, property.uri) &&
         Objects.equals(this.ct, property.ct) &&
-        Objects.equals(this.code, property.code) &&
         Objects.equals(this.type, property.type) &&
         Objects.equals(this.value, property.value) &&
         Objects.equals(this.highlight, property.highlight) &&
@@ -269,7 +262,7 @@ public class Property {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, code, type, value, highlight, qualifiers, source);
+    return Objects.hash(uri, ct, type, value, highlight, qualifiers, source);
   }
 
   @Override
@@ -278,7 +271,6 @@ public class Property {
     sb.append("class Property {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
@@ -308,7 +300,6 @@ public class Property {
     openapiFields = new HashSet<String>();
     openapiFields.add("uri");
     openapiFields.add("ct");
-    openapiFields.add("code");
     openapiFields.add("type");
     openapiFields.add("value");
     openapiFields.add("highlight");
@@ -341,9 +332,6 @@ public class Property {
       }
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
-      }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));

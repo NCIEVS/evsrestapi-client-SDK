@@ -13,28 +13,46 @@
 
 package gov.nih.nci.evs.api.model;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
+import java.util.Objects;
+import java.util.Arrays;
 import com.google.gson.TypeAdapter;
-import com.google.gson.TypeAdapterFactory;
+import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.invoker.JSON;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonDeserializationContext;
+import com.google.gson.JsonDeserializer;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParseException;
+import com.google.gson.TypeAdapterFactory;
+import com.google.gson.reflect.TypeToken;
+import com.google.gson.TypeAdapter;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
+import java.io.IOException;
+
+import java.lang.reflect.Type;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Objects;
 import java.util.Set;
 
+import gov.nih.nci.evs.api.invoker.JSON;
+
 /**
- * SearchCriteria
+ * Criteria for a search or find operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
 public class SearchCriteria {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -122,7 +140,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -143,7 +161,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -164,7 +182,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get term
+   * Search term, e.g. &#39;heart&#39;, or &#39;C3224&#39;
    * @return term
   **/
   @javax.annotation.Nullable
@@ -185,7 +203,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get type
+   * The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy
    * @return type
   **/
   @javax.annotation.Nullable
@@ -206,7 +224,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get include
+   * Include parameter value, e.g. &#39;minimal&#39;, &#39;summary&#39;, &#39;synonyms,properties,children&#39;
    * @return include
   **/
   @javax.annotation.Nullable
@@ -227,7 +245,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get sort
+   * Sort field
    * @return sort
   **/
   @javax.annotation.Nullable
@@ -248,7 +266,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get ascending
+   * Indicates whether sort is ascending (true), descending (false), or not specified (null)
    * @return ascending
   **/
   @javax.annotation.Nullable
@@ -269,7 +287,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get fromRecord
+   * Start index of the search results
    * @return fromRecord
   **/
   @javax.annotation.Nullable
@@ -290,7 +308,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get pageSize
+   * Max number of results to return
    * @return pageSize
   **/
   @javax.annotation.Nullable
@@ -319,7 +337,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get conceptStatus
+   * Comma-separated list of concept status values to restrict search results by
    * @return conceptStatus
   **/
   @javax.annotation.Nullable
@@ -348,7 +366,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get property
+   * Comma-separated list of properties to restrict search results by
    * @return property
   **/
   @javax.annotation.Nullable
@@ -369,7 +387,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get value
+   * A property value to restrict search results by
    * @return value
   **/
   @javax.annotation.Nullable
@@ -398,7 +416,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get synonymSource
+   * Comma-separated list of synonym sources to restrict search results by
    * @return synonymSource
   **/
   @javax.annotation.Nullable
@@ -427,7 +445,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get synonymType
+   * Comma-separated list of synonym types to restrict search results by
    * @return synonymType
   **/
   @javax.annotation.Nullable
@@ -456,7 +474,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get definitionSource
+   * Comma-separated list of definition sources to restrict search results by
    * @return definitionSource
   **/
   @javax.annotation.Nullable
@@ -485,7 +503,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get definitionType
+   * Comma-separated list of definition types to restrict search results by
    * @return definitionType
   **/
   @javax.annotation.Nullable
@@ -514,7 +532,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get synonymTermType
+   * Comma-separated list of synonym term types to restrict search results by
    * @return synonymTermType
   **/
   @javax.annotation.Nullable
@@ -543,7 +561,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get subset
+   * Comma-separated list of subsets to restrict search results by, e.g. &#39;C157225&#39;
    * @return subset
   **/
   @javax.annotation.Nullable
@@ -572,7 +590,7 @@ public class SearchCriteria {
   }
 
    /**
-   * Get terminology
+   * Comma-separated list of terminologies to search
    * @return terminology
   **/
   @javax.annotation.Nullable
