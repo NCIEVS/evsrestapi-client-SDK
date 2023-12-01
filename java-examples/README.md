@@ -7,6 +7,7 @@ Prerequisites
 -------------
 
 * JDK 11+ must be installed
+* Gradle (7.2+)
 
 The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the
 java client will connect to.

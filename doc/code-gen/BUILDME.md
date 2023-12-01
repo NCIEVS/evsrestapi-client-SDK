@@ -8,8 +8,6 @@ This is a how-to guide for rebuilding openapi generated code as updates to the s
 
 1. Java 17+
 2. Gradle 8.2+
-3. Add the updated `evs-swagger.yaml` to `openapi-code-generator/src`. Be sure the old on is removed from the /src
-   folder
 
 ## How to Build a Single Client
 
@@ -17,10 +15,10 @@ If you need to regenerate a single client for a given language:
 
 1. Open your terminal and cd to the dir. e.g. `evsrestapi-client-sdk/doc/code-gen`
 2. Execute `gradle <nameOfTask>` in your terminal
-3. The code will generate in a `build` folder. Navigate to the dir `build` folder.
-4. From the `build` folder, copy the generated code files and any other files required to build the project to the
+3. The code will generate in a `build` dir. Navigate to the `build` dir.
+4. From the `build` dir, copy the generated code files and any other files required to build the project to the
    corresponding "examples" folder.
-    1. See [next steps](#tasks-to-regenerate-code--next-steps) for details
+    1. See [next steps](#tasks-to-regenerate-code--next-steps) for details based on your language generated
 
 **[Back to top](#evsrestapi-generate-client-code)**
 
@@ -46,11 +44,13 @@ location the generated code is generated is also provided.
 
 * **Java client** - `buildJavaSdk`
     * **Generate Location** = `build/openapi-java-client`
-        * Copy the new files generated from the `src/` folder to the `java-examples/src` folder. DO NOT replace tests,
-          update tests to demo the new api calls.
-        * Verify the `gradle` files match between what was generated vs what exists in `java-examples`.
-        * The java-examples uses `src/main/resources/url.properties` to set the basePath url. This should not be changed
-          unless the url needs to be updated. 
+        * Copy the new files generated from the `src/main` folder to the `java-examples/src/main` folder.
+            * <span style="color:red"> DO NOT replace `ApiClient.java`.</span> 
+            * <span style="color:red"> DO NOT replace tests. Update tests to demo the new api calls or fix failing tests. </span> 
+        * java-examples uses `src/main/resources/url.properties` to set the basePath url in `ApiClient.java`. This
+          should not be changed and the url should be updated in the properties file only.
+        * Verify the gradle files match between what was generated vs what exists in `java-examples`. Update as needed,
+          but don't override.
         * Verify the project builds and the tests run successfully before pushing changes
 
 **[Back to top](#evsrestapi-generate-client-code)**
