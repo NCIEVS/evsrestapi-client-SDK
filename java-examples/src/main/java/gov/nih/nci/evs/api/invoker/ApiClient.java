@@ -118,6 +118,11 @@ public class ApiClient {
     httpClient = builder.build();
   }
 
+  /**
+   * Initialize our variables
+   * Set the basePath url to the pull from url.properties and have our servers reference the basePath
+   *
+   */
   private void init() {
     verifyingSsl = true;
 
