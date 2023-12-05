@@ -53,7 +53,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents a terminology loaded into the API
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-04T16:55:17.638913-08:00[America/Los_Angeles]")
 public class Terminology {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -98,6 +98,14 @@ public class Terminology {
   public static final String SERIALIZED_NAME_TAGS = "tags";
   @SerializedName(SERIALIZED_NAME_TAGS)
   private Map<String, String> tags = new HashMap<>();
+
+  public static final String SERIALIZED_NAME_INDEX_NAME = "indexName";
+  @SerializedName(SERIALIZED_NAME_INDEX_NAME)
+  private String indexName;
+
+  public static final String SERIALIZED_NAME_OBJECT_INDEX_NAME = "objectIndexName";
+  @SerializedName(SERIALIZED_NAME_OBJECT_INDEX_NAME)
+  private String objectIndexName;
 
   public static final String SERIALIZED_NAME_METADATA = "metadata";
   @SerializedName(SERIALIZED_NAME_METADATA)
@@ -349,6 +357,48 @@ public class Terminology {
   }
 
 
+  public Terminology indexName(String indexName) {
+    
+    this.indexName = indexName;
+    return this;
+  }
+
+   /**
+   * for internal use
+   * @return indexName
+  **/
+  @javax.annotation.Nullable
+  public String getIndexName() {
+    return indexName;
+  }
+
+
+  public void setIndexName(String indexName) {
+    this.indexName = indexName;
+  }
+
+
+  public Terminology objectIndexName(String objectIndexName) {
+    
+    this.objectIndexName = objectIndexName;
+    return this;
+  }
+
+   /**
+   * for internal use
+   * @return objectIndexName
+  **/
+  @javax.annotation.Nullable
+  public String getObjectIndexName() {
+    return objectIndexName;
+  }
+
+
+  public void setObjectIndexName(String objectIndexName) {
+    this.objectIndexName = objectIndexName;
+  }
+
+
   public Terminology metadata(TerminologyMetadata metadata) {
     
     this.metadata = metadata;
@@ -412,13 +462,15 @@ public class Terminology {
         Objects.equals(this.terminologyVersion, terminology.terminologyVersion) &&
         Objects.equals(this.latest, terminology.latest) &&
         Objects.equals(this.tags, terminology.tags) &&
+        Objects.equals(this.indexName, terminology.indexName) &&
+        Objects.equals(this.objectIndexName, terminology.objectIndexName) &&
         Objects.equals(this.metadata, terminology.metadata) &&
         Objects.equals(this.sparqlFlag, terminology.sparqlFlag);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, terminology, version, date, name, description, graph, terminologyVersion, latest, tags, metadata, sparqlFlag);
+    return Objects.hash(uri, ct, terminology, version, date, name, description, graph, terminologyVersion, latest, tags, indexName, objectIndexName, metadata, sparqlFlag);
   }
 
   @Override
@@ -436,6 +488,8 @@ public class Terminology {
     sb.append("    terminologyVersion: ").append(toIndentedString(terminologyVersion)).append("\n");
     sb.append("    latest: ").append(toIndentedString(latest)).append("\n");
     sb.append("    tags: ").append(toIndentedString(tags)).append("\n");
+    sb.append("    indexName: ").append(toIndentedString(indexName)).append("\n");
+    sb.append("    objectIndexName: ").append(toIndentedString(objectIndexName)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("    sparqlFlag: ").append(toIndentedString(sparqlFlag)).append("\n");
     sb.append("}");
@@ -471,6 +525,8 @@ public class Terminology {
     openapiFields.add("terminologyVersion");
     openapiFields.add("latest");
     openapiFields.add("tags");
+    openapiFields.add("indexName");
+    openapiFields.add("objectIndexName");
     openapiFields.add("metadata");
     openapiFields.add("sparqlFlag");
 
@@ -521,6 +577,12 @@ public class Terminology {
       }
       if ((jsonObj.get("terminologyVersion") != null && !jsonObj.get("terminologyVersion").isJsonNull()) && !jsonObj.get("terminologyVersion").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `terminologyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("terminologyVersion").toString()));
+      }
+      if ((jsonObj.get("indexName") != null && !jsonObj.get("indexName").isJsonNull()) && !jsonObj.get("indexName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `indexName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("indexName").toString()));
+      }
+      if ((jsonObj.get("objectIndexName") != null && !jsonObj.get("objectIndexName").isJsonNull()) && !jsonObj.get("objectIndexName").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `objectIndexName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("objectIndexName").toString()));
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {

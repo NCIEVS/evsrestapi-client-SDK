@@ -23,10 +23,8 @@ import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -56,7 +54,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents additional terminology metadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-05T10:35:17.750633-08:00[America/Los_Angeles]")
 public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -78,14 +76,6 @@ public class TerminologyMetadata {
   @SerializedName(SERIALIZED_NAME_LOADER)
   private String loader;
 
-  public static final String SERIALIZED_NAME_CODE = "code";
-  @SerializedName(SERIALIZED_NAME_CODE)
-  private String code;
-
-  public static final String SERIALIZED_NAME_CONCEPT_STATUS = "conceptStatus";
-  @SerializedName(SERIALIZED_NAME_CONCEPT_STATUS)
-  private String conceptStatus;
-
   public static final String SERIALIZED_NAME_CONCEPT_STATUSES = "conceptStatuses";
   @SerializedName(SERIALIZED_NAME_CONCEPT_STATUSES)
   private List<String> conceptStatuses;
@@ -93,66 +83,6 @@ public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_RETIRED_STATUS_VALUE = "retiredStatusValue";
   @SerializedName(SERIALIZED_NAME_RETIRED_STATUS_VALUE)
   private String retiredStatusValue;
-
-  public static final String SERIALIZED_NAME_PREFERRED_NAME = "preferredName";
-  @SerializedName(SERIALIZED_NAME_PREFERRED_NAME)
-  private String preferredName;
-
-  public static final String SERIALIZED_NAME_RELATIONSHIP_TO_TARGET = "relationshipToTarget";
-  @SerializedName(SERIALIZED_NAME_RELATIONSHIP_TO_TARGET)
-  private String relationshipToTarget;
-
-  public static final String SERIALIZED_NAME_SYNONYM = "synonym";
-  @SerializedName(SERIALIZED_NAME_SYNONYM)
-  private Set<String> synonym;
-
-  public static final String SERIALIZED_NAME_SYNONYM_TERM_TYPE = "synonymTermType";
-  @SerializedName(SERIALIZED_NAME_SYNONYM_TERM_TYPE)
-  private String synonymTermType;
-
-  public static final String SERIALIZED_NAME_SYNONYM_SOURCE = "synonymSource";
-  @SerializedName(SERIALIZED_NAME_SYNONYM_SOURCE)
-  private String synonymSource;
-
-  public static final String SERIALIZED_NAME_SYNONYM_CODE = "synonymCode";
-  @SerializedName(SERIALIZED_NAME_SYNONYM_CODE)
-  private String synonymCode;
-
-  public static final String SERIALIZED_NAME_SYNONYM_SUB_SOURCE = "synonymSubSource";
-  @SerializedName(SERIALIZED_NAME_SYNONYM_SUB_SOURCE)
-  private String synonymSubSource;
-
-  public static final String SERIALIZED_NAME_DEFINITION = "definition";
-  @SerializedName(SERIALIZED_NAME_DEFINITION)
-  private Set<String> definition;
-
-  public static final String SERIALIZED_NAME_DEFINITION_SOURCE = "definitionSource";
-  @SerializedName(SERIALIZED_NAME_DEFINITION_SOURCE)
-  private String definitionSource;
-
-  public static final String SERIALIZED_NAME_MAP_RELATION = "mapRelation";
-  @SerializedName(SERIALIZED_NAME_MAP_RELATION)
-  private String mapRelation;
-
-  public static final String SERIALIZED_NAME_MAP = "map";
-  @SerializedName(SERIALIZED_NAME_MAP)
-  private String map;
-
-  public static final String SERIALIZED_NAME_MAP_TARGET = "mapTarget";
-  @SerializedName(SERIALIZED_NAME_MAP_TARGET)
-  private String mapTarget;
-
-  public static final String SERIALIZED_NAME_MAP_TARGET_TERM_TYPE = "mapTargetTermType";
-  @SerializedName(SERIALIZED_NAME_MAP_TARGET_TERM_TYPE)
-  private String mapTargetTermType;
-
-  public static final String SERIALIZED_NAME_MAP_TARGET_TERMINOLOGY = "mapTargetTerminology";
-  @SerializedName(SERIALIZED_NAME_MAP_TARGET_TERMINOLOGY)
-  private String mapTargetTerminology;
-
-  public static final String SERIALIZED_NAME_MAP_TARGET_TERMINOLOGY_VERSION = "mapTargetTerminologyVersion";
-  @SerializedName(SERIALIZED_NAME_MAP_TARGET_TERMINOLOGY_VERSION)
-  private String mapTargetTerminologyVersion;
 
   public static final String SERIALIZED_NAME_DETAILS_COLUMNS = "detailsColumns";
   @SerializedName(SERIALIZED_NAME_DETAILS_COLUMNS)
@@ -170,17 +100,9 @@ public class TerminologyMetadata {
   @SerializedName(SERIALIZED_NAME_SOURCE_CT)
   private Integer sourceCt;
 
-  public static final String SERIALIZED_NAME_TERM_TYPES = "termTypes";
-  @SerializedName(SERIALIZED_NAME_TERM_TYPES)
-  private Map<String, String> termTypes = new HashMap<>();
-
   public static final String SERIALIZED_NAME_SUBSET_LINK = "subsetLink";
   @SerializedName(SERIALIZED_NAME_SUBSET_LINK)
   private String subsetLink;
-
-  public static final String SERIALIZED_NAME_SUBSET = "subset";
-  @SerializedName(SERIALIZED_NAME_SUBSET)
-  private Set<String> subset;
 
   public static final String SERIALIZED_NAME_LICENSE_TEXT = "licenseText";
   @SerializedName(SERIALIZED_NAME_LICENSE_TEXT)
@@ -189,10 +111,6 @@ public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_META_CONCEPT_FIELD = "metaConceptField";
   @SerializedName(SERIALIZED_NAME_META_CONCEPT_FIELD)
   private String metaConceptField;
-
-  public static final String SERIALIZED_NAME_PREFERRED_TERM_TYPES = "preferredTermTypes";
-  @SerializedName(SERIALIZED_NAME_PREFERRED_TERM_TYPES)
-  private List<String> preferredTermTypes;
 
   public static final String SERIALIZED_NAME_CODE_LABEL = "codeLabel";
   @SerializedName(SERIALIZED_NAME_CODE_LABEL)
@@ -205,10 +123,6 @@ public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_SYNONYM_TERM_GROUP = "synonymTermGroup";
   @SerializedName(SERIALIZED_NAME_SYNONYM_TERM_GROUP)
   private String synonymTermGroup;
-
-  public static final String SERIALIZED_NAME_MAP_TARGET_TERM_GROUP = "mapTargetTermGroup";
-  @SerializedName(SERIALIZED_NAME_MAP_TARGET_TERM_GROUP)
-  private String mapTargetTermGroup;
 
   public static final String SERIALIZED_NAME_TERM_GROUPS = "termGroups";
   @SerializedName(SERIALIZED_NAME_TERM_GROUPS)
@@ -326,48 +240,6 @@ public class TerminologyMetadata {
   }
 
 
-  public TerminologyMetadata code(String code) {
-    
-    this.code = code;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return code
-  **/
-  @javax.annotation.Nullable
-  public String getCode() {
-    return code;
-  }
-
-
-  public void setCode(String code) {
-    this.code = code;
-  }
-
-
-  public TerminologyMetadata conceptStatus(String conceptStatus) {
-    
-    this.conceptStatus = conceptStatus;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return conceptStatus
-  **/
-  @javax.annotation.Nullable
-  public String getConceptStatus() {
-    return conceptStatus;
-  }
-
-
-  public void setConceptStatus(String conceptStatus) {
-    this.conceptStatus = conceptStatus;
-  }
-
-
   public TerminologyMetadata conceptStatuses(List<String> conceptStatuses) {
     
     this.conceptStatuses = conceptStatuses;
@@ -415,337 +287,6 @@ public class TerminologyMetadata {
 
   public void setRetiredStatusValue(String retiredStatusValue) {
     this.retiredStatusValue = retiredStatusValue;
-  }
-
-
-  public TerminologyMetadata preferredName(String preferredName) {
-    
-    this.preferredName = preferredName;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return preferredName
-  **/
-  @javax.annotation.Nullable
-  public String getPreferredName() {
-    return preferredName;
-  }
-
-
-  public void setPreferredName(String preferredName) {
-    this.preferredName = preferredName;
-  }
-
-
-  public TerminologyMetadata relationshipToTarget(String relationshipToTarget) {
-    
-    this.relationshipToTarget = relationshipToTarget;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return relationshipToTarget
-  **/
-  @javax.annotation.Nullable
-  public String getRelationshipToTarget() {
-    return relationshipToTarget;
-  }
-
-
-  public void setRelationshipToTarget(String relationshipToTarget) {
-    this.relationshipToTarget = relationshipToTarget;
-  }
-
-
-  public TerminologyMetadata synonym(Set<String> synonym) {
-    
-    this.synonym = synonym;
-    return this;
-  }
-
-  public TerminologyMetadata addSynonymItem(String synonymItem) {
-    if (this.synonym == null) {
-      this.synonym = new LinkedHashSet<>();
-    }
-    this.synonym.add(synonymItem);
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return synonym
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getSynonym() {
-    return synonym;
-  }
-
-
-  public void setSynonym(Set<String> synonym) {
-    this.synonym = synonym;
-  }
-
-
-  public TerminologyMetadata synonymTermType(String synonymTermType) {
-    
-    this.synonymTermType = synonymTermType;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return synonymTermType
-  **/
-  @javax.annotation.Nullable
-  public String getSynonymTermType() {
-    return synonymTermType;
-  }
-
-
-  public void setSynonymTermType(String synonymTermType) {
-    this.synonymTermType = synonymTermType;
-  }
-
-
-  public TerminologyMetadata synonymSource(String synonymSource) {
-    
-    this.synonymSource = synonymSource;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return synonymSource
-  **/
-  @javax.annotation.Nullable
-  public String getSynonymSource() {
-    return synonymSource;
-  }
-
-
-  public void setSynonymSource(String synonymSource) {
-    this.synonymSource = synonymSource;
-  }
-
-
-  public TerminologyMetadata synonymCode(String synonymCode) {
-    
-    this.synonymCode = synonymCode;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return synonymCode
-  **/
-  @javax.annotation.Nullable
-  public String getSynonymCode() {
-    return synonymCode;
-  }
-
-
-  public void setSynonymCode(String synonymCode) {
-    this.synonymCode = synonymCode;
-  }
-
-
-  public TerminologyMetadata synonymSubSource(String synonymSubSource) {
-    
-    this.synonymSubSource = synonymSubSource;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return synonymSubSource
-  **/
-  @javax.annotation.Nullable
-  public String getSynonymSubSource() {
-    return synonymSubSource;
-  }
-
-
-  public void setSynonymSubSource(String synonymSubSource) {
-    this.synonymSubSource = synonymSubSource;
-  }
-
-
-  public TerminologyMetadata definition(Set<String> definition) {
-    
-    this.definition = definition;
-    return this;
-  }
-
-  public TerminologyMetadata addDefinitionItem(String definitionItem) {
-    if (this.definition == null) {
-      this.definition = new LinkedHashSet<>();
-    }
-    this.definition.add(definitionItem);
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return definition
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getDefinition() {
-    return definition;
-  }
-
-
-  public void setDefinition(Set<String> definition) {
-    this.definition = definition;
-  }
-
-
-  public TerminologyMetadata definitionSource(String definitionSource) {
-    
-    this.definitionSource = definitionSource;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return definitionSource
-  **/
-  @javax.annotation.Nullable
-  public String getDefinitionSource() {
-    return definitionSource;
-  }
-
-
-  public void setDefinitionSource(String definitionSource) {
-    this.definitionSource = definitionSource;
-  }
-
-
-  public TerminologyMetadata mapRelation(String mapRelation) {
-    
-    this.mapRelation = mapRelation;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapRelation
-  **/
-  @javax.annotation.Nullable
-  public String getMapRelation() {
-    return mapRelation;
-  }
-
-
-  public void setMapRelation(String mapRelation) {
-    this.mapRelation = mapRelation;
-  }
-
-
-  public TerminologyMetadata map(String map) {
-    
-    this.map = map;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return map
-  **/
-  @javax.annotation.Nullable
-  public String getMap() {
-    return map;
-  }
-
-
-  public void setMap(String map) {
-    this.map = map;
-  }
-
-
-  public TerminologyMetadata mapTarget(String mapTarget) {
-    
-    this.mapTarget = mapTarget;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapTarget
-  **/
-  @javax.annotation.Nullable
-  public String getMapTarget() {
-    return mapTarget;
-  }
-
-
-  public void setMapTarget(String mapTarget) {
-    this.mapTarget = mapTarget;
-  }
-
-
-  public TerminologyMetadata mapTargetTermType(String mapTargetTermType) {
-    
-    this.mapTargetTermType = mapTargetTermType;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapTargetTermType
-  **/
-  @javax.annotation.Nullable
-  public String getMapTargetTermType() {
-    return mapTargetTermType;
-  }
-
-
-  public void setMapTargetTermType(String mapTargetTermType) {
-    this.mapTargetTermType = mapTargetTermType;
-  }
-
-
-  public TerminologyMetadata mapTargetTerminology(String mapTargetTerminology) {
-    
-    this.mapTargetTerminology = mapTargetTerminology;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapTargetTerminology
-  **/
-  @javax.annotation.Nullable
-  public String getMapTargetTerminology() {
-    return mapTargetTerminology;
-  }
-
-
-  public void setMapTargetTerminology(String mapTargetTerminology) {
-    this.mapTargetTerminology = mapTargetTerminology;
-  }
-
-
-  public TerminologyMetadata mapTargetTerminologyVersion(String mapTargetTerminologyVersion) {
-    
-    this.mapTargetTerminologyVersion = mapTargetTerminologyVersion;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapTargetTerminologyVersion
-  **/
-  @javax.annotation.Nullable
-  public String getMapTargetTerminologyVersion() {
-    return mapTargetTerminologyVersion;
-  }
-
-
-  public void setMapTargetTerminologyVersion(String mapTargetTerminologyVersion) {
-    this.mapTargetTerminologyVersion = mapTargetTerminologyVersion;
   }
 
 
@@ -841,35 +382,6 @@ public class TerminologyMetadata {
   }
 
 
-  public TerminologyMetadata termTypes(Map<String, String> termTypes) {
-    
-    this.termTypes = termTypes;
-    return this;
-  }
-
-  public TerminologyMetadata putTermTypesItem(String key, String termTypesItem) {
-    if (this.termTypes == null) {
-      this.termTypes = new HashMap<>();
-    }
-    this.termTypes.put(key, termTypesItem);
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return termTypes
-  **/
-  @javax.annotation.Nullable
-  public Map<String, String> getTermTypes() {
-    return termTypes;
-  }
-
-
-  public void setTermTypes(Map<String, String> termTypes) {
-    this.termTypes = termTypes;
-  }
-
-
   public TerminologyMetadata subsetLink(String subsetLink) {
     
     this.subsetLink = subsetLink;
@@ -888,35 +400,6 @@ public class TerminologyMetadata {
 
   public void setSubsetLink(String subsetLink) {
     this.subsetLink = subsetLink;
-  }
-
-
-  public TerminologyMetadata subset(Set<String> subset) {
-    
-    this.subset = subset;
-    return this;
-  }
-
-  public TerminologyMetadata addSubsetItem(String subsetItem) {
-    if (this.subset == null) {
-      this.subset = new LinkedHashSet<>();
-    }
-    this.subset.add(subsetItem);
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building subsets
-   * @return subset
-  **/
-  @javax.annotation.Nullable
-  public Set<String> getSubset() {
-    return subset;
-  }
-
-
-  public void setSubset(Set<String> subset) {
-    this.subset = subset;
   }
 
 
@@ -959,35 +442,6 @@ public class TerminologyMetadata {
 
   public void setMetaConceptField(String metaConceptField) {
     this.metaConceptField = metaConceptField;
-  }
-
-
-  public TerminologyMetadata preferredTermTypes(List<String> preferredTermTypes) {
-    
-    this.preferredTermTypes = preferredTermTypes;
-    return this;
-  }
-
-  public TerminologyMetadata addPreferredTermTypesItem(String preferredTermTypesItem) {
-    if (this.preferredTermTypes == null) {
-      this.preferredTermTypes = new ArrayList<>();
-    }
-    this.preferredTermTypes.add(preferredTermTypesItem);
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building concept
-   * @return preferredTermTypes
-  **/
-  @javax.annotation.Nullable
-  public List<String> getPreferredTermTypes() {
-    return preferredTermTypes;
-  }
-
-
-  public void setPreferredTermTypes(List<String> preferredTermTypes) {
-    this.preferredTermTypes = preferredTermTypes;
   }
 
 
@@ -1051,27 +505,6 @@ public class TerminologyMetadata {
 
   public void setSynonymTermGroup(String synonymTermGroup) {
     this.synonymTermGroup = synonymTermGroup;
-  }
-
-
-  public TerminologyMetadata mapTargetTermGroup(String mapTargetTermGroup) {
-    
-    this.mapTargetTermGroup = mapTargetTermGroup;
-    return this;
-  }
-
-   /**
-   * OWL property metadata for building maps
-   * @return mapTargetTermGroup
-  **/
-  @javax.annotation.Nullable
-  public String getMapTargetTermGroup() {
-    return mapTargetTermGroup;
-  }
-
-
-  public void setMapTargetTermGroup(String mapTargetTermGroup) {
-    this.mapTargetTermGroup = mapTargetTermGroup;
   }
 
 
@@ -1148,46 +581,25 @@ public class TerminologyMetadata {
         Objects.equals(this.uiLabel, terminologyMetadata.uiLabel) &&
         Objects.equals(this.maxVersions, terminologyMetadata.maxVersions) &&
         Objects.equals(this.loader, terminologyMetadata.loader) &&
-        Objects.equals(this.code, terminologyMetadata.code) &&
-        Objects.equals(this.conceptStatus, terminologyMetadata.conceptStatus) &&
         Objects.equals(this.conceptStatuses, terminologyMetadata.conceptStatuses) &&
         Objects.equals(this.retiredStatusValue, terminologyMetadata.retiredStatusValue) &&
-        Objects.equals(this.preferredName, terminologyMetadata.preferredName) &&
-        Objects.equals(this.relationshipToTarget, terminologyMetadata.relationshipToTarget) &&
-        Objects.equals(this.synonym, terminologyMetadata.synonym) &&
-        Objects.equals(this.synonymTermType, terminologyMetadata.synonymTermType) &&
-        Objects.equals(this.synonymSource, terminologyMetadata.synonymSource) &&
-        Objects.equals(this.synonymCode, terminologyMetadata.synonymCode) &&
-        Objects.equals(this.synonymSubSource, terminologyMetadata.synonymSubSource) &&
-        Objects.equals(this.definition, terminologyMetadata.definition) &&
-        Objects.equals(this.definitionSource, terminologyMetadata.definitionSource) &&
-        Objects.equals(this.mapRelation, terminologyMetadata.mapRelation) &&
-        Objects.equals(this.map, terminologyMetadata.map) &&
-        Objects.equals(this.mapTarget, terminologyMetadata.mapTarget) &&
-        Objects.equals(this.mapTargetTermType, terminologyMetadata.mapTargetTermType) &&
-        Objects.equals(this.mapTargetTerminology, terminologyMetadata.mapTargetTerminology) &&
-        Objects.equals(this.mapTargetTerminologyVersion, terminologyMetadata.mapTargetTerminologyVersion) &&
         Objects.equals(this.detailsColumns, terminologyMetadata.detailsColumns) &&
         Objects.equals(this.hierarchy, terminologyMetadata.hierarchy) &&
         Objects.equals(this.history, terminologyMetadata.history) &&
         Objects.equals(this.sourceCt, terminologyMetadata.sourceCt) &&
-        Objects.equals(this.termTypes, terminologyMetadata.termTypes) &&
         Objects.equals(this.subsetLink, terminologyMetadata.subsetLink) &&
-        Objects.equals(this.subset, terminologyMetadata.subset) &&
         Objects.equals(this.licenseText, terminologyMetadata.licenseText) &&
         Objects.equals(this.metaConceptField, terminologyMetadata.metaConceptField) &&
-        Objects.equals(this.preferredTermTypes, terminologyMetadata.preferredTermTypes) &&
         Objects.equals(this.codeLabel, terminologyMetadata.codeLabel) &&
         Objects.equals(this.welcomeText, terminologyMetadata.welcomeText) &&
         Objects.equals(this.synonymTermGroup, terminologyMetadata.synonymTermGroup) &&
-        Objects.equals(this.mapTargetTermGroup, terminologyMetadata.mapTargetTermGroup) &&
         Objects.equals(this.termGroups, terminologyMetadata.termGroups) &&
         Objects.equals(this.preferredTermGroups, terminologyMetadata.preferredTermGroups);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, code, conceptStatus, conceptStatuses, retiredStatusValue, preferredName, relationshipToTarget, synonym, synonymTermType, synonymSource, synonymCode, synonymSubSource, definition, definitionSource, mapRelation, map, mapTarget, mapTargetTermType, mapTargetTerminology, mapTargetTerminologyVersion, detailsColumns, hierarchy, history, sourceCt, termTypes, subsetLink, subset, licenseText, metaConceptField, preferredTermTypes, codeLabel, welcomeText, synonymTermGroup, mapTargetTermGroup, termGroups, preferredTermGroups);
+    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, conceptStatuses, retiredStatusValue, detailsColumns, hierarchy, history, sourceCt, subsetLink, licenseText, metaConceptField, codeLabel, welcomeText, synonymTermGroup, termGroups, preferredTermGroups);
   }
 
   @Override
@@ -1199,39 +611,18 @@ public class TerminologyMetadata {
     sb.append("    uiLabel: ").append(toIndentedString(uiLabel)).append("\n");
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    loader: ").append(toIndentedString(loader)).append("\n");
-    sb.append("    code: ").append(toIndentedString(code)).append("\n");
-    sb.append("    conceptStatus: ").append(toIndentedString(conceptStatus)).append("\n");
     sb.append("    conceptStatuses: ").append(toIndentedString(conceptStatuses)).append("\n");
     sb.append("    retiredStatusValue: ").append(toIndentedString(retiredStatusValue)).append("\n");
-    sb.append("    preferredName: ").append(toIndentedString(preferredName)).append("\n");
-    sb.append("    relationshipToTarget: ").append(toIndentedString(relationshipToTarget)).append("\n");
-    sb.append("    synonym: ").append(toIndentedString(synonym)).append("\n");
-    sb.append("    synonymTermType: ").append(toIndentedString(synonymTermType)).append("\n");
-    sb.append("    synonymSource: ").append(toIndentedString(synonymSource)).append("\n");
-    sb.append("    synonymCode: ").append(toIndentedString(synonymCode)).append("\n");
-    sb.append("    synonymSubSource: ").append(toIndentedString(synonymSubSource)).append("\n");
-    sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
-    sb.append("    definitionSource: ").append(toIndentedString(definitionSource)).append("\n");
-    sb.append("    mapRelation: ").append(toIndentedString(mapRelation)).append("\n");
-    sb.append("    map: ").append(toIndentedString(map)).append("\n");
-    sb.append("    mapTarget: ").append(toIndentedString(mapTarget)).append("\n");
-    sb.append("    mapTargetTermType: ").append(toIndentedString(mapTargetTermType)).append("\n");
-    sb.append("    mapTargetTerminology: ").append(toIndentedString(mapTargetTerminology)).append("\n");
-    sb.append("    mapTargetTerminologyVersion: ").append(toIndentedString(mapTargetTerminologyVersion)).append("\n");
     sb.append("    detailsColumns: ").append(toIndentedString(detailsColumns)).append("\n");
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
     sb.append("    sourceCt: ").append(toIndentedString(sourceCt)).append("\n");
-    sb.append("    termTypes: ").append(toIndentedString(termTypes)).append("\n");
     sb.append("    subsetLink: ").append(toIndentedString(subsetLink)).append("\n");
-    sb.append("    subset: ").append(toIndentedString(subset)).append("\n");
     sb.append("    licenseText: ").append(toIndentedString(licenseText)).append("\n");
     sb.append("    metaConceptField: ").append(toIndentedString(metaConceptField)).append("\n");
-    sb.append("    preferredTermTypes: ").append(toIndentedString(preferredTermTypes)).append("\n");
     sb.append("    codeLabel: ").append(toIndentedString(codeLabel)).append("\n");
     sb.append("    welcomeText: ").append(toIndentedString(welcomeText)).append("\n");
     sb.append("    synonymTermGroup: ").append(toIndentedString(synonymTermGroup)).append("\n");
-    sb.append("    mapTargetTermGroup: ").append(toIndentedString(mapTargetTermGroup)).append("\n");
     sb.append("    termGroups: ").append(toIndentedString(termGroups)).append("\n");
     sb.append("    preferredTermGroups: ").append(toIndentedString(preferredTermGroups)).append("\n");
     sb.append("}");
@@ -1261,39 +652,18 @@ public class TerminologyMetadata {
     openapiFields.add("uiLabel");
     openapiFields.add("maxVersions");
     openapiFields.add("loader");
-    openapiFields.add("code");
-    openapiFields.add("conceptStatus");
     openapiFields.add("conceptStatuses");
     openapiFields.add("retiredStatusValue");
-    openapiFields.add("preferredName");
-    openapiFields.add("relationshipToTarget");
-    openapiFields.add("synonym");
-    openapiFields.add("synonymTermType");
-    openapiFields.add("synonymSource");
-    openapiFields.add("synonymCode");
-    openapiFields.add("synonymSubSource");
-    openapiFields.add("definition");
-    openapiFields.add("definitionSource");
-    openapiFields.add("mapRelation");
-    openapiFields.add("map");
-    openapiFields.add("mapTarget");
-    openapiFields.add("mapTargetTermType");
-    openapiFields.add("mapTargetTerminology");
-    openapiFields.add("mapTargetTerminologyVersion");
     openapiFields.add("detailsColumns");
     openapiFields.add("hierarchy");
     openapiFields.add("history");
     openapiFields.add("sourceCt");
-    openapiFields.add("termTypes");
     openapiFields.add("subsetLink");
-    openapiFields.add("subset");
     openapiFields.add("licenseText");
     openapiFields.add("metaConceptField");
-    openapiFields.add("preferredTermTypes");
     openapiFields.add("codeLabel");
     openapiFields.add("welcomeText");
     openapiFields.add("synonymTermGroup");
-    openapiFields.add("mapTargetTermGroup");
     openapiFields.add("termGroups");
     openapiFields.add("preferredTermGroups");
 
@@ -1330,12 +700,6 @@ public class TerminologyMetadata {
       if ((jsonObj.get("loader") != null && !jsonObj.get("loader").isJsonNull()) && !jsonObj.get("loader").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `loader` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loader").toString()));
       }
-      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
-      }
-      if ((jsonObj.get("conceptStatus") != null && !jsonObj.get("conceptStatus").isJsonNull()) && !jsonObj.get("conceptStatus").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `conceptStatus` to be a primitive type in the JSON string but got `%s`", jsonObj.get("conceptStatus").toString()));
-      }
       // ensure the optional json data is an array if present
       if (jsonObj.get("conceptStatuses") != null && !jsonObj.get("conceptStatuses").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `conceptStatuses` to be an array in the JSON string but got `%s`", jsonObj.get("conceptStatuses").toString()));
@@ -1343,69 +707,14 @@ public class TerminologyMetadata {
       if ((jsonObj.get("retiredStatusValue") != null && !jsonObj.get("retiredStatusValue").isJsonNull()) && !jsonObj.get("retiredStatusValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `retiredStatusValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("retiredStatusValue").toString()));
       }
-      if ((jsonObj.get("preferredName") != null && !jsonObj.get("preferredName").isJsonNull()) && !jsonObj.get("preferredName").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preferredName` to be a primitive type in the JSON string but got `%s`", jsonObj.get("preferredName").toString()));
-      }
-      if ((jsonObj.get("relationshipToTarget") != null && !jsonObj.get("relationshipToTarget").isJsonNull()) && !jsonObj.get("relationshipToTarget").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `relationshipToTarget` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relationshipToTarget").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("synonym") != null && !jsonObj.get("synonym").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonym` to be an array in the JSON string but got `%s`", jsonObj.get("synonym").toString()));
-      }
-      if ((jsonObj.get("synonymTermType") != null && !jsonObj.get("synonymTermType").isJsonNull()) && !jsonObj.get("synonymTermType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonymTermType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymTermType").toString()));
-      }
-      if ((jsonObj.get("synonymSource") != null && !jsonObj.get("synonymSource").isJsonNull()) && !jsonObj.get("synonymSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonymSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymSource").toString()));
-      }
-      if ((jsonObj.get("synonymCode") != null && !jsonObj.get("synonymCode").isJsonNull()) && !jsonObj.get("synonymCode").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonymCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymCode").toString()));
-      }
-      if ((jsonObj.get("synonymSubSource") != null && !jsonObj.get("synonymSubSource").isJsonNull()) && !jsonObj.get("synonymSubSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `synonymSubSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymSubSource").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("definition") != null && !jsonObj.get("definition").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `definition` to be an array in the JSON string but got `%s`", jsonObj.get("definition").toString()));
-      }
-      if ((jsonObj.get("definitionSource") != null && !jsonObj.get("definitionSource").isJsonNull()) && !jsonObj.get("definitionSource").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `definitionSource` to be a primitive type in the JSON string but got `%s`", jsonObj.get("definitionSource").toString()));
-      }
-      if ((jsonObj.get("mapRelation") != null && !jsonObj.get("mapRelation").isJsonNull()) && !jsonObj.get("mapRelation").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapRelation` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapRelation").toString()));
-      }
-      if ((jsonObj.get("map") != null && !jsonObj.get("map").isJsonNull()) && !jsonObj.get("map").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `map` to be a primitive type in the JSON string but got `%s`", jsonObj.get("map").toString()));
-      }
-      if ((jsonObj.get("mapTarget") != null && !jsonObj.get("mapTarget").isJsonNull()) && !jsonObj.get("mapTarget").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapTarget` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTarget").toString()));
-      }
-      if ((jsonObj.get("mapTargetTermType") != null && !jsonObj.get("mapTargetTermType").isJsonNull()) && !jsonObj.get("mapTargetTermType").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapTargetTermType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTargetTermType").toString()));
-      }
-      if ((jsonObj.get("mapTargetTerminology") != null && !jsonObj.get("mapTargetTerminology").isJsonNull()) && !jsonObj.get("mapTargetTerminology").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapTargetTerminology` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTargetTerminology").toString()));
-      }
-      if ((jsonObj.get("mapTargetTerminologyVersion") != null && !jsonObj.get("mapTargetTerminologyVersion").isJsonNull()) && !jsonObj.get("mapTargetTerminologyVersion").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapTargetTerminologyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTargetTerminologyVersion").toString()));
-      }
       if ((jsonObj.get("subsetLink") != null && !jsonObj.get("subsetLink").isJsonNull()) && !jsonObj.get("subsetLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subsetLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetLink").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("subset") != null && !jsonObj.get("subset").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `subset` to be an array in the JSON string but got `%s`", jsonObj.get("subset").toString()));
       }
       if ((jsonObj.get("licenseText") != null && !jsonObj.get("licenseText").isJsonNull()) && !jsonObj.get("licenseText").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `licenseText` to be a primitive type in the JSON string but got `%s`", jsonObj.get("licenseText").toString()));
       }
       if ((jsonObj.get("metaConceptField") != null && !jsonObj.get("metaConceptField").isJsonNull()) && !jsonObj.get("metaConceptField").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `metaConceptField` to be a primitive type in the JSON string but got `%s`", jsonObj.get("metaConceptField").toString()));
-      }
-      // ensure the optional json data is an array if present
-      if (jsonObj.get("preferredTermTypes") != null && !jsonObj.get("preferredTermTypes").isJsonArray()) {
-        throw new IllegalArgumentException(String.format("Expected the field `preferredTermTypes` to be an array in the JSON string but got `%s`", jsonObj.get("preferredTermTypes").toString()));
       }
       if ((jsonObj.get("codeLabel") != null && !jsonObj.get("codeLabel").isJsonNull()) && !jsonObj.get("codeLabel").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `codeLabel` to be a primitive type in the JSON string but got `%s`", jsonObj.get("codeLabel").toString()));
@@ -1415,9 +724,6 @@ public class TerminologyMetadata {
       }
       if ((jsonObj.get("synonymTermGroup") != null && !jsonObj.get("synonymTermGroup").isJsonNull()) && !jsonObj.get("synonymTermGroup").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `synonymTermGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymTermGroup").toString()));
-      }
-      if ((jsonObj.get("mapTargetTermGroup") != null && !jsonObj.get("mapTargetTermGroup").isJsonNull()) && !jsonObj.get("mapTargetTermGroup").isJsonPrimitive()) {
-        throw new IllegalArgumentException(String.format("Expected the field `mapTargetTermGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("mapTargetTermGroup").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("preferredTermGroups") != null && !jsonObj.get("preferredTermGroups").isJsonArray()) {
