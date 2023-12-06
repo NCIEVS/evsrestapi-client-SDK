@@ -30,7 +30,7 @@ test {
  * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
-    remoteInputSpec.set("https://api-evsrest-dev.nci.nih.gov/v3/api-docs")
+    remoteInputSpec.set("https://api-evsrest.nci.nih.gov/v3/api-docs")
     //inputSpec.set("$projectDir/src/evs-swagger.yaml")
     outputDir.set("$buildDir/openapi-java-client")
     apiPackage.set("gov.nih.nci.evs.api")
