@@ -12,10 +12,6 @@
 
 package gov.nih.nci.evs.api;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMinimal;
@@ -26,6 +22,8 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * API tests for MetadataEndpointsApi. These tests will demonstrate how to call the API and log the
@@ -509,7 +507,8 @@ public class MetadataEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("NCI Thesaurus 23.11d", response.get(0).getName());
+    assertEquals("ncit", response.get(0).getTerminology());
+    assertTrue(response.get(0).getLatest());
 
     // LOG
     log.info("Get all terminologies for ncit");
