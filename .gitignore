@@ -10,3 +10,9 @@ bin/
 __pycache__
 /build/
 python-examples/logs.txt
+.DS_Store
+.idea
+
+doc/code-gen/.idea
+doc/code-gen/.gradle
+doc/code-gen/build
