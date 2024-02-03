@@ -1,0 +1,65 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id 'java'
+    id "org.openapi.generator" version "6.6.0"
+    id 'maven-publish'
+}
+
+group = 'gov.nih.nci.evs.api'
+version = '0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/**
+ * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+ * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
+tasks.register('buildJavaSdk', GenerateTask) {
+    generatorName.set("java")
+    remoteInputSpec.set("https://api-evsrest.nci.nih.gov/v3/api-docs")
+    //inputSpec.set("$projectDir/src/evs-swagger.yaml")
+    outputDir.set("$buildDir/openapi-java-client")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.model")
+    configOptions.set([dateLibrary: "java8"])
+}
+
+
+/** Runs all code-gen tasks for each language to generate the clients */
+tasks.register("buildDependentTasks") {
+    dependsOn("buildJavaSdk",
+//            "buildPythonSdk",
+//            "buildGoSdk",
+//            "buildKotlinSdk",
+//            "buildBashSdk",
+//            "buildTypescriptSdk"
+    )
+    doLast {
+        println 'All client sdk generated. They can be found in the code-gen/build folder.'
+    }
+}
+
+compileJava.dependsOn tasks.named("buildJavaSdk")
+build.dependsOn('buildDepedentTask')
+publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+//                                 "buildPythonSdk",
+//                                 "buildGoSdk",
+//                                 "buildKotlinSdk",
+//                                 "buildBashSdk",
+//                                 "buildTypescriptSdk"
+]
