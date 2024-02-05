@@ -95,12 +95,12 @@
 					"response": []
 				},
 				{
-					"name": "Find code systems by url",
+					"name": "Find code systems by system url",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/CodeSystem?url=http://www.nlm.nih.gov/research/umls/umlssemnet.owl",
+							"raw": "{{baseUrl}}/fhir/r4/CodeSystem?system=http://www.nlm.nih.gov/research/umls/umlssemnet.owl",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -111,7 +111,7 @@
 							],
 							"query": [
 								{
-									"key": "url",
+									"key": "system",
 									"value": "http://www.nlm.nih.gov/research/umls/umlssemnet.owl"
 								}
 							]
