@@ -2,7 +2,7 @@
   "info": {
     "_postman_id": "b4613bc8-47e4-4606-adfe-8fdd8f503775",
     "name": "EVSRESTAPI FHIR R4",
-    "description": "FHIR Terminology Services API on Termhub, [https://api.terminologyhub.com](https://api.terminologyhub.com).",
+    "description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
     "_exporter_id": "30894083"
   },
@@ -657,7 +657,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r4/ConceptMap/{{conceptMapId}}/$translate?code=GO:0016887",
+              "raw": "{{baseUrl}}/fhir/r4/ConceptMap/GO_to_NCIt_Mapping_February2020/$translate?code=GO:0016887",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -665,7 +665,7 @@
                 "fhir",
                 "r4",
                 "ConceptMap",
-                "{{conceptMapId}}",
+                "GO_to_NCIt_Mapping_February2020",
                 "$translate"
               ],
               "query": [
@@ -714,7 +714,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r4/ConceptMap//{{conceptMapId}}/$translate?code=C19939&reverse=true",
+              "raw": "{{baseUrl}}/fhir/r4/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?code=C19939&reverse=true",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -723,7 +723,7 @@
                 "r4",
                 "ConceptMap",
                 "",
-                "{{conceptMapId}}",
+                "GO_to_NCIt_Mapping_February2020",
                 "$translate"
               ],
               "query": [
@@ -787,11 +787,7 @@
   "variable": [
     {
       "key": "baseUrl",
-      "value": "http://ncias-d2174-c.nci.nih.gov:8080"
-    },
-    {
-      "key": "conceptMapId",
-      "value": "GO_to_NCIt_Mapping_February2020"
+      "value": "https://api-evsrest.nci.nih.gov"
     }
   ]
 }
