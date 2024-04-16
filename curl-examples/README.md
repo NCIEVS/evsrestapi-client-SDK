@@ -795,7 +795,7 @@ curl "$API_URL/concept/ncit/search?query=$q" | jq '.'
 See sample SPARQL query from this call in [`sparql-queries/no-prefix.txt`](sparql-queries/no-prefix.txt)
 See sample payload data from this call in [`samples/get-concepts-by-sparql-without-prefix.txt`](samples/get-concepts-by-sparql-without-prefix.txt)
 
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get concepts by SPARQL with prefix
 
@@ -809,7 +809,7 @@ curl "$API_URL/concept/ncit/search?query=$q" | jq '.'
 See sample SPARQL query from this call in [`sparql-queries/prefix.txt`](sparql-queries/prefix.txt)
 See sample payload data from this call in [`samples/get-concepts-by-sparql-with-prefix.txt`](samples/get-concepts-by-sparql-with-prefix.txt)
 
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
 ### Get SPARQL bindings from query
 
@@ -823,4 +823,4 @@ curl -X 'POST' "$API_URL/concept/ncit/search?query=$q" | jq '.'
 See sample SPARQL query from this call in [`sparql-queries/bindings.txt`](sparql-queries/bindings.txt)
 See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
 
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)

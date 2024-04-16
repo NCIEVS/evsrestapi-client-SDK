@@ -224,3 +224,30 @@ def test_get_concept_by_subset(): # Get concepts matching a search term within a
     assert response.status_code == requests.codes.ok;
     pretty_print = json.loads(response.text);
     logging.info(json.dumps(pretty_print, indent=2));
+    
+def test_get_concepts_by_sparql_query_with_prefix(): # Get concepts for a specified SPARQL query with prefixes.
+  query = open('../curl-examples/sparql-queries-encoded/prefix.txt').read()
+  logging.info("test_concept_tests.py: Get concepts for a specified SPARQL query with prefixes");
+  logging.info("url = " + prodUrl + "/concept/ncit/search?query=" + query);
+  response = requests.get(prodUrl + "/concept/ncit/search?query="+ query);
+  assert response.status_code == requests.codes.ok;
+  pretty_print = json.loads(response.text);
+  logging.info(json.dumps(pretty_print, indent=2));
+  
+def test_get_concepts_by_sparql_query_without_prefix(): # Get concepts for a specified SPARQL query without prefixes.
+  query = open('../curl-examples/sparql-queries-encoded/no-prefix.txt').read()
+  logging.info("test_concept_tests.py: Get concepts for a specified SPARQL query without prefixes");
+  logging.info("url = " + prodUrl + "/concept/ncit/search?query=" + query);
+  response = requests.get(prodUrl + "/concept/ncit/search?query=" + query);
+  assert response.status_code == requests.codes.ok;
+  pretty_print = json.loads(response.text);
+  logging.info(json.dumps(pretty_print, indent=2));
+    
+def test_get_sparql_bindings(): # Get SPARQL bindings for a specified SPARQL query.
+  query = open('../curl-examples/sparql-queries-encoded/bindings.txt').read()
+  logging.info("test_concept_tests.py: Get SPARQL bindings for a specified SPARQL query");
+  logging.info("url = " + prodUrl + "/sparql/ncit?query=" + query);
+  response = requests.get(prodUrl + "/sparql/ncit?query=" + query);
+  assert response.status_code == requests.codes.ok;
+  pretty_print = json.loads(response.text);
+  logging.info(json.dumps(pretty_print, indent=2));
