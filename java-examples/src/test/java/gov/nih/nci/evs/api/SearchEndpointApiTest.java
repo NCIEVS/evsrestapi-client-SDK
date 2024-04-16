@@ -742,12 +742,12 @@ public class SearchEndpointApiTest {
   }
   
   /**
-   * Get concept search results using term code through SPARQL
+   * Get concept search results using term code through SPARQL without a prefix
    *
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchByCodeSPARQLTest() throws ApiException {
+  public void searchSPARQLWithoutPrefixTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String type = "contains";
     Boolean ascending = true;
@@ -797,8 +797,23 @@ public class SearchEndpointApiTest {
     log.info("Get SPARQL search results from NCIT for query = " + query);
     log.info("   search results = " + response);
     
+  }
+  
+  /**
+   * Get concept search results using term code through SPARQL with a prefix
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchSPARQLWithPrefixTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
     // preformed prefix
-    query = "PREFIX :<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> \n" + 
+    String query = "PREFIX :<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> \n" + 
         "PREFIX base:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>\n" + 
         "PREFIX owl:<http://www.w3.org/2002/07/owl#>\n" + 
         "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
@@ -817,7 +832,7 @@ public class SearchEndpointApiTest {
         "}";
 
     // ACT
-    response =
+    ConceptResultList response =
         api.searchSingleTerminologySparql(
             terminology,
             query,
