@@ -1,0 +1,49 @@
+{
+  "total": 1000,
+  "parameters": {
+    "type": "contains",
+    "include": "minimal"
+  },
+  "results": [
+    {
+      "code": "C7057",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7057"
+    },
+    {
+      "code": "C12219",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12219"
+    },
+    {
+      "code": "C12913",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12913"
+    },
+    {
+      "code": "C3910",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C3910"
+    },
+    {
+      "code": "C20189",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20189"
+    },
+    {
+      "code": "C1908",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1908"
+    },
+    {
+      "code": "C26548",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C26548"
+    },
+    {
+      "code": "C12218",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12218"
+    },
+    {
+      "code": "C17828",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17828"
+    },
+    {
+      "code": "C16612",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612"
+    }
+  ]
+}

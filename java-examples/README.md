@@ -4431,7 +4431,7 @@ Run the gradle command in the terminal to get concepts for a specified for a spe
 
 Run the gradle command in the terminal to get conceptss for a specified for a specified SPARQL query with prefixes.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLBindingsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLWithPrefixTest`
 
 ```{text}
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL binding results from query = SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }
@@ -4472,7 +4472,7 @@ Run the gradle command in the terminal to get conceptss for a specified for a sp
 
 Run the gradle command in the terminal to get SPARQL bindings for a specified SPARQL query.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLWithPrefixTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLBindingsTest`
 
 ```{text}
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL binding results from query = SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }

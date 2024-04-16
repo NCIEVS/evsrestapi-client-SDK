@@ -1,0 +1,7 @@
+SELECT ?code ?x
+{ GRAPH <http://NCI_T_monthly> 
+  { 
+    ?x a owl:Class . 
+    ?x :NHC0 ?code .
+  } 
+}
