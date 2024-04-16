@@ -783,7 +783,7 @@ See sample payload data from this call in [`samples/get-replacements-for-concept
 
 ### Get concepts by SPARQL without prefix
 
-Get concepts for a specified for a specified SPARQL query without prefixes.
+Get concepts for a specified SPARQL query without prefixes.
 
 `curl "$API_URL/concept/ncit/search?query=" | jq '.'`
 
@@ -799,7 +799,7 @@ See sample payload data from this call in [`samples/get-concepts-by-sparql-witho
 
 ### Get concepts by SPARQL with prefix
 
-Get concepts for a specified for a specified SPARQL query with prefixes.
+Get concepts for a specified SPARQL query with prefixes.
 
 ```{text}
 q=`cat sparql-queries-encoded/prefix.txt`

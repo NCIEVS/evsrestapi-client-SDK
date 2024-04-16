@@ -4352,7 +4352,7 @@ code.
 
 ### Get concepts by SPARQL without prefix
 
-Run the gradle command in the terminal to get concepts for a specified for a specified SPARQL query without prefixes.
+Run the gradle command in the terminal to get concepts for a specified SPARQL query without prefixes.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLWithoutPrefixTest`
 
@@ -4429,7 +4429,7 @@ Run the gradle command in the terminal to get concepts for a specified for a spe
 
 ### Get concepts by SPARQL with prefix
 
-Run the gradle command in the terminal to get conceptss for a specified for a specified SPARQL query with prefixes.
+Run the gradle command in the terminal to get concepts for a specified SPARQL query with prefixes.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchSPARQLWithPrefixTest`
 
