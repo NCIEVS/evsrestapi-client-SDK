@@ -817,7 +817,7 @@ Get SPARQL bindings for a specified SPARQL query.
 
 ```{text}
 q=`cat sparql-queries-encoded/bindings.txt`
-curl -X 'POST' "$API_URL/concept/ncit/search?query=$q" | jq '.'
+curl -X 'POST' "$API_URL/sparql/ncit?query=$q" | jq '.'
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/bindings.txt`](sparql-queries/bindings.txt)

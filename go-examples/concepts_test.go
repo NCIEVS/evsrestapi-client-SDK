@@ -2,6 +2,7 @@ package tests
 
 import (
 	"fmt"
+	"os"
 	"testing"
 )
 
@@ -312,4 +313,46 @@ func TestGetConceptBySubset(t *testing.T) {
 	var url = string(used_url) + "/concept/ncit/search?subset=C157225&term=Hydrogenation"
 
 	ProcessData(url)
+}
+
+// Get concepts by SPARQL without prefix.
+func TestGetConceptsBySparqlWithoutPrefix(t *testing.T) {
+	var used_url = ValidateUrlFile()
+	var query, err = os.ReadFile("../curl-examples/sparql-queries-encoded/no-prefix.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	fmt.Println("concept_test.go: Get concepts by SPARQL without prefix")
+	fmt.Println(string(used_url) + "/concept/ncit/search?query=" + string(query) + "\n")
+	var url = string(used_url) + "/concept/ncit/search?query=" + string(query)
+
+	ProcessData(url)
+}
+
+// Get concepts by SPARQL with prefix.
+func TestGetConceptsBySparqlWithPrefix(t *testing.T) {
+	var used_url = ValidateUrlFile()
+	var query, err = os.ReadFile("../curl-examples/sparql-queries-encoded/prefix.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	fmt.Println("concept_test.go: Get concepts by SPARQL with prefix")
+	fmt.Println(string(used_url) + "/concept/ncit/search?query=" + string(query) + "\n")
+	var url = string(used_url) + "/concept/ncit/search?query=" + string(query)
+
+	ProcessData(url)
+}
+
+// Get SPARQL bindings.
+func TestGetSparqlBindings(t *testing.T) {
+	var used_url = ValidateUrlFile()
+	var query, err = os.ReadFile("../curl-examples/sparql-queries-encoded/bindings.txt")
+	if err != nil {
+		fmt.Print(err)
+	}
+	fmt.Println("concept_test.go: Get SPARQL bindings")
+	fmt.Println(string(used_url) + "/sparql/ncit?query=" + string(query) + "\n")
+	var url = string(used_url) + "/sparql/ncit?query=" + string(query)
+
+	ProcessDataPost(url)
 }

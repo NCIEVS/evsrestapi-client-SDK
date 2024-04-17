@@ -1057,3 +1057,48 @@ Command: go test -v -run TestGetInactiveReplacementCodes`
 ```
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get concepts by SPARQL without prefix
+
+Get concepts for a specified SPARQL query without prefixes.
+
+Command: go test -v -run TestGetConceptsBySparqlWithoutPrefix`
+
+```{text}
+{"total":166616,"timeTaken":35,"parameters":{"type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C1000","name":"Recombinant Amphiregulin","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C10000","name":"Cyclophosphamide/Fluoxymesterone/Mitolactol/Prednisone/Tamoxifen","terminology":"ncit","version":"21.06e","conceptStatus":"Obsolete_Concept","leaf":true,"active":true},{"code":"C100000","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100001","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable After Successful Full-Dose Thrombolytic Therapy","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100002","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100003","name":"Percutaneous Mitral Valve Repair","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100004","name":"Pericardial Stripping","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100005","name":"Post-Cardiac Transplant Evaluation","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100006","name":"Pre-Operative Evaluation for Non-Cardiovascular Surgery","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100007","name":"Previously Implanted Cardiac Lead","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+```
+
+See sample SPARQL query from this call in [`curl-examples/sparql-queries/no-prefix.txt`](../curl-examples/sparql-queries/no-prefix.txt)
+See sample payload data from this call in [`samples/get-concepts-by-sparql-without-prefix.txt`](samples/get-concepts-by-sparql-without-prefix.txt)
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get concepts by SPARQL with prefix
+
+Get concepts for a specified SPARQL query with prefixes.
+
+Command: go test -v -run TestGetConceptsBySparqlWithPrefix`
+
+```{text}
+{"total":166616,"timeTaken":498,"parameters":{"type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C1000","name":"Recombinant Amphiregulin","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C10000","name":"Cyclophosphamide/Fluoxymesterone/Mitolactol/Prednisone/Tamoxifen","terminology":"ncit","version":"21.06e","conceptStatus":"Obsolete_Concept","leaf":true,"active":true},{"code":"C100000","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100001","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable After Successful Full-Dose Thrombolytic Therapy","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100002","name":"Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100003","name":"Percutaneous Mitral Valve Repair","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100004","name":"Pericardial Stripping","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100005","name":"Post-Cardiac Transplant Evaluation","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100006","name":"Pre-Operative Evaluation for Non-Cardiovascular Surgery","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C100007","name":"Previously Implanted Cardiac Lead","terminology":"ncit","version":"21.06e","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+```
+
+See sample SPARQL query from this call in [`curl-examples/sparql-queries/prefix.txt`](../curl-examples/sparql-queries/prefix.txt)
+See sample payload data from this call in [`samples/get-concepts-by-sparql-with-prefix.txt`](samples/get-concepts-by-sparql-with-prefix.txt)
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get SPARQL bindings from query
+
+Get SPARQL bindings for a specified SPARQL query.
+
+Command: go test -v -run TestGetSparqlBindings`
+
+```{text}
+{"total":1000,"parameters":{"type":"contains","include":"minimal"},"results":[{"code":"C7057","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C7057"},{"code":"C12219","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12219"},{"code":"C12913","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12913"},{"code":"C3910","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C3910"},{"code":"C20189","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20189"},{"code":"C1908","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1908"},{"code":"C26548","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C26548"},{"code":"C12218","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12218"},{"code":"C17828","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C17828"},{"code":"C16612","x":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612"}]}
+```
+
+See sample SPARQL query from this call in [`curl-examples/sparql-queries/bindings.txt`](../curl-examples/sparql-queries/bindings.txt)
+See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)
