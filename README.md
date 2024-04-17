@@ -17,10 +17,9 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 - [Click for Java examples.](../master/java-examples/ "Java Examples")
 - [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
 - [Click for Python examples.](../master/python-examples/ "Python Examples")
-
+- [Click for Go examples.](../master/go-examples/ "Go Examples")
 
 **[Back to top](#table-of-contents)**
-
 
 ## Use Cases
 
@@ -77,19 +76,16 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get replacement concepts for an inactive concept code
 - Get replacement concepts for a list of inactive concept codes
 
-
 All of the tutorials use an environment variable for the API URL of the deployment:
 
-- API_URL=https://api-evsrest.nci.nih.gov/api/v1/
+- API_URL=<https://api-evsrest.nci.nih.gov/api/v1/>
 
 **[Back to top](#table-of-contents)**
 
-
 ## Resources
 
-- Swagger Documentation - https://api-evsrest.nci.nih.gov/swagger-ui.html
+- Swagger Documentation - <https://api-evsrest.nci.nih.gov/swagger-ui.html>
 - [Additional Documentation](../master/doc/ "Swagger")
-
 
 **[Back to top](#table-of-contents)**
 
@@ -115,5 +111,3 @@ All of the tutorials use an environment variable for the API URL of the deployme
 See the included [`LICENSE`](LICENSE) file for details.
 
 **[Back to top](#table-of-contents)**
-
-
