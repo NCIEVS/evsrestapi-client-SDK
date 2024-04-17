@@ -52,7 +52,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Criteria for a search or find operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-16T11:26:20.390158300-07:00[America/Los_Angeles]")
 public class SearchCriteria {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -125,6 +125,10 @@ public class SearchCriteria {
   public static final String SERIALIZED_NAME_SUBSET = "subset";
   @SerializedName(SERIALIZED_NAME_SUBSET)
   private List<String> subset;
+
+  public static final String SERIALIZED_NAME_CODE_LIST = "codeList";
+  @SerializedName(SERIALIZED_NAME_CODE_LIST)
+  private List<String> codeList;
 
   public static final String SERIALIZED_NAME_TERMINOLOGY = "terminology";
   @SerializedName(SERIALIZED_NAME_TERMINOLOGY)
@@ -575,6 +579,35 @@ public class SearchCriteria {
   }
 
 
+  public SearchCriteria codeList(List<String> codeList) {
+    
+    this.codeList = codeList;
+    return this;
+  }
+
+  public SearchCriteria addCodeListItem(String codeListItem) {
+    if (this.codeList == null) {
+      this.codeList = new ArrayList<>();
+    }
+    this.codeList.add(codeListItem);
+    return this;
+  }
+
+   /**
+   * Comma-separated list of concept codes to restrict search results by, e.g. &#39;C157225&#39;
+   * @return codeList
+  **/
+  @javax.annotation.Nullable
+  public List<String> getCodeList() {
+    return codeList;
+  }
+
+
+  public void setCodeList(List<String> codeList) {
+    this.codeList = codeList;
+  }
+
+
   public SearchCriteria terminology(List<String> terminology) {
     
     this.terminology = terminology;
@@ -632,12 +665,13 @@ public class SearchCriteria {
         Objects.equals(this.definitionType, searchCriteria.definitionType) &&
         Objects.equals(this.synonymTermType, searchCriteria.synonymTermType) &&
         Objects.equals(this.subset, searchCriteria.subset) &&
+        Objects.equals(this.codeList, searchCriteria.codeList) &&
         Objects.equals(this.terminology, searchCriteria.terminology);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, term, type, include, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, synonymSource, synonymType, definitionSource, definitionType, synonymTermType, subset, terminology);
+    return Objects.hash(uri, ct, term, type, include, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, synonymSource, synonymType, definitionSource, definitionType, synonymTermType, subset, codeList, terminology);
   }
 
   @Override
@@ -662,6 +696,7 @@ public class SearchCriteria {
     sb.append("    definitionType: ").append(toIndentedString(definitionType)).append("\n");
     sb.append("    synonymTermType: ").append(toIndentedString(synonymTermType)).append("\n");
     sb.append("    subset: ").append(toIndentedString(subset)).append("\n");
+    sb.append("    codeList: ").append(toIndentedString(codeList)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
     sb.append("}");
     return sb.toString();
@@ -703,6 +738,7 @@ public class SearchCriteria {
     openapiFields.add("definitionType");
     openapiFields.add("synonymTermType");
     openapiFields.add("subset");
+    openapiFields.add("codeList");
     openapiFields.add("terminology");
 
     // a set of required properties/fields (JSON key names)
@@ -778,6 +814,10 @@ public class SearchCriteria {
       // ensure the optional json data is an array if present
       if (jsonObj.get("subset") != null && !jsonObj.get("subset").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `subset` to be an array in the JSON string but got `%s`", jsonObj.get("subset").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("codeList") != null && !jsonObj.get("codeList").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `codeList` to be an array in the JSON string but got `%s`", jsonObj.get("codeList").toString()));
       }
       // ensure the optional json data is an array if present
       if (jsonObj.get("terminology") != null && !jsonObj.get("terminology").isJsonArray()) {

@@ -20,11 +20,11 @@ import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
-import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.SearchCriteria;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -52,9 +52,9 @@ import java.util.Set;
 import gov.nih.nci.evs.api.invoker.JSON;
 
 /**
- * MapResultList
+ * Represents a list of objects returned from a find call
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:24:21.740176-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-04-16T11:26:20.390158300-07:00[America/Los_Angeles]")
 public class MapResultList {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -66,7 +66,7 @@ public class MapResultList {
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_TIME_TAKEN = "timeTaken";
   @SerializedName(SERIALIZED_NAME_TIME_TAKEN)
@@ -76,9 +76,9 @@ public class MapResultList {
   @SerializedName(SERIALIZED_NAME_PARAMETERS)
   private SearchCriteria parameters;
 
-  public static final String SERIALIZED_NAME_MAPS = "maps";
-  @SerializedName(SERIALIZED_NAME_MAPS)
-  private List<ConceptMap> maps;
+  public static final String SERIALIZED_NAME_RESULTS = "results";
+  @SerializedName(SERIALIZED_NAME_RESULTS)
+  private List<Map<String, String>> results;
 
   public MapResultList() {
   }
@@ -90,7 +90,7 @@ public class MapResultList {
   }
 
    /**
-   * Get uri
+   * URI for this element in an rdf-based source file
    * @return uri
   **/
   @javax.annotation.Nullable
@@ -111,7 +111,7 @@ public class MapResultList {
   }
 
    /**
-   * Get ct
+   * Used to indicate the total amount of data in cases where a limit is being applied
    * @return ct
   **/
   @javax.annotation.Nullable
@@ -125,23 +125,23 @@ public class MapResultList {
   }
 
 
-  public MapResultList total(Integer total) {
+  public MapResultList total(Long total) {
     
     this.total = total;
     return this;
   }
 
    /**
-   * Get total
+   * Total nubmer of results (if paging is not considered)
    * @return total
   **/
   @javax.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
 
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 
@@ -153,7 +153,7 @@ public class MapResultList {
   }
 
    /**
-   * Get timeTaken
+   * Total time taken to compute the result
    * @return timeTaken
   **/
   @javax.annotation.Nullable
@@ -188,32 +188,32 @@ public class MapResultList {
   }
 
 
-  public MapResultList maps(List<ConceptMap> maps) {
+  public MapResultList results(List<Map<String, String>> results) {
     
-    this.maps = maps;
+    this.results = results;
     return this;
   }
 
-  public MapResultList addMapsItem(ConceptMap mapsItem) {
-    if (this.maps == null) {
-      this.maps = new ArrayList<>();
+  public MapResultList addResultsItem(Map<String, String> resultsItem) {
+    if (this.results == null) {
+      this.results = new ArrayList<>();
     }
-    this.maps.add(mapsItem);
+    this.results.add(resultsItem);
     return this;
   }
 
    /**
-   * Get maps
-   * @return maps
+   * Search criteria used to arrive at this result
+   * @return results
   **/
   @javax.annotation.Nullable
-  public List<ConceptMap> getMaps() {
-    return maps;
+  public List<Map<String, String>> getResults() {
+    return results;
   }
 
 
-  public void setMaps(List<ConceptMap> maps) {
-    this.maps = maps;
+  public void setResults(List<Map<String, String>> results) {
+    this.results = results;
   }
 
 
@@ -232,12 +232,12 @@ public class MapResultList {
         Objects.equals(this.total, mapResultList.total) &&
         Objects.equals(this.timeTaken, mapResultList.timeTaken) &&
         Objects.equals(this.parameters, mapResultList.parameters) &&
-        Objects.equals(this.maps, mapResultList.maps);
+        Objects.equals(this.results, mapResultList.results);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, total, timeTaken, parameters, maps);
+    return Objects.hash(uri, ct, total, timeTaken, parameters, results);
   }
 
   @Override
@@ -249,7 +249,7 @@ public class MapResultList {
     sb.append("    total: ").append(toIndentedString(total)).append("\n");
     sb.append("    timeTaken: ").append(toIndentedString(timeTaken)).append("\n");
     sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
-    sb.append("    maps: ").append(toIndentedString(maps)).append("\n");
+    sb.append("    results: ").append(toIndentedString(results)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -277,7 +277,7 @@ public class MapResultList {
     openapiFields.add("total");
     openapiFields.add("timeTaken");
     openapiFields.add("parameters");
-    openapiFields.add("maps");
+    openapiFields.add("results");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
@@ -310,19 +310,9 @@ public class MapResultList {
       if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull()) {
         SearchCriteria.validateJsonObject(jsonObj.getAsJsonObject("parameters"));
       }
-      if (jsonObj.get("maps") != null && !jsonObj.get("maps").isJsonNull()) {
-        JsonArray jsonArraymaps = jsonObj.getAsJsonArray("maps");
-        if (jsonArraymaps != null) {
-          // ensure the json data is an array
-          if (!jsonObj.get("maps").isJsonArray()) {
-            throw new IllegalArgumentException(String.format("Expected the field `maps` to be an array in the JSON string but got `%s`", jsonObj.get("maps").toString()));
-          }
-
-          // validate the optional field `maps` (array)
-          for (int i = 0; i < jsonArraymaps.size(); i++) {
-            ConceptMap.validateJsonObject(jsonArraymaps.get(i).getAsJsonObject());
-          };
-        }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("results") != null && !jsonObj.get("results").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `results` to be an array in the JSON string but got `%s`", jsonObj.get("results").toString()));
       }
   }
 

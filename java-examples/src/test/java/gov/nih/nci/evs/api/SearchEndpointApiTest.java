@@ -14,6 +14,7 @@ package gov.nih.nci.evs.api;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.ConceptResultList;
+import gov.nih.nci.evs.api.model.MapResultList;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -737,6 +738,157 @@ public class SearchEndpointApiTest {
 
     // LOG
     log.info("Get search results for specific term - " + term);
+    log.info("   search results = " + response);
+  }
+  
+  /**
+   * Get concept search results using term code through SPARQL without a prefix
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchSPARQLWithoutPrefixTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+    // API generates prefix
+    String query = "SELECT ?code\n" + 
+        "{ GRAPH <http://NCI_T_monthly> \n" + 
+        "  { \n" + 
+        "    ?x a owl:Class . \n" + 
+        "    ?x :NHC0 ?code .\n" + 
+        "    ?x :P108 \"Melanoma\"\n" + 
+        "  } \n" + 
+        "}";
+
+    // ACT
+    ConceptResultList response =
+        api.searchSingleTerminologySparql(
+            terminology,
+            query,
+            include,
+            null,
+            null,
+            type,
+            null,
+            ascending,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get SPARQL search results from NCIT for query = " + query);
+    log.info("   search results = " + response);
+    
+  }
+  
+  /**
+   * Get concept search results using term code through SPARQL with a prefix
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchSPARQLWithPrefixTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    Integer fromRecord = 0;
+    Integer pageSize = 25;
+    // preformed prefix
+    String query = "PREFIX :<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> \n" + 
+        "PREFIX base:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>\n" + 
+        "PREFIX owl:<http://www.w3.org/2002/07/owl#>\n" + 
+        "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
+        "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n" + 
+        "PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>\n" + 
+        "PREFIX dc:<http://purl.org/dc/elements/1.1/>\n" + 
+        "PREFIX oboInOwl:<http://www.geneontology.org/formats/oboInOwl#>\n" + 
+        "PREFIX xml:<http://www.w3.org/2001/XMLSchema#>\n" + 
+        "SELECT ?code\n" + 
+        "{ GRAPH <http://NCI_T_monthly> \n" + 
+        "  { \n" + 
+        "    ?x a owl:Class . \n" + 
+        "    ?x :NHC0 ?code .\n" + 
+        "    ?x :P108 \"Melanoma\"\n" + 
+        "  } \n" + 
+        "}";
+
+    // ACT
+    ConceptResultList response =
+        api.searchSingleTerminologySparql(
+            terminology,
+            query,
+            include,
+            null,
+            null,
+            type,
+            null,
+            ascending,
+            fromRecord,
+            pageSize,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info("Get SPARQL search results from NCIT for query = " + query);
+    log.info("   search results = " + response);
+  }
+  /**
+   * Get SPARQL bindings from query
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void searchSPARQLBindingsTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String include = "minimal";
+    String query = "SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }";
+
+    // ACT
+    MapResultList response =
+        api.getSparqlBindings(
+            terminology,
+            query,
+            null,
+            null,
+            null);
+
+    // ASSERT
+    assertNotNull(response);
+
+    // LOG
+    log.info("Get SPARQL binding results from query = " + query);
     log.info("   search results = " + response);
   }
 }

@@ -1,9 +1,10 @@
 {
 	"info": {
-		"_postman_id": "2d49f78f-48aa-4dba-b9d3-2a5dddb6f237",
+		"_postman_id": "2449829d-8f9f-444c-b1b4-8c33a41b229f",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30894083"
 	},
 	"item": [
 		{
@@ -239,6 +240,27 @@
 			"response": []
 		},
 		{
+			"name": "Get property axiom qualifiers by code (or label)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/property/P383/axiomQualifiers",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"property",
+						"P383",
+						"axiomQualifiers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get all qualifiers",
 			"request": {
 				"method": "GET",
@@ -258,7 +280,7 @@
 			"response": []
 		},
 		{
-			"name": "Get qualifier by code (or label)",
+			"name": "Ge qualifier by code (or label)",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -278,27 +300,6 @@
 							"key": "include",
 							"value": "summary"
 						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get qualifier values by code (or label)",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/qualifier/P390/values",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"qualifier",
-						"P390",
-						"values"
 					]
 				}
 			},
@@ -408,134 +409,6 @@
 						"metadata",
 						"ncit",
 						"termTypes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all definition sources",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/definitionSources",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"definitionSources"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all synonym sources",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/synonymSources",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"synonymSources"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Definition Types",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/definitionTypes",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"definitionTypes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Definition Type by Code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/definitionType/P325?include=summary",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"definitionType",
-						"P325"
-					],
-					"query": [
-						{
-							"key": "include",
-							"value": "summary"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Synonym Types",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/synonymTypes",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"synonymTypes"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Synonym Type by Code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/synonymType/P90?include=summary",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"synonymType",
-						"P90"
-					],
-					"query": [
-						{
-							"key": "include",
-							"value": "summary"
-						}
 					]
 				}
 			},
@@ -1132,7 +1005,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII_Code&include=properties",
+					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=XAV05295I5&property=fda_unii_code&include=properties",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -1151,7 +1024,7 @@
 						},
 						{
 							"key": "property",
-							"value": "FDA_UNII_Code"
+							"value": "fda_unii_code"
 						},
 						{
 							"key": "include",
@@ -1163,74 +1036,24 @@
 			"response": []
 		},
 		{
-			"name": "Get all subsets",
+			"name": "Get Concepts by SPARQL with Prefix",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/subsets",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"subsets"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get subset by code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/subset/C81222?include=summary",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"metadata",
-						"ncit",
-						"subset",
-						"C81222"
-					],
-					"query": [
-						{
-							"key": "include",
-							"value": "summary"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get all subset members by code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=100",
+					"raw": "{{API_URL}}/concept/ncit/search?query=PREFIX%20%3A%3Chttp%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23%3E%20%20PREFIX%20base%3A%3Chttp%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23%3E%20PREFIX%20owl%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%20PREFIX%20rdf%3A%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%20PREFIX%20rdfs%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%20PREFIX%20xsd%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%20PREFIX%20dc%3A%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%20PREFIX%20oboInOwl%3A%3Chttp%3A%2F%2Fwww.geneontology.org%2Fformats%2FoboInOwl%23%3E%20PREFIX%20xml%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%20SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%20%20%7B%20%20%20%20%20%20%3Fx%20a%20owl%3AClass%20.%20%20%20%20%20%20%3Fx%20%3ANHC0%20%3Fcode%20.%20%20%20%20%20%3Fx%20%3AP108%20%22Melanoma%22%20%20%20%7D%20%20%7D",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
 						"concept",
 						"ncit",
-						"subsetMembers",
-						"C81222"
+						"search"
 					],
 					"query": [
 						{
-							"key": "fromRecord",
-							"value": "0"
-						},
-						{
-							"key": "pageSize",
-							"value": "100"
+							"key": "query",
+							"value": "PREFIX%20%3A%3Chttp%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23%3E%20%20PREFIX%20base%3A%3Chttp%3A%2F%2Fncicb.nci.nih.gov%2Fxml%2Fowl%2FEVS%2FThesaurus.owl%23%3E%20PREFIX%20owl%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2002%2F07%2Fowl%23%3E%20PREFIX%20rdf%3A%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%20PREFIX%20rdfs%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%20PREFIX%20xsd%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%20PREFIX%20dc%3A%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Felements%2F1.1%2F%3E%20PREFIX%20oboInOwl%3A%3Chttp%3A%2F%2Fwww.geneontology.org%2Fformats%2FoboInOwl%23%3E%20PREFIX%20xml%3A%3Chttp%3A%2F%2Fwww.w3.org%2F2001%2FXMLSchema%23%3E%20SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%20%20%7B%20%20%20%20%20%20%3Fx%20a%20owl%3AClass%20.%20%20%20%20%20%20%3Fx%20%3ANHC0%20%3Fcode%20.%20%20%20%20%20%3Fx%20%3AP108%20%22Melanoma%22%20%20%20%7D%20%20%7D"
 						}
 					]
 				}
@@ -1238,120 +1061,48 @@
 			"response": []
 		},
 		{
-			"name": "Get all mapsets",
+			"name": "Get Concepts by SPARQL without Prefix",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/mapset?include=properties",
+					"raw": "{{API_URL}}/concept/ncit/search?query=SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"mapset"
-					],
-					"query": [
-						{
-							"key": "include",
-							"value": "properties"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get mapset by code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping?include=properties",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"mapset",
-						"GO_to_NCIt_Mapping"
-					],
-					"query": [
-						{
-							"key": "include",
-							"value": "properties"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get maps by mapset code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping/maps?fromRecord=0&pageSize=5",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"mapset",
-						"GO_to_NCIt_Mapping",
-						"maps"
-					],
-					"query": [
-						{
-							"key": "fromRecord",
-							"value": "0"
-						},
-						{
-							"key": "pageSize",
-							"value": "5"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get replacement concepts for a specified inactive concept code",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/history/ncit/C12658/replacements",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"history",
+						"concept",
 						"ncit",
-						"C12658",
-						"replacements"
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D"
+						}
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get replacement concepts for a specified list of inactive concept codes",
+			"name": "Get SPARQL Bindings",
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/history/ncit/replacements?list=C12658,C13320",
+					"raw": "{{API_URL}}/sparql/ncit?query=SELECT%20%3Fcode%20%3Fx%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%20%20%7B%20%20%20%20%20%20%3Fx%20a%20owl%3AClass%20.%20%20%20%20%20%20%3Fx%20%3ANHC0%20%3Fcode%20.%20%20%20%7D%20%20%7D",
 					"host": [
 						"{{API_URL}}"
 					],
 					"path": [
-						"history",
-						"ncit",
-						"replacements"
+						"sparql",
+						"ncit"
 					],
 					"query": [
 						{
-							"key": "list",
-							"value": "C12658,C13320"
+							"key": "query",
+							"value": "SELECT%20%3Fcode%20%3Fx%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%20%20%7B%20%20%20%20%20%20%3Fx%20a%20owl%3AClass%20.%20%20%20%20%20%20%3Fx%20%3ANHC0%20%3Fcode%20.%20%20%20%7D%20%20%7D"
 						}
 					]
 				}
@@ -1382,7 +1133,8 @@
 	"variable": [
 		{
 			"key": "API_URL",
-			"value": "https://api-evsrest.nci.nih.gov/api/v1/"
+			"value": "https://api-evsrest.nci.nih.gov/api/v1/",
+			"type": "string"
 		}
 	]
 }

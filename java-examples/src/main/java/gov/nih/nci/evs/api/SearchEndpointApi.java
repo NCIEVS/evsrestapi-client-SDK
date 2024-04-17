@@ -28,6 +28,7 @@ import java.io.IOException;
 
 
 import gov.nih.nci.evs.api.model.ConceptResultList;
+import gov.nih.nci.evs.api.model.MapResultList;
 import gov.nih.nci.evs.api.model.RestException;
 
 import java.lang.reflect.Type;
@@ -75,6 +76,174 @@ public class SearchEndpointApi {
     }
 
     /**
+     * Build call for getSparqlBindings
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSparqlBindingsCall(String terminology, String query, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/sparql/{terminology}"
+            .replace("{" + "terminology" + "}", localVarApiClient.escapeString(terminology.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (fromRecord != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fromRecord", fromRecord));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call getSparqlBindingsValidateBeforeCall(String terminology, String query, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'terminology' is set
+        if (terminology == null) {
+            throw new ApiException("Missing the required parameter 'terminology' when calling getSparqlBindings(Async)");
+        }
+
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling getSparqlBindings(Async)");
+        }
+
+        return getSparqlBindingsCall(terminology, query, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
+
+    }
+
+    /**
+     * Get SPARQL query bindings from a single terminology and query
+     * Simple use case: Get bindings from given sparql query given the terminology to search.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @return MapResultList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public MapResultList getSparqlBindings(String terminology, String query, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        ApiResponse<MapResultList> localVarResp = getSparqlBindingsWithHttpInfo(terminology, query, fromRecord, pageSize, xEVSRESTAPILicenseKey);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get SPARQL query bindings from a single terminology and query
+     * Simple use case: Get bindings from given sparql query given the terminology to search.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @return ApiResponse&lt;MapResultList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<MapResultList> getSparqlBindingsWithHttpInfo(String terminology, String query, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
+        okhttp3.Call localVarCall = getSparqlBindingsValidateBeforeCall(terminology, query, fromRecord, pageSize, xEVSRESTAPILicenseKey, null);
+        Type localVarReturnType = new TypeToken<MapResultList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get SPARQL query bindings from a single terminology and query (asynchronously)
+     * Simple use case: Get bindings from given sparql query given the terminology to search.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call getSparqlBindingsAsync(String terminology, String query, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<MapResultList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = getSparqlBindingsValidateBeforeCall(terminology, query, fromRecord, pageSize, xEVSRESTAPILicenseKey, _callback);
+        Type localVarReturnType = new TypeToken<MapResultList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
      * Build call for search
      * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
      * @param terminology Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (optional)
@@ -100,10 +269,10 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchCall(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
@@ -254,10 +423,10 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public ConceptResultList search(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
@@ -291,10 +460,10 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ConceptResultList> searchWithHttpInfo(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
@@ -330,10 +499,10 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchAsync(String xEVSRESTAPILicenseKey, String terminology, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
@@ -369,9 +538,9 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchSingleTerminologyCall(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
@@ -524,9 +693,9 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ConceptResultList searchSingleTerminology(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
@@ -560,9 +729,9 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ConceptResultList> searchSingleTerminologyWithHttpInfo(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
@@ -598,14 +767,294 @@ public class SearchEndpointApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call searchSingleTerminologyAsync(String terminology, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, String include, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
 
         okhttp3.Call localVarCall = searchSingleTerminologyValidateBeforeCall(terminology, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+        Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
+        localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
+        return localVarCall;
+    }
+    /**
+     * Build call for searchSingleTerminologySparql
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
+     * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
+     * @param sort The search parameter to sort results by (optional)
+     * @param ascending Sort ascending (if true) or descending (if false) (optional)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/conceptStatuses&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param property Comma-separated list of properties to restrict search results by (see also &lt;i&gt;value&lt;/i&gt;). e.g.&lt;ul&gt;&lt;li&gt;&#39;P106,P322&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;COLOR,SHAPE&#39; for &lt;i&gt;terminology&#x3D;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus properties&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus properties&lt;/a&gt;.&lt;/p&gt; The properties can be specified as code or name. NOTE: This feature works with &lt;i&gt;value&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching the &lt;i&gt;value&lt;/i&gt; parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param value A property value to restrict search results by.  NOTE: This feature works with &lt;i&gt;property&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching this parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param definitionSource Comma-separated list of definition sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param definitionType Comma-separated list of definition types to restrict search results by, e.g. &#39;DEFINITION,ALT_DEFINITION&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymSource Comma-separated list of synonym sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param synonymType Comma-separated list of synonym types to restrict search results by, e.g. &#39;FULL_SYN&#39;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param subset Comma-separated list of subsets to restrict search results by, e.g. &#39;C157225&#39;. The value &#39;*&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt; (optional)
+     * @param _callback Callback for upload/download progress
+     * @return Call to execute
+     * @throws ApiException If fail to serialize the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchSingleTerminologySparqlCall(String terminology, String query, String include, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+        String basePath = null;
+        // Operation Servers
+        String[] localBasePaths = new String[] {  };
+
+        // Determine Base Path to Use
+        if (localCustomBaseUrl != null){
+            basePath = localCustomBaseUrl;
+        } else if ( localBasePaths.length > 0 ) {
+            basePath = localBasePaths[localHostIndex];
+        } else {
+            basePath = null;
+        }
+
+        Object localVarPostBody = null;
+
+        // create path and map variables
+        String localVarPath = "/api/v1/concept/{terminology}/search"
+            .replace("{" + "terminology" + "}", localVarApiClient.escapeString(terminology.toString()));
+
+        List<Pair> localVarQueryParams = new ArrayList<Pair>();
+        List<Pair> localVarCollectionQueryParams = new ArrayList<Pair>();
+        Map<String, String> localVarHeaderParams = new HashMap<String, String>();
+        Map<String, String> localVarCookieParams = new HashMap<String, String>();
+        Map<String, Object> localVarFormParams = new HashMap<String, Object>();
+
+        if (query != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("query", query));
+        }
+
+        if (include != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("include", include));
+        }
+
+        if (term != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("term", term));
+        }
+
+        if (type != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("type", type));
+        }
+
+        if (sort != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("sort", sort));
+        }
+
+        if (ascending != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("ascending", ascending));
+        }
+
+        if (fromRecord != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("fromRecord", fromRecord));
+        }
+
+        if (pageSize != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("pageSize", pageSize));
+        }
+
+        if (conceptStatus != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("conceptStatus", conceptStatus));
+        }
+
+        if (property != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("property", property));
+        }
+
+        if (value != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("value", value));
+        }
+
+        if (definitionSource != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("definitionSource", definitionSource));
+        }
+
+        if (definitionType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("definitionType", definitionType));
+        }
+
+        if (synonymSource != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("synonymSource", synonymSource));
+        }
+
+        if (synonymType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("synonymType", synonymType));
+        }
+
+        if (synonymTermType != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("synonymTermType", synonymTermType));
+        }
+
+        if (subset != null) {
+            localVarQueryParams.addAll(localVarApiClient.parameterToPair("subset", subset));
+        }
+
+        if (xEVSRESTAPILicenseKey != null) {
+            localVarHeaderParams.put("X-EVSRESTAPI-License-Key", localVarApiClient.parameterToString(xEVSRESTAPILicenseKey));
+        }
+
+        final String[] localVarAccepts = {
+            "application/json"
+        };
+        final String localVarAccept = localVarApiClient.selectHeaderAccept(localVarAccepts);
+        if (localVarAccept != null) {
+            localVarHeaderParams.put("Accept", localVarAccept);
+        }
+
+        final String[] localVarContentTypes = {
+        };
+        final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
+        if (localVarContentType != null) {
+            localVarHeaderParams.put("Content-Type", localVarContentType);
+        }
+
+        String[] localVarAuthNames = new String[] {  };
+        return localVarApiClient.buildCall(basePath, localVarPath, "POST", localVarQueryParams, localVarCollectionQueryParams, localVarPostBody, localVarHeaderParams, localVarCookieParams, localVarFormParams, localVarAuthNames, _callback);
+    }
+
+    @SuppressWarnings("rawtypes")
+    private okhttp3.Call searchSingleTerminologySparqlValidateBeforeCall(String terminology, String query, String include, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback _callback) throws ApiException {
+        // verify the required parameter 'terminology' is set
+        if (terminology == null) {
+            throw new ApiException("Missing the required parameter 'terminology' when calling searchSingleTerminologySparql(Async)");
+        }
+
+        // verify the required parameter 'query' is set
+        if (query == null) {
+            throw new ApiException("Missing the required parameter 'query' when calling searchSingleTerminologySparql(Async)");
+        }
+
+        return searchSingleTerminologySparqlCall(terminology, query, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
+
+    }
+
+    /**
+     * Get concept search results for a specified terminology
+     * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
+     * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
+     * @param sort The search parameter to sort results by (optional)
+     * @param ascending Sort ascending (if true) or descending (if false) (optional)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/conceptStatuses&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param property Comma-separated list of properties to restrict search results by (see also &lt;i&gt;value&lt;/i&gt;). e.g.&lt;ul&gt;&lt;li&gt;&#39;P106,P322&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;COLOR,SHAPE&#39; for &lt;i&gt;terminology&#x3D;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus properties&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus properties&lt;/a&gt;.&lt;/p&gt; The properties can be specified as code or name. NOTE: This feature works with &lt;i&gt;value&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching the &lt;i&gt;value&lt;/i&gt; parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param value A property value to restrict search results by.  NOTE: This feature works with &lt;i&gt;property&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching this parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param definitionSource Comma-separated list of definition sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param definitionType Comma-separated list of definition types to restrict search results by, e.g. &#39;DEFINITION,ALT_DEFINITION&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymSource Comma-separated list of synonym sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param synonymType Comma-separated list of synonym types to restrict search results by, e.g. &#39;FULL_SYN&#39;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param subset Comma-separated list of subsets to restrict search results by, e.g. &#39;C157225&#39;. The value &#39;*&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt; (optional)
+     * @return ConceptResultList
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ConceptResultList searchSingleTerminologySparql(String terminology, String query, String include, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        ApiResponse<ConceptResultList> localVarResp = searchSingleTerminologySparqlWithHttpInfo(terminology, query, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset);
+        return localVarResp.getData();
+    }
+
+    /**
+     * Get concept search results for a specified terminology
+     * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
+     * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
+     * @param sort The search parameter to sort results by (optional)
+     * @param ascending Sort ascending (if true) or descending (if false) (optional)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/conceptStatuses&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param property Comma-separated list of properties to restrict search results by (see also &lt;i&gt;value&lt;/i&gt;). e.g.&lt;ul&gt;&lt;li&gt;&#39;P106,P322&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;COLOR,SHAPE&#39; for &lt;i&gt;terminology&#x3D;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus properties&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus properties&lt;/a&gt;.&lt;/p&gt; The properties can be specified as code or name. NOTE: This feature works with &lt;i&gt;value&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching the &lt;i&gt;value&lt;/i&gt; parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param value A property value to restrict search results by.  NOTE: This feature works with &lt;i&gt;property&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching this parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param definitionSource Comma-separated list of definition sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param definitionType Comma-separated list of definition types to restrict search results by, e.g. &#39;DEFINITION,ALT_DEFINITION&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymSource Comma-separated list of synonym sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param synonymType Comma-separated list of synonym types to restrict search results by, e.g. &#39;FULL_SYN&#39;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param subset Comma-separated list of subsets to restrict search results by, e.g. &#39;C157225&#39;. The value &#39;*&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt; (optional)
+     * @return ApiResponse&lt;ConceptResultList&gt;
+     * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public ApiResponse<ConceptResultList> searchSingleTerminologySparqlWithHttpInfo(String terminology, String query, String include, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset) throws ApiException {
+        okhttp3.Call localVarCall = searchSingleTerminologySparqlValidateBeforeCall(terminology, query, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, null);
+        Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
+        return localVarApiClient.execute(localVarCall, localVarReturnType);
+    }
+
+    /**
+     * Get concept search results for a specified terminology (asynchronously)
+     * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39; target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest API&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+     * @param query The SPARQL query to run (required)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. (optional)
+     * @param term The term, phrase, or code to be searched, e.g. &#39;melanoma&#39; (optional)
+     * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy. (optional)
+     * @param sort The search parameter to sort results by (optional)
+     * @param ascending Sort ascending (if true) or descending (if false) (optional)
+     * @param fromRecord Start index of the search results (optional)
+     * @param pageSize Max number of results to return (optional)
+     * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/conceptStatuses&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param property Comma-separated list of properties to restrict search results by (see also &lt;i&gt;value&lt;/i&gt;). e.g.&lt;ul&gt;&lt;li&gt;&#39;P106,P322&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;COLOR,SHAPE&#39; for &lt;i&gt;terminology&#x3D;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus properties&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/properties&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus properties&lt;/a&gt;.&lt;/p&gt; The properties can be specified as code or name. NOTE: This feature works with &lt;i&gt;value&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching the &lt;i&gt;value&lt;/i&gt; parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param value A property value to restrict search results by.  NOTE: This feature works with &lt;i&gt;property&lt;/i&gt; to find concepts having one of the specified properties with an exact value matching this parameter.  Using a &lt;i&gt;term&lt;/i&gt; will further restrict results to those also matching the term. (optional)
+     * @param definitionSource Comma-separated list of definition sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/definitionSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param definitionType Comma-separated list of definition types to restrict search results by, e.g. &#39;DEFINITION,ALT_DEFINITION&#39; for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/definitionTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymSource Comma-separated list of synonym sources to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/synonymSources&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param synonymType Comma-separated list of synonym types to restrict search results by, e.g. &#39;FULL_SYN&#39;. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/synonymTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt; (optional)
+     * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncit/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;&#39;/api/v1/metadata/ncim/termTypes&#39; target&#x3D;&#39;_blank&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt; (optional)
+     * @param subset Comma-separated list of subsets to restrict search results by, e.g. &#39;C157225&#39;. The value &#39;*&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt; (optional)
+     * @param _callback The callback to be executed when the API call finishes
+     * @return The request call
+     * @throws ApiException If fail to process the API call, e.g. serializing the request body object
+     * @http.response.details
+     <table summary="Response Details" border="1">
+        <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
+     </table>
+     */
+    public okhttp3.Call searchSingleTerminologySparqlAsync(String terminology, String query, String include, String xEVSRESTAPILicenseKey, String term, String type, String sort, Boolean ascending, Integer fromRecord, Integer pageSize, String conceptStatus, String property, String value, String definitionSource, String definitionType, String synonymSource, String synonymType, String synonymTermType, String subset, final ApiCallback<ConceptResultList> _callback) throws ApiException {
+
+        okhttp3.Call localVarCall = searchSingleTerminologySparqlValidateBeforeCall(terminology, query, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _callback);
         Type localVarReturnType = new TypeToken<ConceptResultList>(){}.getType();
         localVarApiClient.executeAsync(localVarCall, localVarReturnType, _callback);
         return localVarCall;
