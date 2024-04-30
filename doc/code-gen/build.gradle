@@ -59,6 +59,17 @@ tasks.register('buildPythonSdk', GenerateTask) {
     ])
 }
 
+tasks.register('buildPythonSdk', GenerateTask) {
+    generatorName.set("python")
+    remoteInputSpec.set(inputURL)
+    //inputSpec.set(inputFile)
+    outputDir.set("$buildDir/openapi-python-client")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.model")
+    configOptions.set([dateLibrary: "python3"])
+}
+
 
 /** Runs all code-gen tasks for each language to generate the clients */
 tasks.register("buildClients") {
