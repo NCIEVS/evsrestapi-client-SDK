@@ -39,54 +39,40 @@ class SearchEndpointApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def search(
-            self,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ConceptResultList:
         """Get concept search results
 
@@ -148,7 +134,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_serialize(
             x_evsrestapi_license_key=x_evsrestapi_license_key,
@@ -176,10 +162,10 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "ConceptResultList",
             '417': "RestException",
+            '400': "RestException",
+            '200': "ConceptResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -191,54 +177,40 @@ class SearchEndpointApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def search_with_http_info(
-            self,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ConceptResultList]:
         """Get concept search results
 
@@ -300,7 +272,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_serialize(
             x_evsrestapi_license_key=x_evsrestapi_license_key,
@@ -328,10 +300,10 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "ConceptResultList",
             '417': "RestException",
+            '400': "RestException",
+            '200': "ConceptResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -343,54 +315,40 @@ class SearchEndpointApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def search_without_preload_content(
-            self,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Comma-separated list of terminologies to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get concept search results
 
@@ -452,7 +410,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_serialize(
             x_evsrestapi_license_key=x_evsrestapi_license_key,
@@ -480,10 +438,10 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "ConceptResultList",
             '417': "RestException",
+            '400': "RestException",
+            '200': "ConceptResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -491,30 +449,31 @@ class SearchEndpointApi:
         )
         return response_data.response
 
+
     def _search_serialize(
-            self,
-            x_evsrestapi_license_key,
-            terminology,
-            term,
-            type,
-            sort,
-            ascending,
-            include,
-            from_record,
-            page_size,
-            concept_status,
-            var_property,
-            value,
-            definition_source,
-            definition_type,
-            synonym_source,
-            synonym_type,
-            synonym_term_type,
-            subset,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        x_evsrestapi_license_key,
+        terminology,
+        term,
+        type,
+        sort,
+        ascending,
+        include,
+        from_record,
+        page_size,
+        concept_status,
+        var_property,
+        value,
+        definition_source,
+        definition_type,
+        synonym_source,
+        synonym_type,
+        synonym_term_type,
+        subset,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -532,61 +491,79 @@ class SearchEndpointApi:
         # process the path parameters
         # process the query parameters
         if terminology is not None:
+            
             _query_params.append(('terminology', terminology))
-
+            
         if term is not None:
+            
             _query_params.append(('term', term))
-
+            
         if type is not None:
+            
             _query_params.append(('type', type))
-
+            
         if sort is not None:
+            
             _query_params.append(('sort', sort))
-
+            
         if ascending is not None:
+            
             _query_params.append(('ascending', ascending))
-
+            
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if concept_status is not None:
+            
             _query_params.append(('conceptStatus', concept_status))
-
+            
         if var_property is not None:
+            
             _query_params.append(('property', var_property))
-
+            
         if value is not None:
+            
             _query_params.append(('value', value))
-
+            
         if definition_source is not None:
+            
             _query_params.append(('definitionSource', definition_source))
-
+            
         if definition_type is not None:
+            
             _query_params.append(('definitionType', definition_type))
-
+            
         if synonym_source is not None:
+            
             _query_params.append(('synonymSource', synonym_source))
-
+            
         if synonym_type is not None:
+            
             _query_params.append(('synonymType', synonym_type))
-
+            
         if synonym_term_type is not None:
+            
             _query_params.append(('synonymTermType', synonym_term_type))
-
+            
         if subset is not None:
+            
             _query_params.append(('subset', subset))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -594,6 +571,7 @@ class SearchEndpointApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -614,54 +592,42 @@ class SearchEndpointApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def search_single_terminology(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ConceptResultList:
         """Get concept search results for a specified terminology
 
@@ -723,7 +689,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_single_terminology_serialize(
             terminology=terminology,
@@ -751,9 +717,9 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "ConceptResultList",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -765,54 +731,40 @@ class SearchEndpointApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def search_single_terminology_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ConceptResultList]:
         """Get concept search results for a specified terminology
 
@@ -874,7 +826,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_single_terminology_serialize(
             terminology=terminology,
@@ -902,9 +854,9 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "ConceptResultList",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -916,54 +868,40 @@ class SearchEndpointApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def search_single_terminology_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            term: Annotated[Optional[StrictStr], Field(
-                description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
-            type: Annotated[Optional[StrictStr], Field(
-                description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            concept_status: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            var_property: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            value: Annotated[Optional[StrictStr], Field(
-                description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
-            definition_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            definition_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_source: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            synonym_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
-            synonym_term_type: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
-            subset: Annotated[Optional[StrictStr], Field(
-                description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        term: Annotated[Optional[StrictStr], Field(description="The term, phrase, or code to be searched, e.g. 'melanoma'")] = None,
+        type: Annotated[Optional[StrictStr], Field(description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        concept_status: Annotated[Optional[StrictStr], Field(description="Comma-separated list of concept status values to restrict search results by. <p><a href='/api/v1/metadata/ncit/conceptStatuses' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        var_property: Annotated[Optional[StrictStr], Field(description="Comma-separated list of properties to restrict search results by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE' for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties' target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for a list of NCI Metathesaurus properties</a>.</p> The properties can be specified as code or name. NOTE: This feature works with <i>value</i> to find concepts having one of the specified properties with an exact value matching the <i>value</i> parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        value: Annotated[Optional[StrictStr], Field(description="A property value to restrict search results by.  NOTE: This feature works with <i>property</i> to find concepts having one of the specified properties with an exact value matching this parameter.  Using a <i>term</i> will further restrict results to those also matching the term.")] = None,
+        definition_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/definitionSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p><p><a href='/api/v1/metadata/ncim/definitionSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        definition_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of definition types to restrict search results by, e.g. 'DEFINITION,ALT_DEFINITION' for <i>terminology=ncit</i>. <p><a href='/api/v1/metadata/ncit/definitionTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_source: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym sources to restrict search results by. <p><a href='/api/v1/metadata/ncit/synonymSources' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/synonymSources' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        synonym_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym types to restrict search results by, e.g. 'FULL_SYN'. <p><a href='/api/v1/metadata/ncit/synonymTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>. This parameter is only meaningful for <i>terminology=ncit</i>.</p>")] = None,
+        synonym_term_type: Annotated[Optional[StrictStr], Field(description="Comma-separated list of synonym term type values to restrict search results by. <p><a href='/api/v1/metadata/ncit/termTypes' target='_blank'>Click here for a list of NCI Thesaurus values</a>.</p> <p><a href='/api/v1/metadata/ncim/termTypes' target='_blank'>Click here for a list of NCI Metathesaurus values</a>.</p>")] = None,
+        subset: Annotated[Optional[StrictStr], Field(description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'. The value '*' can also be used to return results that participate in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get concept search results for a specified terminology
 
@@ -1025,7 +963,7 @@ class SearchEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._search_single_terminology_serialize(
             terminology=terminology,
@@ -1053,9 +991,9 @@ class SearchEndpointApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "ConceptResultList",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1063,30 +1001,31 @@ class SearchEndpointApi:
         )
         return response_data.response
 
+
     def _search_single_terminology_serialize(
-            self,
-            terminology,
-            x_evsrestapi_license_key,
-            term,
-            type,
-            sort,
-            ascending,
-            include,
-            from_record,
-            page_size,
-            concept_status,
-            var_property,
-            value,
-            definition_source,
-            definition_type,
-            synonym_source,
-            synonym_type,
-            synonym_term_type,
-            subset,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        x_evsrestapi_license_key,
+        term,
+        type,
+        sort,
+        ascending,
+        include,
+        from_record,
+        page_size,
+        concept_status,
+        var_property,
+        value,
+        definition_source,
+        definition_type,
+        synonym_source,
+        synonym_type,
+        synonym_term_type,
+        subset,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1106,58 +1045,75 @@ class SearchEndpointApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if term is not None:
+            
             _query_params.append(('term', term))
-
+            
         if type is not None:
+            
             _query_params.append(('type', type))
-
+            
         if sort is not None:
+            
             _query_params.append(('sort', sort))
-
+            
         if ascending is not None:
+            
             _query_params.append(('ascending', ascending))
-
+            
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if concept_status is not None:
+            
             _query_params.append(('conceptStatus', concept_status))
-
+            
         if var_property is not None:
+            
             _query_params.append(('property', var_property))
-
+            
         if value is not None:
+            
             _query_params.append(('value', value))
-
+            
         if definition_source is not None:
+            
             _query_params.append(('definitionSource', definition_source))
-
+            
         if definition_type is not None:
+            
             _query_params.append(('definitionType', definition_type))
-
+            
         if synonym_source is not None:
+            
             _query_params.append(('synonymSource', synonym_source))
-
+            
         if synonym_type is not None:
+            
             _query_params.append(('synonymType', synonym_type))
-
+            
         if synonym_term_type is not None:
+            
             _query_params.append(('synonymTermType', synonym_term_type))
-
+            
         if subset is not None:
+            
             _query_params.append(('subset', subset))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1165,6 +1121,7 @@ class SearchEndpointApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1184,3 +1141,5 @@ class SearchEndpointApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

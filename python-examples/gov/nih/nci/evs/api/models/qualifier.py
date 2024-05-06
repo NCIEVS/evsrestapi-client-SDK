@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,14 +23,12 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Qualifier(BaseModel):
     """
     Represents a type/value qualifier on a concept element
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     type: Optional[StrictStr] = Field(default=None, description="Qualifier type")
     value: Optional[StrictStr] = Field(default=None, description="Qualifier value")
     __properties: ClassVar[List[str]] = ["uri", "ct", "type", "value"]
@@ -39,6 +38,7 @@ class Qualifier(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -90,3 +90,5 @@ class Qualifier(BaseModel):
             "value": obj.get("value")
         })
         return _obj
+
+

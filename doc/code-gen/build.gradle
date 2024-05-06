@@ -9,9 +9,9 @@ plugins {
 group = 'gov.nih.nci.evs.api'
 version = '0.0.1-SNAPSHOT'
 
-// Input Specification locations.
-def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
-//def inputURL = "http://localhost:8082/v3/api-docs"
+// Input Specification locations
+def inputURL = 'https://api-evsrest.nci.nih.gov/v3/api-docs'
+def inputFile = '$projectDir/src/evs-swagger.yaml'
 
 repositories {
     mavenCentral()
@@ -30,58 +30,33 @@ test {
 }
 
 /**
- * Deletes existing build directory
- */
-tasks.register('clearBuildDir', Delete) {
-    delete buildDir
-}
-
-/**
  * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
  * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
     remoteInputSpec.set(inputURL)
+    //inputSpec.set(inputFile)
     outputDir.set("$buildDir/java")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
     modelPackage.set("gov.nih.nci.evs.api.model")
     configOptions.set([
-        "dateLibrary": "java8",
-        "serializationLibrary": "jackson",
-        "hideGenerationTimestamp": "false",
-        // if there are unknown properties present, ignore them
-        "ignoreUnknown": "true"
+        dateLibrary: "java8",
     ])
-    dependsOn tasks.named('clearBuildDir')
-
-}
-
-tasks.register('buildPythonSdk', GenerateTask) {
-    generatorName.set("python")
-    remoteInputSpec.set(inputURL)
-    outputDir.set("$buildDir/python")
-    apiPackage.set("gov.nih.nci.evs.api")
-    invokerPackage.set("gov.nih.nci.evs.api.invoker")
-    modelPackage.set("gov.nih.nci.evs.api.models")
-    configOptions.set([
-        "packageName": "python-examples",
-        "hideGenerationTimestamp": "false",
-        // if there are unknown properties present, ignore them
-        "additionalProperties": "true"
-    ])
-    dependsOn tasks.named('clearBuildDir')
 }
 
 tasks.register('buildPythonSdk', GenerateTask) {
     generatorName.set("python")
     remoteInputSpec.set(inputURL)
     //inputSpec.set(inputFile)
-    outputDir.set("$buildDir/openapi-python-client")
+    outputDir.set("$buildDir/python")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
-    modelPackage.set("gov.nih.nci.evs.api.model")
-    configOptions.set([dateLibrary: "python3"])
+    modelPackage.set("gov.nih.nci.evs.api.models")
+    configOptions.set([
+        dateLibrary: "python3",
+        packageName: "python-examples",
+    ])
 }
 
 
@@ -98,7 +73,6 @@ tasks.register("buildClients") {
         println 'All client sdk generated. They can be found in the code-gen/build folder.'
     }
 }
-
 
 compileJava.dependsOn tasks.named("buildJavaSdk")
 build.dependsOn('buildClients')

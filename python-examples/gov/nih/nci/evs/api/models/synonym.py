@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,33 +24,29 @@ from qualifier import Qualifier
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Synonym(BaseModel):
     """
     Represents one of the (potentially many) names for a concept
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     name: Optional[StrictStr] = Field(default=None, description="Name for a concept")
-    highlight: Optional[StrictStr] = Field(default=None,
-                                           description="Used by search calls to provide information for highlighting a view of results")
+    highlight: Optional[StrictStr] = Field(default=None, description="Used by search calls to provide information for highlighting a view of results")
     term_type: Optional[StrictStr] = Field(default=None, description="Synonym term type", alias="termType")
     type: Optional[StrictStr] = Field(default=None, description="Synonym type")
     source: Optional[StrictStr] = Field(default=None, description="Synonym source")
-    code: Optional[StrictStr] = Field(default=None,
-                                      description="Code of the synonym, used in particular for Metathesaurus data where the source of the synonym is not the terminology itself")
+    code: Optional[StrictStr] = Field(default=None, description="Code of the synonym, used in particular for Metathesaurus data where the source of the synonym is not the terminology itself")
     sub_source: Optional[StrictStr] = Field(default=None, description="Synonym sub-source", alias="subSource")
     qualifiers: Optional[List[Qualifier]] = Field(default=None, description="Type/value qualifiers on the synonym")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the synonym is active")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "name", "highlight", "termType", "type", "source", "code",
-                                         "subSource", "qualifiers", "active"]
+    __properties: ClassVar[List[str]] = ["uri", "ct", "name", "highlight", "termType", "type", "source", "code", "subSource", "qualifiers", "active"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -111,8 +108,9 @@ class Synonym(BaseModel):
             "source": obj.get("source"),
             "code": obj.get("code"),
             "subSource": obj.get("subSource"),
-            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get(
-                "qualifiers") is not None else None,
+            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get("qualifiers") is not None else None,
             "active": obj.get("active")
         })
         return _obj
+
+

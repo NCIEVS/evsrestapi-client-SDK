@@ -39,25 +39,24 @@ class HistoryEndpointsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_replacements(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[History]:
         """Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
 
@@ -86,7 +85,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_serialize(
             terminology=terminology,
@@ -98,9 +97,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -112,25 +111,24 @@ class HistoryEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_replacements_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[History]]:
         """Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
 
@@ -159,7 +157,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_serialize(
             terminology=terminology,
@@ -171,9 +169,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -185,25 +183,24 @@ class HistoryEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_replacements_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
 
@@ -232,7 +229,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_serialize(
             terminology=terminology,
@@ -244,9 +241,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -254,14 +251,15 @@ class HistoryEndpointsApi:
         )
         return response_data.response
 
+
     def _get_replacements_serialize(
-            self,
-            terminology,
-            code,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -286,12 +284,14 @@ class HistoryEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -312,25 +312,26 @@ class HistoryEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_replacements_from_list(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[History]:
         """Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
 
@@ -359,7 +360,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_from_list_serialize(
             terminology=terminology,
@@ -371,9 +372,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -385,25 +386,24 @@ class HistoryEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_replacements_from_list_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[History]]:
         """Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
 
@@ -432,7 +432,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_from_list_serialize(
             terminology=terminology,
@@ -444,9 +444,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -458,25 +458,24 @@ class HistoryEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_replacements_from_list_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="Comma-separated list of codes, e.g. <ul><li>'C4654,C40117' for <i>ncit</i></li><li>'C0000733,C3551741' for <i>ncim</i></li></ul>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
 
@@ -505,7 +504,7 @@ class HistoryEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_replacements_from_list_serialize(
             terminology=terminology,
@@ -517,9 +516,9 @@ class HistoryEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
+            '417': "RestException",
             '400': "RestException",
             '200': "List[History]",
-            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -527,14 +526,15 @@ class HistoryEndpointsApi:
         )
         return response_data.response
 
+
     def _get_replacements_from_list_serialize(
-            self,
-            terminology,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -554,11 +554,13 @@ class HistoryEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -566,6 +568,7 @@ class HistoryEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -585,3 +588,5 @@ class HistoryEndpointsApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

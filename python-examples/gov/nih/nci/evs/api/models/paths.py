@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,14 +24,12 @@ from path import Path
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Paths(BaseModel):
     """
     Represents a list of paths
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     paths: Optional[List[Path]] = Field(default=None, description="List of paths")
     __properties: ClassVar[List[str]] = ["uri", "ct", "paths"]
 
@@ -39,6 +38,7 @@ class Paths(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -96,3 +96,5 @@ class Paths(BaseModel):
             "paths": [Path.from_dict(_item) for _item in obj["paths"]] if obj.get("paths") is not None else None
         })
         return _obj
+
+

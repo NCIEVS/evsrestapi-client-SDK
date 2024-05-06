@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,62 +23,37 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class SearchCriteria(BaseModel):
     """
     Criteria for a search or find operation
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     term: Optional[StrictStr] = Field(default=None, description="Search term, e.g. 'heart', or 'C3224'")
-    type: Optional[StrictStr] = Field(default=None,
-                                      description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy")
-    include: Optional[StrictStr] = Field(default=None,
-                                         description="Include parameter value, e.g. 'minimal', 'summary', 'synonyms,properties,children'")
+    type: Optional[StrictStr] = Field(default=None, description="The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy")
+    include: Optional[StrictStr] = Field(default=None, description="Include parameter value, e.g. 'minimal', 'summary', 'synonyms,properties,children'")
     sort: Optional[StrictStr] = Field(default=None, description="Sort field")
-    ascending: Optional[StrictBool] = Field(default=None,
-                                            description="Indicates whether sort is ascending (true), descending (false), or not specified (null)")
-    from_record: Optional[StrictInt] = Field(default=None, description="Start index of the search results",
-                                             alias="fromRecord")
-    page_size: Optional[StrictInt] = Field(default=None, description="Max number of results to return",
-                                           alias="pageSize")
-    concept_status: Optional[List[StrictStr]] = Field(default=None,
-                                                      description="Comma-separated list of concept status values to restrict search results by",
-                                                      alias="conceptStatus")
-    var_property: Optional[List[StrictStr]] = Field(default=None,
-                                                    description="Comma-separated list of properties to restrict search results by",
-                                                    alias="property")
+    ascending: Optional[StrictBool] = Field(default=None, description="Indicates whether sort is ascending (true), descending (false), or not specified (null)")
+    from_record: Optional[StrictInt] = Field(default=None, description="Start index of the search results", alias="fromRecord")
+    page_size: Optional[StrictInt] = Field(default=None, description="Max number of results to return", alias="pageSize")
+    concept_status: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of concept status values to restrict search results by", alias="conceptStatus")
+    var_property: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of properties to restrict search results by", alias="property")
     value: Optional[StrictStr] = Field(default=None, description="A property value to restrict search results by")
-    synonym_source: Optional[List[StrictStr]] = Field(default=None,
-                                                      description="Comma-separated list of synonym sources to restrict search results by",
-                                                      alias="synonymSource")
-    synonym_type: Optional[List[StrictStr]] = Field(default=None,
-                                                    description="Comma-separated list of synonym types to restrict search results by",
-                                                    alias="synonymType")
-    definition_source: Optional[List[StrictStr]] = Field(default=None,
-                                                         description="Comma-separated list of definition sources to restrict search results by",
-                                                         alias="definitionSource")
-    definition_type: Optional[List[StrictStr]] = Field(default=None,
-                                                       description="Comma-separated list of definition types to restrict search results by",
-                                                       alias="definitionType")
-    synonym_term_type: Optional[List[StrictStr]] = Field(default=None,
-                                                         description="Comma-separated list of synonym term types to restrict search results by",
-                                                         alias="synonymTermType")
-    subset: Optional[List[StrictStr]] = Field(default=None,
-                                              description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'")
-    terminology: Optional[List[StrictStr]] = Field(default=None,
-                                                   description="Comma-separated list of terminologies to search")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "term", "type", "include", "sort", "ascending", "fromRecord",
-                                         "pageSize", "conceptStatus", "property", "value", "synonymSource",
-                                         "synonymType", "definitionSource", "definitionType", "synonymTermType",
-                                         "subset", "terminology"]
+    synonym_source: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of synonym sources to restrict search results by", alias="synonymSource")
+    synonym_type: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of synonym types to restrict search results by", alias="synonymType")
+    definition_source: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of definition sources to restrict search results by", alias="definitionSource")
+    definition_type: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of definition types to restrict search results by", alias="definitionType")
+    synonym_term_type: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of synonym term types to restrict search results by", alias="synonymTermType")
+    subset: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of subsets to restrict search results by, e.g. 'C157225'")
+    terminology: Optional[List[StrictStr]] = Field(default=None, description="Comma-separated list of terminologies to search")
+    __properties: ClassVar[List[str]] = ["uri", "ct", "term", "type", "include", "sort", "ascending", "fromRecord", "pageSize", "conceptStatus", "property", "value", "synonymSource", "synonymType", "definitionSource", "definitionType", "synonymTermType", "subset", "terminology"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -144,3 +120,5 @@ class SearchCriteria(BaseModel):
             "terminology": obj.get("terminology")
         })
         return _obj
+
+

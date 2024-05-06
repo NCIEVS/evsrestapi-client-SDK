@@ -45,28 +45,27 @@ class ConceptEndpointsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_association_entries(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_label: Annotated[StrictStr, Field(
-                description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_label: Annotated[StrictStr, Field(description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> AssociationEntryResultList:
         """Get the association entries for the specified terminology and code. Associations used to define subset membership are not resolved by this call
 
@@ -101,7 +100,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_entries_serialize(
             terminology=terminology,
@@ -117,8 +116,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "AssociationEntryResultList",
             '417': "RestException",
+            '200': "AssociationEntryResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -130,28 +129,27 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_association_entries_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_label: Annotated[StrictStr, Field(
-                description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_label: Annotated[StrictStr, Field(description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[AssociationEntryResultList]:
         """Get the association entries for the specified terminology and code. Associations used to define subset membership are not resolved by this call
 
@@ -186,7 +184,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_entries_serialize(
             terminology=terminology,
@@ -202,8 +200,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "AssociationEntryResultList",
             '417': "RestException",
+            '200': "AssociationEntryResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -215,28 +213,27 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_association_entries_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_label: Annotated[StrictStr, Field(
-                description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_label: Annotated[StrictStr, Field(description="Code/label in the specified terminology, e.g. 'A5' or 'Has_Salt_Form' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the association entries for the specified terminology and code. Associations used to define subset membership are not resolved by this call
 
@@ -271,7 +268,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_entries_serialize(
             terminology=terminology,
@@ -287,8 +284,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "AssociationEntryResultList",
             '417': "RestException",
+            '200': "AssociationEntryResultList",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -296,17 +293,18 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_association_entries_serialize(
-            self,
-            terminology,
-            code_or_label,
-            from_record,
-            page_size,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_label,
+        from_record,
+        page_size,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -328,16 +326,19 @@ class ConceptEndpointsApi:
             _path_params['codeOrLabel'] = code_or_label
         # process the query parameters
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -345,6 +346,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -365,27 +367,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_associations1(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Association]:
         """Get the associations for the specified terminology and code
 
@@ -416,7 +418,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations1_serialize(
             terminology=terminology,
@@ -442,27 +444,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_associations1_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Association]]:
         """Get the associations for the specified terminology and code
 
@@ -493,7 +493,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations1_serialize(
             terminology=terminology,
@@ -519,27 +519,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_associations1_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the associations for the specified terminology and code
 
@@ -570,7 +568,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations1_serialize(
             terminology=terminology,
@@ -592,15 +590,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_associations1_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -627,12 +626,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -653,27 +654,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_children(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get child concepts for the specified terminology and code
 
@@ -704,7 +705,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_children_serialize(
             terminology=terminology,
@@ -730,27 +731,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_children_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get child concepts for the specified terminology and code
 
@@ -781,7 +780,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_children_serialize(
             terminology=terminology,
@@ -807,27 +806,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_children_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get child concepts for the specified terminology and code
 
@@ -858,7 +855,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_children_serialize(
             terminology=terminology,
@@ -880,15 +877,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_children_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -915,12 +913,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -941,31 +941,29 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_concept(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the concept for the specified terminology and code
 
@@ -1000,7 +998,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_serialize(
             terminology=terminology,
@@ -1015,10 +1013,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '400': "RestException",
+            '200': "Concept",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1030,31 +1028,27 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_concept_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the concept for the specified terminology and code
 
@@ -1089,7 +1083,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_serialize(
             terminology=terminology,
@@ -1104,10 +1098,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '400': "RestException",
+            '200': "Concept",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1119,31 +1113,27 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_concept_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with <i>include=full</i>) and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the concept for the specified terminology and code
 
@@ -1178,7 +1168,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_serialize(
             terminology=terminology,
@@ -1193,10 +1183,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '400': "RestException",
+            '200': "Concept",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1204,17 +1194,18 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_concept_serialize(
-            self,
-            terminology,
-            code,
-            limit,
-            include,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        limit,
+        include,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1236,16 +1227,19 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if limit is not None:
+            
             _query_params.append(('limit', limit))
-
+            
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1253,6 +1247,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1273,29 +1268,28 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_concepts(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get concepts specified by list parameter
 
@@ -1328,7 +1322,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concepts_serialize(
             terminology=terminology,
@@ -1342,10 +1336,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '400': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1357,29 +1351,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_concepts_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get concepts specified by list parameter
 
@@ -1412,7 +1403,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concepts_serialize(
             terminology=terminology,
@@ -1426,10 +1417,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '400': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1441,29 +1432,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_concepts_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            list: Annotated[StrictStr, Field(
-                description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        list: Annotated[StrictStr, Field(description="List (comma-separated) of codes to return concepts for, e.g.<ul><li>'C2291,C3224' for <i>ncit</i></li><li>'C0010137,C0025202' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get concepts specified by list parameter
 
@@ -1496,7 +1484,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concepts_serialize(
             terminology=terminology,
@@ -1510,10 +1498,10 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '400': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1521,16 +1509,17 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_concepts_serialize(
-            self,
-            terminology,
-            list,
-            include,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        list,
+        include,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1550,16 +1539,19 @@ class ConceptEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1567,6 +1559,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1587,29 +1580,30 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_descendants(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get descendant concepts for the specified terminology and code
 
@@ -1646,7 +1640,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_descendants_serialize(
             terminology=terminology,
@@ -1663,8 +1657,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1676,29 +1670,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_descendants_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get descendant concepts for the specified terminology and code
 
@@ -1735,7 +1728,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_descendants_serialize(
             terminology=terminology,
@@ -1752,8 +1745,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1765,29 +1758,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_descendants_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit''")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        max_level: Annotated[Optional[StrictInt], Field(description="Max level of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get descendant concepts for the specified terminology and code
 
@@ -1824,7 +1816,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_descendants_serialize(
             terminology=terminology,
@@ -1841,8 +1833,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1850,18 +1842,19 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_descendants_serialize(
-            self,
-            terminology,
-            code,
-            from_record,
-            page_size,
-            max_level,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        from_record,
+        page_size,
+        max_level,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1883,19 +1876,23 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if max_level is not None:
+            
             _query_params.append(('maxLevel', max_level))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1903,6 +1900,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1923,26 +1921,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_disjoint_with(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[DisjointWith]:
         """Get \"disjoint with\" info for the specified terminology and code
 
@@ -1973,7 +1972,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_disjoint_with_serialize(
             terminology=terminology,
@@ -1999,26 +1998,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_disjoint_with_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[DisjointWith]]:
         """Get \"disjoint with\" info for the specified terminology and code
 
@@ -2049,7 +2047,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_disjoint_with_serialize(
             terminology=terminology,
@@ -2075,26 +2073,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_disjoint_with_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3910' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get \"disjoint with\" info for the specified terminology and code
 
@@ -2125,7 +2122,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_disjoint_with_serialize(
             terminology=terminology,
@@ -2147,15 +2144,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_disjoint_with_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2182,12 +2180,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2208,26 +2208,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_history(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get history for the specified terminology and code
 
@@ -2258,7 +2259,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_history_serialize(
             terminology=terminology,
@@ -2284,26 +2285,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_history_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get history for the specified terminology and code
 
@@ -2334,7 +2334,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_history_serialize(
             terminology=terminology,
@@ -2360,26 +2360,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_history_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i> and <i>ncim</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get history for the specified terminology and code
 
@@ -2410,7 +2409,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_history_serialize(
             terminology=terminology,
@@ -2432,15 +2431,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_history_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2467,12 +2467,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2493,27 +2495,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_inverse_associations(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Association]:
         """Get inverse associations for the specified terminology and code
 
@@ -2544,7 +2546,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_associations_serialize(
             terminology=terminology,
@@ -2570,27 +2572,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_inverse_associations_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Association]]:
         """Get inverse associations for the specified terminology and code
 
@@ -2621,7 +2621,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_associations_serialize(
             terminology=terminology,
@@ -2647,27 +2647,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_inverse_associations_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get inverse associations for the specified terminology and code
 
@@ -2698,7 +2696,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_associations_serialize(
             terminology=terminology,
@@ -2720,15 +2718,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_inverse_associations_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2755,12 +2754,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2781,26 +2782,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_inverse_roles(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Role]:
         """Get inverse roles for the specified terminology and code
 
@@ -2831,7 +2833,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_roles_serialize(
             terminology=terminology,
@@ -2857,26 +2859,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_inverse_roles_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Role]]:
         """Get inverse roles for the specified terminology and code
 
@@ -2907,7 +2908,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_roles_serialize(
             terminology=terminology,
@@ -2933,26 +2934,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_inverse_roles_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>.  This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get inverse roles for the specified terminology and code
 
@@ -2983,7 +2983,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_inverse_roles_serialize(
             terminology=terminology,
@@ -3005,15 +3005,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_inverse_roles_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3040,12 +3041,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3066,26 +3069,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_maps(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[ConceptMap]:
         """Get maps for the specified terminology and code
 
@@ -3116,7 +3120,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_maps_serialize(
             terminology=terminology,
@@ -3142,26 +3146,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_maps_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[ConceptMap]]:
         """Get maps for the specified terminology and code
 
@@ -3192,7 +3195,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_maps_serialize(
             terminology=terminology,
@@ -3218,26 +3221,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_maps_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get maps for the specified terminology and code
 
@@ -3268,7 +3270,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_maps_serialize(
             terminology=terminology,
@@ -3290,15 +3292,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_maps_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3325,12 +3328,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3351,27 +3356,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_parents(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get parent concepts for the specified terminology and code
 
@@ -3402,7 +3407,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_parents_serialize(
             terminology=terminology,
@@ -3428,27 +3433,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_parents_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get parent concepts for the specified terminology and code
 
@@ -3479,7 +3482,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_parents_serialize(
             terminology=terminology,
@@ -3505,27 +3508,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_parents_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get parent concepts for the specified terminology and code
 
@@ -3556,7 +3557,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_parents_serialize(
             terminology=terminology,
@@ -3578,15 +3579,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_parents_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3613,12 +3615,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3639,30 +3643,30 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_paths_from_root(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[List[Concept]]:
         """Get paths from the hierarchy root to the specified concept.
 
@@ -3699,7 +3703,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_from_root_serialize(
             terminology=terminology,
@@ -3716,8 +3720,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3729,30 +3733,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_paths_from_root_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[List[Concept]]]:
         """Get paths from the hierarchy root to the specified concept.
 
@@ -3789,7 +3791,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_from_root_serialize(
             terminology=terminology,
@@ -3806,8 +3808,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3819,30 +3821,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_paths_from_root_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get paths from the hierarchy root to the specified concept.
 
@@ -3879,7 +3879,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_from_root_serialize(
             terminology=terminology,
@@ -3896,8 +3896,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3905,18 +3905,19 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_paths_from_root_serialize(
-            self,
-            terminology,
-            code,
-            include,
-            from_record,
-            page_size,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        include,
+        from_record,
+        page_size,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3938,19 +3939,23 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -3958,6 +3963,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3978,32 +3984,31 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_paths_to_ancestor(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            ancestor_code: Annotated[StrictStr, Field(
-                description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        ancestor_code: Annotated[StrictStr, Field(description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[List[Concept]]:
         """Get paths from the specified code to the specified ancestor code
 
@@ -4042,7 +4047,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_ancestor_serialize(
             terminology=terminology,
@@ -4060,8 +4065,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4073,32 +4078,29 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_paths_to_ancestor_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            ancestor_code: Annotated[StrictStr, Field(
-                description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        ancestor_code: Annotated[StrictStr, Field(description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[List[Concept]]]:
         """Get paths from the specified code to the specified ancestor code
 
@@ -4137,7 +4139,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_ancestor_serialize(
             terminology=terminology,
@@ -4155,8 +4157,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4168,32 +4170,29 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_paths_to_ancestor_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            ancestor_code: Annotated[StrictStr, Field(
-                description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        ancestor_code: Annotated[StrictStr, Field(description="Ancestor code of the other specified code, e.g. 'C2991' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get paths from the specified code to the specified ancestor code
 
@@ -4232,7 +4231,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_ancestor_serialize(
             terminology=terminology,
@@ -4250,8 +4249,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4259,19 +4258,20 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_paths_to_ancestor_serialize(
-            self,
-            terminology,
-            code,
-            ancestor_code,
-            include,
-            from_record,
-            page_size,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        ancestor_code,
+        include,
+        from_record,
+        page_size,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4295,19 +4295,23 @@ class ConceptEndpointsApi:
             _path_params['ancestorCode'] = ancestor_code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -4315,6 +4319,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4335,30 +4340,30 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_paths_to_root(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[List[Concept]]:
         """Get paths to the hierarchy root from the specified code
 
@@ -4395,7 +4400,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_root_serialize(
             terminology=terminology,
@@ -4412,8 +4417,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4425,30 +4430,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_paths_to_root_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[List[Concept]]]:
         """Get paths to the hierarchy root from the specified code
 
@@ -4485,7 +4488,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_root_serialize(
             terminology=terminology,
@@ -4502,8 +4505,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4515,30 +4518,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_paths_to_root_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than 'minimal' may produce very large payload results. ")] = None,
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get paths to the hierarchy root from the specified code
 
@@ -4575,7 +4576,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_paths_to_root_serialize(
             terminology=terminology,
@@ -4592,8 +4593,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[List[Concept]]",
             '417': "RestException",
+            '200': "List[List[Concept]]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4601,18 +4602,19 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_paths_to_root_serialize(
-            self,
-            terminology,
-            code,
-            include,
-            from_record,
-            page_size,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        include,
+        from_record,
+        page_size,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4634,19 +4636,23 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -4654,6 +4660,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4674,26 +4681,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_roles1(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Role]:
         """Get roles for the specified terminology and code
 
@@ -4724,7 +4732,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles1_serialize(
             terminology=terminology,
@@ -4750,26 +4758,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_roles1_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Role]]:
         """Get roles for the specified terminology and code
 
@@ -4800,7 +4807,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles1_serialize(
             terminology=terminology,
@@ -4826,26 +4833,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_roles1_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get roles for the specified terminology and code
 
@@ -4876,7 +4882,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles1_serialize(
             terminology=terminology,
@@ -4898,15 +4904,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_roles1_serialize(
-            self,
-            terminology,
-            code,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4933,12 +4940,14 @@ class ConceptEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4959,27 +4968,27 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_roots(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get root concepts for the specified terminology
 
@@ -5010,7 +5019,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roots_serialize(
             terminology=terminology,
@@ -5024,8 +5033,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5037,27 +5046,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_roots_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get root concepts for the specified terminology
 
@@ -5088,7 +5095,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roots_serialize(
             terminology=terminology,
@@ -5102,8 +5109,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5115,27 +5122,25 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_roots_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get root concepts for the specified terminology
 
@@ -5166,7 +5171,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roots_serialize(
             terminology=terminology,
@@ -5180,8 +5185,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5189,15 +5194,16 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_roots_serialize(
-            self,
-            terminology,
-            include,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5217,13 +5223,15 @@ class ConceptEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5231,6 +5239,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5251,30 +5260,30 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subset_members1(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get subset members for the specified terminology and code.
 
@@ -5312,7 +5321,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members1_serialize(
             terminology=terminology,
@@ -5329,8 +5338,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5342,30 +5351,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subset_members1_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get subset members for the specified terminology and code.
 
@@ -5403,7 +5410,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members1_serialize(
             terminology=terminology,
@@ -5420,8 +5427,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5433,30 +5440,28 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subset_members1_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get subset members for the specified terminology and code.
 
@@ -5494,7 +5499,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members1_serialize(
             terminology=terminology,
@@ -5511,8 +5516,8 @@ class ConceptEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5520,18 +5525,19 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subset_members1_serialize(
-            self,
-            terminology,
-            code,
-            from_record,
-            page_size,
-            include,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        from_record,
+        page_size,
+        include,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5553,19 +5559,23 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5573,6 +5583,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5593,28 +5604,28 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subtree(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[HierarchyNode]:
         """Get the entire subtree from the root node to the specified code
 
@@ -5647,7 +5658,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_serialize(
             terminology=terminology,
@@ -5661,8 +5672,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -5675,28 +5686,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subtree_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[HierarchyNode]]:
         """Get the entire subtree from the root node to the specified code
 
@@ -5729,7 +5738,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_serialize(
             terminology=terminology,
@@ -5743,8 +5752,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -5757,28 +5766,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subtree_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the entire subtree from the root node to the specified code
 
@@ -5811,7 +5818,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_serialize(
             terminology=terminology,
@@ -5825,8 +5832,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -5835,16 +5842,17 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subtree_serialize(
-            self,
-            terminology,
-            code,
-            limit,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        limit,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5866,13 +5874,15 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if limit is not None:
+            
             _query_params.append(('limit', limit))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5880,6 +5890,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5900,28 +5911,28 @@ class ConceptEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subtree_children(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[HierarchyNode]:
         """Get the entire subtree from the root node to the specified code
 
@@ -5954,7 +5965,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_children_serialize(
             terminology=terminology,
@@ -5968,8 +5979,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -5982,28 +5993,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subtree_children_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[HierarchyNode]]:
         """Get the entire subtree from the root node to the specified code
 
@@ -6036,7 +6045,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_children_serialize(
             terminology=terminology,
@@ -6050,8 +6059,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -6064,28 +6073,26 @@ class ConceptEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subtree_children_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            limit: Annotated[Optional[StrictInt], Field(
-                description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
-            x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(
-                description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code in the specified terminology, e.g. 'C3224' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        limit: Annotated[Optional[StrictInt], Field(description="If set to an integer (between <i>1</i> and <i>100</i>), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a <i>ct</i> field will be included to indicate the total count.")] = None,
+        x_evsrestapi_license_key: Annotated[Optional[StrictStr], Field(description="Required license information for restricted terminologies. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the entire subtree from the root node to the specified code
 
@@ -6118,7 +6125,7 @@ class ConceptEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subtree_children_serialize(
             terminology=terminology,
@@ -6132,8 +6139,8 @@ class ConceptEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '400': "RestException",
             '404': "RestException",
+            '400': "RestException",
             '200': "List[HierarchyNode]",
         }
         response_data = self.api_client.call_api(
@@ -6142,16 +6149,17 @@ class ConceptEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subtree_children_serialize(
-            self,
-            terminology,
-            code,
-            limit,
-            x_evsrestapi_license_key,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        limit,
+        x_evsrestapi_license_key,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -6173,13 +6181,15 @@ class ConceptEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if limit is not None:
+            
             _query_params.append(('limit', limit))
-
+            
         # process the header parameters
         if x_evsrestapi_license_key is not None:
             _header_params['X-EVSRESTAPI-License-Key'] = x_evsrestapi_license_key
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -6187,6 +6197,7 @@ class ConceptEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -6206,3 +6217,5 @@ class ConceptEndpointsApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

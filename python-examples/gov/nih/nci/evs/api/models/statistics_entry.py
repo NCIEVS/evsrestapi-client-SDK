@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,11 +23,10 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class StatisticsEntry(BaseModel):
     """
     Represents an entry in a statistics table
-    """  # noqa: E501
+    """ # noqa: E501
     code: Optional[StrictStr] = Field(default=None, description="Code for what this statistic is measuring")
     key: Optional[StrictStr] = Field(default=None, description="Key defining an additional element to the statistic")
     value: Optional[StrictStr] = Field(default=None, description="Value of the statistic")
@@ -37,6 +37,7 @@ class StatisticsEntry(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -87,3 +88,5 @@ class StatisticsEntry(BaseModel):
             "value": obj.get("value")
         })
         return _obj
+
+

@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 import copy
 import logging
 from logging import FileHandler
@@ -27,7 +28,6 @@ JSON_SCHEMA_VALIDATION_KEYWORDS = {
     'minimum', 'exclusiveMinimum', 'maxLength',
     'minLength', 'pattern', 'maxItems', 'minItems'
 }
-
 
 class Configuration:
     """This class contains various settings of the API client.
@@ -367,12 +367,12 @@ class Configuration:
 
         :return: The report for debugging.
         """
-        return "Python SDK Debug Report:\n" \
-               "OS: {env}\n" \
-               "Python Version: {pyversion}\n" \
-               "Version of the API: 1.7.2.RELEASE\n" \
-               "SDK Package Version: 1.0.0". \
-            format(env=sys.platform, pyversion=sys.version)
+        return "Python SDK Debug Report:\n"\
+               "OS: {env}\n"\
+               "Python Version: {pyversion}\n"\
+               "Version of the API: 1.7.2.RELEASE\n"\
+               "SDK Package Version: 1.0.0".\
+               format(env=sys.platform, pyversion=sys.version)
 
     def get_host_settings(self):
         """Gets an array of host settings

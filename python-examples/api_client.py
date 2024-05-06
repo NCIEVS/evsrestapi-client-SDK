@@ -21,6 +21,7 @@ import mimetypes
 import os
 import re
 import tempfile
+import rest
 
 from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
@@ -29,7 +30,6 @@ from pydantic import SecretStr
 from configuration import Configuration
 from api_response import ApiResponse, T as ApiResponseT
 import gov.nih.nci.evs.api.models
-import rest
 from exceptions import (
     ApiValueError,
     ApiException,
