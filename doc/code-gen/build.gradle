@@ -63,11 +63,14 @@ tasks.register('buildPythonSdk', GenerateTask) {
     generatorName.set("python")
     remoteInputSpec.set(inputURL)
     //inputSpec.set(inputFile)
-    outputDir.set("$buildDir/openapi-python-client")
+    outputDir.set("$buildDir/python")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
-    modelPackage.set("gov.nih.nci.evs.api.model")
-    configOptions.set([dateLibrary: "python3"])
+    modelPackage.set("gov.nih.nci.evs.api.models")
+    configOptions.set([
+        dateLibrary: "python3",
+        packageName: "python-examples",
+    ])
 }
 
 
