@@ -1,1 +1,1 @@
-SELECT ?code { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" } }
+SELECT ?code WHERE { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" } }

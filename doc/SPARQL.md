@@ -33,6 +33,16 @@ be supplied without worring about the other constructs.
 
 ### Simple concept query
 
+```
+cat << EOF > query.txt
+SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" }
+EOF
+
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d 'query.txt' | jq '.'
+```  
+  
 ### Other side of an association query
 
 ### PROBLEM: Missing graph
