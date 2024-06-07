@@ -75,6 +75,9 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Get maps by mapset code
 - Get replacement concepts for an inactive concept code
 - Get replacement concepts for a list of inactive concept codes
+- Get concepts by SPARQL code without prefix
+- Get concepts by SPARQL code with prefix
+- Get SPARQL bindings from query
 
 All of the tutorials use an environment variable for the API URL of the deployment:
 

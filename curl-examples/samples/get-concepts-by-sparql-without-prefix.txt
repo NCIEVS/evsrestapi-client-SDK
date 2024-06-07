@@ -1,104 +1,27 @@
 {
-  "total": 166616,
-  "timeTaken": 16,
+  "total": 1,
+  "timeTaken": 33,
   "parameters": {
     "type": "contains",
     "include": "minimal",
     "fromRecord": 0,
     "pageSize": 10,
+    "codeList": [
+      "C3224"
+    ],
     "terminology": [
       "ncit"
-    ]
+    ],
+    "sparql": "SELECT ?code { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 \"Melanoma\" } }"
   },
   "concepts": [
     {
-      "code": "C1000",
-      "name": "Recombinant Amphiregulin",
+      "code": "C3224",
+      "name": "Melanoma",
       "terminology": "ncit",
       "version": "21.06e",
       "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C10000",
-      "name": "Cyclophosphamide/Fluoxymesterone/Mitolactol/Prednisone/Tamoxifen",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "Obsolete_Concept",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100000",
-      "name": "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100001",
-      "name": "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable After Successful Full-Dose Thrombolytic Therapy",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100002",
-      "name": "Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100003",
-      "name": "Percutaneous Mitral Valve Repair",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100004",
-      "name": "Pericardial Stripping",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100005",
-      "name": "Post-Cardiac Transplant Evaluation",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100006",
-      "name": "Pre-Operative Evaluation for Non-Cardiovascular Surgery",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C100007",
-      "name": "Previously Implanted Cardiac Lead",
-      "terminology": "ncit",
-      "version": "21.06e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
+      "leaf": false,
       "active": true
     }
   ]

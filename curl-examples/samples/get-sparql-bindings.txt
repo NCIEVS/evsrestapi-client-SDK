@@ -1,8 +1,11 @@
 {
-  "total": 1000,
+  "total": 166616,
   "parameters": {
     "type": "contains",
-    "include": "minimal"
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 100,
+    "sparql": "SELECT ?code ?x{ GRAPH <http://NCI_T_monthly>   {     ?x a owl:Class .     ?x :NHC0 ?code .  } }"
   },
   "results": [
     {
@@ -44,6 +47,366 @@
     {
       "code": "C16612",
       "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C16612"
+    },
+    {
+      "code": "C20633",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20633"
+    },
+    {
+      "code": "C43431",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C43431"
+    },
+    {
+      "code": "C2950",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2950"
+    },
+    {
+      "code": "C13202",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C13202"
+    },
+    {
+      "code": "C2991",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C2991"
+    },
+    {
+      "code": "C97927",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C97927"
+    },
+    {
+      "code": "C97928",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C97928"
+    },
+    {
+      "code": "C97325",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C97325"
+    },
+    {
+      "code": "C22187",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C22187"
+    },
+    {
+      "code": "C22188",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C22188"
+    },
+    {
+      "code": "C20181",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20181"
+    },
+    {
+      "code": "C20047",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C20047"
+    },
+    {
+      "code": "C14250",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C14250"
+    },
+    {
+      "code": "C1000",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1000"
+    },
+    {
+      "code": "C1504",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C1504"
+    },
+    {
+      "code": "C10000",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C10000"
+    },
+    {
+      "code": "C61007",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61007"
+    },
+    {
+      "code": "C405",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C405"
+    },
+    {
+      "code": "C507",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C507"
+    },
+    {
+      "code": "C662",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C662"
+    },
+    {
+      "code": "C770",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C770"
+    },
+    {
+      "code": "C855",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C855"
+    },
+    {
+      "code": "C100000",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100000"
+    },
+    {
+      "code": "C99521",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C99521"
+    },
+    {
+      "code": "C12686",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12686"
+    },
+    {
+      "code": "C101859",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101859"
+    },
+    {
+      "code": "C61410",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61410"
+    },
+    {
+      "code": "C66830",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C66830"
+    },
+    {
+      "code": "C100001",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100001"
+    },
+    {
+      "code": "C100002",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100002"
+    },
+    {
+      "code": "C100003",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100003"
+    },
+    {
+      "code": "C80449",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C80449"
+    },
+    {
+      "code": "C12729",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12729"
+    },
+    {
+      "code": "C101858",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101858"
+    },
+    {
+      "code": "C100004",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100004"
+    },
+    {
+      "code": "C80430",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C80430"
+    },
+    {
+      "code": "C100005",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100005"
+    },
+    {
+      "code": "C15839",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C15839"
+    },
+    {
+      "code": "C100006",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100006"
+    },
+    {
+      "code": "C139982",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C139982"
+    },
+    {
+      "code": "C100007",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100007"
+    },
+    {
+      "code": "C99896",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C99896"
+    },
+    {
+      "code": "C101864",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101864"
+    },
+    {
+      "code": "C100008",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100008"
+    },
+    {
+      "code": "C100009",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100009"
+    },
+    {
+      "code": "C10001",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C10001"
+    },
+    {
+      "code": "C63510",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C63510"
+    },
+    {
+      "code": "C456",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C456"
+    },
+    {
+      "code": "C633",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C633"
+    },
+    {
+      "code": "C933",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C933"
+    },
+    {
+      "code": "C160952",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C160952"
+    },
+    {
+      "code": "C167078",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C167078"
+    },
+    {
+      "code": "C167080",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C167080"
+    },
+    {
+      "code": "C100010",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100010"
+    },
+    {
+      "code": "C100011",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100011"
+    },
+    {
+      "code": "C63169",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C63169"
+    },
+    {
+      "code": "C101866",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101866"
+    },
+    {
+      "code": "C100012",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100012"
+    },
+    {
+      "code": "C50797",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C50797"
+    },
+    {
+      "code": "C12727",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12727"
+    },
+    {
+      "code": "C12779",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12779"
+    },
+    {
+      "code": "C12905",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C12905"
+    },
+    {
+      "code": "C100013",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100013"
+    },
+    {
+      "code": "C62433",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C62433"
+    },
+    {
+      "code": "C100014",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100014"
+    },
+    {
+      "code": "C111103",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C111103"
+    },
+    {
+      "code": "C100015",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100015"
+    },
+    {
+      "code": "C100016",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100016"
+    },
+    {
+      "code": "C25476",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C25476"
+    },
+    {
+      "code": "C101855",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101855"
+    },
+    {
+      "code": "C100017",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100017"
+    },
+    {
+      "code": "C100018",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100018"
+    },
+    {
+      "code": "C35053",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C35053"
+    },
+    {
+      "code": "C100019",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100019"
+    },
+    {
+      "code": "C10002",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C10002"
+    },
+    {
+      "code": "C61063",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C61063"
+    },
+    {
+      "code": "C505",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C505"
+    },
+    {
+      "code": "C642",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C642"
+    },
+    {
+      "code": "C100020",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100020"
+    },
+    {
+      "code": "C35317",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C35317"
+    },
+    {
+      "code": "C33854",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C33854"
+    },
+    {
+      "code": "C101850",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101850"
+    },
+    {
+      "code": "C100021",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100021"
+    },
+    {
+      "code": "C35552",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C35552"
+    },
+    {
+      "code": "C101837",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101837"
+    },
+    {
+      "code": "C101838",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C101838"
+    },
+    {
+      "code": "C100022",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C100022"
+    },
+    {
+      "code": "C49803",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C49803"
+    },
+    {
+      "code": "C156952",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C156952"
+    },
+    {
+      "code": "C158037",
+      "x": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#C158037"
     }
   ]
 }
