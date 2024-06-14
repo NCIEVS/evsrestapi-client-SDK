@@ -785,11 +785,10 @@ See sample payload data from this call in [`samples/get-replacements-for-concept
 
 Get concepts for a specified SPARQL query without prefixes.
 
-`curl "$API_URL/concept/ncit/search?query=" | jq '.'`
-
 ```{text}
-q=`cat sparql-queries-encoded/no-prefix.txt`
-curl "$API_URL/concept/ncit/search?query=$q" | jq '.'
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/no-prefix.txt' | jq '.'
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/no-prefix.txt`](sparql-queries/no-prefix.txt)
@@ -802,8 +801,9 @@ See sample payload data from this call in [`samples/get-concepts-by-sparql-witho
 Get concepts for a specified SPARQL query with prefixes.
 
 ```{text}
-q=`cat sparql-queries-encoded/prefix.txt`
-curl "$API_URL/concept/ncit/search?query=$q" | jq '.'
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/prefix.txt' | jq '.'
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/prefix.txt`](sparql-queries/prefix.txt)
@@ -816,8 +816,9 @@ See sample payload data from this call in [`samples/get-concepts-by-sparql-with-
 Get SPARQL bindings for a specified SPARQL query.
 
 ```{text}
-q=`cat sparql-queries-encoded/bindings.txt`
-curl -X 'POST' "$API_URL/sparql/ncit?query=$q" | jq '.'
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=100" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/bindings.txt' | jq '.'
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/bindings.txt`](sparql-queries/bindings.txt)
