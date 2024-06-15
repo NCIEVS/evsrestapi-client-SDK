@@ -385,6 +385,57 @@ include =
 Finished ...Tue, Dec  7, 2021  5:10:00 PM
 -----------------------------------------------------
 ```
+
+This script can also be used with a file containing a sparql query to perform
+that query and combine with the other results.
+
+```
+$ ./find-concepts.sh ncit melanoma --sparql ../curl-examples/sparql-queries/no-prefix.txt
+-----------------------------------------------------
+Starting ...Fri, Jun 14, 2024  5:34:50 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+term = melanoma
+include =
+sparql = ../curl-examples/sparql-queries/no-prefix.txt
+
+  Find concepts for ncit melanoma:
+
+    {
+      "total": 1,
+      "timeTaken": 36,
+      "parameters": {
+        "term": "melanoma",
+        "type": "contains",
+        "include": "minimal",
+        "fromRecord": 0,
+        "pageSize": 10,
+        "codeList": [
+          "C3224"
+        ],
+        "terminology": [
+          "ncit"
+        ],
+        "sparql": "SELECT ?code WHERE { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 \"Melanoma\" } }"
+      },
+      "concepts": [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "terminology": "ncit",
+          "version": "21.06e",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Fri, Jun 14, 2024  5:34:51 PM
+-----------------------------------------------------
+```
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-descendants.sh
