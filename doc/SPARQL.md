@@ -1,15 +1,13 @@
-<a name="top" />
-
 Using SPARQL with EVSRESTAPI
 ============================
 
 EVSRESTAPI now supports search API calls that accept a SPARQL query that can be
-run against data loaded from RDF (results from /terminologies call that have 
+run against terminologies loaded from RDF (e.g. /terminologies entries with 
 metadata.loader == 'rdf').
 
 There are two ways to pass SPARQL queries
 
-The first is as the body of a POST form of the /concept/{terminology}/search endpoint.  
+1. [POST /concept/{terminology}/search endpoint](#sparql-with-concept-queries): 
 When used like this, the query serves as an additional constraint on the concept
 search.  The query must SELECT a ?code parameter which is the code.  The endpoint will
 return all concepts matching that query and additional criteria.  This allows SPARQL to 
@@ -17,21 +15,23 @@ be combined with text searching (and other search filters) to produce a combined
 This also means the "include" parameter can be used to read as much information about
 the concepts returned as desired.
 
-The second is as the body of a POST form of the /concept/search endpoint.  When used like this,
+2. [POST /sparql/{terminology} endpoint](#standalone-sparql-queries):
 the query can contain any fields and really be any valid SPARQL query.  The result of the
 endpoint is an array rendering the bindings for the result of the call.  Effectively this
 allows for arbitrary SPARQL querying.  There are some controls to interrupt and block
 long-running calls, invalid calls, and other similar situations that may cause problems.
 
-Examples of the two calls described above are shown below.  These examples include demonstrations
-of how prefixes and the GRAPH specfication can be used but are effectively computed and overridden
-in the backend based on the terminology parameter supplied.  This means simple SPARQL queries can
-be supplied without worring about the other constructs.
-
 
 ## SPARQL with concept queries
 
+Use an API_URL setting like the one below.
+
+`export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
+
 ### Simple concept query
+
+This query is appropriate for NCI Thesaurus and finds concepts with a preferred name of "Melanoma".  
+Note: the use of `?code` in the select is required for this to work.
 
 ```
 cat << EOF > query.txt
@@ -40,33 +40,78 @@ EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -H 'Content-type: text/plain' \
-  -d 'query.txt' | jq '.'
+  -d '@query.txt' | jq '.'
 ```  
-  
-### Other side of an association query
 
-### PROBLEM: Missing graph
+### PROBLEM: not using ?code in select
 
-### PROBLEM: Bad Sparql (bad select field)
+Here is an example to demonstrate the error that occus when not selecting a ?code column.
 
-### PROBLEM: Takes too long to resolve
+```
+cat << EOF > query.txt
+SELECT ?xxx WHERE { ?x a owl:Class . ?x :NHC0 ?xxx .?x :P108 "Melanoma" }
+EOF
 
-### PROBLEM: ... ?
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@query.txt' | jq '.'
+```  
 
+### PROBLEM: Bad Sparql
 
+Here is an example to demonstrate the error that occus when using an invalid sparql query.
 
+```
+cat << EOF > query.txt
+SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" ABCDEF 123456 }
+EOF
 
-
-
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@query.txt' | jq '.'
+```  
+[Back to Top](#using-sparql-with-evsrestapi)
 
 
 ## Standalone SPARQL queries
 
+Use an API_URL setting like the one below.
+
+`export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
+
+
 ### Simple query to get code, name (without graph)
 
-### Simple query to get code/name on both sides of an association
+This query is appropriate for NCI Thesaurus and finds the URIs for each class
+and the code property that goes along with it.  Because the REST call uses paging
+parameters, you can select which part of the query to resolve.  The results are
+an array of the bindings requested.
+
+```
+cat << EOF > query.txt
+SELECT ?code ?x { ?x a owl:Class . ?x :NHC0 ?code . } 
+EOF
+
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
+  -H 'Content-type: text/plain' \
+  -d '@query.txt' | jq '.'
+```  
+
+### PROBLEM: Bad Sparql
+
+Here is an example to demonstrate the error that occus when using an invalid sparql query.
+
+```
+cat << EOF > query.txt
+SELECT ?code ?x { ?x a owl:Class . ?x :NHC0 ?code . ABCDEF 12345 } 
+EOF
+
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
+  -H 'Content-type: text/plain' \
+  -d '@query.txt' | jq '.'
+```
+[Back to Top](#using-sparql-with-evsrestapi)
 
 
-### PROBLEM:
 
 
