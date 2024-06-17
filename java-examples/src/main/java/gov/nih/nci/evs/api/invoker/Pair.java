@@ -10,49 +10,48 @@
  * Do not edit the class manually.
  */
 
+
 package gov.nih.nci.evs.api.invoker;
 
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T12:18:38.040226-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Pair {
-  private String name = "";
-  private String value = "";
+    private String name = "";
+    private String value = "";
 
-  public Pair(String name, String value) {
-    setName(name);
-    setValue(value);
-  }
-
-  private void setName(String name) {
-    if (!isValidString(name)) {
-      return;
+    public Pair (String name, String value) {
+        setName(name);
+        setValue(value);
     }
 
-    this.name = name;
-  }
+    private void setName(String name) {
+        if (!isValidString(name)) {
+            return;
+        }
 
-  private void setValue(String value) {
-    if (!isValidString(value)) {
-      return;
+        this.name = name;
     }
 
-    this.value = value;
-  }
+    private void setValue(String value) {
+        if (!isValidString(value)) {
+            return;
+        }
 
-  public String getName() {
-    return this.name;
-  }
-
-  public String getValue() {
-    return this.value;
-  }
-
-  private boolean isValidString(String arg) {
-    if (arg == null) {
-      return false;
+        this.value = value;
     }
 
-    return true;
-  }
+    public String getName() {
+        return this.name;
+    }
+
+    public String getValue() {
+        return this.value;
+    }
+
+    private boolean isValidString(String arg) {
+        if (arg == null) {
+            return false;
+        }
+
+        return true;
+    }
 }

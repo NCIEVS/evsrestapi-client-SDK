@@ -10,14 +10,13 @@
  * Do not edit the class manually.
  */
 
+
 package gov.nih.nci.evs.api.invoker;
 
 import java.util.Collection;
 import java.util.Iterator;
 
-@javax.annotation.Generated(
-    value = "org.openapitools.codegen.languages.JavaClientCodegen",
-    date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T12:18:38.040226-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class StringUtil {
   /**
    * Check if the given array contains the given value (with case-insensitive comparison).
@@ -40,11 +39,12 @@ public class StringUtil {
 
   /**
    * Join an array of strings with the given separator.
+   * <p>
+   * Note: This might be replaced by utility method from commons-lang or guava someday
+   * if one of those libraries is added as dependency.
+   * </p>
    *
-   * <p>Note: This might be replaced by utility method from commons-lang or guava someday if one of
-   * those libraries is added as dependency.
-   *
-   * @param array The array of strings
+   * @param array     The array of strings
    * @param separator The separator
    * @return the resulting string
    */
@@ -65,7 +65,7 @@ public class StringUtil {
   /**
    * Join a list of strings with the given separator.
    *
-   * @param list The list of strings
+   * @param list      The list of strings
    * @param separator The separator
    * @return the resulting string
    */

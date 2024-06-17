@@ -15,11 +15,12 @@ package gov.nih.nci.evs.api.invoker.auth;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.Pair;
-import java.net.URI;
-import java.util.List;
-import java.util.Map;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+import java.net.URI;
+import java.util.Map;
+import java.util.List;
+
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T12:18:38.040226-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class ApiKeyAuth implements Authentication {
   private final String location;
   private final String paramName;

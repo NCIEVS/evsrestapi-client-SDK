@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -24,6 +23,7 @@ import gov.nih.nci.evs.api.model.AssociationEntry;
 import gov.nih.nci.evs.api.model.SearchCriteria;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -46,7 +46,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -54,7 +53,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * AssociationEntryResultList
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T12:18:38.040226-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class AssociationEntryResultList {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -66,7 +65,7 @@ public class AssociationEntryResultList {
 
   public static final String SERIALIZED_NAME_TOTAL = "total";
   @SerializedName(SERIALIZED_NAME_TOTAL)
-  private Integer total;
+  private Long total;
 
   public static final String SERIALIZED_NAME_TIME_TAKEN = "timeTaken";
   @SerializedName(SERIALIZED_NAME_TIME_TAKEN)
@@ -78,13 +77,12 @@ public class AssociationEntryResultList {
 
   public static final String SERIALIZED_NAME_ASSOCIATION_ENTRIES = "associationEntries";
   @SerializedName(SERIALIZED_NAME_ASSOCIATION_ENTRIES)
-  private List<AssociationEntry> associationEntries;
+  private List<AssociationEntry> associationEntries = new ArrayList<>();
 
   public AssociationEntryResultList() {
   }
 
   public AssociationEntryResultList uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -98,14 +96,12 @@ public class AssociationEntryResultList {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public AssociationEntryResultList ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -119,14 +115,12 @@ public class AssociationEntryResultList {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
-  public AssociationEntryResultList total(Integer total) {
-    
+  public AssociationEntryResultList total(Long total) {
     this.total = total;
     return this;
   }
@@ -136,18 +130,16 @@ public class AssociationEntryResultList {
    * @return total
   **/
   @javax.annotation.Nullable
-  public Integer getTotal() {
+  public Long getTotal() {
     return total;
   }
 
-
-  public void setTotal(Integer total) {
+  public void setTotal(Long total) {
     this.total = total;
   }
 
 
   public AssociationEntryResultList timeTaken(Long timeTaken) {
-    
     this.timeTaken = timeTaken;
     return this;
   }
@@ -161,14 +153,12 @@ public class AssociationEntryResultList {
     return timeTaken;
   }
 
-
   public void setTimeTaken(Long timeTaken) {
     this.timeTaken = timeTaken;
   }
 
 
   public AssociationEntryResultList parameters(SearchCriteria parameters) {
-    
     this.parameters = parameters;
     return this;
   }
@@ -182,14 +172,12 @@ public class AssociationEntryResultList {
     return parameters;
   }
 
-
   public void setParameters(SearchCriteria parameters) {
     this.parameters = parameters;
   }
 
 
   public AssociationEntryResultList associationEntries(List<AssociationEntry> associationEntries) {
-    
     this.associationEntries = associationEntries;
     return this;
   }
@@ -210,7 +198,6 @@ public class AssociationEntryResultList {
   public List<AssociationEntry> getAssociationEntries() {
     return associationEntries;
   }
-
 
   public void setAssociationEntries(List<AssociationEntry> associationEntries) {
     this.associationEntries = associationEntries;
@@ -284,31 +271,32 @@ public class AssociationEntryResultList {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to AssociationEntryResultList
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to AssociationEntryResultList
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!AssociationEntryResultList.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!AssociationEntryResultList.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in AssociationEntryResultList is not found in the empty JSON string", AssociationEntryResultList.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!AssociationEntryResultList.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AssociationEntryResultList` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `AssociationEntryResultList` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
       // validate the optional field `parameters`
       if (jsonObj.get("parameters") != null && !jsonObj.get("parameters").isJsonNull()) {
-        SearchCriteria.validateJsonObject(jsonObj.getAsJsonObject("parameters"));
+        SearchCriteria.validateJsonElement(jsonObj.get("parameters"));
       }
       if (jsonObj.get("associationEntries") != null && !jsonObj.get("associationEntries").isJsonNull()) {
         JsonArray jsonArrayassociationEntries = jsonObj.getAsJsonArray("associationEntries");
@@ -320,7 +308,7 @@ public class AssociationEntryResultList {
 
           // validate the optional field `associationEntries` (array)
           for (int i = 0; i < jsonArrayassociationEntries.size(); i++) {
-            AssociationEntry.validateJsonObject(jsonArrayassociationEntries.get(i).getAsJsonObject());
+            AssociationEntry.validateJsonElement(jsonArrayassociationEntries.get(i));
           };
         }
       }
@@ -346,9 +334,9 @@ public class AssociationEntryResultList {
 
            @Override
            public AssociationEntryResultList read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,9 +21,12 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -46,7 +48,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -54,7 +55,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents additional terminology metadata
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-05T10:35:17.750633-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T12:18:38.040226-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -78,7 +79,11 @@ public class TerminologyMetadata {
 
   public static final String SERIALIZED_NAME_CONCEPT_STATUSES = "conceptStatuses";
   @SerializedName(SERIALIZED_NAME_CONCEPT_STATUSES)
-  private List<String> conceptStatuses;
+  private List<String> conceptStatuses = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_EXCLUDED_PROPERTIES = "excludedProperties";
+  @SerializedName(SERIALIZED_NAME_EXCLUDED_PROPERTIES)
+  private Set<String> excludedProperties = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_RETIRED_STATUS_VALUE = "retiredStatusValue";
   @SerializedName(SERIALIZED_NAME_RETIRED_STATUS_VALUE)
@@ -91,6 +96,10 @@ public class TerminologyMetadata {
   public static final String SERIALIZED_NAME_HIERARCHY = "hierarchy";
   @SerializedName(SERIALIZED_NAME_HIERARCHY)
   private Boolean hierarchy;
+
+  public static final String SERIALIZED_NAME_HIERARCHY_ROLES = "hierarchyRoles";
+  @SerializedName(SERIALIZED_NAME_HIERARCHY_ROLES)
+  private Set<String> hierarchyRoles = new LinkedHashSet<>();
 
   public static final String SERIALIZED_NAME_HISTORY = "history";
   @SerializedName(SERIALIZED_NAME_HISTORY)
@@ -130,13 +139,12 @@ public class TerminologyMetadata {
 
   public static final String SERIALIZED_NAME_PREFERRED_TERM_GROUPS = "preferredTermGroups";
   @SerializedName(SERIALIZED_NAME_PREFERRED_TERM_GROUPS)
-  private List<String> preferredTermGroups;
+  private List<String> preferredTermGroups = new ArrayList<>();
 
   public TerminologyMetadata() {
   }
 
   public TerminologyMetadata uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -150,14 +158,12 @@ public class TerminologyMetadata {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public TerminologyMetadata ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -171,14 +177,12 @@ public class TerminologyMetadata {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
   public TerminologyMetadata uiLabel(String uiLabel) {
-    
     this.uiLabel = uiLabel;
     return this;
   }
@@ -192,14 +196,12 @@ public class TerminologyMetadata {
     return uiLabel;
   }
 
-
   public void setUiLabel(String uiLabel) {
     this.uiLabel = uiLabel;
   }
 
 
   public TerminologyMetadata maxVersions(Integer maxVersions) {
-    
     this.maxVersions = maxVersions;
     return this;
   }
@@ -213,14 +215,12 @@ public class TerminologyMetadata {
     return maxVersions;
   }
 
-
   public void setMaxVersions(Integer maxVersions) {
     this.maxVersions = maxVersions;
   }
 
 
   public TerminologyMetadata loader(String loader) {
-    
     this.loader = loader;
     return this;
   }
@@ -234,14 +234,12 @@ public class TerminologyMetadata {
     return loader;
   }
 
-
   public void setLoader(String loader) {
     this.loader = loader;
   }
 
 
   public TerminologyMetadata conceptStatuses(List<String> conceptStatuses) {
-    
     this.conceptStatuses = conceptStatuses;
     return this;
   }
@@ -263,14 +261,39 @@ public class TerminologyMetadata {
     return conceptStatuses;
   }
 
-
   public void setConceptStatuses(List<String> conceptStatuses) {
     this.conceptStatuses = conceptStatuses;
   }
 
 
+  public TerminologyMetadata excludedProperties(Set<String> excludedProperties) {
+    this.excludedProperties = excludedProperties;
+    return this;
+  }
+
+  public TerminologyMetadata addExcludedPropertiesItem(String excludedPropertiesItem) {
+    if (this.excludedProperties == null) {
+      this.excludedProperties = new LinkedHashSet<>();
+    }
+    this.excludedProperties.add(excludedPropertiesItem);
+    return this;
+  }
+
+   /**
+   * Get excludedProperties
+   * @return excludedProperties
+  **/
+  @javax.annotation.Nullable
+  public Set<String> getExcludedProperties() {
+    return excludedProperties;
+  }
+
+  public void setExcludedProperties(Set<String> excludedProperties) {
+    this.excludedProperties = excludedProperties;
+  }
+
+
   public TerminologyMetadata retiredStatusValue(String retiredStatusValue) {
-    
     this.retiredStatusValue = retiredStatusValue;
     return this;
   }
@@ -284,14 +307,12 @@ public class TerminologyMetadata {
     return retiredStatusValue;
   }
 
-
   public void setRetiredStatusValue(String retiredStatusValue) {
     this.retiredStatusValue = retiredStatusValue;
   }
 
 
   public TerminologyMetadata detailsColumns(Map<String, Boolean> detailsColumns) {
-    
     this.detailsColumns = detailsColumns;
     return this;
   }
@@ -313,14 +334,12 @@ public class TerminologyMetadata {
     return detailsColumns;
   }
 
-
   public void setDetailsColumns(Map<String, Boolean> detailsColumns) {
     this.detailsColumns = detailsColumns;
   }
 
 
   public TerminologyMetadata hierarchy(Boolean hierarchy) {
-    
     this.hierarchy = hierarchy;
     return this;
   }
@@ -334,14 +353,39 @@ public class TerminologyMetadata {
     return hierarchy;
   }
 
-
   public void setHierarchy(Boolean hierarchy) {
     this.hierarchy = hierarchy;
   }
 
 
+  public TerminologyMetadata hierarchyRoles(Set<String> hierarchyRoles) {
+    this.hierarchyRoles = hierarchyRoles;
+    return this;
+  }
+
+  public TerminologyMetadata addHierarchyRolesItem(String hierarchyRolesItem) {
+    if (this.hierarchyRoles == null) {
+      this.hierarchyRoles = new LinkedHashSet<>();
+    }
+    this.hierarchyRoles.add(hierarchyRolesItem);
+    return this;
+  }
+
+   /**
+   * Indicates role codes that are reinterpreted as parent/child
+   * @return hierarchyRoles
+  **/
+  @javax.annotation.Nullable
+  public Set<String> getHierarchyRoles() {
+    return hierarchyRoles;
+  }
+
+  public void setHierarchyRoles(Set<String> hierarchyRoles) {
+    this.hierarchyRoles = hierarchyRoles;
+  }
+
+
   public TerminologyMetadata history(Boolean history) {
-    
     this.history = history;
     return this;
   }
@@ -355,14 +399,12 @@ public class TerminologyMetadata {
     return history;
   }
 
-
   public void setHistory(Boolean history) {
     this.history = history;
   }
 
 
   public TerminologyMetadata sourceCt(Integer sourceCt) {
-    
     this.sourceCt = sourceCt;
     return this;
   }
@@ -376,14 +418,12 @@ public class TerminologyMetadata {
     return sourceCt;
   }
 
-
   public void setSourceCt(Integer sourceCt) {
     this.sourceCt = sourceCt;
   }
 
 
   public TerminologyMetadata subsetLink(String subsetLink) {
-    
     this.subsetLink = subsetLink;
     return this;
   }
@@ -397,14 +437,12 @@ public class TerminologyMetadata {
     return subsetLink;
   }
 
-
   public void setSubsetLink(String subsetLink) {
     this.subsetLink = subsetLink;
   }
 
 
   public TerminologyMetadata licenseText(String licenseText) {
-    
     this.licenseText = licenseText;
     return this;
   }
@@ -418,14 +456,12 @@ public class TerminologyMetadata {
     return licenseText;
   }
 
-
   public void setLicenseText(String licenseText) {
     this.licenseText = licenseText;
   }
 
 
   public TerminologyMetadata metaConceptField(String metaConceptField) {
-    
     this.metaConceptField = metaConceptField;
     return this;
   }
@@ -439,14 +475,12 @@ public class TerminologyMetadata {
     return metaConceptField;
   }
 
-
   public void setMetaConceptField(String metaConceptField) {
     this.metaConceptField = metaConceptField;
   }
 
 
   public TerminologyMetadata codeLabel(String codeLabel) {
-    
     this.codeLabel = codeLabel;
     return this;
   }
@@ -460,14 +494,12 @@ public class TerminologyMetadata {
     return codeLabel;
   }
 
-
   public void setCodeLabel(String codeLabel) {
     this.codeLabel = codeLabel;
   }
 
 
   public TerminologyMetadata welcomeText(String welcomeText) {
-    
     this.welcomeText = welcomeText;
     return this;
   }
@@ -481,14 +513,12 @@ public class TerminologyMetadata {
     return welcomeText;
   }
 
-
   public void setWelcomeText(String welcomeText) {
     this.welcomeText = welcomeText;
   }
 
 
   public TerminologyMetadata synonymTermGroup(String synonymTermGroup) {
-    
     this.synonymTermGroup = synonymTermGroup;
     return this;
   }
@@ -502,14 +532,12 @@ public class TerminologyMetadata {
     return synonymTermGroup;
   }
 
-
   public void setSynonymTermGroup(String synonymTermGroup) {
     this.synonymTermGroup = synonymTermGroup;
   }
 
 
   public TerminologyMetadata termGroups(Map<String, String> termGroups) {
-    
     this.termGroups = termGroups;
     return this;
   }
@@ -531,14 +559,12 @@ public class TerminologyMetadata {
     return termGroups;
   }
 
-
   public void setTermGroups(Map<String, String> termGroups) {
     this.termGroups = termGroups;
   }
 
 
   public TerminologyMetadata preferredTermGroups(List<String> preferredTermGroups) {
-    
     this.preferredTermGroups = preferredTermGroups;
     return this;
   }
@@ -559,7 +585,6 @@ public class TerminologyMetadata {
   public List<String> getPreferredTermGroups() {
     return preferredTermGroups;
   }
-
 
   public void setPreferredTermGroups(List<String> preferredTermGroups) {
     this.preferredTermGroups = preferredTermGroups;
@@ -582,9 +607,11 @@ public class TerminologyMetadata {
         Objects.equals(this.maxVersions, terminologyMetadata.maxVersions) &&
         Objects.equals(this.loader, terminologyMetadata.loader) &&
         Objects.equals(this.conceptStatuses, terminologyMetadata.conceptStatuses) &&
+        Objects.equals(this.excludedProperties, terminologyMetadata.excludedProperties) &&
         Objects.equals(this.retiredStatusValue, terminologyMetadata.retiredStatusValue) &&
         Objects.equals(this.detailsColumns, terminologyMetadata.detailsColumns) &&
         Objects.equals(this.hierarchy, terminologyMetadata.hierarchy) &&
+        Objects.equals(this.hierarchyRoles, terminologyMetadata.hierarchyRoles) &&
         Objects.equals(this.history, terminologyMetadata.history) &&
         Objects.equals(this.sourceCt, terminologyMetadata.sourceCt) &&
         Objects.equals(this.subsetLink, terminologyMetadata.subsetLink) &&
@@ -599,7 +626,7 @@ public class TerminologyMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, conceptStatuses, retiredStatusValue, detailsColumns, hierarchy, history, sourceCt, subsetLink, licenseText, metaConceptField, codeLabel, welcomeText, synonymTermGroup, termGroups, preferredTermGroups);
+    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, conceptStatuses, excludedProperties, retiredStatusValue, detailsColumns, hierarchy, hierarchyRoles, history, sourceCt, subsetLink, licenseText, metaConceptField, codeLabel, welcomeText, synonymTermGroup, termGroups, preferredTermGroups);
   }
 
   @Override
@@ -612,9 +639,11 @@ public class TerminologyMetadata {
     sb.append("    maxVersions: ").append(toIndentedString(maxVersions)).append("\n");
     sb.append("    loader: ").append(toIndentedString(loader)).append("\n");
     sb.append("    conceptStatuses: ").append(toIndentedString(conceptStatuses)).append("\n");
+    sb.append("    excludedProperties: ").append(toIndentedString(excludedProperties)).append("\n");
     sb.append("    retiredStatusValue: ").append(toIndentedString(retiredStatusValue)).append("\n");
     sb.append("    detailsColumns: ").append(toIndentedString(detailsColumns)).append("\n");
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
+    sb.append("    hierarchyRoles: ").append(toIndentedString(hierarchyRoles)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
     sb.append("    sourceCt: ").append(toIndentedString(sourceCt)).append("\n");
     sb.append("    subsetLink: ").append(toIndentedString(subsetLink)).append("\n");
@@ -653,9 +682,11 @@ public class TerminologyMetadata {
     openapiFields.add("maxVersions");
     openapiFields.add("loader");
     openapiFields.add("conceptStatuses");
+    openapiFields.add("excludedProperties");
     openapiFields.add("retiredStatusValue");
     openapiFields.add("detailsColumns");
     openapiFields.add("hierarchy");
+    openapiFields.add("hierarchyRoles");
     openapiFields.add("history");
     openapiFields.add("sourceCt");
     openapiFields.add("subsetLink");
@@ -672,25 +703,26 @@ public class TerminologyMetadata {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to TerminologyMetadata
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to TerminologyMetadata
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!TerminologyMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!TerminologyMetadata.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in TerminologyMetadata is not found in the empty JSON string", TerminologyMetadata.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!TerminologyMetadata.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminologyMetadata` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `TerminologyMetadata` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -701,11 +733,19 @@ public class TerminologyMetadata {
         throw new IllegalArgumentException(String.format("Expected the field `loader` to be a primitive type in the JSON string but got `%s`", jsonObj.get("loader").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("conceptStatuses") != null && !jsonObj.get("conceptStatuses").isJsonArray()) {
+      if (jsonObj.get("conceptStatuses") != null && !jsonObj.get("conceptStatuses").isJsonNull() && !jsonObj.get("conceptStatuses").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `conceptStatuses` to be an array in the JSON string but got `%s`", jsonObj.get("conceptStatuses").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("excludedProperties") != null && !jsonObj.get("excludedProperties").isJsonNull() && !jsonObj.get("excludedProperties").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `excludedProperties` to be an array in the JSON string but got `%s`", jsonObj.get("excludedProperties").toString()));
       }
       if ((jsonObj.get("retiredStatusValue") != null && !jsonObj.get("retiredStatusValue").isJsonNull()) && !jsonObj.get("retiredStatusValue").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `retiredStatusValue` to be a primitive type in the JSON string but got `%s`", jsonObj.get("retiredStatusValue").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("hierarchyRoles") != null && !jsonObj.get("hierarchyRoles").isJsonNull() && !jsonObj.get("hierarchyRoles").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `hierarchyRoles` to be an array in the JSON string but got `%s`", jsonObj.get("hierarchyRoles").toString()));
       }
       if ((jsonObj.get("subsetLink") != null && !jsonObj.get("subsetLink").isJsonNull()) && !jsonObj.get("subsetLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subsetLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetLink").toString()));
@@ -726,7 +766,7 @@ public class TerminologyMetadata {
         throw new IllegalArgumentException(String.format("Expected the field `synonymTermGroup` to be a primitive type in the JSON string but got `%s`", jsonObj.get("synonymTermGroup").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("preferredTermGroups") != null && !jsonObj.get("preferredTermGroups").isJsonArray()) {
+      if (jsonObj.get("preferredTermGroups") != null && !jsonObj.get("preferredTermGroups").isJsonNull() && !jsonObj.get("preferredTermGroups").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `preferredTermGroups` to be an array in the JSON string but got `%s`", jsonObj.get("preferredTermGroups").toString()));
       }
   }
@@ -751,9 +791,9 @@ public class TerminologyMetadata {
 
            @Override
            public TerminologyMetadata read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

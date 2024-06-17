@@ -265,7 +265,7 @@ public class ConceptEndpointsApiTest {
     // ASSERT
     assertFalse(response.isEmpty());
     assertEquals(pageSize, response.size());
-    assertEquals("Advanced Cutaneous Melanoma of the Extremity", response.get(0).getName());
+    assertEquals("Adult Meningeal Melanoma", response.get(0).getName());
 
     // LOG
     log.info("Get list of descendents for code - C3224");
