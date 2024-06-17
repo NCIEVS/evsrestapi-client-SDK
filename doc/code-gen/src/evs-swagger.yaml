@@ -17,26 +17,18 @@ paths:
     post:
       tags:
         - Search endpoint
-      summary: Get SPARQL query bindings from a single terminology and query
-      description: "Simple use case: Get bindings from given sparql query given the
-        terminology to search."
+      summary: Get SPARQL query results
+      description: Perform a SPARQL query for a specified terminology.
       operationId: getSparqlBindings
       parameters:
         - name: terminology
           in: path
-          description:
-            Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
-        - name: query
-          in: query
-          description: The SPARQL query to run
-          required: true
-          schema:
-            type: string
         - name: fromRecord
           in: query
           description: Start index of the search results
@@ -61,20 +53,30 @@ paths:
           required: false
           schema:
             type: string
+      requestBody:
+        description: SPARQL query to execute on the graph for the specified terminology.
+          <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md'
+          target='_blank'>See here for more information and examples of using SPARQL
+          with EVSRESTAPI</a>.
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/MapResultList"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -94,8 +96,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -116,8 +117,8 @@ paths:
             type: string
         - name: type
           in: query
-          description: "The match type, one of: contains, match, startsWith, phrase,
-            AND, OR, fuzzy."
+          description: 'The match type, one of: contains, match, startsWith, phrase,
+          AND, OR, fuzzy.'
           schema:
             type: string
           example: contains
@@ -133,11 +134,11 @@ paths:
             type: boolean
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           schema:
             type: string
           example: minimal
@@ -165,24 +166,24 @@ paths:
             type: string
         - name: property
           in: query
-          description: "Comma-separated list of properties to restrict search results
-            by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE'
-            for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties'
-            target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
-            href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for
-            a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
-            as code or name. NOTE: This feature works with <i>value</i> to find concepts
-            having one of the specified properties with an exact value matching the
-            <i>value</i> parameter.  Using a <i>term</i> will further restrict results
-            to those also matching the term."
+          description: 'Comma-separated list of properties to restrict search results
+          by (see also <i>value</i>). e.g.<ul><li>''P106,P322'' for <i>terminology=ncit</i></li><li>''COLOR,SHAPE''
+          for <i>terminology=ncim</i></li></ul><p><a href=''/api/v1/metadata/ncit/properties''
+          target=''_blank''>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
+          href=''/api/v1/metadata/ncim/properties'' target=''_blank''>Click here for
+          a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
+          as code or name. NOTE: This feature works with <i>value</i> to find concepts
+          having one of the specified properties with an exact value matching the
+          <i>value</i> parameter.  Using a <i>term</i> will further restrict results
+          to those also matching the term.'
           schema:
             type: string
         - name: value
           in: query
-          description: "A property value to restrict search results by.  NOTE: This
-            feature works with <i>property</i> to find concepts having one of the specified
-            properties with an exact value matching this parameter.  Using a <i>term</i>
-            will further restrict results to those also matching the term."
+          description: 'A property value to restrict search results by.  NOTE: This
+          feature works with <i>property</i> to find concepts having one of the specified
+          properties with an exact value matching this parameter.  Using a <i>term</i>
+          will further restrict results to those also matching the term.'
           schema:
             type: string
         - name: definitionSource
@@ -234,19 +235,19 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ConceptResultList"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -265,26 +266,19 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Single terminology to search, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
-        - name: query
-          in: query
-          description: The SPARQL query to run
-          required: true
-          schema:
-            type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -304,8 +298,8 @@ paths:
             type: string
         - name: type
           in: query
-          description: "The match type, one of: contains, match, startsWith, phrase,
-            AND, OR, fuzzy."
+          description: 'The match type, one of: contains, match, startsWith, phrase,
+          AND, OR, fuzzy.'
           schema:
             type: string
           example: contains
@@ -343,24 +337,24 @@ paths:
             type: string
         - name: property
           in: query
-          description: "Comma-separated list of properties to restrict search results
-            by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE'
-            for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties'
-            target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
-            href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for
-            a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
-            as code or name. NOTE: This feature works with <i>value</i> to find concepts
-            having one of the specified properties with an exact value matching the
-            <i>value</i> parameter.  Using a <i>term</i> will further restrict results
-            to those also matching the term."
+          description: 'Comma-separated list of properties to restrict search results
+          by (see also <i>value</i>). e.g.<ul><li>''P106,P322'' for <i>terminology=ncit</i></li><li>''COLOR,SHAPE''
+          for <i>terminology=ncim</i></li></ul><p><a href=''/api/v1/metadata/ncit/properties''
+          target=''_blank''>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
+          href=''/api/v1/metadata/ncim/properties'' target=''_blank''>Click here for
+          a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
+          as code or name. NOTE: This feature works with <i>value</i> to find concepts
+          having one of the specified properties with an exact value matching the
+          <i>value</i> parameter.  Using a <i>term</i> will further restrict results
+          to those also matching the term.'
           schema:
             type: string
         - name: value
           in: query
-          description: "A property value to restrict search results by.  NOTE: This
-            feature works with <i>property</i> to find concepts having one of the specified
-            properties with an exact value matching this parameter.  Using a <i>term</i>
-            will further restrict results to those also matching the term."
+          description: 'A property value to restrict search results by.  NOTE: This
+          feature works with <i>property</i> to find concepts having one of the specified
+          properties with an exact value matching this parameter.  Using a <i>term</i>
+          will further restrict results to those also matching the term.'
           schema:
             type: string
         - name: definitionSource
@@ -411,20 +405,30 @@ paths:
             in at least one subset. This parameter is only meaningful for <i>terminology=ncit</i>
           schema:
             type: string
+      requestBody:
+        description: SPARQL query that returns ?code identifying a valid code in the
+          specified terminology. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md'
+          target='_blank'>See here for more information and examples of using SPARQL
+          with EVSRESTAPI</a>.
+        content:
+          application/json:
+            schema:
+              type: string
+        required: true
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ConceptResultList"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -437,19 +441,19 @@ paths:
       summary: Get the application version information
       operationId: getApplicationVersion
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ApplicationVersion"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -472,11 +476,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -490,7 +494,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -498,7 +502,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -527,23 +531,23 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data tc return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data tc return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -587,17 +591,17 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: minimal
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -605,13 +609,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -626,21 +630,20 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             text/html:
               schema:
                 type: string
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -655,15 +658,14 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -671,7 +673,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/ConceptMinimal"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -687,8 +689,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -696,11 +697,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -714,7 +715,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -722,13 +723,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -743,8 +744,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -759,29 +759,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Resource not found
           content:
             application/json:
@@ -796,15 +796,14 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -812,7 +811,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/ConceptMinimal"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -837,11 +836,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -855,7 +854,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -863,13 +862,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -900,29 +899,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data tc return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data tc return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -951,7 +950,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -961,13 +960,13 @@ paths:
                   type: array
                   items:
                     "$ref": "#/components/schemas/StatisticsEntry"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -990,11 +989,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1008,7 +1007,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1016,7 +1015,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1045,29 +1044,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1082,8 +1081,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1091,11 +1089,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1108,7 +1106,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1116,13 +1114,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1137,8 +1135,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1153,29 +1150,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1190,8 +1187,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1205,7 +1201,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1213,7 +1209,7 @@ paths:
                 type: array
                 items:
                   type: string
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -1228,8 +1224,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1244,29 +1239,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1282,8 +1277,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1291,11 +1285,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1309,7 +1303,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1317,13 +1311,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1339,8 +1333,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1348,11 +1341,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1366,7 +1359,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1374,13 +1367,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1395,8 +1388,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1411,29 +1403,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1448,15 +1440,14 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
             type: string
           example: ncit
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1464,7 +1455,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/ConceptMinimal"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -1485,7 +1476,7 @@ paths:
             type: string
           example: ncit
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1493,7 +1484,7 @@ paths:
                 type: array
                 items:
                   type: string
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -1509,8 +1500,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1518,11 +1508,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1536,7 +1526,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1544,13 +1534,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1565,8 +1555,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1581,29 +1570,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: summary
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1640,7 +1629,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1648,7 +1637,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Terminology"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -1664,17 +1653,17 @@ paths:
       parameters:
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: minimal
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1698,29 +1687,29 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
-            properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents,
+          properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
           example: minimal
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1774,19 +1763,19 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ConceptMapResultList"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1802,8 +1791,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1817,7 +1805,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1825,13 +1813,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/History"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1848,8 +1836,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1863,7 +1850,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1871,13 +1858,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/History"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1892,8 +1879,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1901,11 +1887,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -1926,7 +1912,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -1934,19 +1920,19 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -1961,8 +1947,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -1990,11 +1975,11 @@ paths:
           example: 100
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -2008,25 +1993,25 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2074,7 +2059,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2082,13 +2067,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/HierarchyNode"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2136,7 +2121,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2144,13 +2129,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/HierarchyNode"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2186,7 +2171,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2194,7 +2179,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Role"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2223,14 +2208,14 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>. For this call,
-            it is recommended to avoid using this parameter unless you need it for a
-            specific use case.  Any value other than 'minimal' may produce very large
-            payload results. "
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>. For this call,
+          it is recommended to avoid using this parameter unless you need it for a
+          specific use case.  Any value other than ''minimal'' may produce very large
+          payload results. '
           required: false
           schema:
             type: string
@@ -2260,7 +2245,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2270,13 +2255,13 @@ paths:
                   type: array
                   items:
                     "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2312,14 +2297,14 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>. For this call,
-            it is recommended to avoid using this parameter unless you need it for a
-            specific use case.  Any value other than 'minimal' may produce very large
-            payload results. "
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>. For this call,
+          it is recommended to avoid using this parameter unless you need it for a
+          specific use case.  Any value other than ''minimal'' may produce very large
+          payload results. '
           required: false
           schema:
             type: string
@@ -2349,7 +2334,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2359,13 +2344,13 @@ paths:
                   type: array
                   items:
                     "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2394,14 +2379,14 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>. For this call,
-            it is recommended to avoid using this parameter unless you need it for a
-            specific use case.  Any value other than 'minimal' may produce very large
-            payload results. "
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>. For this call,
+          it is recommended to avoid using this parameter unless you need it for a
+          specific use case.  Any value other than ''minimal'' may produce very large
+          payload results. '
           required: false
           schema:
             type: string
@@ -2431,7 +2416,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2441,13 +2426,13 @@ paths:
                   type: array
                   items:
                     "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2462,8 +2447,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -2485,7 +2469,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2493,7 +2477,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2529,7 +2513,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2537,7 +2521,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/ConceptMap"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2573,7 +2557,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2581,7 +2565,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Role"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2596,8 +2580,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -2619,7 +2602,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2627,7 +2610,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Association"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2663,13 +2646,13 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2705,7 +2688,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2713,7 +2696,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/DisjointWith"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2773,7 +2756,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2781,13 +2764,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2802,8 +2785,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -2825,7 +2807,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2833,7 +2815,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2848,8 +2830,7 @@ paths:
       parameters:
         - name: terminology
           in: path
-          description:
-            Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
+          description: Terminology, e.g. 'ncit' or 'ncim' (<a href="https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md">See
             here for complete list</a>)
           required: true
           schema:
@@ -2871,7 +2852,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2879,7 +2860,7 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Association"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
@@ -2926,11 +2907,11 @@ paths:
             type: string
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -2944,7 +2925,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -2952,13 +2933,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -2980,11 +2961,11 @@ paths:
           example: ncit
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           required: false
           schema:
             type: string
@@ -2998,7 +2979,7 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
@@ -3006,13 +2987,13 @@ paths:
                 type: array
                 items:
                   "$ref": "#/components/schemas/Concept"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -3065,19 +3046,19 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/AssociationEntryResultList"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -3118,8 +3099,8 @@ paths:
             type: string
         - name: type
           in: query
-          description: "The match type, one of: contains, match, startsWith, phrase,
-            AND, OR, fuzzy."
+          description: 'The match type, one of: contains, match, startsWith, phrase,
+          AND, OR, fuzzy.'
           schema:
             type: string
           example: contains
@@ -3135,11 +3116,11 @@ paths:
             type: boolean
         - name: include
           in: query
-          description: "Indicator of how much data to return. Comma-separated list of
-            any of the following values: minimal, summary, full, associations, children,
-            definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
-            parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md'
-            target='_blank'>See here for detailed information</a>."
+          description: 'Indicator of how much data to return. Comma-separated list of
+          any of the following values: minimal, summary, full, associations, children,
+          definitions, disjointWith, history, inverseAssociations, inverseRoles, maps,
+          parents, properties, roles, synonyms. <a href=''https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md''
+          target=''_blank''>See here for detailed information</a>.'
           schema:
             type: string
           example: minimal
@@ -3167,24 +3148,24 @@ paths:
             type: string
         - name: property
           in: query
-          description: "Comma-separated list of properties to restrict search results
-            by (see also <i>value</i>). e.g.<ul><li>'P106,P322' for <i>terminology=ncit</i></li><li>'COLOR,SHAPE'
-            for <i>terminology=ncim</i></li></ul><p><a href='/api/v1/metadata/ncit/properties'
-            target='_blank'>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
-            href='/api/v1/metadata/ncim/properties' target='_blank'>Click here for
-            a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
-            as code or name. NOTE: This feature works with <i>value</i> to find concepts
-            having one of the specified properties with an exact value matching the
-            <i>value</i> parameter.  Using a <i>term</i> will further restrict results
-            to those also matching the term."
+          description: 'Comma-separated list of properties to restrict search results
+          by (see also <i>value</i>). e.g.<ul><li>''P106,P322'' for <i>terminology=ncit</i></li><li>''COLOR,SHAPE''
+          for <i>terminology=ncim</i></li></ul><p><a href=''/api/v1/metadata/ncit/properties''
+          target=''_blank''>Click here for a list of NCI Thesaurus properties</a>.</p><p><a
+          href=''/api/v1/metadata/ncim/properties'' target=''_blank''>Click here for
+          a list of NCI Metathesaurus properties</a>.</p> The properties can be specified
+          as code or name. NOTE: This feature works with <i>value</i> to find concepts
+          having one of the specified properties with an exact value matching the
+          <i>value</i> parameter.  Using a <i>term</i> will further restrict results
+          to those also matching the term.'
           schema:
             type: string
         - name: value
           in: query
-          description: "A property value to restrict search results by.  NOTE: This
-            feature works with <i>property</i> to find concepts having one of the specified
-            properties with an exact value matching this parameter.  Using a <i>term</i>
-            will further restrict results to those also matching the term."
+          description: 'A property value to restrict search results by.  NOTE: This
+          feature works with <i>property</i> to find concepts having one of the specified
+          properties with an exact value matching this parameter.  Using a <i>term</i>
+          will further restrict results to those also matching the term.'
           schema:
             type: string
         - name: definitionSource
@@ -3236,25 +3217,25 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: Successfully retrieved the requested information
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/ConceptResultList"
-        "400":
+        '400':
           description: Bad request
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "404":
+        '404':
           description: Resource not found
           content:
             application/json:
               schema:
                 "$ref": "#/components/schemas/RestException"
-        "417":
+        '417':
           description: Expectation failed
           content:
             application/json:
@@ -3325,8 +3306,8 @@ components:
           description: Search term, e.g. 'heart', or 'C3224'
         type:
           type: string
-          description: "The match type, one of: contains, match, startsWith, phrase,
-            AND, OR, fuzzy"
+          description: 'The match type, one of: contains, match, startsWith, phrase,
+            AND, OR, fuzzy'
         include:
           type: string
           description: Include parameter value, e.g. 'minimal', 'summary', 'synonyms,properties,children'
@@ -3426,6 +3407,9 @@ components:
           items:
             type: string
             description: Comma-separated list of terminologies to search
+        sparql:
+          type: string
+          description: SPARQL query, only available as an output parameter
       description: Criteria for a search or find operation
     Association:
       type: object
@@ -4059,6 +4043,11 @@ components:
           items:
             type: string
             description: Concept status values used by the terminology
+        excludedProperties:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
         retiredStatusValue:
           type: string
           description: Concept status value for retired concepts
@@ -4071,6 +4060,13 @@ components:
         hierarchy:
           type: boolean
           description: Indicates whether or not the terminology has a hierarchy
+        hierarchyRoles:
+          uniqueItems: true
+          type: array
+          description: Indicates role codes that are reinterpreted as parent/child
+          items:
+            type: string
+            description: Indicates role codes that are reinterpreted as parent/child
         history:
           type: boolean
           description: Indicates whether or not the terminology has history records
