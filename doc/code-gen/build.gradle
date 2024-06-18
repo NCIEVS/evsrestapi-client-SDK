@@ -50,7 +50,9 @@ tasks.register('buildJavaSdk', GenerateTask) {
     configOptions.set([
         "dateLibrary": "java8",
         "serializationLibrary": "jackson",
-        "hideGenerationTimestamp": "false"
+        "hideGenerationTimestamp": "false",
+        // if there are unknown properties present, ignore them
+        "ignoreUnknown": "true"
     ])
     dependsOn tasks.named('clearBuildDir')
 
@@ -66,7 +68,9 @@ tasks.register('buildPythonSdk', GenerateTask) {
     modelPackage.set("gov.nih.nci.evs.api.models")
     configOptions.set([
         "packageName": "python-examples",
-        "hideGenerationTimestamp": "false"
+        "hideGenerationTimestamp": "false",
+        // if there are unknown properties present, ignore them
+        "additionalProperties": "true"
     ])
     dependsOn tasks.named('clearBuildDir')
 }
