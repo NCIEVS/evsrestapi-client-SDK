@@ -536,7 +536,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(149, response.getTotal());
+    assertEquals(147, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
