@@ -45,7 +45,7 @@ curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
 
 ### PROBLEM: not using ?code in select
 
-Here is an example to demonstrate the error that occus when not selecting a ?code column.
+Here is an example to demonstrate the error that occurs when not selecting a ?code column.
 
 ```
 cat << EOF > query.txt
@@ -59,7 +59,7 @@ curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
 
 ### PROBLEM: Bad Sparql
 
-Here is an example to demonstrate the error that occus when using an invalid sparql query.
+Here is an example to demonstrate the error that occurs when using an invalid sparql query.
 
 ```
 cat << EOF > query.txt
@@ -99,7 +99,7 @@ curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
 
 ### PROBLEM: Bad Sparql
 
-Here is an example to demonstrate the error that occus when using an invalid sparql query.
+Here is an example to demonstrate the error that occurs when using an invalid sparql query.
 
 ```
 cat << EOF > query.txt
