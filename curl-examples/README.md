@@ -804,7 +804,7 @@ curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=100" \
   -d '@sparql-queries/bindings-query.txt' | jq '.'
 ```
 
-See sample SPARQL query from this call in [`sparql-queries/bindings-query.txt`](sparql-queries/bindings.txt)
+See sample SPARQL query from this call in [`sparql-queries/bindings-query.txt`](sparql-queries/bindings-query.txt)
 See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
