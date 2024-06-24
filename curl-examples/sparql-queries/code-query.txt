@@ -1,1 +1,1 @@
-SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" }
+SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma" }
