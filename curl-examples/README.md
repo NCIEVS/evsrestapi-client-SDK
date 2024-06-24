@@ -77,8 +77,7 @@ The following examples can be types into the command line of any terminal that h
 * [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 * [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 
-* [Get concepts by SPARQL code without prefix](#get-concepts-by-sparql-without-prefix)
-* [Get concepts by SPARQL code with prefix](#get-concepts-by-sparql-with-prefix)
+* [Find concepts by SPARQL code](#get-concepts-by-sparql-code)
 * [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
 ### Get terminologies
@@ -781,7 +780,7 @@ See sample payload data from this call in [`samples/get-replacements-for-concept
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Get concepts by SPARQL without prefix
+### Find concepts by SPARQL
 
 Get concepts for a specified SPARQL query without prefixes.
 
@@ -796,21 +795,6 @@ See sample payload data from this call in [`samples/get-concepts-by-sparql-witho
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-### Get concepts by SPARQL with prefix
-
-Get concepts for a specified SPARQL query with prefixes.
-
-```{text}
-curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
-  -H 'Content-type: text/plain' \
-  -d '@sparql-queries/prefix.txt' | jq '.'
-```
-
-See sample SPARQL query from this call in [`sparql-queries/prefix.txt`](sparql-queries/prefix.txt)
-See sample payload data from this call in [`samples/get-concepts-by-sparql-with-prefix.txt`](samples/get-concepts-by-sparql-with-prefix.txt)
-
-[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
-
 ### Get SPARQL bindings from query
 
 Get SPARQL bindings for a specified SPARQL query.
@@ -818,10 +802,10 @@ Get SPARQL bindings for a specified SPARQL query.
 ```{text}
 curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=100" \
   -H 'Content-type: text/plain' \
-  -d '@sparql-queries/bindings.txt' | jq '.'
+  -d '@sparql-queries/bindings-query.txt' | jq '.'
 ```
 
-See sample SPARQL query from this call in [`sparql-queries/bindings.txt`](sparql-queries/bindings.txt)
+See sample SPARQL query from this call in [`sparql-queries/bindings-query.txt`](sparql-queries/bindings.txt)
 See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
