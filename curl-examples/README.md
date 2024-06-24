@@ -68,6 +68,7 @@ The following examples can be types into the command line of any terminal that h
 * [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 * [Find concepts by property](#find-concepts-by-property)
 * [Find concepts by subset](#find-concepts-by-subset)
+* [Find concepts by SPARQL code](#find-concepts-by-sparql-code)
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
 * [Get subset members by subset code](#get-subset-members-by-code)
@@ -76,8 +77,6 @@ The following examples can be types into the command line of any terminal that h
 * [Get maps by mapset code](#get-maps-by-mapset-code)
 * [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 * [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
-
-* [Find concepts by SPARQL code](#get-concepts-by-sparql-code)
 * [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
 ### Get terminologies
@@ -684,6 +683,21 @@ See sample payload data from this call in [`samples/find-concepts-by-search-subs
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
+### Find concepts by SPARQL code
+
+Find concepts for a specified SPARQL query that returns a ?code field.
+
+```{text}
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/code-query.txt' | jq '.'
+```
+
+See sample SPARQL query from this call in [`sparql-queries/code-query.txt`](sparql-queries/code-query.txt)
+See sample payload data from this call in [`samples/find-concepts-by-sparql-code.txt`](samples/find-concepts-by-sparql-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
 ### Get all subsets
 
 Get all subsets (with minimal information) associated for a specified terminology.
@@ -777,21 +791,6 @@ curl "$API_URL/history/ncit/replacements?list=C12658,C13320" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-replacements-for-concept-code-list.txt`](samples/get-replacements-for-concept-code-list.txt)
-
-[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
-
-### Find concepts by SPARQL
-
-Get concepts for a specified SPARQL query without prefixes.
-
-```{text}
-curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
-  -H 'Content-type: text/plain' \
-  -d '@sparql-queries/no-prefix.txt' | jq '.'
-```
-
-See sample SPARQL query from this call in [`sparql-queries/no-prefix.txt`](sparql-queries/no-prefix.txt)
-See sample payload data from this call in [`samples/get-concepts-by-sparql-without-prefix.txt`](samples/get-concepts-by-sparql-without-prefix.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
