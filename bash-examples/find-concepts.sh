@@ -19,8 +19,8 @@ if [ ${#arr[@]} -ne 2 ] && [ $get -eq 1 ]; then
   echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --pageSize 5"
   echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --include summary"
   echo "  e.g. $0 ncit "'"'"malignant melanoma"'"'" --type AND"
-  echo "  e.g. $0 ncit --sparql ../curl-examples/sparql-queries/no-prefix.txt"
-  echo "  e.g. $0 ncit melanoma --sparql ../curl-examples/sparql-queries/no-prefix.txt"
+  echo "  e.g. $0 ncit --sparql ../curl-examples/sparql-queries/code-query.txt"
+  echo "  e.g. $0 ncit melanoma --sparql ../curl-examples/sparql-queries/code-query.txt"
   exit 1
 fi
 

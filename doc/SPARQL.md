@@ -5,6 +5,12 @@ EVSRESTAPI now supports search API calls that accept a SPARQL query that can be
 run against terminologies loaded from RDF (e.g. /terminologies entries with 
 metadata.loader == 'rdf').
 
+These endpoints have been designed so that users do not have to worry about 
+prefixes or graph names.  Those features are handled seamlessly in the background.
+API calls that return terminology metadata will provide information about the
+namespace prefixes that are used with queries for that terminology so you can 
+properly use prefixes in your queries.
+
 There are two ways to pass SPARQL queries
 
 1. [POST /concept/{terminology}/search endpoint](#sparql-with-concept-queries): 
@@ -80,7 +86,7 @@ Use an API_URL setting like the one below.
 `export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
 
 
-### Simple query to get code, name (without graph)
+### Simple query to get code, name
 
 This query is appropriate for NCI Thesaurus and finds the URIs for each class
 and the code property that goes along with it.  Because the REST call uses paging

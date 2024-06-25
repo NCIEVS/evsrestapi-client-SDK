@@ -390,7 +390,7 @@ This script can also be used with a file containing a sparql query to perform
 that query and combine with the other results.
 
 ```
-$ ./find-concepts.sh ncit melanoma --sparql ../curl-examples/sparql-queries/no-prefix.txt
+$ ./find-concepts.sh ncit melanoma --sparql ../curl-examples/sparql-queries/code-query.txt
 -----------------------------------------------------
 Starting ...Fri, Jun 14, 2024  5:34:50 PM
 -----------------------------------------------------
@@ -398,7 +398,7 @@ url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 term = melanoma
 include =
-sparql = ../curl-examples/sparql-queries/no-prefix.txt
+sparql = ../curl-examples/sparql-queries/code-query.txt
 
   Find concepts for ncit melanoma:
 
