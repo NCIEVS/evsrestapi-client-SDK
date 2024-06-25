@@ -139,7 +139,7 @@ public class SearchEndpointApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -377,6 +377,7 @@ public class SearchEndpointApi {
         }
 
         final String[] localVarContentTypes = {
+                "text/plain"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -642,6 +643,7 @@ public class SearchEndpointApi {
         }
 
         final String[] localVarContentTypes = {
+                "text/plain"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
@@ -910,7 +912,7 @@ public class SearchEndpointApi {
         }
 
         final String[] localVarContentTypes = {
-            "application/json"
+            "text/plain"
         };
         final String localVarContentType = localVarApiClient.selectHeaderContentType(localVarContentTypes);
         if (localVarContentType != null) {
