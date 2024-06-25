@@ -1036,7 +1036,32 @@
 			"response": []
 		},
 		{
-			"name": "Get Relationship via Advanced SPARQL query",
+			"name": "Get Concepts by SPARQL",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?query=SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Concepts Based on Associations Query",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -1063,31 +1088,6 @@
 							"key": "query",
 							"value": "SELECT ?code ?name\n  { \n    ?concept a owl:Class . \n    ?concept :NHC0 ?code . \n    ?concept :P108 ?name . \n    ?concept ?relationship ?relatedConcept . \n    ?relationship :NHC0 \"A13\" . \n    ?relationship :P108 \"Related_To_Genetic_Biomarker\" .\n    ?relatedConcept a owl:Class .\n    ?relatedConcept :NHC0 \"C26585\" .\n    ?relatedConcept :P108 \"KLK3 Gene\" .\n  }",
 							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get Concepts by SPARQL",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?query=SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"concept",
-						"ncit",
-						"search"
-					],
-					"query": [
-						{
-							"key": "query",
-							"value": "SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D"
 						}
 					]
 				}

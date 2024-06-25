@@ -7,7 +7,7 @@ the range of functionality that the EVSREST API has. Many of these API calls can
 
 ## Prerequisites
 
-* A recent version of Go must be installed. The latest version can be found [here](https://go.dev/doc/install).
+- A recent version of Go must be installed. The latest version can be found [here](https://go.dev/doc/install).
 
 The various scripts make use of the `go-examples/config.ini` file to load necessary information that is uniform across all tests.
 
@@ -30,58 +30,58 @@ go test <file name> <test name>
 e.g. go test -v -run main.go applicationVersion_test.go TestGetVersion
 ```
 
-All tests can be run with the command 'go test -v *.go'
+All tests can be run with the command 'go test -v \*.go'
 
-* [Get terminologies](#get-terminologies)
-* [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
-* [Get concept list by code (minimal information)](#get-concepts-by-list-of-codes-minimal-information)
-* [Get concept by code (summary information)](#get-concept-by-code-summary-information)
-* [Get concept by code (full information)](#get-concept-by-code-full-information)
-* [Get concept by code (custom information)](#get-concept-by-code-custom-information)
-* [Get concept descendants by code](#get-concept-descendants-by-code)
-* [Get all properties](#get-all-properties)
-* [Get property by code or label](#get-property-by-code-or-label)
-* [Get all qualifiers](#get-all-qualifiers)
-* [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
-* [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
-* [Get all roles](#get-all-roles)
-* [Get roles by code (or label)](#get-roles-by-code-or-label)
-* [Get all associations](#get-all-associations)
-* [Get associations by code (or label)](#get-associations-by-code-or-label)
-* [Get term types](#get-term-types)
-* [Get definition sources](#get-definition-sources)
-* [Get synonym sources](#get-synonym-sources)
-* [Get synonym types](#get-synonym-types)
-* [Get synonym types by code](#get-synonym-types-by-code)
-* [Get definition types](#get-definition-types)
-* [Get definition types by code](#get-definition-types-by-code)
-* [Get root concepts](#get-root-concepts)
-* [Get paths to/from root from code](#get-root-paths-from-code)
-* [Get paths to ancestor from code](#get-ancestor-paths-from-code)
-* [Get subtree](#get-subtree)
-* [Get concepts by search term](#get-concepts-by-search-term)
-* [Get concepts by search term (restrict by concept status)](#get-concepts-by-search-term-restrict-by-concept-status)
-* [Get concepts by search term (restrict by contributing source)](#get-concepts-by-search-term-restrict-by-contributing-source)
-* [Get concepts by search term (restrict by definition source)](#get-concepts-by-search-term-restrict-by-definition-source)
-* [Get concepts by search term (restrict by definition type)](#get-concepts-by-search-term-restrict-by-definition-type)
-* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-by-search-term-restrict-by-synonym-source)
-* [Get concepts by search term (restrict by synonym type)](#get-concepts-by-search-term-restrict-by-synonym-type)
-* [Get concepts by search term (using type=match)](#get-concepts-by-search-term-using-typematch)
-* [Get concepts by search term (using type=startsWith)](#get-concepts-by-search-term-using-typestartswith)
-* [Get concepts by search term (using type=phrase)](#get-concepts-by-search-term-using-typephrase)
-* [Get concepts by search term (using type=fuzzy)](#get-concepts-by-search-term-using-typefuzzy)
-* [Get concepts by search term (using type=OR)](#get-concepts-by-search-term-using-typeor)
-* [Get concepts by search term (using type=AND)](#get-concepts-by-search-term-using-typeand)
-* [Get concepts by search term (with highlights)](#get-concepts-by-search-term-with-highlights)
-* [Get concept by subset](#get-concept-by-subset)
-* [Get all subsets](#get-all-subsets)
-* [Get subset by code](#get-subset-by-code)
-* [Get subset members by code](#get-subset-members-by-code)
-* [Get all mapsets](#get-all-mapsets)
-* [Get mapset by code](#get-mapset-by-code)
-* [Get maps by mapset code](#get-maps-by-mapset-code)
-* [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
-* [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
+- [Get concept list by code (minimal information)](#get-concepts-by-list-of-codes-minimal-information)
+- [Get concept by code (summary information)](#get-concept-by-code-summary-information)
+- [Get concept by code (full information)](#get-concept-by-code-full-information)
+- [Get concept by code (custom information)](#get-concept-by-code-custom-information)
+- [Get concept descendants by code](#get-concept-descendants-by-code)
+- [Get all properties](#get-all-properties)
+- [Get property by code or label](#get-property-by-code-or-label)
+- [Get all qualifiers](#get-all-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
+- [Get all roles](#get-all-roles)
+- [Get roles by code (or label)](#get-roles-by-code-or-label)
+- [Get all associations](#get-all-associations)
+- [Get associations by code (or label)](#get-associations-by-code-or-label)
+- [Get term types](#get-term-types)
+- [Get definition sources](#get-definition-sources)
+- [Get synonym sources](#get-synonym-sources)
+- [Get synonym types](#get-synonym-types)
+- [Get synonym types by code](#get-synonym-types-by-code)
+- [Get definition types](#get-definition-types)
+- [Get definition types by code](#get-definition-types-by-code)
+- [Get root concepts](#get-root-concepts)
+- [Get paths to/from root from code](#get-root-paths-from-code)
+- [Get paths to ancestor from code](#get-ancestor-paths-from-code)
+- [Get subtree](#get-subtree)
+- [Get concepts by search term](#get-concepts-by-search-term)
+- [Get concepts by search term (restrict by concept status)](#get-concepts-by-search-term-restrict-by-concept-status)
+- [Get concepts by search term (restrict by contributing source)](#get-concepts-by-search-term-restrict-by-contributing-source)
+- [Get concepts by search term (restrict by definition source)](#get-concepts-by-search-term-restrict-by-definition-source)
+- [Get concepts by search term (restrict by definition type)](#get-concepts-by-search-term-restrict-by-definition-type)
+- [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-by-search-term-restrict-by-synonym-source)
+- [Get concepts by search term (restrict by synonym type)](#get-concepts-by-search-term-restrict-by-synonym-type)
+- [Get concepts by search term (using type=match)](#get-concepts-by-search-term-using-typematch)
+- [Get concepts by search term (using type=startsWith)](#get-concepts-by-search-term-using-typestartswith)
+- [Get concepts by search term (using type=phrase)](#get-concepts-by-search-term-using-typephrase)
+- [Get concepts by search term (using type=fuzzy)](#get-concepts-by-search-term-using-typefuzzy)
+- [Get concepts by search term (using type=OR)](#get-concepts-by-search-term-using-typeor)
+- [Get concepts by search term (using type=AND)](#get-concepts-by-search-term-using-typeand)
+- [Get concepts by search term (with highlights)](#get-concepts-by-search-term-with-highlights)
+- [Get concept by subset](#get-concept-by-subset)
+- [Get all subsets](#get-all-subsets)
+- [Get subset by code](#get-subset-by-code)
+- [Get subset members by code](#get-subset-members-by-code)
+- [Get all mapsets](#get-all-mapsets)
+- [Get mapset by code](#get-mapset-by-code)
+- [Get maps by mapset code](#get-maps-by-mapset-code)
+- [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+- [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 
 ### Get terminologies
 
@@ -94,7 +94,7 @@ Command: go test -v -run TestGetTerminology`
 metadata_test.go: Get Terminology Version
 https://api-evsrest.nci.nih.gov/api/v1/metadata/terminologies?latest=true&tag=monthly&terminology=ncit
 
-[{"terminology":"ncit","version":"23.03d","date":"March 27, 2023","name":"NCI Thesaurus 23.03d","description":"NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. 
+[{"terminology":"ncit","version":"23.03d","date":"March 27, 2023","name":"NCI Thesaurus 23.03d","description":"NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities.
 Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.","graph":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus23.03d.owl","source":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl","terminologyVersion":"ncit_23.03d","latest":true,"tags":{"monthly":"true"},"indexName":"concept_ncit_2303d","objectIndexName":"evs_object_ncit_2303d","metadata":{"uiLabel":"NCI Thesaurus","maxVersions":3,"loader":"rdf","code":"NHC0","conceptStatuses":["Obsolete_Concept","Header_Concept","Retired_Concept","Provisional_Concept","Concept_Pending_Approval"],"retiredStatusValue":"Retired_Concept","preferredName":"P108","relationshipToTarget":"P393","synonym":["P90","P108","P107"],"synonymTermType":"P383","synonymSource":"P384","synonymCode":"P385","synonymSubSource":"P386","definition":["P325","P97"],"definitionSource":"P378","mapRelation":"P393","map":"P375","mapTarget":"P395","mapTargetTermType":"P394","mapTargetTerminology":"P396","mapTargetTerminologyVersion":"P397","detailsColumns":{"definitions-source":true,"definitions-attribution":true,"synonyms-source":true,"synonyms-termType":true,"synonyms-code":true,"synonyms-subSource":true},"hierarchy":true,"sourceCt":70,"subsetLink":"P374","subsetMember":["A8"],"subset":["C54443"],"codeLabel":"NCI Thesaurus Code"}}]
 
 --- PASS: TestGetTerminology (0.84s)
@@ -167,7 +167,7 @@ $ go test -v -run TestGetSummaryConceptByCode
 concepts_test.go: Get Minimal Concept by Code
 https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/C3224?include=summary
 
-{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false,"synonyms":[{"name":"Melanoma","termType":"SY","type":"FULL_SYN","source":"caDSR"},{"name":"Malignant Melanoma","termType":"SY","type":"FULL_SYN","source":"CDISC"},{"name":"MELANOMA, MALIGNANT","termType":"PT","type":"FULL_SYN","source":"CDISC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"Cellosaurus"},{"name":"Malignant Melanoma","termType":"PT","type":"FULL_SYN","source":"CPTAC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"CTEP","code":"10053571","subSource":"SDC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"CTRP"},{"name":"Melanoma","termType":"DN","type":"FULL_SYN","source":"CTRP"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"GDC"},{"name":"Melanoma, NOS","termType":"SY","type":"FULL_SYN","source":"GDC"},{"name":"melanoma","termType":"PT","type":"FULL_SYN","source":"NCI-GLOSS","code":"CDR0000045135"},{"name":"Malignant Melanoma","termType":"SY","type":"FULL_SYN","source":"NCI"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"NICHD"},{"name":"Melanoma","type":"Display_Name"},{"name":"Melanoma","type":"Preferred_Name"}],"definitions":[{"definition":"A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.","type":"ALT_DEFINITION","source":"NCI-GLOSS"},{"definition":"A malignant neoplasm composed of melanocytes.","type":"ALT_DEFINITION","source":"CDISC"},{"definition":"A malignant neoplasm comprised of melanocytes typically arising in the skin.","type":"ALT_DEFINITION","source":"NICHD"},{"definition":"A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, 
+{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false,"synonyms":[{"name":"Melanoma","termType":"SY","type":"FULL_SYN","source":"caDSR"},{"name":"Malignant Melanoma","termType":"SY","type":"FULL_SYN","source":"CDISC"},{"name":"MELANOMA, MALIGNANT","termType":"PT","type":"FULL_SYN","source":"CDISC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"Cellosaurus"},{"name":"Malignant Melanoma","termType":"PT","type":"FULL_SYN","source":"CPTAC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"CTEP","code":"10053571","subSource":"SDC"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"CTRP"},{"name":"Melanoma","termType":"DN","type":"FULL_SYN","source":"CTRP"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"GDC"},{"name":"Melanoma, NOS","termType":"SY","type":"FULL_SYN","source":"GDC"},{"name":"melanoma","termType":"PT","type":"FULL_SYN","source":"NCI-GLOSS","code":"CDR0000045135"},{"name":"Malignant Melanoma","termType":"SY","type":"FULL_SYN","source":"NCI"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"NCI"},{"name":"Melanoma","termType":"PT","type":"FULL_SYN","source":"NICHD"},{"name":"Melanoma","type":"Display_Name"},{"name":"Melanoma","type":"Preferred_Name"}],"definitions":[{"definition":"A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.","type":"ALT_DEFINITION","source":"NCI-GLOSS"},{"definition":"A malignant neoplasm composed of melanocytes.","type":"ALT_DEFINITION","source":"CDISC"},{"definition":"A malignant neoplasm comprised of melanocytes typically arising in the skin.","type":"ALT_DEFINITION","source":"NICHD"},{"definition":"A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye,
 urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.","type":"DEFINITION","source":"NCI"}],"properties":[{"type":"Contributing_Source","value":"CDISC"},{"type":"Contributing_Source","value":"Cellosaurus"},{"type":"Contributing_Source","value":"CPTAC"},{"type":"Contributing_Source","value":"CTEP"},{"type":"Contributing_Source","value":"CTRP"},{"type":"Contributing_Source","value":"GDC"},{"type":"Contributing_Source","value":"MedDRA"},{"type":"Contributing_Source","value":"NICHD"},{"type":"ICD-O-3_Code","value":"8720/3"},{"type":"Legacy Concept Name","value":"Melanoma"},{"type":"Maps_To","value":"8720/3"},{"type":"Maps_To","value":"Malignant melanoma, NOS"},{"type":"Maps_To","value":"Melanoma"},{"type":"Maps_To","value":"Melanoma, NOS"},{"type":"Neoplastic_Status","value":"Malignant"},{"type":"Semantic_Type","value":"Neoplastic Process"},{"type":"UMLS_CUI","value":"C0025202"}]}
 
 --- PASS: TestGetSummaryConceptByCode (0.71s)
@@ -424,7 +424,7 @@ Command: go test -v -run TestGetTermTypes`
 metadata_test.go: Get Term Types
 https://api-evsrest.nci.nih.gov/api/v1/metadata/ncit/termTypes
 
-[{"code":"AB","name":"Abbreviation","terminology":"ncit","version":"23.03d"},{"code":"AD","name":"Adjectival form (and other parts of grammar)","terminology":"ncit","version":"23.03d"},{"code":"AQ","name":"*Antiquated preferred term","terminology":"ncit","version":"23.03d"},{"code":"AQS","name":"Antiquated term, use when there are antiquated synonyms within a concept","terminology":"ncit","version":"23.03d"},{"code":"BR","name":"US brand name, which may be trademarked","terminology":"ncit","version":"23.03d"},{"code":"CA2","name":"ISO 3166 alpha-2 country code","terminology":"ncit","version":"23.03d"},{"code":"CA3","name":"ISO 3166 alpha-3 country code","terminology":"ncit","version":"23.03d"},{"code":"CI","name":"ISO country code","terminology":"ncit","version":"23.03d"},{"code":"CN","name":"Drug study code","terminology":"ncit","version":"23.03d"},{"code":"CNU","name":"ISO 3166 numeric country code","terminology":"ncit","version":"23.03d"},{"code":"CS","name":"US State Department country code","terminology":"ncit","version":"23.03d"},{"code":"DN","name":"Display name","terminology":"ncit","version":"23.03d"},{"code":"FB","name":"Foreign brand name, which may be trademarked","terminology":"ncit","version":"23.03d"},{"code":"HD","name":"*Header (groups concepts, but not used for coding data)","terminology":"ncit","version":"23.03d"},{"code":"LLT","name":"Lower level term","terminology":"ncit","version":"23.03d"},{"code":"PT","name":"*Preferred term","terminology":"ncit","version":"23.03d"},{"code":"SN","name":"Chemical structure name","terminology":"ncit","version":"23.03d"},{"code":"SY","name":"Synonym","terminology":"ncit","version":"23.03d"}]       
+[{"code":"AB","name":"Abbreviation","terminology":"ncit","version":"23.03d"},{"code":"AD","name":"Adjectival form (and other parts of grammar)","terminology":"ncit","version":"23.03d"},{"code":"AQ","name":"*Antiquated preferred term","terminology":"ncit","version":"23.03d"},{"code":"AQS","name":"Antiquated term, use when there are antiquated synonyms within a concept","terminology":"ncit","version":"23.03d"},{"code":"BR","name":"US brand name, which may be trademarked","terminology":"ncit","version":"23.03d"},{"code":"CA2","name":"ISO 3166 alpha-2 country code","terminology":"ncit","version":"23.03d"},{"code":"CA3","name":"ISO 3166 alpha-3 country code","terminology":"ncit","version":"23.03d"},{"code":"CI","name":"ISO country code","terminology":"ncit","version":"23.03d"},{"code":"CN","name":"Drug study code","terminology":"ncit","version":"23.03d"},{"code":"CNU","name":"ISO 3166 numeric country code","terminology":"ncit","version":"23.03d"},{"code":"CS","name":"US State Department country code","terminology":"ncit","version":"23.03d"},{"code":"DN","name":"Display name","terminology":"ncit","version":"23.03d"},{"code":"FB","name":"Foreign brand name, which may be trademarked","terminology":"ncit","version":"23.03d"},{"code":"HD","name":"*Header (groups concepts, but not used for coding data)","terminology":"ncit","version":"23.03d"},{"code":"LLT","name":"Lower level term","terminology":"ncit","version":"23.03d"},{"code":"PT","name":"*Preferred term","terminology":"ncit","version":"23.03d"},{"code":"SN","name":"Chemical structure name","terminology":"ncit","version":"23.03d"},{"code":"SY","name":"Synonym","terminology":"ncit","version":"23.03d"}]
 
 --- PASS: TestGetTermTypes (0.69s)
 PASS
@@ -465,8 +465,8 @@ Command: go test -v -run TestGetSynonymSources`
 metadata_test.go: Get Synonym Sources
 https://api-evsrest.nci.nih.gov/api/v1/metadata/ncit/synonymSources
 
-[{"code":"ACC/AHA","name":"American College of Cardiology / American Heart Association","terminology":"ncit"},{"code":"BIOCARTA","name":"BioCarta online maps of molecular pathways, adapted for NCI use","terminology":"ncit"},{"code":"BRIDG","name":"Biomedical Research Integrated Domain Model Group","terminology":"ncit"},{"code":"BRIDG 3.0.3","name":"Biomedical Research Integrated Domain Model Group, version 3.0.3","terminology":"ncit"},{"code":"BRIDG 5.3","name":"Biomedical Research Integrated Domain Model Group, version 5.3","terminology":"ncit"},{"code":"CBDD","name":"Chemical Biology and Drug Development","terminology":"ncit"},{"code":"CCPS","name":"Childhood Cancer Predisposition Study","terminology":"ncit"},{"code":"CDC","name":"U.S. Centers for Disease Control and Prevention","terminology":"ncit"},{"code":"CDISC","name":"Clinical Data Interchange Standards Consortium","terminology":"ncit"},{"code":"CDISC-GLOSS","name":"CDISC Glossary Terminology","terminology":"ncit"},{"code":"CPTAC","name":"Clinical Proteomic Tumor Analysis Consortium","terminology":"ncit"},{"code":"CRCH","name":"Cancer Research Center of Hawaii Nutrition Terminology","terminology":"ncit"},{"code":"CTCAE","name":"Common Terminology Criteria for Adverse Events","terminology":"ncit"},{"code":"CTCAE 3.0","name":"Common Terminology Criteria for Adverse Events, version 3.0","terminology":"ncit"},{"code":"CTCAE 5.0","name":"Common Terminology Criteria for Adverse Events, version 
-5.0","terminology":"ncit"},{"code":"CTDC","name":"Clinical Trials Data Commons","terminology":"ncit"},{"code":"CTEP","name":"Cancer Therapy Evaluation Program","terminology":"ncit"},{"code":"CTRP","name":"Clinical Trials Reporting Program","terminology":"ncit"},{"code":"CareLex","name":"CareLex electronic Trial Master File Terminology","terminology":"ncit"},{"code":"Cellosaurus","name":"Cellosaurus - a knowledge resource on cell lines","terminology":"ncit"},{"code":"DCP","name":"NCI Division of Cancer Prevention Program","terminology":"ncit"},{"code":"DICOM","name":"Digital Imaging Communications in Medicine","terminology":"ncit"},{"code":"DIPG/DMG","name":"Diffuse Intrinsic Pontine Glioma/Diffuse Midline Glioma","terminology":"ncit"},{"code":"DTP","name":"NCI Developmental Therapeutics Program","terminology":"ncit"},{"code":"EDQM-HC","name":"European Directorate for the Quality of Medicines & Healthcare","terminology":"ncit"},{"code":"FDA","name":"U.S. Food and Drug Administration","terminology":"ncit"},{"code":"GAIA","name":"Global 
+[{"code":"ACC/AHA","name":"American College of Cardiology / American Heart Association","terminology":"ncit"},{"code":"BIOCARTA","name":"BioCarta online maps of molecular pathways, adapted for NCI use","terminology":"ncit"},{"code":"BRIDG","name":"Biomedical Research Integrated Domain Model Group","terminology":"ncit"},{"code":"BRIDG 3.0.3","name":"Biomedical Research Integrated Domain Model Group, version 3.0.3","terminology":"ncit"},{"code":"BRIDG 5.3","name":"Biomedical Research Integrated Domain Model Group, version 5.3","terminology":"ncit"},{"code":"CBDD","name":"Chemical Biology and Drug Development","terminology":"ncit"},{"code":"CCPS","name":"Childhood Cancer Predisposition Study","terminology":"ncit"},{"code":"CDC","name":"U.S. Centers for Disease Control and Prevention","terminology":"ncit"},{"code":"CDISC","name":"Clinical Data Interchange Standards Consortium","terminology":"ncit"},{"code":"CDISC-GLOSS","name":"CDISC Glossary Terminology","terminology":"ncit"},{"code":"CPTAC","name":"Clinical Proteomic Tumor Analysis Consortium","terminology":"ncit"},{"code":"CRCH","name":"Cancer Research Center of Hawaii Nutrition Terminology","terminology":"ncit"},{"code":"CTCAE","name":"Common Terminology Criteria for Adverse Events","terminology":"ncit"},{"code":"CTCAE 3.0","name":"Common Terminology Criteria for Adverse Events, version 3.0","terminology":"ncit"},{"code":"CTCAE 5.0","name":"Common Terminology Criteria for Adverse Events, version
+5.0","terminology":"ncit"},{"code":"CTDC","name":"Clinical Trials Data Commons","terminology":"ncit"},{"code":"CTEP","name":"Cancer Therapy Evaluation Program","terminology":"ncit"},{"code":"CTRP","name":"Clinical Trials Reporting Program","terminology":"ncit"},{"code":"CareLex","name":"CareLex electronic Trial Master File Terminology","terminology":"ncit"},{"code":"Cellosaurus","name":"Cellosaurus - a knowledge resource on cell lines","terminology":"ncit"},{"code":"DCP","name":"NCI Division of Cancer Prevention Program","terminology":"ncit"},{"code":"DICOM","name":"Digital Imaging Communications in Medicine","terminology":"ncit"},{"code":"DIPG/DMG","name":"Diffuse Intrinsic Pontine Glioma/Diffuse Midline Glioma","terminology":"ncit"},{"code":"DTP","name":"NCI Developmental Therapeutics Program","terminology":"ncit"},{"code":"EDQM-HC","name":"European Directorate for the Quality of Medicines & Healthcare","terminology":"ncit"},{"code":"FDA","name":"U.S. Food and Drug Administration","terminology":"ncit"},{"code":"GAIA","name":"Global
 Alignment of Immunization safety Assessment in pregnancy Terminology","terminology":"ncit"},{"code":"GDC","name":"Genomic Data Commons","terminology":"ncit"},{"code":"GENC","name":"Geopolitical Entities, Names, and Codes Terminology","terminology":"ncit"},{"code":"HGNC","name":"HUGO Gene Nomenclature Committee","terminology":"ncit"},{"code":"HL7","name":"Health Level Seven International","terminology":"ncit"},{"code":"ICD-10","name":"International Classification of Diseases, Tenth Revision","terminology":"ncit"},{"code":"ICDC","name":"International Cancer Genome Consortium","terminology":"ncit"},{"code":"ICH","name":"International Conference on Harmonization","terminology":"ncit"},{"code":"INC","name":"International Neonatal Consortium","terminology":"ncit"},{"code":"JAX","name":"Jackson Laboratories Mouse Terminology, adapted for NCI use","terminology":"ncit"},{"code":"KEGG","name":"KEGG Pathway Database","terminology":"ncit"},{"code":"NCI","name":"National Cancer Institute Thesaurus","terminology":"ncit"},{"code":"NCI-GLOSS","name":"NCI Dictionary of Cancer Terms","terminology":"ncit"},{"code":"NCPDP","name":"National Council for Prescription Drug Programs","terminology":"ncit"},{"code":"NDC","name":"National Drug Code","terminology":"ncit"},{"code":"NICHD","name":"National Institute of Child Health and Human Development","terminology":"ncit"},{"code":"OORO","name":"Operational Ontology for Radiation Oncology","terminology":"ncit"},{"code":"ORCHESTRA","name":"Multinational project funded by the European Commission to advance the knowledge of the SARS-CoV-2 infection and its long-term effects","terminology":"ncit"},{"code":"PCDC","name":"Pediatric Cancer Data Commons","terminology":"ncit"},{"code":"PI-RADS","name":"Prostate Imaging-Reporting and Data System","terminology":"ncit"},{"code":"PID","name":"NCI Nature Pathway Interaction Database","terminology":"ncit"},{"code":"RENI","name":"Registry Nomenclature Information System","terminology":"ncit"},{"code":"SEER","name":"Surveillance, Epidemiology, and End Results Program","terminology":"ncit"},{"code":"SeroNet","name":"NCI Serological Sciences Network for COVID-19","terminology":"ncit"},{"code":"UCUM","name":"Unified Code for Units of Measure","terminology":"ncit"},{"code":"WHO","name":"World Health Organization","terminology":"ncit"},{"code":"ZFin","name":"Zebrafish Information Network","terminology":"ncit"},{"code":"caDSR","name":"Cancer Data Standards Registry and Repository","terminology":"ncit"},{"code":"mCode","name":"Minimal Common Oncology Data Elements","terminology":"ncit"}]
 
 --- PASS: TestGetSynonymSources (0.80s)
@@ -703,7 +703,7 @@ Command: go test -v -run TestGetConceptByContributingSource`
 concept_test.go: Get Concept by contributing source
 https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=melanoma&contributingSource=CDISC
 
-{"total":1455,"timeTaken":75,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C160667","name":"Melanoma and Non-Melanoma Related 
+{"total":1455,"timeTaken":75,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C160667","name":"Melanoma and Non-Melanoma Related
 Event Occurred after Initial Treatment","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C157920","name":"Melanoma Surgery","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C1830","name":"Melanoma Theraccine","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C2517","name":"Melanoma Vaccine","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C46091","name":"Melanoma Biomarker","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C36873","name":"Melanoma Cell","terminology":"ncit","version":"23.03d","leaf":false}]}
 
 --- PASS: TestGetConceptByContributingSource (0.90s)
@@ -884,7 +884,7 @@ Command: go test -v -run TestGetConceptBySearchTermOr`
 concept_test.go: Get Concept by search term or
 https://api-evsrest.nci.nih.gov/api/v1/concept/ncit/search?terminology=ncit&term=enzyme&term=or
 
-{"total":48299,"timeTaken":57,"parameters":{"term":"enzyme,or","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C29726","name":"Enzyme Replacement 
+{"total":48299,"timeTaken":57,"parameters":{"term":"enzyme,or","type":"contains","include":"minimal","fromRecord":0,"pageSize":10,"terminology":["ncit"]},"concepts":[{"code":"C29726","name":"Enzyme Replacement
 or Supplement Agent","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C64430","name":"Protein or Enzyme Type Measurement","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C193556","name":"Choriogonadotropin Beta Subunit [Units/Volume] in Serum or Plasma by Enzyme Immunoassay Third International Standard","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C38430","name":"Guanylate Cyclase Soluble Subunit Beta-1","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C153137","name":"Orludodstat","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180567","name":"Enzyme Activity","terminology":"ncit","version":"23.03d","leaf":false},{"code":"C180669","name":"Enzyme Substrate","terminology":"ncit","version":"23.03d","leaf":true},{"code":"C188961","name":"Oral Irinotecan Hydrochloride Formulation VAL-413","terminology":"ncit","version":"23.03d","leaf":true}]}
 
 --- PASS: TestGetConceptBySearchTermOr (0.75s)
@@ -1058,7 +1058,7 @@ Command: go test -v -run TestGetInactiveReplacementCodes`
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
-### Get concepts by SPARQL without prefix
+### Find Concepts by SPARQL Code
 
 Get concepts for a specified SPARQL query without prefixes.
 
