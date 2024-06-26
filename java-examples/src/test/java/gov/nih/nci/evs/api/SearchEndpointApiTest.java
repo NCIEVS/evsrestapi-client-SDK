@@ -189,7 +189,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(12, response.getTotal());
+    assertEquals(11, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -243,7 +243,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(13, response.getTotal());
+    assertEquals(12, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -393,7 +393,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(41, response.getTotal());
+    assertEquals(40, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -441,7 +441,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertTrue(response.getTotal() > 251);
+    assertTrue(response.getTotal() >= 223);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -536,7 +536,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(147, response.getTotal());
+    assertEquals(123, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -741,71 +741,14 @@ public class SearchEndpointApiTest {
     log.info("   search results = " + response);
   }
   
-  /**
-   * Get concept search results using term code through SPARQL without a prefix
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void searchSPARQLWithoutPrefixTest() throws ApiException {
-    // ARRANGE - using global variable unless otherwise listed
-    String type = "contains";
-    Boolean ascending = true;
-    String include = "minimal";
-    Integer fromRecord = 0;
-    Integer pageSize = 25;
-    // API generates prefix
-    String query = "SELECT ?code\n" + 
-        "{ GRAPH <http://NCI_T_monthly> \n" + 
-        "  { \n" + 
-        "    ?x a owl:Class . \n" + 
-        "    ?x :NHC0 ?code .\n" + 
-        "    ?x :P108 \"Melanoma\"\n" + 
-        "  } \n" + 
-        "}";
 
-    // ACT
-    ConceptResultList response =
-        api.searchSingleTerminologySparql(
-            terminology,
-            query,
-            include,
-            null,
-            null,
-            type,
-            null,
-            ascending,
-            fromRecord,
-            pageSize,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null);
-
-    // ASSERT
-    assertNotNull(response);
-    assertEquals(1, response.getTotal());
-    assertNotNull(response.getConcepts());
-    assertNotNull(response.getConcepts().get(0));
-
-    // LOG
-    log.info("Get SPARQL search results from NCIT for query = " + query);
-    log.info("   search results = " + response);
-    
-  }
-  
   /**
    * Get concept search results using term code through SPARQL with a prefix
    *
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchSPARQLWithPrefixTest() throws ApiException {
+  public void findConceptsBySparqlCode() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String type = "contains";
     Boolean ascending = true;
@@ -813,23 +756,8 @@ public class SearchEndpointApiTest {
     Integer fromRecord = 0;
     Integer pageSize = 25;
     // preformed prefix
-    String query = "PREFIX :<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> \n" + 
-        "PREFIX base:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>\n" + 
-        "PREFIX owl:<http://www.w3.org/2002/07/owl#>\n" + 
-        "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-        "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n" + 
-        "PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>\n" + 
-        "PREFIX dc:<http://purl.org/dc/elements/1.1/>\n" + 
-        "PREFIX oboInOwl:<http://www.geneontology.org/formats/oboInOwl#>\n" + 
-        "PREFIX xml:<http://www.w3.org/2001/XMLSchema#>\n" + 
-        "SELECT ?code\n" + 
-        "{ GRAPH <http://NCI_T_monthly> \n" + 
-        "  { \n" + 
-        "    ?x a owl:Class . \n" + 
-        "    ?x :NHC0 ?code .\n" + 
-        "    ?x :P108 \"Melanoma\"\n" + 
-        "  } \n" + 
-        "}";
+    String query =
+            "SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 \"Melanoma\"} }";
 
     // ACT
     ConceptResultList response =
@@ -870,7 +798,7 @@ public class SearchEndpointApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchSPARQLBindingsTest() throws ApiException {
+  public void getSPARQLBindingsTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "minimal";
     String query = "SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }";

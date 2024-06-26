@@ -88,7 +88,7 @@ public class HistoryEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertEquals("C27789", response.get(0).getReplacementCode());
     assertEquals(
-        "Endometrial Atypical Hyperplasia/Endometrioid Intraepithelial Neoplasia",
+        "Endometrial Atypical Hyperplasia /Endometrioid Intraepithelial Neoplasia",
         response.get(0).getReplacementName());
     assertEquals("C126461", response.get(1).getReplacementCode());
     assertEquals("Tubal Hyperplasia", response.get(1).getReplacementName());
