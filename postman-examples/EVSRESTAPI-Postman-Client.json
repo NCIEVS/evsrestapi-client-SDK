@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "7712e7d1-aa69-469d-83b3-065b15acf495",
+		"_postman_id": "7e23e44f-6788-467c-a6e8-fd4aebdf40a1",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "30894083"
+		"_exporter_id": "11076096"
 	},
 	"item": [
 		{
@@ -1036,12 +1036,27 @@
 			"response": []
 		},
 		{
-			"name": "Get Concepts by SPARQL",
+			"name": "Find concepts by SPARQL code",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Content-type",
+						"value": "text/plain",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "SELECT ?code { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 \"Melanoma\" } }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search?query=SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D",
+					"raw": "{{API_URL}}/concept/ncit/search",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -1052,8 +1067,9 @@
 					],
 					"query": [
 						{
-							"key": "query",
-							"value": "SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D"
+							"key": "",
+							"value": "",
+							"disabled": true
 						}
 					]
 				}
