@@ -75,6 +75,7 @@ The following examples can be types into the command line of any terminal that h
 - [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 - [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 - [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Find concepts based on associations query](#find-concept-based-on-associations-query)
 
 ### Get terminologies
 
@@ -692,6 +693,19 @@ curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
 
 See sample SPARQL query from this call in [`sparql-queries/code-query.txt`](sparql-queries/code-query.txt)
 See sample payload data from this call in [`samples/find-concepts-by-sparql-code.txt`](samples/find-concepts-by-sparql-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find concepts based on associations query
+
+This query is appropriate for NCI Thesaurus and finds concepts with a relationship of "Related_To_Genetic_Biomarker" to "KLK3 Gene".  
+Note: the use of `?code` in the select is required for this to work.
+
+```{text}
+curl -X POST "$API_URL/sparql/ncit" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/advanced-query.txt' | jq '.'
+```
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 

@@ -1,7 +1,7 @@
 <a name="top" />
 
-EVSRESTAPI REGENERATE CLIENT SDKs
-==================================
+# EVSRESTAPI REGENERATE CLIENT SDKs
+
 This is a how-to guide for rebuilding openapi generated code as updates to the swagger are implemented.
 
 ## Requirements
@@ -18,7 +18,7 @@ If you need to regenerate a single client for a given language:
 3. The code will generate in a `build` dir. Navigate to the `build` dir.
 4. From the `build` dir, copy the generated code files and any other files required to build the project to the
    corresponding "examples" folder.
-    1. See [next steps](#tasks-to-regenerate-code--next-steps) for details based on your language generated
+   1. See [next steps](#tasks-to-regenerate-code--next-steps) for details based on your language generated
 
 **[Back to top](#evsrestapi-generate-client-code)**
 
@@ -31,7 +31,7 @@ If you need to rebuild all the clients for all languages, typically after a big 
 3. All generated projects will be in a `build` folder. Navigate to the `build` folder to see the generated code
 4. From the `build` folder, copy the generated code files and additional files needs to build/compile the project to the
    corresponding examples folder.
-    1. See [copy files](#tasks-to-regenerate-code--next-steps) for details
+   1. See [next steps](#tasks-to-regenerate-code--next-steps) for details
 
 **[Back to top](#evsrestapi-generate-client-code)**
 

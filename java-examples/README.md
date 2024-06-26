@@ -1,19 +1,16 @@
-EVSRESTAPI client SDK: Java Tutorial
-======================================
+# EVSRESTAPI client SDK: Java Tutorial
 
 This tutorial shows how to use a locally defined Java client to interact with the EVSREST API.
 
-Prerequisites
--------------
+## Prerequisites
 
-* JDK 11+ must be installed
-* Gradle (7.2+)
+- JDK 11+ must be installed
+- Gradle (7.2+)
 
 The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the
 java client will connect to.
 
-Building the Code
------------------
+## Building the Code
 
 Building the java-examples should be as simple as running the following command from
 this directory.
@@ -26,8 +23,7 @@ This will invoke Gradle to build the model objects and the clients themselves an
 will also run the unit tests which demonstrate use of the client to make actual API
 calls against EVSRESTAPI.
 
-Sample Java Calls
------------------
+## Sample Java Calls
 
 The following examples are exhibited by various unit tests defined in the code in
 `src/test/java`.
@@ -474,7 +470,7 @@ Run the gradle command in the terminal to return full concept information for a 
         date: 2003-08-12
         replacementCode: null
         replacementName: null
-    }, 
+    },
     ...
     ...
     }]
@@ -504,7 +500,7 @@ Run the gradle command in the terminal to return full concept information for a 
         highlights: {}
         ...
         ...
-    }, 
+    },
     ...
     ...
     }]
@@ -801,7 +797,7 @@ Run the gradle command in the terminal to return concept children for a given te
     maps: null
     paths: null
     extensions: null
-}, 
+},
 ...
 ...
 ...
@@ -2211,7 +2207,7 @@ Run the gradle command in the terminal to return paths to the root concept from 
     maps: null
     paths: null
     extensions: null
-}, 
+},
 ...
 ...
 ...
@@ -4621,7 +4617,7 @@ Run the gradle command in the terminal to get subsets (with summary information)
         type: DEFINITION
         source: NCI
         qualifiers: null
-    }, 
+    },
     ...
     ...
 }]                   
