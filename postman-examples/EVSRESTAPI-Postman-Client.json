@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "7e23e44f-6788-467c-a6e8-fd4aebdf40a1",
+		"_postman_id": "7712e7d1-aa69-469d-83b3-065b15acf495",
 		"name": "EVSRESTAPI Postman Client",
 		"description": "Collection of postman calls for demonstrating functionality of the EVSRESTAPI",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "30894083"
 	},
 	"item": [
 		{
@@ -415,6 +415,127 @@
 			"response": []
 		},
 		{
+			"name": "Get all synonym sources",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymSources",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymSources"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all definition types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionTypes?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionTypes"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get definition type by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/definitionType/P325?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"definitionType",
+						"P325"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all synonym types",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymTypes?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymTypes"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get synonym type by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/synonymType/P90?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"synonymType",
+						"P90"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Find root concepts",
 			"request": {
 				"method": "GET",
@@ -676,6 +797,43 @@
 			"response": []
 		},
 		{
+			"name": "Find concepts by search term (restrict by definition type)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=DEFINITION&pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "melanoma"
+						},
+						{
+							"key": "definitionType",
+							"value": "DEFINITION"
+						},
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Find concepts by search term (restrict by synonym source and termgroup)",
 			"request": {
 				"method": "GET",
@@ -706,6 +864,39 @@
 						{
 							"key": "synonymTermGroup",
 							"value": "PT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find concepts by search term (restrict by synonym type)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "dsDNA"
+						},
+						{
+							"key": "synonymType",
+							"value": "FULL_SYN"
 						}
 					]
 				}
@@ -1036,27 +1227,44 @@
 			"response": []
 		},
 		{
-			"name": "Find concepts by SPARQL code",
+			"name": "Find concepts by subset",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/search?terminology=ncit&term=immune&subset=C165258",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"search"
+					],
+					"query": [
+						{
+							"key": "terminology",
+							"value": "ncit"
+						},
+						{
+							"key": "term",
+							"value": "immune"
+						},
+						{
+							"key": "subset",
+							"value": "C165258"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Concepts by SPARQL code",
 			"request": {
 				"method": "POST",
-				"header": [
-					{
-						"key": "Content-type",
-						"value": "text/plain",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "SELECT ?code { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 \"Melanoma\" } }",
-					"options": {
-						"raw": {
-							"language": "text"
-						}
-					}
-				},
+				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/concept/ncit/search",
+					"raw": "{{API_URL}}/concept/ncit/search?query=SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -1067,9 +1275,234 @@
 					],
 					"query": [
 						{
-							"key": "",
-							"value": "",
+							"key": "query",
+							"value": "SELECT%20%3Fcode%20%7B%20GRAPH%20%3Chttp%3A%2F%2FNCI_T_monthly%3E%20%20%7B%20%3Fx%20a%20owl%3AClass%20.%20%3Fx%20%3ANHC0%20%3Fcode%20.%3Fx%20%3AP108%20%22Melanoma%22%20%7D%20%7D"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find Concepts Based on Associations Query",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "SELECT ?code ?name\r\n  { \r\n    ?concept a owl:Class . \r\n    ?concept :NHC0 ?code . \r\n    ?concept :P108 ?name . \r\n    ?concept ?relationship ?relatedConcept . \r\n    ?relationship :NHC0 \"A13\" . \r\n    ?relationship :P108 \"Related_To_Genetic_Biomarker\" .\r\n    ?relatedConcept a owl:Class .\r\n    ?relatedConcept :NHC0 \"C26585\" .\r\n    ?relatedConcept :P108 \"KLK3 Gene\" .\r\n  }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{API_URL}}/sparql/ncit",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"sparql",
+						"ncit"
+					],
+					"query": [
+						{
+							"key": "query",
+							"value": "SELECT ?code ?name\n  { \n    ?concept a owl:Class . \n    ?concept :NHC0 ?code . \n    ?concept :P108 ?name . \n    ?concept ?relationship ?relatedConcept . \n    ?relationship :NHC0 \"A13\" . \n    ?relationship :P108 \"Related_To_Genetic_Biomarker\" .\n    ?relatedConcept a owl:Class .\n    ?relatedConcept :NHC0 \"C26585\" .\n    ?relatedConcept :P108 \"KLK3 Gene\" .\n  }",
 							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all subsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/subsets",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"subsets"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subset by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/metadata/ncit/subset/C81222?include=summary",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"metadata",
+						"ncit",
+						"subset",
+						"C81222"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "summary"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get subset members by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"concept",
+						"ncit",
+						"subsetMembers",
+						"C81222"
+					],
+					"query": [
+						{
+							"key": "fromRecord",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all mapsets",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset?include=properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "properties"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get mapset by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping?include=properties",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset",
+						"GO_to_NCIt_Mapping"
+					],
+					"query": [
+						{
+							"key": "include",
+							"value": "properties"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get maps by mapset code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/mapset/GO_to_NCIt_Mapping/maps?pageSize=5",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"mapset",
+						"GO_to_NCIt_Mapping",
+						"maps"
+					],
+					"query": [
+						{
+							"key": "pageSize",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get replacement concepts for an inactive code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/history/ncit/C12658/replacements",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"history",
+						"ncit",
+						"C12658",
+						"replacements"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get replacement concepts for a list of inactive codes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{API_URL}}/history/ncit/replacements?list=C12658,C13320",
+					"host": [
+						"{{API_URL}}"
+					],
+					"path": [
+						"history",
+						"ncit",
+						"replacements"
+					],
+					"query": [
+						{
+							"key": "list",
+							"value": "C12658,C13320"
 						}
 					]
 				}
