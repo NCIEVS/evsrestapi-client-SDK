@@ -68,7 +68,6 @@ The following cases will be used to demonstrate accessing the EVSREST API
 - Find concepts by property
 - Find concepts by subset
 - Find concepts by SPARQL code
-- Find concepts based on associations query
 - Get all subsets
 - Get subset by code
 - Get subset members by subset code

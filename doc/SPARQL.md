@@ -47,15 +47,34 @@ curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -d '@query.txt' | jq '.'
 ```
 
-### Advanced query
+### Concept query based on a specified association to a specified code
 
-This query is appropriate for NCI Thesaurus and finds concepts with a relationship of "Related_To_Genetic_Biomarker" to "KLK3 Gene".  
+This query is appropriate for NCI Thesaurus and finds concepts with a association of 
+"Related_To_Genetic_Biomarker" to "KLK3 Gene". The call also includes a term search
+among the set of codes returned by the SPARQL query. All matches must also contain
+the word "doubling".
+
 Note: the use of `?code` in the select is required for this to work.
 
 ```
-curl -X POST "$API_URL/sparql/ncit" \
+cat << EOF > query.txt
+SELECT ?code ?name
+  { 
+    ?concept a owl:Class . 
+    ?concept :NHC0 ?code . 
+    ?concept :P108 ?name . 
+    ?concept ?relationship ?relatedConcept . 
+    ?relationship :NHC0 "A13" . 
+    ?relationship :P108 "Related_To_Genetic_Biomarker" .
+    ?relatedConcept a owl:Class .
+    ?relatedConcept :NHC0 "C26585" .
+    ?relatedConcept :P108 "KLK3 Gene" .
+  }
+EOF
+
+curl -X POST "$API_URL/concept/ncit/search?include=minimal&term=doubling" \
   -H 'Content-type: text/plain' \
-  -d '@../curl-examples/sparql-queries/advanced-query.txt' | jq '.'
+  -d '@query.txt' | jq '.'
 ```
 
 ### PROBLEM: not using ?code in select

@@ -1061,40 +1061,6 @@
 			"response": []
 		},
 		{
-			"name": "Find Concepts Based on Associations Query",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "SELECT ?code ?name\r\n  { \r\n    ?concept a owl:Class . \r\n    ?concept :NHC0 ?code . \r\n    ?concept :P108 ?name . \r\n    ?concept ?relationship ?relatedConcept . \r\n    ?relationship :NHC0 \"A13\" . \r\n    ?relationship :P108 \"Related_To_Genetic_Biomarker\" .\r\n    ?relatedConcept a owl:Class .\r\n    ?relatedConcept :NHC0 \"C26585\" .\r\n    ?relatedConcept :P108 \"KLK3 Gene\" .\r\n  }",
-					"options": {
-						"raw": {
-							"language": "text"
-						}
-					}
-				},
-				"url": {
-					"raw": "{{API_URL}}/sparql/ncit",
-					"host": [
-						"{{API_URL}}"
-					],
-					"path": [
-						"sparql",
-						"ncit"
-					],
-					"query": [
-						{
-							"key": "query",
-							"value": "SELECT ?code ?name\n  { \n    ?concept a owl:Class . \n    ?concept :NHC0 ?code . \n    ?concept :P108 ?name . \n    ?concept ?relationship ?relatedConcept . \n    ?relationship :NHC0 \"A13\" . \n    ?relationship :P108 \"Related_To_Genetic_Biomarker\" .\n    ?relatedConcept a owl:Class .\n    ?relatedConcept :NHC0 \"C26585\" .\n    ?relatedConcept :P108 \"KLK3 Gene\" .\n  }",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Get SPARQL Bindings",
 			"request": {
 				"method": "POST",
