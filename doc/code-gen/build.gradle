@@ -9,9 +9,9 @@ plugins {
 group = 'gov.nih.nci.evs.api'
 version = '0.0.1-SNAPSHOT'
 
-// Input Specification locations
+// Input Specification locations.
 def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
-def inputFile = "$projectDir/src/evs-swagger.yaml"
+//def inputURL = "http://localhost:8082/v3/api-docs"
 
 repositories {
     mavenCentral()
@@ -41,8 +41,7 @@ tasks.register('clearBuildDir', Delete) {
  * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
-//    remoteInputSpec.set(inputURL)
-    inputSpec.set(inputFile)
+    remoteInputSpec.set(inputURL)
     outputDir.set("$buildDir/java")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
@@ -60,8 +59,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
 
 tasks.register('buildPythonSdk', GenerateTask) {
     generatorName.set("python")
-//    remoteInputSpec.set(inputURL)
-    inputSpec.set(inputFile)
+    remoteInputSpec.set(inputURL)
     outputDir.set("$buildDir/python")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
