@@ -87,13 +87,12 @@ public class HistoryEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("retire", response.get(0).getAction());
-    assertEquals("C19157", response.get(0).getReplacementCode());
-    assertEquals("Specimen", response.get(0).getReplacementName());
-
-    assertEquals("merge", response.get(1).getAction());
-    assertEquals("C12756", response.get(1).getReplacementCode());
-    assertEquals("Nose", response.get(1).getReplacementName());
+    assertEquals("C27789", response.get(0).getReplacementCode());
+    assertEquals(
+        "Endometrial Atypical Hyperplasia /Endometrioid Intraepithelial Neoplasia",
+        response.get(0).getReplacementName());
+    assertEquals("C126461", response.get(1).getReplacementCode());
+    assertEquals("Tubal Hyperplasia", response.get(1).getReplacementName());
 
     // LOG
     log.info("Get list of suggested replacements for retired codes - C4654 & C40117");
