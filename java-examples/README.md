@@ -1,19 +1,16 @@
-EVSRESTAPI client SDK: Java Tutorial
-======================================
+# EVSRESTAPI client SDK: Java Tutorial
 
 This tutorial shows how to use a locally defined Java client to interact with the EVSREST API.
 
-Prerequisites
--------------
+## Prerequisites
 
-* JDK 11+ must be installed
-* Gradle (7.2+)
+- JDK 11+ must be installed
+- Gradle (7.2+)
 
 The various scripts make use of the `src/main/resources/url.properties` file to define the EVSRESTAPI endpoint that the
 java client will connect to.
 
-Building the Code
------------------
+## Building the Code
 
 Building the java-examples should be as simple as running the following command from
 this directory.
@@ -26,54 +23,53 @@ This will invoke Gradle to build the model objects and the clients themselves an
 will also run the unit tests which demonstrate use of the client to make actual API
 calls against EVSRESTAPI.
 
-Sample Java Calls
------------------
+## Sample Java Calls
 
 The following examples are exhibited by various unit tests defined in the code in
 `src/test/java`.
 
-* [Get terminologies](#get-terminologies)
-* [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
-* [Get concepts by list (minimal information)](#get-concepts-by-list-minimal-information)
-* [Get concept by code (summary information)](#get-concept-by-code-summary-information)
-* [Get concept by code (full information)](#get-concept-by-code-full-information)
-* [Get concept by code (custom include)](#get-concept-by-code-custom-include)
-* [Get concept part](#get-concept-part)
-* [Get concept descendants](#get-descendants)
-* [Get all properties](#get-all-properties)
-* [Get property by code (or label)](#get-property-by-code-or-label)
-* [Get all qualifiers](#get-all-qualifiers)
-* [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
-* [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
-* [Get all roles](#get-all-roles)
-* [Get role by code (or label)](#get-role-by-code-or-label)
-* [Get all associations](#get-all-associations)
-* [Get association by code (or label)](#get-association-by-code-or-label)
-* [Get all term types](#get-all-term-types)
-* [Get root concepts](#get-root-concepts)
-* [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
-* [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
-* [Get subtree](#get-subtree)
-* [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
-* [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
-* [Find concepts by search term (restrict by contributing source)](#find-concepts-by-search-term-restrict-by-contributing-source)
-* [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
-* [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
-* [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
-* [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
-* [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
-* [Find concepts by search term (using type=phrase)](#find-concepts-by-search-term-using-type-phrase)
-* [Find concepts by search term (using type=fuzzy)](#find-concepts-by-search-term-using-type-fuzzy)
-* [Find concepts by search term (using type=AND)](#find-concepts-by-search-term-using-type-and)
-* [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
-* [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
-* [Find concepts by property](#find-concepts-by-property)
-* [Get all subsets](#get-all-subsets)
-* [Get subset by code](#get-subset-by-code)
-* [Get subset members by subset code](#get-subset-members-by-code)
-* [Get concepts by SPARQL code without prefix](#get-concepts-by-sparql-without-prefix)
-* [Get concepts by SPARQL code with prefix](#get-concepts-by-sparql-with-prefix)
-* [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
+- [Get concepts by list (minimal information)](#get-concepts-by-list-minimal-information)
+- [Get concept by code (summary information)](#get-concept-by-code-summary-information)
+- [Get concept by code (full information)](#get-concept-by-code-full-information)
+- [Get concept by code (custom include)](#get-concept-by-code-custom-include)
+- [Get concept part](#get-concept-part)
+- [Get concept descendants](#get-descendants)
+- [Get all properties](#get-all-properties)
+- [Get property by code (or label)](#get-property-by-code-or-label)
+- [Get all qualifiers](#get-all-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
+- [Get all roles](#get-all-roles)
+- [Get role by code (or label)](#get-role-by-code-or-label)
+- [Get all associations](#get-all-associations)
+- [Get association by code (or label)](#get-association-by-code-or-label)
+- [Get all term types](#get-all-term-types)
+- [Get root concepts](#get-root-concepts)
+- [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
+- [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
+- [Get subtree](#get-subtree)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
+- [Find concepts by search term (restrict by contributing source)](#find-concepts-by-search-term-restrict-by-contributing-source)
+- [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
+- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
+- [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
+- [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
+- [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
+- [Find concepts by search term (using type=phrase)](#find-concepts-by-search-term-using-type-phrase)
+- [Find concepts by search term (using type=fuzzy)](#find-concepts-by-search-term-using-type-fuzzy)
+- [Find concepts by search term (using type=AND)](#find-concepts-by-search-term-using-type-and)
+- [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
+- [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
+- [Find concepts by property](#find-concepts-by-property)
+- [Get all subsets](#get-all-subsets)
+- [Get subset by code](#get-subset-by-code)
+- [Get subset members by subset code](#get-subset-members-by-code)
+- [Get concepts by SPARQL code without prefix](#get-concepts-by-sparql-without-prefix)
+- [Get concepts by SPARQL code with prefix](#get-concepts-by-sparql-with-prefix)
+- [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
 ### Get terminologies
 
@@ -463,7 +459,7 @@ Run the gradle command in the terminal to return full concept information for a 
         date: 2003-08-12
         replacementCode: null
         replacementName: null
-    }, 
+    },
     ...
     ...
     }]
@@ -493,7 +489,7 @@ Run the gradle command in the terminal to return full concept information for a 
         highlights: {}
         ...
         ...
-    }, 
+    },
     ...
     ...
     }]
@@ -790,7 +786,7 @@ Run the gradle command in the terminal to return concept children for a given te
     maps: null
     paths: null
     extensions: null
-}, 
+},
 ...
 ...
 ...
@@ -1302,7 +1298,7 @@ minimal).
     maps: null
     paths: null
     extensions: null
-}, 
+},
 ....
 ...
 ...
@@ -2010,7 +2006,7 @@ Run the gradle command in the terminal to return paths to the root concept from 
     maps: null
     paths: null
     extensions: null
-}, 
+},
 ...
 ...
 ...
@@ -2315,7 +2311,7 @@ set to minimal
     expanded: null
     highlight: null
     children: null
-}, 
+},
 ...
 ...
 }, class HierarchyNode {
@@ -2446,7 +2442,7 @@ set to minimal
                     expanded: null
                     highlight: null
                     children: null
-                }, 
+                },
                 ...
                 ...
             ...
@@ -2455,7 +2451,7 @@ set to minimal
         ...
     ...
     ...
-    }]                    
+    }]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -4232,10 +4228,10 @@ Run the gradle command in the terminal to get subsets (with summary information)
         type: DEFINITION
         source: NCI
         qualifiers: null
-    }, 
+    },
     ...
     ...
-}                   
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -4350,7 +4346,7 @@ code.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Get concepts by SPARQL without prefix
+### Find Concepts by SPARQL Code
 
 Run the gradle command in the terminal to get concepts for a specified SPARQL query without prefixes.
 

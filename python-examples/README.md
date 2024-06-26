@@ -7,11 +7,11 @@ the range of functionality that the EVSREST API has. Many of these API calls can
 
 ## Prerequisites
 
-* Python 3.5 or higher must be installed. The latest version can be found [here](https://www.python.org/downloads/).
+- Python 3.5 or higher must be installed. The latest version can be found [here](https://www.python.org/downloads/).
 
-* All libraries in 'requirements.txt' must be installed.
-  * Run the command 'pip install -r requirements.txt' in a console window to check these libraries and install any that are not already installed.
-  * If pip itself is not installed, run the command 'curl <https://bootstrap.pypa.io/get-pip.py> -o get-pip.py; python get-pip.py' to install it.
+- All libraries in 'requirements.txt' must be installed.
+  - Run the command 'pip install -r requirements.txt' in a console window to check these libraries and install any that are not already installed.
+  - If pip itself is not installed, run the command 'curl <https://bootstrap.pypa.io/get-pip.py> -o get-pip.py; python get-pip.py' to install it.
 
 The various scripts make use of the `python-examples/config.ini` file to load necessary information that is uniform across all tests.
 
@@ -20,61 +20,61 @@ The various scripts make use of the `python-examples/config.ini` file to load ne
 The following examples are exhibited by various unit tests defined in the code in `python-examples`.
 All commands to run these tests should be run from that directory.
 
-* [Get terminologies](#get-terminologies)
-* [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
-* [Get concept list by code (minimal information)](#get-concepts-by-list-of-codes-minimal-information)
-* [Get concept by code (summary information)](#get-concept-by-code-summary-information)
-* [Get concept by code (full information)](#get-concept-by-code-full-information)
-* [Get concept by code (custom information)](#get-concept-by-code-custom-information)
-* [Get concept descendants by code](#get-concept-descendants-by-code)
-* [Get all properties](#get-all-properties)
-* [Get property by code or label](#get-property-by-code-or-label)
-* [Get all qualifiers](#get-all-qualifiers)
-* [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
-* [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
-* [Get all roles](#get-all-roles)
-* [Get roles by code (or label)](#get-roles-by-code-or-label)
-* [Get all associations](#get-all-associations)
-* [Get associations by code (or label)](#get-associations-by-code-or-label)
-* [Get term types](#get-term-types)
-* [Get definition sources](#get-definition-sources)
-* [Get synonym sources](#get-synonym-sources)
-* [Get synonym types](#get-synonym-types)
-* [Get synonym types by code](#get-synonym-types-by-code)
-* [Get definition types](#get-definition-types)
-* [Get definition types by code](#get-definition-types-by-code)
-* [Get root concepts](#get-root-concepts)
-* [Get paths to/from root from code](#get-root-paths-from-code)
-* [Get paths to ancestor from code](#get-ancestor-paths-from-code)
-* [Get subtree](#get-subtree)
-* [Get concepts by search term](#get-concepts-by-search-term)
-* [Get concepts by search term (restrict by concept status)](#get-concepts-by-search-term-restrict-concept-status)
-* [Get concepts by search term (restrict by contributing source)](#get-concepts-by-search-term-restrict-by-contributing-source)
-* [Get concepts by search term (restrict by definition source)](#get-concepts-by-search-term-restrict-by-definition-source)
-* [Get concepts by search term (restrict by definition type)](#get-concepts-by-search-term-restrict-by-definition-type)
-* [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-by-search-term-restrict-by-synonym-source)
-* [Get concepts by search term (restrict by synonym type)](#get-concepts-by-search-term-restrict-by-synonym-type)
-* [Get concepts by search term (using type=match)](#get-concepts-by-search-term-using-type=match)
-* [Get concepts by search term (using type=startsWith)](#get-concepts-by-search-term-using-type=startsWith)
-* [Get concepts by search term (using type=phrase)](#get-concepts-by-search-term-using-type=phrase)
-* [Get concepts by search term (using type=fuzzy)](#get-concepts-by-search-term-using-type=fuzzy)
-* [Get concepts by search term (using type=OR)](#get-concepts-by-search-term-using-type=or)
-* [Get concepts by search term (using type=AND)](#get-concepts-by-search-term-using-type=and)
-* [Get concepts by search term (with highlights)](#get-concepts-by-search-term-with-highlights)
-* [Get concept by subset](#get-concept-by-subset)
-* [Get all subsets](#get-all-subsets)
-* [Get subset by code](#get-subset-by-code)
-* [Get subset members by code](#get-subset-members-by-code)
-* [Get concepts by SPARQL code without prefix](#get-concepts-by-sparql-without-prefix)
-* [Get concepts by SPARQL code with prefix](#get-concepts-by-sparql-with-prefix)
-* [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimal information)](#get-concept-by-code-minimal-information)
+- [Get concept list by code (minimal information)](#get-concepts-by-list-of-codes-minimal-information)
+- [Get concept by code (summary information)](#get-concept-by-code-summary-information)
+- [Get concept by code (full information)](#get-concept-by-code-full-information)
+- [Get concept by code (custom information)](#get-concept-by-code-custom-information)
+- [Get concept descendants by code](#get-concept-descendants-by-code)
+- [Get all properties](#get-all-properties)
+- [Get property by code or label](#get-property-by-code-or-label)
+- [Get all qualifiers](#get-all-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
+- [Get all roles](#get-all-roles)
+- [Get roles by code (or label)](#get-roles-by-code-or-label)
+- [Get all associations](#get-all-associations)
+- [Get associations by code (or label)](#get-associations-by-code-or-label)
+- [Get term types](#get-term-types)
+- [Get definition sources](#get-definition-sources)
+- [Get synonym sources](#get-synonym-sources)
+- [Get synonym types](#get-synonym-types)
+- [Get synonym types by code](#get-synonym-types-by-code)
+- [Get definition types](#get-definition-types)
+- [Get definition types by code](#get-definition-types-by-code)
+- [Get root concepts](#get-root-concepts)
+- [Get paths to/from root from code](#get-root-paths-from-code)
+- [Get paths to ancestor from code](#get-ancestor-paths-from-code)
+- [Get subtree](#get-subtree)
+- [Get concepts by search term](#get-concepts-by-search-term)
+- [Get concepts by search term (restrict by concept status)](#get-concepts-by-search-term-restrict-concept-status)
+- [Get concepts by search term (restrict by contributing source)](#get-concepts-by-search-term-restrict-by-contributing-source)
+- [Get concepts by search term (restrict by definition source)](#get-concepts-by-search-term-restrict-by-definition-source)
+- [Get concepts by search term (restrict by definition type)](#get-concepts-by-search-term-restrict-by-definition-type)
+- [Get concepts by search term (restrict by synonym source and termgroup)](#get-concepts-by-search-term-restrict-by-synonym-source)
+- [Get concepts by search term (restrict by synonym type)](#get-concepts-by-search-term-restrict-by-synonym-type)
+- [Get concepts by search term (using type=match)](#get-concepts-by-search-term-using-type=match)
+- [Get concepts by search term (using type=startsWith)](#get-concepts-by-search-term-using-type=startsWith)
+- [Get concepts by search term (using type=phrase)](#get-concepts-by-search-term-using-type=phrase)
+- [Get concepts by search term (using type=fuzzy)](#get-concepts-by-search-term-using-type=fuzzy)
+- [Get concepts by search term (using type=OR)](#get-concepts-by-search-term-using-type=or)
+- [Get concepts by search term (using type=AND)](#get-concepts-by-search-term-using-type=and)
+- [Get concepts by search term (with highlights)](#get-concepts-by-search-term-with-highlights)
+- [Get concept by subset](#get-concept-by-subset)
+- [Get all subsets](#get-all-subsets)
+- [Get subset by code](#get-subset-by-code)
+- [Get subset members by code](#get-subset-members-by-code)
+- [Get concepts by SPARQL code without prefix](#get-concepts-by-sparql-without-prefix)
+- [Get concepts by SPARQL code with prefix](#get-concepts-by-sparql-with-prefix)
+- [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
-* [Get all mapsets](#get-all-mapsets)
+- [Get all mapsets](#get-all-mapsets)
 
-* [Get mapset by code](#get-mapset-by-code)
-* [Get maps by mapset code](#get-maps-by-mapset-code)
-* [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
-* [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
+- [Get mapset by code](#get-mapset-by-code)
+- [Get maps by mapset code](#get-maps-by-mapset-code)
+- [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+- [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 
 ### Get terminologies
 
@@ -667,7 +667,7 @@ Command: `pytest test_metadata_tests.py::test_get_subset_members_by_code`
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
 
-### Get concepts by SPARQL without prefix
+### Find Concepts by SPARQL Code
 
 Get concepts for a specified SPARQL query without prefixes.
 

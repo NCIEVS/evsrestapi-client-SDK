@@ -1,13 +1,11 @@
-EVSRESTAPI client SDK: CURL Tutorial
-======================================
+# EVSRESTAPI client SDK: CURL Tutorial
 
 This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
 
-Prerequisites
--------------
+## Prerequisites
 
-* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+- curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+- jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 The base API url for the EVSRESTAPI is:
 
@@ -20,64 +18,64 @@ All the operations described here perform a GET request.
 
 The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest.nci.nih.gov/swagger-ui.html">http://https://api-evsrest.nci.nih.gov/swagger-ui.html</a>.
 
-Sample cURL Calls
------------------
+## Sample cURL Calls
 
 The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
-* [Get terminologies](#get-terminologies)
-* [Get concept by code (minimum information)](#get-concept-by-code-minimal-information)
-* [Get concepts by list of codes (minimum information)](#get-concepts-by-list-minimal-information)
-* [Get concept by code (summary information)](#get-concept-by-code-summary-information)
-* [Get concept by code (full information)](#get-concept-by-code-full-information)
-* [Get concept by code (custom include)](#get-concept-by-code-custom-include)
-* [Get concept part](#get-concept-part)
-* [Get concept descendants](#get-descendants)
-* [Get all properties](#get-all-properties)
-* [Get property by code (or label)](#get-property-by-code-or-label)
-* [Get all qualifiers](#get-all-qualifiers)
-* [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
-* [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
-* [Get all roles](#get-all-roles)
-* [Get role by code (or label)](#get-role-by-code-or-label)
-* [Get all associations](#get-all-associations)
-* [Get association by code (or label)](#get-association-by-code-or-label)
-* [Get all term types](#get-all-term-types)
-* [Get all synonym sources](#get-all-synonym-sources)
-* [Get all definition types](#get-all-definition-types)
-* [Get definition type by code](#get-definition-type-by-code)
-* [Get all synonym types](#get-all-synonym-types)
-* [Get synonym type by code](#get-synonym-type-by-code)
-* [Find root concepts](#find-root-concepts)
-* [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
-* [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
-* [Get subtree for code](#get-subtree-for-code)
-* [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
-* [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
-* [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
-* [Find concepts by search term (restrict by definition type)](#find-concepts-by-search-term-restrict-by-definition-type)
-* [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
-* [Find concepts by search term (restrict by synonym type)](#find-concepts-by-search-term-restrict-by-synonym-type)
-* [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
-* [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
-* [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
-* [Find concepts by search term (using type=phrase)](#find-concepts-by-search-term-using-type-phrase)
-* [Find concepts by search term (using type=fuzzy)](#find-concepts-by-search-term-using-type-fuzzy)
-* [Find concepts by search term (using type=AND)](#find-concepts-by-search-term-using-type-and)
-* [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
-* [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
-* [Find concepts by property](#find-concepts-by-property)
-* [Find concepts by subset](#find-concepts-by-subset)
-* [Find concepts by SPARQL code](#find-concepts-by-sparql-code)
-* [Get all subsets](#get-all-subsets)
-* [Get subset by code](#get-subset-by-code)
-* [Get subset members by subset code](#get-subset-members-by-code)
-* [Get all mapsets](#get-all-mapsets)
-* [Get mapset by code](#get-mapset-by-code)
-* [Get maps by mapset code](#get-maps-by-mapset-code)
-* [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
-* [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
-* [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Get terminologies](#get-terminologies)
+- [Get concept by code (minimum information)](#get-concept-by-code-minimal-information)
+- [Get concepts by list of codes (minimum information)](#get-concepts-by-list-minimal-information)
+- [Get concept by code (summary information)](#get-concept-by-code-summary-information)
+- [Get concept by code (full information)](#get-concept-by-code-full-information)
+- [Get concept by code (custom include)](#get-concept-by-code-custom-include)
+- [Get concept part](#get-concept-part)
+- [Get concept descendants](#get-descendants)
+- [Get all properties](#get-all-properties)
+- [Get property by code (or label)](#get-property-by-code-or-label)
+- [Get all qualifiers](#get-all-qualifiers)
+- [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
+- [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
+- [Get all roles](#get-all-roles)
+- [Get role by code (or label)](#get-role-by-code-or-label)
+- [Get all associations](#get-all-associations)
+- [Get association by code (or label)](#get-association-by-code-or-label)
+- [Get all term types](#get-all-term-types)
+- [Get all synonym sources](#get-all-synonym-sources)
+- [Get all definition types](#get-all-definition-types)
+- [Get definition type by code](#get-definition-type-by-code)
+- [Get all synonym types](#get-all-synonym-types)
+- [Get synonym type by code](#get-synonym-type-by-code)
+- [Find root concepts](#find-root-concepts)
+- [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
+- [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
+- [Get subtree for code](#get-subtree-for-code)
+- [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
+- [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
+- [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
+- [Find concepts by search term (restrict by definition type)](#find-concepts-by-search-term-restrict-by-definition-type)
+- [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
+- [Find concepts by search term (restrict by synonym type)](#find-concepts-by-search-term-restrict-by-synonym-type)
+- [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
+- [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
+- [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
+- [Find concepts by search term (using type=phrase)](#find-concepts-by-search-term-using-type-phrase)
+- [Find concepts by search term (using type=fuzzy)](#find-concepts-by-search-term-using-type-fuzzy)
+- [Find concepts by search term (using type=AND)](#find-concepts-by-search-term-using-type-and)
+- [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
+- [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
+- [Find concepts by property](#find-concepts-by-property)
+- [Find concepts by subset](#find-concepts-by-subset)
+- [Find concepts by SPARQL code](#find-concepts-by-sparql-code)
+- [Get all subsets](#get-all-subsets)
+- [Get subset by code](#get-subset-by-code)
+- [Get subset members by subset code](#get-subset-members-by-code)
+- [Get all mapsets](#get-all-mapsets)
+- [Get mapset by code](#get-mapset-by-code)
+- [Get maps by mapset code](#get-maps-by-mapset-code)
+- [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+- [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
+- [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Find concepts based on associations query](#find-concept-based-on-associations-query)
 
 ### Get terminologies
 
@@ -159,7 +157,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-custom.t
 
 ### Get concept part
 
-Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below,
+Returns sub-part of the concept for a given terminology and code. NOTE: in the call below,
 you can replace "children" in the URL with any of the following and retrieve the
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps.
@@ -170,13 +168,13 @@ curl "$API_URL/concept/ncit/C3224/children" | jq '.'
 
 See the full set of examples for this "style" of call
 
-* [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
-* [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
-* [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
-* [`samples/get-concept-by-code-associations.txt`](samples/get-concept-by-code-associations.txt)
-* [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
-* [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
-* [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
+- [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
+- [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
+- [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
+- [`samples/get-concept-by-code-associations.txt`](samples/get-concept-by-code-associations.txt)
+- [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
+- [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
+- [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
 
 For disjointWith, a different concept id is needed
 
@@ -191,7 +189,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-disjoint
 ### Get descendants
 
 Return concept descendants information for a given terminology and code. The call
-can page the results with standard fromRecord and pageSize parameters.  The default
+can page the results with standard fromRecord and pageSize parameters. The default
 page size is 50000 which works well for all NCI Thesaurus concepts.
 
 ```
@@ -451,7 +449,7 @@ See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](
 
 ### Get subtree for code
 
-Return an entire subtree graph from the root concepts to a specified node.  This
+Return an entire subtree graph from the root concepts to a specified node. This
 call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 ```
@@ -658,7 +656,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 Find concepts matching a search term that is searched within a certain
 set of properties. The search results are set to include the property
-values so you can easily see the match.  The property setting here can be either
+values so you can easily see the match. The property setting here can be either
 based on code or on label
 
 ```
@@ -698,6 +696,19 @@ See sample payload data from this call in [`samples/find-concepts-by-sparql-code
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
+### Find concepts based on associations query
+
+This query is appropriate for NCI Thesaurus and finds concepts with a relationship of "Related_To_Genetic_Biomarker" to "KLK3 Gene".  
+Note: the use of `?code` in the select is required for this to work.
+
+```{text}
+curl -X POST "$API_URL/sparql/ncit" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/advanced-query.txt' | jq '.'
+```
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
 ### Get all subsets
 
 Get all subsets (with minimal information) associated for a specified terminology.
@@ -724,7 +735,7 @@ See sample payload data from this call in [`samples/get-subset-by-code.txt`](sam
 
 ### Get subset members by code
 
-Get subset members for a specified subset code. This example  uses paging to get only the first 10 results.
+Get subset members for a specified subset code. This example uses paging to get only the first 10 results.
 
 ```
 curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10" | jq '.'

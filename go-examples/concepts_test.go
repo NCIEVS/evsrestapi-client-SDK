@@ -315,14 +315,14 @@ func TestGetConceptBySubset(t *testing.T) {
 	ProcessData(url)
 }
 
-// Get concepts by SPARQL without prefix.
+// Find Concepts by SPARQL Code.
 func TestGetConceptsBySparqlWithoutPrefix(t *testing.T) {
 	var used_url = ValidateUrlFile()
 	var query, err = os.ReadFile("../curl-examples/sparql-queries-encoded/no-prefix.txt")
 	if err != nil {
 		fmt.Print(err)
 	}
-	fmt.Println("concept_test.go: Get concepts by SPARQL without prefix")
+	fmt.Println("concept_test.go: Find Concepts by SPARQL Code")
 	fmt.Println(string(used_url) + "/concept/ncit/search?query=" + string(query) + "\n")
 	var url = string(used_url) + "/concept/ncit/search?query=" + string(query)
 

@@ -1,18 +1,17 @@
-EVSRESTAPI CT in 5 minutes: bash Tutorial
-=========================================
+# EVSRESTAPI CT in 5 minutes: bash Tutorial
 
 This tutorial shows how to use bash scripts to access NCI Thesaurus content from the EVSRESTAPI.
 
-Prerequisites
--------------
-* bash must be installed
-* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+## Prerequisites
+
+- bash must be installed
+- curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+- jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
 
 The various scripts make use of the local `url.env` file to define the EVSRESTAPI endpoint that scripts will connect to.
 
-Test Scripts
-------------
+## Test Scripts
+
 - [get-terminologies.sh](#get-terminologiessh)
 - [get-concept.sh](#get-conceptsh)
 - [get-concept-part.sh](#get-concept-partsh)
@@ -32,13 +31,13 @@ Test Scripts
 - [get-mapsets.sh](#get-mapsetsssh)
 - [get-inactive-replacements.sh](#get-inactive-replacementsssh)
 
-The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed.  Run each script with no parameters for examples of how to call each one.
+The following examples can be typed into the command line of any terminal that has bash, cURL and jq installed. Run each script with no parameters for examples of how to call each one.
 
 ### get-terminologies.sh
 
-Return terminologies currently hosted by the API.  This script takes parameters to
+Return terminologies currently hosted by the API. This script takes parameters to
 filter the results by terminology, by latest flag, and by tags associated with
-the terminology (primarily for ncit "monthly" and "weekly").  This example returns
+the terminology (primarily for ncit "monthly" and "weekly"). This example returns
 the latest monthly version of NCI Thesaurus.
 
 ```
@@ -124,12 +123,13 @@ utes of Health, Bethesda, MD 20892, U.S.A.",
 Finished ...Tue, Dec  7, 2021  5:06:31 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept.sh
 
-Return concept information for a specified terminology and code.  The "include" parameter
-can be used to specify the amount of information you want back.  Try with "minimal",
+Return concept information for a specified terminology and code. The "include" parameter
+can be used to specify the amount of information you want back. Try with "minimal",
 "summary", and "full".
 
 ```
@@ -158,8 +158,8 @@ Finished ...Tue, Dec  7, 2021  5:08:02 PM
 ```
 
 This script can also concept information for a list of concept codes.  
-The "include" parameter can be used to specify the amount of information you 
-want back.  Try with "minimal", "summary", and "full".
+The "include" parameter can be used to specify the amount of information you
+want back. Try with "minimal", "summary", and "full".
 
 ```
 $ ./get-concept.sh ncit C3224,C3910 --include minimal
@@ -194,11 +194,12 @@ include  = minimal
 Finished ...Tue, Dec  7, 2021  5:08:31 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-concept-part.sh
 
-Used to call the APIs for the sub-parts of concepts.  The supported list includes:
+Used to call the APIs for the sub-parts of concepts. The supported list includes:
 children, parents, roles, associations, inverseRoles, inverseAssociations, maps,
 and disjointWith. The following examples shows the "children", but this parameter
 could be easily replaced by any of the options listed above.
@@ -307,15 +308,16 @@ part = children
 Finished ...Tue, Dec  7, 2021  5:09:35 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### find-concepts.sh
 
 Used to perform text searches to find matching concepts. In its simplest form the
 script will perform a simple "contains" text search for concepts within the specified
-terminology.  Use the --include parameter to control how much information to get back,
+terminology. Use the --include parameter to control how much information to get back,
 use the --type to change the nature of the search, and use --fromRecord and --pageSize
-to control which records to return. 
+to control which records to return.
 
 ```
 $ ./find-concepts.sh ncit "malignant melanoma" --pageSize 5
@@ -436,13 +438,14 @@ sparql = ../curl-examples/sparql-queries/code-query.txt
 Finished ...Fri, Jun 14, 2024  5:34:51 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-descendants.sh
 
 Used to get descendant graph for a specified terminology and code.  
 The --fromRecord and --pageSize parameters allow the descendant list to
-be paged for very large results.  This example shows just five descendants.
+be paged for very large results. This example shows just five descendants.
 
 ```
 $ ./get-descendants.sh ncit C3224 --pageSize 5
@@ -495,6 +498,7 @@ pageSize = 5
 Finished ...Tue, Dec  7, 2021  5:10:46 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-subtree.sh
@@ -643,12 +647,13 @@ code = C3224
 Finished ...Tue, Dec  7, 2021  5:13:51 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-paths.sh
 
 Return information about root codes, paths to root codes, or paths from
-a code to an ancestor code.  In its simplest form, the script will return
+a code to an ancestor code. In its simplest form, the script will return
 a list of root concepts.
 
 ```
@@ -805,8 +810,8 @@ Finished ...Tue, Dec  7, 2021  5:14:28 PM
 -----------------------------------------------------
 ```
 
-By specifying a code, the script will produce a list of paths from that 
-code to the corresponding root concept.  There may be more than one path through
+By specifying a code, the script will produce a list of paths from that
+code to the corresponding root concept. There may be more than one path through
 the tree.
 
 ```
@@ -930,8 +935,8 @@ Finished ...Tue, Dec  7, 2021  5:14:52 PM
 -----------------------------------------------------
 ```
 
-By specifying a code and an optional ancestor code, the script will produce a list of 
-paths from that code to the corresponding ancestor code.  There may be more than one 
+By specifying a code and an optional ancestor code, the script will produce a list of
+paths from that code to the corresponding ancestor code. There may be more than one
 path through the tree.
 
 ```
@@ -1038,11 +1043,12 @@ include =
 Finished ...Tue, Dec  7, 2021  5:15:15 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-association.sh
 
-Return information about associations for a specified terminology.  In its simplest form,
+Return information about associations for a specified terminology. In its simplest form,
 this script will return basic information about all associations for a terminology.
 
 ```
@@ -1305,7 +1311,7 @@ Finished ...Tue, Dec  7, 2021  5:15:40 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single association (by code or label), 
+The script can also return information about a single association (by code or label),
 or a list of associations.
 
 ```
@@ -1373,11 +1379,12 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:16:29 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-role.sh
 
-Return information about roles for a specified terminology.  In its simplest form,
+Return information about roles for a specified terminology. In its simplest form,
 this script will return basic information about all roles for a terminology.
 
 ```
@@ -1976,7 +1983,7 @@ Finished ...Tue, Dec  7, 2021  5:16:47 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single role (by code or label), 
+The script can also return information about a single role (by code or label),
 or a list of role.
 
 ```
@@ -2044,11 +2051,12 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:17:43 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-property.sh
 
-Return information about properties for a specified terminology.  In its simplest form,
+Return information about properties for a specified terminology. In its simplest form,
 this script will return basic information about all properties for a terminology.
 
 ```
@@ -2449,7 +2457,7 @@ Finished ...Tue, Dec  7, 2021  5:17:59 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single property (by code or label), 
+The script can also return information about a single property (by code or label),
 or a list of property.
 
 ```
@@ -2517,11 +2525,12 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:19:37 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-qualifier.sh
 
-Return information about qualifiers for a specified terminology.  In its simplest form,
+Return information about qualifiers for a specified terminology. In its simplest form,
 this script will return basic information about all qualifiers for a terminology.
 
 ```
@@ -2574,7 +2583,7 @@ Finished ...Tue, Dec  7, 2021  5:19:57 PM
 -----------------------------------------------------
 ```
 
-The script can also return information about a single qualifier (by code or label), 
+The script can also return information about a single qualifier (by code or label),
 or a list of qualifier.
 
 ```
@@ -2632,6 +2641,7 @@ include = synonyms
 Finished ...Tue, Dec  7, 2021  5:20:33 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-term-types.sh
@@ -2735,6 +2745,7 @@ terminology = ncit
 Finished ...Tue, Dec  7, 2021  5:20:57 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-synonym-sources.sh
@@ -3016,6 +3027,7 @@ terminology = ncit
 Finished ...Tue, Dec  7, 2021  5:21:18 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-synonym-types.sh
@@ -3128,6 +3140,7 @@ include = summary
 Finished ...Tue, Dec  7, 2021  5:24:12 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-definition-types.sh
@@ -3228,6 +3241,7 @@ include = summary
 Finished ...Tue, Dec  7, 2021  5:23:50 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-subsets.sh
@@ -3792,11 +3806,12 @@ members = 1
 Finished ...Tue, Dec  7, 2021  5:26:07 PM
 -----------------------------------------------------
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-mapsets.sh
 
-Return information about all mapsets. The include parameter allows customizing 
+Return information about all mapsets. The include parameter allows customizing
 how much data to return.
 
 ```
@@ -3808,7 +3823,7 @@ url = https://api-evsrest.nci.nih.gov/api/v1
 include = properties
 
   Get all mapsets
-  
+
 	[
 	   {
 		  "code":"GO_to_NCIt_Mapping",
@@ -3979,7 +3994,7 @@ Finished ...Mon May  1 09:53:07 HST 2023
 -----------------------------------------------------
 ```
 
-Return information about a single mapset for a specified code. The include 
+Return information about a single mapset for a specified code. The include
 parameter allows customizing how much data to return.
 
 ```
@@ -4097,6 +4112,7 @@ Finished ...Mon May  1 10:01:47 HST 2023
 -----------------------------------------------------
 
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 
 ### get-inactive-replacements.sh
@@ -4168,4 +4184,5 @@ Finished ...Mon May  1 12:15:07 HST 2023
 -----------------------------------------------------
 
 ```
+
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
