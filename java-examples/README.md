@@ -1744,10 +1744,40 @@ Run the gradle command in the terminal to return all associations.
 Run the gradle command in the terminal to return association for the specified code or label. The test shows a comple of
 examples of how to parameterize this.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationTest`
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationByCodeTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for code - A18
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = class Concept {
+    uri: null
+    ct: null
+    code: A18
+    name: Has_Pharmaceutical_Basic_Dose_Form
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)

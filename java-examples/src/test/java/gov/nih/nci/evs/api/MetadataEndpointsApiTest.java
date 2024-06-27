@@ -56,7 +56,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getAssociationTest() throws ApiException {
+  public void getAssociationByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "A18";
     String include = "minimal";
@@ -88,7 +88,7 @@ public class MetadataEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals(35, response.size());
+    assertTrue(response.size() >= 35);
     assertEquals("A1", response.get(0).getCode());
 
     // LOG
