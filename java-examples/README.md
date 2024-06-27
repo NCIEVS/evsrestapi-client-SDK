@@ -50,15 +50,21 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all associations](#get-all-associations)
 * [Get association by code (or label)](#get-association-by-code-or-label)
 * [Get all term types](#get-all-term-types)
-* [Get root concepts](#get-root-concepts)
+* [Get all synonym sources](#get-all-synonym-sources)
+* [Get all definition types](#get-all-definition-types)
+* [Get definition type by code](#get-definition-type-by-code)
+* [Get all synonym types](#get-all-synonym-types)
+* [Get synonym type by code](#get-synonym-type-by-code)
+* [Find root concepts](#find-root-concepts)
 * [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
 * [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
 * [Get subtree](#get-subtree)
 * [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
 * [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
-* [Find concepts by search term (restrict by contributing source)](#find-concepts-by-search-term-restrict-by-contributing-source)
 * [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
+* [Find concepts by search term (restrict by definition type)](#find-concepts-by-search-term-restrict-by-definition-type)
 * [Find concepts by search term (restrict by synonym source and termgroup)](#find-concepts-by-search-term-restrict-by-synonym-source-and-termgroup)
+* [Find concepts by search term (restrict by synonym type)](#find-concepts-by-search-term-restrict-by-synonym-type)
 * [Find concepts by search term (where search term is a code)](#find-concepts-by-search-term-where-search-term-is-a-code)
 * [Find concepts by search term (using type=match)](#find-concepts-by-search-term-using-type-match)
 * [Find concepts by search term (using type=startsWith)](#find-concepts-by-search-term-using-type-startswith)
@@ -68,6 +74,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Find concepts by search term (using type=OR)](#find-concepts-by-search-term-using-type-or)
 * [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 * [Find concepts by property](#find-concepts-by-property)
+* [Find concepts by subset](#find-concepts-by-subset)
 * [Find concepts by SPARQL code](#find-concepts-by-sparql-code)
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
@@ -75,7 +82,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all mapsets]()
 * [Get mapset by code]()
 * [Get maps by mapset code]()
-* * [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+* [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 * [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 * [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
@@ -912,7 +919,7 @@ the direct children. The test sets the max level to 4, page size to 100, and fro
     },
     ...
     ...
-    }]
+}]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1022,42 +1029,10 @@ minimal).
     maps: null
     paths: null
     extensions: null
-}, class Concept {
-    uri: null
-    ct: null
-    code: P90
-    name: FULL_SYN
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-},
-...
-...
-...
+  },
+  ...
+  ...
+  ...
 }]
 ```
 
@@ -1242,74 +1217,10 @@ minimal).
     maps: null
     paths: null
     extensions: null
-}, class Concept {
-    uri: null
-    ct: null
-    code: P378
-    name: Definition Source
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-}, class Concept {
-    uri: null
-    ct: null
-    code: P381
-    name: attribution
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-}, 
-....
-...
-...
+  },
+  ....
+  ...
+  ...
 }]
 ```
 
@@ -1418,100 +1329,62 @@ Run the gradle command in the terminal to return all roles.
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    roles = [class Concept {
     uri: null
     ct: null
-    code: R123
-    name: Chemotherapy_Regimen_Has_Component
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-}, class Concept {
-    uri: null
-    ct: null
-    code: R163
-    name: Procedure_Has_Target_Anatomy
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-}, class Concept {
-    uri: null
-    ct: null
     code: R100
     name: Disease_Has_Associated_Anatomic_Site
     terminology: ncit
-    version: 23.10e
+    version: 21.06e
     level: null
     highlight: null
-    highlights: {}
-    normName: null
     subsetLink: null
     mapsetLink: null
     conceptStatus: null
     source: null
     leaf: null
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
     paths: null
-    extensions: null
-},
+}, class Concept {
+    uri: null
+    ct: null
+    code: R101
+    name: Disease_Has_Primary_Anatomic_Site
+    terminology: ncit
+    version: 21.06e
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}, 
 ...
 ...
 ...
@@ -2315,19 +2188,6 @@ This call is specifically tuned to support a tree-view based hierarchy browser i
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getSubtreeTest`
 
 ```
-
-```
-
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
-
-### Find concepts by search term
-
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology. Include is
-set to minimal
-
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
-
-```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the entire subtree from the root node of code - C3224
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subtree = [class HierarchyNode {
     uri: null
@@ -2337,8 +2197,7 @@ set to minimal
     level: null
     leaf: false
     expanded: null
-    highlight: null
-    children: null
+    children: []
 }, class HierarchyNode {
     uri: null
     ct: null
@@ -2347,168 +2206,246 @@ set to minimal
     level: null
     leaf: false
     expanded: null
-    highlight: null
-    children: null
-}, 
-...
-...
+    children: []
 }, class HierarchyNode {
     uri: null
     ct: null
-    code: C7057
-    label: Disease, Disorder or Finding
+    code: C12219
+    label: Anatomic Structure, System, or Substance
     level: null
     leaf: false
-    expanded: true
-    highlight: null
-    children: [class HierarchyNode {
+    expanded: null
+    children: []
+}, class HierarchyNode {
+    uri: null
+    ct: null
+    code: C20633
+    label: Biochemical Pathway
+    level: null
+    leaf: false
+    expanded: null
+    children: []
+}, class HierarchyNode {
+    uri: null
+    ct: null
+    code: C17828
+    label: Biological Process
+    level: null
+    leaf: false
+    expanded: null
+    children: []
+},
+...
+...
+...
+}]
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Find concepts by search term
+
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology. This
+example uses paging to get only the first 5 results. Include is set to minimal.
+
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for - ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 166616
+    timeTaken: 187
+    parameters: class SearchCriteria {
         uri: null
         ct: null
-        code: C2991
-        label: Disease or Disorder
+        term: null
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: []
+        property: []
+        value: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
+        terminology: [ncit]
+        sparql: null
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C1000
+        name: Recombinant Amphiregulin
+        terminology: ncit
+        version: 21.06e
         level: null
-        leaf: false
-        expanded: true
         highlight: null
-        children: [class HierarchyNode {
-            uri: null
-            ct: null
-            code: C35470
-            label: Behavioral Disorder
-            level: null
-            leaf: false
-            expanded: null
-            highlight: null
-            children: null
-        },
-        ...
-        ...
-        }, class HierarchyNode {
-            uri: null
-            ct: null
-            code: C3262
-            label: Neoplasm
-            level: null
-            leaf: false
-            expanded: true
-            highlight: null
-            children: [class HierarchyNode {
-                uri: null
-                ct: null
-                code: C4741
-                label: Neoplasm by Morphology
-                level: null
-                leaf: false
-                expanded: true
-                highlight: null
-                children: [class HierarchyNode {
-                    uri: null
-                    ct: null
-                    code: C3709
-                    label: Epithelial Neoplasm
-                    level: null
-                    leaf: false
-                    expanded: null
-                    highlight: null
-                    children: null
-                },
-                 ...
-                 ...
-                }, class HierarchyNode {
-                    uri: null
-                    ct: null
-                    code: C7058
-                    label: Melanocytic Neoplasm
-                    level: null
-                    leaf: false
-                    expanded: true
-                    highlight: null
-                    children: [class HierarchyNode {
-                        uri: null
-                        ct: null
-                        code: C5504
-                        label: Central Nervous System Melanocytic Neoplasm
-                        level: null
-                        leaf: false
-                        expanded: null
-                        highlight: null
-                        children: null
-                    },
-                    ...
-                    ...
-                    }]
-                }, class HierarchyNode {
-                    uri: null
-                    ct: null
-                    code: C7059
-                    label: Mesenchymal Cell Neoplasm
-                    level: null
-                    leaf: false
-                    expanded: null
-                    highlight: null
-                    children: null
-                },
-                ...
-                ...
-                }]
-            }, class HierarchyNode {
-                uri: null
-                ct: null
-                code: C3263
-                label: Neoplasm by Site
-                level: null
-                leaf: false
-                expanded: null
-                highlight: null
-                children: null
-            }, class HierarchyNode {
-                uri: null
-                ct: null
-                code: C7062
-                label: Neoplasm by Special Category
-                level: null
-                leaf: false
-                expanded: true
-                highlight: null
-                children: [class HierarchyNode {
-                    uri: null
-                    ct: null
-                    code: C3677
-                    label: Benign Neoplasm
-                    level: null
-                    leaf: false
-                    expanded: null
-                    highlight: null
-                    children: null
-                }, 
-                ...
-                ...
-            ...
-            ...
-        ...
-        ...
-    ...
-    ...
-    }]                    
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C10000
+        name: Cyclophosphamide/Fluoxymesterone/Mitolactol/Prednisone/Tamoxifen
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Obsolete_Concept
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C100000
+        name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C100001
+        name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable After Successful Full-Dose Thrombolytic Therapy
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C100002
+        name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
+}               
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Find concepts by search term (restrict by concept status)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology and
-restrict the search results by concept status of "Header_Concept". This example uses paging to get only the first 5
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and 
+restrict the search results by concept status of "Retired_Concept". This example uses paging to get only the first 5
 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Header_Concept
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 1
-    timeTaken: 41
+    total: 18
+    timeTaken: 83
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2518,77 +2455,62 @@ results.
         sort: null
         ascending: true
         fromRecord: 0
-        pageSize: 25
-        conceptStatus: [Header_Concept]
-        property: null
+        pageSize: 5
+        conceptStatus: [Retired_Concept]
+        property: []
         value: null
-        synonymSource: null
-        synonymType: null
-        definitionSource: null
-        definitionType: null
-        synonymTermType: null
-        subset: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
         terminology: [ncit]
+        sparql: null
     }
     concepts: [class Concept {
         uri: null
         ct: null
-        code: C13037
-        name: Respiratory System Part
+        code: C83505
+        name: Respiratory Acidosis
         terminology: ncit
-        version: 23.10e
+        version: 21.06e
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: Retired_Concept
         source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        leaf: true
+        active: false
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
-    }]
+    }, 
+    ...
+    ...
+    ...
+  }]
 }
-```
-
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
-
-### Find concepts by search term (restrict by contributing source)
-
-// TODO: Find this method!
-
-Run the gradle command in the terminal to get concepts matching a search term within a specified
-terminology and restrict the search results by a contributing source of "CDISC". This example uses paging to get only
-the first 5 results.
-
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.testFindConceptsBySearchTermContributingSource()`
-
-```
-2021-12-08T21:30:18-05:00 INFO  : Get concept by search term=melanoma, contributingSource=CDISC
-2021-12-08T21:30:18-05:00 INFO  :   base url = https://api-evsrest.nci.nih.gov/api/v1
-2021-12-08T21:30:18-05:00 INFO  :   concepts = {"total":1362,"timeTaken":145,"parameters":{"term":"melanoma","type":"contains","include":"minimal","fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"21.11e","leaf":false},{"code":"C91477","name":"Melanoma Pathway","terminology":"ncit","version":"21.11e","leaf":true},{"code":"C21790","name":"Mouse Melanoma","terminology":"ncit","version":"21.11e","leaf":false},{"code":"C103113","name":"NCI CTEP SDC Melanoma Sub-Category Terminology","terminology":"ncit","version":"21.11e","leaf":true},{"code":"C114828","name":"Mucosal Melanoma","terminology":"ncit","version":"21.11e","leaf":false}]}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Find concepts by search term (restrict by definition source)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified
+Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and restrict the search results by a definition source of "NCI". This example uses paging to get only the
 first 5 results.
 
@@ -2599,8 +2521,8 @@ first 5 results.
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 12
-    timeTaken: 38
+    total: 11
+    timeTaken: 58
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2611,16 +2533,18 @@ first 5 results.
         ascending: true
         fromRecord: 0
         pageSize: 5
-        conceptStatus: null
-        property: null
+        conceptStatus: []
+        property: []
         value: null
-        synonymSource: null
-        synonymType: null
+        synonymSource: []
+        synonymType: []
         definitionSource: [NCI]
-        definitionType: null
-        synonymTermType: null
-        subset: null
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
         terminology: [ncit]
+        sparql: null
     }
     concepts: [class Concept {
         uri: null
@@ -2628,169 +2552,119 @@ first 5 results.
         code: C449
         name: DNA
         terminology: ncit
-        version: 23.10e
+        version: 21.06e
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: DEFAULT
         source: null
         leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C14348
-        name: Double Stranded DNA Virus
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C25832
-        name: DNA Double Strand Break
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C114565
-        name: Anti-ds DNA Antibody
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C121337
-        name: Systemic Lupus International Collaborating Clinics Classification Criteria
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }]
+    }, 
+    ...
+    ...
+    ...
+  }]
 }
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (restrict by synonym source and termgroup)
+### Find concepts by search term (restrict by definition type)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and 
+restrict the search results by a definition type of "DEFINITION". This example uses paging to get only the first 5 
+results.
+
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionTypeTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 1283
+    timeTaken: 133
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: melanoma
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: []
+        property: []
+        value: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: [DEFINITION]
+        synonymTermType: []
+        subset: []
+        codeList: []
+        terminology: [ncit]
+        sparql: null
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, 
+    ...
+    ...
+    ...
+  }]
+}
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+###  Find concepts by search term (restrict by synonym source and termgroup)
+
+Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermGroupTest`
@@ -2800,8 +2674,8 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 13
-    timeTaken: 49
+    total: 12
+    timeTaken: 84
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2812,16 +2686,18 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
         ascending: true
         fromRecord: 0
         pageSize: 5
-        conceptStatus: null
-        property: null
+        conceptStatus: []
+        property: []
         value: null
         synonymSource: [NCI]
-        synonymType: null
-        definitionSource: null
-        definitionType: null
+        synonymType: []
+        definitionSource: []
+        definitionType: []
         synonymTermType: [PT]
-        subset: null
+        subset: []
+        codeList: []
         terminology: [ncit]
+        sparql: null
     }
     concepts: [class Concept {
         uri: null
@@ -2829,169 +2705,118 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
         code: C449
         name: DNA
         terminology: ncit
-        version: 23.10e
+        version: 21.06e
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: DEFAULT
         source: null
         leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C14348
-        name: Double Stranded DNA Virus
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C25832
-        name: DNA Double Strand Break
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C114565
-        name: Anti-ds DNA Antibody
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C121337
-        name: Systemic Lupus International Collaborating Clinics Classification Criteria
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }]
+    },
+    ...
+    ...
+    ...
+  }]
 }
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
+### Find concepts by search term (restrict by synonym type)
+Run the gradle command in the terminal to find concepts matching a search term with a specified synonym type. This
+example restricts results to matching FULL_SYNs.
+
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymType`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 12
+    timeTaken: 114
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: dsDNA
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: []
+        property: []
+        value: null
+        synonymSource: []
+        synonymType: [FULL_SYN]
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
+        terminology: [ncit]
+        sparql: null
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C449
+        name: DNA
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    },
+    ...
+    ...
+    ...
+  }]
+}
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+
 ### Find concepts by search term (where search term is a code)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and restrict the search results using a code as the search term.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
@@ -3064,7 +2889,7 @@ and restrict the search results using a code as the search term.
 
 ### Find concepts by search term (using type=match)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "match". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
@@ -3137,7 +2962,7 @@ and a search type of "match". This example uses paging to get only the first 5 r
 
 ### Find concepts by search term (using type=startsWith)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified
+Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and a search type of "startsWith". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
@@ -3338,20 +3163,111 @@ terminology and a search type of "startsWith". This example uses paging to get o
 
 ### Find concepts by search term (using type=phrase)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "phrase". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypePhraseTest`
 
 ```
-
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 223
+    timeTaken: 231
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: enzyme
+        type: phrase
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: []
+        property: []
+        value: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
+        terminology: [ncit]
+        sparql: null
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C16554
+        name: Enzyme
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C17455
+        name: Enzyme Immunoassay
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    },
+    ...
+    ...
+  }]
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Find concepts by search term (using type=fuzzy)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "fuzzy". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeFuzzyTest`
@@ -3552,7 +3468,7 @@ and a search type of "fuzzy". This example uses paging to get only the first 5 r
 
 ### Find concepts by search term (using type=AND)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology and
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "AND". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeANDTest`
@@ -3753,7 +3669,7 @@ a search type of "AND". This example uses paging to get only the first 5 results
 
 ### Find concepts by search term (using type=OR)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified terminology and
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "OR". This example uses paging to get only the first 5 results.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeORTest`
@@ -3954,7 +3870,7 @@ a search type of "OR". This example uses paging to get only the first 5 results.
 
 ### Find concepts by search term (with highlights)
 
-Run the gradle command in the terminal to get concepts matching a search term within a specified
+Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and include synonyms and highlighted text in the response. This example uses paging to get only the first 5
 results.
 
@@ -4028,7 +3944,7 @@ results.
 
 ### Find concepts by property
 
-Run the gradle command in the terminal to get concepts matching a search term that is searched within a certain set
+Run the gradle command in the terminal to find concepts matching a search term that is searched within a certain set
 of properties. The search results are set to include the property values so you can easily see the match. The property
 setting here can be either based on code or on label
 
@@ -4099,6 +4015,79 @@ setting here can be either based on code or on label
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Find concepts by subset
+Find concepts matching a search term and restrict results to members of one or more subsets. This example searches 
+within C165258 (e.g. Cellosaurus Disease Terminology).
+
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsBySubsetTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = immune, subset = C165258
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    uri: null
+    ct: null
+    total: 33
+    timeTaken: 122
+    parameters: class SearchCriteria {
+        uri: null
+        ct: null
+        term: immune
+        type: contains
+        include: minimal
+        sort: null
+        ascending: true
+        fromRecord: 0
+        pageSize: 5
+        conceptStatus: []
+        property: []
+        value: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: [C165258]
+        codeList: []
+        terminology: [ncit]
+        sparql: null
+    }
+    concepts: [class Concept {
+        uri: null
+        ct: null
+        code: C3507
+        name: Immune System Disorder
+        terminology: ncit
+        version: 21.06e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, 
+    ...
+    ...
+    ...
+  }]
+}
+```
 
 ### Find concepts by SPARQL code
 
@@ -4687,7 +4676,7 @@ Get the maps for a specified mapset code.
 
 ### Get replacement concepts for an inactive concept code
 
-`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointApiTest.getReplacementsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointsApiTest.getReplacementsTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get suggested replacements for code - C4654
@@ -4707,7 +4696,7 @@ Get the maps for a specified mapset code.
 
 ### Get replacement concepts for a list of inactive concept codes
 
-`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointApiTest.getReplacementsFromListTest`
+`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointsApiTest.getReplacementsFromListTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of suggested replacements for retired codes - C4654 & C40117
