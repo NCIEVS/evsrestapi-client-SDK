@@ -75,6 +75,8 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all mapsets]()
 * [Get mapset by code]()
 * [Get maps by mapset code]()
+* * [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
+* [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 * [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
 
 ### Get terminologies
@@ -4074,7 +4076,7 @@ Run the gradle command in the terminal to find concepts for a specified SPARQL q
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.findConceptsBySparqlCode`
 
-```{text}
+```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL search results from NCIT for query = SELECT ?code
     { GRAPH <http://NCI_T_monthly>
       {
@@ -4314,7 +4316,7 @@ Run the gradle command in the terminal to get subsets (with summary information)
     }, 
     ...
     ...
-}                   
+}]                   
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -4326,7 +4328,7 @@ code.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SubsetEndpointsApiTest.getSubsetMembersTest`
 
-```{text}
+```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get subset members for code - C157225
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subset members = [class Concept {
     uri: null
@@ -4425,6 +4427,9 @@ code.
     paths: null
     extensions: null
 },
+...
+...
+}]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -4570,6 +4575,7 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 ### Get maps by mapset code
 Get the maps for a specified mapset code.
+
 `./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetByCodeTest`
 
 ```
@@ -4649,13 +4655,63 @@ Get the maps for a specified mapset code.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
+### Get replacement concepts for an inactive concept code
+
+`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointApiTest.getReplacementsTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get suggested replacements for code - C4654
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    replacements = [class History {
+    uri: null
+    ct: null
+    code: C12658
+    name: Prokaryotic Cell
+    action: retire
+    date: 2003-08-22
+    replacementCode: C19157
+    replacementName: Specimen
+}]
+```
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+
+### Get replacement concepts for a list of inactive concept codes
+
+`./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointApiTest.getReplacementsFromListTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of suggested replacements for retired codes - C4654 & C40117
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    suggested replacements = [class History {
+    uri: null
+    ct: null
+    code: C12658
+    name: Prokaryotic Cell
+    action: retire
+    date: 2003-08-22
+    replacementCode: C19157
+    replacementName: Specimen
+}, class History {
+    uri: null
+    ct: null
+    code: C13320
+    name: Nose, Nasal Passages
+    action: merge
+    date: 2003-08-22
+    replacementCode: C12756
+    replacementName: Nose
+}]
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+
 ### Get SPARQL bindings from query
 
 Run the gradle command in the terminal to get SPARQL bindings for a specified SPARQL query.
 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.getSPARQLBindingsTest`
 
-```{text}
+```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL binding results from query = SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class MapResultList {
         uri: null
