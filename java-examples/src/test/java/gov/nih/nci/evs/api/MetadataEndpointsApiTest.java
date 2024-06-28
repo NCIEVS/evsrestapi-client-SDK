@@ -146,7 +146,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getDefinitionTypeTest() throws ApiException {
+  public void getDefinitionTypeByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "P325";
     String include = "minimal";
@@ -454,7 +454,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getSynonymTypeTest() throws ApiException {
+  public void getSynonymTypeByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "P90";
     String include = "minimal";

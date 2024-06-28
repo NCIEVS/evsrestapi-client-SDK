@@ -37,7 +37,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get concepts by list (minimal information)](#get-concepts-by-list-minimal-information)
 * [Get concept by code (summary information)](#get-concept-by-code-summary-information)
 * [Get concept by code (full information)](#get-concept-by-code-full-information)
-* [Get concept by code (custom include)](#get-concept-by-code-custom-include)
+* [Get concept by code (custom include)](#get-concept-by-code-custom-information)
 * [Get concept part](#get-concept-part)
 * [Get concept descendants](#get-descendants)
 * [Get all properties](#get-all-properties)
@@ -56,9 +56,9 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all synonym types](#get-all-synonym-types)
 * [Get synonym type by code](#get-synonym-type-by-code)
 * [Find root concepts](#find-root-concepts)
-* [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
+* [Get paths to/from root from a code](#get-paths-tofrom-root-from-a-code)
 * [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
-* [Get subtree](#get-subtree)
+* [Get subtree for code](#get-subtree-for-code)
 * [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
 * [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
 * [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
@@ -79,9 +79,9 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all subsets](#get-all-subsets)
 * [Get subset by code](#get-subset-by-code)
 * [Get subset members by subset code](#get-subset-members-by-code)
-* [Get all mapsets]()
-* [Get mapset by code]()
-* [Get maps by mapset code]()
+* [Get all mapsets](#get-all-mapsets)
+* [Get mapset by code](#get-mapset-by-code)
+* [Get maps by mapset code](#get-maps-by-mapset-code)
 * [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 * [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
 * [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
@@ -594,7 +594,7 @@ Run the gradle command in the terminal to return full concept information for a 
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Get concept by code (custom include)
+### Get concept by code (custom information)
 
 Run the gradle command in the terminal to return custom concept information for a given terminology and code.
 
@@ -729,7 +729,7 @@ associations.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Get concept children
+### Get concept part
 
 Run the gradle command in the terminal to return concept children for a given terminology and code.
 
@@ -1700,7 +1700,299 @@ Run the gradle command in the terminal to return metadata for all term types for
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Get root concepts
+### Get all synonym sources
+
+Run the gradle command in the terminal to return metadata for all synonym sources for the specified terminology.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymSourcesTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all synonyms for ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonyms = [class ConceptMinimal {
+    uri: null
+    ct: null
+    code: ACC/AHA
+    name: American College of Cardiology / American Heart Association
+    terminology: ncit
+    version: 24.06d
+    level: null
+}, class ConceptMinimal {
+    uri: null
+    ct: null
+    code: BIOCARTA
+    name: BioCarta online maps of molecular pathways, adapted for NCI use
+    terminology: ncit
+    version: 24.06d
+    level: null
+}, class ConceptMinimal {
+    uri: null
+    ct: null
+    code: BRIDG
+    name: Biomedical Research Integrated Domain Model Group
+    terminology: ncit
+    version: 24.06d
+    level: null
+}, class ConceptMinimal {
+    uri: null
+    ct: null
+    code: BRIDG 3.0.3
+    name: Biomedical Research Integrated Domain Model Group, version 3.0.3
+    terminology: ncit
+    version: 24.06d
+    level: null
+}, class ConceptMinimal {
+    uri: null
+    ct: null
+    code: BRIDG 5.3
+    name: Biomedical Research Integrated Domain Model Group, version 5.3
+    terminology: ncit
+    version: 24.06d
+    level: null
+}, class ConceptMinimal {
+    uri: null
+    ct: null
+    code: CBDD
+    name: Chemical Biology and Drug Development
+    terminology: ncit
+    version: 24.06d
+    level: null
+},
+...
+...
+...
+}]
+```
+
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get all definition types
+
+Run the gradle command in the terminal to find all definition types. Include parameter allowed customizing how much data to return.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypesTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all definition types for list of codes - A1 & A12
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    definition types = [class Concept {
+    uri: null
+    ct: null
+    code: P97
+    name: DEFINITION
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: P325
+    name: ALT_DEFINITION
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}]
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+
+### Get definition type by code
+
+Run the gradle command in the terminal to find definition type by code. Include parameter allowed customizing how much data to return.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypeByCodeTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the definition type for code - P325
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    definition type = class Concept {
+    uri: null
+    ct: null
+    code: P325
+    name: ALT_DEFINITION
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get all synonym types
+
+Run the gradle command in the terminal to find all synonym types. Include parameter allowed customizing how much data to return.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypesTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all synonym types for ncit
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonym types = [class Concept {
+    uri: null
+    ct: null
+    code: P108
+    name: Preferred_Name
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: [class Synonym {
+        uri: null
+        ct: null
+        name: Preferred Name
+        highlight: null
+        termType: null
+        type: Display_Name
+        source: null
+        code: null
+        subSource: null
+        qualifiers: []
+        active: null
+    }, class Synonym {
+        uri: null
+        ct: null
+        name: Preferred Name
+        highlight: null
+        termType: null
+        type: FULL_SYN
+        source: null
+        code: null
+        subSource: null
+        qualifiers: []
+        active: null
+    }, class Synonym {
+        uri: null
+        ct: null
+        name: Preferred Term
+        highlight: null
+        termType: null
+        type: FULL_SYN
+        source: null
+        code: null
+        subSource: null
+        qualifiers: []
+        active: null
+    },
+    ...
+    ...
+    ...
+}]  
+```
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get synonym type by code
+
+Run the gradle command in the terminal to find synonym type by code. Include parameter allowed customizing how much data to return.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypeByCodeTest`
+
+```
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get synonym for code/name - P90
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonym = class Concept {
+    uri: null
+    ct: null
+    code: P90
+    name: FULL_SYN
+    terminology: ncit
+    version: 24.06d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: null
+    active: null
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
+}
+```
+
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+
+### Find root concepts
 
 Run the gradle command in the terminal to return concept roots for the specified terminology.
 
@@ -1818,6 +2110,8 @@ Run the gradle command in the terminal to return concept roots for the specified
 Run the gradle command in the terminal to return paths to the root concept from a specified terminology and code.
 
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsToRootTest`
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsFromRootTest`
+
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths to hierarchy root from code - C3224
@@ -1923,10 +2217,6 @@ Run the gradle command in the terminal to return paths to the root concept from 
 ...
 }]
 ```
-
-Run the gradle command in the terminal to return paths from the root concept from a specified terminology and code.
-
-`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsFromRootTest` -
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths from hierarchy root for code - C3224
@@ -2064,7 +2354,6 @@ Run the gradle command in the terminal to return paths from the root concept fro
 }]
 ```
 
-XXX
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get paths to an ancestor code from a code
@@ -2180,7 +2469,7 @@ Run the gradle command in the terminal to return paths to the root concept for a
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Get subtree
+### Get subtree for code
 
 Run the gradle command in the terminal to return an entire subtree graph from the root concepts to a specified node.
 This call is specifically tuned to support a tree-view based hierarchy browser in a UI.
@@ -2887,7 +3176,7 @@ and restrict the search results using a code as the search term.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=match)
+### Find concepts by search term (using type match)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "match". This example uses paging to get only the first 5 results.
@@ -2960,7 +3249,7 @@ and a search type of "match". This example uses paging to get only the first 5 r
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=startsWith)
+### Find concepts by search term (using type startsWith)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and a search type of "startsWith". This example uses paging to get only the first 5 results.
@@ -3161,7 +3450,7 @@ terminology and a search type of "startsWith". This example uses paging to get o
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=phrase)
+### Find concepts by search term (using type phrase)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "phrase". This example uses paging to get only the first 5 results.
@@ -3265,7 +3554,7 @@ and a search type of "phrase". This example uses paging to get only the first 5 
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=fuzzy)
+### Find concepts by search term (using type fuzzy)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "fuzzy". This example uses paging to get only the first 5 results.
@@ -3466,7 +3755,7 @@ and a search type of "fuzzy". This example uses paging to get only the first 5 r
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=AND)
+### Find concepts by search term (using type AND)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "AND". This example uses paging to get only the first 5 results.
@@ -3667,7 +3956,7 @@ a search type of "AND". This example uses paging to get only the first 5 results
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (using type=OR)
+### Find concepts by search term (using type OR)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "OR". This example uses paging to get only the first 5 results.
