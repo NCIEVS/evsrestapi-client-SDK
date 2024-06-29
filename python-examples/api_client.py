@@ -11,10 +11,9 @@
 
     Do not edit the class manually.
 """  # noqa: E501
-
-
+import configparser
 import datetime
-from dateutil.parser import parse
+import parse
 from enum import Enum
 import json
 import mimetypes
@@ -42,8 +41,15 @@ from exceptions import (
 
 RequestSerialized = Tuple[str, str, Dict[str, str], Optional[str], List[str]]
 
+
 class ApiClient:
-    """Generic API client for OpenAPI client library builds.
+    """
+    🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫
+    🚫🚫🚫🚫🚫🚫 DO NOT DELETE/REPLACE THIS CLASS! 🚫🚫🚫🚫🚫🚫
+    🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫🚫
+
+
+    Generic API client for OpenAPI client library builds.
 
     OpenAPI generic API client. This client handles the client-
     server communication, and is invariant across implementations. Specifics of
@@ -61,7 +67,7 @@ class ApiClient:
     PRIMITIVE_TYPES = (float, bool, bytes, str, int)
     NATIVE_TYPES_MAPPING = {
         'int': int,
-        'long': int, # TODO remove as only py3 is supported?
+        'long': int,  # TODO remove as only py3 is supported?
         'float': float,
         'str': str,
         'bool': bool,
@@ -72,15 +78,15 @@ class ApiClient:
     _pool = None
 
     def __init__(
-        self,
-        configuration=None,
-        header_name=None,
-        header_value=None,
-        cookie=None
+            self,
+            configuration=None,
+            header_name=None,
+            header_value=None,
+            cookie=None
     ) -> None:
         # use default configuration if none is provided
         if configuration is None:
-            configuration = Configuration.get_default()
+            configuration = self.load_default_configs()
         self.configuration = configuration
 
         self.rest_client = rest.RESTClientObject(configuration)
@@ -98,6 +104,18 @@ class ApiClient:
     def __exit__(self, exc_type, exc_value, traceback):
         pass
 
+    @classmethod
+    def load_default_configs(cls) -> Configuration:
+        """ Set default Configuration params
+
+        Pass the values we set in config.ini
+        :return: Configuration object
+        """
+        config = configparser.ConfigParser()
+        config.read('config.ini')
+        url = config.get('default', 'url')
+        return Configuration(host=url)
+
     @property
     def user_agent(self):
         """User agent for this API client"""
@@ -109,7 +127,6 @@ class ApiClient:
 
     def set_default_header(self, header_name, header_value):
         self.default_headers[header_name] = header_value
-
 
     _default = None
 
@@ -138,18 +155,18 @@ class ApiClient:
         cls._default = default
 
     def param_serialize(
-        self,
-        method,
-        resource_path,
-        path_params=None,
-        query_params=None,
-        header_params=None,
-        body=None,
-        post_params=None,
-        files=None, auth_settings=None,
-        collection_formats=None,
-        _host=None,
-        _request_auth=None
+            self,
+            method,
+            resource_path,
+            path_params=None,
+            query_params=None,
+            header_params=None,
+            body=None,
+            post_params=None,
+            files=None, auth_settings=None,
+            collection_formats=None,
+            _host=None,
+            _request_auth=None
     ) -> RequestSerialized:
 
         """Builds the HTTP request params needed by the request.
@@ -184,7 +201,7 @@ class ApiClient:
         if header_params:
             header_params = self.sanitize_for_serialization(header_params)
             header_params = dict(
-                self.parameters_to_tuples(header_params,collection_formats)
+                self.parameters_to_tuples(header_params, collection_formats)
             )
 
         # path parameters
@@ -245,15 +262,14 @@ class ApiClient:
 
         return method, url, header_params, body, post_params
 
-
     def call_api(
-        self,
-        method,
-        url,
-        header_params=None,
-        body=None,
-        post_params=None,
-        _request_timeout=None
+            self,
+            method,
+            url,
+            header_params=None,
+            body=None,
+            post_params=None,
+            _request_timeout=None
     ) -> rest.RESTResponse:
         """Makes the HTTP request (synchronous)
         :param method: Method to call.
@@ -282,9 +298,9 @@ class ApiClient:
         return response_data
 
     def response_deserialize(
-        self,
-        response_data: rest.RESTResponse,
-        response_types_map: Optional[Dict[str, ApiResponseT]]=None
+            self,
+            response_data: rest.RESTResponse,
+            response_types_map: Optional[Dict[str, ApiResponseT]] = None
     ) -> ApiResponse[ApiResponseT]:
         """Deserializes response into an object.
         :param response_data: RESTResponse object to be deserialized.
@@ -328,10 +344,10 @@ class ApiClient:
                 )
 
         return ApiResponse(
-            status_code = response_data.status,
-            data = return_data,
-            headers = response_data.getheaders(),
-            raw_data = response_data.data
+            status_code=response_data.status,
+            data=return_data,
+            headers=response_data.getheaders(),
+            raw_data=response_data.data
         )
 
     def sanitize_for_serialization(self, obj):
@@ -536,8 +552,8 @@ class ApiClient:
             else:
                 raise ValueError("Unsupported file value")
             mimetype = (
-                mimetypes.guess_type(filename)[0]
-                or 'application/octet-stream'
+                    mimetypes.guess_type(filename)[0]
+                    or 'application/octet-stream'
             )
             params.append(
                 tuple([k, tuple([filename, filedata, mimetype])])
@@ -575,14 +591,14 @@ class ApiClient:
         return content_types[0]
 
     def update_params_for_auth(
-        self,
-        headers,
-        queries,
-        auth_settings,
-        resource_path,
-        method,
-        body,
-        request_auth=None
+            self,
+            headers,
+            queries,
+            auth_settings,
+            resource_path,
+            method,
+            body,
+            request_auth=None
     ) -> None:
         """Updates header and query params based on authentication setting.
 
@@ -622,13 +638,13 @@ class ApiClient:
                     )
 
     def _apply_auth_params(
-        self,
-        headers,
-        queries,
-        resource_path,
-        method,
-        body,
-        auth_setting
+            self,
+            headers,
+            queries,
+            resource_path,
+            method,
+            body,
+            auth_setting
     ) -> None:
         """Updates the request parameters based on a single auth_setting
 
