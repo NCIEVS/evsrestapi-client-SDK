@@ -42,7 +42,7 @@ public class MetadataEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(MetadataEndpointsApiTest.class);
 
   /** Instantiate the MetadataEndpointsApi */
   @BeforeAll

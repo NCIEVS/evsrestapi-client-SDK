@@ -93,8 +93,8 @@ Run the gradle command in the terminal to return all loaded terminologies curren
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getTerminologiesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all terminologies for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    terminologies = [class Terminology {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all terminologies for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    terminologies = [class Terminology {
     uri: null
     ct: null
     terminology: ncit
@@ -932,8 +932,8 @@ minimal).
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getPropertiesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all properties for a term & list of codes/labels - ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    properties = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all properties for a term & list of codes/labels - ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    properties = [class Concept {
     uri: null
     ct: null
     code: NHC0
@@ -1046,8 +1046,8 @@ set to full
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getPropertyTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get full property for code - P216
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    property = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get full property for code - P216
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    property = class Concept {
     uri: null
     ct: null
     code: P216
@@ -1152,8 +1152,8 @@ minimal).
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getQualifiersTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all qualifiers for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    qualifiers = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all qualifiers for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    qualifiers = [class Concept {
     uri: null
     ct: null
     code: P383
@@ -1234,8 +1234,8 @@ set to summary
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getQualifierTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get qualified for code - P390
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    qualifier = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get qualified for code - P390
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    qualifier = class Concept {
     uri: null
     ct: null
     code: P390
@@ -1312,8 +1312,8 @@ label.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getQualifierValuesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get qualifier values for code/name - P390
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     qualifier values = [CGAP]
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get qualifier values for code/name - P390
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     qualifier values = [CGAP]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -1325,8 +1325,8 @@ Run the gradle command in the terminal to return all roles.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getRolesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all roles for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    roles = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all roles for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    roles = [class Concept {
     uri: null
     ct: null
     code: R100
@@ -1401,8 +1401,8 @@ include" set to full
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getRoleTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the role for code - R123
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    role = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get the role for code - R123
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    role = class Concept {
     uri: null
     ct: null
     code: R123
@@ -1506,8 +1506,8 @@ Run the gradle command in the terminal to return all associations.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationsTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for terminology - ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all associates for terminology - ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     associations = [class Concept {
     uri: null
     ct: null
     code: A1
@@ -1620,8 +1620,8 @@ examples of how to parameterize this.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for code - A18
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all associates for code - A18
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     associations = class Concept {
     uri: null
     ct: null
     code: A18
@@ -1662,8 +1662,8 @@ Run the gradle command in the terminal to return metadata for all term types for
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getTermTypesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all associates for code - A18
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     associations = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all associates for code - A18
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     associations = class Concept {
     uri: null
     ct: null
     code: A18
@@ -1707,8 +1707,8 @@ Run the gradle command in the terminal to return metadata for all synonym source
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymSourcesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all synonyms for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonyms = [class ConceptMinimal {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all synonyms for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonyms = [class ConceptMinimal {
     uri: null
     ct: null
     code: ACC/AHA
@@ -1773,8 +1773,8 @@ Run the gradle command in the terminal to find all definition types. Include par
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all definition types for list of codes - A1 & A12
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    definition types = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all definition types for list of codes - A1 & A12
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    definition types = [class Concept {
     uri: null
     ct: null
     code: P97
@@ -1845,8 +1845,8 @@ Run the gradle command in the terminal to find definition type by code. Include 
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypeByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the definition type for code - P325
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    definition type = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get the definition type for code - P325
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    definition type = class Concept {
     uri: null
     ct: null
     code: P325
@@ -1887,8 +1887,8 @@ Run the gradle command in the terminal to find all synonym types. Include parame
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypesTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all synonym types for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonym types = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all synonym types for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonym types = [class Concept {
     uri: null
     ct: null
     code: P108
@@ -1955,8 +1955,8 @@ Run the gradle command in the terminal to find synonym type by code. Include par
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypeByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get synonym for code/name - P90
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    synonym = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get synonym for code/name - P90
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonym = class Concept {
     uri: null
     ct: null
     code: P90
@@ -2540,8 +2540,8 @@ example uses paging to get only the first 5 results. Include is set to minimal.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for - ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for - ncit
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 166616
@@ -2729,8 +2729,8 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 18
@@ -2806,8 +2806,8 @@ first 5 results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
+[Test worker] INFO gov.nih.nci.evs.apiSearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 11
@@ -2883,8 +2883,8 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionTypeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1283
@@ -2959,8 +2959,8 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermGroupTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 12
@@ -3034,8 +3034,8 @@ example restricts results to matching FULL_SYNs.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymType`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 12
@@ -3111,8 +3111,8 @@ and restrict the search results using a code as the search term.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term code = C3224
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term code = C3224
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -3184,8 +3184,8 @@ and a search type of "match". This example uses paging to get only the first 5 r
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = match
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = match
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -3257,8 +3257,8 @@ terminology and a search type of "startsWith". This example uses paging to get o
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = startsWith
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = startsWith
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 41
@@ -3458,8 +3458,8 @@ and a search type of "phrase". This example uses paging to get only the first 5 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypePhraseTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 223
@@ -4462,8 +4462,8 @@ Run the gradle command in the terminal to get all subsets (with minimal informat
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSubsets1Test`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all subsets for ncit
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subsets = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all subsets for ncit
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    subsets = [class Concept {
     uri: null
     ct: null
     code: C167405
@@ -4552,8 +4552,8 @@ Run the gradle command in the terminal to get subsets (with summary information)
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSubset1Test`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the subset for code - C81222
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     subset = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get the subset for code - C81222
+[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     subset = class Concept {
     uri: null
     ct: null
     code: C81222
