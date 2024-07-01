@@ -427,7 +427,7 @@ public class Extensions {
 
           // validate the optional field `mainMenuAncestors` (array)
           for (int i = 0; i < jsonArraymainMenuAncestors.size(); i++) {
-            Paths.validateJsonObject(jsonArraymainMenuAncestors.get(i).getAsJsonObject());
+            Paths.validateJsonElement(jsonArraymainMenuAncestors.get(i).getAsJsonObject());
           };
         }
       }

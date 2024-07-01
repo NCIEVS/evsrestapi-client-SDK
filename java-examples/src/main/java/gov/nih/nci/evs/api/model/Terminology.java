@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import gov.nih.nci.evs.api.model.TerminologyMetadata;
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -53,7 +52,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents a terminology loaded into the API
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-04T16:55:17.638913-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T17:06:13.350753-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Terminology {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -119,7 +118,6 @@ public class Terminology {
   }
 
   public Terminology uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -133,14 +131,12 @@ public class Terminology {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public Terminology ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -154,14 +150,12 @@ public class Terminology {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
   public Terminology terminology(String terminology) {
-    
     this.terminology = terminology;
     return this;
   }
@@ -175,14 +169,12 @@ public class Terminology {
     return terminology;
   }
 
-
   public void setTerminology(String terminology) {
     this.terminology = terminology;
   }
 
 
   public Terminology version(String version) {
-    
     this.version = version;
     return this;
   }
@@ -196,14 +188,12 @@ public class Terminology {
     return version;
   }
 
-
   public void setVersion(String version) {
     this.version = version;
   }
 
 
   public Terminology date(String date) {
-    
     this.date = date;
     return this;
   }
@@ -217,14 +207,12 @@ public class Terminology {
     return date;
   }
 
-
   public void setDate(String date) {
     this.date = date;
   }
 
 
   public Terminology name(String name) {
-    
     this.name = name;
     return this;
   }
@@ -238,14 +226,12 @@ public class Terminology {
     return name;
   }
 
-
   public void setName(String name) {
     this.name = name;
   }
 
 
   public Terminology description(String description) {
-    
     this.description = description;
     return this;
   }
@@ -259,14 +245,12 @@ public class Terminology {
     return description;
   }
 
-
   public void setDescription(String description) {
     this.description = description;
   }
 
 
   public Terminology graph(String graph) {
-    
     this.graph = graph;
     return this;
   }
@@ -280,14 +264,12 @@ public class Terminology {
     return graph;
   }
 
-
   public void setGraph(String graph) {
     this.graph = graph;
   }
 
 
   public Terminology terminologyVersion(String terminologyVersion) {
-    
     this.terminologyVersion = terminologyVersion;
     return this;
   }
@@ -301,14 +283,12 @@ public class Terminology {
     return terminologyVersion;
   }
 
-
   public void setTerminologyVersion(String terminologyVersion) {
     this.terminologyVersion = terminologyVersion;
   }
 
 
   public Terminology latest(Boolean latest) {
-    
     this.latest = latest;
     return this;
   }
@@ -322,14 +302,12 @@ public class Terminology {
     return latest;
   }
 
-
   public void setLatest(Boolean latest) {
     this.latest = latest;
   }
 
 
   public Terminology tags(Map<String, String> tags) {
-    
     this.tags = tags;
     return this;
   }
@@ -351,14 +329,12 @@ public class Terminology {
     return tags;
   }
 
-
   public void setTags(Map<String, String> tags) {
     this.tags = tags;
   }
 
 
   public Terminology indexName(String indexName) {
-    
     this.indexName = indexName;
     return this;
   }
@@ -372,14 +348,12 @@ public class Terminology {
     return indexName;
   }
 
-
   public void setIndexName(String indexName) {
     this.indexName = indexName;
   }
 
 
   public Terminology objectIndexName(String objectIndexName) {
-    
     this.objectIndexName = objectIndexName;
     return this;
   }
@@ -393,14 +367,12 @@ public class Terminology {
     return objectIndexName;
   }
 
-
   public void setObjectIndexName(String objectIndexName) {
     this.objectIndexName = objectIndexName;
   }
 
 
   public Terminology metadata(TerminologyMetadata metadata) {
-    
     this.metadata = metadata;
     return this;
   }
@@ -414,14 +386,12 @@ public class Terminology {
     return metadata;
   }
 
-
   public void setMetadata(TerminologyMetadata metadata) {
     this.metadata = metadata;
   }
 
 
   public Terminology sparqlFlag(Boolean sparqlFlag) {
-    
     this.sparqlFlag = sparqlFlag;
     return this;
   }
@@ -434,7 +404,6 @@ public class Terminology {
   public Boolean getSparqlFlag() {
     return sparqlFlag;
   }
-
 
   public void setSparqlFlag(Boolean sparqlFlag) {
     this.sparqlFlag = sparqlFlag;
@@ -535,25 +504,26 @@ public class Terminology {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Terminology
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to Terminology
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Terminology.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Terminology.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Terminology is not found in the empty JSON string", Terminology.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Terminology.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Terminology` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Terminology` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -586,7 +556,7 @@ public class Terminology {
       }
       // validate the optional field `metadata`
       if (jsonObj.get("metadata") != null && !jsonObj.get("metadata").isJsonNull()) {
-        TerminologyMetadata.validateJsonObject(jsonObj.getAsJsonObject("metadata"));
+        TerminologyMetadata.validateJsonElement(jsonObj.get("metadata"));
       }
   }
 
@@ -610,9 +580,9 @@ public class Terminology {
 
            @Override
            public Terminology read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

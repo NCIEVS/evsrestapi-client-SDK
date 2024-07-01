@@ -49,7 +49,7 @@ public class HistoryEndpointsApiTest {
   }
 
   /**
-   * Gets suggested replacements for a specified terminology and retired code. Active codes will
+   * Gets suggested replacements for a specified terminology and inactive code. Active codes will
    * return entries as well with an action of \&quot;active\&quot;.
    *
    * @throws ApiException if the Api call fails
@@ -57,13 +57,14 @@ public class HistoryEndpointsApiTest {
   @Test
   public void getReplacementsTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String code = "C4654";
+    String code = "C12658";
     // ACT
     List<History> response = api.getReplacements(terminology, code);
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("C27789", response.get(0).getReplacementCode());
+    assertEquals("retire", response.get(0).getAction());
+    assertEquals("C19157", response.get(0).getReplacementCode());
 
     // LOG
     log.info("Get suggested replacements for code - C4654");
@@ -71,7 +72,7 @@ public class HistoryEndpointsApiTest {
   }
 
   /**
-   * Gets suggested replacements for a specified terminology and a comma-separated list of retired
+   * Gets suggested replacements for a specified terminology and a comma-separated list of inactive
    * codes. Active codes will return entries as well with an action of \&quot;active\&quot;.
    *
    * @throws ApiException if the Api call fails
@@ -79,7 +80,7 @@ public class HistoryEndpointsApiTest {
   @Test
   public void getReplacementsFromListTest() throws ApiException {
     // ARRANGE - using global variable plus listed
-    String _list = "C4654,C40117";
+    String _list = "C12658,C13320";
 
     // ACT
     List<History> response = api.getReplacementsFromList(terminology, _list);
@@ -88,7 +89,7 @@ public class HistoryEndpointsApiTest {
     assertFalse(response.isEmpty());
     assertEquals("C27789", response.get(0).getReplacementCode());
     assertEquals(
-        "Endometrial Atypical Hyperplasia/Endometrioid Intraepithelial Neoplasia",
+        "Endometrial Atypical Hyperplasia /Endometrioid Intraepithelial Neoplasia",
         response.get(0).getReplacementName());
     assertEquals("C126461", response.get(1).getReplacementCode());
     assertEquals("Tubal Hyperplasia", response.get(1).getReplacementName());

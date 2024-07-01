@@ -15,14 +15,17 @@ package gov.nih.nci.evs.api.invoker.auth;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.Pair;
+
 import java.net.URI;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
+import java.util.function.Supplier;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-11-21T14:42:35.933348-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T17:06:13.350753-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class HttpBearerAuth implements Authentication {
   private final String scheme;
-  private String bearerToken;
+  private Supplier<String> tokenSupplier;
 
   public HttpBearerAuth(String scheme) {
     this.scheme = scheme;
@@ -34,7 +37,7 @@ public class HttpBearerAuth implements Authentication {
    * @return The bearer token
    */
   public String getBearerToken() {
-    return bearerToken;
+    return tokenSupplier.get();
   }
 
   /**
@@ -43,12 +46,22 @@ public class HttpBearerAuth implements Authentication {
    * @param bearerToken The bearer token to send in the Authorization header
    */
   public void setBearerToken(String bearerToken) {
-    this.bearerToken = bearerToken;
+    this.tokenSupplier = () -> bearerToken;
+  }
+
+  /**
+   * Sets the supplier of tokens, which together with the scheme, will be sent as the value of the Authorization header.
+   *
+   * @param tokenSupplier The supplier of bearer tokens to send in the Authorization header
+   */
+  public void setBearerToken(Supplier<String> tokenSupplier) {
+    this.tokenSupplier = tokenSupplier;
   }
 
   @Override
   public void applyToParams(List<Pair> queryParams, Map<String, String> headerParams, Map<String, String> cookieParams,
                             String payload, String method, URI uri) throws ApiException {
+    String bearerToken = Optional.ofNullable(tokenSupplier).map(Supplier::get).orElse(null);
     if (bearerToken == null) {
       return;
     }

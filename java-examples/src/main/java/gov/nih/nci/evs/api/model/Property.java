@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import gov.nih.nci.evs.api.model.Qualifier;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -53,7 +52,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents a type/value property on a concept
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T17:06:13.350753-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Property {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -77,7 +76,7 @@ public class Property {
 
   public static final String SERIALIZED_NAME_QUALIFIERS = "qualifiers";
   @SerializedName(SERIALIZED_NAME_QUALIFIERS)
-  private List<Qualifier> qualifiers;
+  private List<Qualifier> qualifiers = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
@@ -87,7 +86,6 @@ public class Property {
   }
 
   public Property uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -101,14 +99,12 @@ public class Property {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public Property ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -122,14 +118,12 @@ public class Property {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
   public Property type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -143,14 +137,12 @@ public class Property {
     return type;
   }
 
-
   public void setType(String type) {
     this.type = type;
   }
 
 
   public Property value(String value) {
-    
     this.value = value;
     return this;
   }
@@ -164,14 +156,12 @@ public class Property {
     return value;
   }
 
-
   public void setValue(String value) {
     this.value = value;
   }
 
 
   public Property highlight(String highlight) {
-    
     this.highlight = highlight;
     return this;
   }
@@ -185,14 +175,12 @@ public class Property {
     return highlight;
   }
 
-
   public void setHighlight(String highlight) {
     this.highlight = highlight;
   }
 
 
   public Property qualifiers(List<Qualifier> qualifiers) {
-    
     this.qualifiers = qualifiers;
     return this;
   }
@@ -214,14 +202,12 @@ public class Property {
     return qualifiers;
   }
 
-
   public void setQualifiers(List<Qualifier> qualifiers) {
     this.qualifiers = qualifiers;
   }
 
 
   public Property source(String source) {
-    
     this.source = source;
     return this;
   }
@@ -234,7 +220,6 @@ public class Property {
   public String getSource() {
     return source;
   }
-
 
   public void setSource(String source) {
     this.source = source;
@@ -311,25 +296,26 @@ public class Property {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Property
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to Property
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Property.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Property.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Property is not found in the empty JSON string", Property.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Property.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Property` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Property` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -352,7 +338,7 @@ public class Property {
 
           // validate the optional field `qualifiers` (array)
           for (int i = 0; i < jsonArrayqualifiers.size(); i++) {
-            Qualifier.validateJsonObject(jsonArrayqualifiers.get(i).getAsJsonObject());
+            Qualifier.validateJsonElement(jsonArrayqualifiers.get(i));
           };
         }
       }
@@ -381,9 +367,9 @@ public class Property {
 
            @Override
            public Property read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

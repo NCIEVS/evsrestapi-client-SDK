@@ -36,7 +36,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class MapsetEndpointsApi {
     private ApiClient localVarApiClient;
@@ -85,9 +84,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsetByCodeCall(String code, String include, final ApiCallback _callback) throws ApiException {
@@ -160,9 +159,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public Concept getMapsetByCode(String code, String include) throws ApiException {
@@ -180,9 +179,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Concept> getMapsetByCodeWithHttpInfo(String code, String include) throws ApiException {
@@ -202,9 +201,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsetByCodeAsync(String code, String include, final ApiCallback<Concept> _callback) throws ApiException {
@@ -228,9 +227,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsetMappingsByCodeCall(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort, final ApiCallback _callback) throws ApiException {
@@ -323,9 +322,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ConceptMapResultList getMapsetMappingsByCode(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
@@ -347,9 +346,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<ConceptMapResultList> getMapsetMappingsByCodeWithHttpInfo(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort) throws ApiException {
@@ -373,9 +372,9 @@ public class MapsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsetMappingsByCodeAsync(String code, Integer fromRecord, Integer pageSize, String term, Boolean ascending, String sort, final ApiCallback<ConceptMapResultList> _callback) throws ApiException {
