@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,17 +22,20 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ConceptMinimal(BaseModel):
     """
     Represents minimal information about a concept in a terminology
-    """ # noqa: E501
+    """  # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None,
+                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
     code: Optional[StrictStr] = Field(default=None, description="Code (unique identifier) for this meaning")
     name: Optional[StrictStr] = Field(default=None, description="Preferred name for the code")
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. 'nci'")
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. '23.11d'")
-    level: Optional[StrictInt] = Field(default=None, description="Level of depth in a hierarchy (when this object is used to represent an element in a path)")
+    level: Optional[StrictInt] = Field(default=None,
+                                       description="Level of depth in a hierarchy (when this object is used to represent an element in a path)")
     __properties: ClassVar[List[str]] = ["uri", "ct", "code", "name", "terminology", "version", "level"]
 
     model_config = ConfigDict(
@@ -41,7 +43,6 @@ class ConceptMinimal(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -96,5 +97,3 @@ class ConceptMinimal(BaseModel):
             "level": obj.get("level")
         })
         return _obj
-
-

@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from concept_minimal import ConceptMinimal
+from .concept_minimal import ConceptMinimal
 from typing import Optional, Set
 from typing_extensions import Self
 

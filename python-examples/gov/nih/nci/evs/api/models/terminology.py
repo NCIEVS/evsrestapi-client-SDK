@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from terminology_metadata import TerminologyMetadata
+from .terminology_metadata import TerminologyMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 

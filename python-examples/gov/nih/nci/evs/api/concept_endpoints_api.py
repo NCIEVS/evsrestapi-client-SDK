@@ -20,13 +20,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import List, Optional
 from typing_extensions import Annotated
-from models.association import Association
-from models.association_entry_result_list import AssociationEntryResultList
-from models.concept import Concept
-from models.concept_map import ConceptMap
-from models.disjoint_with import DisjointWith
-from models.hierarchy_node import HierarchyNode
-from models.role import Role
+from .models.association import Association
+from .models.association_entry_result_list import AssociationEntryResultList
+from .models.concept import Concept
+from .models.concept_map import ConceptMap
+from .models.disjoint_with import DisjointWith
+from .models.hierarchy_node import HierarchyNode
+from .models.role import Role
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

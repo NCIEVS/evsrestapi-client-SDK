@@ -20,7 +20,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictStr
 from typing import List
 from typing_extensions import Annotated
-from models.history import History
+from .models.history import History
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

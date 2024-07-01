@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -20,19 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from concept import Concept
-from search_criteria import SearchCriteria
+from .concept import Concept
+from .search_criteria import SearchCriteria
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class ConceptResultList(BaseModel):
     """
     Represents a list of concepts returned from a search or find call
-    """ # noqa: E501
+    """  # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
-    total: Optional[StrictInt] = Field(default=None, description="Total nubmer of results (if paging is not considered)")
-    time_taken: Optional[StrictInt] = Field(default=None, description="Total time taken to compute the result", alias="timeTaken")
+    ct: Optional[StrictInt] = Field(default=None,
+                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    total: Optional[StrictInt] = Field(default=None,
+                                       description="Total nubmer of results (if paging is not considered)")
+    time_taken: Optional[StrictInt] = Field(default=None, description="Total time taken to compute the result",
+                                            alias="timeTaken")
     parameters: Optional[SearchCriteria] = None
     concepts: Optional[List[Concept]] = Field(default=None, description="List of concepts")
     __properties: ClassVar[List[str]] = ["uri", "ct", "total", "timeTaken", "parameters", "concepts"]
@@ -42,7 +45,6 @@ class ConceptResultList(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -103,8 +105,7 @@ class ConceptResultList(BaseModel):
             "total": obj.get("total"),
             "timeTaken": obj.get("timeTaken"),
             "parameters": SearchCriteria.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
-            "concepts": [Concept.from_dict(_item) for _item in obj["concepts"]] if obj.get("concepts") is not None else None
+            "concepts": [Concept.from_dict(_item) for _item in obj["concepts"]] if obj.get(
+                "concepts") is not None else None
         })
         return _obj
-
-

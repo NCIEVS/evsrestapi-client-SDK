@@ -47,7 +47,7 @@ All commands to run these tests should be run from that directory.
 * [Get paths to/from root from a code](#get-paths-tofrom-root-from-a-code)
 * [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
 * [Get subtree for code](#get-subtree-for-code)
-* [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term-using-paging-to-get-only-first-5-results)
+* [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
 * [Find concepts by search term (restrict by concept status)](#find-concepts-by-search-term-restrict-by-concept-status)
 * [Find concepts by search term (restrict by definition source)](#find-concepts-by-search-term-restrict-by-definition-source)
 * [Find concepts by search term (restrict by definition type)](#find-concepts-by-search-term-restrict-by-definition-type)

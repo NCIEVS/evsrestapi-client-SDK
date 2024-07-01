@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -20,19 +19,23 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from association_entry import AssociationEntry
-from search_criteria import SearchCriteria
+from .association_entry import AssociationEntry
+from .search_criteria import SearchCriteria
 from typing import Optional, Set
 from typing_extensions import Self
+
 
 class AssociationEntryResultList(BaseModel):
     """
     AssociationEntryResultList
-    """ # noqa: E501
+    """  # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
-    total: Optional[StrictInt] = Field(default=None, description="Total nubmer of results (if paging is not considered)")
-    time_taken: Optional[StrictInt] = Field(default=None, description="Total time taken to compute the result", alias="timeTaken")
+    ct: Optional[StrictInt] = Field(default=None,
+                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    total: Optional[StrictInt] = Field(default=None,
+                                       description="Total nubmer of results (if paging is not considered)")
+    time_taken: Optional[StrictInt] = Field(default=None, description="Total time taken to compute the result",
+                                            alias="timeTaken")
     parameters: Optional[SearchCriteria] = None
     association_entries: Optional[List[AssociationEntry]] = Field(default=None, alias="associationEntries")
     __properties: ClassVar[List[str]] = ["uri", "ct", "total", "timeTaken", "parameters", "associationEntries"]
@@ -42,7 +45,6 @@ class AssociationEntryResultList(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -103,8 +105,7 @@ class AssociationEntryResultList(BaseModel):
             "total": obj.get("total"),
             "timeTaken": obj.get("timeTaken"),
             "parameters": SearchCriteria.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
-            "associationEntries": [AssociationEntry.from_dict(_item) for _item in obj["associationEntries"]] if obj.get("associationEntries") is not None else None
+            "associationEntries": [AssociationEntry.from_dict(_item) for _item in obj["associationEntries"]] if obj.get(
+                "associationEntries") is not None else None
         })
         return _obj
-
-

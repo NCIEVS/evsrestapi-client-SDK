@@ -17,7 +17,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from models.application_version import ApplicationVersion
+from .models.application_version import ApplicationVersion
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

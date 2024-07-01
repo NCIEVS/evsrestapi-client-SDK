@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from qualifier import Qualifier
+from .qualifier import Qualifier
 from typing import Optional, Set
 from typing_extensions import Self
 

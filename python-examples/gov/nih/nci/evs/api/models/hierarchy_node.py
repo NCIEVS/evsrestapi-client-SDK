@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,15 +22,18 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class HierarchyNode(BaseModel):
     """
     Represents a node in a subtree rendering of the hierarchy
-    """ # noqa: E501
+    """  # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None,
+                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
     code: Optional[StrictStr] = Field(default=None, description="Code of the hierarchy node")
     label: Optional[StrictStr] = Field(default=None, description="Code label for the hierarchy node")
-    level: Optional[StrictInt] = Field(default=None, description="Indicates level of depth in the (respective) hierarchy")
+    level: Optional[StrictInt] = Field(default=None,
+                                       description="Indicates level of depth in the (respective) hierarchy")
     leaf: Optional[StrictBool] = Field(default=None, description="Indicates whether the code has children")
     expanded: Optional[StrictBool] = Field(default=None, description="Indicates whether the node has been expanded")
     children: Optional[List[HierarchyNode]] = Field(default=None, description="Child nodes")
@@ -42,7 +44,6 @@ class HierarchyNode(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -102,10 +103,11 @@ class HierarchyNode(BaseModel):
             "level": obj.get("level"),
             "leaf": obj.get("leaf"),
             "expanded": obj.get("expanded"),
-            "children": [HierarchyNode.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None
+            "children": [HierarchyNode.from_dict(_item) for _item in obj["children"]] if obj.get(
+                "children") is not None else None
         })
         return _obj
 
+
 # TODO: Rewrite to not use raise_errors
 HierarchyNode.model_rebuild(raise_errors=False)
-

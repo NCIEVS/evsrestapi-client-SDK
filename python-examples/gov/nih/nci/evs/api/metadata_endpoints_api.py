@@ -20,10 +20,10 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictStr
 from typing import Dict, List, Optional
 from typing_extensions import Annotated
-from models.concept import Concept
-from models.concept_minimal import ConceptMinimal
-from models.statistics_entry import StatisticsEntry
-from models.terminology import Terminology
+from .models.concept import Concept
+from .models.concept_minimal import ConceptMinimal
+from .models.statistics_entry import StatisticsEntry
+from .models.terminology import Terminology
 
 from api_client import ApiClient, RequestSerialized
 from api_response import ApiResponse

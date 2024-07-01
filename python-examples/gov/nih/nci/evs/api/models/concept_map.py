@@ -12,7 +12,6 @@
     Do not edit the class manually.
 """  # noqa: E501
 
-
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,38 +22,59 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
+
 class ConceptMap(BaseModel):
     """
     Represents a map from a concept to concepts in other terminologies
-    """ # noqa: E501
+    """  # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None,
+                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
     source: Optional[StrictStr] = Field(default=None, description="Source terminology of the map")
-    source_name: Optional[StrictStr] = Field(default=None, description="Preferred name of the source code", alias="sourceName")
-    source_term_type: Optional[StrictStr] = Field(default=None, description="Term type of the source code", alias="sourceTermType")
-    source_code: Optional[StrictStr] = Field(default=None, description="Source code of the map (the thing being mapped 'from')", alias="sourceCode")
-    source_terminology: Optional[StrictStr] = Field(default=None, description="Terminology of the source code", alias="sourceTerminology")
-    source_terminology_version: Optional[StrictStr] = Field(default=None, description="Terminology version of the source code", alias="sourceTerminologyVersion")
-    source_loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether the source code terminology/version is currently loaded", alias="sourceLoaded")
+    source_name: Optional[StrictStr] = Field(default=None, description="Preferred name of the source code",
+                                             alias="sourceName")
+    source_term_type: Optional[StrictStr] = Field(default=None, description="Term type of the source code",
+                                                  alias="sourceTermType")
+    source_code: Optional[StrictStr] = Field(default=None,
+                                             description="Source code of the map (the thing being mapped 'from')",
+                                             alias="sourceCode")
+    source_terminology: Optional[StrictStr] = Field(default=None, description="Terminology of the source code",
+                                                    alias="sourceTerminology")
+    source_terminology_version: Optional[StrictStr] = Field(default=None,
+                                                            description="Terminology version of the source code",
+                                                            alias="sourceTerminologyVersion")
+    source_loaded: Optional[StrictBool] = Field(default=None,
+                                                description="Indicates whether the source code terminology/version is currently loaded",
+                                                alias="sourceLoaded")
     type: Optional[StrictStr] = None
     rank: Optional[StrictStr] = None
     group: Optional[StrictStr] = None
     rule: Optional[StrictStr] = None
     target_name: Optional[StrictStr] = Field(default=None, alias="targetName")
     target_term_type: Optional[StrictStr] = Field(default=None, alias="targetTermType")
-    target_code: Optional[StrictStr] = Field(default=None, description="Target code of the map (the thing being mapped 'to')", alias="targetCode")
-    target_terminology: Optional[StrictStr] = Field(default=None, description="Terminology of the target code", alias="targetTerminology")
-    target_terminology_version: Optional[StrictStr] = Field(default=None, description="Terminology version of the target code", alias="targetTerminologyVersion")
-    target_loaded: Optional[StrictBool] = Field(default=None, description="Indicates whether the target terminology/version is currently loaded", alias="targetLoaded")
+    target_code: Optional[StrictStr] = Field(default=None,
+                                             description="Target code of the map (the thing being mapped 'to')",
+                                             alias="targetCode")
+    target_terminology: Optional[StrictStr] = Field(default=None, description="Terminology of the target code",
+                                                    alias="targetTerminology")
+    target_terminology_version: Optional[StrictStr] = Field(default=None,
+                                                            description="Terminology version of the target code",
+                                                            alias="targetTerminologyVersion")
+    target_loaded: Optional[StrictBool] = Field(default=None,
+                                                description="Indicates whether the target terminology/version is currently loaded",
+                                                alias="targetLoaded")
     target_term_group: Optional[StrictStr] = Field(default=None, alias="targetTermGroup")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "source", "sourceName", "sourceTermType", "sourceCode", "sourceTerminology", "sourceTerminologyVersion", "sourceLoaded", "type", "rank", "group", "rule", "targetName", "targetTermType", "targetCode", "targetTerminology", "targetTerminologyVersion", "targetLoaded", "targetTermGroup"]
+    __properties: ClassVar[List[str]] = ["uri", "ct", "source", "sourceName", "sourceTermType", "sourceCode",
+                                         "sourceTerminology", "sourceTerminologyVersion", "sourceLoaded", "type",
+                                         "rank", "group", "rule", "targetName", "targetTermType", "targetCode",
+                                         "targetTerminology", "targetTerminologyVersion", "targetLoaded",
+                                         "targetTermGroup"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
-
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -122,5 +142,3 @@ class ConceptMap(BaseModel):
             "targetTermGroup": obj.get("targetTermGroup")
         })
         return _obj
-
-
