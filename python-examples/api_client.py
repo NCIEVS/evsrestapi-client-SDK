@@ -112,8 +112,9 @@ class ApiClient:
         :return: Configuration object
         """
         config = configparser.ConfigParser()
+
         config.read('config.ini')
-        url = config.get('default', 'url')
+        url = config['DEFAULT']['Url']
         return Configuration(host=url)
 
     @property
