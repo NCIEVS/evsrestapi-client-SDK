@@ -15,7 +15,6 @@ package gov.nih.nci.evs.api;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.ConceptResultList;
 import gov.nih.nci.evs.api.model.MapResultList;
-import io.swagger.annotations.Api;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -31,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
  * to align with the data we expect may be needed.
  */
-public class SearchEndpointApiTest {
+public class SearchEndpointsApiTest {
 
   /* Search api*/
   private static SearchEndpointApi api = null;
@@ -40,7 +39,7 @@ public class SearchEndpointApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(SearchEndpointApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(SearchEndpointsApiTest.class);
 
   /** Instantiate the SearchEndpointApi */
   @BeforeAll

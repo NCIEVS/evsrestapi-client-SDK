@@ -69,7 +69,7 @@ public class MetadataEndpointsApiTest {
     assertEquals("Has_Pharmaceutical_Basic_Dose_Form", response.getName());
 
     // LOG
-    log.info("Get all associates for code - A18");
+    log.info("Get all associations for code - A18");
     log.info("    associations = " + response);
   }
 
@@ -92,7 +92,7 @@ public class MetadataEndpointsApiTest {
     assertEquals("A1", response.get(0).getCode());
 
     // LOG
-    log.info("Get all associates for terminology - ncit");
+    log.info("Get all associations for terminology - ncit");
     log.info("    associations = " + response);
   }
 
@@ -193,7 +193,7 @@ public class MetadataEndpointsApiTest {
     assertTrue(containsExpectedDefs);
 
     // LOG
-    log.info("Get all definition types for list of codes - A1 & A12");
+    log.info("Get all definition types for terminology - " + terminology);
     log.info("   definition types = " + response);
   }
 
@@ -275,7 +275,7 @@ public class MetadataEndpointsApiTest {
     assertNotNull(response.getDefinitions());
 
     // LOG
-    log.info("Get qualified for code - P390");
+    log.info("Get qualifier for code - P390");
     log.info("   qualifier = " + response);
   }
 

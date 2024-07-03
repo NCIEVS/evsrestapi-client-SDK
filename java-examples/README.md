@@ -727,7 +727,10 @@ associations.
 
 ### Get concept part
 
-Run the gradle command in the terminal to return concept children for a given terminology and code.
+Run the gradle command in the terminal to return concept children for a given terminology and code. Returns sub-part of 
+the concept for a given terminology and code. NOTE: in the call below, you can replace "children" in the URL with any 
+of the following and retrieve the corresponding underlying info: children, parents, roles, associations, inverseRoles,
+inverseAssociations, maps.
 
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getChildrenTest`
 
@@ -4428,7 +4431,7 @@ Run the gradle command in the terminal to find concepts for a specified SPARQL q
             subsetLink: null
             mapsetLink: null
             conceptStatus: DEFAULT
-            source: null
+            source: nulls
             leaf: false
             active: true
             synonyms: null
