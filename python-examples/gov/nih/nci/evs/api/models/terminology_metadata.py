@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,56 +23,39 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class TerminologyMetadata(BaseModel):
     """
     Represents additional terminology metadata
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
-    ui_label: Optional[StrictStr] = Field(default=None,
-                                          description="Human-readable name for the terminology to use in a UI label",
-                                          alias="uiLabel")
-    max_versions: Optional[StrictInt] = Field(default=None,
-                                              description="Max number of versions to keep at the same time",
-                                              alias="maxVersions")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ui_label: Optional[StrictStr] = Field(default=None, description="Human-readable name for the terminology to use in a UI label", alias="uiLabel")
+    max_versions: Optional[StrictInt] = Field(default=None, description="Max number of versions to keep at the same time", alias="maxVersions")
     loader: Optional[StrictStr] = Field(default=None, description="Label for the loader used to populate this data")
-    concept_statuses: Optional[List[StrictStr]] = Field(default=None,
-                                                        description="Concept status values used by the terminology",
-                                                        alias="conceptStatuses")
-    retired_status_value: Optional[StrictStr] = Field(default=None,
-                                                      description="Concept status value for retired concepts",
-                                                      alias="retiredStatusValue")
-    details_columns: Optional[Dict[str, StrictBool]] = Field(default=None,
-                                                             description="Metadata for displaying concept",
-                                                             alias="detailsColumns")
-    hierarchy: Optional[StrictBool] = Field(default=None,
-                                            description="Indicates whether or not the terminology has a hierarchy")
-    history: Optional[StrictBool] = Field(default=None,
-                                          description="Indicates whether or not the terminology has history records")
+    concept_statuses: Optional[List[StrictStr]] = Field(default=None, description="Concept status values used by the terminology", alias="conceptStatuses")
+    excluded_properties: Optional[List[StrictStr]] = Field(default=None, alias="excludedProperties")
+    retired_status_value: Optional[StrictStr] = Field(default=None, description="Concept status value for retired concepts", alias="retiredStatusValue")
+    details_columns: Optional[Dict[str, StrictBool]] = Field(default=None, description="Metadata for displaying concept", alias="detailsColumns")
+    hierarchy: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the terminology has a hierarchy")
+    hierarchy_roles: Optional[List[StrictStr]] = Field(default=None, description="Indicates role codes that are reinterpreted as parent/child", alias="hierarchyRoles")
+    history: Optional[StrictBool] = Field(default=None, description="Indicates whether or not the terminology has history records")
     source_ct: Optional[StrictInt] = Field(default=None, description="Count of included sources", alias="sourceCt")
-    subset_link: Optional[StrictStr] = Field(default=None, description="Metadata for downloading a subset",
-                                             alias="subsetLink")
+    subset_link: Optional[StrictStr] = Field(default=None, description="Metadata for downloading a subset", alias="subsetLink")
     license_text: Optional[StrictStr] = Field(default=None, description="License text for the UI", alias="licenseText")
-    meta_concept_field: Optional[StrictStr] = Field(default=None, description="Metadata for concept display",
-                                                    alias="metaConceptField")
+    meta_concept_field: Optional[StrictStr] = Field(default=None, description="Metadata for concept display", alias="metaConceptField")
     code_label: Optional[StrictStr] = Field(default=None, description="Metadata for concept display", alias="codeLabel")
-    welcome_text: Optional[StrictStr] = Field(default=None, description="Metadata for landing page welcome text",
-                                              alias="welcomeText")
+    welcome_text: Optional[StrictStr] = Field(default=None, description="Metadata for landing page welcome text", alias="welcomeText")
     synonym_term_group: Optional[StrictStr] = Field(default=None, alias="synonymTermGroup")
     term_groups: Optional[Dict[str, StrictStr]] = Field(default=None, alias="termGroups")
     preferred_term_groups: Optional[List[StrictStr]] = Field(default=None, alias="preferredTermGroups")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "uiLabel", "maxVersions", "loader", "conceptStatuses",
-                                         "retiredStatusValue", "detailsColumns", "hierarchy", "history", "sourceCt",
-                                         "subsetLink", "licenseText", "metaConceptField", "codeLabel", "welcomeText",
-                                         "synonymTermGroup", "termGroups", "preferredTermGroups"]
+    __properties: ClassVar[List[str]] = ["uri", "ct", "uiLabel", "maxVersions", "loader", "conceptStatuses", "excludedProperties", "retiredStatusValue", "detailsColumns", "hierarchy", "hierarchyRoles", "history", "sourceCt", "subsetLink", "licenseText", "metaConceptField", "codeLabel", "welcomeText", "synonymTermGroup", "termGroups", "preferredTermGroups"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -123,9 +107,11 @@ class TerminologyMetadata(BaseModel):
             "maxVersions": obj.get("maxVersions"),
             "loader": obj.get("loader"),
             "conceptStatuses": obj.get("conceptStatuses"),
+            "excludedProperties": obj.get("excludedProperties"),
             "retiredStatusValue": obj.get("retiredStatusValue"),
             "detailsColumns": obj.get("detailsColumns"),
             "hierarchy": obj.get("hierarchy"),
+            "hierarchyRoles": obj.get("hierarchyRoles"),
             "history": obj.get("history"),
             "sourceCt": obj.get("sourceCt"),
             "subsetLink": obj.get("subsetLink"),
@@ -138,3 +124,5 @@ class TerminologyMetadata(BaseModel):
             "preferredTermGroups": obj.get("preferredTermGroups")
         })
         return _obj
+
+

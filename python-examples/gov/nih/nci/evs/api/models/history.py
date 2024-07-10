@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,32 +23,26 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class History(BaseModel):
     """
     Represents a history record, generally for a retired concept
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     code: Optional[StrictStr] = Field(default=None, description="Code for this history record")
     name: Optional[StrictStr] = Field(default=None, description="Last known preferred name for the code")
-    action: Optional[StrictStr] = Field(default=None,
-                                        description="Indicates the history action, e.g. 'merge', 'active', 'retire', 'SY', 'RB', etc.")
+    action: Optional[StrictStr] = Field(default=None, description="Indicates the history action, e.g. 'merge', 'active', 'retire', 'SY', 'RB', etc.")
     var_date: Optional[StrictStr] = Field(default=None, description="Date of the history record", alias="date")
-    replacement_code: Optional[StrictStr] = Field(default=None, description="Code replacing this code",
-                                                  alias="replacementCode")
-    replacement_name: Optional[StrictStr] = Field(default=None,
-                                                  description="Preferred name of the code replacing this code",
-                                                  alias="replacementName")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "code", "name", "action", "date", "replacementCode",
-                                         "replacementName"]
+    replacement_code: Optional[StrictStr] = Field(default=None, description="Code replacing this code", alias="replacementCode")
+    replacement_name: Optional[StrictStr] = Field(default=None, description="Preferred name of the code replacing this code", alias="replacementName")
+    __properties: ClassVar[List[str]] = ["uri", "ct", "code", "name", "action", "date", "replacementCode", "replacementName"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -103,3 +98,5 @@ class History(BaseModel):
             "replacementName": obj.get("replacementName")
         })
         return _obj
+
+

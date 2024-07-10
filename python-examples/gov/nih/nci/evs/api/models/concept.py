@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -31,66 +32,47 @@ from .synonym import Synonym
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Concept(BaseModel):
     """
     Represents a concept in a terminology
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     code: Optional[StrictStr] = Field(default=None, description="Code (unique identifier) for this meaning")
     name: Optional[StrictStr] = Field(default=None, description="Preferred name for the code")
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. 'nci'")
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. '23.11d'")
-    level: Optional[StrictInt] = Field(default=None,
-                                       description="Level of depth in a hierarchy (when this object is used to represent an element in a path)")
-    highlight: Optional[StrictStr] = Field(default=None,
-                                           description="Used by search calls to provide information for highlighting a view of results")
-    subset_link: Optional[StrictStr] = Field(default=None,
-                                             description="Link to download data for a subset, used when the concept represents subset metadata",
-                                             alias="subsetLink")
-    mapset_link: Optional[StrictStr] = Field(default=None, description="Metadata for downloading a mapset",
-                                             alias="mapsetLink")
-    concept_status: Optional[StrictStr] = Field(default=None,
-                                                description="Status value for the concept, e.g. Retired_Concept",
-                                                alias="conceptStatus")
+    level: Optional[StrictInt] = Field(default=None, description="Level of depth in a hierarchy (when this object is used to represent an element in a path)")
+    highlight: Optional[StrictStr] = Field(default=None, description="Used by search calls to provide information for highlighting a view of results")
+    subset_link: Optional[StrictStr] = Field(default=None, description="Link to download data for a subset, used when the concept represents subset metadata", alias="subsetLink")
+    mapset_link: Optional[StrictStr] = Field(default=None, description="Metadata for downloading a mapset", alias="mapsetLink")
+    concept_status: Optional[StrictStr] = Field(default=None, description="Status value for the concept, e.g. Retired_Concept", alias="conceptStatus")
     source: Optional[StrictStr] = Field(default=None, description="Associations from this concept to other ones")
     leaf: Optional[StrictBool] = Field(default=None, description="Indicates whether concept is a leaf node")
     active: Optional[StrictBool] = Field(default=None, description="Indicates whether the concept is active")
-    synonyms: Optional[List[Synonym]] = Field(default=None,
-                                              description="Synonyms, or all of the names for this concept, including the preferred name")
+    synonyms: Optional[List[Synonym]] = Field(default=None, description="Synonyms, or all of the names for this concept, including the preferred name")
     definitions: Optional[List[Definition]] = Field(default=None, description="Text definitions")
-    history: Optional[List[History]] = Field(default=None, description="History records")
     properties: Optional[List[ModelProperty]] = Field(default=None, description="Key/value properties")
     children: Optional[List[Concept]] = Field(default=None, description="Child concepts in the hierarchy")
     parents: Optional[List[Concept]] = Field(default=None, description="Parent concepts in the hierarchy")
     descendants: Optional[List[Concept]] = Field(default=None, description="Descendant concepts in the hierarchy")
-    associations: Optional[List[Association]] = Field(default=None,
-                                                      description="Associations from this concept to other ones")
-    inverse_associations: Optional[List[Association]] = Field(default=None,
-                                                              description="Associations to this concept from other ones",
-                                                              alias="inverseAssociations")
+    qualifiers: Optional[List[Qualifier]] = Field(default=None, description="Qualifiers for use when a concept is used as a parent/child - to indicate RELA for NCIm-derived content")
+    associations: Optional[List[Association]] = Field(default=None, description="Associations from this concept to other ones")
+    inverse_associations: Optional[List[Association]] = Field(default=None, description="Associations to this concept from other ones", alias="inverseAssociations")
     roles: Optional[List[Role]] = Field(default=None, description="Roles from this concept to other ones")
-    disjoint_with: Optional[List[DisjointWith]] = Field(default=None,
-                                                        description="Assertions of disjointness with respect to other concepts",
-                                                        alias="disjointWith")
-    inverse_roles: Optional[List[Role]] = Field(default=None, description="Roles to this concept from other ones",
-                                                alias="inverseRoles")
-    maps: Optional[List[ConceptMap]] = Field(default=None,
-                                             description="Maps from this concept to concepts in other terminologies")
+    disjoint_with: Optional[List[DisjointWith]] = Field(default=None, description="Assertions of disjointness with respect to other concepts", alias="disjointWith")
+    inverse_roles: Optional[List[Role]] = Field(default=None, description="Roles to this concept from other ones", alias="inverseRoles")
+    history: Optional[List[History]] = Field(default=None, description="History records")
+    maps: Optional[List[ConceptMap]] = Field(default=None, description="Maps from this concept to concepts in other terminologies")
     paths: Optional[Paths] = None
-    __properties: ClassVar[List[str]] = ["uri", "ct", "code", "name", "terminology", "version", "level", "highlight",
-                                         "subsetLink", "mapsetLink", "conceptStatus", "source", "leaf", "active",
-                                         "synonyms", "definitions", "history", "properties", "children", "parents",
-                                         "descendants", "associations", "inverseAssociations", "roles", "disjointWith",
-                                         "inverseRoles", "maps", "paths"]
+    __properties: ClassVar[List[str]] = ["uri", "ct", "code", "name", "terminology", "version", "level", "highlight", "subsetLink", "mapsetLink", "conceptStatus", "source", "leaf", "active", "synonyms", "definitions", "properties", "children", "parents", "descendants", "qualifiers", "associations", "inverseAssociations", "roles", "disjointWith", "inverseRoles", "history", "maps", "paths"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -138,13 +120,6 @@ class Concept(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['definitions'] = _items
-        # override the default output from pydantic by calling `to_dict()` of each item in history (list)
-        _items = []
-        if self.history:
-            for _item in self.history:
-                if _item:
-                    _items.append(_item.to_dict())
-            _dict['history'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in properties (list)
         _items = []
         if self.properties:
@@ -173,6 +148,13 @@ class Concept(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['descendants'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in qualifiers (list)
+        _items = []
+        if self.qualifiers:
+            for _item in self.qualifiers:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['qualifiers'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in associations (list)
         _items = []
         if self.associations:
@@ -208,6 +190,13 @@ class Concept(BaseModel):
                 if _item:
                     _items.append(_item.to_dict())
             _dict['inverseRoles'] = _items
+        # override the default output from pydantic by calling `to_dict()` of each item in history (list)
+        _items = []
+        if self.history:
+            for _item in self.history:
+                if _item:
+                    _items.append(_item.to_dict())
+            _dict['history'] = _items
         # override the default output from pydantic by calling `to_dict()` of each item in maps (list)
         _items = []
         if self.maps:
@@ -244,34 +233,24 @@ class Concept(BaseModel):
             "source": obj.get("source"),
             "leaf": obj.get("leaf"),
             "active": obj.get("active"),
-            "synonyms": [Synonym.from_dict(_item) for _item in obj["synonyms"]] if obj.get(
-                "synonyms") is not None else None,
-            "definitions": [Definition.from_dict(_item) for _item in obj["definitions"]] if obj.get(
-                "definitions") is not None else None,
-            "history": [History.from_dict(_item) for _item in obj["history"]] if obj.get(
-                "history") is not None else None,
-            "properties": [ModelProperty.from_dict(_item) for _item in obj["properties"]] if obj.get(
-                "properties") is not None else None,
-            "children": [Concept.from_dict(_item) for _item in obj["children"]] if obj.get(
-                "children") is not None else None,
-            "parents": [Concept.from_dict(_item) for _item in obj["parents"]] if obj.get(
-                "parents") is not None else None,
-            "descendants": [Concept.from_dict(_item) for _item in obj["descendants"]] if obj.get(
-                "descendants") is not None else None,
-            "associations": [Association.from_dict(_item) for _item in obj["associations"]] if obj.get(
-                "associations") is not None else None,
-            "inverseAssociations": [Association.from_dict(_item) for _item in obj["inverseAssociations"]] if obj.get(
-                "inverseAssociations") is not None else None,
+            "synonyms": [Synonym.from_dict(_item) for _item in obj["synonyms"]] if obj.get("synonyms") is not None else None,
+            "definitions": [Definition.from_dict(_item) for _item in obj["definitions"]] if obj.get("definitions") is not None else None,
+            "properties": [ModelProperty.from_dict(_item) for _item in obj["properties"]] if obj.get("properties") is not None else None,
+            "children": [Concept.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None,
+            "parents": [Concept.from_dict(_item) for _item in obj["parents"]] if obj.get("parents") is not None else None,
+            "descendants": [Concept.from_dict(_item) for _item in obj["descendants"]] if obj.get("descendants") is not None else None,
+            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get("qualifiers") is not None else None,
+            "associations": [Association.from_dict(_item) for _item in obj["associations"]] if obj.get("associations") is not None else None,
+            "inverseAssociations": [Association.from_dict(_item) for _item in obj["inverseAssociations"]] if obj.get("inverseAssociations") is not None else None,
             "roles": [Role.from_dict(_item) for _item in obj["roles"]] if obj.get("roles") is not None else None,
-            "disjointWith": [DisjointWith.from_dict(_item) for _item in obj["disjointWith"]] if obj.get(
-                "disjointWith") is not None else None,
-            "inverseRoles": [Role.from_dict(_item) for _item in obj["inverseRoles"]] if obj.get(
-                "inverseRoles") is not None else None,
+            "disjointWith": [DisjointWith.from_dict(_item) for _item in obj["disjointWith"]] if obj.get("disjointWith") is not None else None,
+            "inverseRoles": [Role.from_dict(_item) for _item in obj["inverseRoles"]] if obj.get("inverseRoles") is not None else None,
+            "history": [History.from_dict(_item) for _item in obj["history"]] if obj.get("history") is not None else None,
             "maps": [ConceptMap.from_dict(_item) for _item in obj["maps"]] if obj.get("maps") is not None else None,
             "paths": Paths.from_dict(obj["paths"]) if obj.get("paths") is not None else None
         })
         return _obj
 
-
 # TODO: Rewrite to not use raise_errors
 Concept.model_rebuild(raise_errors=False)
+

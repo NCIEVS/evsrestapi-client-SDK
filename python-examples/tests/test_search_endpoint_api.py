@@ -13,7 +13,7 @@ def mapset_api():
     return SearchEndpointApi()
 
 
-class TestSearchEndpointsApi:
+class TestSearchEndpointApi:
     """
     API tests for SearchEndpointsApi. These tests will demonstrate how to call the API and log the
     information that is returned. The asserts are used to ensure that the data we are pulling align

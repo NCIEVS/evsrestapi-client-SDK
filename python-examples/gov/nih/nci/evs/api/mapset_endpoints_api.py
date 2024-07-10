@@ -40,24 +40,24 @@ class MapsetEndpointsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_mapset_by_code(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -86,7 +86,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_by_code_serialize(
             code=code,
@@ -98,9 +98,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -112,24 +112,24 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_mapset_by_code_with_http_info(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -158,7 +158,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_by_code_serialize(
             code=code,
@@ -170,9 +170,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -184,24 +184,24 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_mapset_by_code_without_preload_content(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -230,7 +230,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_by_code_serialize(
             code=code,
@@ -242,9 +242,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -252,14 +252,15 @@ class MapsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_mapset_by_code_serialize(
-            self,
-            code,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        code,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -279,11 +280,13 @@ class MapsetEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -291,6 +294,7 @@ class MapsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -311,28 +315,30 @@ class MapsetEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_mapset_mappings_by_code(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            term: Optional[StrictStr] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        term: Optional[StrictStr] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ConceptMapResultList:
         """Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -369,7 +375,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_mappings_by_code_serialize(
             code=code,
@@ -385,9 +391,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "ConceptMapResultList",
             '417': "RestException",
+            '200': "ConceptMapResultList",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -399,28 +405,28 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_mapset_mappings_by_code_with_http_info(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            term: Optional[StrictStr] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        term: Optional[StrictStr] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ConceptMapResultList]:
         """Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -457,7 +463,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_mappings_by_code_serialize(
             code=code,
@@ -473,9 +479,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "ConceptMapResultList",
             '417': "RestException",
+            '200': "ConceptMapResultList",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -487,28 +493,28 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_mapset_mappings_by_code_without_preload_content(
-            self,
-            code: Annotated[StrictStr, Field(description="Mapset code")],
-            from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
-            term: Optional[StrictStr] = None,
-            ascending: Annotated[
-                Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
-            sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        code: Annotated[StrictStr, Field(description="Mapset code")],
+        from_record: Annotated[Optional[StrictInt], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictInt], Field(description="Max number of results to return")] = None,
+        term: Optional[StrictStr] = None,
+        ascending: Annotated[Optional[StrictBool], Field(description="Sort ascending (if true) or descending (if false)")] = None,
+        sort: Annotated[Optional[StrictStr], Field(description="The search parameter to sort results by")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -545,7 +551,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapset_mappings_by_code_serialize(
             code=code,
@@ -561,9 +567,9 @@ class MapsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "ConceptMapResultList",
             '417': "RestException",
+            '200': "ConceptMapResultList",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -571,18 +577,19 @@ class MapsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_mapset_mappings_by_code_serialize(
-            self,
-            code,
-            from_record,
-            page_size,
-            term,
-            ascending,
-            sort,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        code,
+        from_record,
+        page_size,
+        term,
+        ascending,
+        sort,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -602,23 +609,29 @@ class MapsetEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if term is not None:
+            
             _query_params.append(('term', term))
-
+            
         if ascending is not None:
+            
             _query_params.append(('ascending', ascending))
-
+            
         if sort is not None:
+            
             _query_params.append(('sort', sort))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -626,6 +639,7 @@ class MapsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -646,23 +660,25 @@ class MapsetEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_mapsets(
-            self,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -689,7 +705,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapsets_serialize(
             include=include,
@@ -712,23 +728,23 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_mapsets_with_http_info(
-            self,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -755,7 +771,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapsets_serialize(
             include=include,
@@ -778,23 +794,23 @@ class MapsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_mapsets_without_preload_content(
-            self,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
 
@@ -821,7 +837,7 @@ class MapsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_mapsets_serialize(
             include=include,
@@ -840,13 +856,14 @@ class MapsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_mapsets_serialize(
-            self,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -864,11 +881,13 @@ class MapsetEndpointsApi:
         # process the path parameters
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -876,6 +895,7 @@ class MapsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -895,3 +915,5 @@ class MapsetEndpointsApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

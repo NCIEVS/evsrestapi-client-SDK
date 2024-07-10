@@ -30,7 +30,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * <p>NOTE: the asserts may be subject to change as the data evolves over time. Updating the tests
  * to align with the data we expect may be needed.
  */
-public class SearchEndpointsApiTest {
+public class SearchEndpointApiTest {
 
   /* Search api*/
   private static SearchEndpointApi api = null;
@@ -39,7 +39,7 @@ public class SearchEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(SearchEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(SearchEndpointApiTest.class);
 
   /** Instantiate the SearchEndpointApi */
   @BeforeAll

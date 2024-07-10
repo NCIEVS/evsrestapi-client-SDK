@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,32 +24,26 @@ from .qualifier import Qualifier
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Role(BaseModel):
     """
     Represents a (logically) defining relationship between two concepts
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     type: Optional[StrictStr] = Field(default=None, description="Relationship type")
-    related_code: Optional[StrictStr] = Field(default=None,
-                                              description="Related code (the code on the other side of the relationship)",
-                                              alias="relatedCode")
-    related_name: Optional[StrictStr] = Field(default=None, description="Preferred name of the related code",
-                                              alias="relatedName")
+    related_code: Optional[StrictStr] = Field(default=None, description="Related code (the code on the other side of the relationship)", alias="relatedCode")
+    related_name: Optional[StrictStr] = Field(default=None, description="Preferred name of the related code", alias="relatedName")
     source: Optional[StrictStr] = Field(default=None, description="Relationship source")
-    highlight: Optional[StrictStr] = Field(default=None,
-                                           description="Used by search calls to provide information for highlighting a view of results")
+    highlight: Optional[StrictStr] = Field(default=None, description="Used by search calls to provide information for highlighting a view of results")
     qualifiers: Optional[List[Qualifier]] = Field(default=None, description="Type/value qualifiers on the relationship")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "type", "relatedCode", "relatedName", "source", "highlight",
-                                         "qualifiers"]
+    __properties: ClassVar[List[str]] = ["uri", "ct", "type", "relatedCode", "relatedName", "source", "highlight", "qualifiers"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -108,7 +103,8 @@ class Role(BaseModel):
             "relatedName": obj.get("relatedName"),
             "source": obj.get("source"),
             "highlight": obj.get("highlight"),
-            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get(
-                "qualifiers") is not None else None
+            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get("qualifiers") is not None else None
         })
         return _obj
+
+

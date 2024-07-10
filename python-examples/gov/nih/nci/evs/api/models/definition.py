@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,17 +24,14 @@ from .qualifier import Qualifier
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Definition(BaseModel):
     """
     Represents a text definition for a concept
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     definition: Optional[StrictStr] = Field(default=None, description="Text definition value")
-    highlight: Optional[StrictStr] = Field(default=None,
-                                           description="Used by search calls to provide information for highlighting a view of results")
+    highlight: Optional[StrictStr] = Field(default=None, description="Used by search calls to provide information for highlighting a view of results")
     type: Optional[StrictStr] = Field(default=None, description="Definition type")
     source: Optional[StrictStr] = Field(default=None, description="Definition source")
     qualifiers: Optional[List[Qualifier]] = Field(default=None, description="Type/value qualifiers on the definition")
@@ -44,6 +42,7 @@ class Definition(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -102,7 +101,8 @@ class Definition(BaseModel):
             "highlight": obj.get("highlight"),
             "type": obj.get("type"),
             "source": obj.get("source"),
-            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get(
-                "qualifiers") is not None else None
+            "qualifiers": [Qualifier.from_dict(_item) for _item in obj["qualifiers"]] if obj.get("qualifiers") is not None else None
         })
         return _obj
+
+

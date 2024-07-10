@@ -39,26 +39,25 @@ class SubsetEndpointsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_subset(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the subset for the specified terminology and code.
 
@@ -89,7 +88,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_serialize(
             terminology=terminology,
@@ -102,8 +101,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -115,26 +114,25 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subset_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the subset for the specified terminology and code.
 
@@ -165,7 +163,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_serialize(
             terminology=terminology,
@@ -178,8 +176,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -191,26 +189,25 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subset_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the subset for the specified terminology and code.
 
@@ -241,7 +238,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_serialize(
             terminology=terminology,
@@ -254,8 +251,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -263,15 +260,16 @@ class SubsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subset_serialize(
-            self,
-            terminology,
-            code,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -293,11 +291,13 @@ class SubsetEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -305,6 +305,7 @@ class SubsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -325,28 +326,29 @@ class SubsetEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subset_members(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.
 
@@ -381,7 +383,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members_serialize(
             terminology=terminology,
@@ -396,9 +398,9 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -410,28 +412,27 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subset_members_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.
 
@@ -466,7 +467,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members_serialize(
             terminology=terminology,
@@ -481,9 +482,9 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -495,28 +496,27 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subset_members_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code: Annotated[StrictStr, Field(
-                description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
-            page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code: Annotated[StrictStr, Field(description="Code for a subset concept in the specified terminology, e.g. 'C157225' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        from_record: Annotated[Optional[StrictStr], Field(description="Start index of the search results")] = None,
+        page_size: Annotated[Optional[StrictStr], Field(description="Max number of results to return")] = None,
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.
 
@@ -551,7 +551,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset_members_serialize(
             terminology=terminology,
@@ -566,9 +566,9 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -576,17 +576,18 @@ class SubsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subset_members_serialize(
-            self,
-            terminology,
-            code,
-            from_record,
-            page_size,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        from_record,
+        page_size,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -608,17 +609,21 @@ class SubsetEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if from_record is not None:
+            
             _query_params.append(('fromRecord', from_record))
-
+            
         if page_size is not None:
+            
             _query_params.append(('pageSize', page_size))
-
+            
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -626,6 +631,7 @@ class SubsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -646,27 +652,27 @@ class SubsetEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subsets(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all subsets (or those specified by list parameter) for the specified terminology
 
@@ -697,7 +703,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets_serialize(
             terminology=terminology,
@@ -710,8 +716,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -723,27 +729,25 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subsets_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all subsets (or those specified by list parameter) for the specified terminology
 
@@ -774,7 +778,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets_serialize(
             terminology=terminology,
@@ -787,8 +791,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -800,27 +804,25 @@ class SubsetEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subsets_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all subsets (or those specified by list parameter) for the specified terminology
 
@@ -851,7 +853,7 @@ class SubsetEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets_serialize(
             terminology=terminology,
@@ -864,8 +866,8 @@ class SubsetEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -873,15 +875,16 @@ class SubsetEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subsets_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -901,14 +904,17 @@ class SubsetEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -916,6 +922,7 @@ class SubsetEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -935,3 +942,5 @@ class SubsetEndpointsApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

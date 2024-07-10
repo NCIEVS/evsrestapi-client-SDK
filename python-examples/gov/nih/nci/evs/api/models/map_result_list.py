@@ -18,22 +18,23 @@ import pprint
 import re  # noqa: F401
 import json
 
-from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from .search_criteria import SearchCriteria
 from typing import Optional, Set
 from typing_extensions import Self
 
-class RestException(BaseModel):
+class MapResultList(BaseModel):
     """
-    Payload for JSON error responses
+    Represents a list of objects returned from a find call
     """ # noqa: E501
-    timestamp: Optional[datetime] = None
-    status: Optional[StrictInt] = None
-    error: Optional[StrictStr] = None
-    message: Optional[StrictStr] = None
-    path: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["timestamp", "status", "error", "message", "path"]
+    uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    total: Optional[StrictInt] = Field(default=None, description="Total nubmer of results (if paging is not considered)")
+    time_taken: Optional[StrictInt] = Field(default=None, description="Total time taken to compute the result", alias="timeTaken")
+    parameters: Optional[SearchCriteria] = None
+    results: Optional[List[Dict[str, StrictStr]]] = Field(default=None, description="Search criteria used to arrive at this result")
+    __properties: ClassVar[List[str]] = ["uri", "ct", "total", "timeTaken", "parameters", "results"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -53,7 +54,7 @@ class RestException(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of RestException from a JSON string"""
+        """Create an instance of MapResultList from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -74,11 +75,14 @@ class RestException(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of parameters
+        if self.parameters:
+            _dict['parameters'] = self.parameters.to_dict()
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of RestException from a dict"""
+        """Create an instance of MapResultList from a dict"""
         if obj is None:
             return None
 
@@ -86,11 +90,12 @@ class RestException(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "timestamp": obj.get("timestamp"),
-            "status": obj.get("status"),
-            "error": obj.get("error"),
-            "message": obj.get("message"),
-            "path": obj.get("path")
+            "uri": obj.get("uri"),
+            "ct": obj.get("ct"),
+            "total": obj.get("total"),
+            "timeTaken": obj.get("timeTaken"),
+            "parameters": SearchCriteria.from_dict(obj["parameters"]) if obj.get("parameters") is not None else None,
+            "results": obj.get("results")
         })
         return _obj
 

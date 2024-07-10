@@ -42,27 +42,25 @@ class MetadataEndpointsApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_association(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the association for the specified terminology and code/name
 
@@ -93,7 +91,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_serialize(
             terminology=terminology,
@@ -106,9 +104,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -120,27 +118,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_association_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the association for the specified terminology and code/name
 
@@ -171,7 +167,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_serialize(
             terminology=terminology,
@@ -184,9 +180,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -198,27 +194,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_association_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the association for the specified terminology and code/name
 
@@ -249,7 +243,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_association_serialize(
             terminology=terminology,
@@ -262,9 +256,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -272,15 +266,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_association_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -302,11 +297,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -314,6 +311,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -334,27 +332,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_associations(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all associations (or those specified by list parameter) for the specified terminology
 
@@ -385,7 +383,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations_serialize(
             terminology=terminology,
@@ -398,9 +396,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -412,27 +410,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_associations_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all associations (or those specified by list parameter) for the specified terminology
 
@@ -463,7 +459,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations_serialize(
             terminology=terminology,
@@ -476,9 +472,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -490,27 +486,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_associations_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all associations (or those specified by list parameter) for the specified terminology
 
@@ -541,7 +535,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_associations_serialize(
             terminology=terminology,
@@ -554,9 +548,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -564,15 +558,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_associations_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -592,14 +587,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -607,6 +605,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -627,23 +626,25 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_concept_statuses(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[str]:
         """Get all concept status values for the specified terminology
 
@@ -670,7 +671,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_statuses_serialize(
             terminology=terminology,
@@ -681,8 +682,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -694,23 +695,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_concept_statuses_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[str]]:
         """Get all concept status values for the specified terminology
 
@@ -737,7 +738,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_statuses_serialize(
             terminology=terminology,
@@ -748,8 +749,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -761,23 +762,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_concept_statuses_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'. This call is only meaningful for <i>ncit</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all concept status values for the specified terminology
 
@@ -804,7 +805,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_concept_statuses_serialize(
             terminology=terminology,
@@ -815,8 +816,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -824,13 +825,14 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_concept_statuses_serialize(
-            self,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -853,12 +855,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -879,23 +883,25 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_definition_sources(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[ConceptMinimal]:
         """Get all definition sources for the specified terminology
 
@@ -922,7 +928,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_sources_serialize(
             terminology=terminology,
@@ -933,8 +939,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -946,23 +952,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_definition_sources_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[ConceptMinimal]]:
         """Get all definition sources for the specified terminology
 
@@ -989,7 +995,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_sources_serialize(
             terminology=terminology,
@@ -1000,8 +1006,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1013,23 +1019,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_definition_sources_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all definition sources for the specified terminology
 
@@ -1056,7 +1062,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_sources_serialize(
             terminology=terminology,
@@ -1067,8 +1073,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1076,13 +1082,14 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_definition_sources_serialize(
-            self,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1105,12 +1112,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1131,27 +1140,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_definition_type(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the definition type for the specified terminology and code/name.
 
@@ -1182,7 +1191,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_type_serialize(
             terminology=terminology,
@@ -1195,9 +1204,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1209,27 +1218,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_definition_type_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the definition type for the specified terminology and code/name.
 
@@ -1260,7 +1267,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_type_serialize(
             terminology=terminology,
@@ -1273,9 +1280,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1287,27 +1294,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_definition_type_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the definition type for the specified terminology and code/name.
 
@@ -1338,7 +1343,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_type_serialize(
             terminology=terminology,
@@ -1351,9 +1356,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1361,15 +1366,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_definition_type_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1391,11 +1397,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1403,6 +1411,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1423,27 +1432,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_definition_types(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all definition types (or those specified by list parameter) for the specified terminology
 
@@ -1474,7 +1483,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_types_serialize(
             terminology=terminology,
@@ -1487,9 +1496,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1501,27 +1510,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_definition_types_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all definition types (or those specified by list parameter) for the specified terminology
 
@@ -1552,7 +1559,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_types_serialize(
             terminology=terminology,
@@ -1565,9 +1572,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1579,27 +1586,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_definition_types_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all definition types (or those specified by list parameter) for the specified terminology
 
@@ -1630,7 +1635,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_definition_types_serialize(
             terminology=terminology,
@@ -1643,9 +1648,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1653,15 +1658,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_definition_types_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1681,14 +1687,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1696,6 +1705,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -1716,27 +1726,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_properties(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all properties (or those specified by list parameter) for the specified terminology
 
@@ -1767,7 +1777,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_properties_serialize(
             terminology=terminology,
@@ -1780,9 +1790,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1794,27 +1804,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_properties_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all properties (or those specified by list parameter) for the specified terminology
 
@@ -1845,7 +1853,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_properties_serialize(
             terminology=terminology,
@@ -1858,9 +1866,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1872,27 +1880,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_properties_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all properties (or those specified by list parameter) for the specified terminology
 
@@ -1923,7 +1929,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_properties_serialize(
             terminology=terminology,
@@ -1936,9 +1942,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1946,15 +1952,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_properties_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -1974,14 +1981,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -1989,6 +1999,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2009,27 +2020,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_property(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the property for the specified terminology and code/name
 
@@ -2060,7 +2071,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_property_serialize(
             terminology=terminology,
@@ -2073,9 +2084,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2087,27 +2098,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_property_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the property for the specified terminology and code/name
 
@@ -2138,7 +2147,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_property_serialize(
             terminology=terminology,
@@ -2151,9 +2160,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2165,27 +2174,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_property_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the property for the specified terminology and code/name
 
@@ -2216,7 +2223,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_property_serialize(
             terminology=terminology,
@@ -2229,9 +2236,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2239,15 +2246,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_property_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2269,11 +2277,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -2281,6 +2291,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2301,27 +2312,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_qualifier(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the qualifier for the specified terminology and code/name
 
@@ -2352,7 +2363,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_serialize(
             terminology=terminology,
@@ -2365,9 +2376,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2379,27 +2390,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_qualifier_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the qualifier for the specified terminology and code/name
 
@@ -2430,7 +2439,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_serialize(
             terminology=terminology,
@@ -2443,9 +2452,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2457,27 +2466,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_qualifier_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the qualifier for the specified terminology and code/name
 
@@ -2508,7 +2515,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_serialize(
             terminology=terminology,
@@ -2521,9 +2528,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2531,15 +2538,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_qualifier_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2561,11 +2569,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -2573,6 +2583,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2593,25 +2604,26 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_qualifier_values(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[str]:
         """Get qualifier values for the specified terminology and code/name
 
@@ -2640,7 +2652,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_values_serialize(
             terminology=terminology,
@@ -2652,8 +2664,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2665,25 +2677,24 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_qualifier_values_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[str]]:
         """Get qualifier values for the specified terminology and code/name
 
@@ -2712,7 +2723,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_values_serialize(
             terminology=terminology,
@@ -2724,8 +2735,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2737,25 +2748,24 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_qualifier_values_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get qualifier values for the specified terminology and code/name
 
@@ -2784,7 +2794,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifier_values_serialize(
             terminology=terminology,
@@ -2796,8 +2806,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[str]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2805,14 +2815,15 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_qualifier_values_serialize(
-            self,
-            terminology,
-            code_or_name,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -2837,12 +2848,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -2863,27 +2876,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_qualifiers(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all qualifiers (properties on properties) for the specified terminology
 
@@ -2914,7 +2927,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifiers_serialize(
             terminology=terminology,
@@ -2927,9 +2940,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2941,27 +2954,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_qualifiers_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all qualifiers (properties on properties) for the specified terminology
 
@@ -2992,7 +3003,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifiers_serialize(
             terminology=terminology,
@@ -3005,9 +3016,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3019,27 +3030,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_qualifiers_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return qualifiers for (or leave blank for all)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all qualifiers (properties on properties) for the specified terminology
 
@@ -3070,7 +3079,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_qualifiers_serialize(
             terminology=terminology,
@@ -3083,9 +3092,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3093,15 +3102,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_qualifiers_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3121,14 +3131,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -3136,6 +3149,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3156,26 +3170,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_role(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_name: Annotated[StrictStr, Field(description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the role for the specified terminology and code/name
 
@@ -3206,7 +3221,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_role_serialize(
             terminology=terminology,
@@ -3219,9 +3234,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3233,26 +3248,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_role_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_name: Annotated[StrictStr, Field(description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the role for the specified terminology and code/name
 
@@ -3283,7 +3297,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_role_serialize(
             terminology=terminology,
@@ -3296,9 +3310,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3310,26 +3324,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_role_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'")],
+        code_or_name: Annotated[StrictStr, Field(description="Role code (or name), e.g. 'R123' or 'Chemotherapy_Regimen_Has_Component' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the role for the specified terminology and code/name
 
@@ -3360,7 +3373,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_role_serialize(
             terminology=terminology,
@@ -3373,9 +3386,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3383,15 +3396,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_role_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3413,11 +3427,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -3425,6 +3441,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3445,27 +3462,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_roles(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all roles (or those specified by list parameter) for the specified terminology
 
@@ -3496,7 +3513,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles_serialize(
             terminology=terminology,
@@ -3509,8 +3526,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3522,27 +3539,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_roles_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all roles (or those specified by list parameter) for the specified terminology
 
@@ -3573,7 +3588,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles_serialize(
             terminology=terminology,
@@ -3586,8 +3601,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3599,27 +3614,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_roles_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all roles (or those specified by list parameter) for the specified terminology
 
@@ -3650,7 +3663,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_roles_serialize(
             terminology=terminology,
@@ -3663,8 +3676,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3672,15 +3685,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_roles_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3700,14 +3714,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -3715,6 +3732,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -3735,23 +3753,26 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_source_stats(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Dict[str, List[StatisticsEntry]]:
         """Get statistics for the source within the specified terminology.
 
@@ -3781,7 +3802,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_source_stats_serialize(
             terminology=terminology,
@@ -3793,9 +3814,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Dict[str, List[StatisticsEntry]]",
             '417': "RestException",
+            '200': "Dict[str, List[StatisticsEntry]]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3807,23 +3828,24 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_source_stats_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Dict[str, List[StatisticsEntry]]]:
         """Get statistics for the source within the specified terminology.
 
@@ -3853,7 +3875,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_source_stats_serialize(
             terminology=terminology,
@@ -3865,9 +3887,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Dict[str, List[StatisticsEntry]]",
             '417': "RestException",
+            '200': "Dict[str, List[StatisticsEntry]]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3879,23 +3901,24 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_source_stats_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        source: Annotated[StrictStr, Field(description="terminology source code, e.g. 'LNC' for <i>ncim</i>.")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get statistics for the source within the specified terminology.
 
@@ -3925,7 +3948,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_source_stats_serialize(
             terminology=terminology,
@@ -3937,9 +3960,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Dict[str, List[StatisticsEntry]]",
             '417': "RestException",
+            '200': "Dict[str, List[StatisticsEntry]]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3947,14 +3970,15 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_source_stats_serialize(
-            self,
-            terminology,
-            source,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        source,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -3979,12 +4003,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4005,26 +4031,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subset1(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the subset for the specified terminology and code.
 
@@ -4056,7 +4083,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset1_serialize(
             terminology=terminology,
@@ -4069,9 +4096,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4083,26 +4110,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subset1_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the subset for the specified terminology and code.
 
@@ -4134,7 +4160,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset1_serialize(
             terminology=terminology,
@@ -4147,9 +4173,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4161,26 +4187,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subset1_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
-            code: Annotated[StrictStr, Field(
-                description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.")],
+        code: Annotated[StrictStr, Field(description="Subset code, e.g. 'C116978' for <i>ncit</i>. This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the subset for the specified terminology and code.
 
@@ -4212,7 +4237,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subset1_serialize(
             terminology=terminology,
@@ -4225,9 +4250,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "Concept",
             '417': "RestException",
+            '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4235,15 +4260,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subset1_serialize(
-            self,
-            terminology,
-            code,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4265,11 +4291,13 @@ class MetadataEndpointsApi:
             _path_params['code'] = code
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -4277,6 +4305,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4297,27 +4326,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_subsets1(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all subsets (or those specified by list parameter) for the specified terminology.
 
@@ -4349,7 +4378,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets1_serialize(
             terminology=terminology,
@@ -4362,9 +4391,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4376,27 +4405,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_subsets1_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all subsets (or those specified by list parameter) for the specified terminology.
 
@@ -4428,7 +4455,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets1_serialize(
             terminology=terminology,
@@ -4441,9 +4468,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4455,27 +4482,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_subsets1_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit'.  This call is only meaningful for <i>ncit</i>.")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all subsets (or those specified by list parameter) for the specified terminology.
 
@@ -4507,7 +4532,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_subsets1_serialize(
             terminology=terminology,
@@ -4520,9 +4545,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4530,15 +4555,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_subsets1_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4558,14 +4584,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -4573,6 +4602,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4593,23 +4623,25 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_synonym_sources(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[ConceptMinimal]:
         """Get all synonym sources for the specified terminology
 
@@ -4636,7 +4668,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_sources_serialize(
             terminology=terminology,
@@ -4647,8 +4679,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4660,23 +4692,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_synonym_sources_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[ConceptMinimal]]:
         """Get all synonym sources for the specified terminology
 
@@ -4703,7 +4735,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_sources_serialize(
             terminology=terminology,
@@ -4714,8 +4746,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4727,23 +4759,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_synonym_sources_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all synonym sources for the specified terminology
 
@@ -4770,7 +4802,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_sources_serialize(
             terminology=terminology,
@@ -4781,8 +4813,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4790,13 +4822,14 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_synonym_sources_serialize(
-            self,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -4819,12 +4852,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -4845,27 +4880,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_synonym_type(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> Concept:
         """Get the synonym type for the specified terminology and code/name
 
@@ -4896,7 +4931,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_type_serialize(
             terminology=terminology,
@@ -4910,8 +4945,8 @@ class MetadataEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': "RestException",
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4923,27 +4958,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_synonym_type_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[Concept]:
         """Get the synonym type for the specified terminology and code/name
 
@@ -4974,7 +5007,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_type_serialize(
             terminology=terminology,
@@ -4988,8 +5021,8 @@ class MetadataEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': "RestException",
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5001,27 +5034,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_synonym_type_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            code_or_name: Annotated[StrictStr, Field(
-                description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        code_or_name: Annotated[StrictStr, Field(description="Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the synonym type for the specified terminology and code/name
 
@@ -5052,7 +5083,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_type_serialize(
             terminology=terminology,
@@ -5066,8 +5097,8 @@ class MetadataEndpointsApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '417': "RestException",
-            '404': "RestException",
             '200': "Concept",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5075,15 +5106,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_synonym_type_serialize(
-            self,
-            terminology,
-            code_or_name,
-            include,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        code_or_name,
+        include,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5105,11 +5137,13 @@ class MetadataEndpointsApi:
             _path_params['codeOrName'] = code_or_name
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5117,6 +5151,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5137,27 +5172,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_synonym_types(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Concept]:
         """Get all synonym types (or those specified by list parameter) for the specified terminology
 
@@ -5188,7 +5223,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_types_serialize(
             terminology=terminology,
@@ -5201,9 +5236,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5215,27 +5250,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_synonym_types_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Concept]]:
         """Get all synonym types (or those specified by list parameter) for the specified terminology
 
@@ -5266,7 +5299,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_types_serialize(
             terminology=terminology,
@@ -5279,9 +5312,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5293,27 +5326,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_synonym_types_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            include: Annotated[Optional[StrictStr], Field(
-                description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
-            list: Annotated[Optional[StrictStr], Field(
-                description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        include: Annotated[Optional[StrictStr], Field(description="Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. <a href='https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md' target='_blank'>See here for detailed information</a>.")] = None,
+        list: Annotated[Optional[StrictStr], Field(description="List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all synonym types (or those specified by list parameter) for the specified terminology
 
@@ -5344,7 +5375,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_synonym_types_serialize(
             terminology=terminology,
@@ -5357,9 +5388,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
-            '200': "List[Concept]",
             '417': "RestException",
+            '200': "List[Concept]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5367,15 +5398,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_synonym_types_serialize(
-            self,
-            terminology,
-            include,
-            list,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        include,
+        list,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5395,14 +5427,17 @@ class MetadataEndpointsApi:
             _path_params['terminology'] = terminology
         # process the query parameters
         if include is not None:
+            
             _query_params.append(('include', include))
-
+            
         if list is not None:
+            
             _query_params.append(('list', list))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5410,6 +5445,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5430,23 +5466,25 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_term_types(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[ConceptMinimal]:
         """Get all term types for the specified terminology
 
@@ -5473,7 +5511,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_term_types_serialize(
             terminology=terminology,
@@ -5484,8 +5522,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5497,23 +5535,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_term_types_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[ConceptMinimal]]:
         """Get all term types for the specified terminology
 
@@ -5540,7 +5578,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_term_types_serialize(
             terminology=terminology,
@@ -5551,8 +5589,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5564,23 +5602,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_term_types_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all term types for the specified terminology
 
@@ -5607,7 +5645,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_term_types_serialize(
             terminology=terminology,
@@ -5618,8 +5656,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[ConceptMinimal]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5627,13 +5665,14 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_term_types_serialize(
-            self,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5656,12 +5695,14 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5682,27 +5723,27 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_terminologies(
-            self,
-            latest: Annotated[Optional[StrictBool], Field(
-                description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
-            tag: Annotated[Optional[StrictStr], Field(
-                description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        latest: Annotated[Optional[StrictBool], Field(description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
+        tag: Annotated[Optional[StrictStr], Field(description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> List[Terminology]:
         """Get all available terminologies
 
@@ -5733,7 +5774,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_terminologies_serialize(
             latest=latest,
@@ -5746,8 +5787,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Terminology]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5759,27 +5800,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_terminologies_with_http_info(
-            self,
-            latest: Annotated[Optional[StrictBool], Field(
-                description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
-            tag: Annotated[Optional[StrictStr], Field(
-                description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        latest: Annotated[Optional[StrictBool], Field(description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
+        tag: Annotated[Optional[StrictStr], Field(description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[List[Terminology]]:
         """Get all available terminologies
 
@@ -5810,7 +5849,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_terminologies_serialize(
             latest=latest,
@@ -5823,8 +5862,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Terminology]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5836,27 +5875,25 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_terminologies_without_preload_content(
-            self,
-            latest: Annotated[Optional[StrictBool], Field(
-                description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
-            tag: Annotated[Optional[StrictStr], Field(
-                description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
-            terminology: Annotated[Optional[StrictStr], Field(
-                description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
-            _request_timeout: Union[
-                None,
+        self,
+        latest: Annotated[Optional[StrictBool], Field(description="Return terminologies with matching <i>latest</i> value. e.g. true or false")] = None,
+        tag: Annotated[Optional[StrictStr], Field(description="Return terminologies with matching tag. e.g. 'monthly' or 'weekly' for <i>ncit</i>")] = None,
+        terminology: Annotated[Optional[StrictStr], Field(description="Return entries with matching terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get all available terminologies
 
@@ -5887,7 +5924,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_terminologies_serialize(
             latest=latest,
@@ -5900,8 +5937,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "List[Terminology]",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5909,15 +5946,16 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_terminologies_serialize(
-            self,
-            latest,
-            tag,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        latest,
+        tag,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -5935,17 +5973,21 @@ class MetadataEndpointsApi:
         # process the path parameters
         # process the query parameters
         if latest is not None:
+            
             _query_params.append(('latest', latest))
-
+            
         if tag is not None:
+            
             _query_params.append(('tag', tag))
-
+            
         if terminology is not None:
+            
             _query_params.append(('terminology', terminology))
-
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
+
 
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
@@ -5953,6 +5995,7 @@ class MetadataEndpointsApi:
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -5973,23 +6016,25 @@ class MetadataEndpointsApi:
             _request_auth=_request_auth
         )
 
+
+
+
     @validate_call
     def get_welcome_text(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> str:
         """Get welcome text for the specified terminology
 
@@ -6016,7 +6061,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_welcome_text_serialize(
             terminology=terminology,
@@ -6027,8 +6072,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "str",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6040,23 +6085,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_welcome_text_with_http_info(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[str]:
         """Get welcome text for the specified terminology
 
@@ -6083,7 +6128,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_welcome_text_serialize(
             terminology=terminology,
@@ -6094,8 +6139,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "str",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6107,23 +6152,23 @@ class MetadataEndpointsApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_welcome_text_without_preload_content(
-            self,
-            terminology: Annotated[StrictStr, Field(
-                description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
-            _request_timeout: Union[
-                None,
+        self,
+        terminology: Annotated[StrictStr, Field(description="Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)")],
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get welcome text for the specified terminology
 
@@ -6150,7 +6195,7 @@ class MetadataEndpointsApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_welcome_text_serialize(
             terminology=terminology,
@@ -6161,8 +6206,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '404': "RestException",
             '200': "str",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -6170,13 +6215,14 @@ class MetadataEndpointsApi:
         )
         return response_data.response
 
+
     def _get_welcome_text_serialize(
-            self,
-            terminology,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        terminology,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
 
         _host = None
@@ -6199,13 +6245,15 @@ class MetadataEndpointsApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
-                'application/json',
-                'text/html'
+                'text/html', 
+                'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -6225,3 +6273,5 @@ class MetadataEndpointsApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+

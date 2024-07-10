@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,43 +24,33 @@ from .terminology_metadata import TerminologyMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Terminology(BaseModel):
     """
     Represents a terminology loaded into the API
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
     terminology: Optional[StrictStr] = Field(default=None, description="Terminology abbreviation, e.g. 'ncit'")
     version: Optional[StrictStr] = Field(default=None, description="Terminology version, e.g. '23.11d'")
-    var_date: Optional[StrictStr] = Field(default=None, description="Terminology publication/release date",
-                                          alias="date")
+    var_date: Optional[StrictStr] = Field(default=None, description="Terminology publication/release date", alias="date")
     name: Optional[StrictStr] = Field(default=None, description="Terminology name")
     description: Optional[StrictStr] = Field(default=None, description="Terminology description")
-    graph: Optional[StrictStr] = Field(default=None,
-                                       description="Name of the RDF triplestore graph if this data is backed by a triplestore")
-    terminology_version: Optional[StrictStr] = Field(default=None,
-                                                     description="Underscore-separated value for terminology and version used by the API to precisely pinpoint a particular version, e.g. 'ncit_23.11d'",
-                                                     alias="terminologyVersion")
+    graph: Optional[StrictStr] = Field(default=None, description="Name of the RDF triplestore graph if this data is backed by a triplestore")
+    terminology_version: Optional[StrictStr] = Field(default=None, description="Underscore-separated value for terminology and version used by the API to precisely pinpoint a particular version, e.g. 'ncit_23.11d'", alias="terminologyVersion")
     latest: Optional[StrictBool] = Field(default=None, description="Indicates whether this is the latest version")
     tags: Optional[Dict[str, StrictStr]] = Field(default=None, description="Additional terminology tags")
     index_name: Optional[StrictStr] = Field(default=None, description="for internal use", alias="indexName")
-    object_index_name: Optional[StrictStr] = Field(default=None, description="for internal use",
-                                                   alias="objectIndexName")
+    object_index_name: Optional[StrictStr] = Field(default=None, description="for internal use", alias="objectIndexName")
     metadata: Optional[TerminologyMetadata] = None
-    sparql_flag: Optional[StrictBool] = Field(default=None,
-                                              description="Indicates whether the terminology can be used with SPARQL",
-                                              alias="sparqlFlag")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "terminology", "version", "date", "name", "description", "graph",
-                                         "terminologyVersion", "latest", "tags", "indexName", "objectIndexName",
-                                         "metadata", "sparqlFlag"]
+    sparql_flag: Optional[StrictBool] = Field(default=None, description="Indicates whether the terminology can be used with SPARQL", alias="sparqlFlag")
+    __properties: ClassVar[List[str]] = ["uri", "ct", "terminology", "version", "date", "name", "description", "graph", "terminologyVersion", "latest", "tags", "indexName", "objectIndexName", "metadata", "sparqlFlag"]
 
     model_config = ConfigDict(
         populate_by_name=True,
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -125,3 +116,5 @@ class Terminology(BaseModel):
             "sparqlFlag": obj.get("sparqlFlag")
         })
         return _obj
+
+

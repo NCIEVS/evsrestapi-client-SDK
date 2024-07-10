@@ -460,7 +460,7 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept`
 
 ```
 
@@ -473,7 +473,7 @@ results. Include is set to minimal.
 Find concepts matching a search term within a specified terminology and restrict the search results by concept status of
 "Retired_Concept". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_concept_status`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_concept_status`
 
 ```
 
@@ -486,7 +486,7 @@ Find concepts matching a search term within a specified terminology and restrict
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition
 source of "NCI". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_definition_source`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_definition_source`
 
 ```
 
@@ -499,7 +499,7 @@ source of "NCI". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a definition type
 of "DEFINITION". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_definition_type`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_definition_type`
 
 ```
 
@@ -512,7 +512,7 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym source
 of "NCI" and synonymTermGroup of "PT".
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_synonym_source`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_synonym_source`
 
 ```
 
@@ -525,7 +525,7 @@ of "NCI" and synonymTermGroup of "PT".
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym type
 of "FULL_SYN".
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 ```
 
@@ -538,7 +538,7 @@ of "FULL_SYN".
 Find concepts matching a search term within a specified terminology and restrict the search results using a code as the
 search term.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
 
@@ -547,7 +547,7 @@ search term.
 Find concepts matching a search term within a specified terminology and a search type of "match". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 ```
 
@@ -560,7 +560,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "startsWith".This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_starts_with`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_starts_with`
 
 ```
 
@@ -573,7 +573,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "phrase". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_phrase`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_phrase`
 
 ```
 
@@ -586,7 +586,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "fuzzy". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_fuzzy`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_fuzzy`
 
 ```
 
@@ -599,7 +599,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "and". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_and`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_and`
 
 ```
 
@@ -612,7 +612,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "or". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_or`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_or`
 
 ```
 
@@ -625,7 +625,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and include synonyms and highlighted text in the
 response. This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_highlights`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_highlights`
 
 ```
 
@@ -639,7 +639,7 @@ Find concepts matching a search term that is searched within a certain set of pr
 include the property values, so you can easily see the match. The property setting here can be either based on code or
 on label
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 ```
 
@@ -652,7 +652,7 @@ on label
 Get concepts matching a search term within a specified terminology and subset. This example searches within C165258
 (e.g. Cellosaurus Disease Terminology).
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_subset`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_subset`
 
 ```
 
@@ -664,7 +664,7 @@ Get concepts matching a search term within a specified terminology and subset. T
 
 Find concepts for a specified SPARQL query that returns a ?code field.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 ```
 
@@ -716,9 +716,9 @@ Get subset members for a specified terminology and code.
 
 Get concepts for a specified SPARQL query without prefixes.
 
-Command: `pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+Command: `pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
-```{.python}
+```
 ```
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
@@ -787,7 +787,7 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 Get SPARQL bindings for a specified SPARQL query.
 
-`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
+`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
 ```
 

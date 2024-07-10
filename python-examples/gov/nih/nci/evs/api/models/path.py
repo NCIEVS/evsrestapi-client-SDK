@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -23,16 +24,13 @@ from .concept_minimal import ConceptMinimal
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class Path(BaseModel):
     """
     Represents a path (or partial path) in a hierarchy
-    """  # noqa: E501
+    """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
-    ct: Optional[StrictInt] = Field(default=None,
-                                    description="Used to indicate the total amount of data in cases where a limit is being applied")
-    direction: Optional[StrictInt] = Field(default=None,
-                                           description="Direction of the map (1 means node-to-root, -1 means root-to-node)")
+    ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
+    direction: Optional[StrictInt] = Field(default=None, description="Direction of the map (1 means node-to-root, -1 means root-to-node)")
     concepts: Optional[List[ConceptMinimal]] = Field(default=None, description="Concepts on the path")
     __properties: ClassVar[List[str]] = ["uri", "ct", "direction", "concepts"]
 
@@ -41,6 +39,7 @@ class Path(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -96,7 +95,8 @@ class Path(BaseModel):
             "uri": obj.get("uri"),
             "ct": obj.get("ct"),
             "direction": obj.get("direction"),
-            "concepts": [ConceptMinimal.from_dict(_item) for _item in obj["concepts"]] if obj.get(
-                "concepts") is not None else None
+            "concepts": [ConceptMinimal.from_dict(_item) for _item in obj["concepts"]] if obj.get("concepts") is not None else None
         })
         return _obj
+
+

@@ -12,6 +12,7 @@
     Do not edit the class manually.
 """  # noqa: E501
 
+
 from __future__ import annotations
 import pprint
 import re  # noqa: F401
@@ -22,11 +23,10 @@ from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-
 class ApplicationVersion(BaseModel):
     """
     ApplicationVersion
-    """  # noqa: E501
+    """ # noqa: E501
     name: Optional[StrictStr] = None
     version: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
@@ -37,6 +37,7 @@ class ApplicationVersion(BaseModel):
         validate_assignment=True,
         protected_namespaces=(),
     )
+
 
     def to_str(self) -> str:
         """Returns the string representation of the model using alias"""
@@ -87,3 +88,5 @@ class ApplicationVersion(BaseModel):
             "description": obj.get("description")
         })
         return _obj
+
+

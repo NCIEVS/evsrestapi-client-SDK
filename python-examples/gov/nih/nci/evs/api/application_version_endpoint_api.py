@@ -36,21 +36,22 @@ class ApplicationVersionEndpointApi:
             api_client = ApiClient.get_default()
         self.api_client = api_client
 
+
     @validate_call
     def get_application_version(
-            self,
-            _request_timeout: Union[
-                None,
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApplicationVersion:
         """Get the application version information
 
@@ -75,7 +76,7 @@ class ApplicationVersionEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_application_version_serialize(
             _request_auth=_request_auth,
@@ -86,8 +87,8 @@ class ApplicationVersionEndpointApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '400': "RestException",
-            '404': "RestException",
             '200': "ApplicationVersion",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -99,21 +100,22 @@ class ApplicationVersionEndpointApi:
             response_types_map=_response_types_map,
         ).data
 
+
     @validate_call
     def get_application_version_with_http_info(
-            self,
-            _request_timeout: Union[
-                None,
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[ApplicationVersion]:
         """Get the application version information
 
@@ -138,7 +140,7 @@ class ApplicationVersionEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_application_version_serialize(
             _request_auth=_request_auth,
@@ -149,8 +151,8 @@ class ApplicationVersionEndpointApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '400': "RestException",
-            '404': "RestException",
             '200': "ApplicationVersion",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -162,21 +164,22 @@ class ApplicationVersionEndpointApi:
             response_types_map=_response_types_map,
         )
 
+
     @validate_call
     def get_application_version_without_preload_content(
-            self,
-            _request_timeout: Union[
-                None,
+        self,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
                 Annotated[StrictFloat, Field(gt=0)],
-                Tuple[
-                    Annotated[StrictFloat, Field(gt=0)],
-                    Annotated[StrictFloat, Field(gt=0)]
-                ]
-            ] = None,
-            _request_auth: Optional[Dict[StrictStr, Any]] = None,
-            _content_type: Optional[StrictStr] = None,
-            _headers: Optional[Dict[StrictStr, Any]] = None,
-            _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
         """Get the application version information
 
@@ -201,7 +204,7 @@ class ApplicationVersionEndpointApi:
                             in the spec for a single request.
         :type _host_index: int, optional
         :return: Returns the result object.
-        """  # noqa: E501
+        """ # noqa: E501
 
         _param = self._get_application_version_serialize(
             _request_auth=_request_auth,
@@ -212,8 +215,8 @@ class ApplicationVersionEndpointApi:
 
         _response_types_map: Dict[str, Optional[str]] = {
             '400': "RestException",
-            '404': "RestException",
             '200': "ApplicationVersion",
+            '404': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -221,13 +224,15 @@ class ApplicationVersionEndpointApi:
         )
         return response_data.response
 
+
     def _get_application_version_serialize(
-            self,
-            _request_auth,
-            _content_type,
-            _headers,
-            _host_index,
+        self,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
     ) -> RequestSerialized:
+
         _host = None
 
         _collection_formats: Dict[str, str] = {
@@ -246,12 +251,14 @@ class ApplicationVersionEndpointApi:
         # process the form parameters
         # process the body parameter
 
+
         # set the HTTP header `Accept`
         _header_params['Accept'] = self.api_client.select_header_accept(
             [
                 'application/json'
             ]
         )
+
 
         # authentication setting
         _auth_settings: List[str] = [
@@ -271,3 +278,5 @@ class ApplicationVersionEndpointApi:
             _host=_host,
             _request_auth=_request_auth
         )
+
+
