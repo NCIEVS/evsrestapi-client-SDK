@@ -2539,8 +2539,8 @@ example uses paging to get only the first 5 results. Include is set to minimal.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for - ncit
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for - ncit
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 166616
@@ -2728,8 +2728,8 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 18
@@ -2805,7 +2805,7 @@ first 5 results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
 [Test worker] INFO gov.nih.nci.evs.apiSearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
@@ -2882,8 +2882,8 @@ results.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionTypeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1283
@@ -2958,8 +2958,8 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermGroupTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 12
@@ -3033,8 +3033,8 @@ example restricts results to matching FULL_SYNs.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymType`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 12
@@ -3110,8 +3110,8 @@ and restrict the search results using a code as the search term.
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term code = C3224
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term code = C3224
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -3183,8 +3183,8 @@ and a search type of "match". This example uses paging to get only the first 5 r
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = match
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = match
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -3256,8 +3256,8 @@ terminology and a search type of "startsWith". This example uses paging to get o
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = startsWith
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = startsWith
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 41
@@ -3457,8 +3457,8 @@ and a search type of "phrase". This example uses paging to get only the first 5 
 `./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypePhraseTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = phrase
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 223

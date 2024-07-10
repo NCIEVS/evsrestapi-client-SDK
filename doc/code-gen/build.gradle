@@ -10,8 +10,8 @@ group = 'gov.nih.nci.evs.api'
 version = '0.0.1-SNAPSHOT'
 
 // Input Specification locations.
-def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
-//def inputURL = "http://localhost:8082/v3/api-docs"
+//def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
+def inputURL = "http://localhost:8082/v3/api-docs"
 
 repositories {
     mavenCentral()
@@ -72,21 +72,6 @@ tasks.register('buildPythonSdk', GenerateTask) {
     ])
     dependsOn tasks.named('clearBuildDir')
 }
-
-tasks.register('buildPythonSdk', GenerateTask) {
-    generatorName.set("python")
-    remoteInputSpec.set(inputURL)
-    //inputSpec.set(inputFile)
-    outputDir.set("$buildDir/python")
-    apiPackage.set("gov.nih.nci.evs.api")
-    invokerPackage.set("gov.nih.nci.evs.api.invoker")
-    modelPackage.set("gov.nih.nci.evs.api.models")
-    configOptions.set([
-        dateLibrary: "python3",
-        packageName: "python-examples",
-    ])
-}
-
 
 /** Runs all code-gen tasks for each language to generate the clients */
 tasks.register("buildClients") {
