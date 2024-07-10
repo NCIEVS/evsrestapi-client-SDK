@@ -1,11 +1,19 @@
-import unittest
+import pytest
 import string
 import logging
 
 from gov.nih.nci.evs.api import SubsetEndpointsApi
 
 
-class TestSubsetEndpointsApi(unittest.TestCase):
+@pytest.fixture
+def subset_api():
+    """
+    Instantiate the SubsetEndpointsApi
+    """
+    return SubsetEndpointsApi()
+
+
+class TestSubsetEndpointsApi:
     """
     API tests for SubsetEndpointsApi. These tests will demonstrate how to call the API and log the
     information that is returned. The asserts are used to ensure that the data we are pulling align
@@ -20,16 +28,5 @@ class TestSubsetEndpointsApi(unittest.TestCase):
     # Test Terminology
     terminology: string = "ncit"
     
-    @classmethod
-    def setUpClass(cls):
-        """
-        Instantiate the SubsetEndpointsApi
-        """
-        cls.api = SubsetEndpointsApi()
-    
     def test_something(self):
-        self.assertEqual(True, False)  # add assertion here
-
-
-if __name__ == '__main__':
-    unittest.main()
+        assert True == False  # add assertion here

@@ -1,12 +1,21 @@
-import unittest
 import string
 import logging
+
+import pytest
 
 from gov.nih.nci.evs.api import MetadataEndpointsApi
 from gov.nih.nci.evs.api.models import Concept, ConceptMinimal, Terminology
 
 
-class TestMetadataEndpointsApi(unittest.TestCase):
+@pytest.fixture
+def metadata_api():
+    """
+    Instantiate the MetadataEndpointsApi
+    """
+    return MetadataEndpointsApi()
+
+
+class TestMetadataEndpointsApi:
     """
     API tests for MetadataEndpointsApi. These tests will demonstrate how to call the API and log the
     information that is returned. The asserts are used to ensure that the data we are pulling align
@@ -21,14 +30,7 @@ class TestMetadataEndpointsApi(unittest.TestCase):
     # Test Terminology
     terminology: string = "ncit"
     
-    @classmethod
-    def setUpClass(cls):
-        """
-        Instantiate the MetadataEndpointsApi
-        """
-        cls.api = MetadataEndpointsApi()
-    
-    def test_get_association_by_code(self):
+    def test_get_association_by_code(self, metadata_api):
         """
         Get the association for the specified terminology and code/name
         """
@@ -38,16 +40,16 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name = "Has_Pharmaceutical_Basic_Dose_Form"
         
         # ACT
-        response: Concept = self.api.get_association(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_association(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get all associations for code - {code_or_name}")
         self.logger.info(f"    associations - {str(response)}")
     
-    def test_get_associations(self):
+    def test_get_associations(self, metadata_api):
         """
         Get all associations (or those specified by a list parameter) for the specified terminology
         """
@@ -58,24 +60,24 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_code: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_associations(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_associations(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertTrue(len(response) >= expected_size)
+        assert response is not None
+        assert len(response) >= expected_size is True
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code):
                 contains_expected_code = True
                 break
-                
-        self.assertTrue(contains_expected_code)
+        
+        assert contains_expected_code is True
         
         self.logger.info(f"Get all associations for terminology - {self.terminology}")
         self.logger.info(f"    associations - {str(response)}")
-        
-    def test_get_concept_statuses(self):
+    
+    def test_get_concept_statuses(self, metadata_api):
         """
         Get all concept status values for the specified terminology
         """
@@ -85,23 +87,23 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_status: bool = False
         
         # ACT
-        response: [string] = self.api.get_concept_statuses(self.terminology)
+        response: [string] = metadata_api.get_concept_statuses(self.terminology)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_size, len(response))
+        assert response is not None
+        assert expected_size == len(response)
         # Find our expected values in the response
         for status in response:
-            self.assertIsNotNone(status)
+            assert status is not None
             if status.__contains__(expected_status):
                 contains_expected_status = True
                 break
-        self.assertTrue(contains_expected_status)
+        assert contains_expected_status is True
         
         self.logger.info(f"Get all statuses associated with terminology - {self.terminology}")
         self.logger.info(f"    concept statuses - {str(response)}")
     
-    def test_get_definition_sources(self):
+    def test_get_definition_sources(self, metadata_api):
         """
         Get all definition sources for the specified terminology
         """
@@ -111,23 +113,24 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_values: bool = False
         
         # ACT
-        response: [ConceptMinimal] = self.api.get_definition_sources(self.terminology)
+        response: [ConceptMinimal] = metadata_api.get_definition_sources(self.terminology)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for definition_source in response:
-            self.assertIsNotNone(definition_source.code)
-            self.assertIsNotNone(definition_source.name)
-            if definition_source.code.__contains__(expected_code) and definition_source.name.__contains__(expected_name):
+            assert definition_source.code is not None
+            assert definition_source.name is not None
+            if definition_source.code.__contains__(expected_code) and definition_source.name.__contains__(
+                    expected_name):
                 contains_expected_values = True
                 break
-        self.assertTrue(contains_expected_values)
+        assert contains_expected_values is True
         
         self.logger.info(f"Get all definition sources for terminology - {self.terminology}")
         self.logger.info(f"    definition sources - {str(response)}")
     
-    def test_get_definition_type_by_code(self):
+    def test_get_definition_type_by_code(self, metadata_api):
         """
         Get the definition type for the specified terminology and code/name
         """
@@ -137,16 +140,16 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name: string = "ALT_DEFINITION"
         
         # ACT
-        response: Concept = self.api.get_definition_type(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_definition_type(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get definition type for code - {code_or_name}")
         self.logger.info(f"    definition type - {str(response)}")
-        
-    def test_get_definition_types(self):
+    
+    def test_get_definition_types(self, metadata_api):
         """
         Get all definition types (or those specified by list parameter) for the specified terminology
         """
@@ -157,23 +160,23 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_values: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_definition_types(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_definition_types(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
-            self.assertIsNotNone(concept.name)
+            assert concept.code is not None
+            assert concept.name is not None
             if concept.code.__contains__(expected_code) and concept.name.__contains__(expected_name):
                 contains_expected_values = True
                 break
-        self.assertTrue(contains_expected_values)
+        assert contains_expected_values is True
         
         self.logger.info(f"Get all definition types for terminology - {self.terminology}")
         self.logger.info(f"    definition types - {str(response)}")
-        
-    def test_get_properties(self):
+    
+    def test_get_properties(self, metadata_api):
         """
         Get all properties (or those specified by list parameter) for the specified terminology
         """
@@ -184,23 +187,23 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_values: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_properties(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_properties(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
-            self.assertIsNotNone(concept.name)
+            assert concept.code is not None
+            assert concept.name is not None
             if concept.code.__contains__(expected_code) and concept.name.__contains__(expected_name):
                 contains_expected_values = True
                 break
-        self.assertTrue(contains_expected_values)
+        assert contains_expected_values is True
         
         self.logger.info(f"Get all properties for a terminology &/or list of codes/labels - {self.terminology}")
         self.logger.info(f"    properties - {str(response)}")
     
-    def test_get_property(self):
+    def test_get_property(self, metadata_api):
         """
         Get the property for the specified terminology and code/name
         """
@@ -212,17 +215,17 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_values: bool = False
         
         # ACT
-        response: Concept = self.api.get_property(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_property(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_name, response.name)
-        self.assertEqual(expected_synonym, response.synonyms[0].name)
+        assert response is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
+        assert expected_synonym == response.synonyms[0].name, "FAIL: expected synonym doesn't match actual"
         
         self.logger.info(f"Get full property for code - {code_or_name}")
         self.logger.info(f"    property - {str(response)}")
     
-    def test_get_qualifier(self):
+    def test_get_qualifier(self, metadata_api):
         """
         Get the qualifier for the specified terminology and code/name
         """
@@ -232,18 +235,18 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name: string = "go-source"
         
         # ACT
-        response: Concept = self.api.get_qualifier(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_qualifier(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertIsNotNone(response.synonyms)
-        self.assertIsNotNone(response.definitions)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert response.synonymm is not None
+        assert response.definitions is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get minimal qualifier for code - {code_or_name}")
         self.logger.info(f"    qualifier - {str(response)}")
-        
-    def test_get_qualifier_values(self):
+    
+    def test_get_qualifier_values(self, metadata_api):
         """
         Get qualifier values for the specified terminology and code/name
         """
@@ -253,22 +256,22 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_value: bool = False
         
         # ACT
-        response: [string] = self.api.get_qualifier_values(self.terminology, code_or_name)
+        response: [string] = metadata_api.get_qualifier_values(self.terminology, code_or_name)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected value in the response
         for value in response:
-            self.assertIsNotNone(value)
+            assert value is not None
             if value.__contains__(expected_value):
                 contains_expected_value = True
                 break
-        self.assertTrue(contains_expected_value)
+        assert contains_expected_value is True
         
         self.logger.info(f"Get qualifier values for code - {code_or_name}")
         self.logger.info(f"    qualifier values - {str(response)}")
-        
-    def test_get_qualifiers(self):
+    
+    def test_get_qualifiers(self, metadata_api):
         """
         Get all qualifiers (properties on properties) for the specified terminology
         """
@@ -280,26 +283,26 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_code2: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_qualifiers(self.terminology, include)
+        response: [Concept] = metadata_api.get_qualifiers(self.terminology, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for qualifier in response:
-            self.assertIsNotNone(qualifier.code)
+            assert qualifier.code is not None
             if qualifier.code.__contains__(expected_code1):
                 contains_code1 = True
             if qualifier.code.__contains__(expected_code2):
                 contains_code2 = True
             if contains_code1 is True and contains_code2 is True:
                 break
-        self.assertTrue(contains_code1)
-        self.assertTrue(contains_code2)
+        assert contains_code1 is True
+        assert contains_code2 is True
         
         self.logger.info(f"Get all qualifiers for terminology - {self.terminology}")
         self.logger.info(f"    qualifiers - {str(response)}")
     
-    def test_get_role(self):
+    def test_get_role(self, metadata_api):
         """
         Get the role for the specified terminology and code/name
         """
@@ -309,17 +312,17 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name: string = "Chemotherapy_Regimen_Has_Component"
         
         # ACT
-        response: Concept = self.api.get_role(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_role(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertIsNotNone(response.synonyms)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert response.synonyms is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get summary role for code - {code_or_name}")
         self.logger.info(f"    role - {str(response)}")
     
-    def test_get_roles(self):
+    def test_get_roles(self, metadata_api):
         """
         Get all roles (or those specified in a list) for the specified terminology
         """
@@ -329,22 +332,22 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_code: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_roles(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_roles(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code):
                 contains_expected_code = True
                 break
-        self.assertTrue(contains_expected_code)
+        assert contains_expected_code is True
         
         self.logger.info(f"Get all roles for terminology - {self.terminology}")
         self.logger.info(f"    roles - {str(response)}")
     
-    def test_get_subsets1(self):
+    def test_get_subsets1(self, metadata_api):
         """
         Get all subsets (or those specified by list parameter) for the specified terminology.
 
@@ -356,22 +359,22 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_code: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_subsets1(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_subsets1(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code):
                 contains_expected_code = True
                 break
-        self.assertTrue(contains_expected_code)
+        assert contains_expected_code is True
         
         self.logger.info(f"Get all subsets for terminology - {self.terminology}")
         self.logger.info(f"    subsets - {str(response)}")
-        
-    def test_get_subset1(self):
+    
+    def test_get_subset1(self, metadata_api):
         """
         Get the subset for the specified terminology and code
         
@@ -383,16 +386,16 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name: string = "CDISC ADaM Terminology"
         
         # ACT
-        response: Concept = self.api.get_subset1(self.terminology, code, include)
+        response: Concept = metadata_api.get_subset1(self.terminology, code, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get the subset for code - {code}")
         self.logger.info(f"    subset - {str(response)}")
     
-    def test_get_synonym_sources(self):
+    def test_get_synonym_sources(self, metadata_api):
         """
         Get all synonym sources for the specified terminology
         """
@@ -402,26 +405,26 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_code2: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_synonym_sources(self.terminology)
+        response: [Concept] = metadata_api.get_synonym_sources(self.terminology)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code1):
                 contains_code1 = True
             if concept.code.__contains__(expected_code2):
                 contains_code2 = True
             if contains_code1 is True and contains_code2 is True:
                 break
-        self.assertTrue(contains_code1)
-        self.assertTrue(contains_code2)
+        assert contains_code1 is True
+        assert contains_code2 is True
         
         self.logger.info(f"Get all synonym sources for terminology - {self.terminology}")
         self.logger.info(f"    synonym - {str(response)}")
     
-    def test_get_synonym_type_by_code(self):
+    def test_get_synonym_type_by_code(self, metadata_api):
         """
         Get the synonym type for the specified terminology and code/name
         """
@@ -431,16 +434,16 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         expected_name: string = "FULL_SYN"
         
         # ACT
-        response: Concept = self.api.get_synonym_type(self.terminology, code_or_name, include)
+        response: Concept = metadata_api.get_synonym_type(self.terminology, code_or_name, include)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(expected_name, response.name)
+        assert response is not None
+        assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         
         self.logger.info(f"Get synonym type for code - {code_or_name}")
         self.logger.info(f"    synonym - {str(response)}")
     
-    def test_get_synonym_types(self):
+    def test_get_synonym_types(self, metadata_api):
         """
         Get all synonym types (or those specified by list parameter) for the specified terminology
         """
@@ -450,22 +453,22 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_expected_code: bool = False
         
         # ACT
-        response: [Concept] = self.api.get_synonym_types(self.terminology, include, None)
+        response: [Concept] = metadata_api.get_synonym_types(self.terminology, include, None)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code):
                 contains_expected_code = True
                 break
-        self.assertTrue(contains_expected_code)
+        assert contains_expected_code is True
         
         self.logger.info(f"Get all synonym types for terminology - {self.terminology}")
         self.logger.info(f"    synonym types - {str(response)}")
     
-    def test_get_term_types(self):
+    def test_get_term_types(self, metadata_api):
         """
         Get all term types for the specified terminology
         """
@@ -476,26 +479,26 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         contains_code2: bool = False
         
         # ACT
-        response: [ConceptMinimal] = self.api.get_term_types(self.terminology)
+        response: [ConceptMinimal] = metadata_api.get_term_types(self.terminology)
         
         # ASSERT
-        self.assertIsNotNone(response)
+        assert response is not None
         # Find our expected values in the response
         for concept in response:
-            self.assertIsNotNone(concept.code)
+            assert concept.code is not None
             if concept.code.__contains__(expected_code1):
                 contains_code1 = True
             if concept.code.__contains__(expected_code2):
                 contains_code2 = True
             if contains_code1 is True and contains_code2 is True:
                 break
-        self.assertTrue(contains_code1)
-        self.assertTrue(contains_code2)
+        assert contains_code1 is True
+        assert contains_code2 is True
         
         self.logger.info(f"Get all term types for terminology - {self.terminology}")
         self.logger.info(f"    term types - {str(response)}")
     
-    def test_get_terminologies(self):
+    def test_get_terminologies(self, metadata_api):
         """
         Get all available terminologies
         """
@@ -504,17 +507,13 @@ class TestMetadataEndpointsApi(unittest.TestCase):
         tag: string = "monthly"
         
         # ACT
-        response: [Terminology] = self.api.get_terminologies(latest, tag)
+        response: [Terminology] = metadata_api.get_terminologies(latest, tag)
         
         # ASSERT
-        self.assertIsNotNone(response)
-        self.assertEqual(self.terminology, response[0].terminology)
-        self.assertIsNotNone(response[0].latest)
-        self.assertTrue(response[0].latest)
+        assert response is not None
+        assert self.terminology == response[0].terminology, "FAIL: expected terminology doesn't match actual"
+        assert response[0].latest is True
+        assert response[0].latest is True
         
         self.logger.info(f"Get all terminologies for {self.terminology}")
         self.logger.info(f"    terminologies - {str(response)}")
-        
-
-if __name__ == '__main__':
-    unittest.main()

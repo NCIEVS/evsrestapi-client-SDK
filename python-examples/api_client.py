@@ -114,7 +114,7 @@ class ApiClient:
         config = configparser.ConfigParser()
 
         config.read('config.ini')
-        url = config['DEFAULT']['Url']
+        url = config['default']['Url']
         return Configuration(host=url)
 
     @property

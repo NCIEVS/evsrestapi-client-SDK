@@ -82,7 +82,7 @@ All commands to run these tests should be run from that directory.
 
 Return all loaded terminologies currently hosted by the API.
 
-`pytest test_metadata_endpoints_api.py::test_get_terminologies`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_terminologies`
 
 ```
 2024-07-03T16:31:33.756 INFO : Get all terminologies for ncit
@@ -95,7 +95,7 @@ Return all loaded terminologies currently hosted by the API.
 
 Return concept object with minimal information for a specified code.
 
-`pytest test_concept_endpoints_api.py::test_get_concept`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concept`
 
 ```
 2024-07-02T13:56:44.056 INFO : Get a single concept for code - C3224
@@ -108,7 +108,7 @@ Return concept object with minimal information for a specified code.
 
 Return concept objects with minimal information for a specified list of codes.
 
-`pytest test_concept_endpoints_api.py::test_get_concepts`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concepts`
 
 ```
 2024-07-02T13:56:44.112 INFO : Get list of concepts for codes - C & 3
@@ -121,7 +121,7 @@ Return concept objects with minimal information for a specified list of codes.
 
 Return concept object with summary information for a specified code.
 
-`pytest test_concept_endpoints_api.py::test_get_concept_summary`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concept_summary`
 
 ```
 2024-07-02T13:56:44.095 INFO : Get a summary concept for code - C3224
@@ -134,7 +134,7 @@ Return concept object with summary information for a specified code.
 
 Return concept object with full information for a specified code.
 
-`pytest test_concept_endpoints_api.py::test_get_concept_full`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concept_full`
 
 ```
 2024-07-02T13:56:44.073 INFO : Get a full concept for code - C3224
@@ -148,7 +148,7 @@ Return concept object with full information for a specified code.
 Return custom concept information for a given terminology and code. To show a range of options, in this case, the
 request asks for synonyms, children, maps, and inverse associations.
 
-`pytest test_concept_endpoints_api.py::test_get_concept_custom_include`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concept_custom_include`
 
 ```
 2024-07-02T13:56:43.947 INFO : Get a custom include concept for code - C3224
@@ -164,7 +164,7 @@ you can replace "children" in the URL with any of the following and retrieve the
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps.
 
-`pytest test_concept_endpoints_api.py::test_get_children`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_children`
 
 ```
 2024-07-02T13:56:44.042 INFO : Get children for code - C3224
@@ -179,7 +179,7 @@ Return concept descendants information for a given terminology and code. The cal
 maxLevel to prevent going deeper than a certain amount. Level 0 entries in the result are the direct children. The test
 sets the max level to 2.
 
-`pytest test_concept_endpoints_api.py::test_get_descendants`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_descendants`
 
 ```
 2024-07-02T13:56:44.134 INFO : Get list of descendants for code - C3224
@@ -192,7 +192,7 @@ sets the max level to 2.
 
 Return all properties for a given terminology with default include setting (minimal).
 
-`pytest test_metadata_endpoints_api.py::test_get_properties`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_properties`
 
 ```
 2024-07-03T16:31:33.506 INFO : Get all properties for a terminology &/or list of codes/labels - ncit
@@ -205,7 +205,7 @@ Return all properties for a given terminology with default include setting (mini
 
 Return property for the specified code or label.
 
-`pytest test_metadata_endpoints_api.py::test_get_property`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_property`
 
 ```
 2024-07-03T16:31:33.529 INFO : Get full property for code - P216
@@ -218,7 +218,7 @@ Return property for the specified code or label.
 
 Return all qualifiers for a given terminology with default include setting (minimal).
 
-`pytest test_metadata_endpoints_api.py::test_get_qualifiers`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_qualifiers`
 
 ```
 2024-07-03T16:31:33.673 INFO : Get all qualifiers for terminology - ncit
@@ -231,7 +231,7 @@ Return all qualifiers for a given terminology with default include setting (mini
 
 Return qualifier for the specified code or label.
 
-`pytest test_metadata_endpoints_api.py::test_get_qualifier`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_qualifier`
 
 ```
 2024-07-03T16:31:33.608 INFO : Get minimal qualifier for code - P390
@@ -244,7 +244,7 @@ Return qualifier for the specified code or label.
 
 Return distinct value set for the qualifier with the specified code or label.
 
-`pytest test_metadata_endpoints_api.py::test_get_qualifier_values`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_qualifier_values`
 
 ```
 2024-07-03T16:31:33.646 INFO : Get qualifier values for code - P390
@@ -257,7 +257,7 @@ Return distinct value set for the qualifier with the specified code or label.
 
 Return all roles.
 
-`pytest test_metadata_endpoints_api.py::test_get_roles`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_roles`
 
 ```
 2024-07-03T16:31:33.699 INFO : Get all roles for terminology - ncit
@@ -270,7 +270,7 @@ Return all roles.
 
 Returns a role definition for a specified code.
 
-`pytest test_metadata_endpoints_api.py::test_get_role`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_role`
 
 ```
 2024-07-03T16:31:33.690 INFO : Get summary role for code - R123
@@ -283,7 +283,7 @@ Returns a role definition for a specified code.
 
 Return all associations.
 
-`pytest test_metadata_endpoints_api.py::test_get_associations`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_associations`
 
 ```
 2024-07-03T16:31:33.448 INFO : Get all associations for terminology - ncit
@@ -296,7 +296,7 @@ Return all associations.
 
 Returns associations for a specified code.
 
-`pytest test_metadata_endpoints_api.py::test_get_association_by_code`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_association_by_code`
 
 ```
 2024-07-03T16:31:33.444 INFO : Get all associations for code - A18
@@ -309,7 +309,7 @@ Returns associations for a specified code.
 
 Return metadata for all term types for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_term_types`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_term_types`
 
 ```
 2024-07-03T16:31:33.750 INFO : Get all term types for terminology - ncit
@@ -322,7 +322,7 @@ Return metadata for all term types for the specified terminology.
 
 Return metadata for all synonym sources for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_synonym_sources`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_synonym_sources`
 
 ```
 2024-07-03T16:31:33.724 INFO : Get all synonym sources for terminology - ncit
@@ -335,7 +335,7 @@ Return metadata for all synonym sources for the specified terminology.
 
 Return metadata for all definition sources for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_definition_sources`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_definition_sources`
 
 ```
 2024-07-03T16:31:33.465 INFO : Get all definition sources for terminology - ncit
@@ -348,7 +348,7 @@ Return metadata for all definition sources for the specified terminology.
 
 Return metadata for all definition types for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_definition_types`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_definition_types`
 
 ```
 2024-07-03T16:31:33.495 INFO : Get all definition types for terminology - ncit
@@ -361,7 +361,7 @@ Return metadata for all definition types for the specified terminology.
 
 Get definition type by code. Include parameter allowed customizing how much data to return.
 
-`pytest test_metadata_endpoints_api.py::test_get_definition_type_by_code`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_definition_type_by_code`
 
 ```
 2024-07-03T16:31:33.486 INFO : Get definition type for code - P325
@@ -374,7 +374,7 @@ Get definition type by code. Include parameter allowed customizing how much data
 
 Return metadata for all synonym types for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_synonym_types`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_synonym_types`
 
 ```
 2024-07-03T16:31:33.744 INFO : Get all synonym types for terminology - ncit
@@ -387,7 +387,7 @@ Return metadata for all synonym types for the specified terminology.
 
 Return metadata for all synonym types for the specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_synonym_type_by_code`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_synonym_type_by_code`
 
 ```
 2024-07-03T16:31:33.735 INFO : Get synonym type for code - P90
@@ -400,7 +400,7 @@ Return metadata for all synonym types for the specified terminology.
 
 Return all root concepts for the specified terminology.
 
-`pytest test_concept_endpoints_api.py::test_get_roots`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_roots`
 
 ```
 
@@ -412,9 +412,9 @@ Return all root concepts for the specified terminology.
 
 Return paths to/from the root concept from a specified terminology and code.
 
-`pytest test_concept_endpoints_api.py::test_get_paths_to_root`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_paths_to_root`
 
-`pytest test_concept_endpoints_api.py::test_get_paths_from_root`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_paths_from_root`
 
 ```
 2024-07-02T13:56:44.542 INFO : Get paths to hierarchy root for code - C3224
@@ -432,7 +432,7 @@ Return paths to/from the root concept from a specified terminology and code.
 
 Return paths to the root concept for a specified terminology and code.
 
-`pytest test_concept_endpoints_api.py::test_get_paths_to_ancestor`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_paths_to_ancestor`
 
 ```
 2024-07-02T13:56:44.452 INFO : Get paths from code to ancestor code - C3224 to C2991
@@ -446,7 +446,7 @@ Return paths to the root concept for a specified terminology and code.
 Return an entire subtree graph from the root concepts to a specified node. This call is specifically tuned to support a
 tree-view based hierarchy browser in a UI.
 
-`pytest test_concept_endpoints_api.py::test_get_subtree`
+`pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_subtree`
 
 ```
 2024-07-02T13:56:45.014 INFO : Get the entire subtree from root to node for code - C3224
@@ -460,7 +460,7 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`pytest test_search_endpoint_api.py::test_get_concept`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept`
 
 ```
 
@@ -473,7 +473,7 @@ results. Include is set to minimal.
 Find concepts matching a search term within a specified terminology and restrict the search results by concept status of
 "Retired_Concept". This example uses paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_concept_status`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_concept_status`
 
 ```
 
@@ -486,7 +486,7 @@ Find concepts matching a search term within a specified terminology and restrict
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition
 source of "NCI". This example uses paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_definition_source`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_definition_source`
 
 ```
 
@@ -499,7 +499,7 @@ source of "NCI". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a definition type
 of "DEFINITION". This example uses paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_definition_type`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_definition_type`
 
 ```
 
@@ -512,7 +512,7 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym source
 of "NCI" and synonymTermGroup of "PT".
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_synonym_source`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_synonym_source`
 
 ```
 
@@ -525,7 +525,7 @@ of "NCI" and synonymTermGroup of "PT".
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym type
 of "FULL_SYN".
 
-`pytest test_search_endpoint_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```
 
@@ -538,7 +538,7 @@ of "FULL_SYN".
 Find concepts matching a search term within a specified terminology and restrict the search results using a code as the
 search term.
 
-`pytest test_search_endpoint_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
 
@@ -547,7 +547,7 @@ search term.
 Find concepts matching a search term within a specified terminology and a search type of "match". This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```
 
@@ -560,7 +560,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "startsWith".This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_starts_with`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_starts_with`
 
 ```
 
@@ -573,7 +573,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "phrase". This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_phrase`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_phrase`
 
 ```
 
@@ -586,7 +586,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "fuzzy". This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_fuzzy`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_fuzzy`
 
 ```
 
@@ -599,7 +599,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "and". This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_and`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_and`
 
 ```
 
@@ -612,7 +612,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "or". This example uses
 paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_or`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_or`
 
 ```
 
@@ -625,7 +625,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and include synonyms and highlighted text in the
 response. This example uses paging to get only the first 5 results.
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_search_term_highlights`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_search_term_highlights`
 
 ```
 
@@ -639,7 +639,7 @@ Find concepts matching a search term that is searched within a certain set of pr
 include the property values, so you can easily see the match. The property setting here can be either based on code or
 on label
 
-`pytest test_search_endpoint_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```
 
@@ -652,7 +652,7 @@ on label
 Get concepts matching a search term within a specified terminology and subset. This example searches within C165258
 (e.g. Cellosaurus Disease Terminology).
 
-`pytest test_search_endpoint_api.py::test_get_concept_by_subset`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::test_get_concept_by_subset`
 
 ```
 
@@ -664,7 +664,7 @@ Get concepts matching a search term within a specified terminology and subset. T
 
 Find concepts for a specified SPARQL query that returns a ?code field.
 
-`pytest test_search_endpoint_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```
 
@@ -676,7 +676,7 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 Get all subsets for a specified terminology.
 
-`pytest test_metadata_endpoints_api.py::test_get_subsets1`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_subsets1`
 
 ```
 2024-07-03T16:49:18.906 INFO : Get all subsets for terminology - ncit
@@ -691,7 +691,7 @@ Get all subsets for a specified terminology.
 
 Get subset for a specified terminology and code.
 
-`pytest test_metadata_endpoints_api.py::test_get_subset1`
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_subset1`
 
 ```
 2024-07-03T16:31:33.716 INFO : Get the subset for code - C81222
@@ -704,7 +704,7 @@ Get subset for a specified terminology and code.
 
 Get subset members for a specified terminology and code.
 
-`pytest test_subset_endpoint_api.py::test_get_subset_members_by_code`
+`pytest tests/test_subset_endpoints_api.py::TestSubsetEndpointsApi::test_get_subset_members_by_code`
 
 ```
 
@@ -716,10 +716,9 @@ Get subset members for a specified terminology and code.
 
 Get concepts for a specified SPARQL query without prefixes.
 
-Command: `pytest test_concept_tests.py::test_get_concepts_by_sparql_query_with_prefix`
+Command: `pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```{.python}
-(data is too long for display on this page)
 ```
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
@@ -728,7 +727,7 @@ Command: `pytest test_concept_tests.py::test_get_concepts_by_sparql_query_with_p
 
 Get all mapsets. Include parameter allows customizing how much data to return.
 
-`pytest test_mapset_endpoint_api.py::test_get_all_mapsets`
+`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_all_mapsets`
 
 ```
  
@@ -740,7 +739,7 @@ Get all mapsets. Include parameter allows customizing how much data to return.
 
 Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
-`pytest test_mapset_endpoint_api.py::test_get_mapset_by_code`
+`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_mapset_by_code`
 
 ```
 
@@ -752,7 +751,7 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 Get the maps for a specified mapset code.
 
-`pytest test_mapset_endpoint_api.py::test_get_maps_by_mapset_code`
+`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_maps_by_mapset_code`
 
 ```
 
@@ -764,10 +763,10 @@ Get the maps for a specified mapset code.
 
 Get the replacement concepts for a specified inactive concept code.
 
-`pytest test_history_endpoint_api.py::test_get_inactive_replacement_code`
+`pytest tests/test_history_endpoints_api.py::TestHistoryEndpointsApi::test_get_replacements`
 
 ```
-
+replacements = [History(uri=None, ct=None, code='C12658', name='Prokaryotic Cell', action='retire', var_date='2003-08-22', replacement_code='C19157', replacement_name='Specimen')]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
@@ -776,10 +775,10 @@ Get the replacement concepts for a specified inactive concept code.
 
 Get the replacement concepts for a specified list of inactive concept codes.
 
-`pytest test_history_endpoint_api.py::test_get_inactive_replacement_codes`
+`pytest tests/test_history_endpoints_api.py::TestHistoryEndpointsApi::test_get_replacements_from_list`
 
 ```
-
+2024-07-09T17:55:42.074 INFO :     suggested replacements = [History(uri=None, ct=None, code='C12658', name='Prokaryotic Cell', action='retire', var_date='2003-08-22', replacement_code='C19157', replacement_name='Specimen'), History(uri=None, ct=None, code='C13320', name='Nose, Nasal Passages', action='merge', var_date='2003-08-22', replacement_code='C12756', replacement_name='Nose')]
 ```
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
@@ -788,7 +787,7 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 Get SPARQL bindings for a specified SPARQL query.
 
-`pytest test_search_endpoints_api.py::`
+`pytest tests/test_search_endpoints_api.py::TestSearchEndpointsApi::`
 
 ```
 
