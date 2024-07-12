@@ -61,11 +61,10 @@ tasks.register('buildPythonSdk', GenerateTask) {
     generatorName.set("python")
     remoteInputSpec.set(inputURL)
     outputDir.set("$buildDir/python")
-    apiPackage.set("gov.nih.nci.evs.api")
-    invokerPackage.set("gov.nih.nci.evs.api.invoker")
-    modelPackage.set("gov.nih.nci.evs.api.models")
+    apiPackage.set("api")
+    modelPackage.set("models")
     configOptions.set([
-        "packageName": "python-examples",
+        "packageName": "evs",
         "hideGenerationTimestamp": "false",
         // if there are unknown properties present, ignore them
         "additionalProperties": "true"

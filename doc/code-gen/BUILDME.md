@@ -59,17 +59,16 @@ corresponding `-examples` directory
 1. To generate the client code for python, run `./gradlew buildPythonSdk`
 2. Find the generated client in `build/python`
 3. Copy the new files generated from the `build/python/python-examples/` folder to the `python-examples` folder.
-    1. 🚫🚫 **DO NOT** replace `api_client.py`.
+    1. 🚫🚫 **DO NOT** replace `api_client.py`,
         1. `python-examples` uses `config.ini` to set the basePath url in `api_client.py`. The url should be updated in
-           the `config.ini` files only.
-    2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
-4. Update the imports. The generated code imports tend to have the paths incorrect based on how the code generator is configured.  
-    1. `from python-examples.models.application_version import ApplicationVersion` should be updated to `from
-       .application_version import ApplicationVersion`
-        1. It is important to make sure that `.` is present in the import for python so that it can be found in the
-           correct place
-5. There are two `config.ini` files, one in the root and one in the `tests` folder. This is due to how python runs tests
-   in the IDE versus the terminal. This is intential, do not delete either
+           the `config.ini` files only. Compare the generated `api_client.py` with the already existing one to determine
+           if anything is missing. Add sections as needed.
+    2. 🚫🚫 **DO NOT** replace `requirements.txt`, or `test-requirements.txt`.
+        1. We have additional requirements added that aren't part of the generated requirements files. Compare the
+           generated `requirements.txt` and `test-requirements.txt` to the existing ones and add new reqs as needed
+4. ⚠️⚠️ Update imports for `api.__init__.py` and `models.__init__.py` to add `evs.` as a prefix in the `from` statement. The generated
+   code doesn't include the root package in the imports in these files which will cause the tests to fail.
+5. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
 6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
 
 **[Back to top](#evsrestapi-regenerate-client-sdks)**
