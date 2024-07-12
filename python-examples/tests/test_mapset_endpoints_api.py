@@ -1,8 +1,7 @@
 import pytest
 import logging
 
-from gov.nih.nci.evs.api import MapsetEndpointsApi
-from gov.nih.nci.evs.api.models import Concept, ConceptMapResultList
+from evs import Concept, ConceptMapResultList, MapsetEndpointsApi
 
 
 @pytest.fixture
@@ -42,7 +41,7 @@ class TestMapsetEndpointsApi:
         
         self.logger.info(f"Get mapsets for code - {code} ")
         self.logger.info(f"   mapset = {str(response)}")
-        
+    
     def test_get_mapset_mappings_by_code(self, mapset_api):
         """
         Get the maps for the mapset mappings specified by the code (no terminology param is needed as mapsets connect to
@@ -65,7 +64,7 @@ class TestMapsetEndpointsApi:
         
         self.logger.info(f"Get mapset mappings for code - {code} ")
         self.logger.info(f"   mappings = {str(response)}")
-        
+    
     def test_get_mapsets(self, mapset_api):
         """
         Get all mapsets (no terminology param is needed as mapsets connect to codes between terminologies)

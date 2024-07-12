@@ -3,8 +3,7 @@ import logging
 
 import pytest
 
-from gov.nih.nci.evs.api import MetadataEndpointsApi
-from gov.nih.nci.evs.api.models import Concept, ConceptMinimal, Terminology
+from evs import Concept, ConceptMinimal, MetadataEndpointsApi, Terminology
 
 
 @pytest.fixture
@@ -64,7 +63,7 @@ class TestMetadataEndpointsApi:
         
         # ASSERT
         assert response is not None
-        assert len(response) >= expected_size is True
+        assert len(response) >= expected_size
         # Find our expected values in the response
         for concept in response:
             assert concept.code is not None
@@ -239,7 +238,7 @@ class TestMetadataEndpointsApi:
         
         # ASSERT
         assert response is not None
-        assert response.synonymm is not None
+        assert response.synonyms is not None
         assert response.definitions is not None
         assert expected_name == response.name, "FAIL: expected name doesn't match actual"
         

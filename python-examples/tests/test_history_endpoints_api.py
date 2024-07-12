@@ -1,8 +1,7 @@
 import pytest
 import logging
 
-from gov.nih.nci.evs.api import HistoryEndpointsApi
-from gov.nih.nci.evs.api.models import History
+from evs import History, HistoryEndpointsApi
 
 
 @pytest.fixture

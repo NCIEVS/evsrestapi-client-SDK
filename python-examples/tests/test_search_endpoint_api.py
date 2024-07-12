@@ -2,8 +2,7 @@ import pytest
 import string
 import logging
 
-from gov.nih.nci.evs.api import SearchEndpointApi
-from gov.nih.nci.evs.api.models import ConceptResultList
+from evs import ConceptResultList, MapResultList, SearchEndpointApi
 
 
 @pytest.fixture
@@ -491,8 +490,38 @@ class TestSearchEndpointApi:
         include: str = "minimal"
         from_record: int = 0
         page_size: int = 25
-        query: str = ("SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "
-                      "\"Melanoma\")} }")
+        query: str = ('SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma" } }')
         expected_total: int = 1
         
         # ACT
+        response: ConceptResultList = search_api.search_single_terminology_sparql(self.terminology, query, include,
+                                                                                  None, None, type, None,
+                                                                                  ascending, from_record, page_size, None,
+                                                                                  None, None, None, None,
+                                                                                  None, None, None, None)
+        
+        # ASSERT
+        assert response is not None
+        assert response.total == expected_total
+        assert response.concepts is not None
+        assert response.concepts[0] is not None
+        
+        self.logger.info(f"Get search results from {self.terminology} for SPARQL query = {query}")
+        self.logger.info(f"    search results = {str(response)}")
+
+    def test_get_sparql_bindings(self, search_api):
+        """
+        Get SPARQL bindings from query
+        """
+        # ARRANGE - using global variable unless otherwise listed
+        query: str = ('SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }')
+        
+        # ACT
+        response: MapResultList = search_api.get_sparql_bindings(self.terminology, query, None, None, None)
+        
+        # ASSERT
+        assert response is not None
+        
+        self.logger.info(f"Get SPARQL bindings for query = {query}")
+        self.logger.info(f"    search results = {str(response)}")
+        

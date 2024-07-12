@@ -2,8 +2,8 @@ from typing import List
 
 import pytest
 import logging
-from gov.nih.nci.evs.api import ConceptEndpointsApi
-from gov.nih.nci.evs.api.models import Association, AssociationEntryResultList, Concept, ConceptMap, DisjointWith, \
+
+from evs import Association, AssociationEntryResultList, Concept, ConceptEndpointsApi, ConceptMap, DisjointWith, \
     HierarchyNode, Role
 
 

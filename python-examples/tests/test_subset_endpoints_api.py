@@ -2,8 +2,7 @@ import pytest
 import string
 import logging
 
-from gov.nih.nci.evs.api import SubsetEndpointsApi
-from gov.nih.nci.evs.api.models import Concept
+from evs import Concept, SubsetEndpointsApi
 
 
 @pytest.fixture
