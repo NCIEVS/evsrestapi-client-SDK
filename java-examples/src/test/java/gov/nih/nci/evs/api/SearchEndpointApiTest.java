@@ -256,7 +256,7 @@ public class SearchEndpointApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchFilterBySynonymSourceAndTermGroupTest() throws ApiException {
+  public void searchFilterBySynonymSourceAndTermTypeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String term = "dsDNA";
     String type = "contains";
@@ -367,7 +367,7 @@ public class SearchEndpointApiTest {
     Boolean ascending = true;
     String include = "minimal";
     Integer fromRecord = 0;
-    Integer pageSize = 25;
+    Integer pageSize = 5;
 
     // ACT
     ConceptResultList response =
@@ -698,7 +698,7 @@ public class SearchEndpointApiTest {
     // ARRANGE - using global variable unless otherwise listed
     String term = "XAV05295I5";
     Boolean ascending = true;
-    String include = "minimal";
+    String include = "highlights";
     Integer fromRecord = 0;
     Integer pageSize = 5;
 
@@ -736,7 +736,7 @@ public class SearchEndpointApiTest {
   }
 
   /**
-   * Get concept search results with highlights
+   * Get concept search results by property
    *
    * @throws ApiException if the Api call fails
    */
@@ -831,7 +831,7 @@ public class SearchEndpointApiTest {
   }
 
   /**
-   * Get concept search results using term code through SPARQL with a prefix
+   * Get concept search results using term code through SPARQL code
    *
    * @throws ApiException if the Api call fails
    */
@@ -888,7 +888,6 @@ public class SearchEndpointApiTest {
   @Test
   public void getSPARQLBindingsTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String include = "minimal";
     String query = "SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }";
 
     // ACT

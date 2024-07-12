@@ -40,7 +40,7 @@ public class HistoryEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(HistoryEndpointsApiTest.class);
 
   /** Instantiate the HistoryEndpointApi */
   @BeforeAll

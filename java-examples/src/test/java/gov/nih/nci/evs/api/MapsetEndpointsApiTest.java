@@ -40,7 +40,7 @@ public class MapsetEndpointsApiTest {
   private static MapsetEndpointsApi api = null;
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(MapsetEndpointsApiTest.class);
 
   /** Instantiate the MapsetEndpointsApi */
   @BeforeAll

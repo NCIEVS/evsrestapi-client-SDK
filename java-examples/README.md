@@ -169,40 +169,40 @@ Run the gradle command in the terminal to return concept object with minimal inf
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getConceptTest`
 
 ```
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a single concept for code - C3224
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
-        uri: null
-        ct: null
-        code: C3224
-        name: Melanoma
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a single concept for code - C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
+    uri: null
+    ct: null
+    code: C3224
+    name: Melanoma
+    terminology: ncit
+    version: 23.10e
+    level: null
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -388,19 +388,6 @@ Run the gradle command in the terminal to return summary concept information for
     ...
     ...
     ...
-    }]
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
 }
 ```
 
@@ -420,172 +407,67 @@ Run the gradle command in the terminal to return full concept information for a 
     code: C3224
     name: Melanoma
     terminology: ncit
-    version: 23.10e
+    version: 21.06e
     level: null
     highlight: null
-    highlights: {}
-    normName: null
     subsetLink: null
     mapsetLink: null
-    conceptStatus: null
+    conceptStatus: DEFAULT
     source: null
     leaf: false
+    active: true
     synonyms: [class Synonym {
         uri: null
         ct: null
         name: Melanoma
-        normName: null
         highlight: null
         termType: SY
         type: FULL_SYN
-        typeCode: null
         source: caDSR
         code: null
         subSource: null
-        qualifiers: null
-        termGroup: null
-    },
-    ...
-    ...
-    }]
-    definitions: [class Definition {
+        qualifiers: []
+        active: null
+    }, class Synonym {
         uri: null
         ct: null
-        definition: A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.
+        name: Malignant Melanoma
         highlight: null
+        termType: SY
+        type: FULL_SYN
+        source: CDISC
         code: null
-        type: ALT_DEFINITION
-        source: NCI-GLOSS
-        qualifiers: null
-    },
-    ...
-    ...
-    }]
-    history: [class History {
+        subSource: null
+        qualifiers: []
+        active: null
+    }, class Synonym {
         uri: null
         ct: null
-        code: C3224
-        name: null
-        action: create
-        date: 2003-08-12
-        replacementCode: null
-        replacementName: null
-    },
-    ...
-    ...
-    }]
-    properties: [class Property {
-        uri: null
-        ct: null
+        name: MELANOMA, MALIGNANT
+        highlight: null
+        termType: PT
+        type: FULL_SYN
+        source: CDISC
         code: null
-        type: Contributing_Source
-        value: CDISC
-        highlight: null
-        qualifiers: null
-        source: null
-    },
-    ...
-    ...
-    }]
-    qualifiers: null
-    children: [class Concept {
+        subSource: null
+        qualifiers: []
+        active: null
+    }, class Synonym {
         uri: null
         ct: null
-        code: C3802
-        name: Amelanotic Melanoma
-        terminology: null
-        version: null
-        level: null
+        name: Melanoma
         highlight: null
-        highlights: {}
-        ...
-        ...
-    },
-    ...
-    ...
-    }]
-    descendants: null
-    associations: [class Association {
-        uri: null
-        ct: null
+        termType: PT
+        type: FULL_SYN
+        source: Cellosaurus
         code: null
-        type: Concept_In_Subset
-        relatedCode: C77526
-        relatedName: CDISC SEND Terminology
-        source: null
-        highlight: null
-        qualifiers: null
+        subSource: null
+        qualifiers: []
+        active: null
     },
     ...
     ...
-    }]
-    inverseAssociations: [class Association {
-        uri: null
-        ct: null
-        code: null
-        type: Has_GDC_Value
-        relatedCode: C178243
-        relatedName: Family Cancer History Relative Primary Diagnosis Question
-        source: null
-        highlight: null
-        qualifiers: null
-    },
-    ...
-    ...
-    }]
-    roles: [class Role {
-        uri: null
-        ct: null
-        code: null
-        type: Disease_Excludes_Finding
-        relatedCode: C36122
-        relatedName: Benign Cellular Infiltrate
-        source: null
-        highlight: null
-        qualifiers: null
-    },
-    ...
-    ...
-    }]
-    disjointWith: null
-    inverseRoles: [class Role {
-        uri: null
-        ct: null
-        code: null
-        type: Gene_Product_Malfunction_Associated_With_Disease
-        relatedCode: C21390
-        relatedName: Beta/Gamma Crystallin Domain-Containing Protein 1
-        source: null
-        highlight: null
-        qualifiers: null
-    },
-    ...
-    ...
-    }]
-    maps: [class ConceptMap {
-        uri: null
-        ct: null
-        source: null
-        sourceName: null
-        sourceTermType: null
-        sourceCode: null
-        sourceTerminology: null
-        type: Related To
-        rank: null
-        group: null
-        rule: null
-        targetName: 8720/3
-        targetTermType: PT
-        targetCode: morphology
-        targetTerminology: GDC
-        targetTerminologyVersion: null
-        targetTermGroup: null
-    },
-    ...
-    ...
-    }]
-    paths: null
-    extensions: null
+    ..
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -727,8 +609,8 @@ associations.
 
 ### Get concept part
 
-Run the gradle command in the terminal to return concept children for a given terminology and code. Returns sub-part of 
-the concept for a given terminology and code. NOTE: in the call below, you can replace "children" in the URL with any 
+Run the gradle command in the terminal to return concept children for a given terminology and code. Returns sub-part of
+the concept for a given terminology and code. NOTE: in the call below, you can replace "children" in the URL with any
 of the following and retrieve the corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps.
 
@@ -819,105 +701,106 @@ the direct children. The test sets the max level to 4, page size to 100, and fro
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getDescendantsTest`
 
 ```
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    descendents = [class Concept {
-        uri: null
-        ct: null
-        code: C155311
-        name: Advanced Cutaneous Melanoma of the Extremity
-        terminology: null
-        version: null
-        level: 4
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C171572
-        name: Advanced Cutaneous Melanoma
-        terminology: null
-        version: null
-        level: 3
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C153169
-        name: Advanced Melanoma
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    },
-    ...
-    ...
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of descendants for code - C3224
+[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    descendents = [class Concept {
+    uri: null
+    ct: null
+    code: C155311
+    name: Advanced Cutaneous Melanoma of the Extremity
+    terminology: null
+    version: null
+    level: 4
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: true
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C171572
+    name: Advanced Cutaneous Melanoma
+    terminology: null
+    version: null
+    level: 3
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C153169
+    name: Advanced Melanoma
+    terminology: null
+    version: null
+    level: 2
+    highlight: null
+    highlights: {}
+    normName: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: null
+    source: null
+    leaf: false
+    synonyms: null
+    definitions: null
+    history: null
+    properties: null
+    qualifiers: null
+    children: null
+    parents: null
+    descendants: null
+    associations: null
+    inverseAssociations: null
+    roles: null
+    disjointWith: null
+    inverseRoles: null
+    maps: null
+    paths: null
+    extensions: null
+},
+...
+...
 }]
 ```
 
@@ -1762,12 +1645,12 @@ Run the gradle command in the terminal to return metadata for all synonym source
 }]
 ```
 
-
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get all definition types
 
-Run the gradle command in the terminal to find all definition types. Include parameter allowed customizing how much data to return.
+Run the gradle command in the terminal to find all definition types. Include parameter allowed customizing how much data
+to return.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypesTest`
 
@@ -1836,10 +1719,10 @@ Run the gradle command in the terminal to find all definition types. Include par
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-
 ### Get definition type by code
 
-Run the gradle command in the terminal to find definition type by code. Include parameter allowed customizing how much data to return.
+Run the gradle command in the terminal to find definition type by code. Include parameter allowed customizing how much
+data to return.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getDefinitionTypeByCodeTest`
 
@@ -1881,7 +1764,8 @@ Run the gradle command in the terminal to find definition type by code. Include 
 
 ### Get all synonym types
 
-Run the gradle command in the terminal to find all synonym types. Include parameter allowed customizing how much data to return.
+Run the gradle command in the terminal to find all synonym types. Include parameter allowed customizing how much data to
+return.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypesTest`
 
@@ -1949,7 +1833,8 @@ Run the gradle command in the terminal to find all synonym types. Include parame
 
 ### Get synonym type by code
 
-Run the gradle command in the terminal to find synonym type by code. Include parameter allowed customizing how much data to return.
+Run the gradle command in the terminal to find synonym type by code. Include parameter allowed customizing how much data
+to return.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSynonymTypeByCodeTest`
 
@@ -1987,9 +1872,7 @@ Run the gradle command in the terminal to find synonym type by code. Include par
 }
 ```
 
-
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
-
 
 ### Find root concepts
 
@@ -2110,7 +1993,6 @@ Run the gradle command in the terminal to return paths to the root concept from 
 
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsToRootTest`
 `./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getPathsFromRootTest`
-
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths to hierarchy root from code - C3224
@@ -2536,7 +2418,7 @@ This call is specifically tuned to support a tree-view based hierarchy browser i
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results. Include is set to minimal.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for - ncit
@@ -2721,11 +2603,11 @@ example uses paging to get only the first 5 results. Include is set to minimal.
 
 ### Find concepts by search term (restrict by concept status)
 
-Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and 
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 restrict the search results by concept status of "Retired_Concept". This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByConceptStatusTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
@@ -2802,7 +2684,7 @@ Run the gradle command in the terminal to find concepts matching a search term w
 terminology and restrict the search results by a definition source of "NCI". This example uses paging to get only the
 first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByDefinitionSourceTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
@@ -2875,11 +2757,11 @@ first 5 results.
 
 ### Find concepts by search term (restrict by definition type)
 
-Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and 
-restrict the search results by a definition type of "DEFINITION". This example uses paging to get only the first 5 
+Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
+restrict the search results by a definition type of "DEFINITION". This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionTypeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByDefinitionTypeTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
@@ -2950,12 +2832,12 @@ results.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-###  Find concepts by search term (restrict by synonym source and termgroup)
+### Find concepts by search term (restrict by synonym source and term type)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified
-terminology and restrict the search results by a synonym source of "NCI" and synonymTermGroup of "PT".
+terminology and restrict the search results by a synonym source of "NCI" and synonymTermType of "PT".
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermGroupTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymSourceAndTermGroupTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
@@ -3027,10 +2909,11 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Find concepts by search term (restrict by synonym type)
+
 Run the gradle command in the terminal to find concepts matching a search term with a specified synonym type. This
 example restricts results to matching FULL_SYNs.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymType`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymType`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, synonym type = FULL_SYN
@@ -3101,13 +2984,12 @@ example restricts results to matching FULL_SYNs.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-
 ### Find concepts by search term (where search term is a code)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and restrict the search results using a code as the search term.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByCodeTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term code = C3224
@@ -3180,7 +3062,7 @@ and restrict the search results using a code as the search term.
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "match". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeMatchTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = match
@@ -3253,7 +3135,7 @@ and a search type of "match". This example uses paging to get only the first 5 r
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and a search type of "startsWith". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeStartsWithTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = startsWith
@@ -3454,7 +3336,7 @@ terminology and a search type of "startsWith". This example uses paging to get o
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "phrase". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypePhraseTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypePhraseTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = phrase
@@ -3558,11 +3440,11 @@ and a search type of "phrase". This example uses paging to get only the first 5 
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "fuzzy". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeFuzzyTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeFuzzyTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = enzyme, type = phrase
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 251
@@ -3759,11 +3641,11 @@ and a search type of "fuzzy". This example uses paging to get only the first 5 r
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "AND". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeANDTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeANDTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = AND
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = AND
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 149
@@ -3960,11 +3842,11 @@ a search type of "AND". This example uses paging to get only the first 5 results
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "OR". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeORTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeORTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = OR
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = OR
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 5469
@@ -4162,11 +4044,11 @@ Run the gradle command in the terminal to find concepts matching a search term w
 terminology and include synonyms and highlighted text in the response. This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchWithHighlightsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchWithHighlightsTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = XAV05295I5 (with highlights)
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = XAV05295I5 (with highlights)
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -4236,11 +4118,11 @@ Run the gradle command in the terminal to find concepts matching a search term t
 of properties. The search results are set to include the property values so you can easily see the match. The property
 setting here can be either based on code or on label
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsByPropertyTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchConceptsByPropertyTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = XAV05295I5, property = FDA_UNII_Code
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = XAV05295I5, property = FDA_UNII_Code
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 1
@@ -4305,14 +4187,15 @@ setting here can be either based on code or on label
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Find concepts by subset
-Find concepts matching a search term and restrict results to members of one or more subsets. This example searches 
+
+Find concepts matching a search term and restrict results to members of one or more subsets. This example searches
 within C165258 (e.g. Cellosaurus Disease Terminology).
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsBySubsetTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchConceptsBySubsetTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get search results from NCIT for term = immune, subset = C165258
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = immune, subset = C165258
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
     total: 33
@@ -4381,10 +4264,10 @@ within C165258 (e.g. Cellosaurus Disease Terminology).
 
 Run the gradle command in the terminal to find concepts for a specified SPARQL query that returns a ?code field.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.findConceptsBySparqlCode`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.findConceptsBySparqlCode`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL search results from NCIT for query = SELECT ?code
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get SPARQL search results from NCIT for query = SELECT ?code
     { GRAPH <http://NCI_T_monthly>
       {
         ?x a owl:Class .
@@ -4392,7 +4275,7 @@ Run the gradle command in the terminal to find concepts for a specified SPARQL q
         ?x :P108 "Melanoma"
       }
     }
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class ConceptResultList {
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
         total: 1
@@ -4548,82 +4431,74 @@ Run the gradle command in the terminal to get all subsets (with minimal informat
 
 Run the gradle command in the terminal to get subsets (with summary information) for a specified terminology and code.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getSubset1Test`
+`./gradlew test --tests gov.nih.nci.evs.api.SubsetEndpointsApiTest.getSubsetTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get the subset for code - C81222
-[Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     subset = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest - Get the subset for code - C116978
+[Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest -     subets = class Concept {
     uri: null
     ct: null
-    code: C81222
-    name: CDISC ADaM Terminology
+    code: C116978
+    name: CTRP Agent Terminology
     terminology: ncit
-    version: 23.10e
+    version: 21.06e
     level: null
     highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: https://evs.nci.nih.gov/ftp1/CDISC/ADaM
+    subsetLink: null
     mapsetLink: null
-    conceptStatus: null
+    conceptStatus: DEFAULT
     source: null
-    leaf: false
+    leaf: true
+    active: true
     synonyms: [class Synonym {
         uri: null
         ct: null
-        name: ADaM
-        normName: null
+        name: Clinical Trials Reporting Program Agent Terminology
         highlight: null
-        termType: PT
+        termType: SY
         type: FULL_SYN
-        typeCode: null
-        source: CDISC
-        code: null
-        subSource: null
-        qualifiers: null
-        termGroup: null
-    }, class Synonym {
-        uri: null
-        ct: null
-        name: CDISC ADaM Terminology
-        normName: null
-        highlight: null
-        termType: PT
-        type: FULL_SYN
-        typeCode: null
         source: NCI
         code: null
         subSource: null
-        qualifiers: null
-        termGroup: null
+        qualifiers: []
+        active: null
     }, class Synonym {
         uri: null
         ct: null
-        name: CDISC ADaM Terminology
-        normName: null
+        name: CTRP Agent Terminology
+        highlight: null
+        termType: PT
+        type: FULL_SYN
+        source: NCI
+        code: null
+        subSource: null
+        qualifiers: []
+        active: null
+    }, class Synonym {
+        uri: null
+        ct: null
+        name: CTRP Agent Terminology
         highlight: null
         termType: null
         type: Preferred_Name
-        typeCode: null
         source: null
         code: null
         subSource: null
-        qualifiers: null
-        termGroup: null
+        qualifiers: []
+        active: null
     }]
     definitions: [class Definition {
         uri: null
         ct: null
-        definition: The terminology subset that includes terms pertaining to the Clinical Data Interchange Standards Consortium (CDISC) Analysis Data Model (ADaM).
+        definition: A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects.
         highlight: null
-        code: null
         type: DEFINITION
         source: NCI
-        qualifiers: null
-    },
+        qualifiers: []
+    }]
     ...
     ...
-}]                   
+}           
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
@@ -4636,8 +4511,8 @@ code.
 `./gradlew test --tests gov.nih.nci.evs.api.SubsetEndpointsApiTest.getSubsetMembersTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get subset members for code - C157225
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subset members = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest - Get subset members for code - C157225
+[Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest -     subset members = [class Concept {
     uri: null
     ct: null
     code: C16255
@@ -4742,12 +4617,13 @@ code.
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get all mapsets
+
 Get all mapsets. Include parameter allows customizing how much data to return.
 `./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetsTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all mapsets
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    mapsets = [class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get all mapsets
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mapsets = [class Concept {
     uri: null
     ct: null
     code: SNOMEDCT_US_2020_09_01_to_ICD10CM_2021_Mappings
@@ -4840,13 +4716,14 @@ Get all mapsets. Include parameter allows customizing how much data to return.
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get mapset by code
+
 Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get mapset for code - NCIt_Maps_To_ICDO3
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -  mapset = class Concept {
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mapset for code - NCIt_Maps_To_ICDO3
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -  mapset = class Concept {
     uri: null
     ct: null
     code: NCIt_Maps_To_ICDO3
@@ -4881,13 +4758,14 @@ Get mapset information for a specified code. Include parameter allows customizin
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get maps by mapset code
+
 Get the maps for a specified mapset code.
 
 `./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetByCodeTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get mappings for mapsets by code
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    mappings = class ConceptMapResultList {
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mappings for mapsets by code
+[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class ConceptMapResultList {
     uri: null
     ct: null
     total: 305
@@ -4967,8 +4845,8 @@ Get the maps for a specified mapset code.
 `./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointsApiTest.getReplacementsTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get suggested replacements for code - C4654
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    replacements = [class History {
+[Test worker] INFO gov.nih.nci.evs.api.HistoryEndpointsApiTest - Get suggested replacements for code - C4654
+[Test worker] INFO gov.nih.nci.evs.api.HistoryEndpointsApiTest -    replacements = [class History {
     uri: null
     ct: null
     code: C12658
@@ -4979,16 +4857,16 @@ Get the maps for a specified mapset code.
     replacementName: Specimen
 }]
 ```
-[Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
 ### Get replacement concepts for a list of inactive concept codes
 
 `./gradlew test --tests gov.nih.nci.evs.api.HistoryEndpointsApiTest.getReplacementsFromListTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of suggested replacements for retired codes - C4654 & C40117
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    suggested replacements = [class History {
+[Test worker] INFO gov.nih.nci.evs.api.HistoryEndpointsApiTest - Get list of suggested replacements for retired codes - C4654 & C40117
+[Test worker] INFO gov.nih.nci.evs.api.HistoryEndpointsApiTest -    suggested replacements = [class History {
     uri: null
     ct: null
     code: C12658
@@ -5011,16 +4889,15 @@ Get the maps for a specified mapset code.
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-
 ### Get SPARQL bindings from query
 
 Run the gradle command in the terminal to get SPARQL bindings for a specified SPARQL query.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.getSPARQLBindingsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.getSPARQLBindingsTest`
 
 ```
-[Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get SPARQL binding results from query = SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    search results = class MapResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get SPARQL binding results from query = SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class MapResultList {
         uri: null
         ct: null
         total: 1000

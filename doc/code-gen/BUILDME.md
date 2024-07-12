@@ -18,9 +18,9 @@ If you need to regenerate a single client for a given language:
 3. The code will generate in a `build` dir. Navigate to the `build` dir.
 4. From the `build` dir, copy the generated code files and any other files required to build the project to the
    corresponding "examples" folder.
-   1. See [next steps](#tasks-to-regenerate-code--next-steps) for details based on your language generated
+    1. See [next steps](#tasks-to-regenerate-code--copy-files) for details based on your language generated
 
-**[Back to top](#evsrestapi-generate-client-code)**
+**[Back to top](#evsrestapi-regenerate-client-sdks)**
 
 ## How to Build All Clients
 
@@ -30,46 +30,49 @@ If you need to rebuild all the clients for all languages, typically after a big 
 2. Execute `gradle buildClients`
 3. All generated projects will be in a `build` folder. Navigate to the `build` folder to see the generated code
 4. From the `build` folder, copy the generated code files and additional files needs to build/compile the project to the
-   corresponding examples folder.
-   1. See [next steps](#tasks-to-regenerate-code--next-steps) for details
+   corresponding `-examples` folder.
+    1. See [next steps](#tasks-to-regenerate-code--copy-files) for details
 
-**[Back to top](#evsrestapi-generate-client-code)**
+**[Back to top](#evsrestapi-regenerate-client-sdks)**
 
 ## Tasks to Regenerate Code & Copy Files...
 
 The following is a list of the available gradle tasks for each language the openapi code generator can generate. The
-location the code is generated to is also provided. Follow the steps for each language on what files to copy to the 
-corresponding `[language]-examples` directory
+location the code is generated to is also provided. Follow the steps for each language on what files to copy to the
+corresponding `-examples` directory
 
 ### Java client
 
 1. To generate the client code for java, run `./gradlew buildJavaSdk`
 2. Find the generated client in `build/java`
 3. Copy the new files generated from the `src/main` folder to the `java-examples/src/main` folder.
-   1. 🚫🚫 **DO NOT**  replace `ApiClient.java`
-      1. `java-examples` uses `src/main/resources/url.properties` to set the basePath url in `ApiClient.java`.
-         1. The url should be updated in the `url.properties` file only.
-   2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
-       
-4. Verify the gradle files match between what was generated vs what exists in `java-examples`. Update as needed, but 
+    1. 🚫🚫 **DO NOT**  replace `ApiClient.java`
+        1. `java-examples` uses `src/main/resources/url.properties` to set the basePath url in `ApiClient.java`.
+            1. The url should be updated in the `url.properties` file only.
+    2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
+4. Verify the gradle files match between what was generated vs what exists in `java-examples`. Update as needed, but
    **don't** override.
 5. Verify the project builds and the tests run successfully before pushing changes
 
-### Python client 
+### Python client
+
 1. To generate the client code for python, run `./gradlew buildPythonSdk`
 2. Find the generated client in `build/python`
-3. Copy the new files generated from the `build/python/python-examples/` folder to the `python-examples` folder. 
-   1. 🚫🚫 **DO NOT** replace `api_client.py`.
-      1. `python-examples` uses `config.ini` to set the basePath url in `api_client.py`.
-         The url should be updated in the `config.ini` file only.
-   2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
-4. Make sure to update the imports. Opening the file in an IDE that supports python should underline the invalid 
-   imports. The path may include parts that aren't necessary.
-   1. `from python-examples.models.application_version import ApplicationVersion` should be updated to `from 
-      .application_version import ApplicationVersion`
-      1. It is important to make sure that `.` is present in the import for python so that it can be found in the correct place
+3. Copy the new files generated from the `build/python/python-examples/` folder to the `python-examples` folder.
+    1. 🚫🚫 **DO NOT** replace `api_client.py`.
+        1. `python-examples` uses `config.ini` to set the basePath url in `api_client.py`. The url should be updated in
+           the `config.ini` files only.
+    2. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
+4. Update the imports. The generated code imports tend to have the paths incorrect based on how the code generator is configured.  
+    1. `from python-examples.models.application_version import ApplicationVersion` should be updated to `from
+       .application_version import ApplicationVersion`
+        1. It is important to make sure that `.` is present in the import for python so that it can be found in the
+           correct place
+5. There are two `config.ini` files, one in the root and one in the `tests` folder. This is due to how python runs tests
+   in the IDE versus the terminal. This is intential, do not delete either
+6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
 
-**[Back to top](#evsrestapi-generate-client-code)**
+**[Back to top](#evsrestapi-regenerate-client-sdks)**
 
 ## Resources
 
@@ -82,4 +85,4 @@ corresponding `[language]-examples` directory
 - [Alicia Garcia](https://github.com/gaaliciA1990)
 - [Other Contributors](https://github.com/NCIEVS/evsrestapi-client-SDK/graphs/contributors)
 
-**[Back to top](#evsrestapi-generate-client-code)**
+**[Back to top](#evsrestapi-regenerate-client-sdks)**
