@@ -40,20 +40,44 @@ If you need to rebuild all the clients for all languages, typically after a big 
 The following is a list of the available gradle tasks for each language the openapi code generator can generate. The
 location the generated code is generated is also provided.
 
-- **All clients** - `buildDependentTasks`
+### All clients
 
-- **Java client** - `buildJavaSdk`
-  - **Generate Location** = `build/openapi-java-client`
-    - Copy the new files generated from the `src/main` folder to the `java-examples/src/main` folder.
-      - <span style="color:red"> DO NOT replace `ApiClient.java`.</span>
-      - <span style="color:red"> DO NOT replace tests. Update tests to demo the new api calls or fix failing tests. </span>
-    - java-examples uses `src/main/resources/url.properties` to set the basePath url in `ApiClient.java`. This
-      should not be changed and the url should be updated in the properties file only.
-    - Verify the gradle files match between what was generated vs what exists in `java-examples`. Update as needed,
-      but don't override.
-    - Verify the project builds and the tests run successfully before pushing changes
+To build generate clients for every supported language we have, run the `./gradlew buildClients` command in the
+terminal.
+For copying files, see the steps for the individual language below
+
+### Java client
+
+1. To generate the client code for java, run `./gradlew buildJavaSdk`
+2. Find the generated client in `build/java`
+3. Copy the new files generated from the `src/main` folder to the `java-examples/src/main` folder.
+   1. **DO NOT** replace `ApiClient.java`  
+
+         a. `java-examples` uses `src/main/resources/url.properties` to set the basePath url in `ApiClient.java`. 
+      The url should be updated in the `url.properties` file only.
+
+     2. **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
+       
+4. Verify the gradle files match between what was generated vs what exists in `java-examples`. Update as needed, but 
+   **don't** override.
+5. Verify the project builds and the tests run successfully before pushing changes
+
+### Python client 
+1. To generate the client code for python, run `./gradlew buildPythonSdk`
+2. Find the generated client in `build/python`
+3. Copy the new files generated from the `build/python/python-examples/` folder to the `python-examples` folder. 
+   1. **DO NOT** replace `__init__.py`, instead add the new file path to the list in this file.
+4. Make sure to update the imports. Opening the file in your IDE that supports python should underline the invalid 
+   imports. The path may include parts that aren't necssary. 
+   1. i.e. `from python-examples.models.application_version import ApplicationVersion` should be updated to `from 
+      application_version import ApplicationVersion`
 
 **[Back to top](#evsrestapi-generate-client-code)**
+
+## Resources
+
+* https://github.com/int128/gradle-swagger-generator-plugin?tab=readme-ov-file#introduction
+* https://stackoverflow.com/questions/66137846/how-to-use-the-open-api-3-gradle-plugin
 
 ## Current Contributors
 

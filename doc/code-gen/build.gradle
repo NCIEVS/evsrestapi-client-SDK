@@ -2,12 +2,16 @@ import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
 
 plugins {
     id 'java'
-    id "org.openapi.generator" version "6.6.0"
+    id 'org.openapi.generator'
     id 'maven-publish'
 }
 
 group = 'gov.nih.nci.evs.api'
 version = '0.0.1-SNAPSHOT'
+
+// Input Specification locations
+def inputURL = 'https://api-evsrest.nci.nih.gov/v3/api-docs'
+def inputFile = '$projectDir/src/evs-swagger.yaml'
 
 repositories {
     mavenCentral()
@@ -17,8 +21,8 @@ sourceCompatibility = 17
 targetCompatibility = 17
 
 dependencies {
-    testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation platform(Testing.junit.bom)
+    testImplementation Testing.junit.jupiter
 }
 
 test {
@@ -30,20 +34,36 @@ test {
  * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
-    remoteInputSpec.set("https://api-evsrest.nci.nih.gov/v3/api-docs")
-    //inputSpec.set("$projectDir/src/evs-swagger.yaml")
-    outputDir.set("$buildDir/openapi-java-client")
+    remoteInputSpec.set(inputURL)
+    //inputSpec.set(inputFile)
+    outputDir.set("$buildDir/java")
     apiPackage.set("gov.nih.nci.evs.api")
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
     modelPackage.set("gov.nih.nci.evs.api.model")
-    configOptions.set([dateLibrary: "java8"])
+    configOptions.set([
+        dateLibrary: "java8",
+    ])
+}
+
+tasks.register('buildPythonSdk', GenerateTask) {
+    generatorName.set("python")
+    remoteInputSpec.set(inputURL)
+    //inputSpec.set(inputFile)
+    outputDir.set("$buildDir/python")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.models")
+    configOptions.set([
+        dateLibrary: "python3",
+        packageName: "python-examples",
+    ])
 }
 
 
 /** Runs all code-gen tasks for each language to generate the clients */
-tasks.register("buildDependentTasks") {
+tasks.register("buildClients") {
     dependsOn("buildJavaSdk",
-//            "buildPythonSdk",
+                "buildPythonSdk",
 //            "buildGoSdk",
 //            "buildKotlinSdk",
 //            "buildBashSdk",
@@ -55,9 +75,9 @@ tasks.register("buildDependentTasks") {
 }
 
 compileJava.dependsOn tasks.named("buildJavaSdk")
-build.dependsOn('buildDepedentTask')
+build.dependsOn('buildClients')
 publishToMavenLocal.dependsOn = ["buildJavaSdk`",
-//                                 "buildPythonSdk",
+                                 "buildPythonSdk",
 //                                 "buildGoSdk",
 //                                 "buildKotlinSdk",
 //                                 "buildBashSdk",

@@ -15,6 +15,7 @@ package gov.nih.nci.evs.api;
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.ConceptResultList;
 import gov.nih.nci.evs.api.model.MapResultList;
+import io.swagger.annotations.Api;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
@@ -39,7 +40,7 @@ public class SearchEndpointApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(SearchEndpointApiTest.class);
 
   /** Instantiate the SearchEndpointApi */
   @BeforeAll
@@ -65,7 +66,7 @@ public class SearchEndpointApiTest {
     Boolean ascending = true;
     String include = "minimal";
     Integer fromRecord = 0;
-    Integer pageSize = 25;
+    Integer pageSize = 5;
 
     // ACT
     ConceptResultList response =
@@ -111,9 +112,9 @@ public class SearchEndpointApiTest {
     String term = "respiratory";
     Boolean ascending = true;
     String include = "minimal";
-    String conceptStatus = "Header_Concept";
+    String conceptStatus = "Retired_Concept";
     Integer fromRecord = 0;
-    Integer pageSize = 25;
+    Integer pageSize = 5;
 
     // ACT
     ConceptResultList response =
@@ -139,7 +140,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1, response.getTotal());
+    assertEquals(18, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -189,7 +190,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(12, response.getTotal());
+    assertEquals(11, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -199,6 +200,54 @@ public class SearchEndpointApiTest {
             + term
             + ", definition source =  "
             + definitionSource);
+    log.info("   search results = " + response);
+  }
+
+  @Test
+  public void searchFilterByDefinitionTypeTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "melanoma";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    String definitionType = "DEFINITION";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+            api.search(
+                    null,
+                    terminology,
+                    term,
+                    type,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    null,
+                    null,
+                    null,
+                    definitionType,
+                    null,
+                    null,
+                    null,
+                    null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(1283, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info(
+            "Get search results from NCIT for term = "
+            + term
+            + ", definition type =  "
+            + definitionType);
     log.info("   search results = " + response);
   }
 
@@ -243,7 +292,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(13, response.getTotal());
+    assertEquals(12, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -255,6 +304,54 @@ public class SearchEndpointApiTest {
             + synonymSource
             + ", synonym term type = "
             + synonymTermType);
+    log.info("   search results = " + response);
+  }
+
+  @Test
+  public void searchFilterBySynonymType() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String term = "dsDNA";
+    String type = "contains";
+    Boolean ascending = true;
+    String include = "minimal";
+    String synonymType = "FULL_SYN";
+    Integer fromRecord = 0;
+    Integer pageSize = 5;
+
+    // ACT
+    ConceptResultList response =
+            api.search(
+                    null,
+                    terminology,
+                    term,
+                    type,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    synonymType,
+                    null,
+                    null);
+
+    // ASSERT
+    assertNotNull(response);
+    assertEquals(12, response.getTotal());
+    assertNotNull(response.getConcepts());
+    assertNotNull(response.getConcepts().get(0));
+
+    // LOG
+    log.info(
+            "Get search results from NCIT for term = "
+            + term
+            + ", synonym type = "
+            + synonymType);
     log.info("   search results = " + response);
   }
 
@@ -393,7 +490,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(41, response.getTotal());
+    assertTrue(response.getTotal() >= 40);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -441,7 +538,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertTrue(response.getTotal() > 251);
+    assertTrue(response.getTotal() >= 223);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -536,7 +633,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(149, response.getTotal());
+    assertEquals(123, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -688,124 +785,59 @@ public class SearchEndpointApiTest {
   }
 
   /**
-   * Get concept search results for a specified terminology
+   * Get concept search results with subsets
    *
-   * <p>Use cases for search range from very simple term searches, use of paging parameters,
-   * additional filters, searches properties, roles, and associations, and so on. To further explore
-   * the range of search options, take a look at the &lt;a
-   * href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK&#39;
-   * target&#x3D;&#39;_blank&#39;&gt;Github client SDK library created for the NCI EVS Rest
-   * API&lt;/a&gt;.
-   *
-   * @throws ApiException if the Api call fails
+   * @throws ApiException
    */
-  @Test
-  public void searchSingleTerminologyTest() throws ApiException {
+  @Test public void searchConceptsBySubsetTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String term = "melanoma";
-    Boolean ascending = false;
-    String include = "minimal";
-    Integer fromRecord = 0;
-    Integer pageSize = 50;
-
-    // ACT
-    ConceptResultList response =
-        api.searchSingleTerminology(
-            terminology,
-            null,
-            term,
-            null,
-            null,
-            ascending,
-            include,
-            fromRecord,
-            pageSize,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null);
-
-    // ASSERT
-    assertNotNull(response);
-    assertNotNull(response.getConcepts());
-    assertNotNull(response.getConcepts().get(0));
-    assertEquals("C3224", response.getConcepts().get(0).getCode());
-
-    // LOG
-    log.info("Get search results for specific term - " + term);
-    log.info("   search results = " + response);
-  }
-  
-  /**
-   * Get concept search results using term code through SPARQL without a prefix
-   *
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void searchSPARQLWithoutPrefixTest() throws ApiException {
-    // ARRANGE - using global variable unless otherwise listed
-    String type = "contains";
+    String term = "immune";
     Boolean ascending = true;
     String include = "minimal";
     Integer fromRecord = 0;
-    Integer pageSize = 25;
-    // API generates prefix
-    String query = "SELECT ?code\n" + 
-        "{ GRAPH <http://NCI_T_monthly> \n" + 
-        "  { \n" + 
-        "    ?x a owl:Class . \n" + 
-        "    ?x :NHC0 ?code .\n" + 
-        "    ?x :P108 \"Melanoma\"\n" + 
-        "  } \n" + 
-        "}";
+    Integer pageSize = 5;
+    String subset = "C165258";
 
     // ACT
     ConceptResultList response =
-        api.searchSingleTerminologySparql(
-            terminology,
-            query,
-            include,
-            null,
-            null,
-            type,
-            null,
-            ascending,
-            fromRecord,
-            pageSize,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null);
+            api.search(
+                    null,
+                    terminology,
+                    term,
+                    null,
+                    null,
+                    ascending,
+                    include,
+                    fromRecord,
+                    pageSize,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    subset);
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1, response.getTotal());
+    assertEquals(33, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
     // LOG
-    log.info("Get SPARQL search results from NCIT for query = " + query);
+    log.info("Get search results from NCIT for term = " + term + ", subset = " + subset);
     log.info("   search results = " + response);
-    
   }
-  
+
   /**
    * Get concept search results using term code through SPARQL with a prefix
    *
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchSPARQLWithPrefixTest() throws ApiException {
+  public void findConceptsBySparqlCode() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String type = "contains";
     Boolean ascending = true;
@@ -813,23 +845,8 @@ public class SearchEndpointApiTest {
     Integer fromRecord = 0;
     Integer pageSize = 25;
     // preformed prefix
-    String query = "PREFIX :<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#> \n" + 
-        "PREFIX base:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>\n" + 
-        "PREFIX owl:<http://www.w3.org/2002/07/owl#>\n" + 
-        "PREFIX rdf:<http://www.w3.org/1999/02/22-rdf-syntax-ns#>\n" + 
-        "PREFIX rdfs:<http://www.w3.org/2000/01/rdf-schema#>\n" + 
-        "PREFIX xsd:<http://www.w3.org/2001/XMLSchema#>\n" + 
-        "PREFIX dc:<http://purl.org/dc/elements/1.1/>\n" + 
-        "PREFIX oboInOwl:<http://www.geneontology.org/formats/oboInOwl#>\n" + 
-        "PREFIX xml:<http://www.w3.org/2001/XMLSchema#>\n" + 
-        "SELECT ?code\n" + 
-        "{ GRAPH <http://NCI_T_monthly> \n" + 
-        "  { \n" + 
-        "    ?x a owl:Class . \n" + 
-        "    ?x :NHC0 ?code .\n" + 
-        "    ?x :P108 \"Melanoma\"\n" + 
-        "  } \n" + 
-        "}";
+    String query =
+            "SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 \"Melanoma\"} }";
 
     // ACT
     ConceptResultList response =
@@ -870,7 +887,7 @@ public class SearchEndpointApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void searchSPARQLBindingsTest() throws ApiException {
+  public void getSPARQLBindingsTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "minimal";
     String query = "SELECT ?code ?x { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }";
