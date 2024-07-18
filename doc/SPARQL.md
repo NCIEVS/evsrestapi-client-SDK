@@ -44,7 +44,7 @@ EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 ### Concept query based on a specified association to a specified code
@@ -74,7 +74,7 @@ EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal&term=doubling" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 ### PROBLEM: not using ?code in select
@@ -88,7 +88,7 @@ EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 ### PROBLEM: Bad Sparql
@@ -102,7 +102,7 @@ EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 [Back to Top](#using-sparql-with-evsrestapi)
@@ -127,7 +127,7 @@ EOF
 
 curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 ### PROBLEM: Bad Sparql
@@ -141,7 +141,7 @@ EOF
 
 curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
   -H 'Content-type: text/plain' \
-  -d '@query.txt' | jq '.'
+  --data-binary '@query.txt' | jq '.'
 ```
 
 [Back to Top](#using-sparql-with-evsrestapi)
