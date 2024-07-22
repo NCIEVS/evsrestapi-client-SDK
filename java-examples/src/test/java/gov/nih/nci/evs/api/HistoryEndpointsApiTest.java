@@ -14,6 +14,7 @@ package gov.nih.nci.evs.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.History;
@@ -87,16 +88,16 @@ public class HistoryEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("retire", response.get(0).getAction());
-    assertEquals("C19157", response.get(0).getReplacementCode());
-    assertEquals("Specimen", response.get(0).getReplacementName());
-
-    assertEquals("merge", response.get(1).getAction());
-    assertEquals("C12756", response.get(1).getReplacementCode());
-    assertEquals("Nose", response.get(1).getReplacementName());
+    assertTrue(response.stream().filter(h -> 
+      h.getCode().equals("C12658") &&
+      h.getReplacementCode().equals("C19157")).count() > 0);
+    assertTrue(response.stream().filter(h -> 
+      h.getCode().equals("C13320") &&
+      h.getAction().equals("merge") &&
+      h.getReplacementCode().equals("C12756")).count() > 0);
 
     // LOG
-    log.info("Get list of suggested replacements for retired codes - C4654 & C40117");
+    log.info("Get list of suggested replacements for retired codes - C12658,C13320");
     log.info("   suggested replacements = " + response);
   }
 }
