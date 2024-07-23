@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "openapi_client"
+name = "evs"
 version = "1.0.0"
 description = "NCI EVS Rest API"
 authors = ["NCI EVS <NCIAppSupport@nih.gov>"]
@@ -7,7 +7,7 @@ license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "NCI EVS Rest API"]
-include = ["openapi_client/py.typed"]
+include = ["evs/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -34,7 +34,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "openapi_client",
+  "evs",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]

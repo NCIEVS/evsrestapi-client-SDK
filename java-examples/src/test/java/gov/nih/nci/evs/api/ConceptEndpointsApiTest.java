@@ -187,7 +187,7 @@ public class ConceptEndpointsApiTest {
   }
 
   /**
-   * Get the summary concept for the specified terminology and code
+   * Get the full concept for the specified terminology and code
    *
    * @throws ApiException if the Api call fails
    */
@@ -210,7 +210,7 @@ public class ConceptEndpointsApiTest {
   }
 
   /**
-   * Get the summary concept for the specified terminology and code
+   * Get the custom include concept for the specified terminology and code
    *
    * @throws ApiException if the Api call fails
    */
@@ -286,8 +286,8 @@ public class ConceptEndpointsApiTest {
     assertEquals(pageSize, response.size());
     assertTrue(containsExpectedText);
     // LOG
-    log.info("Get list of descendents for code - C3224");
-    log.info("   descendents = " + response);
+    log.info("Get list of descendants for code - C3224");
+    log.info("   descendants = " + response);
   }
 
   /**

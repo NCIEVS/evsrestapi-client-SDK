@@ -41,7 +41,7 @@ public class HistoryEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(HistoryEndpointsApiTest.class);
 
   /** Instantiate the HistoryEndpointApi */
   @BeforeAll
@@ -93,6 +93,7 @@ public class HistoryEndpointsApiTest {
       h.getReplacementCode().equals("C19157")).count() > 0);
     assertTrue(response.stream().filter(h -> 
       h.getCode().equals("C13320") &&
+      h.getAction().equals("merge") &&
       h.getReplacementCode().equals("C12756")).count() > 0);
 
     // LOG

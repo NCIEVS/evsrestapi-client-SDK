@@ -3,8 +3,7 @@
 """
     NCI EVS Rest API
 
-    Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to
-    interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
+    Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
     The version of the OpenAPI document: 1.7.2.RELEASE
     Contact: NCIAppSupport@nih.gov
@@ -22,7 +21,7 @@ from setuptools import setup, find_packages  # noqa: H301
 #
 # prerequisite: setuptools
 # http://pypi.python.org/pypi/setuptools
-NAME = "openapi-client"
+NAME = "evs"
 VERSION = "1.0.0"
 PYTHON_REQUIRES = ">=3.7"
 REQUIRES = [
@@ -47,5 +46,5 @@ setup(
     long_description="""\
     Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the &lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK\&quot;&gt;Github evsrestapi-client-SDK project.&lt;/a&gt;
     """,  # noqa: E501
-    package_data={"openapi_client": ["py.typed"]},
+    package_data={"evs": ["py.typed"]},
 )
