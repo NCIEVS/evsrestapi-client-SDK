@@ -41,7 +41,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class ConceptEndpointsApi {
     private ApiClient localVarApiClient;
@@ -93,9 +92,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAssociationEntriesCall(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -185,9 +184,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public AssociationEntryResultList getAssociationEntries(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -208,9 +207,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<AssociationEntryResultList> getAssociationEntriesWithHttpInfo(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -233,9 +232,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAssociationEntriesAsync(String terminology, String codeOrLabel, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<AssociationEntryResultList> _callback) throws ApiException {
@@ -256,8 +255,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAssociations1Call(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -337,8 +336,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Association> getAssociations1(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -357,8 +356,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Association>> getAssociations1WithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -379,8 +378,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getAssociations1Async(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Association>> _callback) throws ApiException {
@@ -401,8 +400,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getChildrenCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -482,8 +481,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getChildren(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -502,8 +501,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getChildrenWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -524,8 +523,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getChildrenAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -548,10 +547,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConceptCall(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -641,10 +640,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public Concept getConcept(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -665,10 +664,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Concept> getConceptWithHttpInfo(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -691,10 +690,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConceptAsync(String terminology, String code, Integer limit, String include, String xEVSRESTAPILicenseKey, final ApiCallback<Concept> _callback) throws ApiException {
@@ -716,10 +715,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConceptsCall(String terminology, String _list, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -807,10 +806,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getConcepts(String terminology, String _list, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -830,10 +829,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getConceptsWithHttpInfo(String terminology, String _list, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -855,10 +854,10 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
-        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
+        <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getConceptsAsync(String terminology, String _list, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -882,9 +881,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDescendantsCall(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -979,9 +978,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getDescendants(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1003,9 +1002,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getDescendantsWithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1029,9 +1028,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDescendantsAsync(String terminology, String code, Integer fromRecord, Integer pageSize, Integer maxLevel, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -1052,8 +1051,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDisjointWithCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1133,8 +1132,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<DisjointWith> getDisjointWith(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1153,8 +1152,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<DisjointWith>> getDisjointWithWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1175,8 +1174,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getDisjointWithAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<DisjointWith>> _callback) throws ApiException {
@@ -1197,8 +1196,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getHistoryCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1278,8 +1277,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public Concept getHistory(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1298,8 +1297,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Concept> getHistoryWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1320,8 +1319,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getHistoryAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<Concept> _callback) throws ApiException {
@@ -1342,8 +1341,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getInverseAssociationsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1423,8 +1422,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Association> getInverseAssociations(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1443,8 +1442,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Association>> getInverseAssociationsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1465,8 +1464,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getInverseAssociationsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Association>> _callback) throws ApiException {
@@ -1487,8 +1486,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getInverseRolesCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1568,8 +1567,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Role> getInverseRoles(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1588,8 +1587,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Role>> getInverseRolesWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1610,8 +1609,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getInverseRolesAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Role>> _callback) throws ApiException {
@@ -1632,8 +1631,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1713,8 +1712,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<ConceptMap> getMaps(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1733,8 +1732,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<ConceptMap>> getMapsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1755,8 +1754,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getMapsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<ConceptMap>> _callback) throws ApiException {
@@ -1777,8 +1776,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getParentsCall(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -1858,8 +1857,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getParents(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1878,8 +1877,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getParentsWithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -1900,8 +1899,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getParentsAsync(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -1925,9 +1924,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsFromRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2022,9 +2021,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<List<Concept>> getPathsFromRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2046,9 +2045,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<List<Concept>>> getPathsFromRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2072,9 +2071,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsFromRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
@@ -2099,9 +2098,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsToAncestorCall(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2203,9 +2202,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<List<Concept>> getPathsToAncestor(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2228,9 +2227,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<List<Concept>>> getPathsToAncestorWithHttpInfo(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2255,9 +2254,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsToAncestorAsync(String terminology, String code, String ancestorCode, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
@@ -2281,9 +2280,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsToRootCall(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2378,9 +2377,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<List<Concept>> getPathsToRoot(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2402,9 +2401,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<List<Concept>>> getPathsToRootWithHttpInfo(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2428,9 +2427,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getPathsToRootAsync(String terminology, String code, String include, Integer fromRecord, Integer pageSize, String xEVSRESTAPILicenseKey, final ApiCallback<List<List<Concept>>> _callback) throws ApiException {
@@ -2451,8 +2450,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRoles1Call(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2532,8 +2531,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Role> getRoles1(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2552,8 +2551,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Role>> getRoles1WithHttpInfo(String terminology, String code, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2574,8 +2573,8 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRoles1Async(String terminology, String code, String xEVSRESTAPILicenseKey, final ApiCallback<List<Role>> _callback) throws ApiException {
@@ -2596,9 +2595,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRootsCall(String terminology, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2676,9 +2675,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getRoots(String terminology, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2697,9 +2696,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getRootsWithHttpInfo(String terminology, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2720,9 +2719,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getRootsAsync(String terminology, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -2746,9 +2745,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetMembers1Call(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -2843,9 +2842,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getSubsetMembers1(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2867,9 +2866,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getSubsetMembers1WithHttpInfo(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -2893,9 +2892,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetMembers1Async(String terminology, String code, Integer fromRecord, Integer pageSize, String include, String xEVSRESTAPILicenseKey, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -2917,9 +2916,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubtreeCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -3004,9 +3003,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<HierarchyNode> getSubtree(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -3026,9 +3025,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<HierarchyNode>> getSubtreeWithHttpInfo(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -3050,9 +3049,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubtreeAsync(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {
@@ -3074,9 +3073,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubtreeChildrenCall(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback _callback) throws ApiException {
@@ -3161,9 +3160,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<HierarchyNode> getSubtreeChildren(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -3183,9 +3182,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<HierarchyNode>> getSubtreeChildrenWithHttpInfo(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey) throws ApiException {
@@ -3207,9 +3206,9 @@ public class ConceptEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
-        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 400 </td><td> Bad request </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubtreeChildrenAsync(String terminology, String code, Integer limit, String xEVSRESTAPILicenseKey, final ApiCallback<List<HierarchyNode>> _callback) throws ApiException {

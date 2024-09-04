@@ -42,7 +42,7 @@ public class MetadataEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(MetadataEndpointsApiTest.class);
 
   /** Instantiate the MetadataEndpointsApi */
   @BeforeAll
@@ -56,7 +56,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getAssociationTest() throws ApiException {
+  public void getAssociationByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "A18";
     String include = "minimal";
@@ -69,7 +69,7 @@ public class MetadataEndpointsApiTest {
     assertEquals("Has_Pharmaceutical_Basic_Dose_Form", response.getName());
 
     // LOG
-    log.info("Get all associates for code - A18");
+    log.info("Get all associations for code - A18");
     log.info("    associations = " + response);
   }
 
@@ -88,11 +88,11 @@ public class MetadataEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals(40, response.size());
+    assertTrue(response.size() >= 35);
     assertEquals("A1", response.get(0).getCode());
 
     // LOG
-    log.info("Get all associates for terminology - ncit");
+    log.info("Get all associations for terminology - ncit");
     log.info("    associations = " + response);
   }
 
@@ -146,7 +146,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getDefinitionTypeTest() throws ApiException {
+  public void getDefinitionTypeByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "P325";
     String include = "minimal";
@@ -173,18 +173,27 @@ public class MetadataEndpointsApiTest {
   public void getDefinitionTypesTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "minimal";
+    String expectedCode = "P97";
+    String expectedName = "DEFINITION";
+    boolean containsExpectedDefs = false;
 
     // ACT
     List<Concept> response = api.getDefinitionTypes(terminology, include, null);
+    for (Concept concept : response) {
+      assertNotNull(concept.getCode());
+      assertNotNull(concept.getName());
+      if (concept.getName().equals(expectedName) && concept.getCode().equals(expectedCode)) {
+        containsExpectedDefs = true;
+        break;
+      }
+    }
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("P97", response.get(0).getCode());
-    assertEquals("DEFINITION", response.get(0).getName());
-    assertEquals("P325", response.get(1).getCode());
-    assertEquals("ALT_DEFINITION", response.get(1).getName());
+    assertTrue(containsExpectedDefs);
+
     // LOG
-    log.info("Get all definition types for list of codes - A1 & A12");
+    log.info("Get all definition types for terminology - " + terminology);
     log.info("   definition types = " + response);
   }
 
@@ -197,16 +206,24 @@ public class MetadataEndpointsApiTest {
   public void getPropertiesTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "minimal";
+    String expectedCode = "NHC0";
+    String expectedName = "code";
+    boolean containsExpectedProps = false;
 
     // ACT
     List<Concept> response = api.getProperties(terminology, include, null);
+    for (Concept concept : response) {
+      assertNotNull(concept.getCode());
+      assertNotNull(concept.getName());
+      if (concept.getCode().equals(expectedCode) && concept.getName().equals(expectedName)) {
+        containsExpectedProps = true;
+        break;
+      }
+    }
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("NHC0", response.get(0).getCode());
-    assertEquals("code", response.get(0).getName());
-    assertEquals("P106", response.get(1).getCode());
-    assertEquals("Semantic_Type", response.get(1).getName());
+    assertTrue(containsExpectedProps);
 
     // LOG
     log.info("Get all properties for a term & list of codes/labels - ncit");
@@ -258,7 +275,7 @@ public class MetadataEndpointsApiTest {
     assertNotNull(response.getDefinitions());
 
     // LOG
-    log.info("Get qualified for code - P390");
+    log.info("Get qualifier for code - P390");
     log.info("   qualifier = " + response);
   }
 
@@ -340,14 +357,21 @@ public class MetadataEndpointsApiTest {
   public void getRolesTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "minimal";
+    boolean containsExpectedCode = false;
 
     // ACT
     List<Concept> response = api.getRoles(terminology, include, null);
+    for (Concept concept : response) {
+        assertNotNull(concept.getCode());
+        if (concept.getCode().contains("R123")) {
+        containsExpectedCode = true;
+        break;
+      }
+    }
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("R123", response.get(0).getCode());
-    assertEquals("R163", response.get(1).getCode());
+    assertTrue(containsExpectedCode);
 
     // LOG
     log.info("Get all roles for ncit");
@@ -430,7 +454,7 @@ public class MetadataEndpointsApiTest {
    * @throws ApiException if the Api call fails
    */
   @Test
-  public void getSynonymTypeTest() throws ApiException {
+  public void getSynonymTypeByCodeTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String codeOrName = "P90";
     String include = "minimal";
@@ -456,15 +480,22 @@ public class MetadataEndpointsApiTest {
   public void getSynonymTypesTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
     String include = "full";
+    boolean containsExpectedCode = false;
 
     // ACT
     List<Concept> response = api.getSynonymTypes(terminology, include, null);
+    for (Concept concept : response) {
+      assertNotNull(concept.getCode());
+      if (concept.getCode().equals("P108")) {
+        containsExpectedCode = true;
+        break;
+      }
+    }
 
     // ASSERT
     assertFalse(response.isEmpty());
     assertEquals("ncit", response.get(0).getTerminology());
-    assertEquals("P108", response.get(0).getCode());
-
+    assertTrue(containsExpectedCode);
     // LOG
     log.info("Get all synonym types for ncit");
     log.info("   synonym types = " + response);

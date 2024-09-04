@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -23,6 +22,7 @@ import com.google.gson.stream.JsonWriter;
 import gov.nih.nci.evs.api.model.Path;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -45,7 +45,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -53,7 +52,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Represents a list of paths
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T17:06:13.350753-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class Paths {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -65,13 +64,12 @@ public class Paths {
 
   public static final String SERIALIZED_NAME_PATHS = "paths";
   @SerializedName(SERIALIZED_NAME_PATHS)
-  private List<Path> paths;
+  private List<Path> paths = new ArrayList<>();
 
   public Paths() {
   }
 
   public Paths uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -85,14 +83,12 @@ public class Paths {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public Paths ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -106,14 +102,12 @@ public class Paths {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
   public Paths paths(List<Path> paths) {
-    
     this.paths = paths;
     return this;
   }
@@ -134,7 +128,6 @@ public class Paths {
   public List<Path> getPaths() {
     return paths;
   }
-
 
   public void setPaths(List<Path> paths) {
     this.paths = paths;
@@ -199,25 +192,26 @@ public class Paths {
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to Paths
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to Paths
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!Paths.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!Paths.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in Paths is not found in the empty JSON string", Paths.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!Paths.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Paths` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `Paths` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -231,7 +225,7 @@ public class Paths {
 
           // validate the optional field `paths` (array)
           for (int i = 0; i < jsonArraypaths.size(); i++) {
-            Path.validateJsonObject(jsonArraypaths.get(i).getAsJsonObject());
+            Path.validateJsonElement(jsonArraypaths.get(i));
           };
         }
       }
@@ -257,9 +251,9 @@ public class Paths {
 
            @Override
            public Paths read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

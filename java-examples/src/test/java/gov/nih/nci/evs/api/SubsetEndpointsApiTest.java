@@ -40,7 +40,7 @@ public class SubsetEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(SubsetEndpointsApiTest.class);
 
   /** Instantiate the SearchEndpointApi */
   @BeforeAll

@@ -35,7 +35,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.ws.rs.core.GenericType;
 
 public class SubsetEndpointsApi {
     private ApiClient localVarApiClient;
@@ -85,8 +84,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetCall(String terminology, String code, String include, final ApiCallback _callback) throws ApiException {
@@ -166,8 +165,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public Concept getSubset(String terminology, String code, String include) throws ApiException {
@@ -186,8 +185,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<Concept> getSubsetWithHttpInfo(String terminology, String code, String include) throws ApiException {
@@ -208,8 +207,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetAsync(String terminology, String code, String include, final ApiCallback<Concept> _callback) throws ApiException {
@@ -232,9 +231,9 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetMembersCall(String terminology, String code, String fromRecord, String pageSize, String include, final ApiCallback _callback) throws ApiException {
@@ -324,9 +323,9 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getSubsetMembers(String terminology, String code, String fromRecord, String pageSize, String include) throws ApiException {
@@ -347,9 +346,9 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getSubsetMembersWithHttpInfo(String terminology, String code, String fromRecord, String pageSize, String include) throws ApiException {
@@ -372,9 +371,9 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
+        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
         <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 417 </td><td> Expectation failed </td><td>  -  </td></tr>
-        <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetMembersAsync(String terminology, String code, String fromRecord, String pageSize, String include, final ApiCallback<List<Concept>> _callback) throws ApiException {
@@ -395,8 +394,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetsCall(String terminology, String include, String _list, final ApiCallback _callback) throws ApiException {
@@ -474,8 +473,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public List<Concept> getSubsets(String terminology, String include, String _list) throws ApiException {
@@ -494,8 +493,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public ApiResponse<List<Concept>> getSubsetsWithHttpInfo(String terminology, String include, String _list) throws ApiException {
@@ -516,8 +515,8 @@ public class SubsetEndpointsApi {
      * @http.response.details
      <table summary="Response Details" border="1">
         <tr><td> Status Code </td><td> Description </td><td> Response Headers </td></tr>
-        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
         <tr><td> 200 </td><td> Successfully retrieved the requested information </td><td>  -  </td></tr>
+        <tr><td> 404 </td><td> Resource not found </td><td>  -  </td></tr>
      </table>
      */
     public okhttp3.Call getSubsetsAsync(String terminology, String include, String _list, final ApiCallback<List<Concept>> _callback) throws ApiException {

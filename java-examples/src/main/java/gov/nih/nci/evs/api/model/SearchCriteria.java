@@ -14,7 +14,6 @@
 package gov.nih.nci.evs.api.model;
 
 import java.util.Objects;
-import java.util.Arrays;
 import com.google.gson.TypeAdapter;
 import com.google.gson.annotations.JsonAdapter;
 import com.google.gson.annotations.SerializedName;
@@ -22,6 +21,7 @@ import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -44,7 +44,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import gov.nih.nci.evs.api.invoker.JSON;
@@ -52,7 +51,7 @@ import gov.nih.nci.evs.api.invoker.JSON;
 /**
  * Criteria for a search or find operation
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2023-12-01T14:31:35.961802-08:00[America/Los_Angeles]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-06-17T17:06:13.350753-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
 public class SearchCriteria {
   public static final String SERIALIZED_NAME_URI = "uri";
   @SerializedName(SERIALIZED_NAME_URI)
@@ -92,11 +91,11 @@ public class SearchCriteria {
 
   public static final String SERIALIZED_NAME_CONCEPT_STATUS = "conceptStatus";
   @SerializedName(SERIALIZED_NAME_CONCEPT_STATUS)
-  private List<String> conceptStatus;
+  private List<String> conceptStatus = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_PROPERTY = "property";
   @SerializedName(SERIALIZED_NAME_PROPERTY)
-  private List<String> property;
+  private List<String> property = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_VALUE = "value";
   @SerializedName(SERIALIZED_NAME_VALUE)
@@ -104,37 +103,44 @@ public class SearchCriteria {
 
   public static final String SERIALIZED_NAME_SYNONYM_SOURCE = "synonymSource";
   @SerializedName(SERIALIZED_NAME_SYNONYM_SOURCE)
-  private List<String> synonymSource;
+  private List<String> synonymSource = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SYNONYM_TYPE = "synonymType";
   @SerializedName(SERIALIZED_NAME_SYNONYM_TYPE)
-  private List<String> synonymType;
+  private List<String> synonymType = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEFINITION_SOURCE = "definitionSource";
   @SerializedName(SERIALIZED_NAME_DEFINITION_SOURCE)
-  private List<String> definitionSource;
+  private List<String> definitionSource = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_DEFINITION_TYPE = "definitionType";
   @SerializedName(SERIALIZED_NAME_DEFINITION_TYPE)
-  private List<String> definitionType;
+  private List<String> definitionType = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SYNONYM_TERM_TYPE = "synonymTermType";
   @SerializedName(SERIALIZED_NAME_SYNONYM_TERM_TYPE)
-  private List<String> synonymTermType;
+  private List<String> synonymTermType = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_SUBSET = "subset";
   @SerializedName(SERIALIZED_NAME_SUBSET)
-  private List<String> subset;
+  private List<String> subset = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_CODE_LIST = "codeList";
+  @SerializedName(SERIALIZED_NAME_CODE_LIST)
+  private List<String> codeList = new ArrayList<>();
 
   public static final String SERIALIZED_NAME_TERMINOLOGY = "terminology";
   @SerializedName(SERIALIZED_NAME_TERMINOLOGY)
-  private List<String> terminology;
+  private List<String> terminology = new ArrayList<>();
+
+  public static final String SERIALIZED_NAME_SPARQL = "sparql";
+  @SerializedName(SERIALIZED_NAME_SPARQL)
+  private String sparql;
 
   public SearchCriteria() {
   }
 
   public SearchCriteria uri(String uri) {
-    
     this.uri = uri;
     return this;
   }
@@ -148,14 +154,12 @@ public class SearchCriteria {
     return uri;
   }
 
-
   public void setUri(String uri) {
     this.uri = uri;
   }
 
 
   public SearchCriteria ct(Integer ct) {
-    
     this.ct = ct;
     return this;
   }
@@ -169,14 +173,12 @@ public class SearchCriteria {
     return ct;
   }
 
-
   public void setCt(Integer ct) {
     this.ct = ct;
   }
 
 
   public SearchCriteria term(String term) {
-    
     this.term = term;
     return this;
   }
@@ -190,14 +192,12 @@ public class SearchCriteria {
     return term;
   }
 
-
   public void setTerm(String term) {
     this.term = term;
   }
 
 
   public SearchCriteria type(String type) {
-    
     this.type = type;
     return this;
   }
@@ -211,14 +211,12 @@ public class SearchCriteria {
     return type;
   }
 
-
   public void setType(String type) {
     this.type = type;
   }
 
 
   public SearchCriteria include(String include) {
-    
     this.include = include;
     return this;
   }
@@ -232,14 +230,12 @@ public class SearchCriteria {
     return include;
   }
 
-
   public void setInclude(String include) {
     this.include = include;
   }
 
 
   public SearchCriteria sort(String sort) {
-    
     this.sort = sort;
     return this;
   }
@@ -253,14 +249,12 @@ public class SearchCriteria {
     return sort;
   }
 
-
   public void setSort(String sort) {
     this.sort = sort;
   }
 
 
   public SearchCriteria ascending(Boolean ascending) {
-    
     this.ascending = ascending;
     return this;
   }
@@ -274,14 +268,12 @@ public class SearchCriteria {
     return ascending;
   }
 
-
   public void setAscending(Boolean ascending) {
     this.ascending = ascending;
   }
 
 
   public SearchCriteria fromRecord(Integer fromRecord) {
-    
     this.fromRecord = fromRecord;
     return this;
   }
@@ -295,14 +287,12 @@ public class SearchCriteria {
     return fromRecord;
   }
 
-
   public void setFromRecord(Integer fromRecord) {
     this.fromRecord = fromRecord;
   }
 
 
   public SearchCriteria pageSize(Integer pageSize) {
-    
     this.pageSize = pageSize;
     return this;
   }
@@ -316,14 +306,12 @@ public class SearchCriteria {
     return pageSize;
   }
 
-
   public void setPageSize(Integer pageSize) {
     this.pageSize = pageSize;
   }
 
 
   public SearchCriteria conceptStatus(List<String> conceptStatus) {
-    
     this.conceptStatus = conceptStatus;
     return this;
   }
@@ -345,14 +333,12 @@ public class SearchCriteria {
     return conceptStatus;
   }
 
-
   public void setConceptStatus(List<String> conceptStatus) {
     this.conceptStatus = conceptStatus;
   }
 
 
   public SearchCriteria property(List<String> property) {
-    
     this.property = property;
     return this;
   }
@@ -374,14 +360,12 @@ public class SearchCriteria {
     return property;
   }
 
-
   public void setProperty(List<String> property) {
     this.property = property;
   }
 
 
   public SearchCriteria value(String value) {
-    
     this.value = value;
     return this;
   }
@@ -395,14 +379,12 @@ public class SearchCriteria {
     return value;
   }
 
-
   public void setValue(String value) {
     this.value = value;
   }
 
 
   public SearchCriteria synonymSource(List<String> synonymSource) {
-    
     this.synonymSource = synonymSource;
     return this;
   }
@@ -424,14 +406,12 @@ public class SearchCriteria {
     return synonymSource;
   }
 
-
   public void setSynonymSource(List<String> synonymSource) {
     this.synonymSource = synonymSource;
   }
 
 
   public SearchCriteria synonymType(List<String> synonymType) {
-    
     this.synonymType = synonymType;
     return this;
   }
@@ -453,14 +433,12 @@ public class SearchCriteria {
     return synonymType;
   }
 
-
   public void setSynonymType(List<String> synonymType) {
     this.synonymType = synonymType;
   }
 
 
   public SearchCriteria definitionSource(List<String> definitionSource) {
-    
     this.definitionSource = definitionSource;
     return this;
   }
@@ -482,14 +460,12 @@ public class SearchCriteria {
     return definitionSource;
   }
 
-
   public void setDefinitionSource(List<String> definitionSource) {
     this.definitionSource = definitionSource;
   }
 
 
   public SearchCriteria definitionType(List<String> definitionType) {
-    
     this.definitionType = definitionType;
     return this;
   }
@@ -511,14 +487,12 @@ public class SearchCriteria {
     return definitionType;
   }
 
-
   public void setDefinitionType(List<String> definitionType) {
     this.definitionType = definitionType;
   }
 
 
   public SearchCriteria synonymTermType(List<String> synonymTermType) {
-    
     this.synonymTermType = synonymTermType;
     return this;
   }
@@ -540,14 +514,12 @@ public class SearchCriteria {
     return synonymTermType;
   }
 
-
   public void setSynonymTermType(List<String> synonymTermType) {
     this.synonymTermType = synonymTermType;
   }
 
 
   public SearchCriteria subset(List<String> subset) {
-    
     this.subset = subset;
     return this;
   }
@@ -569,14 +541,39 @@ public class SearchCriteria {
     return subset;
   }
 
-
   public void setSubset(List<String> subset) {
     this.subset = subset;
   }
 
 
+  public SearchCriteria codeList(List<String> codeList) {
+    this.codeList = codeList;
+    return this;
+  }
+
+  public SearchCriteria addCodeListItem(String codeListItem) {
+    if (this.codeList == null) {
+      this.codeList = new ArrayList<>();
+    }
+    this.codeList.add(codeListItem);
+    return this;
+  }
+
+   /**
+   * Comma-separated list of concept codes to restrict search results by, e.g. &#39;C157225&#39;
+   * @return codeList
+  **/
+  @javax.annotation.Nullable
+  public List<String> getCodeList() {
+    return codeList;
+  }
+
+  public void setCodeList(List<String> codeList) {
+    this.codeList = codeList;
+  }
+
+
   public SearchCriteria terminology(List<String> terminology) {
-    
     this.terminology = terminology;
     return this;
   }
@@ -598,9 +595,27 @@ public class SearchCriteria {
     return terminology;
   }
 
-
   public void setTerminology(List<String> terminology) {
     this.terminology = terminology;
+  }
+
+
+  public SearchCriteria sparql(String sparql) {
+    this.sparql = sparql;
+    return this;
+  }
+
+   /**
+   * SPARQL query, only available as an output parameter
+   * @return sparql
+  **/
+  @javax.annotation.Nullable
+  public String getSparql() {
+    return sparql;
+  }
+
+  public void setSparql(String sparql) {
+    this.sparql = sparql;
   }
 
 
@@ -632,12 +647,14 @@ public class SearchCriteria {
         Objects.equals(this.definitionType, searchCriteria.definitionType) &&
         Objects.equals(this.synonymTermType, searchCriteria.synonymTermType) &&
         Objects.equals(this.subset, searchCriteria.subset) &&
-        Objects.equals(this.terminology, searchCriteria.terminology);
+        Objects.equals(this.codeList, searchCriteria.codeList) &&
+        Objects.equals(this.terminology, searchCriteria.terminology) &&
+        Objects.equals(this.sparql, searchCriteria.sparql);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, term, type, include, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, synonymSource, synonymType, definitionSource, definitionType, synonymTermType, subset, terminology);
+    return Objects.hash(uri, ct, term, type, include, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, synonymSource, synonymType, definitionSource, definitionType, synonymTermType, subset, codeList, terminology, sparql);
   }
 
   @Override
@@ -662,7 +679,9 @@ public class SearchCriteria {
     sb.append("    definitionType: ").append(toIndentedString(definitionType)).append("\n");
     sb.append("    synonymTermType: ").append(toIndentedString(synonymTermType)).append("\n");
     sb.append("    subset: ").append(toIndentedString(subset)).append("\n");
+    sb.append("    codeList: ").append(toIndentedString(codeList)).append("\n");
     sb.append("    terminology: ").append(toIndentedString(terminology)).append("\n");
+    sb.append("    sparql: ").append(toIndentedString(sparql)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -703,32 +722,35 @@ public class SearchCriteria {
     openapiFields.add("definitionType");
     openapiFields.add("synonymTermType");
     openapiFields.add("subset");
+    openapiFields.add("codeList");
     openapiFields.add("terminology");
+    openapiFields.add("sparql");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();
   }
 
  /**
-  * Validates the JSON Object and throws an exception if issues found
+  * Validates the JSON Element and throws an exception if issues found
   *
-  * @param jsonObj JSON Object
-  * @throws IOException if the JSON Object is invalid with respect to SearchCriteria
+  * @param jsonElement JSON Element
+  * @throws IOException if the JSON Element is invalid with respect to SearchCriteria
   */
-  public static void validateJsonObject(JsonObject jsonObj) throws IOException {
-      if (jsonObj == null) {
-        if (!SearchCriteria.openapiRequiredFields.isEmpty()) { // has required fields but JSON object is null
+  public static void validateJsonElement(JsonElement jsonElement) throws IOException {
+      if (jsonElement == null) {
+        if (!SearchCriteria.openapiRequiredFields.isEmpty()) { // has required fields but JSON element is null
           throw new IllegalArgumentException(String.format("The required field(s) %s in SearchCriteria is not found in the empty JSON string", SearchCriteria.openapiRequiredFields.toString()));
         }
       }
 
-      Set<Entry<String, JsonElement>> entries = jsonObj.entrySet();
+      Set<Map.Entry<String, JsonElement>> entries = jsonElement.getAsJsonObject().entrySet();
       // check to see if the JSON string contains additional fields
-      for (Entry<String, JsonElement> entry : entries) {
+      for (Map.Entry<String, JsonElement> entry : entries) {
         if (!SearchCriteria.openapiFields.contains(entry.getKey())) {
-          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchCriteria` properties. JSON: %s", entry.getKey(), jsonObj.toString()));
+          throw new IllegalArgumentException(String.format("The field `%s` in the JSON string is not defined in the `SearchCriteria` properties. JSON: %s", entry.getKey(), jsonElement.toString()));
         }
       }
+        JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
       }
@@ -745,43 +767,50 @@ public class SearchCriteria {
         throw new IllegalArgumentException(String.format("Expected the field `sort` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sort").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("conceptStatus") != null && !jsonObj.get("conceptStatus").isJsonArray()) {
+      if (jsonObj.get("conceptStatus") != null && !jsonObj.get("conceptStatus").isJsonNull() && !jsonObj.get("conceptStatus").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `conceptStatus` to be an array in the JSON string but got `%s`", jsonObj.get("conceptStatus").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("property") != null && !jsonObj.get("property").isJsonArray()) {
+      if (jsonObj.get("property") != null && !jsonObj.get("property").isJsonNull() && !jsonObj.get("property").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `property` to be an array in the JSON string but got `%s`", jsonObj.get("property").toString()));
       }
       if ((jsonObj.get("value") != null && !jsonObj.get("value").isJsonNull()) && !jsonObj.get("value").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `value` to be a primitive type in the JSON string but got `%s`", jsonObj.get("value").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("synonymSource") != null && !jsonObj.get("synonymSource").isJsonArray()) {
+      if (jsonObj.get("synonymSource") != null && !jsonObj.get("synonymSource").isJsonNull() && !jsonObj.get("synonymSource").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `synonymSource` to be an array in the JSON string but got `%s`", jsonObj.get("synonymSource").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("synonymType") != null && !jsonObj.get("synonymType").isJsonArray()) {
+      if (jsonObj.get("synonymType") != null && !jsonObj.get("synonymType").isJsonNull() && !jsonObj.get("synonymType").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `synonymType` to be an array in the JSON string but got `%s`", jsonObj.get("synonymType").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("definitionSource") != null && !jsonObj.get("definitionSource").isJsonArray()) {
+      if (jsonObj.get("definitionSource") != null && !jsonObj.get("definitionSource").isJsonNull() && !jsonObj.get("definitionSource").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `definitionSource` to be an array in the JSON string but got `%s`", jsonObj.get("definitionSource").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("definitionType") != null && !jsonObj.get("definitionType").isJsonArray()) {
+      if (jsonObj.get("definitionType") != null && !jsonObj.get("definitionType").isJsonNull() && !jsonObj.get("definitionType").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `definitionType` to be an array in the JSON string but got `%s`", jsonObj.get("definitionType").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("synonymTermType") != null && !jsonObj.get("synonymTermType").isJsonArray()) {
+      if (jsonObj.get("synonymTermType") != null && !jsonObj.get("synonymTermType").isJsonNull() && !jsonObj.get("synonymTermType").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `synonymTermType` to be an array in the JSON string but got `%s`", jsonObj.get("synonymTermType").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("subset") != null && !jsonObj.get("subset").isJsonArray()) {
+      if (jsonObj.get("subset") != null && !jsonObj.get("subset").isJsonNull() && !jsonObj.get("subset").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `subset` to be an array in the JSON string but got `%s`", jsonObj.get("subset").toString()));
       }
       // ensure the optional json data is an array if present
-      if (jsonObj.get("terminology") != null && !jsonObj.get("terminology").isJsonArray()) {
+      if (jsonObj.get("codeList") != null && !jsonObj.get("codeList").isJsonNull() && !jsonObj.get("codeList").isJsonArray()) {
+        throw new IllegalArgumentException(String.format("Expected the field `codeList` to be an array in the JSON string but got `%s`", jsonObj.get("codeList").toString()));
+      }
+      // ensure the optional json data is an array if present
+      if (jsonObj.get("terminology") != null && !jsonObj.get("terminology").isJsonNull() && !jsonObj.get("terminology").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `terminology` to be an array in the JSON string but got `%s`", jsonObj.get("terminology").toString()));
+      }
+      if ((jsonObj.get("sparql") != null && !jsonObj.get("sparql").isJsonNull()) && !jsonObj.get("sparql").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `sparql` to be a primitive type in the JSON string but got `%s`", jsonObj.get("sparql").toString()));
       }
   }
 
@@ -805,9 +834,9 @@ public class SearchCriteria {
 
            @Override
            public SearchCriteria read(JsonReader in) throws IOException {
-             JsonObject jsonObj = elementAdapter.read(in).getAsJsonObject();
-             validateJsonObject(jsonObj);
-             return thisAdapter.fromJsonTree(jsonObj);
+             JsonElement jsonElement = elementAdapter.read(in);
+             validateJsonElement(jsonElement);
+             return thisAdapter.fromJsonTree(jsonElement);
            }
 
        }.nullSafe();

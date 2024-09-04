@@ -19,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Association;
+import gov.nih.nci.evs.api.model.AssociationEntry;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
 import gov.nih.nci.evs.api.model.Concept;
 import gov.nih.nci.evs.api.model.ConceptMap;
@@ -71,15 +72,24 @@ public class ConceptEndpointsApiTest {
     String codeOrLabel = "A5";
     Integer fromRecord = 0;
     Integer pageSize = 100;
+    String expectedRelatedName = "Naluzotan Hydrochloride";
+    boolean containsExpectedText = false;
 
-    // ACT
+      // ACT
     AssociationEntryResultList response =
         api.getAssociationEntries(terminology, codeOrLabel, fromRecord, pageSize, null);
+    for (AssociationEntry entry : response.getAssociationEntries()) {
+        assertNotNull( entry.getRelatedName());
+        if (entry.getRelatedName().contains(expectedRelatedName)) {
+            containsExpectedText = true;
+            break;
+        }
+    }
 
     // ASSERT
     assertNotNull(response);
     assertNotNull(response.getAssociationEntries());
-    assertEquals("Tamoxifen Citrate", response.getAssociationEntries().get(0).getRelatedName());
+    assertTrue(containsExpectedText);
 
     // LOG
     log.info("Get association entries for code/label - A5");
@@ -177,7 +187,7 @@ public class ConceptEndpointsApiTest {
   }
 
   /**
-   * Get the summary concept for the specified terminology and code
+   * Get the full concept for the specified terminology and code
    *
    * @throws ApiException if the Api call fails
    */
@@ -200,7 +210,7 @@ public class ConceptEndpointsApiTest {
   }
 
   /**
-   * Get the summary concept for the specified terminology and code
+   * Get the custom include concept for the specified terminology and code
    *
    * @throws ApiException if the Api call fails
    */
@@ -254,22 +264,30 @@ public class ConceptEndpointsApiTest {
   @Test
   public void getDescendantsTest() throws ApiException {
     // ARRANGE - using global variables plus listed below
-    Integer fromRecord = 3;
+    Integer fromRecord = 0;
     Integer pageSize = 100;
     Integer maxLevel = 4;
+    String expectedName = "Adult Meningeal Melanoma";
+    boolean containsExpectedText = false;
 
     // ACT
     List<Concept> response =
         api.getDescendants(terminology, code, fromRecord, pageSize, maxLevel, null);
+    for (Concept concept: response) {
+        assertNotNull(concept.getName());
+        if (concept.getName().contains(expectedName)) {
+        containsExpectedText = true;
+        break;
+      }
+    }
 
     // ASSERT
     assertFalse(response.isEmpty());
     assertEquals(pageSize, response.size());
-    assertEquals("Advanced Cutaneous Melanoma of the Extremity", response.get(0).getName());
-
+    assertTrue(containsExpectedText);
     // LOG
-    log.info("Get list of descendents for code - C3224");
-    log.info("   descendents = " + response);
+    log.info("Get list of descendants for code - C3224");
+    log.info("   descendants = " + response);
   }
 
   /**

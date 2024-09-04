@@ -14,6 +14,7 @@ package gov.nih.nci.evs.api;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.History;
@@ -40,7 +41,7 @@ public class HistoryEndpointsApiTest {
   private static final String terminology = "ncit";
 
   /* Logger */
-  private static final Logger log = LoggerFactory.getLogger(ConceptEndpointsApiTest.class);
+  private static final Logger log = LoggerFactory.getLogger(HistoryEndpointsApiTest.class);
 
   /** Instantiate the HistoryEndpointApi */
   @BeforeAll
@@ -49,7 +50,7 @@ public class HistoryEndpointsApiTest {
   }
 
   /**
-   * Gets suggested replacements for a specified terminology and retired code. Active codes will
+   * Gets suggested replacements for a specified terminology and inactive code. Active codes will
    * return entries as well with an action of \&quot;active\&quot;.
    *
    * @throws ApiException if the Api call fails
@@ -57,13 +58,14 @@ public class HistoryEndpointsApiTest {
   @Test
   public void getReplacementsTest() throws ApiException {
     // ARRANGE - using global variable unless otherwise listed
-    String code = "C4654";
+    String code = "C12658";
     // ACT
     List<History> response = api.getReplacements(terminology, code);
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("C27789", response.get(0).getReplacementCode());
+    assertEquals("retire", response.get(0).getAction());
+    assertEquals("C19157", response.get(0).getReplacementCode());
 
     // LOG
     log.info("Get suggested replacements for code - C4654");
@@ -71,7 +73,7 @@ public class HistoryEndpointsApiTest {
   }
 
   /**
-   * Gets suggested replacements for a specified terminology and a comma-separated list of retired
+   * Gets suggested replacements for a specified terminology and a comma-separated list of inactive
    * codes. Active codes will return entries as well with an action of \&quot;active\&quot;.
    *
    * @throws ApiException if the Api call fails
@@ -79,22 +81,23 @@ public class HistoryEndpointsApiTest {
   @Test
   public void getReplacementsFromListTest() throws ApiException {
     // ARRANGE - using global variable plus listed
-    String _list = "C4654,C40117";
+    String _list = "C12658,C13320";
 
     // ACT
     List<History> response = api.getReplacementsFromList(terminology, _list);
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("C27789", response.get(0).getReplacementCode());
-    assertEquals(
-        "Endometrial Atypical Hyperplasia/Endometrioid Intraepithelial Neoplasia",
-        response.get(0).getReplacementName());
-    assertEquals("C126461", response.get(1).getReplacementCode());
-    assertEquals("Tubal Hyperplasia", response.get(1).getReplacementName());
+    assertTrue(response.stream().filter(h -> 
+      h.getCode().equals("C12658") &&
+      h.getReplacementCode().equals("C19157")).count() > 0);
+    assertTrue(response.stream().filter(h -> 
+      h.getCode().equals("C13320") &&
+      h.getAction().equals("merge") &&
+      h.getReplacementCode().equals("C12756")).count() > 0);
 
     // LOG
-    log.info("Get list of suggested replacements for retired codes - C4654 & C40117");
+    log.info("Get list of suggested replacements for retired codes - C12658,C13320");
     log.info("   suggested replacements = " + response);
   }
 }

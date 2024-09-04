@@ -13,11 +13,12 @@
 
 package gov.nih.nci.evs.api.invoker.auth;
 
-import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.invoker.Pair;
+import gov.nih.nci.evs.api.invoker.ApiException;
+
 import java.net.URI;
-import java.util.List;
 import java.util.Map;
+import java.util.List;
 
 public interface Authentication {
     /**

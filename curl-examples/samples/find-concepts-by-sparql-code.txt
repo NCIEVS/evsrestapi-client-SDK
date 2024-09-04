@@ -1,0 +1,28 @@
+{
+  "total": 1,
+  "timeTaken": 33,
+  "parameters": {
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 10,
+    "codeList": [
+      "C3224"
+    ],
+    "terminology": [
+      "ncit"
+    ],
+    "sparql": "SELECT ?code { GRAPH <http://NCI_T_monthly>  { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 \"Melanoma\" } }"
+  },
+  "concepts": [
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "21.06e",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    }
+  ]
+}

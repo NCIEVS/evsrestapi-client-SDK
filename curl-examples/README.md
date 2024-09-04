@@ -1,14 +1,13 @@
-EVSRESTAPI client SDK: CURL Tutorial
-======================================
+# EVSRESTAPI client SDK: CURL Tutorial
 
 This tutorial shows how to use raw cURL commands to access NCI Thesaurus content from the EVSRESTAPI.
 
-Prerequisites
--------------
-* curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
-* jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+## Prerequisites
 
-The base API url for the EVSRESTAPI is: 
+- curl must be installled ([Download cURL](https://curl.haxx.se/dlwiz/))
+- jq must be installed ([Download jq](https://stedolan.github.io/jq/download/))
+
+The base API url for the EVSRESTAPI is:
 
 `export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
 
@@ -19,8 +18,7 @@ All the operations described here perform a GET request.
 
 The full documentation of the REST API can be consulted in the Swagger documentation at <a href="http://https://api-evsrest.nci.nih.gov/swagger-ui.html">http://https://api-evsrest.nci.nih.gov/swagger-ui.html</a>.
 
-Sample cURL Calls
------------------
+## Sample cURL Calls
 
 The following examples can be types into the command line of any terminal that has cURL and jq installed.
 
@@ -67,6 +65,7 @@ The following examples can be types into the command line of any terminal that h
 - [Find concepts by search term (with highlights)](#find-concepts-by-search-term-with-highlights)
 - [Find concepts by property](#find-concepts-by-property)
 - [Find concepts by subset](#find-concepts-by-subset)
+- [Find concepts by SPARQL code](#find-concepts-by-sparql-code)
 - [Get all subsets](#get-all-subsets)
 - [Get subset by code](#get-subset-by-code)
 - [Get subset members by subset code](#get-subset-members-by-code)
@@ -75,13 +74,14 @@ The following examples can be types into the command line of any terminal that h
 - [Get maps by mapset code](#get-maps-by-mapset-code)
 - [Get replacement concepts for an inactive concept code](#get-replacement-concepts-for-an-inactive-concept-code)
 - [Get replacement concepts for a list of inactive concept codes](#get-replacement-concepts-for-a-list-of-inactive-concept-codes)
+- [Get SPARQL bindings from query](#get-sparql-bindings-from-query)
+- [Find concepts based on associations query](#find-concept-based-on-associations-query)
 
 ### Get terminologies
 
 Return all loaded terminologies currently hosted by the API.
 Use "terminology", "latest", and "tag" parameters to limit the results. This
 sample call finds the latest monthly version of NCI Thesaurus.
-
 
 ```
 curl "$API_URL/metadata/terminologies?terminology=ncit&latest=true&tag=monthly" | jq '.'
@@ -157,8 +157,8 @@ See sample payload data from this call in [`samples/get-concept-by-code-custom.t
 
 ### Get concept part
 
-Returns sub-part of the concept for a given terminology and code.  NOTE: in the call below,
-you can replace "children" in the URL with any of the following and retrieve the 
+Returns sub-part of the concept for a given terminology and code. NOTE: in the call below,
+you can replace "children" in the URL with any of the following and retrieve the
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps.
 
@@ -167,13 +167,14 @@ curl "$API_URL/concept/ncit/C3224/children" | jq '.'
 ```
 
 See the full set of examples for this "style" of call
-* [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
-* [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
-* [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
-* [`samples/get-concept-by-code-associations.txt`](samples/get-concept-by-code-associations.txt)
-* [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
-* [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
-* [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
+
+- [`samples/get-concept-by-code-children.txt`](samples/get-concept-by-code-children.txt)
+- [`samples/get-concept-by-code-parents.txt`](samples/get-concept-by-code-parents.txt)
+- [`samples/get-concept-by-code-roles.txt`](samples/get-concept-by-code-roles.txt)
+- [`samples/get-concept-by-code-associations.txt`](samples/get-concept-by-code-associations.txt)
+- [`samples/get-concept-by-code-inverseRoles.txt`](samples/get-concept-by-code-inverseRoles.txt)
+- [`samples/get-concept-by-code-inverseAssociations.txt`](samples/get-concept-by-code-inverseAssociations.txt)
+- [`samples/get-concept-by-code-maps.txt`](samples/get-concept-by-code-maps.txt)
 
 For disjointWith, a different concept id is needed
 
@@ -188,7 +189,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-disjoint
 ### Get descendants
 
 Return concept descendants information for a given terminology and code. The call
-can page the results with standard fromRecord and pageSize parameters.  The default
+can page the results with standard fromRecord and pageSize parameters. The default
 page size is 50000 which works well for all NCI Thesaurus concepts.
 
 ```
@@ -360,7 +361,6 @@ See sample payload data from this call in [`samples/get-synonym-sources.txt`](sa
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
-
 ### Get all definition types
 
 Find all definition types. Include parameter allowed customizing how much data to return.
@@ -436,7 +436,7 @@ See sample payload data from this call in [`samples/get-paths-to-root.txt`](samp
 
 ### Get paths to an ancestor code from a code
 
-Return paths to/from the specified ancestor code from a specified 
+Return paths to/from the specified ancestor code from a specified
 terminology and code.
 
 ```
@@ -449,7 +449,7 @@ See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](
 
 ### Get subtree for code
 
-Return an entire subtree graph from the root concepts to a specified node.  This
+Return an entire subtree graph from the root concepts to a specified node. This
 call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 ```
@@ -463,7 +463,7 @@ See sample payload data from this call in [`samples/get-subtree.txt`](samples/ge
 
 ### Find concepts by search term
 
-Find concepts matching a search term within a specified terminology. This 
+Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
@@ -477,7 +477,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (restrict by concept status)
 
 Find concepts matching a search term within a specified terminology and
-restrict the search results by concept status of "Retired_Concept". This 
+restrict the search results by concept status of "Retired_Concept". This
 example uses paging to get only the first 5 results.
 
 ```
@@ -491,7 +491,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (restrict by definition source)
 
 Find concepts matching a search term within a specified terminology and
-restrict the search results by a definition source of "NCI". This 
+restrict the search results by a definition source of "NCI". This
 example uses paging to get only the first 5 results.
 
 ```
@@ -505,7 +505,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (restrict by definition type)
 
 Find concepts matching a search term within a specified terminology and
-restrict the search results by a definition type of "DEFINITION". This 
+restrict the search results by a definition type of "DEFINITION". This
 example uses paging to get only the first 5 results.
 
 ```
@@ -528,10 +528,9 @@ curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
 
-
 ### Find concepts by search term (restrict by synonym type)
 
-Find concepts matching a search term with a specified synonym type. This 
+Find concepts matching a search term with a specified synonym type. This
 example restricts results to matching FULL_SYNs.
 
 ```
@@ -545,7 +544,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (where search term is a code)
 
 Find concepts matching a search term within a specified terminology and
-restrict the search results using a code as the search term. 
+restrict the search results using a code as the search term.
 
 ```
 curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq '.'
@@ -558,7 +557,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=match)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "match". This example uses paging to get only the first 
+a search type of "match". This example uses paging to get only the first
 5 results.
 
 ```
@@ -572,7 +571,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=startsWith)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "startsWith". This example uses paging to get only the 
+a search type of "startsWith". This example uses paging to get only the
 first 5 results.
 
 ```
@@ -586,7 +585,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=phrase)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "phrase". This example uses paging to get only the 
+a search type of "phrase". This example uses paging to get only the
 first 5 results.
 
 ```
@@ -600,7 +599,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=fuzzy)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "fuzzy". This example uses paging to get only the 
+a search type of "fuzzy". This example uses paging to get only the
 first 5 results.
 
 ```
@@ -614,7 +613,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=AND)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "AND". This example uses paging to get only the 
+a search type of "AND". This example uses paging to get only the
 first 5 results.
 
 ```
@@ -628,7 +627,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (using type=OR)
 
 Find concepts matching a search term within a specified terminology and
-a search type of "OR". This example uses paging to get only the 
+a search type of "OR". This example uses paging to get only the
 first 5 results.
 
 ```
@@ -642,7 +641,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 ### Find concepts by search term (with highlights)
 
 Find concepts matching a search term within a specified terminology
-and include synonyms and highlighted text in the response. This example 
+and include synonyms and highlighted text in the response. This example
 uses paging to get only the first 5 results.
 
 ```
@@ -657,7 +656,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 Find concepts matching a search term that is searched within a certain
 set of properties. The search results are set to include the property
-values so you can easily see the match.  The property setting here can be either
+values so you can easily see the match. The property setting here can be either
 based on code or on label
 
 ```
@@ -679,6 +678,34 @@ curl "$API_URL/concept/search?terminology=ncit&term=immune&subset=C165258" | jq 
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-subset.txt`](samples/find-concepts-by-search-subset.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find concepts by SPARQL code
+
+Find concepts for a specified SPARQL query that returns a ?code field.
+
+```{text}
+curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/code-query.txt' | jq '.'
+```
+
+See sample SPARQL query from this call in [`sparql-queries/code-query.txt`](sparql-queries/code-query.txt)
+See sample payload data from this call in [`samples/find-concepts-by-sparql-code.txt`](samples/find-concepts-by-sparql-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Find concepts based on associations query
+
+This query is appropriate for NCI Thesaurus and finds concepts with a relationship of "Related_To_Genetic_Biomarker" to "KLK3 Gene".  
+Note: the use of `?code` in the select is required for this to work.
+
+```{text}
+curl -X POST "$API_URL/sparql/ncit" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/advanced-query.txt' | jq '.'
+```
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -708,7 +735,7 @@ See sample payload data from this call in [`samples/get-subset-by-code.txt`](sam
 
 ### Get subset members by code
 
-Get subset members for a specified subset code. This example  uses paging to get only the first 10 results.
+Get subset members for a specified subset code. This example uses paging to get only the first 10 results.
 
 ```
 curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10" | jq '.'
@@ -732,7 +759,7 @@ See sample payload data from this call in [`samples/get-mapsets.txt`](samples/ge
 
 ### Get mapset by code
 
-Get mapset information for a specified code. Include parameter allows customizing how much data to return. 
+Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
 ```
 curl "$API_URL/mapset/GO_to_NCIt_Mapping?include=properties" | jq '.'
@@ -775,5 +802,20 @@ curl "$API_URL/history/ncit/replacements?list=C12658,C13320" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-replacements-for-concept-code-list.txt`](samples/get-replacements-for-concept-code-list.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get SPARQL bindings from query
+
+Get SPARQL bindings for a specified SPARQL query.
+
+```{text}
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=100" \
+  -H 'Content-type: text/plain' \
+  -d '@sparql-queries/bindings-query.txt' | jq '.'
+```
+
+See sample SPARQL query from this call in [`sparql-queries/bindings-query.txt`](sparql-queries/bindings-query.txt)
+See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
