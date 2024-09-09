@@ -107,8 +107,8 @@ compileJava.dependsOn tasks.named("buildJavaSdk")
 build.dependsOn('buildClients')
 publishToMavenLocal.dependsOn = ["buildJavaSdk`",
                                  "buildPythonSdk",
+                                 "buildTypescriptSdk",
 //                                 "buildGoSdk",
 //                                 "buildKotlinSdk",
 //                                 "buildBashSdk",
-//                                 "buildTypescriptSdk"
 ]
