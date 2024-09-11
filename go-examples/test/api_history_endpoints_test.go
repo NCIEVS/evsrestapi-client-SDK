@@ -11,10 +11,14 @@ package evs
 
 import (
 	"context"
+	"fmt"
+	"slices"
+	"strings"
+	"testing"
+
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_evs_HistoryEndpointsAPIService(t *testing.T) {
@@ -24,31 +28,57 @@ func Test_evs_HistoryEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test HistoryEndpointsAPIService GetReplacements", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-		var code string
+		var terminology string = "ncit"
+		var code string = "C12658"
+		var expected_action string = "retire"
+		var expected_replacement_code string = "C19157"
 
 		resp, httpRes, err := apiClient.HistoryEndpointsAPI.GetReplacements(context.Background(), terminology, code).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, resp[0].GetReplacementCode(), expected_replacement_code)
+		assert.Equal(t, resp[0].GetAction(), expected_action)
 
 	})
 
 	t.Run("Test HistoryEndpointsAPIService GetReplacementsFromList", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		var terminology string = "ncit"
+		var expected_replacement_codes = []string{"C19157", "C12756"}
+		var expected_replacement_names = []string{"Specimen", "Nose"}
+		var expected_actions = []string{"retire", "merge", "active"}
 
-		var terminology string
-
-		resp, httpRes, err := apiClient.HistoryEndpointsAPI.GetReplacementsFromList(context.Background(), terminology).Execute()
+		resp, httpRes, err := apiClient.HistoryEndpointsAPI.GetReplacementsFromList(context.Background(), terminology).List(strings.Join(expected_replacement_codes, ",")).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		var code_count = 0
+		var name_count = 0
+		var action_count = 0
+		for _, rep := range resp {
+			assert.NotNil(t, rep.GetCode())
+			assert.NotNil(t, rep.GetName())
+			assert.NotNil(t, rep.GetAction())
+			fmt.Println(rep.GetCode() + " " + rep.GetName() + " " + rep.GetAction())
+			if slices.Contains(expected_replacement_codes, rep.GetCode()) {
+				code_count++
+			}
+
+			if slices.Contains(expected_replacement_names, rep.GetName()) {
+				name_count++
+			}
+
+			if slices.Contains(expected_actions, rep.GetAction()) {
+				action_count++
+			}
+		}
+		assert.Equal(t, action_count, 2)
+		assert.Equal(t, code_count, 2)
+		assert.Equal(t, name_count, 2)
 	})
 
 }
