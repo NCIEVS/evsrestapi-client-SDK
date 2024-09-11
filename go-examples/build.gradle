@@ -1,0 +1,112 @@
+import org.openapitools.generator.gradle.plugin.tasks.GenerateTask
+
+plugins {
+    id 'java'
+    id 'org.openapi.generator'
+    id 'maven-publish'
+}
+
+group = 'gov.nih.nci.evs.api'
+version = '0.0.1-SNAPSHOT'
+
+// Input Specification locations.
+//def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
+def inputURL = "http://localhost:8082/v3/api-docs"
+
+repositories {
+    mavenCentral()
+}
+
+sourceCompatibility = 17
+targetCompatibility = 17
+
+dependencies {
+    testImplementation platform(Testing.junit.bom)
+    testImplementation Testing.junit.jupiter
+}
+
+test {
+    useJUnitPlatform()
+}
+
+/**
+ * Deletes existing build directory
+ */
+tasks.register('clearBuildDir', Delete) {
+    delete buildDir
+}
+
+/**
+ * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+ * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
+tasks.register('buildJavaSdk', GenerateTask) {
+    generatorName.set("java")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/java")
+    apiPackage.set("gov.nih.nci.evs.api")
+    invokerPackage.set("gov.nih.nci.evs.api.invoker")
+    modelPackage.set("gov.nih.nci.evs.api.model")
+    configOptions.set([
+        "dateLibrary": "java8",
+        "serializationLibrary": "jackson",
+        "hideGenerationTimestamp": "false",
+        // if there are unknown properties present, ignore them
+        "ignoreUnknown": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+
+}
+
+tasks.register('buildPythonSdk', GenerateTask) {
+    generatorName.set("python")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/python")
+    apiPackage.set("api")
+    modelPackage.set("models")
+    configOptions.set([
+        "packageName": "evs",
+        "hideGenerationTimestamp": "false",
+        // if there are unknown properties present, ignore them
+        "additionalProperties": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+}
+
+tasks.register('buildGoSdk', GenerateTask) {
+    generatorName.set("go")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/go")
+    configOptions.set([
+        "packageName": "evs",
+        "hideGenerationTimestamp": "false",
+        // Enable handling unknown properties
+        "additionalProperties": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+}
+
+
+/** Runs all code-gen tasks for each language to generate the clients */
+tasks.register("buildClients") {
+    dependsOn("buildJavaSdk",
+                "buildPythonSdk",
+            "buildGoSdk",
+//            "buildKotlinSdk",
+//            "buildBashSdk",
+//            "buildTypescriptSdk"
+    )
+    doLast {
+        println 'All client sdk generated. They can be found in the code-gen/build folder.'
+    }
+}
+
+
+compileJava.dependsOn tasks.named("buildJavaSdk")
+build.dependsOn('buildClients')
+publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+                                 "buildPythonSdk",
+                                 "buildGoSdk",
+//                                 "buildKotlinSdk",
+//                                 "buildBashSdk",
+//                                 "buildTypescriptSdk"
+]
