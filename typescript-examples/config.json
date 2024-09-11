@@ -1,0 +1,9 @@
+{
+  "baseUrls": {
+    "development": "https://api-evsrest-dev.nci.nih.gov/",
+    "testing": "https://api-evsrest-test.nci.nih.gov/",
+    "production": "https://api-evsrest.nci.nih.gov/",
+    "local": "http://localhost:8082"
+  },
+  "currentEnvironment": "testing"
+}
