@@ -11,10 +11,12 @@ package evs
 
 import (
 	"context"
+	"strings"
+	"testing"
+
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
@@ -22,27 +24,41 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
+	terminology := "ncit"
+	code := "C3224"
+
 	t.Run("Test ConceptEndpointsAPIService GetAssociationEntries", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrLabel := "A5"
+		var fromRecord int32 = 0
+		var pageSize int32 = 100
+		expectedRelatedName := "Naluzotan Hydrochloride"
+		containsExpectedName := false
 
-		var terminology string
-		var codeOrLabel string
+		// ACT
+		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetAssociationEntries(context.Background(), terminology, codeOrLabel).FromRecord(fromRecord).PageSize(pageSize).Execute()
 
-		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetAssociationEntries(context.Background(), terminology, codeOrLabel).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		// Check if the expected related name exists in the result
+		for _, entry := range resp.AssociationEntries {
+			if strings.Contains(entry.GetRelatedName(), expectedRelatedName) {
+				containsExpectedName = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedName, "FAIL: Response doesn't contain the expected related name")
 	})
 
 	t.Run("Test ConceptEndpointsAPIService GetAssociations1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-		var code string
+		expected_related_name := "CDISC SEND Terminology"
+		expected_type := "Concept_In_Subset"
 
 		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetAssociations1(context.Background(), terminology, code).Execute()
 
@@ -50,14 +66,16 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		var assoc = resp[0]
+		assert.NotNil(t, assoc)
+		assert.Equal(t, expected_related_name, assoc.GetRelatedName())
+		assert.Equal(t, expected_type, assoc.GetType())
+
 	})
 
 	t.Run("Test ConceptEndpointsAPIService GetChildren", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-		var code string
+		expected_name := "Melanoma"
 
 		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetChildren(context.Background(), terminology, code).Execute()
 
@@ -65,14 +83,15 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, entry := range resp {
+			assert.True(t, strings.Contains(entry.GetName(), expected_name))
+		}
+
 	})
 
 	t.Run("Test ConceptEndpointsAPIService GetConcept", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-		var code string
+		expected_name := "Melanoma"
 
 		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetConcept(context.Background(), terminology, code).Execute()
 
@@ -80,13 +99,11 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		assert.Equal(t, resp.GetName(), expected_name)
+
 	})
 
 	t.Run("Test ConceptEndpointsAPIService GetConcepts", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
 
 		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetConcepts(context.Background(), terminology).Execute()
 
@@ -98,7 +115,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetDescendants", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -113,7 +130,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetDisjointWith", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -128,7 +145,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetHistory", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -143,7 +160,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetInverseAssociations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -158,7 +175,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetInverseRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -173,7 +190,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetMaps", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -188,7 +205,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetParents", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -203,7 +220,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetPathsFromRoot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -218,7 +235,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetPathsToAncestor", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -234,7 +251,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetPathsToRoot", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -249,7 +266,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetRoles1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -264,7 +281,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetRoots", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 
@@ -278,7 +295,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetSubsetMembers1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -293,7 +310,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetSubtree", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
@@ -308,7 +325,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	t.Run("Test ConceptEndpointsAPIService GetSubtreeChildren", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		t.Skip("skip test") // remove to run test
 
 		var terminology string
 		var code string
