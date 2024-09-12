@@ -16,3 +16,5 @@ python-examples/logs.txt
 doc/code-gen/.idea
 doc/code-gen/.gradle
 doc/code-gen/build
+*/.gradle
+*/gradle/wrapper
