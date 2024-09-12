@@ -11,330 +11,516 @@ package evs
 
 import (
 	"context"
+	"strings"
+	"testing"
+
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
+	terminology := "ncit"
 
-	t.Run("Test MetadataEndpointsAPIService GetAssociation", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetAssociationByCode", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "A18"
+		include := "minimal"
+		expectedName := "Has_Pharmaceutical_Basic_Dose_Form"
 
-		var terminology string
-		var codeOrName string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetAssociation(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetAssociation(context.Background(), terminology, codeOrName).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetAssociations", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetAssociations", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "minimal"
+		expectedCode := "A1"
+		expectedSize := 35
+		containsExpectedCode := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetAssociations(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetAssociations(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.GreaterOrEqual(t, len(resp), expectedSize)
 
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode) {
+				containsExpectedCode = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedCode, "FAIL: expected code not found in associations")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetConceptStatuses", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetConceptStatuses", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		expectedStatus := "Obsolete_Concept"
+		expectedSize := 5
+		containsExpectedStatus := false
 
-		var terminology string
-
+		// ACT
 		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetConceptStatuses(context.Background(), terminology).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedSize, len(resp))
 
+		for _, status := range resp {
+			assert.NotNil(t, status)
+			if strings.Contains(status, expectedStatus) {
+				containsExpectedStatus = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedStatus, "FAIL: expected status not found in concept statuses")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetDefinitionSources", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetDefinitionSources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		expectedName := "American College of Cardiology / American Heart Association"
+		expectedCode := "ACC/AHA"
+		containsExpectedValues := false
 
-		var terminology string
-
+		// ACT
 		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetDefinitionSources(context.Background(), terminology).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, definitionSource := range resp {
+			assert.NotNil(t, definitionSource.GetCode())
+			assert.NotNil(t, definitionSource.GetName())
+			if strings.Contains(definitionSource.GetCode(), expectedCode) &&
+				strings.Contains(definitionSource.GetName(), expectedName) {
+				containsExpectedValues = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedValues, "FAIL: expected definition source not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetDefinitionType", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetDefinitionTypeByCode", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "P325"
+		include := "minimal"
+		expectedName := "ALT_DEFINITION"
 
-		var terminology string
-		var codeOrName string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetDefinitionType(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetDefinitionType(context.Background(), terminology, codeOrName).Execute()
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	})
 
+	t.Run("Test MetadataEndpointsAPI GetDefinitionTypes", func(t *testing.T) {
+
+		// ARRANGE
+		include := "minimal"
+		expectedCode := "P97"
+		expectedName := "DEFINITION"
+		containsExpectedValues := false
+
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetDefinitionTypes(context.Background(), terminology).
+			Include(include).Execute()
+
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			assert.NotNil(t, concept.GetName())
+			if strings.Contains(concept.GetCode(), expectedCode) && strings.Contains(concept.GetName(), expectedName) {
+				containsExpectedValues = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedValues, "FAIL: expected definition type not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetDefinitionTypes", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetProperties", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "minimal"
+		expectedCode := "NHC0"
+		expectedName := "code"
+		containsExpectedValues := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetProperties(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetDefinitionTypes(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			assert.NotNil(t, concept.GetName())
+			if strings.Contains(concept.GetCode(), expectedCode) && strings.Contains(concept.GetName(), expectedName) {
+				containsExpectedValues = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedValues, "FAIL: expected property not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetProperties", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetProperty", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "P216"
+		include := "full"
+		expectedName := "BioCarta_ID"
+		expectedSynonym := "BioCarta ID"
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetProperty(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetProperties(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+		assert.Equal(t, expectedSynonym, resp.GetSynonyms()[0].GetName(), "FAIL: expected synonym doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetProperty", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetQualifier", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "P390"
+		include := "summary"
+		expectedName := "go-source"
 
-		var terminology string
-		var codeOrName string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetQualifier(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetProperty(context.Background(), terminology, codeOrName).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.NotNil(t, resp.GetSynonyms())
+		assert.NotNil(t, resp.GetDefinitions())
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetQualifier", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetQualifierValues", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "P390"
+		expectedValue := "CGAP"
+		containsExpectedValue := false
 
-		var terminology string
-		var codeOrName string
-
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetQualifier(context.Background(), terminology, codeOrName).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MetadataEndpointsAPIService GetQualifierValues", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-		var codeOrName string
-
+		// ACT
 		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetQualifierValues(context.Background(), terminology, codeOrName).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, value := range resp {
+			assert.NotNil(t, value)
+			if strings.Contains(value, expectedValue) {
+				containsExpectedValue = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedValue, "FAIL: expected value not found in qualifier values")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetQualifiers", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetQualifiers", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "minimal"
+		expectedCode1 := "P383"
+		expectedCode2 := "P384"
+		containsCode1 := false
+		containsCode2 := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetQualifiers(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetQualifiers(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, qualifier := range resp {
+			assert.NotNil(t, qualifier.GetCode())
+			if strings.Contains(qualifier.GetCode(), expectedCode1) {
+				containsCode1 = true
+			}
+			if strings.Contains(qualifier.GetCode(), expectedCode2) {
+				containsCode2 = true
+			}
+			if containsCode1 && containsCode2 {
+				break
+			}
+		}
+
+		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
+		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetRole", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetRole", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "R123"
+		include := "full"
+		expectedName := "Chemotherapy_Regimen_Has_Component"
 
-		var terminology string
-		var codeOrName string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetRole(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetRole(context.Background(), terminology, codeOrName).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		assert.NotNil(t, resp.GetSynonyms())
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetRoles", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetRoles", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "minimal"
+		expectedCode := "R123"
+		containsExpectedCode := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetRoles(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetRoles(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode) {
+				containsExpectedCode = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedCode, "FAIL: expected code not found in roles")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetSourceStats", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetSubsets1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "minimal"
+		expectedCode := "C167405"
+		containsExpectedCode := false
 
-		var terminology string
-		var source string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSubsets1(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSourceStats(context.Background(), terminology, source).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode) {
+				containsExpectedCode = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedCode, "FAIL: expected code not found in subsets")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetSubset1", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetSubset1", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		code := "C81222"
+		include := "summary"
+		expectedName := "CDISC ADaM Terminology"
 
-		var terminology string
-		var code string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSubset1(context.Background(), terminology, code).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSubset1(context.Background(), terminology, code).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetSubsets1", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetSynonymSources", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		expectedCode1 := "ACC/AHA"
+		expectedCode2 := "BIOCARTA"
+		containsCode1 := false
+		containsCode2 := false
 
-		var terminology string
-
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSubsets1(context.Background(), terminology).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MetadataEndpointsAPIService GetSynonymSources", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-
+		// ACT
 		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSynonymSources(context.Background(), terminology).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode1) {
+				containsCode1 = true
+			}
+			if strings.Contains(concept.GetCode(), expectedCode2) {
+				containsCode2 = true
+			}
+			if containsCode1 && containsCode2 {
+				break
+			}
+		}
 
+		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
+		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetSynonymType", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetSynonymTypeByCode", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		codeOrName := "P90"
+		include := "minimal"
+		expectedName := "FULL_SYN"
 
-		var terminology string
-		var codeOrName string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSynonymType(context.Background(), terminology, codeOrName).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSynonymType(context.Background(), terminology, codeOrName).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetSynonymTypes", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetSynonymTypes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		include := "full"
+		expectedCode := "P108"
+		containsExpectedCode := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSynonymTypes(context.Background(), terminology).
+			Include(include).Execute()
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetSynonymTypes(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode) {
+				containsExpectedCode = true
+				break
+			}
+		}
 
+		assert.True(t, containsExpectedCode, "FAIL: expected code not found in synonym types")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetTermTypes", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetTermTypes", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		expectedCode1 := "AB"
+		expectedCode2 := "AD"
+		containsCode1 := false
+		containsCode2 := false
 
-		var terminology string
-
+		// ACT
 		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetTermTypes(context.Background(), terminology).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		for _, concept := range resp {
+			assert.NotNil(t, concept.GetCode())
+			if strings.Contains(concept.GetCode(), expectedCode1) {
+				containsCode1 = true
+			}
+			if strings.Contains(concept.GetCode(), expectedCode2) {
+				containsCode2 = true
+			}
+			if containsCode1 && containsCode2 {
+				break
+			}
+		}
 
+		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
+		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPIService GetTerminologies", func(t *testing.T) {
+	t.Run("Test MetadataEndpointsAPI GetTerminologies", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		latest := true
+		tag := "monthly"
 
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetTerminologies(context.Background()).Execute()
+		// ACT
+		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetTerminologies(context.Background()).
+			Latest(latest).Tag(tag).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
-	})
-
-	t.Run("Test MetadataEndpointsAPIService GetWelcomeText", func(t *testing.T) {
-
-		t.Skip("skip test")  // remove to run test
-
-		var terminology string
-
-		resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetWelcomeText(context.Background(), terminology).Execute()
-
-		require.Nil(t, err)
-		require.NotNil(t, resp)
-		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, terminology, resp[0].GetTerminology(), "FAIL: expected terminology doesn't match actual")
+		assert.True(t, resp[0].GetLatest())
+		assert.True(t, resp[0].GetLatest())
 	})
 
 }
