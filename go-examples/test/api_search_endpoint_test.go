@@ -11,69 +11,263 @@ package evs
 
 import (
 	"context"
+	"testing"
+
+	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"testing"
-	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
 )
 
 func Test_evs_SearchEndpointAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
+	terminology := "ncit"
 
-	t.Run("Test SearchEndpointAPIService GetSparqlBindings", func(t *testing.T) {
+	t.Run("Test SearchEndpointsAPIService Search", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		expectedCode := "C1000"
+		containsExpectedCode := false
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Ascending(ascending).Include(include).FromRecord(fromRecord).PageSize(pageSize).Execute()
 
-		resp, httpRes, err := apiClient.SearchEndpointAPI.GetSparqlBindings(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.NotNil(t, resp.Concepts)
 
+		for _, concept := range resp.Concepts {
+			assert.NotNil(t, concept.GetCode())
+			if concept.GetCode() == expectedCode {
+				containsExpectedCode = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedCode, "FAIL: expected code not found in search results")
 	})
 
-	t.Run("Test SearchEndpointAPIService Search", func(t *testing.T) {
+	t.Run("Test SearchEndpointsAPIService SearchFilterByConceptStatus", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		term := "respiratory"
+		ascending := true
+		include := "minimal"
+		conceptStatus := "Retired_Concept"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 18
+		containsExpectedStatus := false
 
-		resp, httpRes, err := apiClient.SearchEndpointAPI.Search(context.Background()).Execute()
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).ConceptStatus(conceptStatus).Execute()
 
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
 
+		for _, concept := range resp.Concepts {
+			assert.NotNil(t, concept.GetConceptStatus())
+			if concept.GetConceptStatus() == conceptStatus {
+				containsExpectedStatus = true
+				break
+			}
+		}
+
+		assert.True(t, containsExpectedStatus, "FAIL: expected concept status not found")
 	})
 
-	t.Run("Test SearchEndpointAPIService SearchSingleTerminology", func(t *testing.T) {
+	t.Run("Test SearchEndpointsAPIService SearchFilterByDefinitionSource", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		term := "dsDNA"
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		definitionSource := "NCI"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 12
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).DefinitionSource(definitionSource).Execute()
 
-		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
 	})
 
-	t.Run("Test SearchEndpointAPIService SearchSingleTerminologySparql", func(t *testing.T) {
+	t.Run("Test SearchEndpointAPI SearchFilterByDefinitionType", func(t *testing.T) {
 
-		t.Skip("skip test")  // remove to run test
+		// ARRANGE
+		term := "melanoma"
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		definitionType := "DEFINITION"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 1438
 
-		var terminology string
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).DefinitionType(definitionType).Execute()
 
-		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminologySparql(context.Background(), terminology).Execute()
-
+		// ASSERT
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
 
+	t.Run("Test SearchEndpointAPI SearchFilterBySynonymSourceAndTermType", func(t *testing.T) {
+
+		// ARRANGE
+		term := "dsDNA"
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		synonymSource := "NCI"
+		termType := "PT"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 13
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).SynonymSource(synonymSource).SynonymTermType(termType).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchFilterBySynonymType", func(t *testing.T) {
+
+		// ARRANGE
+		term := "dsDNA"
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		synonymType := "FULL_SYN"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 13
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).SynonymType(synonymType).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointsAPIService SearchByCode", func(t *testing.T) {
+
+		// ARRANGE
+		term := "C3224"
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 1
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchByTypeMatch", func(t *testing.T) {
+
+		// ARRANGE
+		term := "enzyme"
+		searchType := "match"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 1
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchByTypeStartsWith", func(t *testing.T) {
+
+		// ARRANGE
+		term := "enzyme"
+		searchType := "startsWith"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 48
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
 	})
 
 }
