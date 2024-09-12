@@ -270,4 +270,217 @@ func Test_evs_SearchEndpointAPIService(t *testing.T) {
 		assert.NotNil(t, resp.Concepts[0])
 	})
 
+	t.Run("Test SearchEndpointAPI SearchByTypePhrase", func(t *testing.T) {
+
+		// ARRANGE
+		term := "enzyme"
+		searchType := "phrase"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 269
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchByTypeFuzzy", func(t *testing.T) {
+
+		// ARRANGE
+		term := "enzyme"
+		searchType := "fuzzy"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchByTypeAnd", func(t *testing.T) {
+
+		// ARRANGE
+		term := "malignant melanoma"
+		searchType := "AND"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 148
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchByTypeOr", func(t *testing.T) {
+
+		// ARRANGE
+		term := "malignant melanoma"
+		searchType := "OR"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Type_(searchType).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchWithHighlights", func(t *testing.T) {
+
+		// ARRANGE
+		term := "XAV05295I5"
+		ascending := true
+		include := "highlights"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		var expectedTotal int64 = 1
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchConceptsByProperty", func(t *testing.T) {
+
+		// ARRANGE
+		term := "XAV05295I5"
+		ascending := true
+		include := "highlights"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		property := "FDA_UNII_Code"
+		var expectedTotal int64 = 1
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Property(property).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI SearchConceptsBySubset", func(t *testing.T) {
+
+		// ARRANGE
+		term := "immune"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 5
+		subset := "C165258"
+		var expectedTotal int64 = 35
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
+			Term(term).Ascending(ascending).Include(include).FromRecord(fromRecord).
+			PageSize(pageSize).Subset(subset).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI FindConceptsBySPARQLCode", func(t *testing.T) {
+
+		// ARRANGE
+		searchType := "contains"
+		ascending := true
+		include := "minimal"
+		var fromRecord int32 = 0
+		var pageSize int32 = 25
+		queryBody := `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma" } }`
+		var expectedTotal int64 = 1
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminologySparql(context.Background(), terminology).
+			Body(queryBody).Include(include).Type_(searchType).Ascending(ascending).FromRecord(fromRecord).
+			PageSize(pageSize).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.NotNil(t, resp.Concepts)
+		assert.NotNil(t, resp.Concepts[0])
+	})
+
+	t.Run("Test SearchEndpointAPI GetSPARQLBindings", func(t *testing.T) {
+
+		// ARRANGE
+		queryBody := `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }`
+		var expectedTotal int64 = 150000
+
+		// ACT
+		resp, httpRes, err := apiClient.SearchEndpointAPI.GetSparqlBindings(context.Background(), terminology).
+			Body(queryBody).Execute()
+
+		// ASSERT
+		require.Nil(t, err)
+		require.NotNil(t, resp)
+		assert.Equal(t, 200, httpRes.StatusCode)
+		assert.NotNil(t, resp)
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedTotal)
+	})
+
 }
