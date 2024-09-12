@@ -52,7 +52,7 @@ Templated server URL is formatted using default variables from configuration or 
 
 ```go
 ctx := context.WithValue(context.Background(), evs.ContextServerVariables, map[string]string{
-	"basePath": "v2",
+ "basePath": "v2",
 })
 ```
 
@@ -60,24 +60,37 @@ Note, enum values are always validated and all unused variables are silently ign
 
 ### URLs Configuration per Operation
 
-Each operation can use different server URL defined using `OperationServers` map in the `Configuration`.
-An operation is uniquely identified by `"{classname}Service.{nickname}"` string.
-Similar rules for overriding default operation server index and variables applies by using `evs.ContextOperationServerIndices` and `evs.ContextOperationServerVariables` context maps.
+Each operation can use different server URL defined using `url` in configuration.go. This file includes a list of currently supported API environments. To change the environment used to run, set the url variable to the desired environment mentioned in the url mapping `baseUrls`
 
 ```go
-ctx := context.WithValue(context.Background(), evs.ContextOperationServerIndices, map[string]int{
-	"{classname}Service.{nickname}": 2,
-})
-ctx = context.WithValue(context.Background(), evs.ContextOperationServerVariables, map[string]map[string]string{
-	"{classname}Service.{nickname}": {
-		"port": "8443",
-	},
-})
+// Define base URLs for different environments
+ baseUrls := map[string]string{
+  "development": "https://api-evsrest-dev.nci.nih.gov/",
+  "testing":     "https://api-evsrest-test.nci.nih.gov/m",
+  "production":  "https://api-evsrest.nci.nih.gov/",
+  "local":       "http://localhost:8082",
+ }
+
+ // define environment
+ url := baseUrls["production"] // set API environment here
+
+ cfg := &Configuration{
+  DefaultHeader: make(map[string]string),
+  UserAgent:     "OpenAPI-Generator/1.0.0/go",
+  Debug:         false,
+  Servers: ServerConfigurations{
+   {
+    URL:         url, // configuration built based on selected baseUrl
+    Description: "No description provided",
+   },
+  },
+  OperationServers: map[string]ServerConfigurations{},
+ }
 ```
 
 ## Documentation for API Endpoints
 
-All URIs are relative to _http://localhost:8082_
+All URIs are relative to _<http://localhost:8082>_
 
 | Class                           | Method                                                                                       | HTTP request                                                                | Description                                                                                                                                                                           |
 | ------------------------------- | -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -188,4 +201,4 @@ Each of these functions takes a value of the given basic type and returns a poin
 
 ## Author
 
-NCIAppSupport@nih.gov
+<NCIAppSupport@nih.gov>

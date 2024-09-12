@@ -35,7 +35,9 @@ func Test_evs_ApplicationVersionEndpointAPIService(t *testing.T) {
 
 	t.Run("Test ApplicationVersionEndpointAPIService RewriteUrl", func(t *testing.T) {
 
-		resp, httpRes, err := apiClient.ApplicationVersionEndpointAPI.RewriteUrl(context.Background()).Execute()
+		url := "https://ncit.nci.nih.gov/ncitbrowser/ConceptReport.jsp?dictionary=NCI_Thesaurus&code=C3224"
+
+		resp, httpRes, err := apiClient.ApplicationVersionEndpointAPI.RewriteUrl(context.Background()).Url(url).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)

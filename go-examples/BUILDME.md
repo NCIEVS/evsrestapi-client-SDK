@@ -79,8 +79,8 @@ corresponding `-examples` directory
 2. Find the generated client in `build/go`
 3. Copy the new files generated from the `build/go/` folder to the `go-examples` folder.
 4. Install necessary imports as per the Installation section in the README (which resides in `go-examples` [here](README.md)).
-   1. 🚫🚫 **DO NOT** replace any files in the `test` directory, instead only add tests to each file as necessary
-5. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests.
+   1. 🚫🚫 **DO NOT** replace any files in the `test` directory, instead only add tests to each file as necessary.
+5. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests. The same applies to the `go-examples` README documentation. Avoid replacing api documentation in favor of adding new api calls in the same format (which is likely available in the auto-generated README).
 6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
 
 **[Back to top](#evsrestapi-regenerate-client-sdks)**
