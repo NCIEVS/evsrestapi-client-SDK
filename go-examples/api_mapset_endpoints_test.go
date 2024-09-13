@@ -18,12 +18,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_MapsetEndpointsAPIService(t *testing.T) {
+func TestMapsetEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test MapsetEndpointsAPIService GetMapsetByCode", func(t *testing.T) {
+	t.Run("GetMapsetByCode", func(t *testing.T) {
 
 		var code string = "NCIt_Maps_To_ICDO3"
 		var include string = "minimal"
@@ -37,7 +37,7 @@ func Test_evs_MapsetEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MapsetEndpointsAPIService GetMapsetMappingsByCode", func(t *testing.T) {
+	t.Run("GetMapsetMappingsByCode", func(t *testing.T) {
 
 		var code string = "GO_to_NCIt_Mapping"
 		var fromRecord int32 = 0
@@ -58,7 +58,7 @@ func Test_evs_MapsetEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test MapsetEndpointsAPIService GetMapsets", func(t *testing.T) {
+	t.Run("GetMapsets", func(t *testing.T) {
 
 		var include string = "minimal"
 

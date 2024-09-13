@@ -19,13 +19,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
+func TestMetadataEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 	terminology := "ncit"
 
-	t.Run("Test MetadataEndpointsAPI GetAssociationByCode", func(t *testing.T) {
+	t.Run("GetAssociationByCode", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "A18"
@@ -43,7 +43,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetAssociations", func(t *testing.T) {
+	t.Run("GetAssociations", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -72,7 +72,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in associations")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetConceptStatuses", func(t *testing.T) {
+	t.Run("GetConceptStatuses", func(t *testing.T) {
 
 		// ARRANGE
 		expectedStatus := "Obsolete_Concept"
@@ -99,7 +99,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedStatus, "FAIL: expected status not found in concept statuses")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetDefinitionSources", func(t *testing.T) {
+	t.Run("GetDefinitionSources", func(t *testing.T) {
 
 		// ARRANGE
 		expectedName := "American College of Cardiology / American Heart Association"
@@ -127,7 +127,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: expected definition source not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetDefinitionTypeByCode", func(t *testing.T) {
+	t.Run("GetDefinitionTypeByCode", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "P325"
@@ -145,7 +145,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetDefinitionTypes", func(t *testing.T) {
+	t.Run("GetDefinitionTypes", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -174,7 +174,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: expected definition type not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetProperties", func(t *testing.T) {
+	t.Run("GetProperties", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -203,7 +203,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: expected property not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetProperty", func(t *testing.T) {
+	t.Run("GetProperty", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "P216"
@@ -223,7 +223,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedSynonym, resp.GetSynonyms()[0].GetName(), "FAIL: expected synonym doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetQualifier", func(t *testing.T) {
+	t.Run("GetQualifier", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "P390"
@@ -243,7 +243,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetQualifierValues", func(t *testing.T) {
+	t.Run("GetQualifierValues", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "P390"
@@ -269,7 +269,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValue, "FAIL: expected value not found in qualifier values")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetQualifiers", func(t *testing.T) {
+	t.Run("GetQualifiers", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -304,7 +304,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetRole", func(t *testing.T) {
+	t.Run("GetRole", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "R123"
@@ -324,7 +324,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetRoles", func(t *testing.T) {
+	t.Run("GetRoles", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -351,7 +351,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in roles")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetSubsets1", func(t *testing.T) {
+	t.Run("GetSubsets1", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -378,7 +378,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in subsets")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetSubset1", func(t *testing.T) {
+	t.Run("GetSubset1", func(t *testing.T) {
 
 		// ARRANGE
 		code := "C81222"
@@ -396,7 +396,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetSynonymSources", func(t *testing.T) {
+	t.Run("GetSynonymSources", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode1 := "ACC/AHA"
@@ -428,7 +428,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetSynonymTypeByCode", func(t *testing.T) {
+	t.Run("GetSynonymTypeByCode", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrName := "P90"
@@ -446,7 +446,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetSynonymTypes", func(t *testing.T) {
+	t.Run("GetSynonymTypes", func(t *testing.T) {
 
 		// ARRANGE
 		include := "full"
@@ -472,7 +472,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in synonym types")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetTermTypes", func(t *testing.T) {
+	t.Run("GetTermTypes", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode1 := "AB"
@@ -504,7 +504,7 @@ func Test_evs_MetadataEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
 	})
 
-	t.Run("Test MetadataEndpointsAPI GetTerminologies", func(t *testing.T) {
+	t.Run("GetTerminologies", func(t *testing.T) {
 
 		// ARRANGE
 		latest := true

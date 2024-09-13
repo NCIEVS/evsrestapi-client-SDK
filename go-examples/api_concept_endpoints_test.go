@@ -19,7 +19,7 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
+func TestConceptEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
@@ -27,7 +27,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 	terminology := "ncit"
 	code := "C3224"
 
-	t.Run("Test ConceptEndpointsAPIService GetAssociationEntries", func(t *testing.T) {
+	t.Run("GetAssociationEntries", func(t *testing.T) {
 
 		// ARRANGE
 		codeOrLabel := "A5"
@@ -55,7 +55,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedName, "FAIL: Response doesn't contain the expected related name")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetAssociations1", func(t *testing.T) {
+	t.Run("GetAssociations1", func(t *testing.T) {
 
 		expected_related_name := "CDISC SEND Terminology"
 		expected_type := "Concept_In_Subset"
@@ -73,7 +73,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetChildren", func(t *testing.T) {
+	t.Run("GetChildren", func(t *testing.T) {
 
 		expected_name := "Melanoma"
 
@@ -89,7 +89,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetConcept", func(t *testing.T) {
+	t.Run("GetConcept", func(t *testing.T) {
 
 		expected_name := "Melanoma"
 
@@ -103,7 +103,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetConceptSummary", func(t *testing.T) {
+	t.Run("GetConceptSummary", func(t *testing.T) {
 
 		// ARRANGE
 		include := "summary"
@@ -122,7 +122,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		t.Logf("Get a summary concept for code - %s", code)
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetConceptFull", func(t *testing.T) {
+	t.Run("GetConceptFull", func(t *testing.T) {
 
 		// ARRANGE
 		include := "full"
@@ -141,7 +141,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		t.Logf("Get a full concept for code - %s", code)
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetConceptCustomInclude", func(t *testing.T) {
+	t.Run("GetConceptCustomInclude", func(t *testing.T) {
 
 		// ARRANGE
 		include := "synonyms,children,maps,inverseAssociations"
@@ -160,7 +160,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		t.Logf("Get a custom include concept for code - %s", code)
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetConcepts", func(t *testing.T) {
+	t.Run("GetConcepts", func(t *testing.T) {
 
 		// ARRANGE
 		codeList := "C3224,C3910"
@@ -181,7 +181,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		t.Logf("Get list of concepts for codes - %s", codeList)
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetDescendants", func(t *testing.T) {
+	t.Run("GetDescendants", func(t *testing.T) {
 
 		// ARRANGE
 		var fromRecord int32 = 0
@@ -214,7 +214,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		t.Logf("Get list of descendants for code - %s", code)
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetDisjointWith", func(t *testing.T) {
+	t.Run("GetDisjointWith", func(t *testing.T) {
 
 		// ARRANGE
 		code := "C3910"
@@ -244,7 +244,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected related code or name not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetHistory", func(t *testing.T) {
+	t.Run("GetHistory", func(t *testing.T) {
 
 		// ARRANGE
 		expectedName := "Melanoma"
@@ -260,7 +260,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: Expected name doesn't match actual")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetInverseAssociations", func(t *testing.T) {
+	t.Run("GetInverseAssociations", func(t *testing.T) {
 
 		// ARRANGE
 		expectedType := "Has_GDC_Value"
@@ -289,7 +289,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected type or related code not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetInverseRoles", func(t *testing.T) {
+	t.Run("GetInverseRoles", func(t *testing.T) {
 
 		// ARRANGE
 		expectedRelatedCode := "C21390"
@@ -318,7 +318,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected related code or name not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetMaps", func(t *testing.T) {
+	t.Run("GetMaps", func(t *testing.T) {
 
 		// ARRANGE
 		expectedTargetCode := "morphology"
@@ -353,7 +353,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedName, "FAIL: Expected target name not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetParents", func(t *testing.T) {
+	t.Run("GetParents", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode := "C9305"
@@ -381,7 +381,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected parent code or name not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetPathsFromRoot", func(t *testing.T) {
+	t.Run("GetPathsFromRoot", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode := "C7057"
@@ -411,7 +411,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected code or name not found in path from root")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetPathsToRoot", func(t *testing.T) {
+	t.Run("GetPathsToRoot", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -453,7 +453,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedSecondPathValues, "FAIL: Expected second path values not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetPathsToAncestor", func(t *testing.T) {
+	t.Run("GetPathsToAncestor", func(t *testing.T) {
 
 		// ARRANGE
 		ancestorCode := "C2991"
@@ -496,7 +496,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedSecondAncestor, "FAIL: Expected second ancestor not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetRoles1", func(t *testing.T) {
+	t.Run("GetRoles1", func(t *testing.T) {
 
 		// ARRANGE
 		expectedRoleName := "Benign Cellular Infiltrate"
@@ -525,7 +525,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected role type or related code not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetRoots", func(t *testing.T) {
+	t.Run("GetRoots", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"
@@ -554,7 +554,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected root code or name not found")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetSubsetMembers1", func(t *testing.T) {
+	t.Run("GetSubsetMembers1", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode := "C178243"
@@ -581,7 +581,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: Expected subset member code not found or not a leaf")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetSubtree", func(t *testing.T) {
+	t.Run("GetSubtree", func(t *testing.T) {
 
 		// ARRANGE
 		var limit int32 = 50
@@ -616,7 +616,7 @@ func Test_evs_ConceptEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode2, "FAIL: Expected code2 not found in the subtree")
 	})
 
-	t.Run("Test ConceptEndpointsAPIService GetSubtreeChildren", func(t *testing.T) {
+	t.Run("GetSubtreeChildren", func(t *testing.T) {
 
 		// ARRANGE
 		expectedCode := "C3802"

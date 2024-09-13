@@ -18,13 +18,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_SubsetEndpointsAPIService(t *testing.T) {
+func TestSubsetEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 	terminology := "ncit"
 
-	t.Run("Test SubsetEndpointsAPIService GetSubset", func(t *testing.T) {
+	t.Run("GetSubset", func(t *testing.T) {
 
 		// ARRANGE
 		code := "C116978"
@@ -42,7 +42,7 @@ func Test_evs_SubsetEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 	})
 
-	t.Run("Test SubsetEndpointsAPIService GetSubsetMembers", func(t *testing.T) {
+	t.Run("GetSubsetMembers", func(t *testing.T) {
 
 		// ARRANGE
 		code := "C157225"
@@ -74,7 +74,7 @@ func Test_evs_SubsetEndpointsAPIService(t *testing.T) {
 		assert.True(t, containsExpectedValues, "FAIL: expected subset name and code not found")
 	})
 
-	t.Run("Test SubsetEndpointsAPIService GetSubsets", func(t *testing.T) {
+	t.Run("GetSubsets", func(t *testing.T) {
 
 		// ARRANGE
 		include := "minimal"

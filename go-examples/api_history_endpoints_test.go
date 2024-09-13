@@ -21,12 +21,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_HistoryEndpointsAPIService(t *testing.T) {
+func TestHistoryEndpointsAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 
-	t.Run("Test HistoryEndpointsAPIService GetReplacements", func(t *testing.T) {
+	t.Run("GetReplacements", func(t *testing.T) {
 
 		var terminology string = "ncit"
 		var code string = "C12658"
@@ -43,7 +43,7 @@ func Test_evs_HistoryEndpointsAPIService(t *testing.T) {
 
 	})
 
-	t.Run("Test HistoryEndpointsAPIService GetReplacementsFromList", func(t *testing.T) {
+	t.Run("GetReplacementsFromList", func(t *testing.T) {
 
 		var terminology string = "ncit"
 		var expected_replacement_codes = []string{"C19157", "C12756"}

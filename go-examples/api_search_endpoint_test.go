@@ -18,13 +18,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test_evs_SearchEndpointAPIService(t *testing.T) {
+func TestSearchEndpointAPIService(t *testing.T) {
 
 	configuration := openapiclient.NewConfiguration()
 	apiClient := openapiclient.NewAPIClient(configuration)
 	terminology := "ncit"
 
-	t.Run("Test SearchEndpointsAPIService Search", func(t *testing.T) {
+	t.Run("Search", func(t *testing.T) {
 
 		// ARRANGE
 		ascending := true
@@ -55,7 +55,7 @@ func Test_evs_SearchEndpointAPIService(t *testing.T) {
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in search results")
 	})
 
-	t.Run("Test SearchEndpointsAPIService SearchFilterByConceptStatus", func(t *testing.T) {
+	t.Run("SearchFilterByConceptStatus", func(t *testing.T) {
 
 		// ARRANGE
 		term := "respiratory"
@@ -90,7 +90,7 @@ func Test_evs_SearchEndpointAPIService(t *testing.T) {
 		assert.True(t, containsExpectedStatus, "FAIL: expected concept status not found")
 	})
 
-	t.Run("Test SearchEndpointsAPIService SearchFilterByDefinitionSource", func(t *testing.T) {
+	t.Run("SearchFilterByDefinitionSource", func(t *testing.T) {
 
 		// ARRANGE
 		term := "dsDNA"
@@ -195,7 +195,7 @@ func Test_evs_SearchEndpointAPIService(t *testing.T) {
 		assert.NotNil(t, resp.Concepts[0])
 	})
 
-	t.Run("Test SearchEndpointsAPIService SearchByCode", func(t *testing.T) {
+	t.Run("SearchByCode", func(t *testing.T) {
 
 		// ARRANGE
 		term := "C3224"

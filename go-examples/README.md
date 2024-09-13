@@ -59,7 +59,7 @@ Each operation can use different server URL defined using `url` in [configuratio
 To run a specific test from a test file, use the `-run` flag with the name of the test:
 
 ```bash
-go test -run TestFunctionName api_metadata_endpoints_test.go
+go test -run TestMetadataEndpointsAPIService/GetAssociationByCode api_metadata_endpoints_test.go
 ```
 
 ### 2. Run Multiple Tests in a File (Regex)
@@ -67,7 +67,7 @@ go test -run TestFunctionName api_metadata_endpoints_test.go
 You can run multiple tests that match a regular expression:
 
 ```bash
-go test -run 'TestFunction1|TestFunction2' api_metadata_endpoints_test.go
+go test -run 'TestMetadataEndpointsAPIService/GetAssociationByCode|GetAssociations' api_metadata_endpoints_test.go
 ```
 
 ### 3. Run All Tests in a Single File
