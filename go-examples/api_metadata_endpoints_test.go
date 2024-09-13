@@ -11,6 +11,7 @@ package evs
 
 import (
 	"context"
+	"fmt"
 	"strings"
 	"testing"
 
@@ -520,7 +521,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, terminology, resp[0].GetTerminology(), "FAIL: expected terminology doesn't match actual")
 		assert.True(t, resp[0].GetLatest())
-		assert.True(t, resp[0].GetLatest())
+		
+		result, err := resp[0].MarshalJSON()
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Println(string(result))
 	})
 
 }
