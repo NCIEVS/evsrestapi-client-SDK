@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetQualifier
+{"code":"P390","definitions":[{"definition":"A property representing the organization that is the supplier or owner of each GO_Annotation associated with a concept.","type":"DEFINITION"}],"name":"go-source","properties":[{"type":"required","value":"true"}],"synonyms":[{"name":"go-source","type":"Preferred_Name"}],"terminology":"ncit","version":"24.08d"}--- PASS: TestMetadataEndpointsAPIService (0.73s)
+    --- PASS: TestMetadataEndpointsAPIService/GetQualifier (0.73s)
+PASS
+ok  	command-line-arguments	0.742s

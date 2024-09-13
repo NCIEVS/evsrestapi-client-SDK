@@ -1,0 +1,6 @@
+=== RUN   TestConceptEndpointsAPIService
+=== RUN   TestConceptEndpointsAPIService/GetInverseAssociations
+[{"relatedCode":"C178243","relatedName":"Family Cancer History Relative Primary Diagnosis Question","type":"Has_GDC_Value"},{"relatedCode":"C176985","relatedName":"Histology ICD-O Morphology Code","type":"Has_GDC_Value"},{"relatedCode":"C177621","relatedName":"ICD-O-3 Morphology Term Diagnosis Question","type":"Has_GDC_Value"}]--- PASS: TestConceptEndpointsAPIService (0.70s)
+    --- PASS: TestConceptEndpointsAPIService/GetInverseAssociations (0.70s)
+PASS
+ok  	command-line-arguments	0.712s

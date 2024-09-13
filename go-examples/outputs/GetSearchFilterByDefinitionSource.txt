@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchFilterByDefinitionSource
+{"concepts":[{"active":true,"code":"C449","conceptStatus":"DEFAULT","leaf":false,"name":"DNA","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C14348","conceptStatus":"DEFAULT","leaf":false,"name":"Double Stranded DNA Virus","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C25832","conceptStatus":"DEFAULT","leaf":true,"name":"DNA Double Strand Break","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C114565","conceptStatus":"DEFAULT","leaf":true,"name":"Anti-ds DNA Antibody","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C121337","conceptStatus":"DEFAULT","leaf":true,"name":"Systemic Lupus International Collaborating Clinics Classification Criteria","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"definitionSource":["NCI"],"fromRecord":0,"include":"minimal","pageSize":5,"term":"dsDNA","terminology":["ncit"],"type":"contains"},"timeTaken":133,"total":12}--- PASS: TestSearchEndpointAPIService (0.87s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchFilterByDefinitionSource (0.87s)
+PASS
+ok  	command-line-arguments	0.882s

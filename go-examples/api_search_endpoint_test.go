@@ -26,7 +26,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 	apiClient := openapiclient.NewAPIClient(configuration)
 	terminology := "ncit"
 
-	t.Run("Search", func(t *testing.T) {
+	t.Run("GetSearch", func(t *testing.T) {
 
 		// ARRANGE
 		ascending := true
@@ -62,7 +62,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("SearchFilterByConceptStatus", func(t *testing.T) {
+	t.Run("GetSearchFilterByConceptStatus", func(t *testing.T) {
 
 		// ARRANGE
 		term := "respiratory"
@@ -102,7 +102,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("SearchFilterByDefinitionSource", func(t *testing.T) {
+	t.Run("GetSearchFilterByDefinitionSource", func(t *testing.T) {
 
 		// ARRANGE
 		term := "dsDNA"
@@ -133,7 +133,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchFilterByDefinitionType", func(t *testing.T) {
+	t.Run("GetSearchFilterByDefinitionType", func(t *testing.T) {
 
 		// ARRANGE
 		term := "melanoma"
@@ -164,7 +164,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchFilterBySynonymSourceAndTermType", func(t *testing.T) {
+	t.Run("GetSearchFilterBySynonymSourceAndTermType", func(t *testing.T) {
 
 		// ARRANGE
 		term := "dsDNA"
@@ -196,7 +196,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchFilterBySynonymType", func(t *testing.T) {
+	t.Run("GetSearchFilterBySynonymType", func(t *testing.T) {
 
 		// ARRANGE
 		term := "dsDNA"
@@ -227,7 +227,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("SearchByCode", func(t *testing.T) {
+	t.Run("GetSearchByCode", func(t *testing.T) {
 
 		// ARRANGE
 		term := "C3224"
@@ -257,7 +257,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypeMatch", func(t *testing.T) {
+	t.Run("GetSearchByTypeMatch", func(t *testing.T) {
 
 		// ARRANGE
 		term := "enzyme"
@@ -287,7 +287,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypeStartsWith", func(t *testing.T) {
+	t.Run("GetSearchByTypeStartsWith", func(t *testing.T) {
 
 		// ARRANGE
 		term := "enzyme"
@@ -317,7 +317,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypePhrase", func(t *testing.T) {
+	t.Run("GetSearchByTypePhrase", func(t *testing.T) {
 
 		// ARRANGE
 		term := "enzyme"
@@ -347,7 +347,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypeFuzzy", func(t *testing.T) {
+	t.Run("GetSearchByTypeFuzzy", func(t *testing.T) {
 
 		// ARRANGE
 		term := "enzyme"
@@ -375,7 +375,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypeAnd", func(t *testing.T) {
+	t.Run("GetSearchByTypeAnd", func(t *testing.T) {
 
 		// ARRANGE
 		term := "malignant melanoma"
@@ -405,7 +405,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchByTypeOr", func(t *testing.T) {
+	t.Run("GetSearchByTypeOr", func(t *testing.T) {
 
 		// ARRANGE
 		term := "malignant melanoma"
@@ -433,7 +433,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchWithHighlights", func(t *testing.T) {
+	t.Run("GetSearchWithHighlights", func(t *testing.T) {
 
 		// ARRANGE
 		term := "XAV05295I5"
@@ -462,7 +462,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchConceptsByProperty", func(t *testing.T) {
+	t.Run("GetSearchConceptsByProperty", func(t *testing.T) {
 
 		// ARRANGE
 		term := "XAV05295I5"
@@ -492,7 +492,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI SearchConceptsBySubset", func(t *testing.T) {
+	t.Run("GetSearchConceptsBySubset", func(t *testing.T) {
 
 		// ARRANGE
 		term := "immune"
@@ -522,7 +522,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI FindConceptsBySPARQLCode", func(t *testing.T) {
+	t.Run("GetConceptsBySPARQLCode", func(t *testing.T) {
 
 		// ARRANGE
 		searchType := "contains"
@@ -552,7 +552,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
-	t.Run("Test SearchEndpointAPI GetSPARQLBindings", func(t *testing.T) {
+	t.Run("GetSPARQLBindings", func(t *testing.T) {
 
 		// ARRANGE
 		queryBody := `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }`
@@ -568,6 +568,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp)
 		assert.GreaterOrEqual(t, resp.GetTotal(), expectedTotal)
+
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 }

@@ -79,6 +79,11 @@ func TestMapsetEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotEqual(t, len(resp), 0)
 
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
+
 	})
 
 }

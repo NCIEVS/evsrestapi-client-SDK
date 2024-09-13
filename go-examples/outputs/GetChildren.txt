@@ -1,0 +1,6 @@
+=== RUN   TestConceptEndpointsAPIService
+=== RUN   TestConceptEndpointsAPIService/GetChildren
+[{"code":"C3802","leaf":false,"name":"Amelanotic Melanoma"},{"code":"C8410","leaf":true,"name":"Breast Melanoma"},{"code":"C131506","leaf":false,"name":"Childhood Melanoma"},{"code":"C3510","leaf":false,"name":"Cutaneous Melanoma"},{"code":"C4236","leaf":false,"name":"Epithelioid Cell Melanoma"},{"code":"C8925","leaf":false,"name":"Metastatic Melanoma"},{"code":"C66756","leaf":false,"name":"Mixed Epithelioid and Spindle Cell Melanoma"},{"code":"C205125","leaf":false,"name":"Nodular Melanoma"},{"code":"C8711","leaf":false,"name":"Non-Cutaneous Melanoma"},{"code":"C8562","leaf":false,"name":"Ocular Melanoma"},{"code":"C118828","leaf":true,"name":"Orbital Melanoma"},{"code":"C162547","leaf":false,"name":"Penile Melanoma"},{"code":"C7087","leaf":false,"name":"Recurrent Melanoma"},{"code":"C147983","leaf":false,"name":"Refractory Melanoma"},{"code":"C4228","leaf":false,"name":"Regressing Melanoma"},{"code":"C190239","leaf":false,"name":"Resectable Melanoma"},{"code":"C4237","leaf":false,"name":"Spindle Cell Melanoma"},{"code":"C148517","leaf":false,"name":"Unresectable Melanoma"}]--- PASS: TestConceptEndpointsAPIService (0.69s)
+    --- PASS: TestConceptEndpointsAPIService/GetChildren (0.69s)
+PASS
+ok  	command-line-arguments	0.702s

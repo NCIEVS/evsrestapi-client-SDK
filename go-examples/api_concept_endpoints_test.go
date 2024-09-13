@@ -754,6 +754,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected subtree child name or code not found")
+
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 }

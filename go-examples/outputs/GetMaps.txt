@@ -1,0 +1,6 @@
+=== RUN   TestConceptEndpointsAPIService
+=== RUN   TestConceptEndpointsAPIService/GetMaps
+[{"targetCode":"morphology","targetName":"8720/3","targetTermType":"PT","targetTerminology":"GDC","type":"Related To"},{"targetCode":"8720/3","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetTerminology":"ICDO3","targetTerminologyVersion":"3.1","type":"Related To"},{"targetCode":"8720/3","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetTerminology":"ICDO3","targetTerminologyVersion":"3.2","type":"Related To"},{"targetCode":"primary_diagnosis","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetTerminology":"GDC","type":"Related To"},{"targetCode":"primary_diagnosis","targetName":"Melanoma, NOS","targetTermType":"PT","targetTerminology":"GDC","type":"Has Synonym"},{"targetCode":"10053571","targetName":"Melanoma","targetTermType":"LLT","targetTerminology":"MedDRA","targetTerminologyVersion":"18.1","type":"Has Synonym"},{"targetCode":"relationship_primary_diagnosis","targetName":"Melanoma","targetTermType":"PT","targetTerminology":"GDC","type":"Has Synonym"}]--- PASS: TestConceptEndpointsAPIService (0.94s)
+    --- PASS: TestConceptEndpointsAPIService/GetMaps (0.94s)
+PASS
+ok  	command-line-arguments	0.953s

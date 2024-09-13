@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetRole
+{"code":"R123","definitions":[{"definition":"A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.","type":"DEFINITION"}],"name":"Chemotherapy_Regimen_Has_Component","properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}],"synonyms":[{"name":"Has Component","type":"Display_Name"},{"name":"Chemotherapy_Regimen_Has_Component","type":"FULL_SYN"},{"name":"Chemotherapy_Regimen_Has_Component","type":"Preferred_Name"}],"terminology":"ncit","version":"24.08d"}--- PASS: TestMetadataEndpointsAPIService (0.75s)
+    --- PASS: TestMetadataEndpointsAPIService/GetRole (0.75s)
+PASS
+ok  	command-line-arguments	0.763s

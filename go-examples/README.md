@@ -57,8 +57,10 @@ Each operation can use different server URL defined using `url` in [configuratio
 To run a specific test from a test file, use the `-run` flag with the name of the test:
 
 ```bash
-go test -run TestMetadataEndpointsAPIService/GetAssociationByCode api_metadata_endpoints_test.go
+go test -run "^TestMetadataEndpointsAPIService/GetAssociationByCode$" api_metadata_endpoints_test.go
 ```
+
+The "^$" surrounding test name is necessary to run only the specified test, as go defaults to running all substring matches of the run parameter.
 
 ### 2. Run Multiple Tests in a File (Regex)
 
