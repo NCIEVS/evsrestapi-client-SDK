@@ -22,45 +22,9 @@ go get github.com/stretchr/testify/require
 go get golang.org/x/net/context
 ```
 
-Put the package under your project folder and add the following in import:
-
-```go
-import evs "github.com/GIT_USER_ID/GIT_REPO_ID"
-```
-
-To use a proxy, set the environment variable `HTTP_PROXY`:
-
-```go
-os.Setenv("HTTP_PROXY", "http://proxy_name:proxy_port")
-```
-
-## Configuration of Server URL
-
-Default configuration comes with `Servers` field that contains server objects as defined in the OpenAPI specification.
-
-### Select Server Configuration
-
-For using other server than the one defined on index 0 set context value `evs.ContextServerIndex` of type `int`.
-
-```go
-ctx := context.WithValue(context.Background(), evs.ContextServerIndex, 1)
-```
-
-### Templated Server URL
-
-Templated server URL is formatted using default variables from configuration or from context value `evs.ContextServerVariables` of type `map[string]string`.
-
-```go
-ctx := context.WithValue(context.Background(), evs.ContextServerVariables, map[string]string{
- "basePath": "v2",
-})
-```
-
-Note, enum values are always validated and all unused variables are silently ignored.
-
 ### URLs Configuration per Operation
 
-Each operation can use different server URL defined using `url` in configuration.go. This file includes a list of currently supported API environments. To change the environment used to run, set the url variable to the desired environment mentioned in the url mapping `baseUrls`
+Each operation can use different server URL defined using `url` in [configuration.go](configuration.go#L87). This file includes a list of currently supported API environments. To change the environment used to run, set the url variable to the desired environment mentioned in the url mapping `baseUrls`
 
 ```go
 // Define base URLs for different environments
@@ -86,6 +50,49 @@ Each operation can use different server URL defined using `url` in configuration
   },
   OperationServers: map[string]ServerConfigurations{},
  }
+```
+
+## Test Running
+
+### 1. **Run a Single Test**
+
+To run a specific test from a test file, use the `-run` flag with the name of the test:
+
+```bash
+go test -run TestFunctionName api_metadata_endpoints_test.go
+```
+
+### 2. Run Multiple Tests in a File (Regex)
+
+You can run multiple tests that match a regular expression:
+
+```bash
+go test -run 'TestFunction1|TestFunction2' api_metadata_endpoints_test.go
+```
+
+### 3. Run All Tests in a Single File
+
+To execute all tests in a specific test file:
+
+```bash
+go test api_metadata_endpoints_test.go
+```
+
+### Run All Tests
+
+To run all tests in all files across the entire directory:
+
+```bash
+go test ./...
+```
+
+### Run Tests with Verbose Output
+
+To see detailed output of each test, including pass/fail status and log output, add the -v flag:
+
+```bash
+go test -v api_metadata_endpoints_test.go        # For a single file
+go test -v ./...                           # For all tests in the project
 ```
 
 ## Documentation for API Endpoints
@@ -151,54 +158,14 @@ All URIs are relative to _<http://localhost:8082>_
 | _SubsetEndpointsAPI_            | [**GetSubsetMembers**](docs/SubsetEndpointsAPI.md#getsubsetmembers)                          | **Get** /api/v1/subset/{terminology}/{code}/members                         | Get subset members for the specified terminology and code. Concept subset endpoints will be deprecated in v2 in favor of top level subset endpoints.                                  |
 | _SubsetEndpointsAPI_            | [**GetSubsets**](docs/SubsetEndpointsAPI.md#getsubsets)                                      | **Get** /api/v1/subset/{terminology}                                        | Get all subsets (or those specified by list parameter) for the specified terminology                                                                                                  |
 
-## Documentation For Models
-
-- [ApplicationVersion](docs/ApplicationVersion.md)
-- [Association](docs/Association.md)
-- [AssociationEntry](docs/AssociationEntry.md)
-- [AssociationEntryResultList](docs/AssociationEntryResultList.md)
-- [Concept](docs/Concept.md)
-- [ConceptMap](docs/ConceptMap.md)
-- [ConceptMapResultList](docs/ConceptMapResultList.md)
-- [ConceptMinimal](docs/ConceptMinimal.md)
-- [ConceptResultList](docs/ConceptResultList.md)
-- [Definition](docs/Definition.md)
-- [DisjointWith](docs/DisjointWith.md)
-- [HierarchyNode](docs/HierarchyNode.md)
-- [History](docs/History.md)
-- [MapResultList](docs/MapResultList.md)
-- [Path](docs/Path.md)
-- [Paths](docs/Paths.md)
-- [Property](docs/Property.md)
-- [Qualifier](docs/Qualifier.md)
-- [RestException](docs/RestException.md)
-- [Role](docs/Role.md)
-- [SearchCriteria](docs/SearchCriteria.md)
-- [StatisticsEntry](docs/StatisticsEntry.md)
-- [Synonym](docs/Synonym.md)
-- [Terminology](docs/Terminology.md)
-- [TerminologyMetadata](docs/TerminologyMetadata.md)
-
 ## Documentation For Authorization
 
 Endpoints do not require authorization.
 
-## Documentation for Utility Methods
-
-Due to the fact that model structure members are all pointers, this package contains
-a number of utility functions to easily obtain pointers to values of basic types.
-Each of these functions takes a value of the given basic type and returns a pointer to it:
-
-- `PtrBool`
-- `PtrInt`
-- `PtrInt32`
-- `PtrInt64`
-- `PtrFloat`
-- `PtrFloat32`
-- `PtrFloat64`
-- `PtrString`
-- `PtrTime`
-
 ## Author
 
 <NCIAppSupport@nih.gov>
+
+```
+
+```
