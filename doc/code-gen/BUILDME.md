@@ -80,12 +80,12 @@ corresponding `-examples` directory
 3. Copy the new files generated from the `build/go/` folder to the `go-examples` folder. Only copy files that have a .go suffix (e.g. client.go).
    1. The `test` directory will contain some boilerplate test skeletons for the generated APIs. We won't be using those. Add any new API tests (or new API test files) to the already existing test files in the `go-examples` directory.
    2. Files related to configuration and bootstrapping such as `client.go` and `configuration.go` work out of the box and don't need to be copied over again.
-      1. `configuration.go` contains the different test environments that are currently supported, as well as a method for switching between them. See the baseUrls struct in [configuration.go](configuration.go#L87) for the currently supported test environments and their corresponding URLs. Change the url key [a few lines down](configuration.go#L99) in `url := baseUrls['production']` to select what environment you wish to run the tests in.
+      1. `configuration.go` contains the different test environments that are currently supported, as well as a method for switching between them. See the baseUrls struct in [configuration.go](../../go-examples/configuration.go#L90) for the currently supported test environments and their corresponding URLs. Change the url key [a few lines down](../../go-examples/configuration.go#L99) in `url := baseUrls['production']` to select what environment you wish to run the tests in.
       2. If you'd like to add new environments, simply add a new entry to the baseUrls struct to register it.
 4. Install necessary imports as per the Installation section in the README (which resides in `go-examples` [here](../../go-examples/README.md#installation)).
 5. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests. The same applies to the `go-examples` README documentation. Avoid replacing api documentation in favor of adding new api calls in the same format (which is likely available in the auto-generated README).
 6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
-   1. To run the go tests, see the [test running](../../go-examples/README.md#installation) section of the `go-examples` README.
+   1. To run the go tests, see the [test running](../../go-examples/README.md#test-running) section of the `go-examples` README.
 
 **[Back to top](#evsrestapi-regenerate-client-sdks)**
 
