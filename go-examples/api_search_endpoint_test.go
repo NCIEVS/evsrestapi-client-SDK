@@ -11,6 +11,7 @@ package evs
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
@@ -53,6 +54,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in search results")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("SearchFilterByConceptStatus", func(t *testing.T) {
@@ -88,6 +94,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedStatus, "FAIL: expected concept status not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("SearchFilterByDefinitionSource", func(t *testing.T) {
@@ -114,6 +125,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchFilterByDefinitionType", func(t *testing.T) {
@@ -140,6 +156,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchFilterBySynonymSourceAndTermType", func(t *testing.T) {
@@ -167,6 +188,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchFilterBySynonymType", func(t *testing.T) {
@@ -193,6 +219,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("SearchByCode", func(t *testing.T) {
@@ -218,6 +249,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypeMatch", func(t *testing.T) {
@@ -243,6 +279,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypeStartsWith", func(t *testing.T) {
@@ -268,6 +309,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypePhrase", func(t *testing.T) {
@@ -293,6 +339,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypeFuzzy", func(t *testing.T) {
@@ -316,6 +367,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypeAnd", func(t *testing.T) {
@@ -341,6 +397,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchByTypeOr", func(t *testing.T) {
@@ -364,6 +425,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchWithHighlights", func(t *testing.T) {
@@ -388,6 +454,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchConceptsByProperty", func(t *testing.T) {
@@ -413,6 +484,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI SearchConceptsBySubset", func(t *testing.T) {
@@ -438,6 +514,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI FindConceptsBySPARQLCode", func(t *testing.T) {
@@ -463,6 +544,11 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("Test SearchEndpointAPI GetSPARQLBindings", func(t *testing.T) {

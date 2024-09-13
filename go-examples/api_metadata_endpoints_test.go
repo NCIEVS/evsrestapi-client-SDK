@@ -12,6 +12,7 @@ package evs
 import (
 	"context"
 	"fmt"
+	"encoding/json"
 	"strings"
 	"testing"
 
@@ -42,6 +43,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetAssociations", func(t *testing.T) {
@@ -71,6 +77,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in associations")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConceptStatuses", func(t *testing.T) {
@@ -98,6 +109,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedStatus, "FAIL: expected status not found in concept statuses")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetDefinitionSources", func(t *testing.T) {
@@ -126,6 +142,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: expected definition source not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetDefinitionTypeByCode", func(t *testing.T) {
@@ -144,6 +165,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetDefinitionTypes", func(t *testing.T) {
@@ -173,6 +199,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: expected definition type not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetProperties", func(t *testing.T) {
@@ -202,6 +233,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: expected property not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetProperty", func(t *testing.T) {
@@ -222,6 +258,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
 		assert.Equal(t, expectedSynonym, resp.GetSynonyms()[0].GetName(), "FAIL: expected synonym doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetQualifier", func(t *testing.T) {
@@ -242,6 +283,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		assert.NotNil(t, resp.GetSynonyms())
 		assert.NotNil(t, resp.GetDefinitions())
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetQualifierValues", func(t *testing.T) {
@@ -268,6 +314,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValue, "FAIL: expected value not found in qualifier values")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetQualifiers", func(t *testing.T) {
@@ -303,6 +354,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetRole", func(t *testing.T) {
@@ -323,6 +379,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 
 		assert.NotNil(t, resp.GetSynonyms())
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetRoles", func(t *testing.T) {
@@ -350,6 +411,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in roles")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubsets1", func(t *testing.T) {
@@ -377,6 +443,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in subsets")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubset1", func(t *testing.T) {
@@ -395,6 +466,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSynonymSources", func(t *testing.T) {
@@ -427,6 +503,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSynonymTypeByCode", func(t *testing.T) {
@@ -445,6 +526,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSynonymTypes", func(t *testing.T) {
@@ -471,6 +557,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in synonym types")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetTermTypes", func(t *testing.T) {
@@ -503,6 +594,11 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsCode1, "FAIL: expected code 1 not found")
 		assert.True(t, containsCode2, "FAIL: expected code 2 not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetTerminologies", func(t *testing.T) {

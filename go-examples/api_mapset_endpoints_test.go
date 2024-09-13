@@ -11,6 +11,7 @@ package evs
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
@@ -35,6 +36,11 @@ func TestMapsetEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, resp.GetCode(), code)
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetMapsetMappingsByCode", func(t *testing.T) {
@@ -56,6 +62,11 @@ func TestMapsetEndpointsAPIService(t *testing.T) {
 			assert.Equal(t, m.GetTargetTerminology(), "NCI_Thesaurus")
 		}
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetMapsets", func(t *testing.T) {

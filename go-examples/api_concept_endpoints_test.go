@@ -11,6 +11,7 @@ package evs
 
 import (
 	"context"
+	"encoding/json"
 	"strings"
 	"testing"
 
@@ -53,6 +54,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedName, "FAIL: Response doesn't contain the expected related name")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetAssociations1", func(t *testing.T) {
@@ -71,6 +77,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expected_related_name, assoc.GetRelatedName())
 		assert.Equal(t, expected_type, assoc.GetType())
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetChildren", func(t *testing.T) {
@@ -87,6 +98,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 			assert.True(t, strings.Contains(entry.GetName(), expected_name))
 		}
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConcept", func(t *testing.T) {
@@ -101,6 +117,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 
 		assert.Equal(t, resp.GetName(), expected_name)
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConceptSummary", func(t *testing.T) {
@@ -120,6 +141,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: Actual name doesn't match expected")
 
 		t.Logf("Get a summary concept for code - %s", code)
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConceptFull", func(t *testing.T) {
@@ -139,6 +165,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: Actual name doesn't match expected")
 
 		t.Logf("Get a full concept for code - %s", code)
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConceptCustomInclude", func(t *testing.T) {
@@ -158,6 +189,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: Actual name doesn't match expected")
 
 		t.Logf("Get a custom include concept for code - %s", code)
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetConcepts", func(t *testing.T) {
@@ -179,6 +215,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, expectedName2, resp[1].GetName(), "FAIL: Expected name %s not found", expectedName2)
 
 		t.Logf("Get list of concepts for codes - %s", codeList)
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetDescendants", func(t *testing.T) {
@@ -212,6 +253,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, int(pageSize), len(resp))
 
 		t.Logf("Get list of descendants for code - %s", code)
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetDisjointWith", func(t *testing.T) {
@@ -242,6 +288,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected related code or name not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetHistory", func(t *testing.T) {
@@ -258,6 +309,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp.GetHistory())
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: Expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetInverseAssociations", func(t *testing.T) {
@@ -287,6 +343,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected type or related code not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetInverseRoles", func(t *testing.T) {
@@ -316,6 +377,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected related code or name not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetMaps", func(t *testing.T) {
@@ -351,6 +417,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsExpectedCode, "FAIL: Expected target code not found")
 		assert.True(t, containsExpectedName, "FAIL: Expected target name not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetParents", func(t *testing.T) {
@@ -379,6 +450,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected parent code or name not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetPathsFromRoot", func(t *testing.T) {
@@ -409,6 +485,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected code or name not found in path from root")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetPathsToRoot", func(t *testing.T) {
@@ -451,6 +532,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsExpectedFirstPathValues, "FAIL: Expected first path values not found")
 		assert.True(t, containsExpectedSecondPathValues, "FAIL: Expected second path values not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetPathsToAncestor", func(t *testing.T) {
@@ -494,6 +580,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsExpectedFirstAncestor, "FAIL: Expected first ancestor not found")
 		assert.True(t, containsExpectedSecondAncestor, "FAIL: Expected second ancestor not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetRoles1", func(t *testing.T) {
@@ -523,6 +614,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected role type or related code not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetRoots", func(t *testing.T) {
@@ -552,6 +648,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected root code or name not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubsetMembers1", func(t *testing.T) {
@@ -579,6 +680,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: Expected subset member code not found or not a leaf")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubtree", func(t *testing.T) {
@@ -614,6 +720,11 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 
 		assert.True(t, containsExpectedCode1, "FAIL: Expected code1 not found in the subtree")
 		assert.True(t, containsExpectedCode2, "FAIL: Expected code2 not found in the subtree")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubtreeChildren", func(t *testing.T) {

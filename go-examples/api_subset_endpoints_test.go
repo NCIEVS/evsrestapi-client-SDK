@@ -11,6 +11,7 @@ package evs
 
 import (
 	"context"
+	"encoding/json"
 	"testing"
 
 	openapiclient "github.com/GIT_USER_ID/GIT_REPO_ID"
@@ -40,6 +41,11 @@ func TestSubsetEndpointsAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.Equal(t, expectedName, resp.GetName(), "FAIL: expected name doesn't match actual")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubsetMembers", func(t *testing.T) {
@@ -72,6 +78,11 @@ func TestSubsetEndpointsAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedValues, "FAIL: expected subset name and code not found")
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetSubsets", func(t *testing.T) {

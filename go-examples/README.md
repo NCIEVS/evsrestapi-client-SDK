@@ -92,3 +92,5 @@ To see detailed output of each test, including pass/fail status and log output, 
 go test -v api_metadata_endpoints_test.go        # For a single file
 go test -v ./...                           # For all tests in the project
 ```
+
+**The -v verbose option is necessary to see the exact output of each API call made in the tests. They will otherwise only display success or failure states.**

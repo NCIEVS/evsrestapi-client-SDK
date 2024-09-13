@@ -41,6 +41,11 @@ func TestHistoryEndpointsAPIService(t *testing.T) {
 		assert.Equal(t, resp[0].GetReplacementCode(), expected_replacement_code)
 		assert.Equal(t, resp[0].GetAction(), expected_action)
 
+	
+		result, err := json.Marshal(resp)
+		require.Nil(t, err)
+		require.NotNil(t, result)
+		fmt.Printf("%s", result)
 	})
 
 	t.Run("GetReplacementsFromList", func(t *testing.T) {
