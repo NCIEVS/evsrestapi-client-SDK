@@ -109,8 +109,9 @@ func TestConceptEndpointsAPIService(t *testing.T) {
 	t.Run("GetConcept", func(t *testing.T) {
 
 		expected_name := "Melanoma"
+		include := "minimal"
 
-		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetConcept(context.Background(), terminology, code).Execute()
+		resp, httpRes, err := apiClient.ConceptEndpointsAPI.GetConcept(context.Background(), terminology, code).Include(include).Execute()
 
 		require.Nil(t, err)
 		require.NotNil(t, resp)
