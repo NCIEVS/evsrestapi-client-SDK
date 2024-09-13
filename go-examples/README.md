@@ -452,11 +452,9 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept`
+`go test -run "^TestSearchEndpointAPIService/GetSearch$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearch.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -465,11 +463,9 @@ results. Include is set to minimal.
 Find concepts matching a search term within a specified terminology and restrict the search results by concept status of
 "Retired_Concept". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_concept_status`
+`go test -run "^TestSearchEndpointAPIService/GetSearchFilterByConceptStatus$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchFilterByConceptStatus.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -478,11 +474,9 @@ Find concepts matching a search term within a specified terminology and restrict
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition
 source of "NCI". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_definition_source`
+`go test -run "^TestSearchEndpointAPIService/GetSearchFilterByDefinitionSource$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchFilterByDefinitionSource.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -491,11 +485,9 @@ source of "NCI". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a definition type
 of "DEFINITION". This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_definition_type`
+`go test -run "^TestSearchEndpointAPIService/GetSearchFilterByDefinitionType$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchFilterByDefinitionType.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -504,11 +496,9 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym source
 of "NCI" and synonymTermGroup of "PT".
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_synonym_source`
+`go test -run "^TestSearchEndpointAPIService/GetSearchFilterBySynonymSourceAndTermType$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchFilterBySynonymSourceAndTermType.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -517,20 +507,17 @@ of "NCI" and synonymTermGroup of "PT".
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym type
 of "FULL_SYN".
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
+`go test -run "^TestSearchEndpointAPIService/GetSearchFilterBySynonymType$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchFilterBySynonymType.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
 ### Find concepts by search term (where search term is a code)
 
-Find concepts matching a search term within a specified terminology and restrict the search results using a code as the
-search term.
+`go test -run "^TestSearchEndpointAPIService/GetSearchByCode$" api_search_endpoint_test.go -v`
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
+[See output here](outputs/GetSearchByCode.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -539,11 +526,9 @@ search term.
 Find concepts matching a search term within a specified terminology and a search type of "match". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypeMatch$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypeMatch.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -552,11 +537,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "startsWith".This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_starts_with`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypeStartsWith$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypeStartsWith.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -565,11 +548,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "phrase". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_phrase`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypePhrase$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypePhrase.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -578,11 +559,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "fuzzy". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_fuzzy`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypeFuzzy$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypeFuzzy.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -591,11 +570,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "and". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_and`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypeAnd$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypeAnd.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -604,11 +581,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "or". This example uses
 paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_or`
+`go test -run "^TestSearchEndpointAPIService/GetSearchByTypeOr$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchByTypeOr.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -617,11 +592,9 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and include synonyms and highlighted text in the
 response. This example uses paging to get only the first 5 results.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_search_term_highlights`
+`go test -run "^TestSearchEndpointAPIService/GetSearchWithHighlights$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchWithHighlights.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -631,11 +604,9 @@ Find concepts matching a search term that is searched within a certain set of pr
 include the property values, so you can easily see the match. The property setting here can be either based on code or
 on label
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
+`go test -run "^TestSearchEndpointAPIService/GetSearchConceptsByProperty$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchConceptsByProperty.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -644,11 +615,9 @@ on label
 Get concepts matching a search term within a specified terminology and subset. This example searches within C165258
 (e.g. Cellosaurus Disease Terminology).
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_concept_by_subset`
+`go test -run "^TestSearchEndpointAPIService/GetSearchConceptsBySubset$" api_search_endpoint_test.go -v`
 
-```
-
-```
+[See output here](outputs/GetSearchConceptsBySubset.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -656,12 +625,10 @@ Get concepts matching a search term within a specified terminology and subset. T
 
 Find concepts for a specified SPARQL query that returns a ?code field.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::`
 
-```
-2024-07-12T12:35:44.440 INFO : Get search results from ncit for SPARQL query = SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma" } }
-2024-07-12T12:35:44.440 INFO :     search results = uri=None ct=None total=1 time_taken=24 parameters=SearchCriteria(uri=None, ct=None, term=None, type='contains', include='minimal', sort=None, ascending=True, from_record=0, page_size=25, concept_status=None, var_property=None, value=None, synonym_source=None, synonym_type=None, definition_source=None, definition_type=None, synonym_term_type=None, subset=None, code_list=['C3224'], terminology=['ncit'], sparql='SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma" } }') concepts=[Concept(uri=None, ct=None, code='C3224', name='Melanoma', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None)]
-```
+`go test -run "^TestSearchEndpointAPIService/GetConceptsBySPARQLCode$" api_search_endpoint_test.go -v`
+
+[See output here](outputs/GetConceptsBySPARQLCode.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -669,12 +636,10 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 Get all subsets for a specified terminology.
 
-`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_subsets1`
+`go test -run "^TestMetadataEndpointsAPIService/GetSubsets$" api_metadatas_endpoint_test.go -v`
 
-```
-2024-07-03T16:49:18.906 INFO : Get all subsets for terminology - ncit
-2024-07-03T16:49:18.918 INFO :     subsets - [Concept(uri=None, ct=None, code='C167405', name='ACC/AHA EHR Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, history=None, properties=None, children=[Concept(uri=None, ct=None, code='C167409', name='ACC/AHA Pediatric and Congenital Cardiology EHR Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=None, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None)], parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157225', name='CBDD Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, history=None, properties=None, children=[Concept(uri=None, ct=None, code='C168696', name='CBDD Process Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=None, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C168697', name='CBDD Structure Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=None, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None)], parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C165258', name='Cellosaurus Disease Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C177281', name='Childhood Cancer Predisposition Study Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, history=None, properties=None, children=[Concept(uri=None, ct=None, code='C177516', name='CCPS Disease Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=None, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C177517', name='CCPS Genetics Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=None, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None)], parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C61410', name='Clinical Data Interchange Standards Consortium Terminology', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None,...
-```
+[See output here](outputs/GetSubsets.txt)
+
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -682,12 +647,9 @@ Get all subsets for a specified terminology.
 
 Get subset for a specified terminology and code.
 
-`pytest tests/test_subset_endpoints_api.py::TestSubsetEndpointsApi::test_get_subset`
+`go test -run "^TestMetadataEndpointsAPIService/GetSubset1$" api_metadatas_endpoint_test.go -v`
 
-```
-2024-07-12T12:53:47.395 INFO : Get the subset for code - C116978
-2024-07-12T12:53:47.395 INFO :     subsets: uri=None ct=None code='C116978' name='CTRP Agent Terminology' terminology='ncit' version='21.06e' level=None highlight=None subset_link=None mapset_link=None concept_status='DEFAULT' source=None leaf=True active=True synonyms=[Synonym(uri=None, ct=None, name='Clinical Trials Reporting Program Agent Terminology', highlight=None, term_type='SY', type='FULL_SYN', source='NCI', code=None, sub_source=None, qualifiers=None, active=None), Synonym(uri=None, ct=None, name='CTRP Agent Terminology', highlight=None, term_type='PT', type='FULL_SYN', source='NCI', code=None, sub_source=None, qualifiers=None, active=None), Synonym(uri=None, ct=None, name='CTRP Agent Terminology', highlight=None, term_type=None, type='Preferred_Name', source=None, code=None, sub_source=None, qualifiers=None, active=None)] definitions=[Definition(uri=None, ct=None, definition='A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects.', highlight=None, type='DEFINITION', source='NCI', qualifiers=None)] properties=[ModelProperty(uri=None, ct=None, type='Contributing_Source', value='CTRP', highlight=None, qualifiers=None, source=None), ModelProperty(uri=None, ct=None, type='Publish_Value_Set', value='Yes', highlight=None, qualifiers=None, source=None), ModelProperty(uri=None, ct=None, type='Semantic_Type', value='Intellectual Product', highlight=None, qualifiers=None, source=None), ModelProperty(uri=None, ct=None, type='Term_Browser_Value_Set_Description', value='A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects. This data is available for viewing and download at the <a href="https://evs.nci.nih.gov/ftp1/CTRP/NCIt-CTRP_Subsets.xls">NCI FTP</a> site.', highlight=None, qualifiers=None, source=None), ModelProperty(uri=None, ct=None, type='UMLS_CUI', value='C3899744', highlight=None, qualifiers=None, source=None)] children=None parents=None descendants=None qualifiers=None associations=None inverse_associations=None roles=None disjoint_with=None inverse_roles=None history=None maps=None paths=None
-```
+[See output here](outputs/GetSubset1.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -695,12 +657,9 @@ Get subset for a specified terminology and code.
 
 Get subset members for a specified terminology and code.
 
-`pytest tests/test_subset_endpoints_api.py::TestSubsetEndpointsApi::test_get_subset_members`
+`go test -run "^TestMetadataEndpointsAPIService/GetSubsetMembers1$" api_metadatas_endpoint_test.go -v`
 
-```
-2024-07-12T12:52:28.745 INFO : Get the subset members for code - C157225
-2024-07-12T12:52:28.746 INFO :     subsets: [Concept(uri=None, ct=None, code='C16255', name='Acetylation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157214', name='Acylation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157206', name='Adsorption', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157210', name='Amidation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157220', name='Antigen Cultivation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C61471', name='Attenuation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C41544', name='Catabolic Process', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C157211', name='Cell Expansion', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C40483', name='Chelating Activity', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C164238', name='Chemical Attenuation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C175901', name='Chemical Inactivation', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=True, active=True, synonyms=None, definitions=None,...
-```
+[See output here](outputs/GetSubsetMembers1.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -708,12 +667,9 @@ Get subset members for a specified terminology and code.
 
 Get all mapsets. Include parameter allows customizing how much data to return.
 
-`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_mapsets`
+`go test -run "^TestMapsetEndpointsAPIService/GetMapsets$" api_mapset_endpoints_test.go -v`
 
-```
-2024-07-12T12:50:27.715 INFO : Get all mapsets
-2024-07-12T12:50:27.717 INFO :    mapsets = [Concept(uri=None, ct=None, code='SNOMEDCT_US_2020_09_01_to_ICD10CM_2021_Mappings', name='SNOMEDCT_US_2020_09_01 to ICD10CM_2021 Mappings', terminology='snomedct_us', version='2020_09_01', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='SNOMEDCT_US_2020_09_01_to_ICD10_2016_Mappings', name='SNOMEDCT_US_2020_09_01 to ICD10_2016 Mappings', terminology='snomedct_us', version='2020_09_01', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_ICD10CM', name='NCIt_Maps_To_ICD10CM', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_MedDRA', name='NCIt_Maps_To_MedDRA', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_GDC', name='NCIt_Maps_To_GDC', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_ICD9CM', name='NCIt_Maps_To_ICD9CM', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_ICDO3', name='NCIt_Maps_To_ICDO3', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_Maps_To_ICD10', name='NCIt_Maps_To_ICD10', terminology=None, version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=True, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='PDQ_2016_07_31_TO_NCI_2016_10E', name='PDQ_2016_07_31_TO_NCI_2016_10E', terminology=None, version='201607', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_to_HGNC_Mapping', name='NCIt_to_HGNC_Mapping', terminology=None, version='June2024', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIt_to_ChEBI_Mapping', name='NCIt_to_ChEBI_Mapping', terminology=None, version='August2023', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='MA_to_NCIt_Mapping', name='MA_to_NCIt_Mapping', terminology=None, version='November2011', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='GO_to_NCIt_Mapping', name='GO_to_NCIt_Mapping', terminology=None, version='February2020', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='ICD10_to_MedDRA_Mapping', name='ICD10_to_MedDRA_Mapping', terminology=None, version='July2023', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='NCIT_TO_SWISSPROT', name='NCIT_TO_SWISSPROT', terminology=None, version='June2024', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='ICDO_TO_NCI_TOPOGRAPHY', name='ICDO_TO_NCI_TOPOGRAPHY', terminology=None, version='2017-12-21', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='ICDO_TO_NCI_MORPHOLOGY', name='ICDO_TO_NCI_MORPHOLOGY', terminology=None, version='2017-12-21', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None), Concept(uri=None, ct=None, code='ICDO_TO_NCI_AXIS', name='ICDO_TO_NCI_AXIS', terminology=None, version='2017-12-21', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status=None, source=None, leaf=None, active=None, synonyms=None, definitions=None, properties=None, children=None, parents=None, descendants=None, qualifiers=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, history=None, maps=None, paths=None)]
-```
+[See output here](outputs/GetMapsets.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -721,12 +677,9 @@ Get all mapsets. Include parameter allows customizing how much data to return.
 
 Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
-`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_mapset_by_code`
+`go test -run "^TestMapsetEndpointsAPIService/GetMapsetByCode$" api_mapset_endpoints_test.go -v`
 
-```
-2024-07-12T12:49:54.187 INFO : Get mapsets for code - NCIt_Maps_To_ICDO3 
-2024-07-12T12:49:54.187 INFO :    mapset = uri=None ct=None code='NCIt_Maps_To_ICDO3' name='NCIt_Maps_To_ICDO3' terminology=None version='21.06e' level=None highlight=None subset_link=None mapset_link=None concept_status=None source=None leaf=None active=True synonyms=None definitions=None properties=None children=None parents=None descendants=None qualifiers=None associations=None inverse_associations=None roles=None disjoint_with=None inverse_roles=None history=None maps=None paths=None
-```
+[See output here](outputs/GetMapsetByCode.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -734,12 +687,9 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 Get the maps for a specified mapset code.
 
-`pytest tests/test_mapset_endpoints_api.py::TestMapsetEndpointsApi::test_get_mapset_mappings_by_code`
+`go test -run "^TestMapsetEndpointsAPIService/GetMapsetMappingsByCode$" api_mapset_endpoints_test.go -v`
 
-```
-2024-07-12T12:49:21.257 INFO : Get mapset mappings for code - GO_to_NCIt_Mapping 
-2024-07-12T12:49:21.257 INFO :    mappings = uri=None ct=None total=305 time_taken=None parameters=SearchCriteria(uri=None, ct=None, term=None, type=None, include=None, sort=None, ascending=None, from_record=0, page_size=25, concept_status=None, var_property=None, value=None, synonym_source=None, synonym_type=None, definition_source=None, definition_type=None, synonym_term_type=None, subset=None, code_list=None, terminology=None, sparql=None) maps=[ConceptMap(uri=None, ct=None, source='GO', source_name='ATP hydrolysis activity', source_term_type=None, source_code='GO:0016887', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='ATP Hydrolysis', target_term_type=None, target_code='C19939', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='B cell activation', source_term_type=None, source_code='GO:0042113', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='B-Cell Activation', target_term_type=None, target_code='C19255', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='B cell proliferation', source_term_type=None, source_code='GO:0042100', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='B Cell Proliferation', target_term_type=None, target_code='C19385', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA alkylation', source_term_type=None, source_code='GO:0006305', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Alkylation', target_term_type=None, target_code='C25826', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA binding', source_term_type=None, source_code='GO:0003677', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Binding', target_term_type=None, target_code='C18597', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA integration', source_term_type=None, source_code='GO:0015074', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Integration', target_term_type=None, target_code='C18855', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA methylation', source_term_type=None, source_code='GO:0006306', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Methylation', target_term_type=None, target_code='C17961', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA modification', source_term_type=None, source_code='GO:0006304', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Modification Process', target_term_type=None, target_code='C19449', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA recombination', source_term_type=None, source_code='GO:0006310', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Recombination Process', target_term_type=None, target_code='C17082', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA repair', source_term_type=None, source_code='GO:0006281', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Repair', target_term_type=None, target_code='C16513', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA replication initiation', source_term_type=None, source_code='GO:0006270', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='Replication Initiation', target_term_type=None, target_code='C28677', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA replication proofreading', source_term_type=None, source_code='GO:0045004', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Replication Proofreading', target_term_type=None, target_code='C21048', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA replication', source_term_type=None, source_code='GO:0006260', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='DNA Replication', target_term_type=None, target_code='C16514', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA-templated transcription elongation', source_term_type=None, source_code='GO:0006354', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='Transcription Elongation', target_term_type=None, target_code='C28586', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA-templated transcription initiation', source_term_type=None, source_code='GO:0006352', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='Transcription Initiation', target_term_type=None, target_code='C20147', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA-templated transcription termination', source_term_type=None, source_code='GO:0006353', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='Transcription Termination', target_term_type=None, target_code='C28615', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='DNA-templated transcription', source_term_type=None, source_code='GO:0006351', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='Transcription', target_term_type=None, target_code='C17208', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='G1 phase', source_term_type=None, source_code='GO:0051318', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='G1 Phase Process', target_term_type=None, target_code='C17355', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='G2 phase', source_term_type=None, source_code='GO:0051319', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='G2 Phase Process', target_term_type=None, target_code='C17356', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='GTP binding', source_term_type=None, source_code='GO:0005525', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='GTP Binding', target_term_type=None, target_code='C20979', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='M phase', source_term_type=None, source_code='GO:0000279', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='M Phase Process', target_term_type=None, target_code='C20349', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='RNA binding', source_term_type=None, source_code='GO:0003723', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='RNA Binding', target_term_type=None, target_code='C20737', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='RNA biosynthetic process', source_term_type=None, source_code='GO:0032774', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='RNA Synthesis', target_term_type=None, target_code='C19018', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='RNA catabolic process', source_term_type=None, source_code='GO:0006401', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='RNA Degradation', target_term_type=None, target_code='C19144', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None), ConceptMap(uri=None, ct=None, source='GO', source_name='RNA folding', source_term_type=None, source_code='GO:0034337', source_terminology=None, source_terminology_version=None, source_loaded=None, type='mapsTo', rank='1', group=None, rule=None, target_name='RNA Folding', target_term_type=None, target_code='C19017', target_terminology='NCI_Thesaurus', target_terminology_version='23.02d', target_loaded=None, target_term_group=None)]
-```
+[See output here](outputs/GetMapsetMappingsByCode.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -747,12 +697,9 @@ Get the maps for a specified mapset code.
 
 Get the replacement concepts for a specified inactive concept code.
 
-`pytest tests/test_history_endpoints_api.py::TestHistoryEndpointsApi::test_get_replacements`
+`go test -run "^TestHistoryEndpointsAPIService/GetReplacements$" api_history_endpoints_test.go -v`
 
-```
-2024-07-12T12:48:58.044 INFO : Get suggested replacements for code - C12658
-2024-07-12T12:48:58.044 INFO :     replacements = [History(uri=None, ct=None, code='C12658', name='Prokaryotic Cell', action='retire', var_date='2003-08-22', replacement_code='C19157', replacement_name='Specimen')]
-```
+[See output here](outputs/GetReplacements.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -760,12 +707,9 @@ Get the replacement concepts for a specified inactive concept code.
 
 Get the replacement concepts for a specified list of inactive concept codes.
 
-`pytest tests/test_history_endpoints_api.py::TestHistoryEndpointsApi::test_get_replacements_from_list`
+`go test -run "^TestHistoryEndpointsAPIService/GetReplacementsFromList$" api_history_endpoints_test.go -v`
 
-```
-2024-07-12T12:48:34.574 INFO : Get suggested replacements for code - C & 1
-2024-07-12T12:48:34.575 INFO :     suggested replacements = [History(uri=None, ct=None, code='C12658', name='Prokaryotic Cell', action='retire', var_date='2003-08-22', replacement_code='C19157', replacement_name='Specimen'), History(uri=None, ct=None, code='C13320', name='Nose, Nasal Passages', action='merge', var_date='2003-08-22', replacement_code='C12756', replacement_name='Nose')]
-```
+[See output here](outputs/GetReplacementsFromList.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -773,9 +717,6 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 Get SPARQL bindings for a specified SPARQL query.
 
-`pytest tests/test_search_endpoint_api.py::TestSearchEndpointApi::test_get_sparql_bindings`
+`go test -run "^TestSearchEndpointAPIService/GetSPARQLBindings$" api_search_endpoint_test.go -v`
 
-```
-2024-07-12T12:39:16.468 INFO : Get SPARQL bindings for query = SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }
-2024-07-12T12:39:16.469 INFO :     search results = uri=None ct=None total=166616 time_taken=None parameters=SearchCriteria(uri=None, ct=None, term=None, type='contains', include='minimal', sort=None, ascending=None, from_record=None, page_size=None, concept_status=None, var_property=None, value=None, synonym_source=None, synonym_type=None, definition_source=None, definition_type=None, synonym_term_type=None, subset=None, code_list=None, terminology=None, sparql='SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }') results=[{'code': 'C7057'}, {'code': 'C12219'}, {'code': 'C12913'}, {'code': 'C3910'}, {'code': 'C20189'}, {'code': 'C1908'}, {'code': 'C26548'}, {'code': 'C12218'}, {'code': 'C17828'}, {'code': 'C16612'}]
-```
+[See output here](outputs/GetSPARQLBindings.txt)
