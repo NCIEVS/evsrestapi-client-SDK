@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetDefinitionTypes
+[{"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"24.08d"},{"code":"P97","name":"DEFINITION","terminology":"ncit","version":"24.08d"}]--- PASS: TestMetadataEndpointsAPIService (0.71s)
+    --- PASS: TestMetadataEndpointsAPIService/GetDefinitionTypes (0.71s)
+PASS
+ok  	command-line-arguments	0.719s

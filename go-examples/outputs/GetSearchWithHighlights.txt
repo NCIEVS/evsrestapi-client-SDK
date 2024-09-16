@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchWithHighlights
+{"concepts":[{"active":true,"code":"C61305","conceptStatus":"DEFAULT","leaf":true,"name":"Sivifene","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"highlights","pageSize":5,"term":"XAV05295I5","terminology":["ncit"],"type":"contains"},"timeTaken":35,"total":1}--- PASS: TestSearchEndpointAPIService (1.09s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchWithHighlights (1.09s)
+PASS
+ok  	command-line-arguments	1.098s

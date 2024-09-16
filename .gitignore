@@ -18,3 +18,5 @@ doc/code-gen/.gradle
 doc/code-gen/build
 */.gradle
 */gradle/wrapper
+*/gradle/wrapper/*
+*/node_modules
