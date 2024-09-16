@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetQualifierValues
+["CGAP"]--- PASS: TestMetadataEndpointsAPIService (0.71s)
+    --- PASS: TestMetadataEndpointsAPIService/GetQualifierValues (0.71s)
+PASS
+ok  	command-line-arguments	0.720s

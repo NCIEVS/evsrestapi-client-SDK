@@ -72,11 +72,25 @@ tasks.register('buildPythonSdk', GenerateTask) {
     dependsOn tasks.named('clearBuildDir')
 }
 
+tasks.register('buildGoSdk', GenerateTask) {
+    generatorName.set("go")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/go")
+    configOptions.set([
+        "packageName": "evs",
+        "hideGenerationTimestamp": "false",
+        // Enable handling unknown properties
+        "additionalProperties": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+}
+
+
 /** Runs all code-gen tasks for each language to generate the clients */
 tasks.register("buildClients") {
     dependsOn("buildJavaSdk",
                 "buildPythonSdk",
-//            "buildGoSdk",
+            "buildGoSdk",
 //            "buildKotlinSdk",
 //            "buildBashSdk",
 //            "buildTypescriptSdk"
@@ -91,7 +105,7 @@ compileJava.dependsOn tasks.named("buildJavaSdk")
 build.dependsOn('buildClients')
 publishToMavenLocal.dependsOn = ["buildJavaSdk`",
                                  "buildPythonSdk",
-//                                 "buildGoSdk",
+                                 "buildGoSdk",
 //                                 "buildKotlinSdk",
 //                                 "buildBashSdk",
 //                                 "buildTypescriptSdk"
