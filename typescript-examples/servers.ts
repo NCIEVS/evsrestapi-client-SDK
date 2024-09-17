@@ -1,8 +1,15 @@
 import { RequestContext, HttpMethod } from "./http/http";
+import fs from 'fs'
 
 export interface BaseServerConfiguration {
     makeRequestContext(endpoint: string, httpMethod: HttpMethod): RequestContext;
 }
+
+// Load configuration from config.json
+const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
+
+// Get the current environment's base URL
+const baseUrl = config.baseUrls[config.currentEnvironment];
 
 /**
  *
@@ -50,6 +57,6 @@ export class ServerConfiguration<T extends { [key: string]: string }> implements
     }
 }
 
-export const server1 = new ServerConfiguration<{  }>("http://localhost:8082", {  })
+export const server1 = new ServerConfiguration<{  }>(baseUrl, {  })
 
 export const servers = [server1];
