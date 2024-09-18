@@ -117,7 +117,7 @@ Return all loaded terminologies currently hosted by the API.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test_get_termologies`
 
-[See output here](outputs/get_terminologies.txt)
+[See output here](outputs/test_get_terminologies.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -127,7 +127,7 @@ Return concept object with minimal information for a specified code.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept`
 
-[See output here](outputs/get_concept.txt)
+[See output here](outputs/test_get_concept.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -137,7 +137,7 @@ Return concept objects with minimal information for a specified list of codes.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concepts`
 
-[See output here](outputs/get_concepts.txt)
+[See output here](outputs/test_get_concepts.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -147,7 +147,7 @@ Return concept object with summary information for a specified code.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept_summary`
 
-[See output here](outputs/get_concept_summary.txt)
+[See output here](outputs/test_get_concept_summary.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -157,7 +157,7 @@ Return concept object with full information for a specified code.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetConceptFull.txt)
+[See output here](outputs/test_get_concept_full.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -168,7 +168,7 @@ request asks for synonyms, children, maps, and inverse associations.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetConceptCustomInclude.txt)
+[See output here](outputs/test_get_concept_custom_include.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -181,7 +181,7 @@ inverseAssociations, maps.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetChildren.txt)
+[See output here](outputs/test_get_children.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -193,7 +193,7 @@ sets the max level to 2.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetDescendants.txt)
+[See output here](outputs/test_get_descendants.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -203,7 +203,7 @@ Return all properties for a given terminology with default include setting (mini
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetProperties.txt)
+[See output here](outputs/test_get_properties.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -213,7 +213,7 @@ Return property for the specified code or label.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetProperty.txt)
+[See output here](outputs/test_get_property.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -223,7 +223,7 @@ Return all qualifiers for a given terminology with default include setting (mini
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetQualifiers.txt)
+[See output here](outputs/test_get_qualifiers.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -233,7 +233,7 @@ Return qualifier for the specified code or label.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetQualifier.txt)
+[See output here](outputs/test_get_qualifier.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -243,7 +243,7 @@ Return distinct value set for the qualifier with the specified code or label.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetQualifierValues.txt)
+[See output here](outputs/test_get_qualifier_values.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -253,7 +253,7 @@ Return all roles.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetRoles.txt)
+[See output here](outputs/test_get_roles.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -263,7 +263,7 @@ Returns a role definition for a specified code.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetRole.txt)
+[See output here](outputs/test_get_role.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -273,7 +273,7 @@ Return all associations.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetAssociations.txt)
+[See output here](outputs/test_get_associations.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -283,7 +283,7 @@ Returns associations for a specified code.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetAssociationByCode.txt)
+[See output here](outputs/test_get_association_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -293,7 +293,7 @@ Return metadata for all term types for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetTermTypes.txt)
+[See output here](outputs/test_get_term_types.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -303,7 +303,7 @@ Return metadata for all synonym sources for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSynonymSources.txt)
+[See output here](outputs/test_get_synonym_sources.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -313,7 +313,7 @@ Return metadata for all definition sources for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetDefinitionSources.txt)
+[See output here](outputs/test_get_definition_sources.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -323,7 +323,7 @@ Return metadata for all definition types for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetDefinitionTypes.txt)
+[See output here](outputs/test_get_definition_types.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -333,7 +333,7 @@ Get definition type by code. Include parameter allowed customizing how much data
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetDefinitionTypeByCode.txt)
+[See output here](outputs/test_get_definition_type_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -343,7 +343,7 @@ Return metadata for all synonym types for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSynonymTypes.txt)
+[See output here](outputs/test_get_synonym_types.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -353,7 +353,7 @@ Return metadata for all synonym types for the specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSynonymTypeByCode.txt)
+[See output here](outputs/test_get_synonym_type_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -363,7 +363,7 @@ Return all root concepts for the specified terminology.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetRoots.txt)
+[See output here](outputs/test_get_roots.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -373,11 +373,11 @@ Return paths to/from the root concept from a specified terminology and code.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetPathsFromRoot.txt)
+[See output here](outputs/test_get_paths_from_root.txt)
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetPathsToRoot.txt)
+[See output here](outputs/test_get_paths_to_root.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -387,7 +387,7 @@ Return paths to the root concept for a specified terminology and code.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetPathsToAncestor.txt)
+[See output here](outputs/test_get_paths_to_ancestor.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -398,7 +398,7 @@ tree-view based hierarchy browser in a UI.
 
 `jest apis/ConceptEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSubtree.txt)
+[See output here](outputs/test_get_subtree.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -409,7 +409,7 @@ results. Include is set to minimal.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearch.txt)
+[See output here](outputs/test_get_search.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -420,7 +420,7 @@ Find concepts matching a search term within a specified terminology and restrict
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchFilterByConceptStatus.txt)
+[See output here](outputs/test_get_search_filter_by_concept_status.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -431,7 +431,7 @@ source of "NCI". This example uses paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchFilterByDefinitionSource.txt)
+[See output here](outputs/test_get_search_filter_by_definition_source.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -442,7 +442,7 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchFilterByDefinitionType.txt)
+[See output here](outputs/test_get_search_filter_by_definition_type.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -453,7 +453,7 @@ of "NCI" and synonymTermGroup of "PT".
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchFilterBySynonymSourceAndTermType.txt)
+[See output here](outputs/test_get_search_filter_by_synonym_source_and_term_type.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -464,7 +464,7 @@ of "FULL_SYN".
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchFilterBySynonymType.txt)
+[See output here](outputs/test_get_search_filter_by_synonym_type.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -472,7 +472,7 @@ of "FULL_SYN".
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByCode.txt)
+[See output here](outputs/test_get_search_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -483,7 +483,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypeMatch.txt)
+[See output here](outputs/test_get_search_by_type_match.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -494,7 +494,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypeStartsWith.txt)
+[See output here](outputs/test_get_search_by_type_starts_with.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -505,7 +505,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypePhrase.txt)
+[See output here](outputs/test_get_search_by_type_phrase.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -516,7 +516,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypeFuzzy.txt)
+[See output here](outputs/test_get_search_by_type_fuzzy.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -527,7 +527,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypeAnd.txt)
+[See output here](outputs/test_get_search_by_type_and.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -538,7 +538,7 @@ paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchByTypeOr.txt)
+[See output here](outputs/test_get_search_by_type_or.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -549,7 +549,7 @@ response. This example uses paging to get only the first 5 results.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchWithHighlights.txt)
+[See output here](outputs/test_get_search_with_highlights.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -561,7 +561,7 @@ on label
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchConceptsByProperty.txt)
+[See output here](outputs/test_get_search_concepts_by_property.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -572,7 +572,7 @@ Get concepts matching a search term within a specified terminology and subset. T
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSearchConceptsBySubset.txt)
+[See output here](outputs/test_get_search_concepts_by_subset.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -583,7 +583,7 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetConceptsBySPARQLCode.txt)
+[See output here](outputs/test_get_concepts_by_s_p_a_r_q_l_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -593,7 +593,7 @@ Get all subsets for a specified terminology.
 
 `jest apis/MetadataEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetSubsets.txt)
+[See output here](outputs/test_get_subsets.txt)
 
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
@@ -604,7 +604,7 @@ Get subset for a specified terminology and code.
 
 `jest apis/MetadataEndpointsApiTest.test.ts1 -t test`
 
-[See output here](outputs/GetSubset1.txt)
+[See output here](outputs/test_get_subset1.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -614,7 +614,7 @@ Get subset members for a specified terminology and code.
 
 `jest apis/MetadataEndpointsApiTest.test.ts1 -t test`
 
-[See output here](outputs/GetSubsetMembers1.txt)
+[See output here](outputs/test_get_subset_members1.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -624,7 +624,7 @@ Get all mapsets. Include parameter allows customizing how much data to return.
 
 `jest apis/MapsetEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetMapsets.txt)
+[See output here](outputs/test_get_mapsets.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -634,7 +634,7 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 `jest apis/MapsetEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetMapsetByCode.txt)
+[See output here](outputs/test_get_mapset_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -644,7 +644,7 @@ Get the maps for a specified mapset code.
 
 `jest apis/MapsetEndpointsApiTest.test.ts -t test`
 
-[See output here](outputs/GetMapsetMappingsByCode.txt)
+[See output here](outputs/test_get_mapset_mappings_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -654,7 +654,7 @@ Get the replacement concepts for a specified inactive concept code.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_code_replacements"`
 
-[See output here](outputs/test_get_replacements_from_list.txt)
+[See output here](outputs/test_test_get_replacements_from_list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -664,7 +664,7 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_replacements_from_list"`
 
-[See output here](outputs/test_get_code_replacements.txt)
+[See output here](outputs/test_test_get_code_replacements.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -674,4 +674,4 @@ Get SPARQL bindings for a specified SPARQL query.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test_get_sparql_bindings`
 
-[See output here](outputs/GetSPARQLBindings.txt)
+[See output here](outputs/test_get_s_p_a_r_q_l_bindings.txt)
