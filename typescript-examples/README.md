@@ -231,9 +231,9 @@ Return all qualifiers for a given terminology with default include setting (mini
 
 Return qualifier for the specified code or label.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_qualifier`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_single_qualifier`
 
-[See output here](outputs/test_get_qualifier.txt)
+[See output here](outputs/test_get_single_qualifier.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -261,9 +261,9 @@ Return all roles.
 
 Returns a role definition for a specified code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_role`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_single_role`
 
-[See output here](outputs/test_get_role.txt)
+[See output here](outputs/test_get_single_role.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -407,9 +407,9 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_basic`
 
-[See output here](outputs/test_get_search.txt)
+[See output here](outputs/test_get_search_basic.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -654,7 +654,7 @@ Get the replacement concepts for a specified inactive concept code.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_code_replacements`
 
-[See output here](outputs/test_test_get_replacements_from_list.txt)
+[See output here](outputs/test_get_replacements_from_list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -664,7 +664,7 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_replacements_from_list`
 
-[See output here](outputs/test_test_get_code_replacements.txt)
+[See output here](outputs/test_get_code_replacements.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
