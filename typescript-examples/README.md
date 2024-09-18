@@ -155,7 +155,7 @@ Return concept object with summary information for a specified code.
 
 Return concept object with full information for a specified code.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept_full`
 
 [See output here](outputs/test_get_concept_full.txt)
 
@@ -166,7 +166,7 @@ Return concept object with full information for a specified code.
 Return custom concept information for a given terminology and code. To show a range of options, in this case, the
 request asks for synonyms, children, maps, and inverse associations.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept_custom_include`
 
 [See output here](outputs/test_get_concept_custom_include.txt)
 
@@ -179,7 +179,7 @@ you can replace "children" in the URL with any of the following and retrieve the
 corresponding underlying info: children, parents, roles, associations, inverseRoles,
 inverseAssociations, maps.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_children`
 
 [See output here](outputs/test_get_children.txt)
 
@@ -191,7 +191,7 @@ Return concept descendants information for a given terminology and code. The cal
 maxLevel to prevent going deeper than a certain amount. Level 0 entries in the result are the direct children. The test
 sets the max level to 2.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_descendants`
 
 [See output here](outputs/test_get_descendants.txt)
 
@@ -201,7 +201,7 @@ sets the max level to 2.
 
 Return all properties for a given terminology with default include setting (minimal).
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_properties`
 
 [See output here](outputs/test_get_properties.txt)
 
@@ -211,7 +211,7 @@ Return all properties for a given terminology with default include setting (mini
 
 Return property for the specified code or label.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_property`
 
 [See output here](outputs/test_get_property.txt)
 
@@ -221,7 +221,7 @@ Return property for the specified code or label.
 
 Return all qualifiers for a given terminology with default include setting (minimal).
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_qualifiers`
 
 [See output here](outputs/test_get_qualifiers.txt)
 
@@ -231,7 +231,7 @@ Return all qualifiers for a given terminology with default include setting (mini
 
 Return qualifier for the specified code or label.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_qualifier`
 
 [See output here](outputs/test_get_qualifier.txt)
 
@@ -241,7 +241,7 @@ Return qualifier for the specified code or label.
 
 Return distinct value set for the qualifier with the specified code or label.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_qualifier_values`
 
 [See output here](outputs/test_get_qualifier_values.txt)
 
@@ -251,7 +251,7 @@ Return distinct value set for the qualifier with the specified code or label.
 
 Return all roles.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_roles`
 
 [See output here](outputs/test_get_roles.txt)
 
@@ -261,7 +261,7 @@ Return all roles.
 
 Returns a role definition for a specified code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_role`
 
 [See output here](outputs/test_get_role.txt)
 
@@ -271,7 +271,7 @@ Returns a role definition for a specified code.
 
 Return all associations.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_associations`
 
 [See output here](outputs/test_get_associations.txt)
 
@@ -281,7 +281,7 @@ Return all associations.
 
 Returns associations for a specified code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_association_by_code`
 
 [See output here](outputs/test_get_association_by_code.txt)
 
@@ -291,7 +291,7 @@ Returns associations for a specified code.
 
 Return metadata for all term types for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_term_types`
 
 [See output here](outputs/test_get_term_types.txt)
 
@@ -301,7 +301,7 @@ Return metadata for all term types for the specified terminology.
 
 Return metadata for all synonym sources for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_synonym_sources`
 
 [See output here](outputs/test_get_synonym_sources.txt)
 
@@ -311,7 +311,7 @@ Return metadata for all synonym sources for the specified terminology.
 
 Return metadata for all definition sources for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_definition_sources`
 
 [See output here](outputs/test_get_definition_sources.txt)
 
@@ -321,7 +321,7 @@ Return metadata for all definition sources for the specified terminology.
 
 Return metadata for all definition types for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_definition_types`
 
 [See output here](outputs/test_get_definition_types.txt)
 
@@ -331,7 +331,7 @@ Return metadata for all definition types for the specified terminology.
 
 Get definition type by code. Include parameter allowed customizing how much data to return.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_definition_type_by_code`
 
 [See output here](outputs/test_get_definition_type_by_code.txt)
 
@@ -341,7 +341,7 @@ Get definition type by code. Include parameter allowed customizing how much data
 
 Return metadata for all synonym types for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_synonym_types`
 
 [See output here](outputs/test_get_synonym_types.txt)
 
@@ -351,7 +351,7 @@ Return metadata for all synonym types for the specified terminology.
 
 Return metadata for all synonym types for the specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_synonym_type_by_code`
 
 [See output here](outputs/test_get_synonym_type_by_code.txt)
 
@@ -361,7 +361,7 @@ Return metadata for all synonym types for the specified terminology.
 
 Return all root concepts for the specified terminology.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_roots`
 
 [See output here](outputs/test_get_roots.txt)
 
@@ -371,11 +371,11 @@ Return all root concepts for the specified terminology.
 
 Return paths to/from the root concept from a specified terminology and code.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_paths_from_root`
 
 [See output here](outputs/test_get_paths_from_root.txt)
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_paths_to_root`
 
 [See output here](outputs/test_get_paths_to_root.txt)
 
@@ -385,7 +385,7 @@ Return paths to/from the root concept from a specified terminology and code.
 
 Return paths to the root concept for a specified terminology and code.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_paths_to_ancestor`
 
 [See output here](outputs/test_get_paths_to_ancestor.txt)
 
@@ -396,7 +396,7 @@ Return paths to the root concept for a specified terminology and code.
 Return an entire subtree graph from the root concepts to a specified node. This call is specifically tuned to support a
 tree-view based hierarchy browser in a UI.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_subtree`
 
 [See output here](outputs/test_get_subtree.txt)
 
@@ -407,7 +407,7 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search`
 
 [See output here](outputs/test_get_search.txt)
 
@@ -418,7 +418,7 @@ results. Include is set to minimal.
 Find concepts matching a search term within a specified terminology and restrict the search results by concept status of
 "Retired_Concept". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_concept_status`
 
 [See output here](outputs/test_get_search_filter_by_concept_status.txt)
 
@@ -429,7 +429,7 @@ Find concepts matching a search term within a specified terminology and restrict
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition
 source of "NCI". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_definition_source`
 
 [See output here](outputs/test_get_search_filter_by_definition_source.txt)
 
@@ -440,7 +440,7 @@ source of "NCI". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a definition type
 of "DEFINITION". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_definition_type`
 
 [See output here](outputs/test_get_search_filter_by_definition_type.txt)
 
@@ -451,7 +451,7 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym source
 of "NCI" and synonymTermGroup of "PT".
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_synonym_source_and_term_type`
 
 [See output here](outputs/test_get_search_filter_by_synonym_source_and_term_type.txt)
 
@@ -462,7 +462,7 @@ of "NCI" and synonymTermGroup of "PT".
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym type
 of "FULL_SYN".
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_synonym_type`
 
 [See output here](outputs/test_get_search_filter_by_synonym_type.txt)
 
@@ -470,7 +470,7 @@ of "FULL_SYN".
 
 ### Find concepts by search term (where search term is a code)
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_code`
 
 [See output here](outputs/test_get_search_by_code.txt)
 
@@ -481,7 +481,7 @@ of "FULL_SYN".
 Find concepts matching a search term within a specified terminology and a search type of "match". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_match`
 
 [See output here](outputs/test_get_search_by_type_match.txt)
 
@@ -492,7 +492,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "startsWith".This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_starts_with`
 
 [See output here](outputs/test_get_search_by_type_starts_with.txt)
 
@@ -503,7 +503,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "phrase". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_phrase`
 
 [See output here](outputs/test_get_search_by_type_phrase.txt)
 
@@ -514,7 +514,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "fuzzy". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_fuzzy`
 
 [See output here](outputs/test_get_search_by_type_fuzzy.txt)
 
@@ -525,7 +525,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "and". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_and`
 
 [See output here](outputs/test_get_search_by_type_and.txt)
 
@@ -536,7 +536,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "or". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_or`
 
 [See output here](outputs/test_get_search_by_type_or.txt)
 
@@ -547,7 +547,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and include synonyms and highlighted text in the
 response. This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_with_highlights`
 
 [See output here](outputs/test_get_search_with_highlights.txt)
 
@@ -559,7 +559,7 @@ Find concepts matching a search term that is searched within a certain set of pr
 include the property values, so you can easily see the match. The property setting here can be either based on code or
 on label
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_concepts_by_property`
 
 [See output here](outputs/test_get_search_concepts_by_property.txt)
 
@@ -570,7 +570,7 @@ on label
 Get concepts matching a search term within a specified terminology and subset. This example searches within C165258
 (e.g. Cellosaurus Disease Terminology).
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_concepts_by_subset`
 
 [See output here](outputs/test_get_search_concepts_by_subset.txt)
 
@@ -581,9 +581,9 @@ Get concepts matching a search term within a specified terminology and subset. T
 Find concepts for a specified SPARQL query that returns a ?code field.
 
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test`
+`jest apis/SearchEndpointsApiTest.test.ts -t test_get_concepts_by_sparql_code`
 
-[See output here](outputs/test_get_concepts_by_s_p_a_r_q_l_code.txt)
+[See output here](outputs/test_get_concepts_by_sparql_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -591,7 +591,7 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 Get all subsets for a specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_subsets`
 
 [See output here](outputs/test_get_subsets.txt)
 
@@ -602,7 +602,7 @@ Get all subsets for a specified terminology.
 
 Get subset for a specified terminology and code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts1 -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts1 -t test_get_subset1`
 
 [See output here](outputs/test_get_subset1.txt)
 
@@ -612,7 +612,7 @@ Get subset for a specified terminology and code.
 
 Get subset members for a specified terminology and code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts1 -t test`
+`jest apis/MetadataEndpointsApiTest.test.ts1 -t test_get_subset_members1`
 
 [See output here](outputs/test_get_subset_members1.txt)
 
@@ -622,7 +622,7 @@ Get subset members for a specified terminology and code.
 
 Get all mapsets. Include parameter allows customizing how much data to return.
 
-`jest apis/MapsetEndpointsApiTest.test.ts -t test`
+`jest apis/MapsetEndpointsApiTest.test.ts -t test_get_mapsets`
 
 [See output here](outputs/test_get_mapsets.txt)
 
@@ -632,7 +632,7 @@ Get all mapsets. Include parameter allows customizing how much data to return.
 
 Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
-`jest apis/MapsetEndpointsApiTest.test.ts -t test`
+`jest apis/MapsetEndpointsApiTest.test.ts -t test_get_mapset_by_code`
 
 [See output here](outputs/test_get_mapset_by_code.txt)
 
@@ -642,7 +642,7 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 Get the maps for a specified mapset code.
 
-`jest apis/MapsetEndpointsApiTest.test.ts -t test`
+`jest apis/MapsetEndpointsApiTest.test.ts -t test_get_mapset_mappings_by_code`
 
 [See output here](outputs/test_get_mapset_mappings_by_code.txt)
 
@@ -674,4 +674,4 @@ Get SPARQL bindings for a specified SPARQL query.
 
 `jest apis/SearchEndpointsApiTest.test.ts -t test_get_sparql_bindings`
 
-[See output here](outputs/test_get_s_p_a_r_q_l_bindings.txt)
+[See output here](outputs/test_get_sparql_bindings.txt)
