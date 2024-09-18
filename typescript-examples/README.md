@@ -652,7 +652,7 @@ Get the maps for a specified mapset code.
 
 Get the replacement concepts for a specified inactive concept code.
 
-`jest apis/HistoryEndpointsApiTest.test.ts -t test_get_code_replacements"`
+`jest apis/HistoryEndpointsApiTest.test.ts -t test_get_code_replacements`
 
 [See output here](outputs/test_test_get_replacements_from_list.txt)
 
@@ -662,7 +662,7 @@ Get the replacement concepts for a specified inactive concept code.
 
 Get the replacement concepts for a specified list of inactive concept codes.
 
-`jest apis/HistoryEndpointsApiTest.test.ts -t test_get_replacements_from_list"`
+`jest apis/HistoryEndpointsApiTest.test.ts -t test_get_replacements_from_list`
 
 [See output here](outputs/test_test_get_code_replacements.txt)
 
