@@ -1,10 +1,10 @@
   console.log
     Get parents for code - C3224
 
-      at apis/ConceptEndpointsApiTest.spec.ts:345:13
+      at apis/ConceptEndpointsApiTest.test.ts:345:13
 
   console.log
        parents = [{"code":"C9305","name":"Malignant Neoplasm"},{"code":"C7058","name":"Melanocytic Neoplasm"}]
 
-      at apis/ConceptEndpointsApiTest.spec.ts:346:13
+      at apis/ConceptEndpointsApiTest.test.ts:346:13
 

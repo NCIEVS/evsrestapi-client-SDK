@@ -1,10 +1,10 @@
   console.log
     Get paths from code to ancestor code - C3224 to C2991
 
-      at apis/ConceptEndpointsApiTest.spec.ts:442:13
+      at apis/ConceptEndpointsApiTest.test.ts:442:13
 
   console.log
        paths to ancestor code = [[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","level":0,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C7058","name":"Melanocytic Neoplasm","terminology":"ncit","version":"24.08d","level":1,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C4741","name":"Neoplasm by Morphology","terminology":"ncit","version":"24.08d","level":2,"conceptStatus":"Header_Concept","leaf":false,"active":true},{"code":"C3262","name":"Neoplasm","terminology":"ncit","version":"24.08d","level":3,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C2991","name":"Disease or Disorder","terminology":"ncit","version":"24.08d","level":4,"conceptStatus":"DEFAULT","leaf":false,"active":true}],[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","level":0,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C9305","name":"Malignant Neoplasm","terminology":"ncit","version":"24.08d","level":1,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C7062","name":"Neoplasm by Special Category","terminology":"ncit","version":"24.08d","level":2,"conceptStatus":"Header_Concept","leaf":false,"active":true},{"code":"C3262","name":"Neoplasm","terminology":"ncit","version":"24.08d","level":3,"conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C2991","name":"Disease or Disorder","terminology":"ncit","version":"24.08d","level":4,"conceptStatus":"DEFAULT","leaf":false,"active":true}]]
 
-      at apis/ConceptEndpointsApiTest.spec.ts:443:13
+      at apis/ConceptEndpointsApiTest.test.ts:443:13
 

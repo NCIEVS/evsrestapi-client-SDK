@@ -1,10 +1,10 @@
   console.log
     Get list of concepts for codes - C3224,C3910
 
-      at apis/ConceptEndpointsApiTest.spec.ts:174:13
+      at apis/ConceptEndpointsApiTest.test.ts:174:13
 
   console.log
        concepts = [{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C3910","name":"Molecular Abnormality","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]
 
-      at apis/ConceptEndpointsApiTest.spec.ts:175:13
+      at apis/ConceptEndpointsApiTest.test.ts:175:13
 

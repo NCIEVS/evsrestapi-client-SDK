@@ -1,10 +1,10 @@
   console.log
     Get maps for code - C3224
 
-      at apis/ConceptEndpointsApiTest.spec.ts:321:13
+      at apis/ConceptEndpointsApiTest.test.ts:321:13
 
   console.log
        maps = [{"type":"Related To","targetName":"8720/3","targetTermType":"PT","targetCode":"morphology","targetTerminology":"GDC"},{"type":"Related To","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetCode":"8720/3","targetTerminology":"ICDO3","targetTerminologyVersion":"3.1"},{"type":"Related To","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetCode":"8720/3","targetTerminology":"ICDO3","targetTerminologyVersion":"3.2"},{"type":"Related To","targetName":"Malignant melanoma, NOS","targetTermType":"PT","targetCode":"primary_diagnosis","targetTerminology":"GDC"},{"type":"Has Synonym","targetName":"Melanoma, NOS","targetTermType":"PT","targetCode":"primary_diagnosis","targetTerminology":"GDC"},{"type":"Has Synonym","targetName":"Melanoma","targetTermType":"LLT","targetCode":"10053571","targetTerminology":"MedDRA","targetTerminologyVersion":"18.1"},{"type":"Has Synonym","targetName":"Melanoma","targetTermType":"PT","targetCode":"relationship_primary_diagnosis","targetTerminology":"GDC"}]
 
-      at apis/ConceptEndpointsApiTest.spec.ts:322:13
+      at apis/ConceptEndpointsApiTest.test.ts:322:13
 
