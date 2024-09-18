@@ -115,7 +115,7 @@ All commands to run these tests should be run from that directory.
 
 Return all loaded terminologies currently hosted by the API.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_termologies`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_terminologies`
 
 [See output here](outputs/test_get_terminologies.txt)
 
@@ -125,9 +125,9 @@ Return all loaded terminologies currently hosted by the API.
 
 Return concept object with minimal information for a specified code.
 
-`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept`
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_concept_minimal`
 
-[See output here](outputs/test_get_concept.txt)
+[See output here](outputs/test_get_concept_minimal.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
