@@ -12,48 +12,47 @@ const configuration = createConfiguration({
 });
 
 describe("TestConceptEndpointsApi", () => {
-  const terminology: string = "ncit";
+  const terminology: string = "ncit"; // default code and terminology
   const code: string = "C3224";
   const conceptApi: ConceptEndpointsApi = new ConceptEndpointsApi(
     configuration
   );
 
   test("test_get_association_entries", async () => {
-    const fromRecord: number = 0;
-    const pageSize: number = 100;
-    const code: string = "A5";
-    const expectedAssociation: string = "Has_Salt_Form";
-    const expectedName: string = "Fedotozine Tartrate";
-    let containsExpectedAssociation = false;
-    let containsExpectedName = false;
+    // ARRANGE
+  const fromRecord: number = 0;
+  const pageSize: number = 100;
+  const codeOrLabel: string = "A5";
+  const expectedRelatedName: string = "Naluzotan Hydrochloride";
+  let containsExpectedName = false;
 
-    const response: AssociationEntryResultList =
-      await conceptApi.getAssociationEntries(
-        terminology,
-        code,
-        fromRecord,
-        pageSize,
-        undefined
-      );
+  // ACT
+  const response: AssociationEntryResultList = await conceptApi.getAssociationEntries(
+    terminology, // use ncit as the terminology
+    codeOrLabel,
+    fromRecord,
+    pageSize,
+    undefined
+  );
 
-    expect(response).not.toBeNull();
+  // ASSERT
+  expect(response).not.toBeNull();
+  expect(response.associationEntries).not.toBeNull();
+  expect(response.associationEntries).not.toBeUndefined();
 
-    expect(response?.associationEntries).not.toBeNull();
-    expect(response?.associationEntries).not.toBeUndefined();
-    for (const entry of response?.associationEntries) {
-      expect(entry?.association).not.toBeNull();
-      if (!containsExpectedAssociation && entry?.association?.includes(expectedAssociation)) {
-        containsExpectedAssociation = true;
-      }
-      if (!containsExpectedName) {
-        expect(entry?.relatedName).not.toBeNull();
-        console.log(entry?.relatedName);
-        if (entry?.relatedName?.includes(expectedName)) {
-          containsExpectedName = true;
-        }
-      }
+  // Check if the expected related name exists in the result
+  for (const entry of response.associationEntries) {
+    expect(entry.relatedName).not.toBeNull();
+    if (entry.relatedName.includes(expectedRelatedName)) {
+      containsExpectedName = true;
+      break;
     }
-    expect(containsExpectedAssociation).toBe(true);
-    expect(containsExpectedName).toBe(true);
+  }
+
+  expect(containsExpectedName).toBe(true);
+
+  // Serialize and print the result (optional, for debug purposes)
+  const result = JSON.stringify(response);
+  console.log(result);
   });
 });
