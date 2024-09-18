@@ -1,0 +1,8 @@
+[31mNo tests found, exiting with code 1
+Run with `--passWithNoTests` to exit with code 0
+In E:\WCI\Locker\Repos\evsrestapi-client-SDK\typescript-examples
+  54 files checked.
+  testMatch: **/?(*.)+(spec|test).[tj]s?(x) - 1 match
+  testPathIgnorePatterns: \\node_modules\\ - 54 matches
+  testRegex:  - 0 matches
+Pattern: test_get_association_entries - 0 matches[39m

@@ -1,0 +1,10 @@
+  console.log
+    Get subset members for code - C3224
+
+      at apis/ConceptEndpointsApiTest.spec.ts:514:13
+
+  console.log
+       subset members = [{"code":"C178243","name":"Family Cancer History Relative Primary Diagnosis Question","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C176985","name":"Histology ICD-O Morphology Code","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C177621","name":"ICD-O-3 Morphology Term Diagnosis Question","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]
+
+      at apis/ConceptEndpointsApiTest.spec.ts:515:13
+
