@@ -375,7 +375,7 @@ describe("TestSearchEndpointApi", () => {
     const expectedTotal: number = 35;
 
     // ACT
-    const response = await searchApi.searchSingleTerminology(terminology, undefined, term, undefined, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, subset);
+    const response = await searchApi.searchSingleTerminology(terminology, undefined, term, undefined, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, subset);
 
     // ASSERT
     expect(response).not.toBeNull();
@@ -397,7 +397,7 @@ describe("TestSearchEndpointApi", () => {
     const expectedTotal: number = 1;
 
     // ACT
-    const response = await searchApi.searchSingleTerminologySparql(terminology, queryBody, include, null, null, searchType, null, ascending, fromRecord, pageSize);
+    const response = await searchApi.searchSingleTerminologySparql(terminology, queryBody, include, undefined, undefined, searchType, undefined, ascending, fromRecord, pageSize);
 
     // ASSERT
     expect(response).not.toBeNull();
