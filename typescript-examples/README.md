@@ -407,7 +407,7 @@ tree-view based hierarchy browser in a UI.
 Find concepts matching a search term within a specified terminology. This example uses paging to get only the first 5
 results. Include is set to minimal.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_basic`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_basic`
 
 [See output here](outputs/test_get_search_basic.txt)
 
@@ -418,7 +418,7 @@ results. Include is set to minimal.
 Find concepts matching a search term within a specified terminology and restrict the search results by concept status of
 "Retired_Concept". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_concept_status`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_filter_by_concept_status`
 
 [See output here](outputs/test_get_search_filter_by_concept_status.txt)
 
@@ -429,7 +429,7 @@ Find concepts matching a search term within a specified terminology and restrict
 Get concepts matching a search term within a specified terminology and restrict the search results by a definition
 source of "NCI". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_definition_source`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_filter_by_definition_source`
 
 [See output here](outputs/test_get_search_filter_by_definition_source.txt)
 
@@ -440,7 +440,7 @@ source of "NCI". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a definition type
 of "DEFINITION". This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_definition_type`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_filter_by_definition_type`
 
 [See output here](outputs/test_get_search_filter_by_definition_type.txt)
 
@@ -451,7 +451,7 @@ of "DEFINITION". This example uses paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym source
 of "NCI" and synonymTermGroup of "PT".
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_synonym_source_and_term_type`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_filter_by_synonym_source_and_term_type`
 
 [See output here](outputs/test_get_search_filter_by_synonym_source_and_term_type.txt)
 
@@ -462,7 +462,7 @@ of "NCI" and synonymTermGroup of "PT".
 Find concepts matching a search term within a specified terminology and restrict the search results by a synonym type
 of "FULL_SYN".
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_filter_by_synonym_type`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_filter_by_synonym_type`
 
 [See output here](outputs/test_get_search_filter_by_synonym_type.txt)
 
@@ -470,7 +470,7 @@ of "FULL_SYN".
 
 ### Find concepts by search term (where search term is a code)
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_code`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_code`
 
 [See output here](outputs/test_get_search_by_code.txt)
 
@@ -481,7 +481,7 @@ of "FULL_SYN".
 Find concepts matching a search term within a specified terminology and a search type of "match". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_match`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_match`
 
 [See output here](outputs/test_get_search_by_type_match.txt)
 
@@ -492,7 +492,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "startsWith".This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_starts_with`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_starts_with`
 
 [See output here](outputs/test_get_search_by_type_starts_with.txt)
 
@@ -503,7 +503,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "phrase". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_phrase`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_phrase`
 
 [See output here](outputs/test_get_search_by_type_phrase.txt)
 
@@ -514,7 +514,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "fuzzy". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_fuzzy`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_fuzzy`
 
 [See output here](outputs/test_get_search_by_type_fuzzy.txt)
 
@@ -525,7 +525,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "and". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_and`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_and`
 
 [See output here](outputs/test_get_search_by_type_and.txt)
 
@@ -536,7 +536,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and a search type of "or". This example uses
 paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_by_type_or`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_by_type_or`
 
 [See output here](outputs/test_get_search_by_type_or.txt)
 
@@ -547,7 +547,7 @@ paging to get only the first 5 results.
 Find concepts matching a search term within a specified terminology and include synonyms and highlighted text in the
 response. This example uses paging to get only the first 5 results.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_with_highlights`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_with_highlights`
 
 [See output here](outputs/test_get_search_with_highlights.txt)
 
@@ -559,7 +559,7 @@ Find concepts matching a search term that is searched within a certain set of pr
 include the property values, so you can easily see the match. The property setting here can be either based on code or
 on label
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_concepts_by_property`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_concepts_by_property`
 
 [See output here](outputs/test_get_search_concepts_by_property.txt)
 
@@ -570,7 +570,7 @@ on label
 Get concepts matching a search term within a specified terminology and subset. This example searches within C165258
 (e.g. Cellosaurus Disease Terminology).
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_search_concepts_by_subset`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_search_concepts_by_subset`
 
 [See output here](outputs/test_get_search_concepts_by_subset.txt)
 
@@ -581,7 +581,7 @@ Get concepts matching a search term within a specified terminology and subset. T
 Find concepts for a specified SPARQL query that returns a ?code field.
 
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_concepts_by_sparql_code`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_concepts_by_sparql_code`
 
 [See output here](outputs/test_get_concepts_by_sparql_code.txt)
 
@@ -672,6 +672,6 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 Get SPARQL bindings for a specified SPARQL query.
 
-`jest apis/SearchEndpointsApiTest.test.ts -t test_get_sparql_bindings`
+`jest apis/SearchEndpointApiTest.test.ts -t test_get_sparql_bindings`
 
 [See output here](outputs/test_get_sparql_bindings.txt)
