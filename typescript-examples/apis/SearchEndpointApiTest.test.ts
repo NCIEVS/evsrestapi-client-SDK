@@ -13,7 +13,7 @@ describe("TestSearchEndpointApi", () => {
   const terminology: string = "ncit"; // default terminology
   const searchApi: SearchEndpointApi = new SearchEndpointApi(configuration);
 
-  test("get_search_basic", async () => {
+  test("test_get_search_basic", async () => {
     // ARRANGE
     const searchType: string = "contains";
     const ascending: boolean = true;
@@ -43,7 +43,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(`    search results = ${JSON.stringify(response)}`);
   });
 
-  test("get_search_filter_by_concept_status", async () => {
+  test("test_get_search_filter_by_concept_status", async () => {
     // ARRANGE
     const term: string = "respiratory";
     const searchType: string = "contains";
@@ -76,7 +76,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(`    search results = ${JSON.stringify(response)}`);
   });
 
-  test("get_search_filter_by_definition_source", async () => {
+  test("test_get_search_filter_by_definition_source", async () => {
     // ARRANGE
     const term: string = "dsDNA";
     const searchType: string = "contains";
@@ -99,7 +99,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(`    search results = ${JSON.stringify(response)}`);
   });
 
-  test("get_search_filter_by_definition_type", async () => {
+  test("test_get_search_filter_by_definition_type", async () => {
     // ARRANGE
     const term: string = "melanoma";
     const searchType: string = "contains";
@@ -122,7 +122,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(`    search results = ${JSON.stringify(response)}`);
   });
 
-  test("get_search_filter_by_synonym_source_and_term_type", async () => {
+  test("test_get_search_filter_by_synonym_source_and_term_type", async () => {
     // ARRANGE
     const term: string = "dsDNA";
     const searchType: string = "contains";
@@ -146,7 +146,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(`    search results = ${JSON.stringify(response)}`);
   });
 
-  test("get_search_filter_by_synonym_type", async () => {
+  test("test_get_search_filter_by_synonym_type", async () => {
     // ARRANGE
     const term: string = "dsDNA";
     const searchType: string = "contains";
@@ -171,7 +171,7 @@ describe("TestSearchEndpointApi", () => {
 
   // Assuming a similar setup to your original test with jest framework
 
-  test("get_search_by_code", async () => {
+  test("test_get_search_by_code", async () => {
     // ARRANGE
     const term: string = "C3224";
     const searchType: string = "contains";
@@ -193,7 +193,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_match", async () => {
+  test("test_get_search_by_type_match", async () => {
     // ARRANGE
     const term: string = "enzyme";
     const searchType: string = "match";
@@ -215,7 +215,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_starts_with", async () => {
+  test("test_get_search_by_type_starts_with", async () => {
     // ARRANGE
     const term: string = "enzyme";
     const searchType: string = "startsWith";
@@ -237,7 +237,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_phrase", async () => {
+  test("test_get_search_by_type_phrase", async () => {
     // ARRANGE
     const term: string = "enzyme";
     const searchType: string = "phrase";
@@ -259,7 +259,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_fuzzy", async () => {
+  test("test_get_search_by_type_fuzzy", async () => {
     // ARRANGE
     const term: string = "enzyme";
     const searchType: string = "fuzzy";
@@ -279,7 +279,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_and", async () => {
+  test("test_get_search_by_type_and", async () => {
     // ARRANGE
     const term: string = "malignant melanoma";
     const searchType: string = "AND";
@@ -301,7 +301,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_by_type_or", async () => {
+  test("test_get_search_by_type_or", async () => {
     // ARRANGE
     const term: string = "malignant melanoma";
     const searchType: string = "OR";
@@ -321,7 +321,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_with_highlights", async () => {
+  test("test_get_search_with_highlights", async () => {
     // ARRANGE
     const term: string = "XAV05295I5";
     const ascending: boolean = true;
@@ -342,7 +342,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_concepts_by_property", async () => {
+  test("test_get_search_concepts_by_property", async () => {
     // ARRANGE
     const term: string = "XAV05295I5";
     const ascending: boolean = true;
@@ -364,7 +364,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_search_concepts_by_subset", async () => {
+  test("test_get_search_concepts_by_subset", async () => {
     // ARRANGE
     const term: string = "immune";
     const ascending: boolean = true;
@@ -386,7 +386,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_concepts_by_sparql_code", async () => {
+  test("test_get_concepts_by_sparql_code", async () => {
     // ARRANGE
     const searchType: string = "contains";
     const ascending: boolean = true;
@@ -408,7 +408,7 @@ describe("TestSearchEndpointApi", () => {
     console.log(JSON.stringify(response));
   });
 
-  test("get_sparql_bindings", async () => {
+  test("test_get_sparql_bindings", async () => {
     // ARRANGE
     const queryBody: string = `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }`;
     const expectedTotal: number = 150000;

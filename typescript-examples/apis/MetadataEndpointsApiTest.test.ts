@@ -13,7 +13,7 @@ describe("TestMetadataEndpointsApi", () => {
   const terminology: string = "ncit"; // default terminology
   const metadataApi: MetadataEndpointsApi = new MetadataEndpointsApi(configuration);
 
-  test("get_association_by_code", async () => {
+  test("test_get_association_by_code", async () => {
     // ARRANGE
     const codeOrName: string = "A18";
     const include: string = "minimal";
@@ -30,7 +30,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    association details = ${JSON.stringify(response)}`);
   });
 
-  test("get_associations", async () => {
+  test("test_get_associations", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode: string = "A1";
@@ -57,7 +57,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    associations = ${JSON.stringify(response)}`);
   });
 
-  test("get_concept_statuses", async () => {
+  test("test_get_concept_statuses", async () => {
     // ARRANGE
     const expectedStatus: string = "Obsolete_Concept";
     const expectedSize: number = 5;
@@ -83,7 +83,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    statuses = ${JSON.stringify(response)}`);
   });
 
-  test("get_definition_sources", async () => {
+  test("test_get_definition_sources", async () => {
     // ARRANGE
     const expectedName: string = "American College of Cardiology / American Heart Association";
     const expectedCode: string = "ACC/AHA";
@@ -109,7 +109,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    definition sources = ${JSON.stringify(response)}`);
   });
 
-  test("get_definition_type_by_code", async () => {
+  test("test_get_definition_type_by_code", async () => {
     // ARRANGE
     const codeOrName: string = "P325";
     const include: string = "minimal";
@@ -126,7 +126,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    definition type = ${JSON.stringify(response)}`);
   });
 
-  test("get_definition_types", async () => {
+  test("test_get_definition_types", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode: string = "P97";
@@ -153,7 +153,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    definition types = ${JSON.stringify(response)}`);
   });
 
-  test("get_properties", async () => {
+  test("test_get_properties", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode: string = "NHC0";
@@ -180,7 +180,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    properties = ${JSON.stringify(response)}`);
   });
 
-  test("get_property", async () => {
+  test("test_get_property", async () => {
     // ARRANGE
     const codeOrName: string = "P216";
     const include: string = "full";
@@ -199,7 +199,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    property details = ${JSON.stringify(response)}`);
   });
 
-  test("get_qualifier", async () => {
+  test("test_get_single_qualifier", async () => {
     // ARRANGE
     const codeOrName: string = "P390";
     const include: string = "summary";
@@ -218,7 +218,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    qualifier details = ${JSON.stringify(response)}`);
   });
 
-  test("get_qualifier_values", async () => {
+  test("test_get_qualifier_values", async () => {
     // ARRANGE
     const codeOrName: string = "P390";
     const expectedValue: string = "CGAP";
@@ -241,7 +241,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    qualifier values = ${JSON.stringify(response)}`);
   });
 
-  test("get_qualifiers", async () => {
+  test("test_get_qualifiers", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode1: string = "P383";
@@ -273,7 +273,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    qualifiers = ${JSON.stringify(response)}`);
   });
 
-  test("get_role", async () => {
+  test("test_get_single_role", async () => {
     // ARRANGE
     const codeOrName: string = "R123";
     const include: string = "full";
@@ -291,7 +291,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    role details = ${JSON.stringify(response)}`);
   });
 
-  test("get_roles", async () => {
+  test("test_get_roles", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode: string = "R123";
@@ -314,7 +314,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    roles = ${JSON.stringify(response)}`);
   });
 
-  test("get_subsets", async () => {
+  test("test_get_subsets", async () => {
     // ARRANGE
     const include: string = "minimal";
     const expectedCode: string = "C167405";
@@ -337,7 +337,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    subsets = ${JSON.stringify(response)}`);
   });
 
-  test("get_subset", async () => {
+  test("test_get_subset_by_code", async () => {
     // ARRANGE
     const code: string = "C81222";
     const include: string = "summary";
@@ -354,7 +354,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    subset details = ${JSON.stringify(response)}`);
   });
 
-  test("get_synonym_sources", async () => {
+  test("test_get_synonym_sources", async () => {
     // ARRANGE
     const expectedCode1: string = "ACC/AHA";
     const expectedCode2: string = "BIOCARTA";
@@ -385,7 +385,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    synonym sources = ${JSON.stringify(response)}`);
   });
 
-  test("get_synonym_type_by_code", async () => {
+  test("test_get_synonym_type_by_code", async () => {
     // ARRANGE
     const codeOrName: string = "P90";
     const include: string = "minimal";
@@ -402,7 +402,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    synonym type = ${JSON.stringify(response)}`);
   });
 
-  test("get_synonym_types", async () => {
+  test("test_get_synonym_types", async () => {
     // ARRANGE
     const include: string = "full";
     const expectedCode: string = "P108";
@@ -425,7 +425,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    synonym types = ${JSON.stringify(response)}`);
   });
 
-  test("get_term_types", async () => {
+  test("test_get_term_types", async () => {
     // ARRANGE
     const expectedCode1: string = "AB";
     const expectedCode2: string = "AD";
@@ -456,7 +456,7 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    term types = ${JSON.stringify(response)}`);
   });
 
-  test("get_terminologies", async () => {
+  test("test_get_terminologies", async () => {
     // ARRANGE
     const latest: boolean = true;
     const tag: string = "monthly";

@@ -11,7 +11,7 @@ const configuration = createConfiguration({
 describe("TestMapsetEndpointsApi", () => {
   const mapsetApi: MapsetEndpointsApi = new MapsetEndpointsApi(configuration);
 
-  test('get_mapset_by_code', async () => {
+  test('test_get_mapset_by_code', async () => {
     // ARRANGE
     const code = 'NCIt_Maps_To_ICDO3';
     const include = 'minimal';
@@ -30,7 +30,7 @@ describe("TestMapsetEndpointsApi", () => {
     console.log(`    response = ${result}`);
 });
 
-test('get_mapset_mappings_by_code', async () => {
+test('test_get_mapset_mappings_by_code', async () => {
     // ARRANGE
     const code = 'GO_to_NCIt_Mapping';
     const fromRecord = 0;
@@ -55,7 +55,7 @@ test('get_mapset_mappings_by_code', async () => {
     console.log(`    response = ${result}`);
 });
 
-test('get_mapsets', async () => {
+test('test_get_mapsets', async () => {
     // ARRANGE
     const include = 'minimal';
     let response;

@@ -13,7 +13,7 @@ describe("TestSubsetEndpointsApi", () => {
   const terminology: string = "ncit"; // default terminology
   const subsetApi: SubsetEndpointsApi = new SubsetEndpointsApi(configuration);
 
-  test("get_subset", async () => {
+  test("test_get_subset", async () => {
     // ARRANGE
     const code: string = "C116978";
     const include: string = "minimal,summary";
@@ -30,7 +30,7 @@ describe("TestSubsetEndpointsApi", () => {
     console.log(`    subset details = ${JSON.stringify(response)}`);
   });
 
-  test("get_subset_members", async () => {
+  test("test_get_subset_members", async () => {
     // ARRANGE
     const code: string = "C157225";
     const fromRecord: string = "0";
@@ -59,7 +59,7 @@ describe("TestSubsetEndpointsApi", () => {
     console.log(`    subset members = ${JSON.stringify(response)}`);
   });
 
-  test("get_subsets", async () => {
+  test("test_get_all_subsets", async () => {
     // ARRANGE
     const include: string = "minimal";
 

@@ -591,10 +591,9 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 Get all subsets for a specified terminology.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_subsets`
+`jest apis/SubsetEndpointsApiTest.test.ts -t test_get_all_subsets`
 
-[See output here](outputs/test_get_subsets.txt)
-
+[See output here](outputs/test_get_all_subsets.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -602,9 +601,9 @@ Get all subsets for a specified terminology.
 
 Get subset for a specified terminology and code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts1 -t test_get_subset1`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_subset_by_code`
 
-[See output here](outputs/test_get_subset1.txt)
+[See output here](outputs/test_get_subset_by_code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -612,9 +611,9 @@ Get subset for a specified terminology and code.
 
 Get subset members for a specified terminology and code.
 
-`jest apis/MetadataEndpointsApiTest.test.ts1 -t test_get_subset_members1`
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_subsets`
 
-[See output here](outputs/test_get_subset_members1.txt)
+[See output here](outputs/test_get_subsets.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -654,7 +653,7 @@ Get the replacement concepts for a specified inactive concept code.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_code_replacements`
 
-[See output here](outputs/test_get_replacements_from_list.txt)
+[See output here](outputs/test_get_code_replacements.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
@@ -664,7 +663,7 @@ Get the replacement concepts for a specified list of inactive concept codes.
 
 `jest apis/HistoryEndpointsApiTest.test.ts -t test_get_replacements_from_list`
 
-[See output here](outputs/test_get_code_replacements.txt)
+[See output here](outputs/test_get_replacements_from_list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
