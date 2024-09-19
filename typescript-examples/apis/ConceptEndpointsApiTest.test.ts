@@ -443,7 +443,7 @@ describe("TestConceptEndpointsApi", () => {
     console.log(`   paths to ancestor code = ${JSON.stringify(response)}`);
   });
 
-  test("test_get_roles1", async () => {
+  test("test_get_roles_for_code", async () => {
     // ARRANGE
     const expectedRelatedCode: string = "C36122";
     const expectedRelatedName: string = "Benign Cellular Infiltrate";

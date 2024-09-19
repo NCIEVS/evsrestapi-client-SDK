@@ -72,7 +72,9 @@ All commands to run these tests should be run from that directory.
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
 * [Get all roles](#get-all-roles)
 * [Get role by code (or label)](#get-roles-by-code-or-label)
+* [Get roles for concept code](#get-roles-for-concept-code)
 * [Get all associations](#get-all-associations)
+* [Get association entries](#get-association-entries)
 * [Get association by code (or label)](#get-associations-by-code-or-label)
 * [Get all term types](#get-all-term-types)
 * [Get all synonym sources](#get-all-synonym-sources)
@@ -267,6 +269,16 @@ Returns a role definition for a specified code.
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
+### Get roles for concept code
+
+Returns roles for a specified concept code.
+
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_roles_for_code`
+
+[See output here](outputs/test_get_roles_for_code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
+
 ### Get all associations
 
 Return all associations.
@@ -274,6 +286,16 @@ Return all associations.
 `jest apis/MetadataEndpointsApiTest.test.ts -t test_get_associations`
 
 [See output here](outputs/test_get_associations.txt)
+
+[Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
+
+### Get association_entries
+
+Return all association entries.
+
+`jest apis/ConceptEndpointsApiTest.test.ts -t test_get_association_entries`
+
+[See output here](outputs/test_get_association_entries.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 
