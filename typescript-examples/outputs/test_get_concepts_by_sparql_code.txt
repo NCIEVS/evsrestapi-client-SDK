@@ -1,0 +1,5 @@
+  console.log
+    {"total":1,"timeTaken":31,"parameters":{"type":"contains","include":"minimal","ascending":true,"fromRecord":0,"pageSize":25,"codeList":["C3224"],"terminology":["ncit"],"sparql":"SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 \"Melanoma\" } }"},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:408:13
+

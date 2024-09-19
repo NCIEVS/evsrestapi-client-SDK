@@ -1,0 +1,10 @@
+  console.log
+    Get association details for code or name - A18
+
+      at apis/MetadataEndpointsApiTest.test.ts:29:13
+
+  console.log
+        association details = {"code":"A18","name":"Has_Pharmaceutical_Basic_Dose_Form","terminology":"ncit","version":"24.08d"}
+
+      at apis/MetadataEndpointsApiTest.test.ts:30:13
+

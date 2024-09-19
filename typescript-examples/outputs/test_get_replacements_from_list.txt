@@ -1,9 +1,10 @@
-    console.log
-      Get suggested replacements for code - C12658 & C13320
+  console.log
+    Get suggested replacements for code - C12658 & C13320
 
       at apis/HistoryEndpointsApiTest.test.ts:88:13
 
-    console.log
-          suggested replacements = [{"code":"C12658","name":"Prokaryotic Cell","action":"retire","date":"2003-08-22","replacementCode":"C19157","replacementName":"Specimen"},{"code":"C13320","name":"Nose, Nasal Passages","action":"merge","date":"2003-08-22","replacementCode":"C12756","replacementName":"Nose"}]
+  console.log
+        suggested replacements = [{"code":"C12658","name":"Prokaryotic Cell","action":"retire","date":"2003-08-22","replacementCode":"C19157","replacementName":"Specimen"},{"code":"C13320","name":"Nose, Nasal Passages","action":"merge","date":"2003-08-22","replacementCode":"C12756","replacementName":"Nose"}]
 
       at apis/HistoryEndpointsApiTest.test.ts:89:13
+

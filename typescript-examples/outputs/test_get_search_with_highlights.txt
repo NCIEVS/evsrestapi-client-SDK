@@ -1,0 +1,5 @@
+  console.log
+    {"total":1,"timeTaken":33,"parameters":{"term":"XAV05295I5","type":"contains","include":"highlights","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C61305","name":"Sivifene","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:342:13
+
