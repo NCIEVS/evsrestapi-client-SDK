@@ -18,6 +18,10 @@ Install the following dependencies via command line in the `typescript-examples`
 npm install jest
 ```
 
+### URLs Configuration per Operation
+
+[`config.json`](config.json) lists the base urls for each environment currently supported. To change the environment in use simply edit the `currentEnvironment` to one of the other keys in the `baseUrls` json object. The repo as presented defaults to the `production` environment.
+
 ## Test Running
 
 ### **Run a Single Test**
