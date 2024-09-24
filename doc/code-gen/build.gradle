@@ -108,7 +108,7 @@ tasks.register("buildClients") {
             "buildGoSdk",
 //            "buildKotlinSdk",
 //            "buildBashSdk",
-//           "buildTypescriptSdk"
+           "buildTypescriptSdk"
     )
     doLast {
         println 'All client sdk generated. They can be found in the code-gen/build folder.'
@@ -121,7 +121,7 @@ build.dependsOn('buildClients')
 publishToMavenLocal.dependsOn = ["buildJavaSdk`",
                                  "buildPythonSdk",
                                  "buildGoSdk",
-//                                 "buildTypescriptSdk",
+                                 "buildTypescriptSdk",
 //                                 "buildKotlinSdk",
 //                                 "buildBashSdk",
 ]
