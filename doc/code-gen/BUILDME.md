@@ -91,7 +91,7 @@ corresponding `-examples` directory
 
 ### Typescript client
 
-1. To generate the client code for Go, run `./gradlew buildTypescriptSdk`
+1. To generate the client code for Typescript, run `./gradlew buildTypescriptSdk`
 2. Find the generated client in `build/typescript`
 3. Copy the new api files generated from the `build/typescript/api` folder to the `typescript-examples/api` folder. Only copy files from this directory, as the rest are helper functions and configuration/utility code that won't need to change as the API does.
    1. `typescript-examples/config.json` contains the different test environments that are currently supported, as well as a method for switching between them. See the baseUrls struct in [config.json](../../typescript-examples/config.json#L2) for the currently supported test environments and their corresponding URLs. Change the currentEnvironment key [a few lines down](../../typescript-examples/config.json#L8) to select what environment you wish to run the tests in.
@@ -99,7 +99,7 @@ corresponding `-examples` directory
 4. Install necessary imports as per the Installation section in the README (which resides in `typescript-examples` [here](../../typescript-examples/README.md#extra-library-installation)).
 5. 🚫🚫 **DO NOT** replace tests. Update tests to demo the new api calls or fix failing tests. The same applies to the `typescript-examples` README documentation. Avoid replacing api documentation in favor of adding new api calls in the same format (which is likely available in the auto-generated README).
 6. Verify the tests run successfully in the IDE and the terminal before pushing changes.
-   1. To run the go tests, see the [test running](../../typescript-examples/README.md#test-running) section of the `typescript-examples` README.
+   1. To run the typescript tests, see the [test running](../../typescript-examples/README.md#test-running) section of the `typescript-examples` README.
 
 **[Back to top](#evsrestapi-regenerate-client-sdks)**
 
