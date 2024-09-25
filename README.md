@@ -18,6 +18,7 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 - [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
 - [Click for Python examples.](../master/python-examples/ "Python Examples")
 - [Click for Go examples.](../master/go-examples/ "Go Examples")
+- [Click for Typescript examples.](../master/typescript-examples/ "TypeScript Examples")
 
 **[Back to top](#table-of-contents)**
 
