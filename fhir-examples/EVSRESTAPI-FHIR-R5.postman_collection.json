@@ -107,7 +107,7 @@
           "response": []
         },
         {
-          "name": "Find code systems by system url",
+          "name": "Find code systems by url",
           "request": {
             "method": "GET",
             "header": [],
@@ -351,7 +351,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_C54585",
+              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -359,7 +359,7 @@
                 "fhir",
                 "r5",
                 "ValueSet",
-                "ncit_C54585"
+                "ncit_c54585"
               ],
               "query": [
                 {
@@ -379,7 +379,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet?_id=ncit_C54585",
+              "raw": "{{baseUrl}}/fhir/r5/ValueSet?_id=ncit_c54585",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -396,7 +396,7 @@
                 },
                 {
                   "key": "_id",
-                  "value": "ncit_C54585"
+                  "value": "ncit_c54585"
                 }
               ]
             },
@@ -436,7 +436,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_C54585/$validate-code?code=C20821",
+              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585/$validate-code?code=C20821",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -444,7 +444,7 @@
                 "fhir",
                 "r5",
                 "ValueSet",
-                "ncit_C54585",
+                "ncit_c54585",
                 "$validate-code"
               ],
               "query": [
@@ -579,7 +579,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/GO_to_NCIt_Mapping_February2020",
+              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -587,7 +587,7 @@
                 "fhir",
                 "r5",
                 "ConceptMap",
-                "GO_to_NCIt_Mapping_February2020"
+                "go_to_ncit_mapping_february2020"
               ]
             }
           },
@@ -599,7 +599,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap?_id=GO_to_NCIt_Mapping_February2020",
+              "raw": "{{baseUrl}}/fhir/r5/ConceptMap?_id=go_to_ncit_mapping_february2020",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -611,7 +611,7 @@
               "query": [
                 {
                   "key": "_id",
-                  "value": "GO_to_NCIt_Mapping_February2020"
+                  "value": "go_to_ncit_mapping_february2020"
                 }
               ]
             }
@@ -661,6 +661,10 @@
               ],
               "query": [
                 {
+                  "key": "system",
+                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+                },
+                {
                   "key": "code",
                   "value": "GO:0016887"
                 }
@@ -675,7 +679,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/GO_to_NCIt_Mapping_February2020/$translate?code=GO:0016887",
+              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?code=GO:0016887",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -683,10 +687,14 @@
                 "fhir",
                 "r5",
                 "ConceptMap",
-                "GO_to_NCIt_Mapping_February2020",
+                "go_to_ncit_mapping_february2020",
                 "$translate"
               ],
               "query": [
+                {
+                  "key": "url",
+                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+                },
                 {
                   "key": "code",
                   "value": "GO:0016887"
@@ -714,6 +722,10 @@
               ],
               "query": [
                 {
+                  "key": "system",
+                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+                },
+                {
                   "key": "code",
                   "value": "C19939"
                 },
@@ -732,7 +744,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?code=C19939&reverse=true",
+              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?code=C19939&reverse=true",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -740,11 +752,14 @@
                 "fhir",
                 "r5",
                 "ConceptMap",
-                "",
-                "GO_to_NCIt_Mapping_February2020",
+                "go_to_ncit_mapping_february2020",
                 "$translate"
               ],
               "query": [
+                {
+                  "key": "url",
+                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+                },
                 {
                   "key": "code",
                   "value": "C19939"
