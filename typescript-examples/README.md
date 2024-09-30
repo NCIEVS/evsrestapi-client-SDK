@@ -29,7 +29,7 @@ npm install jest
 To run a specific test from a test file, use the `-run` flag with the name of the test:
 
 ```bash
-jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements'
+npx jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements'
 ```
 
 ### Run Multiple Tests in a File (Regex)
@@ -37,7 +37,7 @@ jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements'
 You can run multiple tests that match a regular expression:
 
 ```bash
-jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements|test_get_replacements_from_list'
+npx jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements|test_get_replacements_from_list'
 ```
 
 ### Run All Tests in a Single File
@@ -45,7 +45,7 @@ jest apis/HistoryEndpointsApiTest.test.ts -t 'test_get_code_replacements|test_ge
 To execute all tests in a specific test file:
 
 ```bash
-jest apis/HistoryEndpointsApiTest.test.ts
+npx jest apis/HistoryEndpointsApiTest.test.ts
 ```
 
 ### Run All Tests
@@ -53,7 +53,7 @@ jest apis/HistoryEndpointsApiTest.test.ts
 To run all tests in all files across the entire directory:
 
 ```bash
-jest test
+npx jest test
 ```
 
 ## Sample Typescript Calls
