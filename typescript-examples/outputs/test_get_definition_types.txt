@@ -1,0 +1,10 @@
+  console.log
+    Get definition types
+
+      at apis/MetadataEndpointsApiTest.test.ts:152:13
+
+  console.log
+        definition types = [{"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"24.08d"},{"code":"P97","name":"DEFINITION","terminology":"ncit","version":"24.08d"}]
+
+      at apis/MetadataEndpointsApiTest.test.ts:153:13
+

@@ -1,0 +1,10 @@
+  console.log
+    Get definition type for code or name - P325
+
+      at apis/MetadataEndpointsApiTest.test.ts:125:13
+
+  console.log
+        definition type = {"code":"P325","name":"ALT_DEFINITION","terminology":"ncit","version":"24.08d"}
+
+      at apis/MetadataEndpointsApiTest.test.ts:126:13
+

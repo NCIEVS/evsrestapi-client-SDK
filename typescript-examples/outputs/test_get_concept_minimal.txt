@@ -1,0 +1,10 @@
+  console.log
+    Get a single concept for code - C3224
+
+      at apis/ConceptEndpointsApiTest.test.ts:106:13
+
+  console.log
+       concept = {"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}
+
+      at apis/ConceptEndpointsApiTest.test.ts:107:13
+

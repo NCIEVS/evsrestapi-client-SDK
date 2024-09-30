@@ -1,0 +1,10 @@
+  console.log
+    Get synonym type for code or name - P90
+
+      at apis/MetadataEndpointsApiTest.test.ts:401:13
+
+  console.log
+        synonym type = {"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"24.08d"}
+
+      at apis/MetadataEndpointsApiTest.test.ts:402:13
+
