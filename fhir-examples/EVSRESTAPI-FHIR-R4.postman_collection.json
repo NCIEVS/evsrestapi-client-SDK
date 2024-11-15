@@ -351,7 +351,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585",
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_C54585",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -359,7 +359,7 @@
 								"fhir",
 								"r4",
 								"ValueSet",
-								"ncit_c54585"
+								"ncit_C54585"
 							],
 							"query": [
 								{
@@ -379,7 +379,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_c54585",
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_C54585",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -396,7 +396,7 @@
 								},
 								{
 									"key": "_id",
-									"value": "ncit_c54585"
+									"value": "ncit_C54585"
 								}
 							]
 						},
@@ -710,7 +710,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?code=C19939&reverse=true",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?code=c19939&reverse=true",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -727,7 +727,7 @@
 								},
 								{
 									"key": "code",
-									"value": "C19939"
+									"value": "c19939"
 								},
 								{
 									"key": "reverse",
@@ -744,7 +744,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?code=C19939&reverse=true",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?code=c19939&reverse=true",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -763,7 +763,7 @@
 								},
 								{
 									"key": "code",
-									"value": "C19939"
+									"value": "c19939"
 								},
 								{
 									"key": "reverse",

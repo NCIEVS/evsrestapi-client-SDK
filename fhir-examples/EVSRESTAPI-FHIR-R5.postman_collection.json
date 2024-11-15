@@ -450,7 +450,7 @@
               "query": [
                 {
                   "key": "code",
-                  "value": "C20821"
+                  "value": "c20821"
                 }
               ]
             },
@@ -464,7 +464,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/$validate-code?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585&code=C20821",
+              "raw": "{{baseUrl}}/fhir/r5/ValueSet/$validate-code?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585&code=c20821",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -481,7 +481,7 @@
                 },
                 {
                   "key": "code",
-                  "value": "C20821"
+                  "value": "c20821"
                 }
               ]
             },
