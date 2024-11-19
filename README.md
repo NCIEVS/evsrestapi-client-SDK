@@ -88,8 +88,8 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 ## Resources
 
-- Swagger Documentation - <https://api-evsrest.nci.nih.gov/swagger-ui.html>
-- [Additional Documentation](../master/doc/ "Swagger")
+- [Frequently Asked Questions (FAQ)](../master/doc/FAQ.md)
+- [Additional Documentation](../master/doc/)
 
 **[Back to top](#table-of-contents)**
 
