@@ -12,13 +12,14 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 ## Tutorials by Language
 
-- [Click for Bash examples.](./bash-examples/ "Bash Examples")
-- [Click for Curl examples.](./curl-examples/ "Curl Examples")
-- [Click for Java examples.](./java-examples/ "Java Examples")
-- [Click for Postman examples.](./postman-examples/ "Postman Examples")
-- [Click for Python examples.](./python-examples/ "Python Examples")
-- [Click for Go examples.](./go-examples/ "Go Examples")
-- [Click for Typescript examples.](./typescript-examples/ "TypeScript Examples")
+- [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
+- [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
+- [Click for FHIR examples.](../master/fhir-examples/ "Fhir Examples")
+- [Click for Go examples.](../master/go-examples/ "Go Examples")
+- [Click for Java examples.](../master/java-examples/ "Java Examples")
+- [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
+- [Click for Python examples.](../master/python-examples/ "Python Examples")
+- [Click for Typescript examples.](../master/typescript-examples/ "Typescript Examples")
 
 **[Back to top](#table-of-contents)**
 
