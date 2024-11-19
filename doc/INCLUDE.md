@@ -11,7 +11,7 @@ refer to features of the concept body that can be individually activated when ne
 
 The following special "include" values are for convenience
 
-- **minimal**: indicates just "code", "name", and "terminology" fields should be included.
+- **minimal**: indicates just concept level information, including "code", "name", "terminology", "version", "leaf", and "active" fields.
 - **summary**: indicates minimal information plus "synonyms", "definitions" and "properties" should be included. Equivalent to using "synonyms,definitions,properties" as the "include" value.
 - **full**: never used as a default, indicates to return all available concept parts listed below except for descendants and paths.
 
