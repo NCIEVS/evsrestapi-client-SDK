@@ -635,7 +635,7 @@
 							],
 							"query": [
 								{
-									"key": "url",
+									"key": "system",
 									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
 								}
 							]
@@ -692,7 +692,7 @@
 							],
 							"query": [
 								{
-									"key": "url",
+									"key": "system",
 									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
 								},
 								{
@@ -758,7 +758,7 @@
 							],
 							"query": [
 								{
-									"key": "url",
+									"key": "system",
 									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
 								},
 								{
