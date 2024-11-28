@@ -4,11 +4,18 @@ EVSRESTAPI now supports search API calls that accept a SPARQL query that can be
 run against terminologies loaded from RDF (e.g. /terminologies entries with
 metadata.loader == 'rdf').
 
+## SPARQL Prefixes
+
 These endpoints have been designed so that users do not have to worry about
 prefixes or graph names. Those features are handled seamlessly in the background.
 API calls that return terminology metadata will provide information about the
 namespace prefixes that are used with queries for that terminology so you can
-properly use prefixes in your queries.
+properly use prefixes in your queries.  There is also a /sparql/{terminology}/prefixes 
+endpoint that will produce the default prefixes used by a particular terminology.
+
+If you do want or need to declare your own prefixes, you may also do so and then
+pass a prefixes=true query parameter along with the call
+
 
 There are two ways to pass SPARQL queries
 
@@ -43,6 +50,22 @@ SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code .?x :P108 "Melanoma" }
 EOF
 
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
+  -H 'Content-type: text/plain' \
+  --data-binary '@query.txt' | jq '.'
+```
+
+### Simple concept query with explicit prefixes
+
+This is the same as above but with explicitly declared prefixes in the query.
+
+```
+cat << EOF > query.txt
+PREFIX xyz:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX owl:<http://www.w3.org/2002/07/owl#>
+SELECT ?code WHERE { ?x a owl:Class . ?x xyz:NHC0 ?code .?x xyz:P108 "Melanoma" }
+EOF
+
+curl -X POST "$API_URL/concept/ncit/search?include=minimal&prefixes=true" \
   -H 'Content-type: text/plain' \
   --data-binary '@query.txt' | jq '.'
 ```
@@ -123,6 +146,41 @@ an array of the bindings requested.
 ```
 cat << EOF > query.txt
 SELECT ?code ?x { ?x a owl:Class . ?x :NHC0 ?code . }
+EOF
+
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \
+  -H 'Content-type: text/plain' \
+  --data-binary '@query.txt' | jq '.'
+```
+
+### Simple query to get code, name with prefixes
+
+This is the same as above but with explicitly declared prefixes in the query.
+
+```
+cat << EOF > query.txt
+PREFIX xyz:<http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#>
+PREFIX owl:<http://www.w3.org/2002/07/owl#>
+SELECT ?code ?x { ?x a owl:Class . ?x xyz:NHC0 ?code . }
+EOF
+
+curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10&prefixes=true" \
+  -H 'Content-type: text/plain' \
+  --data-binary '@query.txt' | jq '.'
+```
+
+### Complex query
+
+This is an example of a more complex query that performs a count of the
+concepts that have C25791 as a superclass.  This is to demonstrate that arbitrary
+SPARQL queries are supported as long as they are valid.
+
+```
+cat << EOF > query.txt
+select (count(distinct ?subject) as ?defined_concept_count)
+where {   values ?superclass { :C25791 }  ?subject owl:equivalentClass ?an ;
+    (rdfs:subClassOf|(owl:equivalentClass/owl:intersectionOf/rdf:rest*/rdf:first) )* ?superclass . 
+}
 EOF
 
 curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=10" \

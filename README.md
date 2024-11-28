@@ -14,17 +14,20 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 - [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
 - [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
+- [Click for FHIR examples](../master/fhir-examples/ "FHIR Examples")
+- [Click for Go examples.](../master/go-examples/ "Go Examples")
 - [Click for Java examples.](../master/java-examples/ "Java Examples")
 - [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
 - [Click for Python examples.](../master/python-examples/ "Python Examples")
-- [Click for Go examples.](../master/go-examples/ "Go Examples")
 - [Click for Swagger API documentation](https://api-evsrest.nci.nih.gov/swagger-ui/index.html)
 
 **[Back to top](#table-of-contents)**
 
 ## Use Cases
 
-The following cases will be used to demonstrate accessing the EVSREST API
+The following cases are used to demonstrate accessing the EVS REST API. Each of the
+"Tutorials by language" provides specific details on how to implement them specifically
+in the technology approach used by that tutorial. 
 
 - Get terminologies
 - Get concept by code (minimum information)
@@ -90,6 +93,7 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 - [Frequently Asked Questions (FAQ)](../master/doc/FAQ.md)
 - [Additional Documentation](../master/doc/)
+- [For App Support from NCI](https://evsexplore.semantics.cancer.gov/evsexplore/contact)
 
 **[Back to top](#table-of-contents)**
 
