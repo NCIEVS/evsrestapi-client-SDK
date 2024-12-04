@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetSynonymTypeByCode
+{"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"24.08d"}--- PASS: TestMetadataEndpointsAPIService (0.87s)
+    --- PASS: TestMetadataEndpointsAPIService/GetSynonymTypeByCode (0.87s)
+PASS
+ok  	command-line-arguments	0.885s

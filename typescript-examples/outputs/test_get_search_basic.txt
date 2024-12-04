@@ -1,0 +1,10 @@
+  console.log
+    Get search results for terminology - ncit
+
+      at apis/SearchEndpointApiTest.test.ts:42:13
+
+  console.log
+        search results = {"total":1,"timeTaken":29,"parameters":{"term":"C1000","type":"contains","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C1000","name":"Recombinant Amphiregulin","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:43:13
+

@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchByTypeMatch
+{"concepts":[{"active":true,"code":"C16554","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"term":"enzyme","terminology":["ncit"],"type":"match"},"timeTaken":29,"total":1}--- PASS: TestSearchEndpointAPIService (1.04s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchByTypeMatch (1.04s)
+PASS
+ok  	command-line-arguments	1.056s

@@ -1,0 +1,5 @@
+  console.log
+    {"total":1,"timeTaken":32,"parameters":{"term":"enzyme","type":"match","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name":"Enzyme","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:215:13
+

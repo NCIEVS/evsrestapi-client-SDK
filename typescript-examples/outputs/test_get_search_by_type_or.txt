@@ -1,0 +1,5 @@
+  console.log
+    {"total":5644,"timeTaken":39,"parameters":{"term":"malignant melanoma","type":"OR","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16835","name":"Experimental Malignant Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C60451","name":"Rat Malignant Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C16317","name":"B16 Malignant Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C194143","name":"Malignant Melanoma of Lip","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:321:13
+

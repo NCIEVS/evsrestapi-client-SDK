@@ -1,0 +1,7 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetTerminologies
+{"date":"August 26, 2024","description":"NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.","graph":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus24.08d.owl","indexName":"concept_ncit_2408d","latest":true,"metadata":{"codeLabel":"NCI Thesaurus Code","conceptStatuses":["Obsolete_Concept","Header_Concept","Retired_Concept","Concept_Pending_Approval","Provisional_Concept"],"detailsColumns":{"definitions-attribution":true,"definitions-source":true,"synonyms-code":true,"synonyms-source":true,"synonyms-subSource":true,"synonyms-termType":true},"hierarchy":true,"history":false,"loader":"rdf","maxVersions":3,"retiredStatusValue":"Retired_Concept","sourceCt":74,"subsetLink":"P374","uiLabel":"NCI Thesaurus"},"name":"NCI Thesaurus 24.08d","objectIndexName":"evs_object_ncit_2408d","tags":{"monthly":"true"},"terminology":"ncit","terminologyVersion":"ncit_24.08d","version":"24.08d"}
+--- PASS: TestMetadataEndpointsAPIService (0.70s)
+    --- PASS: TestMetadataEndpointsAPIService/GetTerminologies (0.70s)
+PASS
+ok  	command-line-arguments	0.710s

@@ -1,0 +1,10 @@
+  console.log
+    Search results filtered by synonym source and term type for term - dsDNA
+
+      at apis/SearchEndpointApiTest.test.ts:145:13
+
+  console.log
+        search results = {"total":13,"timeTaken":47,"parameters":{"term":"dsDNA","type":"contains","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"synonymSource":["NCI"],"synonymTermType":["PT"],"terminology":["ncit"]},"concepts":[{"code":"C449","name":"DNA","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C14348","name":"Double Stranded DNA Virus","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C25832","name":"DNA Double Strand Break","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C114565","name":"Anti-ds DNA Antibody","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C121337","name":"Systemic Lupus International Collaborating Clinics Classification Criteria","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:146:13
+

@@ -1,0 +1,5 @@
+  console.log
+    {"total":35,"timeTaken":41,"parameters":{"term":"immune","type":"contains","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"subset":["C165258"],"terminology":["ncit"]},"concepts":[{"code":"C3507","name":"Immune System Disorder","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C3446","name":"Primary Immune Thrombocytopenia","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C152105","name":"Inborn Error of Immunity","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C2986","name":"Type 1 Diabetes Mellitus","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C3472","name":"Severe Combined Immunodeficiency","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:386:13
+

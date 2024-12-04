@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchByTypeStartsWith
+{"concepts":[{"active":true,"code":"C16554","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C102632","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme-linked Immunosorbent Spot Assay","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C111196","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C122205","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C147130","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Unit per Liter","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"term":"enzyme","terminology":["ncit"],"type":"startsWith"},"timeTaken":29,"total":48}--- PASS: TestSearchEndpointAPIService (0.75s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchByTypeStartsWith (0.75s)
+PASS
+ok  	command-line-arguments	0.760s

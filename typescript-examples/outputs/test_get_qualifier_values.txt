@@ -1,0 +1,10 @@
+  console.log
+    Get qualifier values for code or name - P390
+
+      at apis/MetadataEndpointsApiTest.test.ts:240:13
+
+  console.log
+        qualifier values = ["CGAP"]
+
+      at apis/MetadataEndpointsApiTest.test.ts:241:13
+

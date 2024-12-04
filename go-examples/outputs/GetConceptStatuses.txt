@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetConceptStatuses
+["Obsolete_Concept","Header_Concept","Retired_Concept","Concept_Pending_Approval","Provisional_Concept"]--- PASS: TestMetadataEndpointsAPIService (0.87s)
+    --- PASS: TestMetadataEndpointsAPIService/GetConceptStatuses (0.87s)
+PASS
+ok  	command-line-arguments	0.883s

@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetAssociationByCode
+{"code":"A18","name":"Has_Pharmaceutical_Basic_Dose_Form","terminology":"ncit","version":"24.08d"}--- PASS: TestMetadataEndpointsAPIService (0.84s)
+    --- PASS: TestMetadataEndpointsAPIService/GetAssociationByCode (0.84s)
+PASS
+ok  	command-line-arguments	0.852s

@@ -1,0 +1,6 @@
+=== RUN   TestHistoryEndpointsAPIService
+=== RUN   TestHistoryEndpointsAPIService/GetReplacements
+[{"action":"retire","code":"C12658","date":"2003-08-22","name":"Prokaryotic Cell","replacementCode":"C19157","replacementName":"Specimen"}]--- PASS: TestHistoryEndpointsAPIService (0.75s)
+    --- PASS: TestHistoryEndpointsAPIService/GetReplacements (0.75s)
+PASS
+ok  	command-line-arguments	0.760s

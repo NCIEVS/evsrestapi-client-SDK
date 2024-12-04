@@ -1,0 +1,10 @@
+  console.log
+    Get suggested replacements for code - C12658
+
+      at apis/HistoryEndpointsApiTest.test.ts:36:13
+
+  console.log
+        replacements = [{"code":"C12658","name":"Prokaryotic Cell","action":"retire","date":"2003-08-22","replacementCode":"C19157","replacementName":"Specimen"}]
+
+      at apis/HistoryEndpointsApiTest.test.ts:37:13
+

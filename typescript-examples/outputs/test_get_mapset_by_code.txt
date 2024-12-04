@@ -1,0 +1,10 @@
+  console.log
+    Get mapset by code - NCIt_Maps_To_ICDO3
+
+      at apis/MapsetEndpointsApiTest.test.ts:29:13
+
+  console.log
+        response = {"code":"NCIt_Maps_To_ICDO3","name":"NCIt_Maps_To_ICDO3","version":"24.08d","active":true}
+
+      at apis/MapsetEndpointsApiTest.test.ts:30:13
+

@@ -1,0 +1,5 @@
+  console.log
+    {"total":195077,"parameters":{"type":"contains","include":"minimal","sparql":"SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }"},"results":[{"code":"C7057"},{"code":"C12219"},{"code":"C12913"},{"code":"C3910"},{"code":"C20189"},{"code":"C1908"},{"code":"C26548"},{"code":"C12218"},{"code":"C17828"},{"code":"C16612"}]}
+
+      at apis/SearchEndpointApiTest.test.ts:423:13
+

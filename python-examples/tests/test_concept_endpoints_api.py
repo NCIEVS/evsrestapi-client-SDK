@@ -101,10 +101,10 @@ class TestConceptEndpointsApi:
         self.logger.info(f"Get children for code - {self.code}")
         self.logger.info(f"   children = {str(response)}")
         
-        def test_get_concept(self, concept_api):
-            """
-            Get the concept for the specified terminology and code
-            """
+    def test_get_concept(self, concept_api):
+        """
+        Get the concept for the specified terminology and code
+        """
         
         # ARRANGE - using global variables unless otherwise listed below
         include: str = "minimal"

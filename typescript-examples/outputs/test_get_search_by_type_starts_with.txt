@@ -1,0 +1,5 @@
+  console.log
+    {"total":48,"timeTaken":31,"parameters":{"term":"enzyme","type":"startsWith","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name":"Enzyme","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C102632","name":"Enzyme-linked Immunosorbent Spot Assay","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C111196","name":"Enzyme Multiplied Immunoassay Technique","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C122205","name":"Enzyme Immunoassay Unit","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C147130","name":"Enzyme Unit per Liter","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:237:13
+

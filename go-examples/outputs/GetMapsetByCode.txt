@@ -1,0 +1,6 @@
+=== RUN   TestMapsetEndpointsAPIService
+=== RUN   TestMapsetEndpointsAPIService/GetMapsetByCode
+{"active":true,"code":"NCIt_Maps_To_ICDO3","name":"NCIt_Maps_To_ICDO3","version":"24.08d"}--- PASS: TestMapsetEndpointsAPIService (0.80s)
+    --- PASS: TestMapsetEndpointsAPIService/GetMapsetByCode (0.80s)
+PASS
+ok  	command-line-arguments	0.813s

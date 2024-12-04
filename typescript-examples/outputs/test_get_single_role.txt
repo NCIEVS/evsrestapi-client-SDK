@@ -1,0 +1,10 @@
+  console.log
+    Get role details for code or name - R123
+
+      at apis/MetadataEndpointsApiTest.test.ts:290:13
+
+  console.log
+        role details = {"code":"R123","name":"Chemotherapy_Regimen_Has_Component","terminology":"ncit","version":"24.08d","synonyms":[{"name":"Has Component","type":"Display_Name"},{"name":"Chemotherapy_Regimen_Has_Component","type":"FULL_SYN"},{"name":"Chemotherapy_Regimen_Has_Component","type":"Preferred_Name"}],"definitions":[{"definition":"A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.","type":"DEFINITION"}],"properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}]}
+
+      at apis/MetadataEndpointsApiTest.test.ts:291:13
+

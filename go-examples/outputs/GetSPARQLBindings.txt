@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSPARQLBindings
+{"parameters":{"include":"minimal","sparql":"SELECT ?code { GRAPH \u003chttp://NCI_T_monthly\u003e { ?x a owl:Class . ?x :NHC0 ?code . } }","type":"contains"},"results":[{"code":"C7057"},{"code":"C12219"},{"code":"C12913"},{"code":"C3910"},{"code":"C20189"},{"code":"C1908"},{"code":"C26548"},{"code":"C12218"},{"code":"C17828"},{"code":"C16612"}],"total":195077}--- PASS: TestSearchEndpointAPIService (1.98s)
+    --- PASS: TestSearchEndpointAPIService/GetSPARQLBindings (1.98s)
+PASS
+ok  	command-line-arguments	1.989s

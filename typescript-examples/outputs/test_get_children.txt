@@ -1,0 +1,10 @@
+  console.log
+    Get children for code - C3224
+
+      at apis/ConceptEndpointsApiTest.test.ts:90:13
+
+  console.log
+       children = [{"code":"C3802","name":"Amelanotic Melanoma","leaf":false},{"code":"C8410","name":"Breast Melanoma","leaf":true},{"code":"C131506","name":"Childhood Melanoma","leaf":false},{"code":"C3510","name":"Cutaneous Melanoma","leaf":false},{"code":"C4236","name":"Epithelioid Cell Melanoma","leaf":false},{"code":"C8925","name":"Metastatic Melanoma","leaf":false},{"code":"C66756","name":"Mixed Epithelioid and Spindle Cell Melanoma","leaf":false},{"code":"C205125","name":"Nodular Melanoma","leaf":false},{"code":"C8711","name":"Non-Cutaneous Melanoma","leaf":false},{"code":"C8562","name":"Ocular Melanoma","leaf":false},{"code":"C118828","name":"Orbital Melanoma","leaf":true},{"code":"C162547","name":"Penile Melanoma","leaf":false},{"code":"C7087","name":"Recurrent Melanoma","leaf":false},{"code":"C147983","name":"Refractory Melanoma","leaf":false},{"code":"C4228","name":"Regressing Melanoma","leaf":false},{"code":"C190239","name":"Resectable Melanoma","leaf":false},{"code":"C4237","name":"Spindle Cell Melanoma","leaf":false},{"code":"C148517","name":"Unresectable Melanoma","leaf":false}]
+
+      at apis/ConceptEndpointsApiTest.test.ts:91:13
+

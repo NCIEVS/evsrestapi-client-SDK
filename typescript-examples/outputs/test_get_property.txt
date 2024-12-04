@@ -1,0 +1,10 @@
+  console.log
+    Get property details for code or name - P216
+
+      at apis/MetadataEndpointsApiTest.test.ts:198:13
+
+  console.log
+        property details = {"code":"P216","name":"BioCarta_ID","terminology":"ncit","version":"24.08d","synonyms":[{"name":"BioCarta ID","type":"Display_Name"},{"name":"BioCarta_ID","type":"FULL_SYN"},{"name":"BioCarta_ID","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing the BioCarta ID code for a pathway. It can be used to link a BioCarta pathway reference to the primary pathway information.","type":"DEFINITION"}],"properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}]}
+
+      at apis/MetadataEndpointsApiTest.test.ts:199:13
+

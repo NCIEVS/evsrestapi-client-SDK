@@ -1,0 +1,10 @@
+  console.log
+    Get qualifiers
+
+      at apis/MetadataEndpointsApiTest.test.ts:272:13
+
+  console.log
+        qualifiers = [{"code":"P383","name":"term-group","terminology":"ncit","version":"24.08d"},{"code":"P384","name":"term-source","terminology":"ncit","version":"24.08d"},{"code":"P378","name":"Definition Source","terminology":"ncit","version":"24.08d"},{"code":"P381","name":"attribution","terminology":"ncit","version":"24.08d"},{"code":"P385","name":"Source Code","terminology":"ncit","version":"24.08d"},{"code":"P386","name":"Subsource Name","terminology":"ncit","version":"24.08d"},{"code":"P393","name":"Relationship_to_Target","terminology":"ncit","version":"24.08d"},{"code":"P394","name":"Target_Term_Type","terminology":"ncit","version":"24.08d"},{"code":"P395","name":"Target_Code","terminology":"ncit","version":"24.08d"},{"code":"P396","name":"Target_Terminology","terminology":"ncit","version":"24.08d"},{"code":"P397","name":"Target_Terminology_Version","terminology":"ncit","version":"24.08d"},{"code":"P387","name":"go-id","terminology":"ncit","version":"24.08d"},{"code":"P389","name":"go-evi","terminology":"ncit","version":"24.08d"},{"code":"P390","name":"go-source","terminology":"ncit","version":"24.08d"},{"code":"P391","name":"source-date","terminology":"ncit","version":"24.08d"}]
+
+      at apis/MetadataEndpointsApiTest.test.ts:273:13
+

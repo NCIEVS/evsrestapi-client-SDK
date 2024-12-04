@@ -1,0 +1,5 @@
+  console.log
+    {"total":2231,"timeTaken":52,"parameters":{"term":"enzyme","type":"fuzzy","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C16554","name":"Enzyme","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C20626","name":"Enzyme Kinetics","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":true,"active":true},{"code":"C3492","name":"Enzyme Deficiency","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C21281","name":"Enzyme Gene","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true},{"code":"C17455","name":"Enzyme Immunoassay","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:279:13
+

@@ -1,0 +1,10 @@
+  console.log
+    Get synonym types
+
+      at apis/MetadataEndpointsApiTest.test.ts:424:13
+
+  console.log
+        synonym types = [{"code":"P107","name":"Display_Name","terminology":"ncit","version":"24.08d","synonyms":[{"name":"Display Name","type":"Display_Name"},{"name":"Display Name","type":"FULL_SYN"},{"name":"Display_Name","type":"FULL_SYN"},{"name":"Display_Name","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing an alternative Preferred Name for use in some NCI systems.","type":"DEFINITION"}],"properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}]},{"code":"P108","name":"Preferred_Name","terminology":"ncit","version":"24.08d","synonyms":[{"name":"Preferred Name","type":"Display_Name"},{"name":"Preferred Name","type":"FULL_SYN"},{"name":"Preferred Term","type":"FULL_SYN"},{"name":"Preferred_Name","type":"FULL_SYN"},{"name":"Preferred_Name","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing the word or phrase that NCI uses by preference to refer to the concept.","type":"DEFINITION"}],"properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}]},{"code":"P90","name":"FULL_SYN","terminology":"ncit","version":"24.08d","synonyms":[{"name":"Term & Source Data","type":"Display_Name"},{"name":"FULL_SYN","type":"FULL_SYN"},{"name":"Synonym with Source Data","type":"FULL_SYN"},{"name":"FULL_SYN","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.","type":"DEFINITION"}],"properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}]}]
+
+      at apis/MetadataEndpointsApiTest.test.ts:425:13
+

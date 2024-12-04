@@ -1,0 +1,6 @@
+=== RUN   TestConceptEndpointsAPIService
+=== RUN   TestConceptEndpointsAPIService/GetSubsetMembers1
+[{"active":true,"code":"C178243","conceptStatus":"DEFAULT","leaf":true,"name":"Family Cancer History Relative Primary Diagnosis Question","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C176985","conceptStatus":"DEFAULT","leaf":true,"name":"Histology ICD-O Morphology Code","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C177621","conceptStatus":"DEFAULT","leaf":true,"name":"ICD-O-3 Morphology Term Diagnosis Question","terminology":"ncit","version":"24.08d"}]--- PASS: TestConceptEndpointsAPIService (0.72s)
+    --- PASS: TestConceptEndpointsAPIService/GetSubsetMembers1 (0.72s)
+PASS
+ok  	command-line-arguments	0.736s

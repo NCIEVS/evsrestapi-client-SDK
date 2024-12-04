@@ -1,0 +1,6 @@
+=== RUN   TestConceptEndpointsAPIService
+=== RUN   TestConceptEndpointsAPIService/GetRoles1
+[{"relatedCode":"C36122","relatedName":"Benign Cellular Infiltrate","type":"Disease_Excludes_Finding"},{"relatedCode":"C43268","relatedName":"HMB-45-Positive Neoplastic Cells Present","type":"Disease_May_Have_Finding"},{"relatedCode":"C12917","relatedName":"Malignant Cell","type":"Disease_Has_Abnormal_Cell"},{"relatedCode":"C36115","relatedName":"Malignant Cellular Infiltrate","type":"Disease_Has_Finding"},{"relatedCode":"C12591","relatedName":"Melanocyte","type":"Disease_Has_Normal_Cell_Origin"},{"relatedCode":"C36873","relatedName":"Melanoma Cell","type":"Disease_Has_Abnormal_Cell"},{"relatedCode":"C12922","relatedName":"Neoplastic Cell","type":"Disease_Has_Abnormal_Cell"},{"relatedCode":"C36862","relatedName":"Neoplastic Melanocyte","type":"Disease_Has_Abnormal_Cell"},{"relatedCode":"C40993","relatedName":"S-100-Positive Neoplastic Cells Present","type":"Disease_May_Have_Finding"}]--- PASS: TestConceptEndpointsAPIService (0.71s)
+    --- PASS: TestConceptEndpointsAPIService/GetRoles1 (0.71s)
+PASS
+ok  	command-line-arguments	0.719s

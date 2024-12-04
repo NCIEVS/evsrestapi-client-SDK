@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchConceptsBySubset
+{"concepts":[{"active":true,"code":"C3507","conceptStatus":"DEFAULT","leaf":false,"name":"Immune System Disorder","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C3446","conceptStatus":"DEFAULT","leaf":true,"name":"Primary Immune Thrombocytopenia","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C152105","conceptStatus":"DEFAULT","leaf":true,"name":"Inborn Error of Immunity","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C2986","conceptStatus":"DEFAULT","leaf":true,"name":"Type 1 Diabetes Mellitus","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C3472","conceptStatus":"DEFAULT","leaf":false,"name":"Severe Combined Immunodeficiency","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"subset":["C165258"],"term":"immune","terminology":["ncit"],"type":"contains"},"timeTaken":30,"total":35}--- PASS: TestSearchEndpointAPIService (0.72s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchConceptsBySubset (0.72s)
+PASS
+ok  	command-line-arguments	0.738s
