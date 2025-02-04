@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetSearchFilterBySynonymType
+{"concepts":[{"active":true,"code":"C449","conceptStatus":"DEFAULT","leaf":false,"name":"DNA","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C25832","conceptStatus":"DEFAULT","leaf":true,"name":"DNA Double Strand Break","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C14348","conceptStatus":"DEFAULT","leaf":false,"name":"Double Stranded DNA Virus","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C114565","conceptStatus":"DEFAULT","leaf":true,"name":"Anti-ds DNA Antibody","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C3201","conceptStatus":"DEFAULT","leaf":false,"name":"Systemic Lupus Erythematosus","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"synonymType":["FULL_SYN"],"term":"dsDNA","terminology":["ncit"],"type":"contains"},"timeTaken":36,"total":13}--- PASS: TestSearchEndpointAPIService (0.72s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchFilterBySynonymType (0.71s)
+PASS
+ok  	command-line-arguments	0.728s

@@ -1,0 +1,10 @@
+  console.log
+    Get qualifier details for code or name - P390
+
+      at apis/MetadataEndpointsApiTest.test.ts:217:13
+
+  console.log
+        qualifier details = {"code":"P390","name":"go-source","terminology":"ncit","version":"24.08d","synonyms":[{"name":"go-source","type":"Preferred_Name"}],"definitions":[{"definition":"A property representing the organization that is the supplier or owner of each GO_Annotation associated with a concept.","type":"DEFINITION"}],"properties":[{"type":"required","value":"true"}]}
+
+      at apis/MetadataEndpointsApiTest.test.ts:218:13
+

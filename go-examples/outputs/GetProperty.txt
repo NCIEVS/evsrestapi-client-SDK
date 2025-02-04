@@ -1,0 +1,6 @@
+=== RUN   TestMetadataEndpointsAPIService
+=== RUN   TestMetadataEndpointsAPIService/GetProperty
+{"code":"P216","definitions":[{"definition":"A property representing the BioCarta ID code for a pathway. It can be used to link a BioCarta pathway reference to the primary pathway information.","type":"DEFINITION"}],"name":"BioCarta_ID","properties":[{"type":"Semantic_Type","value":"Conceptual Entity"}],"synonyms":[{"name":"BioCarta ID","type":"Display_Name"},{"name":"BioCarta_ID","type":"FULL_SYN"},{"name":"BioCarta_ID","type":"Preferred_Name"}],"terminology":"ncit","version":"24.08d"}--- PASS: TestMetadataEndpointsAPIService (0.72s)
+    --- PASS: TestMetadataEndpointsAPIService/GetProperty (0.72s)
+PASS
+ok  	command-line-arguments	0.736s

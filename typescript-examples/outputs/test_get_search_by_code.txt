@@ -1,0 +1,5 @@
+  console.log
+    {"total":1,"timeTaken":30,"parameters":{"term":"C3224","type":"contains","include":"minimal","ascending":true,"fromRecord":0,"pageSize":5,"terminology":["ncit"]},"concepts":[{"code":"C3224","name":"Melanoma","terminology":"ncit","version":"24.08d","conceptStatus":"DEFAULT","leaf":false,"active":true}]}
+
+      at apis/SearchEndpointApiTest.test.ts:193:13
+

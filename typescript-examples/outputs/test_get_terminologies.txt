@@ -1,0 +1,10 @@
+  console.log
+    Get terminologies
+
+      at apis/MetadataEndpointsApiTest.test.ts:474:13
+
+  console.log
+        terminologies = [{"terminology":"ncit","version":"24.08d","date":"August 26, 2024","name":"NCI Thesaurus 24.08d","description":"NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.","graph":"http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus24.08d.owl","terminologyVersion":"ncit_24.08d","latest":true,"tags":{"monthly":"true"},"indexName":"concept_ncit_2408d","objectIndexName":"evs_object_ncit_2408d","metadata":{"uiLabel":"NCI Thesaurus","maxVersions":3,"loader":"rdf","conceptStatuses":["Obsolete_Concept","Header_Concept","Retired_Concept","Concept_Pending_Approval","Provisional_Concept"],"retiredStatusValue":"Retired_Concept","detailsColumns":{"synonyms-termType":true,"synonyms-code":true,"synonyms-subSource":true,"synonyms-source":true,"definitions-attribution":true,"definitions-source":true},"hierarchy":true,"history":false,"sourceCt":74,"subsetLink":"P374","codeLabel":"NCI Thesaurus Code"}}]
+
+      at apis/MetadataEndpointsApiTest.test.ts:475:13
+

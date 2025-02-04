@@ -72,14 +72,43 @@ tasks.register('buildPythonSdk', GenerateTask) {
     dependsOn tasks.named('clearBuildDir')
 }
 
+tasks.register('buildTypescriptSdk', GenerateTask) {
+    generatorName.set("typescript")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/typescript")
+    modelPackage.set("models")
+    configOptions.set([
+        "npmName": "evs",
+        "npmVersion": "1.0.0",
+        "supportsES6": "true",
+        "hideGenerationTimestamp": "false",
+        // if there are unknown properties present, ignore them
+        "additionalProperties": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+}
+
+tasks.register('buildGoSdk', GenerateTask) {
+    generatorName.set("go")
+    remoteInputSpec.set(inputURL)
+    outputDir.set("$buildDir/go")
+    configOptions.set([
+        "packageName": "evs",
+        "hideGenerationTimestamp": "false",
+        // Enable handling unknown properties
+        "additionalProperties": "true"
+    ])
+    dependsOn tasks.named('clearBuildDir')
+}
+
 /** Runs all code-gen tasks for each language to generate the clients */
 tasks.register("buildClients") {
     dependsOn("buildJavaSdk",
                 "buildPythonSdk",
-//            "buildGoSdk",
+            "buildGoSdk",
 //            "buildKotlinSdk",
 //            "buildBashSdk",
-//            "buildTypescriptSdk"
+           "buildTypescriptSdk"
     )
     doLast {
         println 'All client sdk generated. They can be found in the code-gen/build folder.'
@@ -91,8 +120,8 @@ compileJava.dependsOn tasks.named("buildJavaSdk")
 build.dependsOn('buildClients')
 publishToMavenLocal.dependsOn = ["buildJavaSdk`",
                                  "buildPythonSdk",
-//                                 "buildGoSdk",
+                                 "buildGoSdk",
+                                 "buildTypescriptSdk",
 //                                 "buildKotlinSdk",
 //                                 "buildBashSdk",
-//                                 "buildTypescriptSdk"
 ]

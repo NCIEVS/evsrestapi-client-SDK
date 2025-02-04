@@ -1,0 +1,6 @@
+=== RUN   TestSearchEndpointAPIService
+=== RUN   TestSearchEndpointAPIService/GetConceptsBySPARQLCode
+{"concepts":[{"active":true,"code":"C3224","conceptStatus":"DEFAULT","leaf":false,"name":"Melanoma","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"codeList":["C3224"],"fromRecord":0,"include":"minimal","pageSize":25,"sparql":"SELECT ?code { GRAPH \u003chttp://NCI_T_monthly\u003e { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 \"Melanoma\" } }","terminology":["ncit"],"type":"contains"},"timeTaken":47,"total":1}--- PASS: TestSearchEndpointAPIService (0.95s)
+    --- PASS: TestSearchEndpointAPIService/GetConceptsBySPARQLCode (0.95s)
+PASS
+ok  	command-line-arguments	0.961s
