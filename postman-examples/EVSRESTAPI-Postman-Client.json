@@ -375,7 +375,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{API_URL}}/metadata/ncit/association/A10?include=summary",
+					"raw": "{{API_URL}}/metadata/ncit/association/A16?include=summary",
 					"host": [
 						"{{API_URL}}"
 					],
@@ -383,7 +383,7 @@
 						"metadata",
 						"ncit",
 						"association",
-						"A10"
+						"A16"
 					],
 					"query": [
 						{
