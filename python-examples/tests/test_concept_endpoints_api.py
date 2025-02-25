@@ -186,8 +186,8 @@ class TestConceptEndpointsApi:
         # ARRANGE - using global variables unless otherwise listed below
         code_list: str = "C3224,C3910"
         include: str = "minimal"
-        expected_name1: str = "Molecular Abnormality"
-        expected_name2: str = "Melanoma"
+        expected_name1: str = "Melanoma"
+        expected_name2: str = "Molecular Abnormality"
         
         # ACT
         response: [Concept] = concept_api.get_concepts(self.terminology, code_list, include, None)
