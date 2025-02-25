@@ -10,8 +10,8 @@ group = 'gov.nih.nci.evs.api'
 version = '0.0.1-SNAPSHOT'
 
 // Input Specification locations.
-//def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
-def inputURL = "http://localhost:8082/v3/api-docs"
+def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
+//def inputURL = "http://localhost:8082/v3/api-docs"
 
 repositories {
     mavenCentral()

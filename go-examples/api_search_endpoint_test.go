@@ -71,7 +71,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		conceptStatus := "Retired_Concept"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 18
+		var expectedTotal int64 = 19
 		containsExpectedStatus := false
 
 		// ACT
@@ -112,7 +112,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		definitionSource := "NCI"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 12
+		var expectedTotal int64 = 13
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -143,7 +143,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		definitionType := "DEFINITION"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 1438
+		var expectedTotal int64 = 1451
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -175,7 +175,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		termType := "PT"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 13
+		var expectedTotal int64 = 14
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -206,7 +206,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		synonymType := "FULL_SYN"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 13
+		var expectedTotal int64 = 14
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -296,7 +296,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 48
+		var expectedTotal int64 = 49
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -326,7 +326,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 269
+		var expectedTotal int64 = 270
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -384,7 +384,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 148
+		var expectedTotal int64 = 150
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
