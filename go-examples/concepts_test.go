@@ -324,10 +324,10 @@ func TestGetConceptsBySparqlWithoutPrefix(t *testing.T) {
 		fmt.Print(err)
 	}
 	fmt.Println("concept_test.go: Find Concepts by SPARQL Code")
-	fmt.Println(string(used_url) + "/concept/ncit/search?query=" + string(query) + "\n")
-	var url = string(used_url) + "/concept/ncit/search?query=" + string(query)
+	fmt.Println(string(used_url) + "/concept/ncit/search")
+	var url = string(used_url) + "/concept/ncit/search"
 
-	evs.ProcessData(url)
+	evs.ProcessDataPost(url, string(query))
 }
 
 // Get concepts by SPARQL with prefix.
@@ -338,10 +338,10 @@ func TestGetConceptsBySparqlWithPrefix(t *testing.T) {
 		fmt.Print(err)
 	}
 	fmt.Println("concept_test.go: Get concepts by SPARQL with prefix")
-	fmt.Println(string(used_url) + "/concept/ncit/search?query=" + string(query) + "\n")
-	var url = string(used_url) + "/concept/ncit/search?query=" + string(query)
+	fmt.Println(string(used_url) + "/concept/ncit/search")
+	var url = string(used_url) + "/concept/ncit/search"
 
-	evs.ProcessData(url)
+	evs.ProcessDataPost(url, string(query))
 }
 
 // Get SPARQL bindings.
@@ -352,8 +352,8 @@ func TestGetSparqlBindings(t *testing.T) {
 		fmt.Print(err)
 	}
 	fmt.Println("concept_test.go: Get SPARQL bindings")
-	fmt.Println(string(used_url) + "/sparql/ncit?query=" + string(query) + "\n")
-	var url = string(used_url) + "/sparql/ncit?query=" + string(query)
+	fmt.Println(string(used_url) + "/sparql/ncit")
+	var url = string(used_url) + "/sparql/ncit"
 
-	evs.ProcessDataPost(url)
+	evs.ProcessDataPost(url, string(query))
 }
