@@ -111,7 +111,7 @@ Return concept objects with minimal information for a specified list of codes.
 `pytest tests/test_concept_endpoints_api.py::TestConceptEndpointsApi::test_get_concepts`
 
 ```
-2024-07-02T13:56:44.112 INFO : Get list of concepts for codes - C & 3
+2024-07-02T13:56:44.112 INFO : Get list of concepts for codes - C3910 & C3224
 2024-07-02T13:56:44.112 INFO :    concepts = [Concept(uri=None, ct=None, code='C3910', name='Molecular Abnormality', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None), Concept(uri=None, ct=None, code='C3224', name='Melanoma', terminology='ncit', version='21.06e', level=None, highlight=None, subset_link=None, mapset_link=None, concept_status='DEFAULT', source=None, leaf=False, active=True, synonyms=None, definitions=None, history=None, properties=None, children=None, parents=None, descendants=None, associations=None, inverse_associations=None, roles=None, disjoint_with=None, inverse_roles=None, maps=None, paths=None)]
 ```
 
