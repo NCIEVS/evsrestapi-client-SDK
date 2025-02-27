@@ -143,7 +143,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		definitionType := "DEFINITION"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 1451
+		var expectedTotal int64 = 1462
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -326,7 +326,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 270
+		var expectedTotal int64 = 273
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
