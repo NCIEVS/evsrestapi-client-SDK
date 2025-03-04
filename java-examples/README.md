@@ -4761,7 +4761,7 @@ Get mapset information for a specified code. Include parameter allows customizin
 
 Get the maps for a specified mapset code.
 
-`./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetByCodeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.MapsetEndpointsApiTest.getMapsetMappingsByCodeTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mappings for mapsets by code
