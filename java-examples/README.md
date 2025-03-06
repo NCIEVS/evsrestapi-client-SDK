@@ -219,67 +219,61 @@ codes.
 [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concepts = [class Concept {
     uri: null
     ct: null
-    code: C3910
-    name: Molecular Abnormality
-    terminology: ncit
-    version: 23.10e
-    level: null
-    highlight: null
-    highlights: {}
-    normName: null
-    subsetLink: null
-    mapsetLink: null
-    conceptStatus: null
-    source: null
-    leaf: false
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
-    paths: null
-    extensions: null
-}, class Concept {
-    uri: null
-    ct: null
     code: C3224
     name: Melanoma
     terminology: ncit
-    version: 23.10e
+    version: 25.02d
     level: null
     highlight: null
-    highlights: {}
-    normName: null
     subsetLink: null
     mapsetLink: null
-    conceptStatus: null
+    conceptStatus: DEFAULT
     source: null
     leaf: false
-    synonyms: null
-    definitions: null
-    history: null
-    properties: null
-    qualifiers: null
-    children: null
-    parents: null
-    descendants: null
-    associations: null
-    inverseAssociations: null
-    roles: null
-    disjointWith: null
-    inverseRoles: null
-    maps: null
+    active: true
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
     paths: null
-    extensions: null
+}, class Concept {
+    uri: null
+    ct: null
+    code: C3910
+    name: Molecular Abnormality
+    terminology: ncit
+    version: 25.02d
+    level: null
+    highlight: null
+    subsetLink: null
+    mapsetLink: null
+    conceptStatus: DEFAULT
+    source: null
+    leaf: false
+    active: true
+    synonyms: []
+    definitions: []
+    properties: []
+    children: []
+    parents: []
+    descendants: []
+    associations: []
+    inverseAssociations: []
+    roles: []
+    disjointWith: []
+    inverseRoles: []
+    history: []
+    maps: []
+    paths: null
 }]
 ```
 
@@ -2614,8 +2608,8 @@ results.
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 18
-    timeTaken: 83
+    total: 19
+    timeTaken: 50
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2645,7 +2639,7 @@ results.
         code: C83505
         name: Respiratory Acidosis
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -2668,11 +2662,123 @@ results.
         history: []
         maps: []
         paths: null
-    }, 
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C23710
+        name: Murine Respiratory System
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Retired_Concept
+        source: null
+        leaf: true
+        active: false
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C87173
+        name: Respiratory Rate Finding
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Retired_Concept
+        source: null
+        leaf: true
+        active: false
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C27561
+        name: Respiratory Distress Syndrome
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Retired_Concept
+        source: null
+        leaf: true
+        active: false
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C4928
+        name: Acute Respiratory Distress Syndrome
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Retired_Concept
+        source: null
+        leaf: true
+        active: false
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -2688,11 +2794,11 @@ first 5 results.
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
-[Test worker] INFO gov.nih.nci.evs.apiSearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 11
-    timeTaken: 58
+    total: 13
+    timeTaken: 83
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2722,7 +2828,7 @@ first 5 results.
         code: C449
         name: DNA
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -2745,11 +2851,123 @@ first 5 results.
         history: []
         maps: []
         paths: null
-    }, 
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C25832
+        name: DNA Double Strand Break
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14348
+        name: Double Stranded DNA Virus
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C114565
+        name: Anti-ds DNA Antibody
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C211596
+        name: Anti-ds DNA Antibody Positive
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -2768,8 +2986,8 @@ results.
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 1283
-    timeTaken: 133
+    total: 1462
+    timeTaken: 37
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2799,7 +3017,7 @@ results.
         code: C3224
         name: Melanoma
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -2822,11 +3040,123 @@ results.
         history: []
         maps: []
         paths: null
-    }, 
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C103113
+        name: NCI CTEP SDC Melanoma Sub-Category Terminology
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C157920
+        name: Melanoma Surgery
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C1830
+        name: Melanoma Theraccine
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C46091
+        name: Melanoma Biomarker
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -2837,15 +3167,15 @@ results.
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and restrict the search results by a synonym source of "NCI" and synonymTermType of "PT".
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymSourceAndTermGroupTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymSourceAndTermTypeTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, synonym source =  NCI, synonym term type = PT
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 12
-    timeTaken: 84
+    total: 14
+    timeTaken: 52
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2875,7 +3205,7 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
         code: C449
         name: DNA
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -2898,11 +3228,123 @@ terminology and restrict the search results by a synonym source of "NCI" and syn
         history: []
         maps: []
         paths: null
-    },
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C25832
+        name: DNA Double Strand Break
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14348
+        name: Double Stranded DNA Virus
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C114565
+        name: Anti-ds DNA Antibody
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C211596
+        name: Anti-ds DNA Antibody Positive
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -2920,8 +3362,8 @@ example restricts results to matching FULL_SYNs.
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 12
-    timeTaken: 114
+    total: 14
+    timeTaken: 37
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -2951,7 +3393,7 @@ example restricts results to matching FULL_SYNs.
         code: C449
         name: DNA
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -2974,11 +3416,123 @@ example restricts results to matching FULL_SYNs.
         history: []
         maps: []
         paths: null
-    },
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C25832
+        name: DNA Double Strand Break
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14348
+        name: Double Stranded DNA Virus
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C114565
+        name: Anti-ds DNA Antibody
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C211596
+        name: Anti-ds DNA Antibody Positive
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -3645,11 +4199,11 @@ a search type of "AND". This example uses paging to get only the first 5 results
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = malignant melanoma, type = AND
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 149
-    timeTaken: 30
+    total: 150
+    timeTaken: 31
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -3660,16 +4214,18 @@ a search type of "AND". This example uses paging to get only the first 5 results
         ascending: true
         fromRecord: 0
         pageSize: 5
-        conceptStatus: null
-        property: null
+        conceptStatus: []
+        property: []
         value: null
-        synonymSource: null
-        synonymType: null
-        definitionSource: null
-        definitionType: null
-        synonymTermType: null
-        subset: null
+        synonymSource: []
+        synonymType: []
+        definitionSource: []
+        definitionType: []
+        synonymTermType: []
+        subset: []
+        codeList: []
         terminology: [ncit]
+        sparql: null
     }
     concepts: [class Concept {
         uri: null
@@ -3677,160 +4233,145 @@ a search type of "AND". This example uses paging to get only the first 5 results
         code: C16835
         name: Experimental Malignant Melanoma
         terminology: ncit
-        version: 23.10e
+        version: 25.02d
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: DEFAULT
         source: null
         leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
     }, class Concept {
         uri: null
         ct: null
         code: C60451
         name: Rat Malignant Melanoma
         terminology: ncit
-        version: 23.10e
+        version: 25.02d
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: DEFAULT
         source: null
         leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C3224
-        name: Melanoma
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C16317
-        name: B16 Malignant Melanoma
-        terminology: ncit
-        version: 23.10e
-        level: null
-        highlight: null
-        highlights: {}
-        normName: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
-        paths: null
-        extensions: null
     }, class Concept {
         uri: null
         ct: null
         code: C194143
         name: Malignant Melanoma of Lip
         terminology: ncit
-        version: 23.10e
+        version: 25.02d
         level: null
         highlight: null
-        highlights: {}
-        normName: null
         subsetLink: null
         mapsetLink: null
-        conceptStatus: null
+        conceptStatus: DEFAULT
         source: null
         leaf: true
-        synonyms: null
-        definitions: null
-        history: null
-        properties: null
-        qualifiers: null
-        children: null
-        parents: null
-        descendants: null
-        associations: null
-        inverseAssociations: null
-        roles: null
-        disjointWith: null
-        inverseRoles: null
-        maps: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
         paths: null
-        extensions: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C16317
+        name: B16 Malignant Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
     }]
 }
 ```
@@ -4195,11 +4736,11 @@ within C165258 (e.g. Cellosaurus Disease Terminology).
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest - Get search results from NCIT for term = immune, subset = C165258
-[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointsApiTest -    search results = class ConceptResultList {
+[Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
     uri: null
     ct: null
-    total: 33
-    timeTaken: 122
+    total: 35
+    timeTaken: 44
     parameters: class SearchCriteria {
         uri: null
         ct: null
@@ -4229,7 +4770,7 @@ within C165258 (e.g. Cellosaurus Disease Terminology).
         code: C3507
         name: Immune System Disorder
         terminology: ncit
-        version: 21.06e
+        version: 25.02d
         level: null
         highlight: null
         subsetLink: null
@@ -4252,11 +4793,123 @@ within C165258 (e.g. Cellosaurus Disease Terminology).
         history: []
         maps: []
         paths: null
-    }, 
-    ...
-    ...
-    ...
-  }]
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3446
+        name: Primary Immune Thrombocytopenia
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C152105
+        name: Inborn Error of Immunity
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C2986
+        name: Type 1 Diabetes Mellitus
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3962
+        name: Adenosine Deaminase Deficiency
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
 }
 ```
 
@@ -4765,77 +5418,101 @@ Get the maps for a specified mapset code.
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mappings for mapsets by code
-[Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class ConceptMapResultList {
-    uri: null
-    ct: null
-    total: 305
-    timeTaken: null
-    parameters: class SearchCriteria {
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class ConceptMapResultList {
         uri: null
         ct: null
-        term: null
-        type: null
-        include: null
-        sort: null
-        ascending: null
-        fromRecord: 0
-        pageSize: 25
-        conceptStatus: []
-        property: []
-        value: null
-        synonymSource: []
-        synonymType: []
-        definitionSource: []
-        definitionType: []
-        synonymTermType: []
-        subset: []
-        codeList: []
-        terminology: []
-        sparql: null
+        total: 305
+        timeTaken: null
+        parameters: class SearchCriteria {
+            uri: null
+            ct: null
+            term: null
+            type: contains
+            include: minimal
+            sort: null
+            ascending: true
+            fromRecord: 0
+            pageSize: 25
+            conceptStatus: []
+            property: []
+            value: null
+            synonymSource: []
+            synonymType: []
+            definitionSource: []
+            definitionType: []
+            synonymTermType: []
+            subset: []
+            codeList: []
+            terminology: []
+            sparql: null
+        }
+        maps: [class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: DNA integration
+            sourceTermType: null
+            sourceCode: GO:0015074
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: DNA Integration
+            targetTermType: null
+            targetCode: C18855
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: DNA modification
+            sourceTermType: null
+            sourceCode: GO:0006304
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: DNA Modification Process
+            targetTermType: null
+            targetCode: C19449
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, 
+        ...
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: mitotic telophase
+            sourceTermType: null
+            sourceCode: GO:0000093
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Telophase
+            targetTermType: null
+            targetCode: C17189
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }]
     }
-    maps: [class ConceptMap {
-        uri: null
-        ct: null
-        source: GO
-        sourceName: ATP hydrolysis activity
-        sourceTermType: null
-        sourceCode: GO:0016887
-        sourceTerminology: null
-        sourceTerminologyVersion: null
-        sourceLoaded: null
-        type: mapsTo
-        rank: 1
-        group: null
-        rule: null
-        targetName: ATP Hydrolysis
-        targetTermType: null
-        targetCode: C19939
-        targetTerminology: NCI_Thesaurus
-        targetTerminologyVersion: 23.02d
-        targetLoaded: null
-        targetTermGroup: null
-    }, class ConceptMap {
-        uri: null
-        ct: null
-        source: GO
-        sourceName: B cell activation
-        sourceTermType: null
-        sourceCode: GO:0042113
-        sourceTerminology: null
-        sourceTerminologyVersion: null
-        sourceLoaded: null
-        type: mapsTo
-        rank: 1
-        group: null
-        rule: null
-        targetName: B-Cell Activation
-        targetTermType: null
-        targetCode: C19255
-        targetTerminology: NCI_Thesaurus
-        targetTerminologyVersion: 23.02d
-        targetLoaded: null
-        targetTermGroup: null
-    }, 
 ```
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
