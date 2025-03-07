@@ -750,7 +750,7 @@ See sample payload data from this call in [`samples/get-subset-members-by-code.t
 Get all mapsets. Include parameter allows customizing how much data to return.
 
 ```
-curl "$API_URL/mapset?include=properties" | jq .
+curl "$API_URL/mapset?include=minimal" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-mapsets.txt`](samples/get-mapsets.txt)
