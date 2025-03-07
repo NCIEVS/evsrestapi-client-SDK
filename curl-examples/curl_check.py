@@ -83,69 +83,7 @@ def run_sections(sections):
                     formatted_response = response  # Save raw response if jq fails
                 
                 with open(section["files"][file_index], 'w', encoding='utf-8') as f:
-                    f.write(formatted_response + "\n")
-                print(f"Updated: {section['files'][file_index]}")
-                file_index += 1
-
-if __name__ == "__main__":
-    check_jq()
-    sections = process_markdown()
-    run_sections(sections)
-
-def process_markdown():
-    """Parses README.md, extracts curl commands and corresponding sample files."""
-    file_path = "README.md"
-    if not os.path.exists(file_path):
-        print("Error: README.md not found.")
-        sys.exit(1)
-    
-    with open(file_path, 'r', encoding='utf-8') as f:
-        lines = f.readlines()
-    
-    sections = []
-    current_section = {"curls": [], "files": []}
-    in_section = False
-    
-    for line in lines:
-        if line.startswith("### "):
-            if current_section["curls"]:
-                sections.append(current_section)
-            current_section = {"curls": [], "files": []}
-            in_section = True
-        
-        if in_section:
-            if line.startswith("curl \"$API_URL"):
-                curl_command = line.strip().replace("$API_URL", API_URL)
-                current_section["curls"].append(curl_command)
-            
-            file_matches = re.findall(r'`samples/([^`]+)`', line)
-            for match in file_matches:
-                current_section["files"].append(f"samples/{match}")
-        
-        if "[Back to Top]" in line:
-            in_section = False
-    
-    if current_section["curls"]:
-        sections.append(current_section)
-    
-    return sections
-
-def run_sections(sections):
-    """Executes curl commands and updates corresponding sample files."""
-    for section in sections:
-        file_index = 0
-        for curl_cmd in section["curls"]:
-            print(f"Running: {curl_cmd}")
-            response = execute_curl(curl_cmd)
-            if response and file_index < len(section["files"]):
-                try:
-                    formatted_response = subprocess.run(["jq", "."], input=response, text=True, capture_output=True, check=True).stdout
-                except subprocess.CalledProcessError:
-                    print(f"Error processing JSON with jq: {curl_cmd}", file=sys.stderr)
-                    formatted_response = response  # Save raw response if jq fails
-                
-                with open(section["files"][file_index], 'w', encoding='utf-8') as f:
-                    f.write(formatted_response + "\n")
+                   f.write(formatted_response + "\n")
                 print(f"Updated: {section['files'][file_index]}")
                 file_index += 1
 
