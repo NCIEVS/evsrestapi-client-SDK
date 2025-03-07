@@ -164,6 +164,12 @@ inverseAssociations, maps.
 
 ```
 curl "$API_URL/concept/ncit/C3224/children" | jq .
+curl "$API_URL/concept/ncit/C3224/parents" | jq .
+curl "$API_URL/concept/ncit/C3224/roles" | jq .
+curl "$API_URL/concept/ncit/C3224/associations" | jq .
+curl "$API_URL/concept/ncit/C3224/inverseRoles" | jq .
+curl "$API_URL/concept/ncit/C3224/inverseAssociations" | jq .
+curl "$API_URL/concept/ncit/C3224/maps" | jq .
 ```
 
 See the full set of examples for this "style" of call
@@ -214,7 +220,12 @@ curl "$API_URL/metadata/ncit/properties?list=P201,P203,P205&include=summary" | j
 curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-properties.txt`](samples/get-properties.txt)
+See sample payload data from this call in:
+
+- [`samples/get-properties.txt`](samples/get-properties.txt)
+- [`samples/get-properties-with-summary.txt`](samples/get-properties-with-summary.txt)
+- [`samples/get-properties-with-code-list.txt`](samples/get-properties-with-code-list.txt)
+- [`samples/get-properties-with-label-list.txt`](samples/get-properties-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -227,7 +238,9 @@ curl "$API_URL/metadata/ncit/property/P302?include=summary" | jq .
 curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
+See sample payload data from this call in:
+- [`samples/get-property-with-code.txt`](samples/get-property-with-code.txt)
+- [`samples/get-property-with-name.txt`](samples/get-property-with-name.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -245,7 +258,11 @@ curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq .
 curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+- [`samples/get-qualifiers-with-summary.txt`](samples/get-qualifiers-with-summary.txt)
+- [`samples/get-qualifiers-with-code-list.txt`](samples/get-qualifiers-with-code-list.txt)
+- [`samples/get-qualifiers-with-label-list.txt`](samples/get-qualifiers-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -258,7 +275,9 @@ curl "$API_URL/metadata/ncit/qualifier/P387?include=summary" | jq .
 curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifier-with-code.txt`](samples/get-qualifier-with-code.txt)
+- [`samples/get-qualifier-with-label.txt`](samples/get-qualifier-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -271,7 +290,9 @@ curl "$API_URL/metadata/ncit/qualifier/P390/values" | jq .
 curl "$API_URL/metadata/ncit/qualifier/go-source/values" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifier-values-with-code.txt`](samples/get-qualifier-values-with-code.txt)
+- [`samples/get-qualifier-values-with-label.txt`](samples/get-qualifier-values-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -289,7 +310,11 @@ curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq .
 curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-roles.txt`](samples/get-roles.txt)
+See sample payload data from this call in:
+- [`samples/get-roles.txt`](samples/get-roles.txt)
+- [`samples/get-roles-with-summary.txt`](samples/get-roles-with-summary.txt)
+- [`samples/get-roles-with-code-list.txt`](samples/get-roles-with-code-list.txt)
+- [`samples/get-roles-with-label-list.txt`](samples/get-roles-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -302,7 +327,9 @@ curl "$API_URL/metadata/ncit/role/R123?include=summary" | jq .
 curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
+See sample payload data from this call in:
+- [`samples/get-role-with-code.txt`](samples/get-role-with-code.txt)
+- [`samples/get-role-with-label.txt`](samples/get-role-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -320,7 +347,11 @@ curl "$API_URL/metadata/ncit/associations?list=A1,A2,A3&include=summary" | jq .
 curl "$API_URL/metadata/ncit/associations?list=Role_Has_Domain,Role_Has_Range,Role_Has_Parent&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+See sample payload data from this call in
+- [`samples/get-associations.txt`](samples/get-associations.txt)
+- [`samples/get-associations-with-summary.txt`](samples/get-associations-with-summary.txt)
+- [`samples/get-associations-with-code-list.txt`](samples/get-associations-with-code-list.txt)
+- [`samples/get-associations-with-label-list.txt`](samples/get-associations-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -333,7 +364,9 @@ curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq .
 curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
+See sample payload data from this call in:
+- [`samples/get-association-with-code.txt`](samples/get-association-with-code.txt)
+- [`samples/get-association-with-label.txt`](samples/get-association-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -430,7 +463,9 @@ curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq .
 curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt) and [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
+See sample payload data from this call in:
+- [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt)
+- [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -457,7 +492,9 @@ curl "$API_URL/concept/ncit/C3224/subtree" | jq .
 curl "$API_URL/concept/ncit/C3224/subtree/children" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
+See sample payload data from this call in
+- [`samples/get-subtree.txt`](samples/get-subtree.txt)
+- [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -664,7 +701,9 @@ curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII
 curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&include=properties" | jq .
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+See sample payload data from this call in:
+- [`samples/find-concepts-by-search-property-label.txt`](samples/find-concepts-by-search-property-label.txt)
+- [`samples/find-concepts-by-search-property-code.txt`](samples/find-concepts-by-search-property-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
