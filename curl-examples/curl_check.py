@@ -30,36 +30,39 @@ def execute_curl(command):
 
 def process_markdown():
     """Parses README.md, extracts curl commands and corresponding sample files."""
-    file_path = "README.md"
-    if not os.path.exists(file_path):
+    if not os.path.exists("README.md"):
         print("Error: README.md not found.")
         sys.exit(1)
     
-    with open(file_path, 'r', encoding='utf-8') as f:
+    with open("README.md", 'r', encoding='utf-8') as f:
         lines = f.readlines()
     
     sections = []
+    # set up each section with commands and corresponding files
     current_section = {"curls": [], "files": []}
     in_section = False
     
     for line in lines:
-        if line.startswith("### "):
+        # each section that has curl commands and corresponding sample files starts with "### "
+        if line.startswith("### ") and not in_section:
             if current_section["curls"]:
                 sections.append(current_section)
             current_section = {"curls": [], "files": []}
             in_section = True
         
         if in_section:
+            # found a curl command
             if line.startswith("curl \"$API_URL"):
-                # preprocessing
+                # processing command with API_URL
                 curl_command = line.strip().replace("$API_URL", API_URL)
                 current_section["curls"].append(curl_command)
             
+            # all sample files are in the samples directory, so look for that
             file_matches = re.findall(r'`samples/([^`]+)`', line)
             for match in file_matches:
                 current_section["files"].append(f"samples/{match}")
-        
-        if "[Back to Top]" in line:
+        # said sections also end with a "[Back to Top]"
+        if line.startswith("[Back to Top]") and in_section:
             in_section = False
     
     if current_section["curls"]:
@@ -74,6 +77,7 @@ def run_sections(sections):
         for curl_cmd in section["curls"]:
             print(f"Running: {curl_cmd}")
             response = execute_curl(curl_cmd)
+            # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
                 try:
                     jq_process = subprocess.run(["jq", "."], input=response, text=True, capture_output=True, check=True)
@@ -88,6 +92,8 @@ def run_sections(sections):
                 file_index += 1
 
 if __name__ == "__main__":
+    if(len(sys.argv) > 1):
+        print("This script ignores any command line arguments. Usage: python curl_check.py")
     check_jq()
     sections = process_markdown()
     run_sections(sections)
