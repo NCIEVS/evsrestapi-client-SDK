@@ -1,0 +1,67 @@
+[
+  {
+    "code": "P201",
+    "name": "OLD_CHILD",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD CHILD",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_CHILD",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_CHILD",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to store the name of children concepts present at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P203",
+    "name": "OLD_KIND",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD KIND",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_KIND",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_KIND",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "Used to store the name of the concept's kind at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

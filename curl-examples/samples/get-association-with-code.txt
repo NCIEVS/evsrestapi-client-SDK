@@ -1,0 +1,8 @@
+{
+  "timestamp": 1741388521763,
+  "status": 404,
+  "error": "Not Found",
+  "message": "Association A10 not found",
+  "path": "/api/v1/metadata/ncit/association/A10"
+}
+

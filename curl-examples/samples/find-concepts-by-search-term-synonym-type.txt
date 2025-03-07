@@ -1,6 +1,6 @@
 {
-  "total": 12,
-  "timeTaken": 133,
+  "total": 14,
+  "timeTaken": 30,
   "parameters": {
     "term": "dsDNA",
     "type": "contains",
@@ -19,71 +19,92 @@
       "code": "C449",
       "name": "DNA",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C25832",
+      "name": "DNA Double Strand Break",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
       "code": "C14348",
       "name": "Double Stranded DNA Virus",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C114565",
       "name": "Anti-ds DNA Antibody",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C3201",
-      "name": "Systemic Lupus Erythematosus",
+      "code": "C211596",
+      "name": "Anti-ds DNA Antibody Positive",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
-    },
-    {
-      "code": "C121337",
-      "name": "Systemic Lupus International Collaborating Clinics Classification Criteria",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
-    },
-    {
-      "code": "C148186",
-      "name": "TALEN-edited HPV16/18 E6/E7 Plasmid",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
-    },
-    {
-      "code": "C151956",
-      "name": "HPV16-E6-T27",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
       "code": "C151958",
       "name": "HPV16-E7-T512",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C20064",
+      "name": "Conformation Dependent Mutation Detection",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C148186",
+      "name": "TALEN-edited HPV16/18 E6/E7 Plasmid",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
       "code": "C158432",
       "name": "PicoGreen Dye",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
       "code": "C16517",
       "name": "DNA Helicase",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ]
 }
+

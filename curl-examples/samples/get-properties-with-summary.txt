@@ -1,0 +1,2379 @@
+[
+  {
+    "code": "oboInOwl:hasDbXref",
+    "name": "xRef",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "xRef",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a reference to an identical or very similar object in another database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "NHC0",
+    "name": "code",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "code",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "code",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a concept unique identifier within the NCI Enterprise Vocabulary Service's NCI Thesaurus.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "readOnly",
+        "value": "true"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a concept code"
+      }
+    ]
+  },
+  {
+    "code": "P100",
+    "name": "OMIM_Number",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OMIM Number",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OMIM_Number",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OMIM_Number",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the accession number for a Protein or Gene within the OMIM database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P101",
+    "name": "Homologous_Gene",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Homologous Gene",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Homologous_Gene",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Homologous_Gene",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing genes from other organisms that are similar in sequence and provide insight to the gene's function.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P102",
+    "name": "GenBank_Accession_Number",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "GenBank Accession Number",
+        "type": "Display_Name"
+      },
+      {
+        "name": "GenBank_Accession_Number",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "GenBank_Accession_Number",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the accession number for a Gene within the GenBank database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P106",
+    "name": "Semantic_Type",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Semantic Type",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Semantic_Type",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Semantic_Type",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property that represents a description of the sort of thing or category to which a concept belongs in the context of the UMLS semantic network.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "In general, applying semantic types aids in allowing users (or computer programs) to draw conclusions about concepts by virtue of the categories to which they have been assigned.  We use a set of semantic types developed for the UMLS Metathesaurus. There are currently 134 semantic types in the UMLS."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P107",
+    "name": "Display_Name",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Display Name",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Display Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Display_Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Display_Name",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing an alternative Preferred Name for use in some NCI systems.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym"
+      }
+    ]
+  },
+  {
+    "code": "P108",
+    "name": "Preferred_Name",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Preferred Name",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Preferred Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Preferred Term",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Preferred_Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Preferred_Name",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the word or phrase that NCI uses by preference to refer to the concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a preferred name"
+      }
+    ]
+  },
+  {
+    "code": "P167",
+    "name": "Image_Link",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Image Link",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Image_Link",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Image_Link",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a link to an image in an external database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P171",
+    "name": "PubMedID_Primary_Reference",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "PubMedID Primary Reference",
+        "type": "Display_Name"
+      },
+      {
+        "name": "PubMedID_Primary_Reference",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "PubMedID_Primary_Reference",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to provide a primary reference for descriptions of an NCI Thesaurus concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P175",
+    "name": "NSC Number",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "NSC Number",
+        "type": "Display_Name"
+      },
+      {
+        "name": "NSC Number",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NSC_Code",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NSC_Number",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NSC_Number_Property",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NSC Number",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a numeric identifier for substances submitted to the National Cancer Institute (NCI) for testing and evaluation. It is named after the Cancer Chemotherapy National Service Center (CCNSC), created in 1955, which originally ran the testing program and assigned these numbers. The testing program and repository is now run by the NCI Developmental Therapeutics Program (DTP). Assignment of NSC numbers was never done in a way that would guarantee one and only one NSC number would be assigned to a particular substance.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P200",
+    "name": "OLD_PARENT",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD PARENT",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_PARENT",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_PARENT",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to store the name of parent concepts present at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P201",
+    "name": "OLD_CHILD",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD CHILD",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_CHILD",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_CHILD",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to store the name of children concepts present at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P203",
+    "name": "OLD_KIND",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD KIND",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_KIND",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_KIND",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "Used to store the name of the concept's kind at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P204",
+    "name": "OLD_ROLE",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD ROLE",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OLD_ROLE",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_ROLE",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to store the name and value of asserted roles present at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P207",
+    "name": "UMLS_CUI",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "UMLS CUI",
+        "type": "Display_Name"
+      },
+      {
+        "name": "UMLS_CUI",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "UMLS_CUI",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the concept unique identifier (CUI) assigned by the National Library of Medicine (NLM). If a concept in any NCI-maintained knowledgebase exists in the NLM Unified Medical Language System (UMLS), NCI includes the NLM CUI among the information we provide about the concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P208",
+    "name": "NCI_META_CUI",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "NCI Metathesaurus CUI",
+        "type": "Display_Name"
+      },
+      {
+        "name": "NCI_META_CUI",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NCI_META_CUI",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the concept unique identifier (CUI) for those concepts that appear in NCI Metathesaurus but not in the National Library of Medicine Unified Medical Language System (NLM UMLS).",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P210",
+    "name": "CAS_Registry",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "CAS Registry Number",
+        "type": "Display_Name"
+      },
+      {
+        "name": "CAS_Registry",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "CAS_Registry",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the Chemical Abstracts Service number for a Chemical or Drug.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P211",
+    "name": "GO_Annotation",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "GO Annotation",
+        "type": "Display_Name"
+      },
+      {
+        "name": "GO_Annotation",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "GO_Annotation",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property that contains information that can be used for cross-referencing to relevant entries in the Gene Ontology (GO) database including term name, code, and evidence code.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P215",
+    "name": "KEGG_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "KEGG ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "KEGG_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "KEGG_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the KEGG ID code for a pathway. It can be used to link a KEGG pathway reference to the primary pathway information.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P216",
+    "name": "BioCarta_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "BioCarta ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "BioCarta_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "BioCarta_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the BioCarta ID code for a pathway. It can be used to link a BioCarta pathway reference to the primary pathway information.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P302",
+    "name": "Accepted_Therapeutic_Use_For",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Accepted Therapeutic Use For",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Accepted_Therapeutic_Use_For",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Accepted_Therapeutic_Use_For",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a disease or condition for which this drug is an accepted treatment. Used in the Drug, Food, Chemical or Biomedical Material branch.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P310",
+    "name": "Concept_Status",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Concept Status",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Concept_Status",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Concept_Status",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to indicate the standing of a concept in relation to currently accepted classifications and concepts. In NCI Thesaurus concept status subtype indicates concepts with unusual and problematic characteristics that should be evaluated by people and/or programs before those concept are used.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P315",
+    "name": "SNP_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "SNP ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "SNP_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "SNP_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the dbSNP id number for the genetic polymorphism due to base substitutions.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P316",
+    "name": "Relative_Enzyme_Activity",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Relative Enzyme Activity",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Relative_Enzyme_Activity",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Relative_Enzyme_Activity",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing drug efficacy of the allelic product.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P317",
+    "name": "FDA_Table",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "FDA Table",
+        "type": "Display_Name"
+      },
+      {
+        "name": "FDA_Table",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "FDA_Table",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to flag terms that are part of an FDA data standard manual, including Route of Administration, Dosage Form, Package Type and Potency.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P319",
+    "name": "FDA_UNII_Code",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "FDA UNII Code",
+        "type": "Display_Name"
+      },
+      {
+        "name": "FDA_UNII_Code",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "FDA_UNII_Code",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the FDA Unique Ingredient Identifier, a key component of the federal drug information model.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P320",
+    "name": "OID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "OID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a globally unique identifier standardized by the International Organization for Standardization (ISO) for naming computational objects consistently and unambiguously. Object identifiers (OID) are assigned by a regulatory association. The NCI Thesaurus OID was asssigned by and is registered with the HL7 OID Registry and is the following string: 2.16.840.1.113883.3.26.1.1.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P321",
+    "name": "EntrezGene_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "EntrezGene ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "EntrezGene_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "GeneID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Locus_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "EntrezGene_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the accession number for a Gene within the Entrez Gene database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This property has replaced Locus_ID."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P322",
+    "name": "Contributing_Source",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Contributing Source",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Contributing_Source",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Contributing_Source",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property is used to indicate when a non-EVS entity has contributed to, and has a stake in, a concept. This is used where such entities, within or outside NCI, have indicated the need to be able to track their own concepts. A single concept can have multiple instances of this property if multiple entities have such a defined stake.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P325",
+    "name": "ALT_DEFINITION",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "[source] Definition",
+        "type": "Display_Name"
+      },
+      {
+        "name": "ALT_DEFINITION",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "ALT_DEFINITION",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the English language definition of a concept from a source other than NCI.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a definition"
+      }
+    ]
+  },
+  {
+    "code": "P329",
+    "name": "PDQ_Open_Trial_Search_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "PDQ Open Trial Search ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "PDQ_Open_Trial_Search_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "PDQ_Open_Trial_Search_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the identifier used by NCI's Cancer.gov Web site to retrieve PDQ Clinical Trials data for open trials involving specific clinical trials agents. While the identifier is the same for both open and closed trials two properties are used to support requirements of the current browser interface, as well as the possibility of providing values where only open trials will be retrieved.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P330",
+    "name": "PDQ_Closed_Trial_Search_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "PDQ Closed Trial Search ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "PDQ_Closed_Trial_Search_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "PDQ_Closed_Trial_Search_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the identifier used by NCI's Cancer.gov web site to retrieve PDQ Clinical Trials data for closed trials that involved specific clinical trials agents. While the identifier is the same for both open and closed trials two properties are used to support requirements of the current browser interface, as well as the possibility of providing values where only closed trials will be retrieved.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P331",
+    "name": "NCBI_Taxon_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "NCBI Taxon ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "NCBI_Taxon_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NCBI_Taxon_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property that is used to establish correspondence between the NCI Thesaurus concept representing a taxon (species) and the NCBI/NLM Species Taxonomy ID assigned by the NCBI to that taxon.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P332",
+    "name": "MGI_Accession_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "MGI Accession ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "MGI_Accession_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "MGI_Accession_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the identifier used by Jackson Laboratories Mouse Genome Informatics group to label inbred mouse strains maintained by Jackson Laboratory and other things such as mouse genes and alleles.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P333",
+    "name": "Use_For",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Use For",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Use_For",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Use_For",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a term that had been used in a coding system and then subsumed by the given NCIt concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P334",
+    "name": "ICD-O-3_Code",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "ICD-O-3 Code",
+        "type": "Display_Name"
+      },
+      {
+        "name": "ICD-O-3_Code",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "ICD-O-3_Code",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the matching ICD-O-3 code for the NCI Thesaurus concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P350",
+    "name": "Chemical_Formula",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Chemical Formula",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical Formula",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Formula",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Formula",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a concise expression about the atoms that constitute a particular chemical compound.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P351",
+    "name": "US_Recommended_Intake",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "US FNB Recommends Intake",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Recommended Intake",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Required_Intake",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "US_Recommended_Intake",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "US_Recommended_Intake",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating that the Food and Nutrition Board of the National Academy of Science has established an average daily intake for this nutrient that is sufficient to meet the nutritional requirements of most individuals in the general U.S. population.",
+        "type": "ALT_DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P352",
+    "name": "Tolerable_Level",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Tolerable Level",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Tolerable Level",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Tolerable_Level",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Tolerable_Level",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating that the Food and Nutrition Board of the National Academy of Science has established a highest level of daily intake for this food component that is likely to pose no risk of adverse health effects for almost all individuals in the general U.S. population.",
+        "type": "ALT_DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P353",
+    "name": "INFOODS",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "INFOODS Tag Name",
+        "type": "Display_Name"
+      },
+      {
+        "name": "INFOODS",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "INFOODS",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing uppercase abbreviations assigned by the International Network of Food Data Systems.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P354",
+    "name": "USDA_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "USDA ID",
+        "type": "Display_Name"
+      },
+      {
+        "name": "USDA ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "USDA_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "USDA_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a numeric ID assignment by United States Department of Agriculture.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P355",
+    "name": "Unit",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Unit Used",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Unit",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Unit",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the unit of measure in which a nutrient or food component is typically expressed, ex., gram (g), minigram (mg), microgram (mcg), joule, or kilojoule.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P356",
+    "name": "Essential_Amino_Acid",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is An Essential Amino Acid",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Essential_Amino_Acid",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Essential_Amino_Acid",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to indicate that an amino acid is essential and must be included in the diet.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P357",
+    "name": "Essential_Fatty_Acid",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is An Essential Fatty Acid",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Essential Fatty Acid",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Essential_Fatty_Acid",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Essential_Fatty_Acid",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to indicate a fatty acid that is not efficiently synthesized by humans and must be included in the diet.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P358",
+    "name": "Nutrient",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is A Nutrient",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Nutrient",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Nutrient",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating that a food component must be taken into the body preformed and in sufficient quantity to meet the body's needs for growth, reproduction and/or maintenance of health.",
+        "type": "ALT_DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P359",
+    "name": "Micronutrient",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is A Micronutrient",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Micronutrient",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Micronutrient",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating a class of food components required for proper health and that are typically consumed in microgram or milligram amounts.",
+        "type": "ALT_DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "Unit",
+        "value": "mg"
+      }
+    ]
+  },
+  {
+    "code": "P360",
+    "name": "Macronutrient",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Macronutrient",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Macronutrient",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Macronutrient",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating a class of food components that contribute energy to the diet and that are typically consumed in multi-gram amounts.",
+        "type": "ALT_DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CRCH"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "Unit",
+        "value": "g"
+      }
+    ]
+  },
+  {
+    "code": "P361",
+    "name": "Extensible_List",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Extensible_List",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "List Extensible",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Extensible_List",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the ability to extend the set of values in a particular list.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P362",
+    "name": "miRBase_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "miRBase_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "miRBase_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the accession number for an miRNA within the Sanger miRBase database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P363",
+    "name": "Neoplastic_Status",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Neoplastic Status",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Neoplastic_Status",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Neoplastic_Status",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the morphologic, clinical, and genetic profile of a neoplastic growth that defines it as benign, malignant, or of uncertain cancerous potential.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "FDA"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P364",
+    "name": "OLD_ASSOCIATION",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "OLD_ASSOCIATION",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "OLD_ASSOCIATION",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to store the name and value of associations present at the time a concept was retired.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P366",
+    "name": "Legacy Concept Name",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Legacy Concept Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Legacy_Concept_Name",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Legacy Concept Name",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a retired unique concept identifier created and stored as Concept Name by legacy EVS software. Use of these values was long discouraged, but continued as late as 2009 when creation of new values ceased and Concept Name was retired. Legacy values are intended solely to help resolve and update earlier coding.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "readOnly",
+        "value": "true"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P367",
+    "name": "PID_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "PID_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "PID_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the NCI/Nature Pathway Interaction Database (PID) code for a pathway. It can be used by the NCIt Browser to link a pathway concept to the source pathway information.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P368",
+    "name": "CHEBI_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "CHEBI_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "CHEBI_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing that a concept in the 'Drug, Food, Chemical or Biomedical Material' branch of the NCI thesaurus maps to a specific concept in the EBI Chemical Entities of Biological Interest (CHEBI) database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P369",
+    "name": "HGNC_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "HGNC_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "HUGO_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "HGNC_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing that a concept in the 'Gene' branch of the NCI thesaurus maps to a HUGO Gene Nomenclature Committee (HGNC) certified gene.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P371",
+    "name": "NICHD_Hierarchy_Term",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "NICHD_Hierarchy_Term",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NICHD_Hierarchy_Term",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a term chosen by NICHD to be used in the representation of the NICHD hierarchy.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "NICHD"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P372",
+    "name": "Publish_Value_Set",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Publish_Value_Set",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Publish_Value_Set",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing whether a value set is ready for publication in the browser.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P374",
+    "name": "Value_Set_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Value_Set_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Value_Set_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the location of the subset report on the ftp site, along with its rules for display.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as Value_Set_Location"
+      }
+    ]
+  },
+  {
+    "code": "P375",
+    "name": "Maps_To",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Maps_To",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Maps_To",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing that a term in another terminology has been mapped to a term in NCIt and describes the relationship between the mapped terms.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P376",
+    "name": "Term_Browser_Value_Set_Description",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Term_Browser_Value_Set_Description",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Term_Browser_Value_Set_Description",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used to house the text on the introductory page on the NCI Term Browser for the Value Set named by a concept when that text differs from the DEFINITION for that concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P398",
+    "name": "Value_Set_Pair",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Value_Set_Pair",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Value_Set_Pair",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property that indicates whether or not a value set is part of a paired set of codelists for publication processing purposes.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Contributing_Source",
+        "value": "CDISC"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P399",
+    "name": "NCI_Drug_Dictionary_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "NCI_Drug_Dictionary_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "NCI_Drug_Dictionary_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the numerical CDR ID, which is the NCI Drug Dictionary identifier for a chemical or pharmaceutical agent.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P400",
+    "name": "ClinVar_Variation_ID",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "ClinVar_Variation_ID",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "ClinVar_Variation_ID",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the numerical Variation ID assigned to a molecular abnormality entry by ClinVar.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P90",
+    "name": "FULL_SYN",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Term & Source Data",
+        "type": "Display_Name"
+      },
+      {
+        "name": "FULL_SYN",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Synonym with Source Data",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "FULL_SYN",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym"
+      }
+    ]
+  },
+  {
+    "code": "P92",
+    "name": "Subsource",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Subsource",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Subsource",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Subsource",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property used by MMHCC to identify the source of various mouse disease concepts.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P93",
+    "name": "Swiss_Prot",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Swiss Prot",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Swiss_Prot",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Swiss_Prot",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the accession number for a protein within the Swiss-Prot database.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P96",
+    "name": "Gene_Encodes_Product",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene Encodes Product",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Encodes_Product",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Encodes_Product",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the protein or RNA product expressed by a gene.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This represents the reciprocal relationship of the role Gene_Product_Encoded_by_Gene"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P97",
+    "name": "DEFINITION",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Definition",
+        "type": "Display_Name"
+      },
+      {
+        "name": "DEFINITION",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "DEFINITION",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the English language definitions of what NCI means by the concept. They may also include information about the definition's source and attribution in a form that can easily be interpreted by software.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a definition"
+      }
+    ]
+  },
+  {
+    "code": "P98",
+    "name": "DesignNote",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "DesignNote",
+        "type": "Display_Name"
+      },
+      {
+        "name": "DesignNote",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "DesignNote",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing notations made by NCI vocabulary curators. They are intended to provide supplemental, unstructured information to the user or additional insight about the concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

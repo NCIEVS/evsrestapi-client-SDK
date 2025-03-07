@@ -2,46 +2,44 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "21.11e",
+  "version": "25.02d",
+  "conceptStatus": "DEFAULT",
   "leaf": false,
+  "active": true,
   "synonyms": [
     {
       "name": "Melanoma",
-      "type": "Display_Name"
-    },
-    {
-      "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "NCI"
+      "source": "caDSR"
     },
     {
       "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
       "source": "CDISC"
     },
     {
+      "name": "MELANOMA, MALIGNANT",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "Cellosaurus"
+    },
+    {
       "name": "Malignant Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CPTAC"
     },
     {
       "name": "Melanoma",
-      "termGroup": "DN",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CTEP",
       "code": "10053571",
@@ -49,52 +47,56 @@
     },
     {
       "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "DN",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "GDC"
     },
     {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "name": "Melanoma, NOS",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "Cellosaurus"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NCI"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "SY",
-      "type": "FULL_SYN",
-      "source": "caDSR"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NICHD"
+      "source": "GDC"
     },
     {
       "name": "melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     },
     {
-      "name": "MELANOMA, MALIGNANT",
-      "termGroup": "PT",
+      "name": "Malignant Melanoma",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "CDISC"
+      "source": "NCI"
     },
     {
-      "name": "Melanoma, NOS",
-      "termGroup": "SY",
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
-      "source": "GDC"
+      "source": "NCI"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "NICHD"
+    },
+    {
+      "name": "Melanoma",
+      "type": "Display_Name"
     },
     {
       "name": "Melanoma",
@@ -115,7 +117,7 @@
     {
       "code": "C131506",
       "name": "Childhood Melanoma",
-      "leaf": true
+      "leaf": false
     },
     {
       "code": "C3510",
@@ -128,11 +130,6 @@
       "leaf": false
     },
     {
-      "code": "C9499",
-      "name": "Melanomatosis",
-      "leaf": false
-    },
-    {
       "code": "C8925",
       "name": "Metastatic Melanoma",
       "leaf": false
@@ -140,6 +137,11 @@
     {
       "code": "C66756",
       "name": "Mixed Epithelioid and Spindle Cell Melanoma",
+      "leaf": false
+    },
+    {
+      "code": "C205125",
+      "name": "Nodular Melanoma",
       "leaf": false
     },
     {
@@ -178,6 +180,11 @@
       "leaf": false
     },
     {
+      "code": "C190239",
+      "name": "Resectable Melanoma",
+      "leaf": false
+    },
+    {
       "code": "C4237",
       "name": "Spindle Cell Melanoma",
       "leaf": false
@@ -209,14 +216,14 @@
     {
       "type": "Related To",
       "targetName": "8720/3",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "morphology",
       "targetTerminology": "GDC"
     },
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "8720/3",
       "targetTerminology": "ICDO3",
       "targetTerminologyVersion": "3.2"
@@ -224,7 +231,7 @@
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "8720/3",
       "targetTerminology": "ICDO3",
       "targetTerminologyVersion": "3.1"
@@ -232,21 +239,21 @@
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "primary_diagnosis",
       "targetTerminology": "GDC"
     },
     {
       "type": "Has Synonym",
       "targetName": "Melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "primary_diagnosis",
       "targetTerminology": "GDC"
     },
     {
       "type": "Has Synonym",
       "targetName": "Melanoma",
-      "targetTermGroup": "LLT",
+      "targetTermType": "LLT",
       "targetCode": "10053571",
       "targetTerminology": "MedDRA",
       "targetTerminologyVersion": "18.1"
@@ -254,9 +261,10 @@
     {
       "type": "Has Synonym",
       "targetName": "Melanoma",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "relationship_primary_diagnosis",
       "targetTerminology": "GDC"
     }
   ]
 }
+

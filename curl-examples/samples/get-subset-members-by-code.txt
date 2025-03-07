@@ -1,52 +1,93 @@
 [
   {
-    "code": "C117751",
-    "name": "Analysis Requested by Regulatory Agency",
-    "terminology": "ncit"
+    "code": "C208382",
+    "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Code Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
-    "code": "C117752",
-    "name": "Analysis Specified in Protocol",
-    "terminology": "ncit"
+    "code": "C208381",
+    "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Name Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
-    "code": "C117753",
-    "name": "Analysis Specified in Statistical Analysis Plan",
-    "terminology": "ncit"
+    "code": "C204411",
+    "name": "CDISC ADaM Analysis Stratum Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
-    "code": "C81209",
-    "name": "Average of Value Derivation Technique",
-    "terminology": "ncit"
+    "code": "C187458",
+    "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Code Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
-    "code": "C81201",
-    "name": "Baseline Observation Carried Forward Imputation Technique",
-    "terminology": "ncit"
-  },
-  {
-    "code": "C92225",
-    "name": "Best Case Imputation Technique",
-    "terminology": "ncit"
-  },
-  {
-    "code": "C92226",
-    "name": "Best Observation Carried Forward Imputation Technique",
-    "terminology": "ncit"
-  },
-  {
-    "code": "C132340",
-    "name": "Best Observed Case Imputation Technique",
-    "terminology": "ncit"
+    "code": "C187457",
+    "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Name Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
     "code": "C81223",
     "name": "CDISC ADaM Date Imputation Flag Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   },
   {
     "code": "C81224",
     "name": "CDISC ADaM Derivation Type Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
+  },
+  {
+    "code": "C172334",
+    "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
+  },
+  {
+    "code": "C172335",
+    "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
+  },
+  {
+    "code": "C158114",
+    "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": true,
+    "active": true
   }
 ]
+

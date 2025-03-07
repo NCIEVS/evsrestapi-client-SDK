@@ -1,21 +1,13 @@
 [
   {
     "code": "C12658",
-    "action": "retire",
-    "date": "2003-08-22",
-    "replacementCode": "C19157",
-    "replacementName": "Specimen"
+    "name": "Prokaryotic Cell",
+    "action": "active"
   },
   {
     "code": "C13320",
-    "action": "merge",
-    "date": "2003-08-22",
-    "replacementCode": "C12756",
-    "replacementName": "Nose"
-  },
-  {
-    "code": "C13320",
-    "action": "retire",
-    "date": "2003-08-22"
+    "name": "Nose, Nasal Passages",
+    "action": "active"
   }
 ]
+

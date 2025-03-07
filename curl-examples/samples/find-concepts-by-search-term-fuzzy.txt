@@ -1,6 +1,6 @@
 {
-  "total": 1445,
-  "timeTaken": 162,
+  "total": 1509,
+  "timeTaken": 47,
   "parameters": {
     "term": "enzymi",
     "type": "fuzzy",
@@ -16,36 +16,47 @@
       "code": "C16554",
       "name": "Enzyme",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
-    },
-    {
-      "code": "C17455",
-      "name": "Enzyme Immunoassay",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
-    },
-    {
-      "code": "C471",
-      "name": "Enzyme Inhibitor",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C41564",
       "name": "Enzyme Induction",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C20626",
-      "name": "Enzyme Kinetics",
+      "code": "C40500",
+      "name": "Enzyme Uncoupling",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C17455",
+      "name": "Enzyme Immunoassay",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C471",
+      "name": "Enzyme Inhibitor",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ]
 }
+

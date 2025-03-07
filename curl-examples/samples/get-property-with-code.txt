@@ -1,0 +1,33 @@
+{
+  "code": "P302",
+  "name": "Accepted_Therapeutic_Use_For",
+  "terminology": "ncit",
+  "version": "25.02d",
+  "synonyms": [
+    {
+      "name": "Accepted Therapeutic Use For",
+      "type": "Display_Name"
+    },
+    {
+      "name": "Accepted_Therapeutic_Use_For",
+      "type": "FULL_SYN"
+    },
+    {
+      "name": "Accepted_Therapeutic_Use_For",
+      "type": "Preferred_Name"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "A property representing a disease or condition for which this drug is an accepted treatment. Used in the Drug, Food, Chemical or Biomedical Material branch.",
+      "type": "DEFINITION"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Semantic_Type",
+      "value": "Conceptual Entity"
+    }
+  ]
+}
+

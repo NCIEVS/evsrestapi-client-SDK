@@ -1,0 +1,99 @@
+[
+  {
+    "code": "R115",
+    "name": "Disease_May_Have_Finding",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Finding",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Finding",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Finding",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a clinical observation, sign or symptom will only be observed in some cases of the disease. Both the domain and range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R114",
+    "name": "Disease_May_Have_Cytogenetic_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Cytogenetic Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Cytogenetic_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Cytogenetic_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a particular cytogenetic abnormality will only be present in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R113",
+    "name": "Disease_May_Have_Abnormal_Cell",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Abnormal Cell",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Abnormal_Cell",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Abnormal_Cell",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that particular neoplastic cell types will only be present in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Abnormal Cell', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

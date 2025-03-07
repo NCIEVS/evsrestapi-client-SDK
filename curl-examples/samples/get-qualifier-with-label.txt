@@ -1,0 +1,25 @@
+{
+  "code": "P387",
+  "name": "go-id",
+  "terminology": "ncit",
+  "version": "25.02d",
+  "synonyms": [
+    {
+      "name": "go-id",
+      "type": "Preferred_Name"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".",
+      "type": "DEFINITION"
+    }
+  ],
+  "properties": [
+    {
+      "type": "required",
+      "value": "true"
+    }
+  ]
+}
+

@@ -1,6 +1,6 @@
 {
-  "total": 1294,
-  "timeTaken": 175,
+  "total": 1462,
+  "timeTaken": 40,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -19,36 +19,47 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C114828",
-      "name": "Mucosal Melanoma",
+      "code": "C157920",
+      "name": "Melanoma Surgery",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C118828",
-      "name": "Orbital Melanoma",
+      "code": "C1830",
+      "name": "Melanoma Theraccine",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C120298",
-      "name": "Canine Melanoma",
+      "code": "C46091",
+      "name": "Melanoma Biomarker",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     }
   ]
 }
+

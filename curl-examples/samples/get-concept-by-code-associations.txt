@@ -16,6 +16,11 @@
   },
   {
     "type": "Concept_In_Subset",
+    "relatedCode": "C192842",
+    "relatedName": "Cellosaurus Terminology"
+  },
+  {
+    "type": "Concept_In_Subset",
     "relatedCode": "C61410",
     "relatedName": "Clinical Data Interchange Standards Consortium Terminology"
   },
@@ -146,6 +151,11 @@
   },
   {
     "type": "Concept_In_Subset",
+    "relatedCode": "C189762",
+    "relatedName": "Pediatric Adverse Events Terminology Mapped to MedDRA"
+  },
+  {
+    "type": "Concept_In_Subset",
     "relatedCode": "C118464",
     "relatedName": "Pediatric Adverse Events Terminology"
   },
@@ -155,3 +165,4 @@
     "relatedName": "Solid Neoplasm"
   }
 ]
+

@@ -2,81 +2,122 @@
   {
     "code": "AB",
     "name": "Abbreviation",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "AD",
     "name": "Adjectival form (and other parts of grammar)",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
-    "code": "AQ*",
-    "name": "Antiquated preferred term",
-    "terminology": "ncit"
+    "code": "AQ",
+    "name": "*Antiquated preferred term",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "AQS",
     "name": "Antiquated term, use when there are antiquated synonyms within a concept",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "BR",
     "name": "US brand name, which may be trademarked",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CA2",
     "name": "ISO 3166 alpha-2 country code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CA3",
     "name": "ISO 3166 alpha-3 country code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "CI",
+    "name": "ISO country code",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CN",
     "name": "Drug study code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CNU",
     "name": "ISO 3166 numeric country code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CS",
     "name": "US State Department country code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "DN",
     "name": "Display name",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "FB",
     "name": "Foreign brand name, which may be trademarked",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
-    "code": "HD*",
-    "name": "Header (groups concepts, but not used for coding data)",
-    "terminology": "ncit"
+    "code": "HD",
+    "name": "*Header (groups concepts, but not used for coding data)",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
-    "code": "PT*",
-    "name": "Preferred term",
-    "terminology": "ncit"
+    "code": "HT",
+    "name": "Hierarchical term",
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "LLT",
+    "name": "Lower level term",
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "PT",
+    "name": "*Preferred term",
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "RT",
+    "name": "Related term",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "SN",
     "name": "Chemical structure name",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "SY",
     "name": "Synonym",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   }
 ]
+
