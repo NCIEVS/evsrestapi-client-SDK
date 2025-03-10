@@ -1,8 +1,29 @@
 {
-  "timestamp": 1741388521763,
-  "status": 404,
-  "error": "Not Found",
-  "message": "Association A10 not found",
-  "path": "/api/v1/metadata/ncit/association/A10"
+  "code": "A16",
+  "name": "Has_INC_Parent",
+  "terminology": "ncit",
+  "version": "25.02d",
+  "synonyms": [
+    {
+      "name": "Has_INC_Parent",
+      "type": "FULL_SYN"
+    },
+    {
+      "name": "Has_INC_Parent",
+      "type": "Preferred_Name"
+    }
+  ],
+  "definitions": [
+    {
+      "definition": "An association created to allow the source INC to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.",
+      "type": "DEFINITION"
+    }
+  ],
+  "properties": [
+    {
+      "type": "Semantic_Type",
+      "value": "Conceptual Entity"
+    }
+  ]
 }
 

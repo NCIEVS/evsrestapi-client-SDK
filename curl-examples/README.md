@@ -360,8 +360,8 @@ See sample payload data from this call in
 Return association for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq .
-curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq .
+curl "$API_URL/metadata/ncit/association/A16?include=summary" | jq .
+curl "$API_URL/metadata/ncit/association/Has_INC_Parent?include=summary" | jq .
 ```
 
 See sample payload data from this call in:

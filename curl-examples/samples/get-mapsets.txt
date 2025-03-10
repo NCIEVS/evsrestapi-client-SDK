@@ -16,6 +16,11 @@
     "version": "2024_03_01"
   },
   {
+    "code": "NCIT_TO_SWISSPROT",
+    "name": "NCIT_TO_SWISSPROT",
+    "version": "Feb2025"
+  },
+  {
     "code": "NCIt_Maps_To_GDC",
     "name": "NCIt_Maps_To_GDC",
     "version": "25.02d",
@@ -26,11 +31,6 @@
     "name": "NCIt_Maps_To_ICD9CM",
     "version": "25.02d",
     "active": true
-  },
-  {
-    "code": "NCIT_TO_SWISSPROT",
-    "name": "NCIT_TO_SWISSPROT",
-    "version": "Feb2025"
   },
   {
     "code": "ICDO_TO_NCI_MORPHOLOGY",
@@ -72,6 +72,11 @@
     "version": "2016_07_31"
   },
   {
+    "code": "NCIt_to_HGNC_Mapping",
+    "name": "NCIt_to_HGNC_Mapping",
+    "version": "Feb2025"
+  },
+  {
     "code": "NCIt_Maps_To_ICD10CM",
     "name": "NCIt_Maps_To_ICD10CM",
     "version": "25.02d",
@@ -82,11 +87,6 @@
     "name": "NCIt_Maps_To_ICD10",
     "version": "25.02d",
     "active": true
-  },
-  {
-    "code": "NCIt_to_HGNC_Mapping",
-    "name": "NCIt_to_HGNC_Mapping",
-    "version": "Feb2025"
   },
   {
     "code": "ICDO_TO_NCI_TOPOGRAPHY",
