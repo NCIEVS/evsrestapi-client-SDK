@@ -1,6 +1,6 @@
 {
-  "total": 13,
-  "timeTaken": 127,
+  "total": 17,
+  "timeTaken": 45,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -19,36 +19,47 @@
       "code": "C4224",
       "name": "Melanoma In Situ",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "Retired_Concept",
+      "leaf": true,
+      "active": false
+    },
+    {
+      "code": "C5505",
+      "name": "Central Nervous System Melanoma",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "Retired_Concept",
+      "leaf": true,
+      "active": false
     },
     {
       "code": "C9342",
       "name": "Spindle Cell Intraocular Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "Retired_Concept",
+      "leaf": true,
+      "active": false
     },
     {
       "code": "C60471",
       "name": "Rat Malignant Uveal Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "Retired_Concept",
+      "leaf": true,
+      "active": false
     },
     {
       "code": "C37815",
       "name": "Incomplete Freund's Adjuvant/Peptide 946 Melanoma Vaccine/Tetanus Peptide Melanoma Vaccine",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
-    },
-    {
-      "code": "C49086",
-      "name": "Allogeneic Melanoma Cell-Loaded Dendritic Cell Vaccine",
-      "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "Retired_Concept",
+      "leaf": true,
+      "active": false
     }
   ]
 }
+

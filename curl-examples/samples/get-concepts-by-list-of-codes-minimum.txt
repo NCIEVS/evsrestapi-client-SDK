@@ -3,14 +3,19 @@
     "code": "C3224",
     "name": "Melanoma",
     "terminology": "ncit",
-    "version": "21.11e",
-    "leaf": false
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": false,
+    "active": true
   },
   {
     "code": "C3910",
     "name": "Molecular Abnormality",
     "terminology": "ncit",
-    "version": "21.11e",
-    "leaf": false
+    "version": "25.02d",
+    "conceptStatus": "DEFAULT",
+    "leaf": false,
+    "active": true
   }
 ]
+

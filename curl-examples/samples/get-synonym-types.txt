@@ -1,47 +1,34 @@
 [
   {
-    "code": "P90",
-    "name": "FULL_SYN",
+    "code": "P107",
+    "name": "Display_Name",
     "terminology": "ncit",
-    "version": "21.11e",
+    "version": "25.02d",
     "synonyms": [
       {
-        "name": "Term & Source Data",
+        "name": "Display Name",
         "type": "Display_Name"
       },
       {
-        "name": "FULL_SYN",
-        "termGroup": "PT",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "name": "Display Name",
+        "type": "FULL_SYN"
       },
       {
-        "name": "Synonym with Source Data",
-        "termGroup": "SY",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "name": "Display_Name",
+        "type": "FULL_SYN"
       },
       {
-        "name": "FULL_SYN",
+        "name": "Display_Name",
         "type": "Preferred_Name"
       }
     ],
     "definitions": [
       {
-        "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
-        "type": "DEFINITION",
-        "source": "NCI"
+        "definition": "A property representing an alternative Preferred Name for use in some NCI systems.",
+        "type": "DEFINITION"
       }
     ],
     "properties": [
-      {
-        "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-        "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
-      },
-      {
-        "type": "http://www.w3.org/2000/01/rdf-schema#range",
-        "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl#textArea"
-      },
       {
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
@@ -52,7 +39,7 @@
     "code": "P108",
     "name": "Preferred_Name",
     "terminology": "ncit",
-    "version": "21.11e",
+    "version": "25.02d",
     "synonyms": [
       {
         "name": "Preferred Name",
@@ -60,21 +47,15 @@
       },
       {
         "name": "Preferred Name",
-        "termGroup": "SY",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "type": "FULL_SYN"
       },
       {
         "name": "Preferred Term",
-        "termGroup": "SY",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "type": "FULL_SYN"
       },
       {
         "name": "Preferred_Name",
-        "termGroup": "PT",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "type": "FULL_SYN"
       },
       {
         "name": "Preferred_Name",
@@ -84,19 +65,10 @@
     "definitions": [
       {
         "definition": "A property representing the word or phrase that NCI uses by preference to refer to the concept.",
-        "type": "DEFINITION",
-        "source": "NCI"
+        "type": "DEFINITION"
       }
     ],
     "properties": [
-      {
-        "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-        "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
-      },
-      {
-        "type": "http://www.w3.org/2000/01/rdf-schema#range",
-        "value": "http://www.w3.org/2001/XMLSchema#string"
-      },
       {
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
@@ -104,48 +76,35 @@
     ]
   },
   {
-    "code": "P107",
-    "name": "Display_Name",
+    "code": "P90",
+    "name": "FULL_SYN",
     "terminology": "ncit",
-    "version": "21.11e",
+    "version": "25.02d",
     "synonyms": [
       {
-        "name": "Display Name",
+        "name": "Term & Source Data",
         "type": "Display_Name"
       },
       {
-        "name": "Display Name",
-        "termGroup": "SY",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "name": "FULL_SYN",
+        "type": "FULL_SYN"
       },
       {
-        "name": "Display_Name",
-        "termGroup": "PT",
-        "type": "FULL_SYN",
-        "source": "NCI"
+        "name": "Synonym with Source Data",
+        "type": "FULL_SYN"
       },
       {
-        "name": "Display_Name",
+        "name": "FULL_SYN",
         "type": "Preferred_Name"
       }
     ],
     "definitions": [
       {
-        "definition": "A property representing an alternative Preferred Name for use in some NCI systems.",
-        "type": "DEFINITION",
-        "source": "NCI"
+        "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
+        "type": "DEFINITION"
       }
     ],
     "properties": [
-      {
-        "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
-        "value": "http://www.w3.org/2002/07/owl#AnnotationProperty"
-      },
-      {
-        "type": "http://www.w3.org/2000/01/rdf-schema#range",
-        "value": "http://www.w3.org/2001/XMLSchema#string"
-      },
       {
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
@@ -153,3 +112,4 @@
     ]
   }
 ]
+

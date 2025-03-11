@@ -2,259 +2,355 @@
   {
     "code": "ACC/AHA",
     "name": "American College of Cardiology / American Heart Association",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "BIOCARTA",
     "name": "BioCarta online maps of molecular pathways, adapted for NCI use",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "BRIDG",
     "name": "Biomedical Research Integrated Domain Model Group",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "BRIDG 3.0.3",
     "name": "Biomedical Research Integrated Domain Model Group, version 3.0.3",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "BRIDG 5.3",
     "name": "Biomedical Research Integrated Domain Model Group, version 5.3",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CBDD",
     "name": "Chemical Biology and Drug Development",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CCPS",
     "name": "Childhood Cancer Predisposition Study",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CDC",
     "name": "U.S. Centers for Disease Control and Prevention",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CDISC",
     "name": "Clinical Data Interchange Standards Consortium",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CDISC-GLOSS",
     "name": "CDISC Glossary Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CPTAC",
     "name": "Clinical Proteomic Tumor Analysis Consortium",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CRCH",
     "name": "Cancer Research Center of Hawaii Nutrition Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTCAE",
     "name": "Common Terminology Criteria for Adverse Events",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTCAE 3.0",
     "name": "Common Terminology Criteria for Adverse Events, version 3.0",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTCAE 5.0",
     "name": "Common Terminology Criteria for Adverse Events, version 5.0",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTDC",
     "name": "Clinical Trials Data Commons",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTEP",
     "name": "Cancer Therapy Evaluation Program",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CTRP",
     "name": "Clinical Trials Reporting Program",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "CareLex",
     "name": "CareLex electronic Trial Master File Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "Cellosaurus",
     "name": "Cellosaurus - a knowledge resource on cell lines",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "DCP",
     "name": "NCI Division of Cancer Prevention Program",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "DICOM",
     "name": "Digital Imaging Communications in Medicine",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "DIPG/DMG",
-    "terminology": "ncit"
+    "name": "Diffuse Intrinsic Pontine Glioma/Diffuse Midline Glioma",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "DTP",
     "name": "NCI Developmental Therapeutics Program",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "EDQM-HC",
     "name": "European Directorate for the Quality of Medicines & Healthcare",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "FDA",
     "name": "U.S. Food and Drug Administration",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "GAIA",
     "name": "Global Alignment of Immunization safety Assessment in pregnancy Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "GDC",
     "name": "Genomic Data Commons",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "GENC",
     "name": "Geopolitical Entities, Names, and Codes Terminology",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "HGNC",
     "name": "HUGO Gene Nomenclature Committee",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "HL7",
     "name": "Health Level Seven International",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "HemOnc",
+    "name": "HemOnc.org (A Free Hematology/Oncology Reference)",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "ICD-10",
-    "terminology": "ncit"
+    "name": "International Classification of Diseases, Tenth Revision",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "ICDC",
     "name": "International Cancer Genome Consortium",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "ICH",
     "name": "International Conference on Harmonization",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "INC",
     "name": "International Neonatal Consortium",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "JAX",
     "name": "Jackson Laboratories Mouse Terminology, adapted for NCI use",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "KEGG",
     "name": "KEGG Pathway Database",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "MRCT-Ctr",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "NCI",
     "name": "National Cancer Institute Thesaurus",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "NCI-GLOSS",
     "name": "NCI Dictionary of Cancer Terms",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "NCPDP",
     "name": "National Council for Prescription Drug Programs",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "NDC",
     "name": "National Drug Code",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "NICHD",
     "name": "National Institute of Child Health and Human Development",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "OORO",
+    "name": "Operational Ontology for Radiation Oncology",
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "ORCHESTRA",
+    "name": "Multinational project funded by the European Commission to advance the knowledge of the SARS-CoV-2 infection and its long-term effects",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "PCDC",
     "name": "Pediatric Cancer Data Commons",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "PI-RADS",
     "name": "Prostate Imaging-Reporting and Data System",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "PID",
     "name": "NCI Nature Pathway Interaction Database",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "PRO-CTCAE",
+    "name": "PRO-CTCAE (Patient Reported Outcomes version of Common Terminology Criteria for Adverse Events)",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "RENI",
     "name": "Registry Nomenclature Information System",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "SEER",
     "name": "Surveillance, Epidemiology, and End Results Program",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "SeroNet",
     "name": "NCI Serological Sciences Network for COVID-19",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "UBERON",
+    "name": "Uber-anatomy Ontology",
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "UCUM",
     "name": "Unified Code for Units of Measure",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "WHO",
     "name": "World Health Organization",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "ZFin",
     "name": "Zebrafish Information Network",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
   },
   {
     "code": "caDSR",
     "name": "Cancer Data Standards Registry and Repository",
-    "terminology": "ncit"
+    "terminology": "ncit",
+    "version": "25.02d"
+  },
+  {
+    "code": "mCode",
+    "name": "Minimal Common Oncology Data Elements",
+    "terminology": "ncit",
+    "version": "25.02d"
   }
 ]
+

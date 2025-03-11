@@ -1,6 +1,6 @@
 {
-  "total": 53,
-  "timeTaken": 27,
+  "total": 49,
+  "timeTaken": 32,
   "parameters": {
     "term": "enzyme",
     "type": "startsWith",
@@ -16,36 +16,47 @@
       "code": "C16554",
       "name": "Enzyme",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
-      "code": "C102632",
-      "name": "Enzyme-linked Immunosorbent Spot Assay",
+      "code": "C147466",
+      "name": "Enzyme-Linked Lectin Assay",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C111196",
-      "name": "Enzyme Multiplied Immunoassay Technique",
+      "code": "C156467",
+      "name": "Enzyme Unit per Meter Squared",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C122205",
-      "name": "Enzyme Immunoassay Unit",
+      "code": "C208420",
+      "name": "Enzyme Unit per 10 Billion Cells",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C147130",
-      "name": "Enzyme Unit per Liter",
+      "code": "C40500",
+      "name": "Enzyme Uncoupling",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     }
   ]
 }
+

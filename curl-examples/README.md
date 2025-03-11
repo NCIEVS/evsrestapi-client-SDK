@@ -84,7 +84,7 @@ Use "terminology", "latest", and "tag" parameters to limit the results. This
 sample call finds the latest monthly version of NCI Thesaurus.
 
 ```
-curl "$API_URL/metadata/terminologies?terminology=ncit&latest=true&tag=monthly" | jq '.'
+curl "$API_URL/metadata/terminologies?terminology=ncit&latest=true&tag=monthly" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-terminologies.txt`](samples/get-terminologies.txt)
@@ -96,7 +96,7 @@ See sample payload data from this call in [`samples/get-terminologies.txt`](samp
 Return minimal concept information for a given terminology and code.
 
 ```
-curl "$API_URL/concept/ncit/C3224?include=minimal" | jq '.'
+curl "$API_URL/concept/ncit/C3224?include=minimal" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-minimum.txt`](samples/get-concept-by-code-minimum.txt)
@@ -108,7 +108,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-minimum.
 Return minimal concept information for a given terminology and list of codes.
 
 ```
-curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq '.'
+curl "$API_URL/concept/ncit?list=C3224,C3910&include=minimal" | jq .
 ```
 
 See sample payload data from this call in See sample payload data from this call in [`samples/get-concepts-by-list-of-codes-minimum.txt`](samples/get-concepts-by-list-of-codes-minimum.txt)
@@ -122,7 +122,7 @@ Return summary concept information for a given terminology and code (note the
 would produce the same result).
 
 ```
-curl "$API_URL/concept/ncit/C3224" | jq '.'
+curl "$API_URL/concept/ncit/C3224" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-summary.txt`](samples/get-concept-by-code-summary.txt)
@@ -134,7 +134,7 @@ See sample payload data from this call in [`samples/get-concept-by-code-summary.
 Return full concept information for a given terminology and code.
 
 ```
-curl "$API_URL/concept/ncit/C3224?include=full" | jq '.'
+curl "$API_URL/concept/ncit/C3224?include=full" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-full.txt`](samples/get-concept-by-code-full.txt)
@@ -148,7 +148,7 @@ of options, in this case, the request asks for synonyms, children, maps, and inv
 associations.
 
 ```
-curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociations" | jq '.'
+curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociations" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-custom.txt`](samples/get-concept-by-code-custom.txt)
@@ -163,7 +163,13 @@ corresponding underlying info: children, parents, roles, associations, inverseRo
 inverseAssociations, maps.
 
 ```
-curl "$API_URL/concept/ncit/C3224/children" | jq '.'
+curl "$API_URL/concept/ncit/C3224/children" | jq .
+curl "$API_URL/concept/ncit/C3224/parents" | jq .
+curl "$API_URL/concept/ncit/C3224/roles" | jq .
+curl "$API_URL/concept/ncit/C3224/associations" | jq .
+curl "$API_URL/concept/ncit/C3224/inverseRoles" | jq .
+curl "$API_URL/concept/ncit/C3224/inverseAssociations" | jq .
+curl "$API_URL/concept/ncit/C3224/maps" | jq .
 ```
 
 See the full set of examples for this "style" of call
@@ -179,7 +185,7 @@ See the full set of examples for this "style" of call
 For disjointWith, a different concept id is needed
 
 ```
-curl "$API_URL/concept/ncit/C3910/children" | jq '.'
+curl "$API_URL/concept/ncit/C3910/children" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-disjointWith.txt`](samples/get-concept-by-code-disjointWith.txt)
@@ -193,7 +199,7 @@ can page the results with standard fromRecord and pageSize parameters. The defau
 page size is 50000 which works well for all NCI Thesaurus concepts.
 
 ```
-curl "$API_URL/concept/ncit/C3224/descendants" | jq '.'
+curl "$API_URL/concept/ncit/C3224/descendants" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-concept-descendants.txt`](samples/get-concept-descendants.txt)
@@ -208,13 +214,18 @@ The third call returns summary information for the three listed properties (by c
 The fourth call returns summary information for the three listed properties (by label).
 
 ```
-curl "$API_URL/metadata/ncit/properties" | jq '.'
-curl "$API_URL/metadata/ncit/properties?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/properties?list=P201,P203,P205&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/properties" | jq .
+curl "$API_URL/metadata/ncit/properties?include=summary" | jq .
+curl "$API_URL/metadata/ncit/properties?list=P201,P203,P205&include=summary" | jq .
+curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-properties.txt`](samples/get-properties.txt)
+See sample payload data from this call in:
+
+- [`samples/get-properties.txt`](samples/get-properties.txt)
+- [`samples/get-properties-with-summary.txt`](samples/get-properties-with-summary.txt)
+- [`samples/get-properties-with-code-list.txt`](samples/get-properties-with-code-list.txt)
+- [`samples/get-properties-with-label-list.txt`](samples/get-properties-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -223,11 +234,13 @@ See sample payload data from this call in [`samples/get-properties.txt`](samples
 Return property for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/property/P302?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/property/P302?include=summary" | jq .
+curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-property.txt`](samples/get-property.txt)
+See sample payload data from this call in:
+- [`samples/get-property-with-code.txt`](samples/get-property-with-code.txt)
+- [`samples/get-property-with-name.txt`](samples/get-property-with-name.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -239,13 +252,17 @@ The third call returns summary information for the three listed qualifiers (by c
 The fourth call returns summary information for the three listed qualifiers (by label).
 
 ```
-curl "$API_URL/metadata/ncit/qualifiers" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers" | jq .
+curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq .
+curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq .
+curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
+- [`samples/get-qualifiers-with-summary.txt`](samples/get-qualifiers-with-summary.txt)
+- [`samples/get-qualifiers-with-code-list.txt`](samples/get-qualifiers-with-code-list.txt)
+- [`samples/get-qualifiers-with-label-list.txt`](samples/get-qualifiers-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -254,11 +271,13 @@ See sample payload data from this call in [`samples/get-qualifiers.txt`](samples
 Return qualifier for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/qualifier/P387?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/P387?include=summary" | jq .
+curl "$API_URL/metadata/ncit/qualifier/go-id?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifier.txt`](samples/get-qualifier.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifier-with-code.txt`](samples/get-qualifier-with-code.txt)
+- [`samples/get-qualifier-with-label.txt`](samples/get-qualifier-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -267,11 +286,13 @@ See sample payload data from this call in [`samples/get-qualifier.txt`](samples/
 Return qualifier values for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/qualifier/P390/values" | jq '.'
-curl "$API_URL/metadata/ncit/qualifier/go-source/values" | jq '.'
+curl "$API_URL/metadata/ncit/qualifier/P390/values" | jq .
+curl "$API_URL/metadata/ncit/qualifier/go-source/values" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-qualifier-values.txt`](samples/get-qualifier-values.txt)
+See sample payload data from this call in:
+- [`samples/get-qualifier-values-with-code.txt`](samples/get-qualifier-values-with-code.txt)
+- [`samples/get-qualifier-values-with-label.txt`](samples/get-qualifier-values-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -283,13 +304,17 @@ The third call returns summary information for the three listed roles (by code).
 The fourth call returns summary information for the three listed roles (by label).
 
 ```
-curl "$API_URL/metadata/ncit/roles" | jq '.'
-curl "$API_URL/metadata/ncit/roles?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/roles" | jq .
+curl "$API_URL/metadata/ncit/roles?include=summary" | jq .
+curl "$API_URL/metadata/ncit/roles?list=R113,R114,R115&include=summary" | jq .
+curl "$API_URL/metadata/ncit/roles?list=Disease_May_Have_Abnormal_Cell,Disease_May_Have_Cytogenetic_Abnormality,Disease_May_Have_Finding&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-roles.txt`](samples/get-roles.txt)
+See sample payload data from this call in:
+- [`samples/get-roles.txt`](samples/get-roles.txt)
+- [`samples/get-roles-with-summary.txt`](samples/get-roles-with-summary.txt)
+- [`samples/get-roles-with-code-list.txt`](samples/get-roles-with-code-list.txt)
+- [`samples/get-roles-with-label-list.txt`](samples/get-roles-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -298,11 +323,13 @@ See sample payload data from this call in [`samples/get-roles.txt`](samples/get-
 Return role for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/role/R123?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/role/R123?include=summary" | jq .
+curl "$API_URL/metadata/ncit/role/Chemotherapy_Regimen_Has_Component?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-role.txt`](samples/get-role.txt)
+See sample payload data from this call in:
+- [`samples/get-role-with-code.txt`](samples/get-role-with-code.txt)
+- [`samples/get-role-with-label.txt`](samples/get-role-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -314,13 +341,17 @@ third call returns summary information for the three listed associations (by cod
 The fourth call returns summary information for the three listed associations (by label).
 
 ```
-curl "$API_URL/metadata/ncit/associations" | jq '.'
-curl "$API_URL/metadata/ncit/associations?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/associations?list=A1,A2,A3&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/associations?list=Role_Has_Domain,Role_Has_Range,Role_Has_Parent&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/associations" | jq .
+curl "$API_URL/metadata/ncit/associations?include=summary" | jq .
+curl "$API_URL/metadata/ncit/associations?list=A1,A2,A3&include=summary" | jq .
+curl "$API_URL/metadata/ncit/associations?list=Role_Has_Domain,Role_Has_Range,Role_Has_Parent&include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+See sample payload data from this call in
+- [`samples/get-associations.txt`](samples/get-associations.txt)
+- [`samples/get-associations-with-summary.txt`](samples/get-associations-with-summary.txt)
+- [`samples/get-associations-with-code-list.txt`](samples/get-associations-with-code-list.txt)
+- [`samples/get-associations-with-label-list.txt`](samples/get-associations-with-label-list.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -329,11 +360,13 @@ See sample payload data from this call in [`samples/get-associations.txt`](sampl
 Return association for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/association/A16?include=summary" | jq .
+curl "$API_URL/metadata/ncit/association/Has_INC_Parent?include=summary" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
+See sample payload data from this call in:
+- [`samples/get-association-with-code.txt`](samples/get-association-with-code.txt)
+- [`samples/get-association-with-label.txt`](samples/get-association-with-label.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -342,7 +375,7 @@ See sample payload data from this call in [`samples/get-association.txt`](sample
 Return metadata for all term types for the specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/termTypes" | jq '.'
+curl "$API_URL/metadata/ncit/termTypes" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-term-types.txt`](samples/get-term-types.txt)
@@ -354,7 +387,7 @@ See sample payload data from this call in [`samples/get-term-types.txt`](samples
 Return metadata for all synonym sources for the specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/synonymSources" | jq '.'
+curl "$API_URL/metadata/ncit/synonymSources" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-synonym-sources.txt`](samples/get-synonym-sources.txt)
@@ -366,7 +399,7 @@ See sample payload data from this call in [`samples/get-synonym-sources.txt`](sa
 Find all definition types. Include parameter allowed customizing how much data to return.
 
 ```
-curl "$API_URL/metadata/ncit/definitionTypes?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/definitionTypes?include=summary" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-definition-types.txt`](samples/get-definition-types.txt)
@@ -378,7 +411,7 @@ See sample payload data from this call in [`samples/get-definition-types.txt`](s
 Find definition type by code. Include parameter allowed customizing how much data to return.
 
 ```
-curl "$API_URL/metadata/ncit/definitionType/P325?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/definitionType/P325?include=summary" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-definition-type-by-code.txt`](samples/get-definition-type-by-code.txt)
@@ -390,7 +423,7 @@ See sample payload data from this call in [`samples/get-definition-type-by-code.
 Find all synonym types. Include parameter allowed customizing how much data to return.
 
 ```
-curl "$API_URL/metadata/ncit/synonymTypes?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/synonymTypes?include=summary" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-synonym-types.txt`](samples/get-synonym-types.txt)
@@ -402,7 +435,7 @@ See sample payload data from this call in [`samples/get-synonym-types.txt`](samp
 Find synonym type by code. Include parameter allowed customizing how much data to return.
 
 ```
-curl "$API_URL/metadata/ncit/synonymType/P90?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/synonymType/P90?include=summary" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-synonym-type-by-code.txt`](samples/get-synonym-type-by-code.txt)
@@ -414,7 +447,7 @@ See sample payload data from this call in [`samples/get-synonym-type-by-code.txt
 Return concept roots for the specified terminology.
 
 ```
-curl "$API_URL/concept/ncit/roots" | jq '.'
+curl "$API_URL/concept/ncit/roots" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-roots.txt`](samples/find-roots.txt)
@@ -426,11 +459,13 @@ See sample payload data from this call in [`samples/find-roots.txt`](samples/fin
 Return paths to/from the root concept from a specified terminology and code.
 
 ```
-curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq '.'
-curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq '.'
+curl "$API_URL/concept/ncit/C3224/pathsToRoot" | jq .
+curl "$API_URL/concept/ncit/C3224/pathsFromRoot" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt) and [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
+See sample payload data from this call in:
+- [`samples/get-paths-to-root.txt`](samples/get-paths-to-root.txt)
+- [`samples/get-paths-from-root.txt`](samples/get-paths-from-root.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -440,7 +475,7 @@ Return paths to/from the specified ancestor code from a specified
 terminology and code.
 
 ```
-curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq '.'
+curl "$API_URL/concept/ncit/C3224/pathsToAncestor/C2991" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-paths-to-ancestor.txt`](samples/get-paths-to-ancestor.txt)
@@ -453,11 +488,13 @@ Return an entire subtree graph from the root concepts to a specified node. This
 call is specifically tuned to support a tree-view based hierarchy browser in a UI.
 
 ```
-curl "$API_URL/concept/ncit/C3224/subtree" | jq '.'
-curl "$API_URL/concept/ncit/C3224/subtree/children" | jq '.'
+curl "$API_URL/concept/ncit/C3224/subtree" | jq .
+curl "$API_URL/concept/ncit/C3224/subtree/children" | jq .
 ```
 
-See sample payload data from this call in [`samples/get-subtree.txt`](samples/get-subtree.txt) and [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
+See sample payload data from this call in
+- [`samples/get-subtree.txt`](samples/get-subtree.txt)
+- [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -467,7 +504,7 @@ Find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?term=melanoma&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
@@ -481,7 +518,7 @@ restrict the search results by concept status of "Retired_Concept". This
 example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Retired_Concept&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&conceptStatus=Retired_Concept&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
@@ -495,7 +532,7 @@ restrict the search results by a definition source of "NCI". This
 example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionSource=NCI&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-nci.txt`](samples/find-concepts-by-search-term-definition-nci.txt)
@@ -509,7 +546,7 @@ restrict the search results by a definition type of "DEFINITION". This
 example uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=DEFINITION&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=melanoma&definitionType=DEFINITION&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-type.txt`](samples/find-concepts-by-search-term-definition-type.txt)
@@ -523,7 +560,7 @@ restrict the search results by a synonym source of "NCI" and synonym
 termgroup of "PT".
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymSource=NCI&synonymTermGroup=PT" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
@@ -534,7 +571,7 @@ Find concepts matching a search term with a specified synonym type. This
 example restricts results to matching FULL_SYNs.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=dsDNA&synonymType=FULL_SYN" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-synonym-type.txt`](samples/find-concepts-by-search-term-synonym-type.txt)
@@ -547,7 +584,7 @@ Find concepts matching a search term within a specified terminology and
 restrict the search results using a code as the search term.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=C3224" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-C3224.txt`](samples/find-concepts-by-search-term-C3224.txt)
@@ -561,7 +598,7 @@ a search type of "match". This example uses paging to get only the first
 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=match&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=Lung%20Carcinoma&type=match&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-match.txt`](samples/find-concepts-by-search-term-match.txt)
@@ -575,7 +612,7 @@ a search type of "startsWith". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzyme&type=startsWith&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-startsWith.txt`](samples/find-concepts-by-search-term-startsWith.txt)
@@ -589,7 +626,7 @@ a search type of "phrase". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&type=phrase&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=malignant%20melanoma&type=phrase&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-phrase.txt`](samples/find-concepts-by-search-term-phrase.txt)
@@ -603,7 +640,7 @@ a search type of "fuzzy". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=enzymi&type=fuzzy&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-fuzzy.txt`](samples/find-concepts-by-search-term-fuzzy.txt)
@@ -617,7 +654,7 @@ a search type of "AND". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=AND&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=AND&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-AND.txt`](samples/find-concepts-by-search-term-AND.txt)
@@ -631,7 +668,7 @@ a search type of "OR". This example uses paging to get only the
 first 5 results.
 
 ```
-curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=OR&pageSize=5" | jq '.'
+curl "$API_URL/concept/ncit/search?terminology=ncit&term=lentiginous%20melanoma&type=OR&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-OR.txt`](samples/find-concepts-by-search-term-OR.txt)
@@ -645,7 +682,7 @@ and include synonyms and highlighted text in the response. This example
 uses paging to get only the first 5 results.
 
 ```
-curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,highlights&pageSize=5" | jq '.'
+curl "$API_URL/concept/search?terminology=ncit&term=melanoma&include=synonyms,highlights&pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-highlights.txt`](samples/find-concepts-by-search-term-highlights.txt)
@@ -660,11 +697,13 @@ values so you can easily see the match. The property setting here can be either
 based on code or on label
 
 ```
-curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII_Code&include=properties" | jq '.'
-curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&include=properties" | jq '.'
+curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=FDA_UNII_Code&include=properties" | jq .
+curl "$API_URL/concept/search?terminology=ncit&term=XAV05295I5&property=P319&include=properties" | jq .
 ```
 
-See sample payload data from this call in [`samples/find-concepts-by-search-property.txt`](samples/find-concepts-by-search-property.txt)
+See sample payload data from this call in:
+- [`samples/find-concepts-by-search-property-label.txt`](samples/find-concepts-by-search-property-label.txt)
+- [`samples/find-concepts-by-search-property-code.txt`](samples/find-concepts-by-search-property-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
@@ -674,7 +713,7 @@ Find concepts matching a search term and restrict results to members of
 one or more subsets. This example searches within C165258 (e.g. Cellosaurus Disease Terminology).
 
 ```
-curl "$API_URL/concept/search?terminology=ncit&term=immune&subset=C165258" | jq '.'
+curl "$API_URL/concept/search?terminology=ncit&term=immune&subset=C165258" | jq .
 ```
 
 See sample payload data from this call in [`samples/find-concepts-by-search-subset.txt`](samples/find-concepts-by-search-subset.txt)
@@ -688,7 +727,7 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 ```{text}
 curl -X POST "$API_URL/concept/ncit/search?include=minimal" \
   -H 'Content-type: text/plain' \
-  -d '@sparql-queries/code-query.txt' | jq '.'
+  -d '@sparql-queries/code-query.txt' | jq .
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/code-query.txt`](sparql-queries/code-query.txt)
@@ -704,7 +743,7 @@ Note: the use of `?code` in the select is required for this to work.
 ```{text}
 curl -X POST "$API_URL/sparql/ncit" \
   -H 'Content-type: text/plain' \
-  -d '@sparql-queries/advanced-query.txt' | jq '.'
+  -d '@sparql-queries/advanced-query.txt' | jq .
 ```
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
@@ -714,7 +753,7 @@ curl -X POST "$API_URL/sparql/ncit" \
 Get all subsets (with minimal information) associated for a specified terminology.
 
 ```
-curl "$API_URL/metadata/ncit/subsets" | jq '.'
+curl "$API_URL/metadata/ncit/subsets" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-all-subsets.txt`](samples/get-all-subsets.txt)
@@ -726,7 +765,7 @@ See sample payload data from this call in [`samples/get-all-subsets.txt`](sample
 Get subset with summary information for a specified code.
 
 ```
-curl "$API_URL/metadata/ncit/subset/C81222?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/subset/C81222?include=summary" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-subset-by-code.txt`](samples/get-subset-by-code.txt)
@@ -738,7 +777,7 @@ See sample payload data from this call in [`samples/get-subset-by-code.txt`](sam
 Get subset members for a specified subset code. This example uses paging to get only the first 10 results.
 
 ```
-curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10" | jq '.'
+curl "$API_URL/concept/ncit/subsetMembers/C81222?fromRecord=0&pageSize=10" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-subset-members-by-code.txt`](samples/get-subset-members-by-code.txt)
@@ -750,7 +789,7 @@ See sample payload data from this call in [`samples/get-subset-members-by-code.t
 Get all mapsets. Include parameter allows customizing how much data to return.
 
 ```
-curl "$API_URL/mapset?include=properties" | jq '.'
+curl "$API_URL/mapset?include=minimal" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-mapsets.txt`](samples/get-mapsets.txt)
@@ -762,7 +801,7 @@ See sample payload data from this call in [`samples/get-mapsets.txt`](samples/ge
 Get mapset information for a specified code. Include parameter allows customizing how much data to return.
 
 ```
-curl "$API_URL/mapset/GO_to_NCIt_Mapping?include=properties" | jq '.'
+curl "$API_URL/mapset/GO_to_NCIt_Mapping?include=properties" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-mapset-by-code.txt`](samples/get-mapset-by-code.txt)
@@ -774,7 +813,7 @@ See sample payload data from this call in [`samples/get-mapset-by-code.txt`](sam
 Get the maps for a specified mapset code.
 
 ```
-curl "$API_URL/mapset/GO_to_NCIt_Mapping/maps?pageSize=5" | jq '.'
+curl "$API_URL/mapset/GO_to_NCIt_Mapping/maps?pageSize=5" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-maps-by-mapset-code.txt`](samples/get-maps-by-mapset-code.txt)
@@ -786,7 +825,7 @@ See sample payload data from this call in [`samples/get-maps-by-mapset-code.txt`
 Get the replacement concepts for a specified inactive concept code.
 
 ```
-curl "$API_URL/history/ncit/C12658/replacements" | jq '.'
+curl "$API_URL/history/ncit/C12658/replacements" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-replacements-for-concept-code.txt`](samples/get-replacements-for-concept-code.txt)
@@ -798,7 +837,7 @@ See sample payload data from this call in [`samples/get-replacements-for-concept
 Get the replacement concepts for a specified list of inactive concept codes.
 
 ```
-curl "$API_URL/history/ncit/replacements?list=C12658,C13320" | jq '.'
+curl "$API_URL/history/ncit/replacements?list=C12658,C13320" | jq .
 ```
 
 See sample payload data from this call in [`samples/get-replacements-for-concept-code-list.txt`](samples/get-replacements-for-concept-code-list.txt)
@@ -812,7 +851,7 @@ Get SPARQL bindings for a specified SPARQL query.
 ```{text}
 curl -X POST "$API_URL/sparql/ncit?fromRecord=0&pageSize=100" \
   -H 'Content-type: text/plain' \
-  -d '@sparql-queries/bindings-query.txt' | jq '.'
+  -d '@sparql-queries/bindings-query.txt' | jq .
 ```
 
 See sample SPARQL query from this call in [`sparql-queries/bindings-query.txt`](sparql-queries/bindings-query.txt)
