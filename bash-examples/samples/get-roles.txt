@@ -1,0 +1,587 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:31 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = 
+include = 
+
+  Get roles for ncit:
+
+    [
+      {
+        "code": "R123",
+        "name": "Chemotherapy_Regimen_Has_Component",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R163",
+        "name": "Procedure_Has_Target_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R100",
+        "name": "Disease_Has_Associated_Anatomic_Site",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R126",
+        "name": "Disease_Has_Associated_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R101",
+        "name": "Disease_Has_Primary_Anatomic_Site",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R103",
+        "name": "Disease_Has_Normal_Tissue_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R104",
+        "name": "Disease_Has_Normal_Cell_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R105",
+        "name": "Disease_Has_Abnormal_Cell",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R108",
+        "name": "Disease_Has_Finding",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R115",
+        "name": "Disease_May_Have_Finding",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R139",
+        "name": "Disease_Excludes_Abnormal_Cell",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R142",
+        "name": "Disease_Excludes_Finding",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R124",
+        "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R125",
+        "name": "Chemical_Or_Drug_Has_Physiologic_Effect",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R146",
+        "name": "Chemical_Or_Drug_Affects_Gene_Product",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R50",
+        "name": "Gene_Product_Has_Structural_Domain_Or_Motif",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R52",
+        "name": "Gene_Product_Has_Biochemical_Function",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R53",
+        "name": "Gene_Product_Plays_Role_In_Biological_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R54",
+        "name": "Gene_Product_Encoded_By_Gene",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R135",
+        "name": "Disease_Excludes_Primary_Anatomic_Site",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R72",
+        "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R116",
+        "name": "Disease_May_Have_Associated_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R175",
+        "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R37",
+        "name": "Gene_Plays_Role_In_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R132",
+        "name": "Gene_Has_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R133",
+        "name": "Gene_Product_Has_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R41",
+        "name": "Gene_Found_In_Organism",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R40",
+        "name": "Gene_In_Chromosomal_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R46",
+        "name": "Gene_Product_Has_Associated_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R49",
+        "name": "Gene_Product_Expressed_In_Tissue",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R51",
+        "name": "Gene_Product_Is_Physical_Part_Of",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R130",
+        "name": "Gene_Is_Element_In_Pathway",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R131",
+        "name": "Gene_Product_Is_Element_In_Pathway",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R44",
+        "name": "Gene_Product_Has_Chemical_Classification",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R177",
+        "name": "Molecular_Abnormality_Involves_Gene",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R178",
+        "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R179",
+        "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R182",
+        "name": "Gene_Product_Variant_Of_Gene_Product",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R42",
+        "name": "Gene_Product_Is_Biomarker_Type",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R45",
+        "name": "Gene_Product_Has_Organism_Source",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R176",
+        "name": "Disease_Mapped_To_Gene",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R106",
+        "name": "Disease_Has_Molecular_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R174",
+        "name": "Disease_Mapped_To_Chromosome",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R27",
+        "name": "Conceptual_Part_Of",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R167",
+        "name": "Procedure_Has_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R169",
+        "name": "Procedure_Has_Partially_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R82",
+        "name": "Anatomic_Structure_Is_Physical_Part_Of",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R122",
+        "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R88",
+        "name": "Disease_Is_Stage",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R47",
+        "name": "Gene_Product_Is_Biomarker_Of",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R38",
+        "name": "Gene_Associated_With_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R155",
+        "name": "Allele_In_Chromosomal_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R137",
+        "name": "Disease_Excludes_Normal_Tissue_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R138",
+        "name": "Disease_Excludes_Normal_Cell_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R32",
+        "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R114",
+        "name": "Disease_May_Have_Cytogenetic_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R89",
+        "name": "Disease_May_Have_Molecular_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R110",
+        "name": "Disease_Is_Grade",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R172",
+        "name": "Regimen_Has_Accepted_Use_For_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R171",
+        "name": "Procedure_Has_Completely_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R30",
+        "name": "Biological_Process_Has_Associated_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R81",
+        "name": "Anatomic_Structure_Has_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R48",
+        "name": "Gene_Product_Malfunction_Associated_With_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R140",
+        "name": "Disease_Excludes_Molecular_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R25",
+        "name": "EO_Disease_Has_Associated_EO_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R24",
+        "name": "EO_Disease_Maps_To_Human_Disease",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R26",
+        "name": "EO_Disease_Has_Property_Or_Attribute",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R141",
+        "name": "Disease_Excludes_Cytogenetic_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R107",
+        "name": "Disease_Has_Cytogenetic_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R66",
+        "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R173",
+        "name": "Cytogenetic_Abnormality_Involves_Chromosome",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R28",
+        "name": "Biological_Process_Has_Initiator_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R35",
+        "name": "Biological_Process_Is_Part_Of_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R113",
+        "name": "Disease_May_Have_Abnormal_Cell",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R102",
+        "name": "Disease_Has_Metastatic_Anatomic_Site",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R112",
+        "name": "Disease_May_Have_Normal_Cell_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R34",
+        "name": "Biological_Process_Has_Result_Biological_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R153",
+        "name": "Allele_Has_Abnormality",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R136",
+        "name": "Disease_Excludes_Metastatic_Anatomic_Site",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R166",
+        "name": "Procedure_May_Have_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R168",
+        "name": "Procedure_May_Have_Partially_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R170",
+        "name": "Procedure_May_Have_Completely_Excised_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R36",
+        "name": "Gene_Is_Biomarker_Type",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R31",
+        "name": "Biological_Process_Has_Result_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R29",
+        "name": "Biological_Process_Has_Result_Chemical_Or_Drug",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R150",
+        "name": "Chemical_Or_Drug_Affects_Abnormal_Cell",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R111",
+        "name": "Disease_May_Have_Normal_Tissue_Origin",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R39",
+        "name": "Gene_Is_Biomarker_Of",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R23",
+        "name": "EO_Disease_Has_Associated_Cell_Type",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R145",
+        "name": "Gene_Has_Physical_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R165",
+        "name": "Procedure_Has_Imaged_Anatomy",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R159",
+        "name": "Allele_Has_Activity",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R158",
+        "name": "Allele_Plays_Altered_Role_In_Process",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R160",
+        "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "R156",
+        "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
+        "terminology": "ncit",
+        "version": "25.02d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:32 PM
+-----------------------------------------------------
+

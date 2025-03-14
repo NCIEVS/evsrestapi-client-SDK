@@ -1,0 +1,29 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:42 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = 
+include = 
+
+  Get definition types for ncit:
+
+    [
+      {
+        "code": "P325",
+        "name": "ALT_DEFINITION",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P97",
+        "name": "DEFINITION",
+        "terminology": "ncit",
+        "version": "25.02d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:42 PM
+-----------------------------------------------------
+

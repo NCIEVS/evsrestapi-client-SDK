@@ -1,0 +1,21 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:32 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = R156
+include = 
+
+  Get role for ncit R156:
+
+    {
+      "code": "R156",
+      "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
+      "terminology": "ncit",
+      "version": "25.02d"
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:33 PM
+-----------------------------------------------------
+
