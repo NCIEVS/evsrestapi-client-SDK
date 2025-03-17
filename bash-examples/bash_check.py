@@ -16,15 +16,15 @@ def check_bash_installation():
         print("Bash is not installed or not accessible.", file=sys.stderr)
         sys.exit(1)
 
-def execute_bash(command, endpoint):
+def execute_bash(command):
     """Runs a bash command and returns the raw output."""
     try:
         result = subprocess.run(f"bash -c \"{command}\"", shell=True, capture_output=True, text=True)
         if result.returncode == 0:
-            healthy_scripts.append(endpoint)
+            healthy_scripts.append(command)
             return result.stdout
         else:
-            unhealthy_scripts.append(endpoint)
+            unhealthy_scripts.append(command)
             print(f"Error executing: {command}", file=sys.stderr)
             print(f"bash error: {result.stderr}", file=sys.stderr)
             return None
@@ -81,9 +81,8 @@ def run_sections(sections):
     for section in sections:
         file_index = 0
         for bash_cmd in section["bashs"]:
-            endpoint = re.search(r'\"(https://[^\"]+)\"', bash_cmd).group(1)
-            print(f"Running: {endpoint}")
-            response = execute_bash(bash_cmd, endpoint)
+            print(f"Running: {bash_cmd}")
+            response = execute_bash(bash_cmd)
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
                 with open(section["files"][file_index], 'w', encoding='utf-8') as f:
