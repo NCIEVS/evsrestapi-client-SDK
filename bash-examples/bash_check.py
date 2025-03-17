@@ -3,6 +3,8 @@ import re
 import subprocess
 import sys
 
+"""This script reads the README.md file, extracts bash commands and corresponding sample files, executes the bash commands, checks that said commands run properly, and updates the sample files with the output."""
+
 healthy_scripts = []
 unhealthy_scripts = []
 

@@ -3,6 +3,8 @@ import re
 import subprocess
 import sys
 
+"""This script reads the README.md file, extracts curl commands and corresponding sample files, executes the curl commands, checks that said commands run properly, and updates the sample files with the output."""
+
 # Define API_URL as a global variable
 API_URL = "https://api-evsrest.nci.nih.gov/api/v1"
 
