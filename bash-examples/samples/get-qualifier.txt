@@ -1,0 +1,107 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:36 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = 
+include = 
+
+  Get qualifiers for ncit:
+
+    [
+      {
+        "code": "P383",
+        "name": "term-group",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P384",
+        "name": "term-source",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P378",
+        "name": "Definition Source",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P381",
+        "name": "attribution",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P385",
+        "name": "Source Code",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P386",
+        "name": "Subsource Name",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P393",
+        "name": "Relationship_to_Target",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P394",
+        "name": "Target_Term_Type",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P395",
+        "name": "Target_Code",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P396",
+        "name": "Target_Terminology",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P397",
+        "name": "Target_Terminology_Version",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P387",
+        "name": "go-id",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P389",
+        "name": "go-evi",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P390",
+        "name": "go-source",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P391",
+        "name": "source-date",
+        "terminology": "ncit",
+        "version": "25.02d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:37 PM
+-----------------------------------------------------
+

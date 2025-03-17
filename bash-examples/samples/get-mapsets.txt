@@ -1,0 +1,114 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:48 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+include = minimal
+
+  Get all mapsets
+
+    [
+      {
+        "code": "GO_to_NCIt_Mapping",
+        "name": "GO_to_NCIt_Mapping",
+        "version": "February2020"
+      },
+      {
+        "code": "ICD10_to_MedDRA_Mapping",
+        "name": "ICD10_to_MedDRA_Mapping",
+        "version": "July2023"
+      },
+      {
+        "code": "SNOMEDCT_US_2024_03_01_to_ICD10CM_2024_Mappings",
+        "name": "SNOMEDCT_US_2024_03_01 to ICD10CM_2024 Mappings",
+        "terminology": "snomedct_us",
+        "version": "2024_03_01"
+      },
+      {
+        "code": "NCIT_TO_SWISSPROT",
+        "name": "NCIT_TO_SWISSPROT",
+        "version": "Feb2025"
+      },
+      {
+        "code": "NCIt_Maps_To_GDC",
+        "name": "NCIt_Maps_To_GDC",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "NCIt_Maps_To_ICD9CM",
+        "name": "NCIt_Maps_To_ICD9CM",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "ICDO_TO_NCI_MORPHOLOGY",
+        "name": "ICDO_TO_NCI_MORPHOLOGY",
+        "version": "2017-12-21"
+      },
+      {
+        "code": "NCIt_Maps_To_MedDRA",
+        "name": "NCIt_Maps_To_MedDRA",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "NCIt_Maps_To_ICDO3",
+        "name": "NCIt_Maps_To_ICDO3",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "NCIt_to_ChEBI_Mapping",
+        "name": "NCIt_to_ChEBI_Mapping",
+        "version": "Aug2024"
+      },
+      {
+        "code": "MA_to_NCIt_Mapping",
+        "name": "MA_to_NCIt_Mapping",
+        "version": "November2011"
+      },
+      {
+        "code": "SNOMEDCT_US_2024_03_01_to_ICD10_2016_Mappings",
+        "name": "SNOMEDCT_US_2024_03_01 to ICD10_2016 Mappings",
+        "terminology": "snomedct_us",
+        "version": "2024_03_01"
+      },
+      {
+        "code": "PDQ_2016_07_31_to_NCI_2024_06D_Mappings",
+        "name": "PDQ_2016_07_31 to NCI_2024_06D Mappings",
+        "terminology": "pdq",
+        "version": "2016_07_31"
+      },
+      {
+        "code": "NCIt_to_HGNC_Mapping",
+        "name": "NCIt_to_HGNC_Mapping",
+        "version": "Feb2025"
+      },
+      {
+        "code": "NCIt_Maps_To_ICD10CM",
+        "name": "NCIt_Maps_To_ICD10CM",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "NCIt_Maps_To_ICD10",
+        "name": "NCIt_Maps_To_ICD10",
+        "version": "25.02d",
+        "active": true
+      },
+      {
+        "code": "ICDO_TO_NCI_TOPOGRAPHY",
+        "name": "ICDO_TO_NCI_TOPOGRAPHY",
+        "version": "2017-12-21"
+      },
+      {
+        "code": "ICDO_TO_NCI_AXIS",
+        "name": "ICDO_TO_NCI_AXIS",
+        "version": "2017-12-21"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:48 PM
+-----------------------------------------------------
+

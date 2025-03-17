@@ -1,0 +1,45 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:22 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+term = melanoma
+include = 
+sparql = ../curl-examples/sparql-queries/code-query.txt
+
+  Find concepts for ncit melanoma:
+
+    {
+      "total": 1,
+      "timeTaken": 31,
+      "parameters": {
+        "term": "melanoma",
+        "type": "contains",
+        "include": "minimal",
+        "fromRecord": 0,
+        "pageSize": 10,
+        "codeList": [
+          "C3224"
+        ],
+        "terminology": [
+          "ncit"
+        ],
+        "sparql": "SELECT ?code WHERE { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 \"Melanoma\" }"
+      },
+      "concepts": [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:23 PM
+-----------------------------------------------------
+

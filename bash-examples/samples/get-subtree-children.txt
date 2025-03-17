@@ -1,0 +1,107 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:25 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+
+  Get subtree children for ncit C3224:
+    count = 18
+
+    [
+      {
+        "code": "C3802",
+        "label": "Amelanotic Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C8410",
+        "label": "Breast Melanoma",
+        "leaf": true
+      },
+      {
+        "code": "C131506",
+        "label": "Childhood Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C3510",
+        "label": "Cutaneous Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C4236",
+        "label": "Epithelioid Cell Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C8925",
+        "label": "Metastatic Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C66756",
+        "label": "Mixed Epithelioid and Spindle Cell Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C205125",
+        "label": "Nodular Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C8711",
+        "label": "Non-Cutaneous Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C8562",
+        "label": "Ocular Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C118828",
+        "label": "Orbital Melanoma",
+        "leaf": true
+      },
+      {
+        "code": "C162547",
+        "label": "Penile Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C7087",
+        "label": "Recurrent Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C147983",
+        "label": "Refractory Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C4228",
+        "label": "Regressing Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C190239",
+        "label": "Resectable Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C4237",
+        "label": "Spindle Cell Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C148517",
+        "label": "Unresectable Melanoma",
+        "leaf": false
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:26 PM
+-----------------------------------------------------
+
