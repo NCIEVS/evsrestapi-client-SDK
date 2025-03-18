@@ -10,8 +10,8 @@ esac; shift; done
 if [ ${#arr[@]} -ne 1 ] && [ ${#arr[@]} -ne 2 ]; then
   echo "Usage: $0 <terminology> [<associationCodeOrLabel>[,<associationCodeOrLabel>]] [--include <include>]"
   echo "  e.g. $0 ncit"
-  echo "  e.g. $0 ncit A10"
-  echo "  e.g. $0 ncit A10 --include summary"
+  echo "  e.g. $0 ncit A16"
+  echo "  e.g. $0 ncit A16 --include summary"
   echo "  e.g. $0 ncit Role_Has_Domain --include synonyms"
   echo "  e.g. $0 ncit A1,A2,A3 --include summary"
   exit 1

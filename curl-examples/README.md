@@ -210,8 +210,8 @@ The fourth call returns summary information for the three listed properties (by 
 ```
 curl "$API_URL/metadata/ncit/properties" | jq '.'
 curl "$API_URL/metadata/ncit/properties?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/properties?list=P201,P203,P205&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_STATE&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/properties?list=P201,P203,P204&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/properties?list=OLD_CHILD,OLD_KIND,OLD_ROLE&include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-properties.txt`](samples/get-properties.txt)
@@ -242,7 +242,7 @@ The fourth call returns summary information for the three listed qualifiers (by 
 curl "$API_URL/metadata/ncit/qualifiers" | jq '.'
 curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq '.'
 curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/qualifiers?list=go-id,attribution&include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-qualifiers.txt`](samples/get-qualifiers.txt)
@@ -329,8 +329,8 @@ See sample payload data from this call in [`samples/get-associations.txt`](sampl
 Return association for the specified code or label.
 
 ```
-curl "$API_URL/metadata/ncit/association/A10?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/association/Has_CDRH_Parent?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/association/A16?include=summary" | jq '.'
+curl "$API_URL/metadata/ncit/association/Has_INC_Parent?include=summary" | jq '.'
 ```
 
 See sample payload data from this call in [`samples/get-association.txt`](samples/get-association.txt)
