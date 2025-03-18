@@ -1,0 +1,47 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:43 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = P325
+include = summary
+
+  Get definition types for ncit P325:
+
+    {
+      "code": "P325",
+      "name": "ALT_DEFINITION",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "synonyms": [
+        {
+          "name": "[source] Definition",
+          "type": "Display_Name"
+        },
+        {
+          "name": "ALT_DEFINITION",
+          "type": "FULL_SYN"
+        },
+        {
+          "name": "ALT_DEFINITION",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A property representing the English language definition of a concept from a source other than NCI.",
+          "type": "DEFINITION"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Conceptual Entity"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:43 PM
+-----------------------------------------------------
+

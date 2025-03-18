@@ -1,0 +1,57 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:48 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+code = GO_to_NCIt_Mapping
+include = properties
+
+  Get mapset for GO_to_NCIt_Mapping
+
+    {
+      "code": "GO_to_NCIt_Mapping",
+      "name": "GO_to_NCIt_Mapping",
+      "version": "February2020",
+      "properties": [
+        {
+          "type": "loader",
+          "value": "MappingLoadServiceImpl"
+        },
+        {
+          "type": "welcomeText",
+          "value": "This is a manual EVS mapping of concepts with equivalent meaning in the source and target terminology versions shown\r\nbelow:\r\n<br><br>\r\n&nbsp;&nbsp;&nbsp;Source: GO (Gene Ontology) February2020\r\n<br>\r\n&nbsp;&nbsp;&nbsp;Target: NCIt (NCI Thesaurus) 20.02d\r\n<br><br>\r\nThe browser links each mapped concept to that concept's page in the current production version of its terminology.\r\n<br><br>\r\nThe first GO to NCIt mapping was manually curated by editors working at NCI in 2009. Automated term matching was\r\nperformed to create a preliminary map of the content in the Biological Process branch of NCIt and the GO\r\nbiological_process branch. The preliminary map was reviewed and validated by editors working at NCI to ensure that terms\r\nwith the same definitions were mapped. The map is updated when changes to the GO content invalidate current mapped\r\nentries.\r\n<br><br>\r\nThe Version shows the month and year that the mapping data were extracted. The Release Date shows the day that this\r\nmapping was approved for publication."
+        },
+        {
+          "type": "sourceTerminology",
+          "value": "go"
+        },
+        {
+          "type": "sourceTerminologyVersion",
+          "value": "February2020"
+        },
+        {
+          "type": "targetTerminology",
+          "value": "ncit"
+        },
+        {
+          "type": "targetTerminologyVersion",
+          "value": "20.02d"
+        },
+        {
+          "type": "sourceLoaded",
+          "value": "true"
+        },
+        {
+          "type": "targetLoaded",
+          "value": "true"
+        },
+        {
+          "type": "downloadOnly",
+          "value": "false"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:49 PM
+-----------------------------------------------------
+

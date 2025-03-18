@@ -1,0 +1,1363 @@
+[
+  {
+    "code": "A1",
+    "name": "Role_Has_Domain",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Domain",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Domain",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Domain",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the parent of the branch encompassing a role's domain.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A12",
+    "name": "Has_Data_Element",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Data Element",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Has_Data_Element",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Data_Element",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association created to relate a data element concept to the codelist term that is used to bundle its subset of valid value concepts.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A13",
+    "name": "Related_To_Genetic_Biomarker",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Related_To_Genetic_Biomarker",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Related_To_Genetic_Biomarker",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates that a finding or lab test is related to a gene, possibly through a variant or product.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A14",
+    "name": "Neoplasm_Has_Special_Category",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Neoplasm_Has_Special_Category",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Neoplasm_Has_Special_Category",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates that a neoplastic disease can have the characteristics defined by a Neoplasm by Special Category concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A15",
+    "name": "Has_CTCAE_5_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_CTCAE_5_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_CTCAE_5_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association created to allow the source CTCAE 5.0 to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which CTCAE is the contributing source.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A16",
+    "name": "Has_INC_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_INC_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_INC_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association created to allow the source INC to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A17",
+    "name": "Has_Pharmaceutical_State_Of_Matter",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Pharmaceutical_State_Of_Matter",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "State of Matter",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_State_Of_Matter",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the physical conditions describing the molecular form of a product. The target value should belong to the EDQM-HC State of Matter Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A18",
+    "name": "Has_Pharmaceutical_Basic_Dose_Form",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Basic Dose Form",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Basic_Dose_Form",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Basic_Dose_Form",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the category of the pharmaceutical dose form, used to group together related pharmaceutical dose forms. The target value should belong to the EDQM-HC Basic Dose Form Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A19",
+    "name": "Has_Pharmaceutical_Administration_Method",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Administration Method",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Administration_Method",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Administration_Method",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the methods by which a pharmaceutical product is intended to be administered to the patient. The target value should belong to the EDQM-HC Administration Method Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A2",
+    "name": "Role_Has_Range",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Range",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Range",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Range",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies  the parent of the branch encompassing the role's range.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A20",
+    "name": "Has_Pharmaceutical_Intended_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Pharmaceutical_Intended_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Intended Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Intended_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the general body sites at which a pharmaceutical product is intended to be administered. The target value should belong to the EDQM-HC Intended Site of Administration Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A21",
+    "name": "Has_Pharmaceutical_Release_Characteristics",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Pharmaceutical_Release_Characteristics",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Release Characteristics",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Release_Characteristics",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the timing by which an active ingredient is made available in the body after administration of the pharmaceutical product, in comparison with a conventional, direct release of the active ingredient. The target value should belong to the EDQM-HC Release Characteristics Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A22",
+    "name": "Has_Pharmaceutical_Transformation",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Pharmaceutical_Transformation",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Transformation",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Pharmaceutical_Transformation",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the procedures that are carried out in order to convert a manufactured item that requires such a procedure into a pharmaceutical product. The target value should belong to the EDQM-HC Transformation Terminology.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A23",
+    "name": "Has_PCDC_Data_Type",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_Data_Type",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_Data_Type",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies one of three data types for a particular variable, String, Code or Number.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A24",
+    "name": "Is_PCDC_AML_Authorized_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is_PCDC_AML_Authorized_Value_For_Variable",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_PCDC_AML_Authorized_Value_For_Variable",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates a PCDC AML concept is an Authorized Value for a PCDC AML Variable concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A25",
+    "name": "Value_Set_Is_Paired_With",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Value_Set_Is_Paired_With",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Value_Set_Is_Paired_With",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the paired 'Test or Parameter Name' codelist that goes with the 'Test or Parameter Code' codelist. This association uni-directionally points from a Test/Parameter Code Codelist to the Test/Parameter Name Codelist.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A26",
+    "name": "Has_PCDC_AML_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_AML_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_AML_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which PCDC AML Authorized Values are possible for a specific Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A27",
+    "name": "Has_CTDC_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_CTDC_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_CTDC_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association connecting a CTDC Property concept to its dedicated value concept(s).",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A28",
+    "name": "Is_PCDC_EWS_Authorized_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is_PCDC_EWS_Authorized_Value_For_Variable",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_PCDC_EWS_Authorized_Value_For_Variable",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates a PCDC EWS concept is an Authorized Value for a specific PCDC EWS Variable concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A29",
+    "name": "Has_PCDC_EWS_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_EWS_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_EWS_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific PCDC EWS Variable concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A3",
+    "name": "Role_Has_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Parent",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies that a role exists as part of a role hierarchy and specifies the role's parent, the role that this role specializes.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A30",
+    "name": "Has_ICDC_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_ICDC_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_ICDC_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association connecting an ICDC Property concept to its dedicated value concept(s).",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A31",
+    "name": "Has_GDC_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_GDC_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_GDC_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that connects a concept representing a GDC property to its dedicated value concept(s).",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A32",
+    "name": "Is_Value_For_GDC_Property",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is_Value_For_GDC_Property",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_Value_For_GDC_Property",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that that connects a concept representing a GDC value to any associated GDC property concept(s).",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A33",
+    "name": "Is_PCDC_GCT_Authorized_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is_PCDC_GCT_Authorized_Value_For_Variable",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_PCDC_GCT_Authorized_Value_For_Variable",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates a concept is a dedicated Authorized Value concept for a specific PCDC GCT Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A34",
+    "name": "Has_PCDC_GCT_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_GCT_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_GCT_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific PCDC GCT Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A35",
+    "name": "Is_PCDC_ALL_Authorized_Value_For_Variable",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is_PCDC_ALL_Authorized_Value_For_Variable",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_PCDC_ALL_Authorized_Value_For_Variable",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates a PCDC ALL concept is a Authorized Value for an PCDC ALL Variable concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A36",
+    "name": "Has_PCDC_ALL_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_ALL_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_ALL_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which PCDC ALL Authorized Values are possible for a specific Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A37",
+    "name": "Has_SeroNet_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_SeroNet_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_SeroNet_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific SeroNet Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A38",
+    "name": "Has_PCDC_OS_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_OS_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_OS_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific PCDC OS Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A39",
+    "name": "Has_PCDC_HL_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PCDC_HL_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PCDC_HL_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific PCDC HL Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A4",
+    "name": "Qualifier_Applies_To",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Qualifier Applies To",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Qualifier_Applies_To",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Qualifier_Applies_To",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that indicates the property or association that the qualifier is to be used with.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A40",
+    "name": "Has_DIPG_DMG_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_DIPG_DMG_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_DIPG_DMG_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific DIPG/DMG Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A5",
+    "name": "Has_Salt_Form",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Salt Form",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Has_Salt_Form",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Salt_Form",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that connects the base form of a drug with its various salt forms.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "USAGE NOTE: A salt form of a drug consists of 2 parts, one acidic and one basic group that are readily disassociated in liquid phase. Salt forms are either salts of strong acids and basic drugs (e.g. Atropine Sulfate, Cetirizine Hydrochloride) or salts of strong bases and acidic drugs (Allopurinol Sodium). This association is usually used in conjunction with Has_Free_Acid_Or_Base_Form."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A6",
+    "name": "Has_Free_Acid_Or_Base_Form",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Free Acid Or Base Form",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Has_Free_Acid_Or_Base_Form",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Free_Acid_Or_Base_Form",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that connects the salt form of a drug with its free acid or free base.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The free acid or base is responsible for the drug's therapeutic effect. Hence, the salt form of a drug has the same mechanism of action as the free acid or base form."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A7",
+    "name": "Has_Target",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Target",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Has_Target",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Target",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that connects a drug or other agent to a clinically intended, molecular-scale target. The target value may be a gene, gene product, anatomic structure, cell, biological process, or other concept, where the effect of the agent on the target is thought to be of therapeutic, diagnostic, or other clinical relevance to a disease process. The effect is most often direct, as defined at a molecular scale, but may also be indirect and/or defined at a larger scale.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A8",
+    "name": "Concept_In_Subset",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Concept Is In Subset",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Concept_In_Subset",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Concept_In_Subset",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that connects the concept defining a particular terminology subset with concepts that belong to this subset.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A9",
+    "name": "Is_Related_To_Endogenous_Product",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Related To Endogenous Product",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Is_Related_To_Endogenous_Product",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Is_Related_To_Endogenous_Product",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that is asserted when there is a relationship or association between the therapeutic moiety and the endogenous gene product.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A42",
+    "name": "Has_OORO_PC_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_OORO_PC_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_OORO_PC_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association specifying the Values for a specific OORO Prostate Cancer (PC) Attribute.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A48",
+    "name": "Has_ACC-AHA_SARS2_Authorized_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_ACC-AHA_SARS2_Authorized_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_ACC-AHA_SARS2_Authorized_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that shows which Authorized Values are possible for a specific ACC/AHA SARS2 Variable.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A49",
+    "name": "Has_PRO-CTCAE_Attribute",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PRO-CTCAE_Attribute",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PRO-CTCAE_Attribute",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An indication that a PRO-CTCAE concept is associated with a PRO-CTCAE attribute.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A50",
+    "name": "Has_Ped-PRO-CTCAE_Attribute",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Ped-PRO-CTCAE_Attribute",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Ped-PRO-CTCAE_Attribute",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An indication that a Ped-PRO-CTCAE concept is associated with a Ped-PRO-CTCAE attribute.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A51",
+    "name": "Has_PRO-CTCAE_Attribute_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PRO-CTCAE_Attribute_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PRO-CTCAE_Attribute_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An indication that a PRO-CTCAE attribute is associated with a PRO-CTCAE value.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A52",
+    "name": "Has_Ped-PRO-CTCAE_Attribute_Value",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Ped-PRO-CTCAE_Attribute_Value",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Ped-PRO-CTCAE_Attribute_Value",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An indication that a Ped-PRO-CTCAE attribute is associated with a Ped-PRO-CTCAE value.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A53",
+    "name": "Has_PRO-CTCAE_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_PRO-CTCAE_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_PRO-CTCAE_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association to assign a PRO-CTCAE parent to each concept with the intent of creating a hierarchy that includes only terms in which PRO-CTCAE is the contributing source.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A54",
+    "name": "Has_Ped-PRO-CTCAE_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has_Ped-PRO-CTCAE_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Has_Ped-PRO-CTCAE_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association to assign a Ped-PRO-CTCAE parent to each concept with the intent of creating a hierarchy that includes only terms in which PRO-CTCAE is the contributing source.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

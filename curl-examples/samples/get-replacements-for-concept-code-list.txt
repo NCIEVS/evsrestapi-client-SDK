@@ -1,6 +1,7 @@
 [
   {
     "code": "C12658",
+    "name": "Prokaryotic Cell",
     "action": "retire",
     "date": "2003-08-22",
     "replacementCode": "C19157",
@@ -8,14 +9,11 @@
   },
   {
     "code": "C13320",
+    "name": "Nose, Nasal Passages",
     "action": "merge",
     "date": "2003-08-22",
     "replacementCode": "C12756",
     "replacementName": "Nose"
-  },
-  {
-    "code": "C13320",
-    "action": "retire",
-    "date": "2003-08-22"
   }
 ]
+

@@ -1,0 +1,21 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:34 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = P302
+include = 
+
+  Get property for ncit P302:
+
+    {
+      "code": "P302",
+      "name": "Accepted_Therapeutic_Use_For",
+      "terminology": "ncit",
+      "version": "25.02d"
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:35 PM
+-----------------------------------------------------
+

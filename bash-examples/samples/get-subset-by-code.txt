@@ -1,0 +1,233 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:46 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C81222
+
+  Get subset for C81222
+
+    {
+      "code": "C81222",
+      "name": "CDISC ADaM Terminology",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true,
+      "children": [
+        {
+          "code": "C208382",
+          "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/SDTM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C208381",
+          "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/SDTM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C204411",
+          "name": "CDISC ADaM Analysis Stratum Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C187458",
+          "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C187457",
+          "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C81223",
+          "name": "CDISC ADaM Date Imputation Flag Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C81224",
+          "name": "CDISC ADaM Derivation Type Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C172334",
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C172335",
+          "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C158114",
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C158115",
+          "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C187456",
+          "name": "CDISC ADaM Hamilton Depression Rating Scale - 17 Item Clinical Classification Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C187455",
+          "name": "CDISC ADaM Hamilton Depression Rating Scale - 17 Item Clinical Classification Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C204410",
+          "name": "CDISC ADaM Input Parameter Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C193278",
+          "name": "CDISC ADaM National Early Warning Score 2 Clinical Classification Parameter Code Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C193277",
+          "name": "CDISC ADaM National Early Warning Score 2 Clinical Classification Parameter Name Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C81225",
+          "name": "CDISC ADaM Parameter Type Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C165644",
+          "name": "CDISC ADaM Pool for Integration Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C124296",
+          "name": "CDISC ADaM Subject Trial Status Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C81226",
+          "name": "CDISC ADaM Time Imputation Flag Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C204414",
+          "name": "CDISC ADaM Tobacco Product Category Response Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C204413",
+          "name": "CDISC ADaM Tobacco Product Use Status Response Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        },
+        {
+          "code": "C204412",
+          "name": "CDISC ADaM Tobacco Use Transition Response Terminology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "subsetLink": "https://evs.nci.nih.gov/ftp1/CDISC/ADaM",
+          "conceptStatus": "DEFAULT",
+          "active": true
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:47 PM
+-----------------------------------------------------
+

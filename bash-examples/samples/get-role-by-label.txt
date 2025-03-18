@@ -1,0 +1,35 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:33 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = Allele_Has_Abnormality
+include = synonyms
+
+  Get role for ncit Allele_Has_Abnormality:
+
+    {
+      "code": "R153",
+      "name": "Allele_Has_Abnormality",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "synonyms": [
+        {
+          "name": "Has Abnormality",
+          "type": "Display_Name"
+        },
+        {
+          "name": "Allele_Has_Abnormality",
+          "type": "FULL_SYN"
+        },
+        {
+          "name": "Allele_Has_Abnormality",
+          "type": "Preferred_Name"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:34 PM
+-----------------------------------------------------
+

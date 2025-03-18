@@ -1,0 +1,49 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:23 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+fromRecord = 
+pageSize = 5
+
+  Get descendants for ncit C3224:
+    count = 5
+
+    [
+      {
+        "code": "C4022",
+        "name": "Acral Lentiginous Melanoma",
+        "level": 4,
+        "leaf": false
+      },
+      {
+        "code": "C204883",
+        "name": "Acral Melanoma",
+        "level": 3,
+        "leaf": false
+      },
+      {
+        "code": "C188185",
+        "name": "Adrenal Cortical Melanoma",
+        "level": 2,
+        "leaf": true
+      },
+      {
+        "code": "C5319",
+        "name": "Adult Meningeal Melanoma",
+        "level": 3,
+        "leaf": true
+      },
+      {
+        "code": "C212033",
+        "name": "Advanced Acral Melanoma",
+        "level": 5,
+        "leaf": true
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:24 PM
+-----------------------------------------------------
+

@@ -1,0 +1,23 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:52 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C12658
+  Get replacement concepts for C12658
+
+    [
+      {
+        "code": "C12658",
+        "name": "Prokaryotic Cell",
+        "action": "retire",
+        "date": "2003-08-22",
+        "replacementCode": "C19157",
+        "replacementName": "Specimen"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:52 PM
+-----------------------------------------------------
+

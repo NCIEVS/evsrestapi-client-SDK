@@ -1,0 +1,35 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:30 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = Role_Has_Domain
+include = synonyms
+
+  Get association for ncit Role_Has_Domain:
+
+    {
+      "code": "A1",
+      "name": "Role_Has_Domain",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "synonyms": [
+        {
+          "name": "Role Has Domain",
+          "type": "Display_Name"
+        },
+        {
+          "name": "Role_Has_Domain",
+          "type": "FULL_SYN"
+        },
+        {
+          "name": "Role_Has_Domain",
+          "type": "Preferred_Name"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:31 PM
+-----------------------------------------------------
+

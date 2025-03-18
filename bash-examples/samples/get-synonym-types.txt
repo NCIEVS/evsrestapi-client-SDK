@@ -1,0 +1,35 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:40 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = 
+include = 
+
+  Get synonym types for ncit:
+
+    [
+      {
+        "code": "P107",
+        "name": "Display_Name",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P108",
+        "name": "Preferred_Name",
+        "terminology": "ncit",
+        "version": "25.02d"
+      },
+      {
+        "code": "P90",
+        "name": "FULL_SYN",
+        "terminology": "ncit",
+        "version": "25.02d"
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:41 PM
+-----------------------------------------------------
+

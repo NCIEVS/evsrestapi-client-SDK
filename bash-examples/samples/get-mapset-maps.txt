@@ -1,0 +1,100 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:49 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+code = GO_to_NCIt_Mapping
+include = minimal
+
+  Get maps for mapset GO_to_NCIt_Mapping (fromRecord=0, pageSize=5)
+
+    {
+      "total": 305,
+      "parameters": {
+        "type": "contains",
+        "include": "minimal",
+        "fromRecord": 0,
+        "pageSize": 5
+      },
+      "maps": [
+        {
+          "mapsetCode": "GO_to_NCIt_Mapping",
+          "source": "go",
+          "sourceName": "DNA integration",
+          "sourceCode": "GO:0015074",
+          "sourceTerminology": "GO",
+          "type": "mapsTo",
+          "rank": "1",
+          "target": "ncit",
+          "targetName": "DNA Integration",
+          "targetCode": "C18855",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d",
+          "sortKey": "1000006"
+        },
+        {
+          "mapsetCode": "GO_to_NCIt_Mapping",
+          "source": "go",
+          "sourceName": "DNA modification",
+          "sourceCode": "GO:0006304",
+          "sourceTerminology": "GO",
+          "type": "mapsTo",
+          "rank": "1",
+          "target": "ncit",
+          "targetName": "DNA Modification Process",
+          "targetCode": "C19449",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d",
+          "sortKey": "1000008"
+        },
+        {
+          "mapsetCode": "GO_to_NCIt_Mapping",
+          "source": "go",
+          "sourceName": "DNA recombination",
+          "sourceCode": "GO:0006310",
+          "sourceTerminology": "GO",
+          "type": "mapsTo",
+          "rank": "1",
+          "target": "ncit",
+          "targetName": "DNA Recombination Process",
+          "targetCode": "C17082",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d",
+          "sortKey": "1000009"
+        },
+        {
+          "mapsetCode": "GO_to_NCIt_Mapping",
+          "source": "go",
+          "sourceName": "RNA binding",
+          "sourceCode": "GO:0003723",
+          "sourceTerminology": "GO",
+          "type": "mapsTo",
+          "rank": "1",
+          "target": "ncit",
+          "targetName": "RNA Binding",
+          "targetCode": "C20737",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d",
+          "sortKey": "1000022"
+        },
+        {
+          "mapsetCode": "GO_to_NCIt_Mapping",
+          "source": "go",
+          "sourceName": "RNA polyadenylation",
+          "sourceCode": "GO:0043631",
+          "sourceTerminology": "GO",
+          "type": "mapsTo",
+          "rank": "1",
+          "target": "ncit",
+          "targetName": "RNA Polyadenylation",
+          "targetCode": "C18947",
+          "targetTerminology": "NCI_Thesaurus",
+          "targetTerminologyVersion": "23.02d",
+          "sortKey": "1000026"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:50 PM
+-----------------------------------------------------
+

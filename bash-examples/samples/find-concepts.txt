@@ -1,0 +1,121 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:22 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+term = malignant
+include = 
+
+  Find concepts for ncit malignant:
+
+    {
+      "total": 4676,
+      "timeTaken": 70,
+      "parameters": {
+        "term": "malignant",
+        "type": "contains",
+        "include": "minimal",
+        "fromRecord": 0,
+        "pageSize": 10,
+        "terminology": [
+          "ncit"
+        ]
+      },
+      "concepts": [
+        {
+          "code": "C14143",
+          "name": "Malignant",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": true,
+          "active": true
+        },
+        {
+          "code": "C7612",
+          "name": "Malignant Thymoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C9305",
+          "name": "Malignant Neoplasm",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C121792",
+          "name": "Malignant PEComa",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C65189",
+          "name": "Malignant Vipoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C19436",
+          "name": "Malignant Conversion",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": true,
+          "active": true
+        },
+        {
+          "code": "C36942",
+          "name": "Malignant Oncocyte",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C4456",
+          "name": "Malignant Mesothelioma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C65191",
+          "name": "Malignant Enteroglucagonoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "Obsolete_Concept",
+          "leaf": true,
+          "active": true
+        },
+        {
+          "code": "C8991",
+          "name": "Malignant Mastocytosis",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:22 PM
+-----------------------------------------------------
+

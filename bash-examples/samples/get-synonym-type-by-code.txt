@@ -1,0 +1,51 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:41 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = P90
+include = summary
+
+  Get synonym types for ncit P90:
+
+    {
+      "code": "P90",
+      "name": "FULL_SYN",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "synonyms": [
+        {
+          "name": "Term & Source Data",
+          "type": "Display_Name"
+        },
+        {
+          "name": "FULL_SYN",
+          "type": "FULL_SYN"
+        },
+        {
+          "name": "Synonym with Source Data",
+          "type": "FULL_SYN"
+        },
+        {
+          "name": "FULL_SYN",
+          "type": "Preferred_Name"
+        }
+      ],
+      "definitions": [
+        {
+          "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
+          "type": "DEFINITION"
+        }
+      ],
+      "properties": [
+        {
+          "type": "Semantic_Type",
+          "value": "Conceptual Entity"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:42 PM
+-----------------------------------------------------
+

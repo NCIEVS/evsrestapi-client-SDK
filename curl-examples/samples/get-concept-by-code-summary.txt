@@ -2,46 +2,44 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "21.11e",
+  "version": "25.02d",
+  "conceptStatus": "DEFAULT",
   "leaf": false,
+  "active": true,
   "synonyms": [
     {
       "name": "Melanoma",
-      "type": "Display_Name"
-    },
-    {
-      "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "NCI"
+      "source": "caDSR"
     },
     {
       "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
       "source": "CDISC"
     },
     {
+      "name": "MELANOMA, MALIGNANT",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "Cellosaurus"
+    },
+    {
       "name": "Malignant Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CPTAC"
     },
     {
       "name": "Melanoma",
-      "termGroup": "DN",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CTEP",
       "code": "10053571",
@@ -49,52 +47,56 @@
     },
     {
       "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "DN",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "GDC"
     },
     {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "name": "Melanoma, NOS",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "Cellosaurus"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NCI"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "SY",
-      "type": "FULL_SYN",
-      "source": "caDSR"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NICHD"
+      "source": "GDC"
     },
     {
       "name": "melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     },
     {
-      "name": "MELANOMA, MALIGNANT",
-      "termGroup": "PT",
+      "name": "Malignant Melanoma",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "CDISC"
+      "source": "NCI"
     },
     {
-      "name": "Melanoma, NOS",
-      "termGroup": "SY",
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
-      "source": "GDC"
+      "source": "NCI"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "NICHD"
+    },
+    {
+      "name": "Melanoma",
+      "type": "Display_Name"
     },
     {
       "name": "Melanoma",
@@ -103,8 +105,7 @@
   ],
   "definitions": [
     {
-      "definition": "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but ca
-n also begin in other pigmented tissues, such as in the eye or in the intestines.",
+      "definition": "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.",
       "type": "ALT_DEFINITION",
       "source": "NCI-GLOSS"
     },
@@ -119,11 +120,7 @@ n also begin in other pigmented tissues, such as in the eye or in the intestines
       "source": "NICHD"
     },
     {
-      "definition": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cuta
-neous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lent
-igo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anat
-omic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver,
- lungs, and brain.",
+      "definition": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
       "type": "DEFINITION",
       "source": "NCI"
     }
@@ -170,6 +167,22 @@ omic sites including the gastrointestinal system, eye, urinary tract, and reprod
       "value": "Melanoma"
     },
     {
+      "type": "Maps_To",
+      "value": "8720/3"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Malignant melanoma, NOS"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Melanoma"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Melanoma, NOS"
+    },
+    {
       "type": "Neoplastic_Status",
       "value": "Malignant"
     },
@@ -183,3 +196,4 @@ omic sites including the gastrointestinal system, eye, urinary tract, and reprod
     }
   ]
 }
+

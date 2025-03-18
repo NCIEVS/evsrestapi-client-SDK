@@ -1,0 +1,828 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:24 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+
+  Get subtree for ncit C3224:
+    count = 19
+
+    [
+      {
+        "code": "C12913",
+        "label": "Abnormal Cell",
+        "leaf": false
+      },
+      {
+        "code": "C43431",
+        "label": "Activity",
+        "leaf": false
+      },
+      {
+        "code": "C12219",
+        "label": "Anatomic Structure, System, or Substance",
+        "leaf": false
+      },
+      {
+        "code": "C20633",
+        "label": "Biochemical Pathway",
+        "leaf": false
+      },
+      {
+        "code": "C17828",
+        "label": "Biological Process",
+        "leaf": false
+      },
+      {
+        "code": "C12218",
+        "label": "Chemotherapy Regimen or Agent Combination",
+        "leaf": false
+      },
+      {
+        "code": "C20181",
+        "label": "Conceptual Entity",
+        "leaf": false
+      },
+      {
+        "code": "C20047",
+        "label": "Diagnostic or Prognostic Factor",
+        "leaf": false
+      },
+      {
+        "code": "C7057",
+        "label": "Disease, Disorder or Finding",
+        "leaf": false,
+        "expanded": true,
+        "children": [
+          {
+            "code": "C2991",
+            "label": "Disease or Disorder",
+            "leaf": false,
+            "expanded": true,
+            "children": [
+              {
+                "code": "C35470",
+                "label": "Behavioral Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C8278",
+                "label": "Cancer-Related Condition",
+                "leaf": false
+              },
+              {
+                "code": "C27551",
+                "label": "Disorder by Site",
+                "leaf": false
+              },
+              {
+                "code": "C3101",
+                "label": "Genetic Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C3262",
+                "label": "Neoplasm",
+                "leaf": false,
+                "expanded": true,
+                "children": [
+                  {
+                    "code": "C4741",
+                    "label": "Neoplasm by Morphology",
+                    "leaf": false,
+                    "expanded": true,
+                    "children": [
+                      {
+                        "code": "C3709",
+                        "label": "Epithelial Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C3708",
+                        "label": "Germ Cell Tumor",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C27134",
+                        "label": "Hematopoietic and Lymphoid Cell Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C7058",
+                        "label": "Melanocytic Neoplasm",
+                        "leaf": false,
+                        "expanded": true,
+                        "children": [
+                          {
+                            "code": "C4661",
+                            "label": "Central Nervous System Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C208332",
+                            "label": "Childhood Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C204977",
+                            "label": "Conjunctival Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C7161",
+                            "label": "Cutaneous Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C173488",
+                            "label": "Head and Neck Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C9498",
+                            "label": "Melanocytoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3224",
+                            "label": "Melanoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C7570",
+                            "label": "Nevus",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C205057",
+                            "label": "Uveal Melanocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C40335",
+                            "label": "Vulvar Melanocytic Neoplasm",
+                            "leaf": false
+                          }
+                        ]
+                      },
+                      {
+                        "code": "C7059",
+                        "label": "Mesenchymal Cell Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C3786",
+                        "label": "Mesothelial Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C35562",
+                        "label": "Neuroepithelial, Perineurial, and Schwann Cell Neoplasm",
+                        "leaf": false
+                      }
+                    ]
+                  },
+                  {
+                    "code": "C3263",
+                    "label": "Neoplasm by Site",
+                    "leaf": false
+                  },
+                  {
+                    "code": "C7062",
+                    "label": "Neoplasm by Special Category",
+                    "leaf": false,
+                    "expanded": true,
+                    "children": [
+                      {
+                        "code": "C3677",
+                        "label": "Benign Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C6283",
+                        "label": "Childhood Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C6784",
+                        "label": "Cystic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C3264",
+                        "label": "Embryonal Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36035",
+                        "label": "Encapsulated Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C7069",
+                        "label": "Giant Cell Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C116915",
+                        "label": "Liquid Tumor",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C36037",
+                        "label": "Localized Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C9305",
+                        "label": "Malignant Neoplasm",
+                        "leaf": false,
+                        "expanded": true,
+                        "children": [
+                          {
+                            "code": "C3851",
+                            "label": "Aggravated Malignant Neoplasm",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C36025",
+                            "label": "Anaplastic Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C188021",
+                            "label": "B-Cell Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C7627",
+                            "label": "Bilateral Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C2916",
+                            "label": "Carcinoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4005",
+                            "label": "Childhood Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4992",
+                            "label": "Environment-Related Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C9479",
+                            "label": "Hereditary Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C27770",
+                            "label": "Immunodeficiency-Related Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C27223",
+                            "label": "Infection-Related Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C8505",
+                            "label": "Invasive Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3161",
+                            "label": "Leukemia",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C8576",
+                            "label": "Localized Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3208",
+                            "label": "Lymphoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C156714",
+                            "label": "Malignant Abdominal Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C35501",
+                            "label": "Malignant Bone Marrow Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C9335",
+                            "label": "Malignant Breast Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C114940",
+                            "label": "Malignant Cardiovascular Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4890",
+                            "label": "Malignant Digestive System Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3575",
+                            "label": "Malignant Endocrine Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4767",
+                            "label": "Malignant Eye Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C121500",
+                            "label": "Malignant Fibrohistiocytic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C156484",
+                            "label": "Malignant Genitourinary System Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4925",
+                            "label": "Malignant Germ Cell Tumor",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4090",
+                            "label": "Malignant Giant Cell Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4013",
+                            "label": "Malignant Head and Neck Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C212210",
+                            "label": "Malignant Histiocytic and Dendritic Cell Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C35812",
+                            "label": "Malignant Lymph Node Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C8991",
+                            "label": "Malignant Mastocytosis",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4456",
+                            "label": "Malignant Mesothelioma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3729",
+                            "label": "Malignant Mixed Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C166357",
+                            "label": "Malignant Musculoskeletal Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C36041",
+                            "label": "Malignant Neoplasm by Grade",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C35427",
+                            "label": "Malignant Neoplasm of Multiple Primary Sites",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C65153",
+                            "label": "Malignant Neoplasm, Uncertain Whether Primary or Metastatic",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C4788",
+                            "label": "Malignant Nervous System Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C156715",
+                            "label": "Malignant Pelvic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C156711",
+                            "label": "Malignant Peritoneal and Retroperitoneal Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4571",
+                            "label": "Malignant Respiratory System Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C2920",
+                            "label": "Malignant Skin Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4867",
+                            "label": "Malignant Soft Tissue Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C132146",
+                            "label": "Malignant Solid Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C6894",
+                            "label": "Malignant Solitary Fibrous Tumor",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3539",
+                            "label": "Malignant Splenic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3576",
+                            "label": "Malignant Thoracic Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3224",
+                            "label": "Melanoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C38156",
+                            "label": "Metachronous Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C36049",
+                            "label": "Moderately Differentiated Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3520",
+                            "label": "Myeloid Sarcoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C84270",
+                            "label": "Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase Gene Fusions",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C9226",
+                            "label": "Non-Hematologic Malignancy",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C46080",
+                            "label": "Nonestrogen-Dependent Malignant Neoplasm",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C167168",
+                            "label": "Obesity-Related Malignant Neoplasm",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C4993",
+                            "label": "Occupational Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C36050",
+                            "label": "Poorly Differentiated Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C7055",
+                            "label": "Precursor Lymphoid Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C84509",
+                            "label": "Primary Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C3716",
+                            "label": "Primitive Neuroectodermal Tumor",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C172183",
+                            "label": "Progesterone Receptor-Positive Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C27209",
+                            "label": "Radiation-Related Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4813",
+                            "label": "Recurrent Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C120186",
+                            "label": "Refractory Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C150602",
+                            "label": "Resectable Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C9118",
+                            "label": "Sarcoma",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C4968",
+                            "label": "Secondary Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C201136",
+                            "label": "Solid Pseudopapillary Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C177364",
+                            "label": "Somatic-Type Malignancy",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C4969",
+                            "label": "Therapy-Related Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C36051",
+                            "label": "Undifferentiated Malignant Neoplasm",
+                            "leaf": true
+                          },
+                          {
+                            "code": "C27359",
+                            "label": "Unresectable Malignant Neoplasm",
+                            "leaf": false
+                          },
+                          {
+                            "code": "C36052",
+                            "label": "Well Differentiated Malignant Neoplasm",
+                            "leaf": false
+                          }
+                        ]
+                      },
+                      {
+                        "code": "C3261",
+                        "label": "Metastatic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C102883",
+                        "label": "Miscellaneous Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C6930",
+                        "label": "Mixed Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36029",
+                        "label": "Necrotic Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C27933",
+                        "label": "Neoplasm by Cause",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C45230",
+                        "label": "Neoplasm by Obsolete Classification",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C6974",
+                        "label": "Neoplasm of Uncertain Histogenesis",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C3646",
+                        "label": "Neoplasm of Uncertain Malignant Potential",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C65157",
+                        "label": "Neoplasm, Uncertain Whether Benign or Malignant",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C7068",
+                        "label": "Neoplastic Polyp",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36012",
+                        "label": "Nodular Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C36036",
+                        "label": "Non-Encapsulated Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C163003",
+                        "label": "Non-Malignant Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C36030",
+                        "label": "Osteolytic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36031",
+                        "label": "Papillary Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36032",
+                        "label": "Premalignant Neoplasm",
+                        "leaf": true
+                      },
+                      {
+                        "code": "C8509",
+                        "label": "Primary Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C7201",
+                        "label": "Rare Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C4798",
+                        "label": "Recurrent Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C7628",
+                        "label": "Refractory Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C211531",
+                        "label": "Resectable Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36255",
+                        "label": "Secondary Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C9292",
+                        "label": "Solid Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C27263",
+                        "label": "Spindle Cell Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C36033",
+                        "label": "Tubular Neoplasm",
+                        "leaf": true
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "code": "C53529",
+                "label": "Non-Neoplastic Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C89328",
+                "label": "Pediatric Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C3340",
+                "label": "Polyp",
+                "leaf": false
+              },
+              {
+                "code": "C2893",
+                "label": "Psychiatric Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C26684",
+                "label": "Radiation-Induced Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C4873",
+                "label": "Rare Disorder",
+                "leaf": false
+              },
+              {
+                "code": "C28193",
+                "label": "Syndrome",
+                "leaf": false
+              }
+            ]
+          },
+          {
+            "code": "C3367",
+            "label": "Finding",
+            "leaf": false
+          }
+        ]
+      },
+      {
+        "code": "C1908",
+        "label": "Drug, Food, Chemical or Biomedical Material",
+        "leaf": false
+      },
+      {
+        "code": "C22188",
+        "label": "Experimental Organism Anatomical Concept",
+        "leaf": false
+      },
+      {
+        "code": "C22187",
+        "label": "Experimental Organism Diagnosis",
+        "leaf": false
+      },
+      {
+        "code": "C16612",
+        "label": "Gene",
+        "leaf": false
+      },
+      {
+        "code": "C26548",
+        "label": "Gene Product",
+        "leaf": false
+      },
+      {
+        "code": "C97325",
+        "label": "Manufactured Object",
+        "leaf": false
+      },
+      {
+        "code": "C3910",
+        "label": "Molecular Abnormality",
+        "leaf": false
+      },
+      {
+        "code": "C14250",
+        "label": "Organism",
+        "leaf": false
+      },
+      {
+        "code": "C20189",
+        "label": "Property or Attribute",
+        "leaf": false
+      },
+      {
+        "code": "C28428",
+        "label": "Retired Concept",
+        "leaf": false
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:25 PM
+-----------------------------------------------------
+

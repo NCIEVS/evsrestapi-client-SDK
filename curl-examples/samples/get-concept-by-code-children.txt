@@ -12,7 +12,7 @@
   {
     "code": "C131506",
     "name": "Childhood Melanoma",
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C3510",
@@ -25,11 +25,6 @@
     "leaf": false
   },
   {
-    "code": "C9499",
-    "name": "Melanomatosis",
-    "leaf": false
-  },
-  {
     "code": "C8925",
     "name": "Metastatic Melanoma",
     "leaf": false
@@ -37,6 +32,11 @@
   {
     "code": "C66756",
     "name": "Mixed Epithelioid and Spindle Cell Melanoma",
+    "leaf": false
+  },
+  {
+    "code": "C205125",
+    "name": "Nodular Melanoma",
     "leaf": false
   },
   {
@@ -75,6 +75,11 @@
     "leaf": false
   },
   {
+    "code": "C190239",
+    "name": "Resectable Melanoma",
+    "leaf": false
+  },
+  {
     "code": "C4237",
     "name": "Spindle Cell Melanoma",
     "leaf": false
@@ -85,3 +90,4 @@
     "leaf": false
   }
 ]
+

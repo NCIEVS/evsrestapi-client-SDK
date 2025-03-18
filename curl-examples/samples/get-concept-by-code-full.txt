@@ -2,46 +2,44 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "21.11e",
+  "version": "25.02d",
+  "conceptStatus": "DEFAULT",
   "leaf": false,
+  "active": true,
   "synonyms": [
     {
       "name": "Melanoma",
-      "type": "Display_Name"
-    },
-    {
-      "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "NCI"
+      "source": "caDSR"
     },
     {
       "name": "Malignant Melanoma",
-      "termGroup": "SY",
+      "termType": "SY",
       "type": "FULL_SYN",
       "source": "CDISC"
     },
     {
+      "name": "MELANOMA, MALIGNANT",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CDISC"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "Cellosaurus"
+    },
+    {
       "name": "Malignant Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CPTAC"
     },
     {
       "name": "Melanoma",
-      "termGroup": "DN",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "CTRP"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CTEP",
       "code": "10053571",
@@ -49,52 +47,56 @@
     },
     {
       "name": "Melanoma",
-      "termGroup": "PT",
+      "termType": "DN",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "CTRP"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "GDC"
     },
     {
-      "name": "Melanoma",
-      "termGroup": "PT",
+      "name": "Melanoma, NOS",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "Cellosaurus"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NCI"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "SY",
-      "type": "FULL_SYN",
-      "source": "caDSR"
-    },
-    {
-      "name": "Melanoma",
-      "termGroup": "PT",
-      "type": "FULL_SYN",
-      "source": "NICHD"
+      "source": "GDC"
     },
     {
       "name": "melanoma",
-      "termGroup": "PT",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     },
     {
-      "name": "MELANOMA, MALIGNANT",
-      "termGroup": "PT",
+      "name": "Malignant Melanoma",
+      "termType": "SY",
       "type": "FULL_SYN",
-      "source": "CDISC"
+      "source": "NCI"
     },
     {
-      "name": "Melanoma, NOS",
-      "termGroup": "SY",
+      "name": "Melanoma",
+      "termType": "PT",
       "type": "FULL_SYN",
-      "source": "GDC"
+      "source": "NCI"
+    },
+    {
+      "name": "Melanoma",
+      "termType": "PT",
+      "type": "FULL_SYN",
+      "source": "NICHD"
+    },
+    {
+      "name": "Melanoma",
+      "type": "Display_Name"
     },
     {
       "name": "Melanoma",
@@ -165,6 +167,22 @@
       "value": "Melanoma"
     },
     {
+      "type": "Maps_To",
+      "value": "8720/3"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Malignant melanoma, NOS"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Melanoma"
+    },
+    {
+      "type": "Maps_To",
+      "value": "Melanoma, NOS"
+    },
+    {
       "type": "Neoplastic_Status",
       "value": "Malignant"
     },
@@ -191,7 +209,7 @@
     {
       "code": "C131506",
       "name": "Childhood Melanoma",
-      "leaf": true
+      "leaf": false
     },
     {
       "code": "C3510",
@@ -204,11 +222,6 @@
       "leaf": false
     },
     {
-      "code": "C9499",
-      "name": "Melanomatosis",
-      "leaf": false
-    },
-    {
       "code": "C8925",
       "name": "Metastatic Melanoma",
       "leaf": false
@@ -216,6 +229,11 @@
     {
       "code": "C66756",
       "name": "Mixed Epithelioid and Spindle Cell Melanoma",
+      "leaf": false
+    },
+    {
+      "code": "C205125",
+      "name": "Nodular Melanoma",
       "leaf": false
     },
     {
@@ -254,6 +272,11 @@
       "leaf": false
     },
     {
+      "code": "C190239",
+      "name": "Resectable Melanoma",
+      "leaf": false
+    },
+    {
       "code": "C4237",
       "name": "Spindle Cell Melanoma",
       "leaf": false
@@ -289,6 +312,11 @@
       "type": "Concept_In_Subset",
       "relatedCode": "C165258",
       "relatedName": "Cellosaurus Disease Terminology"
+    },
+    {
+      "type": "Concept_In_Subset",
+      "relatedCode": "C192842",
+      "relatedName": "Cellosaurus Terminology"
     },
     {
       "type": "Concept_In_Subset",
@@ -419,6 +447,11 @@
       "type": "Concept_In_Subset",
       "relatedCode": "C90259",
       "relatedName": "NICHD Terminology"
+    },
+    {
+      "type": "Concept_In_Subset",
+      "relatedCode": "C189762",
+      "relatedName": "Pediatric Adverse Events Terminology Mapped to MedDRA"
     },
     {
       "type": "Concept_In_Subset",
@@ -604,12 +637,17 @@
     {
       "type": "Disease_May_Have_Associated_Disease",
       "relatedCode": "C27264",
-      "relatedName": "Familial Atypical Mole Melanoma Syndrome"
+      "relatedName": "Hereditary Atypical Mole Melanoma Syndrome"
     },
     {
       "type": "Disease_May_Have_Associated_Disease",
       "relatedCode": "C8495",
       "relatedName": "Hereditary Retinoblastoma"
+    },
+    {
+      "type": "Disease_May_Have_Associated_Disease",
+      "relatedCode": "C192671",
+      "relatedName": "Hereditary Tumor Syndrome Associated with Homologous Recombination Pathway Mutations"
     },
     {
       "type": "Gene_Associated_With_Disease",
@@ -655,6 +693,16 @@
       "type": "Gene_Product_Is_Biomarker_Of",
       "relatedCode": "C17513",
       "relatedName": "Melanoma-Associated Antigen 3"
+    },
+    {
+      "type": "Disease_May_Have_Associated_Disease",
+      "relatedCode": "C176905",
+      "relatedName": "Melanoma-Astrocytoma Syndrome"
+    },
+    {
+      "type": "Disease_May_Have_Associated_Disease",
+      "relatedCode": "C176904",
+      "relatedName": "Melanoma-Pancreatic Cancer Syndrome"
     },
     {
       "type": "Gene_Product_Malfunction_Associated_With_Disease",
@@ -747,18 +795,1200 @@
       "relatedName": "XRCC3 wt Allele"
     }
   ],
+  "history": [
+    {
+      "code": "C3224",
+      "action": "create",
+      "date": "2003-08-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2003-09-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2003-10-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2003-12-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2004-03-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2004-09-10"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2005-03-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2006-01-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2006-01-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2006-09-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2007-03-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2007-04-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2009-10-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2009-11-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2010-06-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2010-06-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-02-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-04-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-11-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-11-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-11-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-12-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-12-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-12-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2011-12-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-01-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-01-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-01-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-01-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-02-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-02-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-02-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-02-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-03-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-03-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-03-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-03-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-04-02"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-04-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-04-16"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-04-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-04-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-05-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-05-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-05-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-05-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-06-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-06-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-06-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-06-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-06-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-07-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-07-16"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-07-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-07-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-08-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-08-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-08-20"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-08-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-09-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-09-10"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-09-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-09-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-10-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-10-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-10-15"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-10-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-10-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-11-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-11-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-11-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-11-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-12-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-12-10"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-12-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2012-12-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-01-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-01-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-01-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-02-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-02-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-02-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-02-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-03-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-03-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-03-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-03-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-04-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-04-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-04-15"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-04-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-04-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-05-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-05-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-05-20"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-05-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-06-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-06-10"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-06-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-06-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-07-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2013-07-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-02-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-03-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-08-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-09-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-10-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-11-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-11-10"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-11-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-11-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-12-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-12-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-12-15"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-12-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2014-12-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-01-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-01-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-01-20"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-01-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-02-02"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-02-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-02-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-02-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-03-02"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-03-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-03-16"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-03-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-03-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-04-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-04-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-04-20"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-04-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-05-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-05-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-05-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-05-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-06-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-06-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-06-15"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-06-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-06-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-07-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-07-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-08-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-08-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-08-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-09-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-09-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-09-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-09-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-10-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-10-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-10-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-10-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-11-02"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-11-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-11-16"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-11-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-11-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-12-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-12-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-12-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2015-12-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-01-04"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-01-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-01-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-01-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-04-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-04-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-05-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-05-16"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-05-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-05-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-06-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-06-13"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-06-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-06-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-07-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-07-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-07-18"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-07-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-08-01"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-08-08"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-08-15"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-08-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-08-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-09-06"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-09-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-09-20"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-09-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-10-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-10-11"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-10-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-10-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-10-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-11-07"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-11-14"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-11-21"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-11-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-12-05"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-12-12"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-12-19"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2016-12-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-01-03"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-01-09"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-01-17"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-01-23"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-07-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-09-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2017-12-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-02-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-07-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-10-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-10-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-11-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2018-12-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-03-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-04-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-05-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-06-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-07-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-09-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-10-28"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2019-11-25"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2020-02-24"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2020-03-30"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2020-04-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2020-08-31"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2020-09-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2021-02-22"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2021-03-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2021-11-29"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2022-09-26"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2023-02-27"
+    },
+    {
+      "code": "C3224",
+      "action": "modify",
+      "date": "2023-12-26"
+    }
+  ],
   "maps": [
     {
       "type": "Related To",
       "targetName": "8720/3",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "morphology",
       "targetTerminology": "GDC"
     },
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "8720/3",
       "targetTerminology": "ICDO3",
       "targetTerminologyVersion": "3.2"
@@ -766,7 +1996,7 @@
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "8720/3",
       "targetTerminology": "ICDO3",
       "targetTerminologyVersion": "3.1"
@@ -774,21 +2004,21 @@
     {
       "type": "Related To",
       "targetName": "Malignant melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "primary_diagnosis",
       "targetTerminology": "GDC"
     },
     {
       "type": "Has Synonym",
       "targetName": "Melanoma, NOS",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "primary_diagnosis",
       "targetTerminology": "GDC"
     },
     {
       "type": "Has Synonym",
       "targetName": "Melanoma",
-      "targetTermGroup": "LLT",
+      "targetTermType": "LLT",
       "targetCode": "10053571",
       "targetTerminology": "MedDRA",
       "targetTerminologyVersion": "18.1"
@@ -796,9 +2026,10 @@
     {
       "type": "Has Synonym",
       "targetName": "Melanoma",
-      "targetTermGroup": "PT",
+      "targetTermType": "PT",
       "targetCode": "relationship_primary_diagnosis",
       "targetTerminology": "GDC"
     }
   ]
 }
+
