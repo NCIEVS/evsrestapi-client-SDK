@@ -597,6 +597,7 @@ public class ConceptMap {
   static {
     // a set of all properties/fields (JSON key names)
     openapiFields = new HashSet<String>();
+    openapiFields.add("mapsetCode");
     openapiFields.add("uri");
     openapiFields.add("ct");
     openapiFields.add("source");
@@ -610,6 +611,7 @@ public class ConceptMap {
     openapiFields.add("rank");
     openapiFields.add("group");
     openapiFields.add("rule");
+    openapiFields.add("target");
     openapiFields.add("targetName");
     openapiFields.add("targetTermType");
     openapiFields.add("targetCode");
@@ -617,6 +619,7 @@ public class ConceptMap {
     openapiFields.add("targetTerminologyVersion");
     openapiFields.add("targetLoaded");
     openapiFields.add("targetTermGroup");
+    openapiFields.add("sortKey");
 
     // a set of required properties/fields (JSON key names)
     openapiRequiredFields = new HashSet<String>();

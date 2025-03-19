@@ -58,7 +58,7 @@ func TestMapsetEndpointsAPIService(t *testing.T) {
 		maps := resp.GetMaps()
 
 		for _, m := range maps {
-			assert.Equal(t, m.GetSource(), "GO")
+			assert.Equal(t, m.GetSource(), "go")
 			assert.Equal(t, m.GetTargetTerminology(), "NCI_Thesaurus")
 		}
 
