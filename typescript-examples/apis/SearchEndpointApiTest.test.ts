@@ -52,7 +52,7 @@ describe("TestSearchEndpointApi", () => {
     const conceptStatus: string = "Retired_Concept";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 18;
+    const expectedTotal: number = 19;
     let containsExpectedStatus: boolean = false;
 
     // ACT
@@ -85,7 +85,7 @@ describe("TestSearchEndpointApi", () => {
     const definitionSource: string = "NCI";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 12;
+    const expectedTotal: number = 13;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, definitionSource);
@@ -108,7 +108,7 @@ describe("TestSearchEndpointApi", () => {
     const definitionType: string = "DEFINITION";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 1508;
+    const expectedTotal: number = 1531;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, definitionType);
@@ -132,7 +132,7 @@ describe("TestSearchEndpointApi", () => {
     const termType: string = "PT";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 13;
+    const expectedTotal: number = 14;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, synonymSource, undefined, termType);
@@ -155,7 +155,7 @@ describe("TestSearchEndpointApi", () => {
     const synonymType: string = "FULL_SYN";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 13;
+    const expectedTotal: number = 14;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, undefined, synonymType);
@@ -223,7 +223,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 48;
+    const expectedTotal: number = 49;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
@@ -245,7 +245,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 269;
+    const expectedTotal: number = 273
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
@@ -287,7 +287,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 148;
+    const expectedTotal: number = 150;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
