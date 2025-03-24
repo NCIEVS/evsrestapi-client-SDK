@@ -9,21 +9,10 @@ healthy_scripts = []
 unhealthy_scripts = []
 
 def check_java_installation():
-    no_java = False
-    no_gradle = False
-    """Checks if java and gradle are installed and exits with an error if not."""
     try:
         subprocess.run(["java", "--version"], capture_output=True, check=True)
     except subprocess.CalledProcessError:
         print("Java is not installed or not accessible.", file=sys.stderr)
-        no_java = True
-    try:
-        subprocess.run(["gradle", "--version"], capture_output=True, check=True)
-    except subprocess.CalledProcessError:
-        print("Gradle is not installed or not accessible.", file=sys.stderr)
-        no_gradle = True
-    if no_java or no_gradle:
-        print("Please install Java and Gradle to run the java_check script.")
         sys.exit(1)
 
 def execute_java(command):
@@ -72,9 +61,9 @@ def process_markdown():
         
         if in_section:
             # found a java command
-            if line.startswith("$ ./"):
+            if line.startswith("`./gradlew test "):
                 java_command = line.strip()
-                current_section["javas"].append(java_command[2:])
+                current_section["javas"].append(java_command[3:-1])
             
             # all sample files are in the samples directory, so look for that
             file_matches = re.findall(r'`samples/([^`]+)`', line)

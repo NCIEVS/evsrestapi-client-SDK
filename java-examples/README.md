@@ -383,7 +383,7 @@ See sample payload data from this call in [`samples/get-subtree.txt`](samples/ge
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology. This
 example uses paging to get only the first 5 results. Include is set to minimal.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term.txt`](samples/find-concepts-by-search-term.txt)
 
@@ -395,7 +395,7 @@ Run the gradle command in the terminal to find concepts matching a search term w
 restrict the search results by concept status of "Retired_Concept". This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByConceptStatusTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByConceptStatusTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-retired-concepts.txt`](samples/find-concepts-by-search-term-retired-concepts.txt)
 
@@ -407,7 +407,7 @@ Run the gradle command in the terminal to find concepts matching a search term w
 terminology and restrict the search results by a definition source of "NCI". This example uses paging to get only the
 first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByDefinitionSourceTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionSourceTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-definition-nci.txt`](samples/find-concepts-by-search-term-definition-nci.txt)
 
@@ -419,7 +419,7 @@ Run the gradle command in the terminal to find concepts matching a search term w
 restrict the search results by a definition type of "DEFINITION". This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterByDefinitionTypeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterByDefinitionTypeTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-nci-pt.txt`](samples/find-concepts-by-search-term-nci-pt.txt)
 
@@ -430,7 +430,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and restrict the search results by a synonym source of "NCI" and synonymTermType of "PT".
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymSourceAndTermTypeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymSourceAndTermTypeTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-synonym-souce-and-term-type.txt`](samples/find-concepts-by-search-term-synonym-souce-and-term-type.txt)
 
@@ -441,7 +441,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term with a specified synonym type. This
 example restricts results to matching FULL_SYNs.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchFilterBySynonymType`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchFilterBySynonymType`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-synonym-type.txt`](samples/find-concepts-by-search-term-synonym-type.txt)
 
@@ -452,7 +452,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and restrict the search results using a code as the search term.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByCodeTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByCodeTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-C3224.txt`](samples/find-concepts-by-search-term-C3224.txt)
 
@@ -463,7 +463,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "match". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeMatchTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeMatchTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-match.txt`](samples/find-concepts-by-search-term-match.txt)
 
@@ -474,7 +474,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and a search type of "startsWith". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeStartsWithTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeStartsWithTest`
 
 ```
 [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = startsWith
@@ -675,7 +675,7 @@ terminology and a search type of "startsWith". This example uses paging to get o
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "phrase". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypePhraseTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypePhraseTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-startsWith.txt`](samples/find-concepts-by-search-term-startsWith.txt)
 
@@ -686,7 +686,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology
 and a search type of "fuzzy". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeFuzzyTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeFuzzyTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-fuzzy.txt`](samples/find-concepts-by-search-term-fuzzy.txt)
 
@@ -697,7 +697,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "AND". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeANDTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeANDTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-AND.txt`](samples/find-concepts-by-search-term-AND.txt)
 
@@ -708,7 +708,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 Run the gradle command in the terminal to find concepts matching a search term within a specified terminology and
 a search type of "OR". This example uses paging to get only the first 5 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchByTypeORTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchByTypeORTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-OR.txt`](samples/find-concepts-by-search-term-OR.txt)
 
@@ -720,7 +720,7 @@ Run the gradle command in the terminal to find concepts matching a search term w
 terminology and include synonyms and highlighted text in the response. This example uses paging to get only the first 5
 results.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchWithHighlightsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchWithHighlightsTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-term-highlights.txt`](samples/find-concepts-by-search-term-highlights.txt)
 
@@ -732,7 +732,7 @@ Run the gradle command in the terminal to find concepts matching a search term t
 of properties. The search results are set to include the property values so you can easily see the match. The property
 setting here can be either based on code or on label
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchConceptsByPropertyTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsByPropertyTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-property-label.txt`](samples/find-concepts-by-search-property-label.txt)
 
@@ -743,7 +743,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-prop
 Find concepts matching a search term and restrict results to members of one or more subsets. This example searches
 within C165258 (e.g. Cellosaurus Disease Terminology).
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.searchConceptsBySubsetTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.searchConceptsBySubsetTest`
 
 See sample payload data from this call in [`samples/find-concepts-by-search-subset.txt`](samples/find-concepts-by-search-subset.txt)
 
@@ -751,7 +751,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-subs
 
 Run the gradle command in the terminal to find concepts for a specified SPARQL query that returns a ?code field.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.findConceptsBySparqlCode`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.findConceptsBySparqlCode`
 
 See sample payload data from this call in [`samples/find-concepts-by-sparql-code.txt`](samples/find-concepts-by-sparql-code.txt)
 
@@ -837,7 +837,7 @@ See sample payload data from this call in [`samples/get-replacements-for-concept
 
 Run the gradle command in the terminal to get SPARQL bindings for a specified SPARQL query.
 
-`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointsApiTest.getSPARQLBindingsTest`
+`./gradlew test --tests gov.nih.nci.evs.api.SearchEndpointApiTest.getSPARQLBindingsTest`
 
 See sample payload data from this call in [`samples/get-sparql-bindings.txt`](samples/get-sparql-bindings.txt)
 
