@@ -1,0 +1,203 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 109 STANDARD_ERROR
+    Mar 24, 2025 4:39:30 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 17 tests were Method or class mismatch
+
+SearchEndpointApiTest > searchTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for - ncit
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
+        uri: null
+        ct: null
+        total: 198932
+        timeTaken: 80
+        parameters: class SearchCriteria {
+            uri: null
+            ct: null
+            term: null
+            type: contains
+            include: minimal
+            sort: null
+            ascending: true
+            fromRecord: 0
+            pageSize: 5
+            conceptStatus: []
+            property: []
+            value: null
+            synonymSource: []
+            synonymType: []
+            definitionSource: []
+            definitionType: []
+            synonymTermType: []
+            subset: []
+            codeList: []
+            terminology: [ncit]
+            sparql: null
+        }
+        concepts: [class Concept {
+            uri: null
+            ct: null
+            code: C1000
+            name: Recombinant Amphiregulin
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C100000
+            name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C100003
+            name: Percutaneous Mitral Valve Repair
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C100006
+            name: Pre-Operative Evaluation for Non-Cardiovascular Surgery
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C100009
+            name: Reused Cardiac Lead
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }]
+    }
+
+SearchEndpointApiTest > searchTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

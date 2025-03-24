@@ -1,0 +1,580 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 104 STANDARD_ERROR
+    Mar 24, 2025 4:39:13 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 22 tests were Method or class mismatch
+
+ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get root concepts for terminology - ncit
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    root concepts = [class Concept {
+        uri: null
+        ct: null
+        code: C12913
+        name: Abnormal Cell
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C43431
+        name: Activity
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C12219
+        name: Anatomic Structure, System, or Substance
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C20633
+        name: Biochemical Pathway
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C17828
+        name: Biological Process
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C12218
+        name: Chemotherapy Regimen or Agent Combination
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C20181
+        name: Conceptual Entity
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C20047
+        name: Diagnostic or Prognostic Factor
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C7057
+        name: Disease, Disorder or Finding
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C1908
+        name: Drug, Food, Chemical or Biomedical Material
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C22188
+        name: Experimental Organism Anatomical Concept
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C22187
+        name: Experimental Organism Diagnosis
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C16612
+        name: Gene
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C26548
+        name: Gene Product
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C97325
+        name: Manufactured Object
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3910
+        name: Molecular Abnormality
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C14250
+        name: Organism
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C20189
+        name: Property or Attribute
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C28428
+        name: Retired Concept
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
+
+ConceptEndpointsApiTest > getRootsTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+
