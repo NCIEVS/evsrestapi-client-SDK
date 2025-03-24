@@ -252,17 +252,10 @@ The third call returns summary information for the three listed qualifiers (by c
 The fourth call returns summary information for the three listed qualifiers (by label).
 
 ```
-<<<<<<< .mine
-curl "$API_URL/metadata/ncit/qualifiers" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/qualifiers?list=go-id,attribution&include=summary" | jq '.'
-=======
 curl "$API_URL/metadata/ncit/qualifiers" | jq .
 curl "$API_URL/metadata/ncit/qualifiers?include=summary" | jq .
 curl "$API_URL/metadata/ncit/qualifiers?list=P387,P381&include=summary" | jq .
 curl "$API_URL/metadata/ncit/qualifiers?list=def-source,attr&include=summary" | jq .
->>>>>>> .theirs
 ```
 
 See sample payload data from this call in:
@@ -367,13 +360,8 @@ See sample payload data from this call in
 Return association for the specified code or label.
 
 ```
-<<<<<<< .mine
-curl "$API_URL/metadata/ncit/association/A16?include=summary" | jq '.'
-curl "$API_URL/metadata/ncit/association/Has_INC_Parent?include=summary" | jq '.'
-=======
 curl "$API_URL/metadata/ncit/association/A16?include=summary" | jq .
 curl "$API_URL/metadata/ncit/association/Has_INC_Parent?include=summary" | jq .
->>>>>>> .theirs
 ```
 
 See sample payload data from this call in:
