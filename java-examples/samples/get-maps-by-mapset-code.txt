@@ -1,0 +1,583 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 131 STANDARD_ERROR
+    Mar 24, 2025 4:40:42 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 2 tests were Method or class mismatch
+
+MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mappings for mapsets by code
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class ConceptMapResultList {
+        uri: null
+        ct: null
+        total: 305
+        timeTaken: null
+        parameters: class SearchCriteria {
+            uri: null
+            ct: null
+            term: null
+            type: contains
+            include: minimal
+            sort: null
+            ascending: true
+            fromRecord: 0
+            pageSize: 25
+            conceptStatus: []
+            property: []
+            value: null
+            synonymSource: []
+            synonymType: []
+            definitionSource: []
+            definitionType: []
+            synonymTermType: []
+            subset: []
+            codeList: []
+            terminology: []
+            sparql: null
+        }
+        maps: [class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: DNA integration
+            sourceTermType: null
+            sourceCode: GO:0015074
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: DNA Integration
+            targetTermType: null
+            targetCode: C18855
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: DNA modification
+            sourceTermType: null
+            sourceCode: GO:0006304
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: DNA Modification Process
+            targetTermType: null
+            targetCode: C19449
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: DNA recombination
+            sourceTermType: null
+            sourceCode: GO:0006310
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: DNA Recombination Process
+            targetTermType: null
+            targetCode: C17082
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: RNA binding
+            sourceTermType: null
+            sourceCode: GO:0003723
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: RNA Binding
+            targetTermType: null
+            targetCode: C20737
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: RNA polyadenylation
+            sourceTermType: null
+            sourceCode: GO:0043631
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: RNA Polyadenylation
+            targetTermType: null
+            targetCode: C18947
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: RNA splicing
+            sourceTermType: null
+            sourceCode: GO:0008380
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: RNA Splicing
+            targetTermType: null
+            targetCode: C17106
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: T cell activation
+            sourceTermType: null
+            sourceCode: GO:0042110
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: T-Cell Activation
+            targetTermType: null
+            targetCode: C19053
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: antibody-dependent cellular cytotoxicity
+            sourceTermType: null
+            sourceCode: GO:0001788
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Antibody-Dependent Cellular Cytotoxicity
+            targetTermType: null
+            targetCode: C16298
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: biogenic amine metabolic process
+            sourceTermType: null
+            sourceCode: GO:0006576
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Biogenic Amine Metabolic Process
+            targetTermType: null
+            targetCode: C40625
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: catabolic process
+            sourceTermType: null
+            sourceCode: GO:0009056
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Catabolic Process
+            targetTermType: null
+            targetCode: C41544
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: cytokinesis
+            sourceTermType: null
+            sourceCode: GO:0000910
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Cytokinesis
+            targetTermType: null
+            targetCode: C16489
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: depurination
+            sourceTermType: null
+            sourceCode: GO:0045007
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Depurination
+            targetTermType: null
+            targetCode: C41574
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: dorsal/ventral pattern formation
+            sourceTermType: null
+            sourceCode: GO:0009953
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Dorsal-Ventral Pattern Formation
+            targetTermType: null
+            targetCode: C19971
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: double-strand break repair via nonhomologous end joining
+            sourceTermType: null
+            sourceCode: GO:0006303
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Nonhomologous DNA End Joining
+            targetTermType: null
+            targetCode: C20207
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: glucagon receptor binding
+            sourceTermType: null
+            sourceCode: GO:0031769
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Glucagon Receptor Binding
+            targetTermType: null
+            targetCode: C40506
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: growth factor binding
+            sourceTermType: null
+            sourceCode: GO:0019838
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Growth Factor Binding
+            targetTermType: null
+            targetCode: C40508
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: inflammatory response
+            sourceTermType: null
+            sourceCode: GO:0006954
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Inflammatory Response
+            targetTermType: null
+            targetCode: C20151
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: intracellular transport
+            sourceTermType: null
+            sourceCode: GO:0046907
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Intracellular Transport
+            targetTermType: null
+            targetCode: C18146
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: leukocyte migration
+            sourceTermType: null
+            sourceCode: GO:0050900
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Leukocyte Trafficking
+            targetTermType: null
+            targetCode: C19438
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: lipid metabolic process
+            sourceTermType: null
+            sourceCode: GO:0006629
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Lipid Metabolic Process
+            targetTermType: null
+            targetCode: C19405
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: lung development
+            sourceTermType: null
+            sourceCode: GO:0030324
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Lung Development
+            targetTermType: null
+            targetCode: C19443
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: lymphocyte activation
+            sourceTermType: null
+            sourceCode: GO:0046649
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Lymphocyte Activation Process
+            targetTermType: null
+            targetCode: C40833
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: menarche
+            sourceTermType: null
+            sourceCode: GO:0042696
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Menarche
+            targetTermType: null
+            targetCode: C3228
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: mitotic cell cycle
+            sourceTermType: null
+            sourceCode: GO:0000278
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Cell Cycle Process
+            targetTermType: null
+            targetCode: C16397
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: go
+            sourceName: mitotic telophase
+            sourceTermType: null
+            sourceCode: GO:0000093
+            sourceTerminology: GO
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: mapsTo
+            rank: 1
+            group: null
+            rule: null
+            targetName: Telophase
+            targetTermType: null
+            targetCode: C17189
+            targetTerminology: NCI_Thesaurus
+            targetTerminologyVersion: 23.02d
+            targetLoaded: null
+            targetTermGroup: null
+        }]
+    }
+
+MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

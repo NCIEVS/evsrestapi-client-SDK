@@ -1,0 +1,4151 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 85 STANDARD_ERROR
+    Mar 24, 2025 4:38:12 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 22 tests were Method or class mismatch
+
+ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a full concept for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: caDSR
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: CDISC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: MELANOMA, MALIGNANT
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CDISC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: Cellosaurus
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CPTAC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CTEP
+            code: 10053571
+            subSource: SDC
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: DN
+            type: FULL_SYN
+            source: CTRP
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CTRP
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: GDC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma, NOS
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: GDC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NCI-GLOSS
+            code: CDR0000045135
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NICHD
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: null
+            type: Display_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: [class Definition {
+            uri: null
+            ct: null
+            definition: A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.
+            highlight: null
+            type: ALT_DEFINITION
+            source: NCI-GLOSS
+            qualifiers: []
+        }, class Definition {
+            uri: null
+            ct: null
+            definition: A malignant neoplasm composed of melanocytes.
+            highlight: null
+            type: ALT_DEFINITION
+            source: CDISC
+            qualifiers: []
+        }, class Definition {
+            uri: null
+            ct: null
+            definition: A malignant neoplasm comprised of melanocytes typically arising in the skin.
+            highlight: null
+            type: ALT_DEFINITION
+            source: NICHD
+            qualifiers: []
+        }, class Definition {
+            uri: null
+            ct: null
+            definition: A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.
+            highlight: null
+            type: DEFINITION
+            source: NCI
+            qualifiers: []
+        }]
+        properties: [class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: CDISC
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: Cellosaurus
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: CPTAC
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: CTEP
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: CTRP
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: GDC
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: MedDRA
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: NICHD
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: ICD-O-3_Code
+            value: 8720/3
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Legacy Concept Name
+            value: Melanoma
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Maps_To
+            value: 8720/3
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Maps_To
+            value: Malignant melanoma, NOS
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Maps_To
+            value: Melanoma
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Maps_To
+            value: Melanoma, NOS
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Neoplastic_Status
+            value: Malignant
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Semantic_Type
+            value: Neoplastic Process
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: UMLS_CUI
+            value: C0025202
+            highlight: null
+            qualifiers: []
+            source: null
+        }]
+        children: [class Concept {
+            uri: null
+            ct: null
+            code: C3802
+            name: Amelanotic Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8410
+            name: Breast Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: true
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C131506
+            name: Childhood Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C3510
+            name: Cutaneous Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4236
+            name: Epithelioid Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8925
+            name: Metastatic Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C66756
+            name: Mixed Epithelioid and Spindle Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C205125
+            name: Nodular Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8711
+            name: Non-Cutaneous Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8562
+            name: Ocular Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C118828
+            name: Orbital Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: true
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C162547
+            name: Penile Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C7087
+            name: Recurrent Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C147983
+            name: Refractory Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4228
+            name: Regressing Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C190239
+            name: Resectable Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4237
+            name: Spindle Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C148517
+            name: Unresectable Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }]
+        parents: [class Concept {
+            uri: null
+            ct: null
+            code: C9305
+            name: Malignant Neoplasm
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: null
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C7058
+            name: Melanocytic Neoplasm
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: null
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }]
+        descendants: []
+        associations: [class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C77526
+            relatedName: CDISC SEND Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C88025
+            relatedName: CDISC SEND Tumor Findings Results Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C165258
+            relatedName: Cellosaurus Disease Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C192842
+            relatedName: Cellosaurus Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C61410
+            relatedName: Clinical Data Interchange Standards Consortium Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C138188
+            relatedName: Clinical Trials Search-Application Programming Interface Disease Category Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C156953
+            relatedName: CPTAC Baseline Medical Forms Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C158520
+            relatedName: CPTAC Codelists Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C159415
+            relatedName: CPTAC Melanoma Baseline Form
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C156966
+            relatedName: CPTAC Neoplasms Codelist
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C156952
+            relatedName: CPTAC Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C157534
+            relatedName: CPTAC Uveal Melanoma Baseline Form
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C118168
+            relatedName: CTRP Disease Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C116977
+            relatedName: CTRP Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C138190
+            relatedName: CTS-API Disease Main Type Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Is_Value_For_GDC_Property
+            relatedCode: C178243
+            relatedName: Family Cancer History Relative Primary Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C157711
+            relatedName: GDC Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C177537
+            relatedName: GDC Value Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Is_Value_For_GDC_Property
+            relatedCode: C176985
+            relatedName: Histology ICD-O Morphology Code
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Is_Value_For_GDC_Property
+            relatedCode: C177621
+            relatedName: ICD-O-3 Morphology Term Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168658
+            relatedName: Mapped ICDO3.1 Morphology PT Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168657
+            relatedName: Mapped ICDO3.1 Morphology Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168655
+            relatedName: Mapped ICDO3.1 Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168662
+            relatedName: Mapped ICDO3.2 Morphology PT Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168661
+            relatedName: Mapped ICDO3.2 Morphology Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C168656
+            relatedName: Mapped ICDO3.2 Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C103113
+            relatedName: NCI CTEP SDC Melanoma Sub-Category Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C102905
+            relatedName: NCI CTEP Simplified Disease Classification Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C126659
+            relatedName: NCIt Neoplasm Core Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C90259
+            relatedName: NICHD Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C189762
+            relatedName: Pediatric Adverse Events Terminology Mapped to MedDRA
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Concept_In_Subset
+            relatedCode: C118464
+            relatedName: Pediatric Adverse Events Terminology
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Neoplasm_Has_Special_Category
+            relatedCode: C9292
+            relatedName: Solid Neoplasm
+            source: null
+            highlight: null
+            qualifiers: []
+        }]
+        inverseAssociations: [class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C178243
+            relatedName: Family Cancer History Relative Primary Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C176985
+            relatedName: Histology ICD-O Morphology Code
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C177621
+            relatedName: ICD-O-3 Morphology Term Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }]
+        roles: [class Role {
+            uri: null
+            ct: null
+            type: Disease_Excludes_Finding
+            relatedCode: C36122
+            relatedName: Benign Cellular Infiltrate
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Finding
+            relatedCode: C43268
+            relatedName: HMB-45-Positive Neoplastic Cells Present
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Abnormal_Cell
+            relatedCode: C12917
+            relatedName: Malignant Cell
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Finding
+            relatedCode: C36115
+            relatedName: Malignant Cellular Infiltrate
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Normal_Cell_Origin
+            relatedCode: C12591
+            relatedName: Melanocyte
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Abnormal_Cell
+            relatedCode: C36873
+            relatedName: Melanoma Cell
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Abnormal_Cell
+            relatedCode: C12922
+            relatedName: Neoplastic Cell
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Abnormal_Cell
+            relatedCode: C36862
+            relatedName: Neoplastic Melanocyte
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Finding
+            relatedCode: C40993
+            relatedName: S-100-Positive Neoplastic Cells Present
+            source: null
+            highlight: null
+            qualifiers: []
+        }]
+        disjointWith: []
+        inverseRoles: [class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C21390
+            relatedName: Beta/Gamma Crystallin Domain-Containing Protein 1
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C36101
+            relatedName: BRCA2-Associated Hereditary Breast and Ovarian Cancer Syndrome
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Regimen_Has_Accepted_Use_For_Disease
+            relatedCode: C10303
+            relatedName: CDB Regimen
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C26083
+            relatedName: Chondroitin Sulfate Proteoglycan 4
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C21389
+            relatedName: CRYBG1 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C54321
+            relatedName: CRYBG1 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C21470
+            relatedName: CSAG2 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C54542
+            relatedName: CSAG2 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81903
+            relatedName: CSAG3 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81904
+            relatedName: CSAG3 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C24316
+            relatedName: CSPG4 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C52436
+            relatedName: CSPG4 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Regimen_Has_Accepted_Use_For_Disease
+            relatedCode: C63525
+            relatedName: CVD Regimen
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Regimen_Has_Accepted_Use_For_Disease
+            relatedCode: C63785
+            relatedName: CVD-Aldesleukin-Interferon Alfa-2b Regimen
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C17680
+            relatedName: Cyclin-Dependent Kinase 4
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C17786
+            relatedName: Cyclin-Dependent Kinase Inhibitor 2A
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Regimen_Has_Accepted_Use_For_Disease
+            relatedCode: C63782
+            relatedName: Dacarbazine/Interferon Alfa Regimen
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Regimen_Has_Accepted_Use_For_Disease
+            relatedCode: C63781
+            relatedName: Dartmouth Regimen
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C82885
+            relatedName: DCT Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C82886
+            relatedName: DCT wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C21569
+            relatedName: DNA Repair Protein XRCC3
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C27264
+            relatedName: Hereditary Atypical Mole Melanoma Syndrome
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C8495
+            relatedName: Hereditary Retinoblastoma
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C192671
+            relatedName: Hereditary Tumor Syndrome Associated with Homologous Recombination Pathway Mutations
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C20765
+            relatedName: KISS1 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C54288
+            relatedName: KISS1 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C2646
+            relatedName: L-Dopachrome Tautomerase
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C26331
+            relatedName: Latent-Transforming Growth Factor Beta-Binding Protein 2
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C24561
+            relatedName: LTBP2 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C51270
+            relatedName: LTBP2 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C21261
+            relatedName: MCAM Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C54308
+            relatedName: MCAM wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Is_Biomarker_Of
+            relatedCode: C17513
+            relatedName: Melanoma-Associated Antigen 3
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C176905
+            relatedName: Melanoma-Astrocytoma Syndrome
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C176904
+            relatedName: Melanoma-Pancreatic Cancer Syndrome
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C21141
+            relatedName: Metastasis-Suppressor KiSS-1
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81756
+            relatedName: MIR221 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C82171
+            relatedName: MIR221 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C80700
+            relatedName: MIRLET7A1 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81825
+            relatedName: MIRLET7A1 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C80701
+            relatedName: MIRLET7A3 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81826
+            relatedName: MIRLET7A3 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C80702
+            relatedName: MIRLET7B Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C81853
+            relatedName: MIRLET7B wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C28629
+            relatedName: MLANA Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C54313
+            relatedName: MLANA wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_Has_Associated_Disease
+            relatedCode: C40001
+            relatedName: Ovarian Dermoid Cyst with Melanoma
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C18336
+            relatedName: RAB8A Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C52547
+            relatedName: RAB8A wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Product_Malfunction_Associated_With_Disease
+            relatedCode: C84349
+            relatedName: Tumor Suppressor ARF
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Disease_May_Have_Associated_Disease
+            relatedCode: C3447
+            relatedName: Werner Syndrome
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C20335
+            relatedName: XRCC3 Gene
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Role {
+            uri: null
+            ct: null
+            type: Gene_Associated_With_Disease
+            relatedCode: C51014
+            relatedName: XRCC3 wt Allele
+            source: null
+            highlight: null
+            qualifiers: []
+        }]
+        history: [class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: create
+            date: 2003-08-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-09-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-12-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2004-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2004-09-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2005-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-01-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-01-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-09-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2007-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2007-04-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2009-10-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2009-11-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2010-06-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2010-06-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-02-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-04-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-07-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-07-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-02-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-03-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-08-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-09-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-10-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-07-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-07-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-04-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-04-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-07-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-12-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-02-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-07-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-10-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-10-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-11-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-12-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-03-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-04-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-05-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-06-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-07-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-09-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-10-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-11-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-02-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-04-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-08-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-09-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-02-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-03-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-11-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2022-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2023-02-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2023-12-26
+            replacementCode: null
+            replacementName: null
+        }]
+        maps: [class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: 8720/3
+            targetTermType: PT
+            targetCode: morphology
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: 8720/3
+            targetTerminology: ICDO3
+            targetTerminologyVersion: 3.2
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: 8720/3
+            targetTerminology: ICDO3
+            targetTerminologyVersion: 3.1
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma, NOS
+            targetTermType: PT
+            targetCode: primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma
+            targetTermType: LLT
+            targetCode: 10053571
+            targetTerminology: MedDRA
+            targetTerminologyVersion: 18.1
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma
+            targetTermType: PT
+            targetCode: relationship_primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }]
+        paths: null
+    }
+
+ConceptEndpointsApiTest > getConceptFullTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

@@ -1,0 +1,189 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 98 STANDARD_ERROR
+    Mar 24, 2025 4:38:54 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 20 tests were Method or class mismatch
+
+MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all term types for ncit
+    [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    term types = [class ConceptMinimal {
+        uri: null
+        ct: null
+        code: AB
+        name: Abbreviation
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: AD
+        name: Adjectival form (and other parts of grammar)
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: AQ
+        name: *Antiquated preferred term
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: AQS
+        name: Antiquated term, use when there are antiquated synonyms within a concept
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: BR
+        name: US brand name, which may be trademarked
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CA2
+        name: ISO 3166 alpha-2 country code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CA3
+        name: ISO 3166 alpha-3 country code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CI
+        name: ISO country code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CN
+        name: Drug study code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CNU
+        name: ISO 3166 numeric country code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CS
+        name: US State Department country code
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: DN
+        name: Display name
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: FB
+        name: Foreign brand name, which may be trademarked
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: HD
+        name: *Header (groups concepts, but not used for coding data)
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: HT
+        name: Hierarchical term
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: LLT
+        name: Lower level term
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: PT
+        name: *Preferred term
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: RT
+        name: Related term
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: SN
+        name: Chemical structure name
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: SY
+        name: Synonym
+        terminology: ncit
+        version: 25.02d
+        level: null
+    }]
+
+MetadataEndpointsApiTest > getTermTypesTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

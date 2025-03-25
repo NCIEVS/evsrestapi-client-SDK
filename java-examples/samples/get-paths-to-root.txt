@@ -1,0 +1,377 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 105 STANDARD_ERROR
+    Mar 24, 2025 4:39:17 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 22 tests were Method or class mismatch
+
+ConceptEndpointsApiTest > getPathsToRootTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get paths to hierarchy root from code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     paths to root = [[class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: 0
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C7058
+        name: Melanocytic Neoplasm
+        terminology: ncit
+        version: 25.02d
+        level: 1
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C4741
+        name: Neoplasm by Morphology
+        terminology: ncit
+        version: 25.02d
+        level: 2
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Header_Concept
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3262
+        name: Neoplasm
+        terminology: ncit
+        version: 25.02d
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C2991
+        name: Disease or Disorder
+        terminology: ncit
+        version: 25.02d
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C7057
+        name: Disease, Disorder or Finding
+        terminology: ncit
+        version: 25.02d
+        level: 5
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }], [class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: 0
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C9305
+        name: Malignant Neoplasm
+        terminology: ncit
+        version: 25.02d
+        level: 1
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C7062
+        name: Neoplasm by Special Category
+        terminology: ncit
+        version: 25.02d
+        level: 2
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: Header_Concept
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C3262
+        name: Neoplasm
+        terminology: ncit
+        version: 25.02d
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C2991
+        name: Disease or Disorder
+        terminology: ncit
+        version: 25.02d
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C7057
+        name: Disease, Disorder or Finding
+        terminology: ncit
+        version: 25.02d
+        level: 5
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]]
+
+ConceptEndpointsApiTest > getPathsToRootTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

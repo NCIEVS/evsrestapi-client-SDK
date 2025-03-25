@@ -1,0 +1,946 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 86 STANDARD_ERROR
+    Mar 24, 2025 4:38:16 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 22 tests were Method or class mismatch
+
+ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a custom include concept for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: caDSR
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: CDISC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: MELANOMA, MALIGNANT
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CDISC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: Cellosaurus
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CPTAC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CTEP
+            code: 10053571
+            subSource: SDC
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: DN
+            type: FULL_SYN
+            source: CTRP
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: CTRP
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: GDC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma, NOS
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: GDC
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NCI-GLOSS
+            code: CDR0000045135
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Malignant Melanoma
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NICHD
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: null
+            type: Display_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: []
+        properties: []
+        children: [class Concept {
+            uri: null
+            ct: null
+            code: C3802
+            name: Amelanotic Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8410
+            name: Breast Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: true
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C131506
+            name: Childhood Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C3510
+            name: Cutaneous Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4236
+            name: Epithelioid Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8925
+            name: Metastatic Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C66756
+            name: Mixed Epithelioid and Spindle Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C205125
+            name: Nodular Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8711
+            name: Non-Cutaneous Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C8562
+            name: Ocular Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C118828
+            name: Orbital Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: true
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C162547
+            name: Penile Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C7087
+            name: Recurrent Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C147983
+            name: Refractory Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4228
+            name: Regressing Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C190239
+            name: Resectable Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C4237
+            name: Spindle Cell Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C148517
+            name: Unresectable Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }]
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: [class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C178243
+            relatedName: Family Cancer History Relative Primary Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C176985
+            relatedName: Histology ICD-O Morphology Code
+            source: null
+            highlight: null
+            qualifiers: []
+        }, class Association {
+            uri: null
+            ct: null
+            type: Has_GDC_Value
+            relatedCode: C177621
+            relatedName: ICD-O-3 Morphology Term Diagnosis Question
+            source: null
+            highlight: null
+            qualifiers: []
+        }]
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: [class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: 8720/3
+            targetTermType: PT
+            targetCode: morphology
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: 8720/3
+            targetTerminology: ICDO3
+            targetTerminologyVersion: 3.2
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: 8720/3
+            targetTerminology: ICDO3
+            targetTerminologyVersion: 3.1
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Related To
+            rank: null
+            group: null
+            rule: null
+            targetName: Malignant melanoma, NOS
+            targetTermType: PT
+            targetCode: primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma, NOS
+            targetTermType: PT
+            targetCode: primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma
+            targetTermType: LLT
+            targetCode: 10053571
+            targetTerminology: MedDRA
+            targetTerminologyVersion: 18.1
+            targetLoaded: null
+            targetTermGroup: null
+        }, class ConceptMap {
+            uri: null
+            ct: null
+            source: null
+            sourceName: null
+            sourceTermType: null
+            sourceCode: null
+            sourceTerminology: null
+            sourceTerminologyVersion: null
+            sourceLoaded: null
+            type: Has Synonym
+            rank: null
+            group: null
+            rule: null
+            targetName: Melanoma
+            targetTermType: PT
+            targetCode: relationship_primary_diagnosis
+            targetTerminology: GDC
+            targetTerminologyVersion: null
+            targetLoaded: null
+            targetTermGroup: null
+        }]
+        paths: null
+    }
+
+ConceptEndpointsApiTest > getConceptCustomIncludeTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

@@ -1,0 +1,203 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 119 STANDARD_ERROR
+    Mar 24, 2025 4:40:02 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 17 tests were Method or class mismatch
+
+SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = fuzzy
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
+        uri: null
+        ct: null
+        total: 2259
+        timeTaken: 78
+        parameters: class SearchCriteria {
+            uri: null
+            ct: null
+            term: enzyme
+            type: fuzzy
+            include: minimal
+            sort: null
+            ascending: true
+            fromRecord: 0
+            pageSize: 5
+            conceptStatus: []
+            property: []
+            value: null
+            synonymSource: []
+            synonymType: []
+            definitionSource: []
+            definitionType: []
+            synonymTermType: []
+            subset: []
+            codeList: []
+            terminology: [ncit]
+            sparql: null
+        }
+        concepts: [class Concept {
+            uri: null
+            ct: null
+            code: C16554
+            name: Enzyme
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: false
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C41564
+            name: Enzyme Induction
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C40500
+            name: Enzyme Uncoupling
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: true
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C21281
+            name: Enzyme Gene
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: false
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C17455
+            name: Enzyme Immunoassay
+            terminology: ncit
+            version: 25.02d
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: DEFAULT
+            source: null
+            leaf: false
+            active: true
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }]
+    }
+
+SearchEndpointApiTest > searchByTypeFuzzyTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+
