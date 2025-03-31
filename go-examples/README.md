@@ -720,3 +720,5 @@ Get SPARQL bindings for a specified SPARQL query.
 `go test -run "^TestSearchEndpointAPIService/GetSPARQLBindings$" api_search_endpoint_test.go -v`
 
 [See output here](outputs/GetSPARQLBindings.txt)
+
+[Back to Top](#evsrestapi-client-sdk-go-tutorial)

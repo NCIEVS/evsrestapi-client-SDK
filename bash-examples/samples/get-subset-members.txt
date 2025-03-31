@@ -1,0 +1,107 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:47 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C81222
+members = 1
+
+  Get subset members (fromRecord=0, pageSize=10)
+
+    [
+      {
+        "code": "C208382",
+        "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Code Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C208381",
+        "name": "CDISC ADaM Acute Physiology and Chronic Health Evaluation II Clinical Classification Parameter Name Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C204411",
+        "name": "CDISC ADaM Analysis Stratum Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C187458",
+        "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Code Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C187457",
+        "name": "CDISC ADaM Craig Handicap Assessment and Reporting Technique-Short Form Questionnaires Parameter Name Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C81223",
+        "name": "CDISC ADaM Date Imputation Flag Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C81224",
+        "name": "CDISC ADaM Derivation Type Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C172334",
+        "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Code Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C172335",
+        "name": "CDISC ADaM Generalized Anxiety Disorder-7 Version 2 Questionnaire Parameter Name Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      },
+      {
+        "code": "C158114",
+        "name": "CDISC ADaM Geriatric Depression Scale Short Form Questionnaire Parameter Code Terminology",
+        "terminology": "ncit",
+        "version": "25.02d",
+        "conceptStatus": "DEFAULT",
+        "leaf": true,
+        "active": true
+      }
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:48 PM
+-----------------------------------------------------
+

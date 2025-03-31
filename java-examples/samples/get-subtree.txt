@@ -1,0 +1,1271 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 108 STANDARD_ERROR
+    Mar 24, 2025 4:39:26 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 22 tests were Method or class mismatch
+
+ConceptEndpointsApiTest > getSubtreeTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the entire subtree from the root node of code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subtree = [class HierarchyNode {
+        uri: null
+        ct: null
+        code: C12913
+        label: Abnormal Cell
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C43431
+        label: Activity
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C12219
+        label: Anatomic Structure, System, or Substance
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C20633
+        label: Biochemical Pathway
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C17828
+        label: Biological Process
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C12218
+        label: Chemotherapy Regimen or Agent Combination
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C20181
+        label: Conceptual Entity
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C20047
+        label: Diagnostic or Prognostic Factor
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C7057
+        label: Disease, Disorder or Finding
+        level: null
+        leaf: false
+        expanded: true
+        children: [class HierarchyNode {
+            uri: null
+            ct: null
+            code: C2991
+            label: Disease or Disorder
+            level: null
+            leaf: false
+            expanded: true
+            children: [class HierarchyNode {
+                uri: null
+                ct: null
+                code: C35470
+                label: Behavioral Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C8278
+                label: Cancer-Related Condition
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C27551
+                label: Disorder by Site
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C3101
+                label: Genetic Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C3262
+                label: Neoplasm
+                level: null
+                leaf: false
+                expanded: true
+                children: [class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C4741
+                    label: Neoplasm by Morphology
+                    level: null
+                    leaf: false
+                    expanded: true
+                    children: [class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3709
+                        label: Epithelial Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3708
+                        label: Germ Cell Tumor
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C27134
+                        label: Hematopoietic and Lymphoid Cell Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7058
+                        label: Melanocytic Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: true
+                        children: [class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4661
+                            label: Central Nervous System Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C208332
+                            label: Childhood Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C204977
+                            label: Conjunctival Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C7161
+                            label: Cutaneous Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C173488
+                            label: Head and Neck Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C9498
+                            label: Melanocytoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3224
+                            label: Melanoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C7570
+                            label: Nevus
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C205057
+                            label: Uveal Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C40335
+                            label: Vulvar Melanocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }]
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7059
+                        label: Mesenchymal Cell Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3786
+                        label: Mesothelial Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C35562
+                        label: Neuroepithelial, Perineurial, and Schwann Cell Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }]
+                }, class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C3263
+                    label: Neoplasm by Site
+                    level: null
+                    leaf: false
+                    expanded: null
+                    children: []
+                }, class HierarchyNode {
+                    uri: null
+                    ct: null
+                    code: C7062
+                    label: Neoplasm by Special Category
+                    level: null
+                    leaf: false
+                    expanded: true
+                    children: [class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3677
+                        label: Benign Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C6283
+                        label: Childhood Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C6784
+                        label: Cystic Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3264
+                        label: Embryonal Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36035
+                        label: Encapsulated Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7069
+                        label: Giant Cell Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C116915
+                        label: Liquid Tumor
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36037
+                        label: Localized Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C9305
+                        label: Malignant Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: true
+                        children: [class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3851
+                            label: Aggravated Malignant Neoplasm
+                            level: null
+                            leaf: true
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C36025
+                            label: Anaplastic Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C188021
+                            label: B-Cell Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C7627
+                            label: Bilateral Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C2916
+                            label: Carcinoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4005
+                            label: Childhood Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4992
+                            label: Environment-Related Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C9479
+                            label: Hereditary Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C27770
+                            label: Immunodeficiency-Related Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C27223
+                            label: Infection-Related Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C8505
+                            label: Invasive Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3161
+                            label: Leukemia
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C8576
+                            label: Localized Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3208
+                            label: Lymphoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C156714
+                            label: Malignant Abdominal Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C35501
+                            label: Malignant Bone Marrow Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C9335
+                            label: Malignant Breast Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C114940
+                            label: Malignant Cardiovascular Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4890
+                            label: Malignant Digestive System Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3575
+                            label: Malignant Endocrine Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4767
+                            label: Malignant Eye Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C121500
+                            label: Malignant Fibrohistiocytic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C156484
+                            label: Malignant Genitourinary System Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4925
+                            label: Malignant Germ Cell Tumor
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4090
+                            label: Malignant Giant Cell Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4013
+                            label: Malignant Head and Neck Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C212210
+                            label: Malignant Histiocytic and Dendritic Cell Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C35812
+                            label: Malignant Lymph Node Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C8991
+                            label: Malignant Mastocytosis
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4456
+                            label: Malignant Mesothelioma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3729
+                            label: Malignant Mixed Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C166357
+                            label: Malignant Musculoskeletal Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C36041
+                            label: Malignant Neoplasm by Grade
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C35427
+                            label: Malignant Neoplasm of Multiple Primary Sites
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C65153
+                            label: Malignant Neoplasm, Uncertain Whether Primary or Metastatic
+                            level: null
+                            leaf: true
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4788
+                            label: Malignant Nervous System Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C156715
+                            label: Malignant Pelvic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C156711
+                            label: Malignant Peritoneal and Retroperitoneal Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4571
+                            label: Malignant Respiratory System Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C2920
+                            label: Malignant Skin Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C4867
+                            label: Malignant Soft Tissue Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C132146
+                            label: Malignant Solid Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C6894
+                            label: Malignant Solitary Fibrous Tumor
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3539
+                            label: Malignant Splenic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3576
+                            label: Malignant Thoracic Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3224
+                            label: Melanoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C38156
+                            label: Metachronous Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C36049
+                            label: Moderately Differentiated Malignant Neoplasm
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C3520
+                            label: Myeloid Sarcoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
+                            code: C84270
+                            label: Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase Gene Fusions
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: 71
+                            code: null
+                            label: null
+                            level: null
+                            leaf: null
+                            expanded: null
+                            children: []
+                        }]
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3261
+                        label: Metastatic Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C102883
+                        label: Miscellaneous Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C6930
+                        label: Mixed Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36029
+                        label: Necrotic Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C27933
+                        label: Neoplasm by Cause
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C45230
+                        label: Neoplasm by Obsolete Classification
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C6974
+                        label: Neoplasm of Uncertain Histogenesis
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C3646
+                        label: Neoplasm of Uncertain Malignant Potential
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C65157
+                        label: Neoplasm, Uncertain Whether Benign or Malignant
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7068
+                        label: Neoplastic Polyp
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36012
+                        label: Nodular Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36036
+                        label: Non-Encapsulated Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C163003
+                        label: Non-Malignant Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36030
+                        label: Osteolytic Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36031
+                        label: Papillary Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36032
+                        label: Premalignant Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C8509
+                        label: Primary Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7201
+                        label: Rare Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C4798
+                        label: Recurrent Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C7628
+                        label: Refractory Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C211531
+                        label: Resectable Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36255
+                        label: Secondary Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C9292
+                        label: Solid Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C27263
+                        label: Spindle Cell Neoplasm
+                        level: null
+                        leaf: false
+                        expanded: null
+                        children: []
+                    }, class HierarchyNode {
+                        uri: null
+                        ct: null
+                        code: C36033
+                        label: Tubular Neoplasm
+                        level: null
+                        leaf: true
+                        expanded: null
+                        children: []
+                    }]
+                }]
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C53529
+                label: Non-Neoplastic Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C89328
+                label: Pediatric Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C3340
+                label: Polyp
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C2893
+                label: Psychiatric Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C26684
+                label: Radiation-Induced Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C4873
+                label: Rare Disorder
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }, class HierarchyNode {
+                uri: null
+                ct: null
+                code: C28193
+                label: Syndrome
+                level: null
+                leaf: false
+                expanded: null
+                children: []
+            }]
+        }, class HierarchyNode {
+            uri: null
+            ct: null
+            code: C3367
+            label: Finding
+            level: null
+            leaf: false
+            expanded: null
+            children: []
+        }]
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C1908
+        label: Drug, Food, Chemical or Biomedical Material
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C22188
+        label: Experimental Organism Anatomical Concept
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C22187
+        label: Experimental Organism Diagnosis
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C16612
+        label: Gene
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C26548
+        label: Gene Product
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C97325
+        label: Manufactured Object
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C3910
+        label: Molecular Abnormality
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C14250
+        label: Organism
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C20189
+        label: Property or Attribute
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C28428
+        label: Retired Concept
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }]
+
+ConceptEndpointsApiTest > getSubtreeTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

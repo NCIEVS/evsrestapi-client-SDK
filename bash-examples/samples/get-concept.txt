@@ -1,0 +1,24 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:19 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+include  = minimal
+
+  Get concept for ncit C3224:
+
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:20 PM
+-----------------------------------------------------
+

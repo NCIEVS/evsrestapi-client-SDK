@@ -1,0 +1,99 @@
+[
+  {
+    "code": "A1",
+    "name": "Role_Has_Domain",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Domain",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Domain",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Domain",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies the parent of the branch encompassing a role's domain.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A2",
+    "name": "Role_Has_Range",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Range",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Range",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Range",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies  the parent of the branch encompassing the role's range.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "A3",
+    "name": "Role_Has_Parent",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Role Has Parent",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Role_Has_Parent",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Role_Has_Parent",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "An association that specifies that a role exists as part of a role hierarchy and specifies the role's parent, the role that this role specializes.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

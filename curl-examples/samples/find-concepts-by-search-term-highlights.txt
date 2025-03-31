@@ -1,6 +1,6 @@
 {
-  "total": 1362,
-  "timeTaken": 150,
+  "total": 1531,
+  "timeTaken": 44,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -16,51 +16,48 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "highlight": "<em>Melanoma</em>",
+      "conceptStatus": "DEFAULT",
       "leaf": false,
+      "active": true,
       "synonyms": [
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "type": "Display_Name"
-        },
-        {
-          "name": "Malignant Melanoma",
-          "termGroup": "SY",
+          "termType": "SY",
           "type": "FULL_SYN",
-          "source": "NCI"
+          "source": "caDSR"
         },
         {
           "name": "Malignant Melanoma",
-          "termGroup": "SY",
+          "termType": "SY",
           "type": "FULL_SYN",
           "source": "CDISC"
         },
         {
+          "name": "MELANOMA, MALIGNANT",
+          "termType": "PT",
+          "type": "FULL_SYN",
+          "source": "CDISC"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termType": "PT",
+          "type": "FULL_SYN",
+          "source": "Cellosaurus"
+        },
+        {
           "name": "Malignant Melanoma",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "CPTAC"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "DN",
-          "type": "FULL_SYN",
-          "source": "CTRP"
-        },
-        {
-          "name": "Melanoma",
-          "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CTRP"
-        },
-        {
-          "name": "Melanoma",
-          "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "CTEP",
           "code": "10053571",
@@ -69,58 +66,62 @@
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "DN",
+          "type": "FULL_SYN",
+          "source": "CTRP"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termType": "PT",
+          "type": "FULL_SYN",
+          "source": "CTRP"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "GDC"
         },
         {
-          "name": "Melanoma",
-          "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "name": "Melanoma, NOS",
+          "termType": "SY",
           "type": "FULL_SYN",
-          "source": "Cellosaurus"
+          "source": "GDC"
         },
         {
-          "name": "Melanoma",
-          "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "name": "melanoma",
+          "highlight": "<em>melanoma</em>",
+          "termType": "PT",
+          "type": "FULL_SYN",
+          "source": "NCI-GLOSS",
+          "code": "CDR0000045135"
+        },
+        {
+          "name": "Malignant Melanoma",
+          "termType": "SY",
           "type": "FULL_SYN",
           "source": "NCI"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "SY",
+          "termType": "PT",
           "type": "FULL_SYN",
-          "source": "caDSR"
+          "source": "NCI"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "NICHD"
         },
         {
-          "name": "melanoma",
-          "highlight": "<em>melanoma</em>",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "NCI-GLOSS",
-          "code": "CDR0000045135"
-        },
-        {
-          "name": "MELANOMA, MALIGNANT",
-          "termGroup": "PT",
-          "type": "FULL_SYN",
-          "source": "CDISC"
-        },
-        {
-          "name": "Melanoma, NOS",
-          "highlight": "<em>Melanoma</em>, NOS",
-          "termGroup": "SY",
-          "type": "FULL_SYN",
-          "source": "GDC"
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Display_Name"
         },
         {
           "name": "Melanoma",
@@ -133,21 +134,23 @@
       "code": "C91477",
       "name": "Melanoma Pathway",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "highlight": "<em>Melanoma</em> Pathway",
+      "conceptStatus": "DEFAULT",
       "leaf": true,
+      "active": true,
       "synonyms": [
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "KEGG"
         },
         {
           "name": "Melanoma Pathway",
           "highlight": "<em>Melanoma</em> Pathway",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
         },
@@ -162,28 +165,30 @@
       "code": "C21790",
       "name": "Mouse Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "highlight": "Mouse <em>Melanoma</em>",
+      "conceptStatus": "DEFAULT",
       "leaf": false,
+      "active": true,
       "synonyms": [
-        {
-          "name": "Melanoma",
-          "highlight": "<em>Melanoma</em>",
-          "type": "Display_Name"
-        },
         {
           "name": "Mouse Melanoma",
           "highlight": "Mouse <em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "Cellosaurus"
         },
         {
           "name": "Mouse Melanoma",
           "highlight": "Mouse <em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
+        },
+        {
+          "name": "Melanoma",
+          "highlight": "<em>Melanoma</em>",
+          "type": "Display_Name"
         },
         {
           "name": "Mouse Melanoma",
@@ -196,14 +201,16 @@
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
+      "conceptStatus": "DEFAULT",
       "leaf": true,
+      "active": true,
       "synonyms": [
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "CTEP",
           "subSource": "SDC"
@@ -211,14 +218,14 @@
         {
           "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
           "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
-          "termGroup": "PT",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
         },
         {
           "name": "NCI CTEP Simple Disease Classification Melanoma Sub-Category Terminology",
           "highlight": "NCI CTEP Simple Disease Classification <em>Melanoma</em> Sub-Category Terminology",
-          "termGroup": "SY",
+          "termType": "SY",
           "type": "FULL_SYN",
           "source": "NCI"
         },
@@ -230,45 +237,37 @@
       ]
     },
     {
-      "code": "C114828",
-      "name": "Mucosal Melanoma",
+      "code": "C2517",
+      "name": "Melanoma Vaccine",
       "terminology": "ncit",
-      "version": "21.11e",
-      "highlight": "Mucosal <em>Melanoma</em>",
+      "version": "25.02d",
+      "highlight": "<em>Melanoma</em> Vaccine",
+      "conceptStatus": "DEFAULT",
       "leaf": false,
+      "active": true,
       "synonyms": [
         {
-          "name": "Mucosal Melanoma",
-          "highlight": "Mucosal <em>Melanoma</em>",
-          "type": "Display_Name"
-        },
-        {
-          "name": "Mucosal Melanoma",
-          "highlight": "Mucosal <em>Melanoma</em>",
-          "termGroup": "PT",
+          "name": "melanoma vaccine",
+          "highlight": "<em>melanoma vaccine</em>",
+          "termType": "PT",
           "type": "FULL_SYN",
-          "source": "Cellosaurus"
+          "source": "NCI-GLOSS",
+          "code": "CDR0000046293"
         },
         {
-          "name": "Mucosal Melanoma",
-          "highlight": "Mucosal <em>Melanoma</em>",
-          "termGroup": "PT",
+          "name": "Melanoma Vaccine",
+          "highlight": "<em>Melanoma</em> Vaccine",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
         },
         {
-          "name": "Mucosal Melanoma",
-          "highlight": "Mucosal <em>Melanoma</em>",
-          "termGroup": "DN",
-          "type": "FULL_SYN",
-          "source": "CTRP"
-        },
-        {
-          "name": "Mucosal Melanoma",
-          "highlight": "Mucosal <em>Melanoma</em>",
+          "name": "Melanoma Vaccine",
+          "highlight": "<em>Melanoma</em> Vaccine",
           "type": "Preferred_Name"
         }
       ]
     }
   ]
 }
+

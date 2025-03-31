@@ -1,6 +1,6 @@
 {
   "total": 1,
-  "timeTaken": 23,
+  "timeTaken": 29,
   "parameters": {
     "term": "Lung Carcinoma",
     "type": "match",
@@ -16,8 +16,11 @@
       "code": "C4878",
       "name": "Lung Carcinoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ]
 }
+

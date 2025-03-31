@@ -1,65 +1,44 @@
 [
   {
     "terminology": "ncit",
-    "version": "21.11e",
-    "date": "November 29, 2021",
-    "name": "NCI Thesaurus 21.11e",
-    "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Voca
-bulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes
- of Health, Bethesda, MD 20892, U.S.A.",
-    "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-    "source": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-    "terminologyVersion": "ncit_21.11e",
+    "version": "25.02d",
+    "date": "February 24, 2025",
+    "name": "NCI Thesaurus 25.02d",
+    "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.",
+    "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus25.02d.owl",
+    "terminologyVersion": "ncit_25.02d",
     "latest": true,
     "tags": {
-      "monthly": "true",
-      "weekly": "true"
+      "monthly": "true"
     },
-    "indexName": "concept_ncit_2111e",
-    "objectIndexName": "evs_object_ncit_2111e",
+    "indexName": "concept_ncit_2502d",
+    "objectIndexName": "evs_object_ncit_2502d",
     "metadata": {
-      "code": "NHC0",
-      "conceptStatus": "P310",
+      "uiLabel": "NCI Thesaurus",
+      "maxVersions": 3,
+      "loader": "rdf",
+      "conceptStatuses": [
+        "Obsolete_Concept",
+        "Header_Concept",
+        "Retired_Concept",
+        "Concept_Pending_Approval",
+        "Provisional_Concept"
+      ],
       "retiredStatusValue": "Retired_Concept",
-      "preferredName": "P108",
-      "relationshipToTarget": "P393",
-      "synonym": [
-        "P90",
-        "P108",
-        "P107"
-      ],
-      "synonymTermType": "P383",
-      "synonymSource": "P384",
-      "synonymCode": "P385",
-      "synonymSubSource": "P386",
-      "definition": [
-        "P325",
-        "P97"
-      ],
-      "definitionSource": "P378",
-      "mapRelation": "P393",
-      "map": "P375",
-      "mapTarget": "P395",
-      "mapTargetTermType": "P394",
-      "mapTargetTerminology": "P396",
-      "mapTargetTerminologyVersion": "P397",
-      "propertyNames": {
-        "NHC0": "code",
-        "P107": "Display_Name",
-        "P108": "Preferred_Name",
-        "P97": "DEFINITION",
-        "P325": "ALT_DEFINITION",
-        "P90": "FULL_SYN",
-        "rdfs:label": "label",
-        "P375": "Maps_To"
+      "detailsColumns": {
+        "synonyms-termType": true,
+        "synonyms-code": true,
+        "synonyms-subSource": true,
+        "synonyms-source": true,
+        "definitions-attribution": true,
+        "definitions-source": true
       },
-      "subsetMember": [
-        "A8"
-      ],
-      "monthlyDb": "NCIT2",
-      "subset": [
-        "C54443"
-      ]
+      "hierarchy": true,
+      "history": false,
+      "sourceCt": 74,
+      "subsetLink": "P374",
+      "codeLabel": "NCI Thesaurus Code"
     }
   }
 ]
+

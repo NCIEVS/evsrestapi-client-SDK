@@ -94,11 +94,6 @@
                     "leaf": false
                   },
                   {
-                    "code": "C7069",
-                    "label": "Giant Cell Neoplasm",
-                    "leaf": false
-                  },
-                  {
                     "code": "C27134",
                     "label": "Hematopoietic and Lymphoid Cell Neoplasm",
                     "leaf": false
@@ -110,18 +105,28 @@
                     "expanded": true,
                     "children": [
                       {
-                        "code": "C5504",
+                        "code": "C4661",
                         "label": "Central Nervous System Melanocytic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C208332",
+                        "label": "Childhood Melanocytic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C204977",
+                        "label": "Conjunctival Melanocytic Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C7161",
+                        "label": "Cutaneous Melanocytic Neoplasm",
                         "leaf": false
                       },
                       {
                         "code": "C173488",
                         "label": "Head and Neck Melanocytic Neoplasm",
-                        "leaf": false
-                      },
-                      {
-                        "code": "C7570",
-                        "label": "Melanocytic Nevus",
                         "leaf": false
                       },
                       {
@@ -135,8 +140,13 @@
                         "leaf": false
                       },
                       {
-                        "code": "C7161",
-                        "label": "Skin Melanocytic Neoplasm",
+                        "code": "C7570",
+                        "label": "Nevus",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C205057",
+                        "label": "Uveal Melanocytic Neoplasm",
                         "leaf": false
                       },
                       {
@@ -145,11 +155,6 @@
                         "leaf": false
                       }
                     ]
-                  },
-                  {
-                    "code": "C6971",
-                    "label": "Meningothelial Cell Neoplasm",
-                    "leaf": false
                   },
                   {
                     "code": "C7059",
@@ -162,18 +167,8 @@
                     "leaf": false
                   },
                   {
-                    "code": "C6974",
-                    "label": "Neoplasm of Uncertain Histogenesis",
-                    "leaf": false
-                  },
-                  {
                     "code": "C35562",
                     "label": "Neuroepithelial, Perineurial, and Schwann Cell Neoplasm",
-                    "leaf": false
-                  },
-                  {
-                    "code": "C3422",
-                    "label": "Trophoblastic Tumor",
                     "leaf": false
                   }
                 ]
@@ -215,8 +210,8 @@
                     "leaf": false
                   },
                   {
-                    "code": "C7201",
-                    "label": "Infrequent Neoplasm",
+                    "code": "C7069",
+                    "label": "Giant Cell Neoplasm",
                     "leaf": false
                   },
                   {
@@ -246,6 +241,11 @@
                         "leaf": false
                       },
                       {
+                        "code": "C188021",
+                        "label": "B-Cell Malignant Neoplasm",
+                        "leaf": false
+                      },
+                      {
                         "code": "C7627",
                         "label": "Bilateral Malignant Neoplasm",
                         "leaf": false
@@ -261,19 +261,9 @@
                         "leaf": false
                       },
                       {
-                        "code": "C2948",
-                        "label": "Choriocarcinoma",
-                        "leaf": false
-                      },
-                      {
                         "code": "C4992",
                         "label": "Environment-Related Malignant Neoplasm",
                         "leaf": false
-                      },
-                      {
-                        "code": "C81758",
-                        "label": "Fibroblastic Reticular Cell Tumor",
-                        "leaf": true
                       },
                       {
                         "code": "C9479",
@@ -313,11 +303,6 @@
                       {
                         "code": "C156714",
                         "label": "Malignant Abdominal Neoplasm",
-                        "leaf": false
-                      },
-                      {
-                        "code": "C7586",
-                        "label": "Malignant Basal Cell Neoplasm",
                         "leaf": false
                       },
                       {
@@ -373,6 +358,11 @@
                       {
                         "code": "C4013",
                         "label": "Malignant Head and Neck Neoplasm",
+                        "leaf": false
+                      },
+                      {
+                        "code": "C212210",
+                        "label": "Malignant Histiocytic and Dendritic Cell Neoplasm",
                         "leaf": false
                       },
                       {
@@ -478,11 +468,6 @@
                       {
                         "code": "C36049",
                         "label": "Moderately Differentiated Malignant Neoplasm",
-                        "leaf": true
-                      },
-                      {
-                        "code": "C7151",
-                        "label": "Monoclonal Immunoglobulin Deposition Disease",
                         "leaf": false
                       },
                       {
@@ -492,7 +477,7 @@
                       },
                       {
                         "code": "C84270",
-                        "label": "Myeloid/Lymphoid Neoplasms with Eosinophilia and Rearrangement of PDGFRA, PDGFRB, or FGFR1, or with PCM1-JAK2",
+                        "label": "Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase Gene Fusions",
                         "leaf": false
                       },
                       {
@@ -516,19 +501,9 @@
                         "leaf": false
                       },
                       {
-                        "code": "C3242",
-                        "label": "Plasma Cell Myeloma",
-                        "leaf": false
-                      },
-                      {
-                        "code": "C9349",
-                        "label": "Plasmacytoma",
-                        "leaf": false
-                      },
-                      {
                         "code": "C36050",
                         "label": "Poorly Differentiated Malignant Neoplasm",
-                        "leaf": true
+                        "leaf": false
                       },
                       {
                         "code": "C7055",
@@ -541,9 +516,14 @@
                         "leaf": false
                       },
                       {
+                        "code": "C3716",
+                        "label": "Primitive Neuroectodermal Tumor",
+                        "leaf": false
+                      },
+                      {
                         "code": "C172183",
-                        "label": "Progesterone Receptor Expressing Malignant Neoplasm",
-                        "leaf": true
+                        "label": "Progesterone Receptor-Positive Malignant Neoplasm",
+                        "leaf": false
                       },
                       {
                         "code": "C27209",
@@ -576,6 +556,11 @@
                         "leaf": false
                       },
                       {
+                        "code": "C201136",
+                        "label": "Solid Pseudopapillary Neoplasm",
+                        "leaf": false
+                      },
+                      {
                         "code": "C177364",
                         "label": "Somatic-Type Malignancy",
                         "leaf": true
@@ -598,7 +583,7 @@
                       {
                         "code": "C36052",
                         "label": "Well Differentiated Malignant Neoplasm",
-                        "leaf": true
+                        "leaf": false
                       }
                     ]
                   },
@@ -631,6 +616,11 @@
                     "code": "C45230",
                     "label": "Neoplasm by Obsolete Classification",
                     "leaf": false
+                  },
+                  {
+                    "code": "C6974",
+                    "label": "Neoplasm of Uncertain Histogenesis",
+                    "leaf": true
                   },
                   {
                     "code": "C3646",
@@ -683,6 +673,11 @@
                     "leaf": false
                   },
                   {
+                    "code": "C7201",
+                    "label": "Rare Neoplasm",
+                    "leaf": false
+                  },
+                  {
                     "code": "C4798",
                     "label": "Recurrent Neoplasm",
                     "leaf": false
@@ -690,6 +685,11 @@
                   {
                     "code": "C7628",
                     "label": "Refractory Neoplasm",
+                    "leaf": false
+                  },
+                  {
+                    "code": "C211531",
+                    "label": "Resectable Neoplasm",
                     "leaf": false
                   },
                   {
@@ -710,11 +710,6 @@
                   {
                     "code": "C36033",
                     "label": "Tubular Neoplasm",
-                    "leaf": true
-                  },
-                  {
-                    "code": "C36034",
-                    "label": "Villous Neoplasm",
                     "leaf": true
                   }
                 ]
@@ -816,3 +811,4 @@
     "leaf": false
   }
 ]
+

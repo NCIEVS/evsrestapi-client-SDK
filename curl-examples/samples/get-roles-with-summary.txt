@@ -1,0 +1,3067 @@
+[
+  {
+    "code": "R123",
+    "name": "Chemotherapy_Regimen_Has_Component",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Component",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemotherapy_Regimen_Has_Component",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemotherapy_Regimen_Has_Component",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R163",
+    "name": "Procedure_Has_Target_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Target Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_Has_Target_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_Has_Target_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a procedure and its target anatomy, specifically that a particular procedure always has an association with the target anatomy. This role should be used when a more specific role cannot be asserted, including procedures targeting blood and other fluids. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R100",
+    "name": "Disease_Has_Associated_Anatomic_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated Anatomic Site",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Associated_Anatomic_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Associated_Anatomic_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the general site, structure or system where the specific pathological process is located. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The role, Disease_Has_Associated_Anatomic_Site, is more general than the role, Disease_Has_Primary_Anatomic_Site.  Furthermore, when viewed with the role, Disease_Has_Metastatic_Anatomic_Site, there emerges a role hierarchy, where one role specializes the meaning of another, more general role.  Roles relating disease to anatomy start with a general assertion of association, often at very high level (e.g. Skin Disorder and Skin), and then add more specific primary/metastatic associations where appropriate for more specific concepts."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R126",
+    "name": "Disease_Has_Associated_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Associated_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Associated_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to another disease or disorder, but without specification or limitation of the relationship (causality or timing for example). Both the domain and the range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R101",
+    "name": "Disease_Has_Primary_Anatomic_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Primary Anatomic Site",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Primary_Anatomic_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Primary_Anatomic_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the anatomical site where the originating pathological process is located. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This role can be viewed as a specialization of Disease_Has_Associated_Anatomic_Site."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R103",
+    "name": "Disease_Has_Normal_Tissue_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Normal Tissue Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Normal_Tissue_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Normal_Tissue_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the type of normal tissue in which the disease process began. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This non-defining role represents non-essential characteristics which are true in some, but not all, cases, yet have an association frequent enough to be of interest."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R104",
+    "name": "Disease_Has_Normal_Cell_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Normal Cell Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Normal_Cell_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Normal_Cell_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the type of normal cell in which the disease process begins. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R105",
+    "name": "Disease_Has_Abnormal_Cell",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Abnormal Cell",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Abnormal_Cell",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Abnormal_Cell",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the type of neoplastic cell present in and characteristic of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Abnormal Cell', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R108",
+    "name": "Disease_Has_Finding",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Finding",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Finding",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Finding",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to a clinical observation, sign or symptom present in and characteristic of the disease. Both the domain and range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R115",
+    "name": "Disease_May_Have_Finding",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Finding",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Finding",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Finding",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a clinical observation, sign or symptom will only be observed in some cases of the disease. Both the domain and range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R139",
+    "name": "Disease_Excludes_Abnormal_Cell",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Abnormal Cell",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Abnormal_Cell",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Abnormal_Cell",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Abnormal_Cell. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Abnormal Cell', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R142",
+    "name": "Disease_Excludes_Finding",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Finding",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Finding",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Finding",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Finding. Both the domain and range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R124",
+    "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Mechanism Of Action",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to imply the interaction or binding of an active ingredient of a drug/chemical agent at the molecular level with its target. When possible, the role value should reflect the direct alteration of function of a target molecule or complex. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R125",
+    "name": "Chemical_Or_Drug_Has_Physiologic_Effect",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Physiologic Effect",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Has_Physiologic_Effect",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Has_Physiologic_Effect",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to describe the primary detectable alterations of subcellular, cellular, tissue, or organ functions that directly result from alteration of function of a target biological molecule or complex caused by interaction of a therapeutic agent with a target molecule or complex. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R146",
+    "name": "Chemical_Or_Drug_Affects_Gene_Product",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Affects Gene Product",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Gene_Product",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Gene_Product",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that a gene product is the target of a therapeutic agent. The role implies a direct interaction between the product and the therapeutic agent but it does not specify the type of association (e.g., involvement, interference, inhibition or cleavage). The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Gene Product', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R50",
+    "name": "Gene_Product_Has_Structural_Domain_Or_Motif",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Structural Domain Or Motif",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Structural_Domain_Or_Motif",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Structural_Domain_Or_Motif",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used specify information about protein domains or motifs present in a protein that can give insight into protein function. The domain and range for this role are 'Gene Product' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "We no longer curate this information and now favor linking out to externally curated databases. The source database for the link has yet to be decided."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R52",
+    "name": "Gene_Product_Has_Biochemical_Function",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Biochemical Function",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Biochemical_Function",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Biochemical_Function",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to denote the biochemical activity of a gene product. Both the domain and range for this role are 'Gene Product'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R53",
+    "name": "Gene_Product_Plays_Role_In_Biological_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Plays Role In Biological Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Plays_Role_In_Biological_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Plays_Role_In_Biological_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that a gene product participates in a specific biological process. The domain and range for this role are 'Gene Product' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "Considered by most researchers to be essential, definitional information about a gene product."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R54",
+    "name": "Gene_Product_Encoded_By_Gene",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Encoded By Gene",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Encoded_By_Gene",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Encoded_By_Gene",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a gene product and the gene that encodes it. The domain and range for this role are 'Gene Product' and 'Gene', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The reciprocal relationship is represented in the property Gene_Encodes_Product"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R135",
+    "name": "Disease_Excludes_Primary_Anatomic_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Primary Anatomic Site",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Primary_Anatomic_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Primary_Anatomic_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Associated_Anatomic_Site. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R72",
+    "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Affects Cell Type Or Tissue",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent the intended target cells for a chemical or drug. This does not include unintended target cells or tissues that are associated with side effects or toxicity of the chemical or drug. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R116",
+    "name": "Disease_May_Have_Associated_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Associated Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Associated_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Associated_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that another disease or disorder will only be observed in some cases of the specified disease. Both the domain and the range for this role are 'Disease, Disorder or Finding'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R175",
+    "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a direct relationship between a gene and a disease. This restriction should only be used when an abnormality in a gene a causative event for a disease. The domain and range for this role are 'Gene' and 'Disease or Disorder', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R37",
+    "name": "Gene_Plays_Role_In_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Plays Role In Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Plays_Role_In_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Plays_Role_In_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a gene and a biological process in which its encoded gene product(s) participate. The domain and range for this role are 'Gene' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R132",
+    "name": "Gene_Has_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Has_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Has_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to establish a link between a gene and the genetic or molecular abnormalities that have been observed in human cells and tissues associated with cancers (e.g., over- or under-expressed, amplified, translocated). The domain and range for this role are 'Gene' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R133",
+    "name": "Gene_Product_Has_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to establish a link between a gene product and the molecular abnormalities that are observed in human cells and tissues in association with diseases such as cancers (e.g., over or under-expression of gene product). The domain and range for this role are 'Gene Product' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R41",
+    "name": "Gene_Found_In_Organism",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Found In Organism",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Found_In_Organism",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Found_In_Organism",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the organism of origin for a gene. It may be used to differentiate genes with the same name and functions that originate from different organisms. The domain and range for this role are 'Gene' and 'Organism', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "Currently, we only model human genes, but this role has obvious utility in future, if other organisms are modeled as well."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R40",
+    "name": "Gene_In_Chromosomal_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "In Chromosomal Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_In_Chromosomal_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_In_Chromosomal_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a gene and its general location, specified by chromosomal band position (infrequently by chromosome number or chromosome arm). The domain and range for this role are 'Gene' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R46",
+    "name": "Gene_Product_Has_Associated_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Associated_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Associated_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify physical structures or typical subcellular locations of a gene product. The domain and range for this role are 'Gene Product' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R49",
+    "name": "Gene_Product_Expressed_In_Tissue",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Expressed In Tissue",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Expressed_In_Tissue",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Expressed_In_Tissue",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify that a normal tissue is the normal location for the expression of a gene product. The domain and range for this role are 'Gene Product' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This information is often useful to researchers. However, we no longer curate this information and now favor linking out to externally curated databases. Source database for the link has yet to be decided."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R51",
+    "name": "Gene_Product_Is_Physical_Part_Of",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Physical Part Of",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Is_Physical_Part_Of",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Is_Physical_Part_Of",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that a gene product normally functions as a component of a \"functional complex\". Both the domain and range for this role are 'Gene Product'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R130",
+    "name": "Gene_Is_Element_In_Pathway",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Element In Pathway",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Is_Element_In_Pathway",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Is_Element_In_Pathway",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a gene and a biochemical pathway in which its encoded gene product(s) participate. This relationship is used only when gene has been implicated in a pathway by the curated source (Biocarta, KEGG or PID). The domain and range for this role are 'Gene' and 'Biochemical Pathway', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "In NCI Thesaurus, pathways are derived from BioCarta and KEGG and are associated with genes and proteins that comprise these pathways."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R131",
+    "name": "Gene_Product_Is_Element_In_Pathway",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Element In Pathway",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Is_Element_In_Pathway",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Is_Element_In_Pathway",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a gene product and a biochemical pathway in which it participates. This relationship is used only when a gene product has been implicated in a pathway by the curated source (Biocarta, KEGG or PID). The domain and range for this role are 'Gene Product' and 'Biochemical Pathway', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "In NCI Thesaurus, pathways are derived from BioCarta and KEGG and are associated with genes and proteins that comprise these pathways."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R44",
+    "name": "Gene_Product_Has_Chemical_Classification",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Chemical Classification",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Chemical_Classification",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Chemical_Classification",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the physical structure type of a protein molecule (e.g. metalloprotein, transmembrane protein). Both the domain and range for this role are 'Gene Product'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The role was originally intended for protein structure tagging (e.g., Phosphoprotein, Lipoprotein).  Was extended to also tag for Membrane Protein, Protein Complex Subunit, etc."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R177",
+    "name": "Molecular_Abnormality_Involves_Gene",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Molecular_Abnormality_Involves_Gene",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Molecular_Abnormality_Involves_Gene",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a direct relationship between a molecular abnormality and a gene. The domain and range for this role are 'Molecular Abnormality' and 'Gene', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R178",
+    "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that a specific molecular variation or mutation in a gene encodes a gene product sequence variant. The domain and range for this role are 'Gene Mutant' and 'Gene Product Sequence Variation', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R179",
+    "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that a gene product sequence variation is encoded by a specific gene mutant. The domain and range for this role are 'Gene Product Sequence Variation' and 'Gene Mutant', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R182",
+    "name": "Gene_Product_Variant_Of_Gene_Product",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene_Product_Variant_Of_Gene_Product",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Variant_Of_Gene_Product",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that a gene product sequence variation is related to a wild-type gene product. The domain and range for this role are 'Gene Product Sequence Variation' and 'Gene Product', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R42",
+    "name": "Gene_Product_Is_Biomarker_Type",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Biomarker Type",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Is_Biomarker_Type",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Is_Biomarker_Type",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to designate the type of biomarker a gene product is; it points to a small tree of biomarker types (e.g., Disease Marker, Metabolic Marker, Prognostic Marker). The domain and range for this role are 'Gene Product' and 'Diagnostic or Prognostic Factor', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R45",
+    "name": "Gene_Product_Has_Organism_Source",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Organism Source",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Has_Organism_Source",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Has_Organism_Source",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to differentiate homologous proteins from different organisms. The domain and range for this role are 'Gene Product' and 'Organism', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R176",
+    "name": "Disease_Mapped_To_Gene",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Disease_Mapped_To_Gene",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Mapped_To_Gene",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a direct relationship between a disease, disorder or finding and a gene. This restriction can be used when a polymorphism or an abnormality in a gene is either a clinical marker for, a causative event for, or predisposes a subject to a disease. The domain and range for this role are 'Disease, Disorder or Finding' and 'Gene', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R106",
+    "name": "Disease_Has_Molecular_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Molecular Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Molecular_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Molecular_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to a molecular abnormality that is present in the specified disease state. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R174",
+    "name": "Disease_Mapped_To_Chromosome",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Disease_Mapped_To_Chromosome",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Mapped_To_Chromosome",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a disease, disorder or finding and a chromosome. This restriction should be used when a disease or disorder maps to a chromosome.  It is not meant to be used when a specific cytogenetic abnormality is known (e.g. translocation, inversion). The domain and range for this role are 'Disease, Disorder or Finding' and 'Chromosome', respectively. The range for this role excludes chromosomal bands and physical locations.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R27",
+    "name": "Conceptual_Part_Of",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Part Of",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Conceptual_Part_Of",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Conceptual_Part_Of",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that a conceptual entity is a sub-entity of another conceptual entity. Both the domain and the range for this role are 'Conceptual Entity'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R167",
+    "name": "Procedure_Has_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_Has_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_Has_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure always involves excision of some or all of the specified anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs. It should be used when a more specific role cannot be asserted. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R169",
+    "name": "Procedure_Has_Partially_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Partially Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_Has_Partially_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_Has_Partially_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure always involves partial excision of the specified anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs, and where partial excision is explicit or can be inferred (e.g. biopsy). The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R82",
+    "name": "Anatomic_Structure_Is_Physical_Part_Of",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Physical Part Of",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Anatomic_Structure_Is_Physical_Part_Of",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Anatomic_Structure_Is_Physical_Part_Of",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that an anatomic structure has a physical association with a broader system or organ. Both the domain and range for this role are 'Anatomic Structure, System, or Substance'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R122",
+    "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Metabolized By Enzyme",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify that an enzyme is directly responsible for metabolizing a chemical or drug into an active form, inactive form, or both. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Gene Product', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R88",
+    "name": "Disease_Is_Stage",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Stage",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Is_Stage",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Is_Stage",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the disease stage of a disease, the extent to which a cancer has spread from the original site to other parts of the body. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Property or_Attribute', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R47",
+    "name": "Gene_Product_Is_Biomarker_Of",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Biomarker Of",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Is_Biomarker_Of",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Is_Biomarker_Of",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that presence of a gene product may contribute to clinical diagnosis, treatment selection, or prediction of clinical outcome. The domain and range for this role are 'Gene Product' and 'Disease, Disorder or Finding', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "This role does not imply a cause and effect."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R38",
+    "name": "Gene_Associated_With_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Associated With Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Associated_With_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Associated_With_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that molecular abnormalities in a gene may be associated with the manifestation of a disease. The role is used to assert a link between a gene and a disease when the association is considered to have clinical relevance. The domain and range for this role are 'Gene' and 'Disease, Disorder or Finding', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R155",
+    "name": "Allele_In_Chromosomal_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "In Chromosomal Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_In_Chromosomal_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_In_Chromosomal_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used for an allele whose location has changed from the wild-type gene chromosomal location. This role is used to assert a new location that differs from the wild-type gene chromosomal location. The domain and range for this role are 'Gene' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R137",
+    "name": "Disease_Excludes_Normal_Tissue_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Normal Tissue Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Normal_Tissue_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Normal_Tissue_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Normal_Tissue_Origin. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R138",
+    "name": "Disease_Excludes_Normal_Cell_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Normal Cell Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Normal_Cell_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Normal_Cell_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Normal_Cell_Origin. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R32",
+    "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Initiator Chemical Or Drug",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert the relationship between a biological process and a drug or chemical that stimulates the process. The role implies the direct physical interaction of a chemical or drug with a target molecule or complex that results in the initiation of the process. The domain and range for this role are 'Biological Process' and 'Drug, Food, Chemical or Biomedical Material', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R114",
+    "name": "Disease_May_Have_Cytogenetic_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Cytogenetic Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Cytogenetic_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Cytogenetic_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a particular cytogenetic abnormality will only be present in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R89",
+    "name": "Disease_May_Have_Molecular_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Molecular Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Molecular_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Molecular_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a molecular abnormality will only be present in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R110",
+    "name": "Disease_Is_Grade",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Grade",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Is_Grade",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Is_Grade",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to a grading system which classifies the cancer cells in terms of how abnormal they appear when examined under a microscope. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Property or_Attribute', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R172",
+    "name": "Regimen_Has_Accepted_Use_For_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Accepted Use For Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Regimen_Has_Accepted_Use_For_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Regimen_Has_Accepted_Use_For_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to link established therapeutic regimens to their corresponding cancers or other diseases. Only established regimens published in NCI's Physician Data Query (PDQ), National Comprehensive Cancer Network (NCCN) Guidelines (http://www.nccn.org), or a limited number of other authoritative sources such as the Physician's Cancer Chemotherapy Manual are included. The domain and range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Disease, Disorder or Finding', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R171",
+    "name": "Procedure_Has_Completely_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Completely Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_Has_Completely_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_Has_Completely_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure always is intended for the complete excision of the target anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs, and where complete excision is explicit or can be inferred. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R30",
+    "name": "Biological_Process_Has_Associated_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Associated_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Associated_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate the organ, organ system, cellular or subcellular location where a process occurs in a living system. The domain and range for this role are 'Biological Process' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R81",
+    "name": "Anatomic_Structure_Has_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Anatomic_Structure_Has_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Anatomic_Structure_Has_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate the physical location of an anatomic structure in the body. Both the domain and range for this role are 'Anatomic Structure, System, or Substance'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R48",
+    "name": "Gene_Product_Malfunction_Associated_With_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Malfunction Associated With Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Product_Malfunction_Associated_With_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Product_Malfunction_Associated_With_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to indicate that molecular abnormalities in a gene product may be associated with the manifestation of a disease. The role is used to assert a link between a gene product and a disease when the association is considered to have clinical relevance. The domain and range for this role are 'Gene Product' and 'Disease, Disorder or Finding', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R140",
+    "name": "Disease_Excludes_Molecular_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Molecular Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Molecular_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Molecular_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_ Molecular_Abnormality. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R25",
+    "name": "EO_Disease_Has_Associated_EO_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated EO Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "EO_Disease_Has_Associated_EO_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "EO_Disease_Has_Associated_EO_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the general site, structure or system where a pathological process is located in an experimental organism. The domain and range for this role are 'Experimental Organism Diagnosis' and 'Experimental Organism Anatomical Concept', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R24",
+    "name": "EO_Disease_Maps_To_Human_Disease",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Maps To Human Disease",
+        "type": "Display_Name"
+      },
+      {
+        "name": "EO_Disease_Maps_To_Human_Disease",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "EO_Disease_Maps_To_Human_Disease",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role is used to establish a relationship between a disease in an experimental organism and a corresponding human disease. The domain and the range for this role are 'Experimental Organism Diagnosis' and 'Disease, Disorder or Finding', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R26",
+    "name": "EO_Disease_Has_Property_Or_Attribute",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Property Or Attribute",
+        "type": "Display_Name"
+      },
+      {
+        "name": "EO_Disease_Has_Property_Or_Attribute",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "EO_Disease_Has_Property_Or_Attribute",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the clinical behavior, or other characteristic, of a disease in an experimental organism. The domain and range for this role are 'Experimental Organism Diagnosis' and 'Property or Attribute', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R141",
+    "name": "Disease_Excludes_Cytogenetic_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Cytogenetic Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Cytogenetic_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Cytogenetic_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_Cytogenetic_Abnormality. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R107",
+    "name": "Disease_Has_Cytogenetic_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Cytogenetic Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Cytogenetic_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Cytogenetic_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the type of chromosomal abnormality present in the specified disease state. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R66",
+    "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Plays Role In Biological Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that an active ingredient of a drug or chemical agent influences a biological process. The role implies a direct association with a target biological molecule or complex involved in the process. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "to be deleted"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R173",
+    "name": "Cytogenetic_Abnormality_Involves_Chromosome",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Cytogenetic_Abnormality_Involves_Chromosome",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Cytogenetic_Abnormality_Involves_Chromosome",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a direct relationship between a cytogenetic abnormality and a chromosome. The domain and range for this role are 'Cytogenetic Abnormality' and 'Chromosome', respectively. The range for this role excludes chromosomal bands and physical locations.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R28",
+    "name": "Biological_Process_Has_Initiator_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Initiator Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Initiator_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Initiator_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that the initiation of the stated biological process is dependent on the progression or completion of another process. The role implies a direct physical and functional interaction of an element from the preceding biological process with a target molecule or complex involved in the initial stages of the stated process. Both the domain and the range for this role are 'Biological Process'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R35",
+    "name": "Biological_Process_Is_Part_Of_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Part Of Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Is_Part_Of_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Is_Part_Of_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that a biological process operates as a component of another biological process. Both the domain and the range for this role is 'Biological Process'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R113",
+    "name": "Disease_May_Have_Abnormal_Cell",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Abnormal Cell",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Abnormal_Cell",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Abnormal_Cell",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that particular neoplastic cell types will only be present in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Abnormal Cell', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R102",
+    "name": "Disease_Has_Metastatic_Anatomic_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Metastatic Anatomic Site",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Has_Metastatic_Anatomic_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Has_Metastatic_Anatomic_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to relate a disease to the site of a metastatic lesion associated with the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The role can be viewed as a specialization of Disease_Has_Associated_Anatomic_Site."
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R112",
+    "name": "Disease_May_Have_Normal_Cell_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Normal Cell Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Normal_Cell_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Normal_Cell_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a normal cell type will only be the type of origin in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R34",
+    "name": "Biological_Process_Has_Result_Biological_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Result Biological Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Biological_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Biological_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that the end result of a biological process initiates a subsequent biological process. Both the domain and the range for this role is 'Biological Process'.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R153",
+    "name": "Allele_Has_Abnormality",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Abnormality",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_Has_Abnormality",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_Has_Abnormality",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Gene_Has_Abnormality that has been asserted for the gene class. This role is used to establish a link between a specific allele and genetic or molecular abnormalities that have been observed in human cells and tissues associated with cancer or another disease of interest. The domain and range for this role are 'Gene' and 'Molecular Abnormality', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R136",
+    "name": "Disease_Excludes_Metastatic_Anatomic_Site",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Excludes Metastatic Anatomic Site",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_Excludes_Metastatic_Anatomic_Site",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_Excludes_Metastatic_Anatomic_Site",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used to override Disease_Has_ Metastatic_Anatomic_Site. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R166",
+    "name": "Procedure_May_Have_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_May_Have_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_May_Have_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure sometimes results in excision of some or all of the specified anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs. It should be used when a more specific role cannot be asserted. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R168",
+    "name": "Procedure_May_Have_Partially_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Partially Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_May_Have_Partially_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_May_Have_Partially_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure sometimes results in partial excision of the specified anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs, and where partial excision is explicit or can be inferred (e.g. biopsy). The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R170",
+    "name": "Procedure_May_Have_Completely_Excised_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Completely Excised Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_May_Have_Completely_Excised_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_May_Have_Completely_Excised_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a surgical procedure and its target anatomy, specifically that a particular procedure sometimes results in complete excision of the target anatomy. This role is applicable to procedures or techniques that involve excision of solid tissues or organs, and where complete excision is explicit or can be inferred. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R36",
+    "name": "Gene_Is_Biomarker_Type",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Is Biomarker Type",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Is_Biomarker_Type",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Is_Biomarker_Type",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to designate the type of biomarker a gene is; it points to a small tree of biomarker types (e.g., Disease Marker, Metabolic Marker, Prognostic Marker). The domain and range for this role are 'Gene' and 'Diagnostic or Prognostic Factor', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R31",
+    "name": "Biological_Process_Has_Result_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Result Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that some biological event results in the formation of a subcellular complex, structure, cell, tissue or organ. This role is used to establish this relationship between the biological process and the anatomical factor formed. The domain and range for this role are 'Biological Process' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R29",
+    "name": "Biological_Process_Has_Result_Chemical_Or_Drug",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Result Chemical Or Drug",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Chemical_Or_Drug",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Biological_Process_Has_Result_Chemical_Or_Drug",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that the endpoint of a biological process is the creation of a drug, chemical or biomedical material. The domain and range for this role are 'Biological Process' and 'Drug, Food, Chemical or Biomedical Material', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R150",
+    "name": "Chemical_Or_Drug_Affects_Abnormal_Cell",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Affects Abnormal Cell",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Abnormal_Cell",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Chemical_Or_Drug_Affects_Abnormal_Cell",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to establish the relationship between a therapeutic agent and an abnormal cell type associated with a disease condition. By pointing to abnormal cells, the therapeutic target of a drug can be more clearly conveyed. The domain and range for this role are 'Drug, Food, Chemical or Biomedical Material' and 'Abnormal Cell', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R111",
+    "name": "Disease_May_Have_Normal_Tissue_Origin",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "May Have Normal Tissue Origin",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Disease_May_Have_Normal_Tissue_Origin",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Disease_May_Have_Normal_Tissue_Origin",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to represent that a normal tissue type will only be the type of origin in some cases of the disease. The domain and the range for this role are 'Disease, Disorder or Finding' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R39",
+    "name": "Gene_Is_Biomarker_Of",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Gene_Is_Biomarker_Of",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Is_Biomarker_Of",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert that expression or alteration of a gene is correlated with a particular disease or disease state or is predictive of the disease or disease state. The domain and range for this role are 'Gene' and Findings_and_Disorder_Kind, respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R23",
+    "name": "EO_Disease_Has_Associated_Cell_Type",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Associated Cell Type",
+        "type": "Display_Name"
+      },
+      {
+        "name": "EO_Disease_Has_Associated_Cell_Type",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "EO_Disease_Has_Associated_Cell_Type",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to specify the associated cell type of a disease in an experimental organism. The domain and range for this role are 'Experimental Organism Diagnosis' and 'Experimental Organism Anatomical Concept', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R145",
+    "name": "Gene_Has_Physical_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Physical Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Gene_Has_Physical_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Gene_Has_Physical_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to link a gene with its physical extent on a chromosome, denoted by the chromosome number and start and end base positions (with numbering beginning at the telomere of the short p arm). The domain and range for this role are 'Gene' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "DesignNote",
+        "value": "The standard for the numbering system is that assigned by the Human Genome Consortium and found at Entrez Gene. The role is considered as supplementary to the role Gene_In Chromosomal_Location"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R165",
+    "name": "Procedure_Has_Imaged_Anatomy",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Imaged Anatomy",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Procedure_Has_Imaged_Anatomy",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Procedure_Has_Imaged_Anatomy",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between an imaging procedure and its target anatomy, specifically that a particular procedure always involves imaging the specified anatomy. The domain and range for this role are 'Clinical or Research Activity' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R159",
+    "name": "Allele_Has_Activity",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Has Activity",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_Has_Activity",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_Has_Activity",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert the observed level of activity associated with an allele in a given biological process, compared to the wild-type gene. The domain and range for this role are 'Gene' and 'Property or Attribute', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R158",
+    "name": "Allele_Plays_Altered_Role_In_Process",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Plays Altered Role In Process",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_Plays_Altered_Role_In_Process",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_Plays_Altered_Role_In_Process",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A specializing role which may be used for an allele whose encoded product functions differently (qualitatively or quantitatively) from the function asserted on its parent. It specializes the function of the wild type gene/gene product. The domain and range for this role are 'Gene' and 'Biological Process', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R160",
+    "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Plays Role In Metabolism Of Chemical Or Drug",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used to assert a relationship between a specific allele (product; enzyme) and drug-metabolizing efficacy. The domain and range for this role are 'Gene' and 'Drug, Food, Chemical or Biomedical Material', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "R156",
+    "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
+    "terminology": "ncit",
+    "version": "25.02d",
+    "synonyms": [
+      {
+        "name": "Absent From Wild-type Chromosomal Location",
+        "type": "Display_Name"
+      },
+      {
+        "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A role used for an allele whose location has changed from the wild-type gene chromosomal location. This role is used to negate an inherited role relationship that is asserted between the parent gene class and a chromosomal location when an allele has moved (e.g., translocation, inversion, etc.). The domain and range for this role are 'Gene' and 'Anatomic Structure, System, or Substance', respectively.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  }
+]
+

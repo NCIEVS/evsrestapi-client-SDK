@@ -1,0 +1,21 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:30 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = A16
+include = 
+
+  Get association for ncit A16:
+
+    {
+      "code": "A16",
+      "name": "Has_INC_Parent",
+      "terminology": "ncit",
+      "version": "25.02d"
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:30 PM
+-----------------------------------------------------
+

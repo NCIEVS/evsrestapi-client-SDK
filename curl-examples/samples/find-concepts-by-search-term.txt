@@ -1,6 +1,6 @@
 {
-  "total": 1362,
-  "timeTaken": 65,
+  "total": 1531,
+  "timeTaken": 41,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -16,36 +16,47 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C91477",
       "name": "Melanoma Pathway",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
       "code": "C21790",
       "name": "Mouse Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": true
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
     },
     {
-      "code": "C114828",
-      "name": "Mucosal Melanoma",
+      "code": "C2517",
+      "name": "Melanoma Vaccine",
       "terminology": "ncit",
-      "version": "21.11e",
-      "leaf": false
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ]
 }
+

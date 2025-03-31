@@ -107,12 +107,17 @@
   {
     "type": "Disease_May_Have_Associated_Disease",
     "relatedCode": "C27264",
-    "relatedName": "Familial Atypical Mole Melanoma Syndrome"
+    "relatedName": "Hereditary Atypical Mole Melanoma Syndrome"
   },
   {
     "type": "Disease_May_Have_Associated_Disease",
     "relatedCode": "C8495",
     "relatedName": "Hereditary Retinoblastoma"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C192671",
+    "relatedName": "Hereditary Tumor Syndrome Associated with Homologous Recombination Pathway Mutations"
   },
   {
     "type": "Gene_Associated_With_Disease",
@@ -158,6 +163,16 @@
     "type": "Gene_Product_Is_Biomarker_Of",
     "relatedCode": "C17513",
     "relatedName": "Melanoma-Associated Antigen 3"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C176905",
+    "relatedName": "Melanoma-Astrocytoma Syndrome"
+  },
+  {
+    "type": "Disease_May_Have_Associated_Disease",
+    "relatedCode": "C176904",
+    "relatedName": "Melanoma-Pancreatic Cancer Syndrome"
   },
   {
     "type": "Gene_Product_Malfunction_Associated_With_Disease",
@@ -250,3 +265,4 @@
     "relatedName": "XRCC3 wt Allele"
   }
 ]
+

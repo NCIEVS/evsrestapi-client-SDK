@@ -1,0 +1,27 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:38 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+codeOrLabel = go-evi
+include = synonyms
+
+  Get qualifier for ncit go-evi:
+
+    {
+      "code": "P389",
+      "name": "go-evi",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "synonyms": [
+        {
+          "name": "go-evi",
+          "type": "Preferred_Name"
+        }
+      ]
+    }
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:38 PM
+-----------------------------------------------------
+

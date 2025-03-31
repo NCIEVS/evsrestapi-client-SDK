@@ -4,49 +4,61 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 0,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C7058",
       "name": "Melanocytic Neoplasm",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 1,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C4741",
       "name": "Neoplasm by Morphology",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 2,
-      "leaf": false
+      "conceptStatus": "Header_Concept",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C3262",
       "name": "Neoplasm",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 3,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C2991",
       "name": "Disease or Disorder",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 4,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C7057",
       "name": "Disease, Disorder or Finding",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 5,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ],
   [
@@ -54,49 +66,62 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 0,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C9305",
       "name": "Malignant Neoplasm",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 1,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C7062",
       "name": "Neoplasm by Special Category",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 2,
-      "leaf": false
+      "conceptStatus": "Header_Concept",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C3262",
       "name": "Neoplasm",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 3,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C2991",
       "name": "Disease or Disorder",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 4,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     },
     {
       "code": "C7057",
       "name": "Disease, Disorder or Finding",
       "terminology": "ncit",
-      "version": "21.11e",
+      "version": "25.02d",
       "level": 5,
-      "leaf": false
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
     }
   ]
 ]
+

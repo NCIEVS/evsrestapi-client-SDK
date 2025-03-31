@@ -2,20 +2,38 @@
   {
     "code": "C4022",
     "name": "Acral Lentiginous Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C204883",
+    "name": "Acral Melanoma",
     "level": 3,
     "leaf": false
   },
   {
+    "code": "C188185",
+    "name": "Adrenal Cortical Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
     "code": "C5319",
     "name": "Adult Meningeal Melanoma",
-    "level": 4,
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C212033",
+    "name": "Advanced Acral Melanoma",
+    "level": 5,
     "leaf": true
   },
   {
     "code": "C155311",
     "name": "Advanced Cutaneous Melanoma of the Extremity",
-    "level": 3,
-    "leaf": true
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C171572",
@@ -42,16 +60,16 @@
     "leaf": false
   },
   {
+    "code": "C190137",
+    "name": "Advanced Ocular Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
     "code": "C148515",
     "name": "Advanced Uveal Melanoma",
     "level": 4,
     "leaf": false
-  },
-  {
-    "code": "C4633",
-    "name": "Amelanotic Cutaneous Melanoma",
-    "level": 2,
-    "leaf": true
   },
   {
     "code": "C3802",
@@ -84,33 +102,39 @@
     "leaf": true
   },
   {
-    "code": "C5505",
-    "name": "Central Nervous System Melanoma",
-    "level": 2,
-    "leaf": false
-  },
-  {
     "code": "C40239",
     "name": "Cervical Melanoma",
     "level": 5,
     "leaf": true
   },
   {
+    "code": "C190280",
+    "name": "Childhood Cutaneous Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
     "code": "C131506",
     "name": "Childhood Melanoma",
     "level": 1,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C5318",
     "name": "Childhood Meningeal Melanoma",
-    "level": 4,
+    "level": 2,
     "leaf": true
   },
   {
     "code": "C6102",
     "name": "Choroid Epithelioid Cell Melanoma",
-    "level": 3,
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C6100",
+    "name": "Choroid Intermediate Cell Type Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -121,8 +145,8 @@
   },
   {
     "code": "C35782",
-    "name": "Choroid Mixed Cell Melanoma",
-    "level": 3,
+    "name": "Choroid Mixed Epithelioid and Spindle Cell Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -134,19 +158,19 @@
   {
     "code": "C6099",
     "name": "Choroid Spindle Cell Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": false
   },
   {
     "code": "C6861",
     "name": "Choroid Spindle Cell Type A Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
     "code": "C6862",
     "name": "Choroid Spindle Cell Type B Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -158,7 +182,13 @@
   {
     "code": "C6119",
     "name": "Ciliary Body Epithelioid Cell Melanoma",
-    "level": 3,
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C6118",
+    "name": "Ciliary Body Intermediate Cell Type Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -169,50 +199,26 @@
   },
   {
     "code": "C35783",
-    "name": "Ciliary Body Mixed Cell Melanoma",
-    "level": 3,
+    "name": "Ciliary Body Mixed Epithelioid and Spindle Cell Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C6117",
     "name": "Ciliary Body Spindle Cell Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": false
   },
   {
     "code": "C6864",
     "name": "Ciliary Body Spindle Cell Type A Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
     "code": "C6863",
     "name": "Ciliary Body Spindle Cell Type B Melanoma",
-    "level": 4,
-    "leaf": true
-  },
-  {
-    "code": "C111020",
-    "name": "Class 1 Uveal Melanoma",
-    "level": 4,
-    "leaf": false
-  },
-  {
-    "code": "C111022",
-    "name": "Class 1a Uveal Melanoma",
     "level": 5,
-    "leaf": true
-  },
-  {
-    "code": "C111023",
-    "name": "Class 1b Uveal Melanoma",
-    "level": 5,
-    "leaf": true
-  },
-  {
-    "code": "C111021",
-    "name": "Class 2 Uveal Melanoma",
-    "level": 4,
     "leaf": true
   },
   {
@@ -276,10 +282,34 @@
     "leaf": true
   },
   {
+    "code": "C213201",
+    "name": "Conjunctival Amelanotic Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C204981",
+    "name": "Conjunctival Melanoma In Situ",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C4550",
     "name": "Conjunctival Melanoma",
     "level": 2,
     "leaf": false
+  },
+  {
+    "code": "C213202",
+    "name": "Conjunctival Mixed Epithelioid and Spindle Cell Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C213200",
+    "name": "Conjunctival Nodular Melanoma",
+    "level": 3,
+    "leaf": true
   },
   {
     "code": "C4553",
@@ -288,9 +318,9 @@
     "leaf": true
   },
   {
-    "code": "C128801",
-    "name": "Cutaneous Malignant Melanoma 2",
-    "level": 3,
+    "code": "C4633",
+    "name": "Cutaneous Amelanotic Melanoma",
+    "level": 2,
     "leaf": true
   },
   {
@@ -342,27 +372,39 @@
     "leaf": true
   },
   {
+    "code": "C165497",
+    "name": "Cutaneous Spitz Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C205127",
+    "name": "De Novo Nodular Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C205129",
+    "name": "Dermal Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
     "code": "C37257",
     "name": "Desmoplastic Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
     "code": "C48614",
     "name": "Desmoplastic Neurotropic Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
     "code": "C4236",
     "name": "Epithelioid Cell Melanoma",
     "level": 1,
-    "leaf": false
-  },
-  {
-    "code": "C35780",
-    "name": "Epithelioid Cell Uveal Melanoma",
-    "level": 2,
     "leaf": false
   },
   {
@@ -390,6 +432,24 @@
     "leaf": true
   },
   {
+    "code": "C133187",
+    "name": "Head and Neck Mucosal Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C207624",
+    "name": "Hereditary Melanoma with CDK4 Mutation",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C128801",
+    "name": "Hereditary Melanoma with CDKN2A Mutation",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C8498",
     "name": "Hereditary Melanoma",
     "level": 2,
@@ -398,30 +458,6 @@
   {
     "code": "C165659",
     "name": "High-CSD Melanoma",
-    "level": 2,
-    "leaf": false
-  },
-  {
-    "code": "C6100",
-    "name": "Intermediate Cell Type Choroid Melanoma",
-    "level": 4,
-    "leaf": true
-  },
-  {
-    "code": "C6118",
-    "name": "Intermediate Cell Type Ciliary Body Melanoma",
-    "level": 4,
-    "leaf": true
-  },
-  {
-    "code": "C6101",
-    "name": "Intermediate Cell Type Iris Melanoma",
-    "level": 4,
-    "leaf": true
-  },
-  {
-    "code": "C7989",
-    "name": "Intermediate Cell Type Uveal Melanoma",
     "level": 3,
     "leaf": false
   },
@@ -438,9 +474,21 @@
     "leaf": true
   },
   {
+    "code": "C190746",
+    "name": "Iridociliary Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C174498",
     "name": "Iris Epithelioid Cell Melanoma",
-    "level": 3,
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C6101",
+    "name": "Iris Intermediate Cell Type Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -451,14 +499,20 @@
   },
   {
     "code": "C174506",
-    "name": "Iris Mixed Cell Melanoma",
-    "level": 3,
+    "name": "Iris Mixed Epithelioid and Spindle Cell Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C6098",
     "name": "Iris Spindle Cell Melanoma",
-    "level": 3,
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C188067",
+    "name": "Jejunal Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -470,7 +524,7 @@
   {
     "code": "C9151",
     "name": "Lentigo Maligna Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": false
   },
   {
@@ -492,6 +546,12 @@
     "leaf": false
   },
   {
+    "code": "C209346",
+    "name": "Locally Advanced Mucosal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
     "code": "C171297",
     "name": "Locally Advanced Non-Cutaneous Melanoma",
     "level": 3,
@@ -501,12 +561,24 @@
     "code": "C171296",
     "name": "Locally Advanced Ocular Melanoma",
     "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C190138",
+    "name": "Locally Advanced Unresectable Uveal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C204843",
+    "name": "Low-CSD Melanoma, Superficial Spreading Melanoma Subtype",
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C9152",
     "name": "Low-CSD Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": false
   },
   {
@@ -516,8 +588,8 @@
     "leaf": true
   },
   {
-    "code": "C66753",
-    "name": "Malignant Melanoma in Precancerous Melanosis",
+    "code": "C213491",
+    "name": "Mediastinal Melanoma",
     "level": 2,
     "leaf": true
   },
@@ -529,9 +601,15 @@
   },
   {
     "code": "C4240",
-    "name": "Melanoma Arising from Blue Nevus",
+    "name": "Melanoma Arising in Blue Nevus",
     "level": 2,
     "leaf": true
+  },
+  {
+    "code": "C48613",
+    "name": "Melanoma Arising in Congenital Melanocytic Nevus",
+    "level": 2,
+    "leaf": false
   },
   {
     "code": "C4235",
@@ -540,8 +618,14 @@
     "leaf": true
   },
   {
-    "code": "C48613",
-    "name": "Melanoma in Congenital Melanocytic Nevus",
+    "code": "C204864",
+    "name": "Melanoma in Chronically Sun-Exposed Skin",
+    "level": 2,
+    "leaf": false
+  },
+  {
+    "code": "C204840",
+    "name": "Melanoma in Intermittently Sun-Exposed Skin",
     "level": 2,
     "leaf": false
   },
@@ -552,16 +636,10 @@
     "leaf": true
   },
   {
-    "code": "C179206",
-    "name": "Melanoma Metastatic in the Brain",
-    "level": 3,
-    "leaf": true
-  },
-  {
-    "code": "C133504",
-    "name": "Melanoma Metastatic in the Central Nervous System",
+    "code": "C66753",
+    "name": "Melanoma in Precancerous Melanosis",
     "level": 2,
-    "leaf": false
+    "leaf": true
   },
   {
     "code": "C154473",
@@ -570,28 +648,22 @@
     "leaf": true
   },
   {
-    "code": "C9499",
-    "name": "Melanomatosis",
-    "level": 1,
-    "leaf": false
-  },
-  {
     "code": "C5317",
     "name": "Meningeal Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
-  },
-  {
-    "code": "C6891",
-    "name": "Meningeal Melanomatosis",
-    "level": 4,
-    "leaf": true
   },
   {
     "code": "C179427",
     "name": "Metastatic Acral Lentiginous Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C212032",
+    "name": "Metastatic Acral Melanoma",
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C169085",
@@ -606,10 +678,58 @@
     "leaf": true
   },
   {
+    "code": "C212038",
+    "name": "Metastatic Cutaneous Melanoma of the Extremity",
+    "level": 3,
+    "leaf": false
+  },
+  {
     "code": "C156072",
     "name": "Metastatic Cutaneous Melanoma",
     "level": 2,
     "leaf": false
+  },
+  {
+    "code": "C213510",
+    "name": "Metastatic Melanoma in the Bone",
+    "level": 2,
+    "leaf": false
+  },
+  {
+    "code": "C179206",
+    "name": "Metastatic Melanoma in the Brain",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C133504",
+    "name": "Metastatic Melanoma in the Central Nervous System",
+    "level": 2,
+    "leaf": false
+  },
+  {
+    "code": "C205131",
+    "name": "Metastatic Melanoma in the Lymph Nodes",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C205130",
+    "name": "Metastatic Melanoma in the Skin",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C213511",
+    "name": "Metastatic Melanoma in the Temporal Bone",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C205132",
+    "name": "Metastatic Melanoma in the Viscera",
+    "level": 2,
+    "leaf": true
   },
   {
     "code": "C8925",
@@ -630,6 +750,12 @@
     "leaf": false
   },
   {
+    "code": "C213776",
+    "name": "Metastatic Non-Sun Exposed Skin Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C171295",
     "name": "Metastatic Ocular Melanoma",
     "level": 2,
@@ -646,12 +772,6 @@
     "name": "Minimal Deviation Melanoma",
     "level": 2,
     "leaf": true
-  },
-  {
-    "code": "C35781",
-    "name": "Mixed Cell Uveal Melanoma",
-    "level": 2,
-    "leaf": false
   },
   {
     "code": "C66756",
@@ -690,12 +810,6 @@
     "leaf": false
   },
   {
-    "code": "C133187",
-    "name": "Mucosal Melanoma of the Head and Neck",
-    "level": 3,
-    "leaf": false
-  },
-  {
     "code": "C178453",
     "name": "Mucosal Melanoma of the Urinary System",
     "level": 4,
@@ -710,20 +824,20 @@
   {
     "code": "C166405",
     "name": "Mucosal Nodular Melanoma",
-    "level": 3,
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C204889",
+    "name": "Nail Apparatus Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C178522",
-    "name": "Nasopharyngeal Melanoma",
+    "name": "Nasopharyngeal Mucosal Melanoma",
     "level": 5,
     "leaf": true
-  },
-  {
-    "code": "C7990",
-    "name": "Necrotic Uveal Melanoma",
-    "level": 3,
-    "leaf": false
   },
   {
     "code": "C54662",
@@ -732,9 +846,21 @@
     "leaf": true
   },
   {
+    "code": "C205125",
+    "name": "Nodular Melanoma",
+    "level": 1,
+    "leaf": false
+  },
+  {
     "code": "C8711",
     "name": "Non-Cutaneous Melanoma",
     "level": 1,
+    "leaf": false
+  },
+  {
+    "code": "C213774",
+    "name": "Non-Sun Exposed Skin Melanoma",
+    "level": 2,
     "leaf": false
   },
   {
@@ -756,6 +882,12 @@
     "leaf": true
   },
   {
+    "code": "C209348",
+    "name": "Oligometastatic Cutaneous Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C5915",
     "name": "Oral Cavity Mucosal Melanoma",
     "level": 4,
@@ -770,6 +902,12 @@
   {
     "code": "C178441",
     "name": "Ovarian Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C213517",
+    "name": "Parotid Gland Melanoma",
     "level": 2,
     "leaf": true
   },
@@ -877,7 +1015,7 @@
   },
   {
     "code": "C178521",
-    "name": "Pharyngeal Melanoma",
+    "name": "Pharyngeal Mucosal Melanoma",
     "level": 4,
     "leaf": false
   },
@@ -888,10 +1026,16 @@
     "leaf": true
   },
   {
+    "code": "C188079",
+    "name": "Rectal Epithelioid Cell Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
     "code": "C4640",
     "name": "Rectal Melanoma",
     "level": 4,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C175435",
@@ -914,7 +1058,7 @@
   {
     "code": "C8785",
     "name": "Recurrent Lentigo Maligna Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -944,13 +1088,13 @@
   {
     "code": "C171294",
     "name": "Recurrent Ocular Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
     "code": "C7914",
     "name": "Recurrent Uveal Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -986,13 +1130,13 @@
   {
     "code": "C173329",
     "name": "Refractory Ocular Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
     "code": "C173335",
     "name": "Refractory Uveal Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -1012,6 +1156,18 @@
     "name": "Regressing Non-Cutaneous Melanoma",
     "level": 2,
     "leaf": true
+  },
+  {
+    "code": "C190240",
+    "name": "Resectable Cutaneous Melanoma",
+    "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C190239",
+    "name": "Resectable Melanoma",
+    "level": 1,
+    "leaf": false
   },
   {
     "code": "C8601",
@@ -1060,30 +1216,6 @@
     "name": "Spindle Cell Melanoma",
     "level": 1,
     "leaf": false
-  },
-  {
-    "code": "C7987",
-    "name": "Spindle Cell Type A Uveal Melanoma",
-    "level": 3,
-    "leaf": false
-  },
-  {
-    "code": "C7988",
-    "name": "Spindle Cell Type B Uveal Melanoma",
-    "level": 3,
-    "leaf": false
-  },
-  {
-    "code": "C7986",
-    "name": "Spindle Cell Uveal Melanoma",
-    "level": 2,
-    "leaf": false
-  },
-  {
-    "code": "C165497",
-    "name": "Spitz Melanoma",
-    "level": 2,
-    "leaf": true
   },
   {
     "code": "C8423",
@@ -1380,6 +1512,18 @@
     "leaf": true
   },
   {
+    "code": "C204887",
+    "name": "Subungual Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C213513",
+    "name": "Temporal Bone Mucosal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
     "code": "C4238",
     "name": "Type A Spindle Cell Melanoma",
     "level": 2,
@@ -1394,8 +1538,14 @@
   {
     "code": "C165535",
     "name": "Unresectable Acral Lentiginous Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": true
+  },
+  {
+    "code": "C213771",
+    "name": "Unresectable Acral Melanoma",
+    "level": 3,
+    "leaf": false
   },
   {
     "code": "C148245",
@@ -1416,16 +1566,58 @@
     "leaf": true
   },
   {
+    "code": "C213775",
+    "name": "Unresectable Non-Sun Exposed Skin Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
     "code": "C172247",
     "name": "Unresectable Uveal Melanoma",
-    "level": 2,
-    "leaf": true
+    "level": 3,
+    "leaf": false
   },
   {
     "code": "C159665",
     "name": "Urethral Melanoma",
     "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C111020",
+    "name": "Uveal Class 1 Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C111022",
+    "name": "Uveal Class 1a Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
+    "code": "C111023",
+    "name": "Uveal Class 1b Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
+    "code": "C111021",
+    "name": "Uveal Class 2 Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C35780",
+    "name": "Uveal Epithelioid Cell Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C7989",
+    "name": "Uveal Intermediate Cell Type Melanoma",
+    "level": 3,
+    "leaf": false
   },
   {
     "code": "C140672",
@@ -1452,9 +1644,45 @@
     "leaf": false
   },
   {
+    "code": "C35781",
+    "name": "Uveal Mixed Epithelioid and Spindle Cell Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C7990",
+    "name": "Uveal Necrotic Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C7986",
+    "name": "Uveal Spindle Cell Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C7987",
+    "name": "Uveal Spindle Cell Type A Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C7988",
+    "name": "Uveal Spindle Cell Type B Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
     "code": "C27394",
     "name": "Vaginal Melanoma",
     "level": 5,
+    "leaf": true
+  },
+  {
+    "code": "C204888",
+    "name": "Volar Melanoma",
+    "level": 4,
     "leaf": true
   },
   {
@@ -1464,3 +1692,4 @@
     "leaf": true
   }
 ]
+

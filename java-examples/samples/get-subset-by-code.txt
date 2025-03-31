@@ -1,0 +1,142 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 127 STANDARD_ERROR
+    Mar 24, 2025 4:40:29 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 2 tests were Method or class mismatch
+
+SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest - Get the subset for code - C116978
+    [Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest -     subets = class Concept {
+        uri: null
+        ct: null
+        code: C116978
+        name: CTRP Agent Terminology
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: https://evs.nci.nih.gov/ftp1/CTRP
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: true
+        active: true
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Clinical Trials Reporting Program Agent Terminology
+            highlight: null
+            termType: SY
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: CTRP Agent Terminology
+            highlight: null
+            termType: PT
+            type: FULL_SYN
+            source: NCI
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: CTRP Agent Terminology
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: [class Definition {
+            uri: null
+            ct: null
+            definition: A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects.
+            highlight: null
+            type: DEFINITION
+            source: NCI
+            qualifiers: []
+        }]
+        properties: [class Property {
+            uri: null
+            ct: null
+            type: Contributing_Source
+            value: CTRP
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Publish_Value_Set
+            value: Yes
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Semantic_Type
+            value: Intellectual Product
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: Term_Browser_Value_Set_Description
+            value: A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects. This data is available for viewing and download at the <a href="https://evs.nci.nih.gov/ftp1/CTRP/NCIt-CTRP_Subsets.xls">NCI FTP</a> site.
+            highlight: null
+            qualifiers: []
+            source: null
+        }, class Property {
+            uri: null
+            ct: null
+            type: UMLS_CUI
+            value: C3899744
+            highlight: null
+            qualifiers: []
+            source: null
+        }]
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }
+
+SubsetEndpointsApiTest > getSubsetTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

@@ -45,7 +45,7 @@ test('test_get_mapset_mappings_by_code', async () => {
     expect(response.maps.length).toBe(pageSize);
 
     response.maps.forEach(map => {
-        expect(map.source).toBe('GO');
+        expect(map.source).toBe('go');
         expect(map.targetTerminology).toBe('NCI_Thesaurus');
     });
 

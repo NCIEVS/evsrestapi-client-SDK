@@ -1,0 +1,79 @@
+{
+  "total": 1,
+  "timeTaken": 30,
+  "parameters": {
+    "term": "XAV05295I5",
+    "type": "contains",
+    "include": "properties",
+    "fromRecord": 0,
+    "pageSize": 10,
+    "property": [
+      "P319"
+    ],
+    "terminology": [
+      "ncit"
+    ]
+  },
+  "concepts": [
+    {
+      "code": "C61305",
+      "name": "Sivifene",
+      "terminology": "ncit",
+      "version": "25.02d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true,
+      "properties": [
+        {
+          "type": "CAS_Registry",
+          "value": "2675-35-6"
+        },
+        {
+          "type": "Chemical_Formula",
+          "value": "C19H14N4O6"
+        },
+        {
+          "type": "Contributing_Source",
+          "value": "FDA"
+        },
+        {
+          "type": "Contributing_Source",
+          "value": "GDC"
+        },
+        {
+          "type": "FDA_UNII_Code",
+          "value": "XAV05295I5"
+        },
+        {
+          "type": "Legacy Concept Name",
+          "value": "A-007"
+        },
+        {
+          "type": "Maps_To",
+          "value": "Sivifene"
+        },
+        {
+          "type": "NCI_Drug_Dictionary_ID",
+          "value": "485274"
+        },
+        {
+          "type": "PDQ_Closed_Trial_Search_ID",
+          "value": "485274"
+        },
+        {
+          "type": "PDQ_Open_Trial_Search_ID",
+          "value": "485274"
+        },
+        {
+          "type": "Semantic_Type",
+          "value": "Pharmacologic Substance"
+        },
+        {
+          "type": "UMLS_CUI",
+          "value": "C0385861"
+        }
+      ]
+    }
+  ]
+}
+

@@ -1,0 +1,142 @@
+-----------------------------------------------------
+Starting ...Wed, Mar 12, 2025  4:12:27 PM
+-----------------------------------------------------
+url = https://api-evsrest.nci.nih.gov/api/v1
+terminology = ncit
+code = C3224
+ancestor code = 
+include = 
+
+  Get paths to root concept
+
+    [
+      [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 0,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C7058",
+          "name": "Melanocytic Neoplasm",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 1,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C4741",
+          "name": "Neoplasm by Morphology",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 2,
+          "conceptStatus": "Header_Concept",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C3262",
+          "name": "Neoplasm",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 3,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C2991",
+          "name": "Disease or Disorder",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 4,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C7057",
+          "name": "Disease, Disorder or Finding",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 5,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        }
+      ],
+      [
+        {
+          "code": "C3224",
+          "name": "Melanoma",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 0,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C9305",
+          "name": "Malignant Neoplasm",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 1,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C7062",
+          "name": "Neoplasm by Special Category",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 2,
+          "conceptStatus": "Header_Concept",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C3262",
+          "name": "Neoplasm",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 3,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C2991",
+          "name": "Disease or Disorder",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 4,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        },
+        {
+          "code": "C7057",
+          "name": "Disease, Disorder or Finding",
+          "terminology": "ncit",
+          "version": "25.02d",
+          "level": 5,
+          "conceptStatus": "DEFAULT",
+          "leaf": false,
+          "active": true
+        }
+      ]
+    ]
+
+-----------------------------------------------------
+Finished ...Wed, Mar 12, 2025  4:12:28 PM
+-----------------------------------------------------
+

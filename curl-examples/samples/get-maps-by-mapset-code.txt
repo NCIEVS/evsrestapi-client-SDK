@@ -1,64 +1,87 @@
 {
-   "total":305,
-   "parameters":{
-      "fromRecord":0,
-      "pageSize":5
-   },
-   "maps":[
-      {
-         "source":"GO",
-         "sourceName":"activation of cysteine-type endopeptidase activity involved in apoptotic process",
-         "sourceCode":"GO:0006919",
-         "type":"mapsTo",
-         "rank":"1",
-         "targetName":"Caspase Activation",
-         "targetCode":"C42784",
-         "targetTerminology":"NCI_Thesaurus",
-         "targetTerminologyVersion":"23.02d"
-      },
-      {
-         "source":"GO",
-         "sourceName":"aerobic respiration",
-         "sourceCode":"GO:0009060",
-         "type":"mapsTo",
-         "rank":"1",
-         "targetName":"Cell Respiration",
-         "targetCode":"C17894",
-         "targetTerminology":"NCI_Thesaurus",
-         "targetTerminologyVersion":"23.02d"
-      },
-      {
-         "source":"GO",
-         "sourceName":"aging",
-         "sourceCode":"GO:0007568",
-         "type":"mapsTo",
-         "rank":"1",
-         "targetName":"Aging",
-         "targetCode":"C16269",
-         "targetTerminology":"NCI_Thesaurus",
-         "targetTerminologyVersion":"23.02d"
-      },
-      {
-         "source":"GO",
-         "sourceName":"anatomical structure morphogenesis",
-         "sourceCode":"GO:0009653",
-         "type":"mapsTo",
-         "rank":"1",
-         "targetName":"Morphogenesis",
-         "targetCode":"C16879",
-         "targetTerminology":"NCI_Thesaurus",
-         "targetTerminologyVersion":"23.02d"
-      },
-      {
-         "source":"GO",
-         "sourceName":"androgen metabolic process",
-         "sourceCode":"GO:0008209",
-         "type":"mapsTo",
-         "rank":"1",
-         "targetName":"Androgen Metabolism Process",
-         "targetCode":"C19958",
-         "targetTerminology":"NCI_Thesaurus",
-         "targetTerminologyVersion":"23.02d"
-      }
-   ]
+  "total": 305,
+  "parameters": {
+    "type": "contains",
+    "include": "minimal",
+    "fromRecord": 0,
+    "pageSize": 5
+  },
+  "maps": [
+    {
+      "mapsetCode": "GO_to_NCIt_Mapping",
+      "source": "go",
+      "sourceName": "DNA integration",
+      "sourceCode": "GO:0015074",
+      "sourceTerminology": "GO",
+      "type": "mapsTo",
+      "rank": "1",
+      "target": "ncit",
+      "targetName": "DNA Integration",
+      "targetCode": "C18855",
+      "targetTerminology": "NCI_Thesaurus",
+      "targetTerminologyVersion": "23.02d",
+      "sortKey": "1000006"
+    },
+    {
+      "mapsetCode": "GO_to_NCIt_Mapping",
+      "source": "go",
+      "sourceName": "DNA modification",
+      "sourceCode": "GO:0006304",
+      "sourceTerminology": "GO",
+      "type": "mapsTo",
+      "rank": "1",
+      "target": "ncit",
+      "targetName": "DNA Modification Process",
+      "targetCode": "C19449",
+      "targetTerminology": "NCI_Thesaurus",
+      "targetTerminologyVersion": "23.02d",
+      "sortKey": "1000008"
+    },
+    {
+      "mapsetCode": "GO_to_NCIt_Mapping",
+      "source": "go",
+      "sourceName": "DNA recombination",
+      "sourceCode": "GO:0006310",
+      "sourceTerminology": "GO",
+      "type": "mapsTo",
+      "rank": "1",
+      "target": "ncit",
+      "targetName": "DNA Recombination Process",
+      "targetCode": "C17082",
+      "targetTerminology": "NCI_Thesaurus",
+      "targetTerminologyVersion": "23.02d",
+      "sortKey": "1000009"
+    },
+    {
+      "mapsetCode": "GO_to_NCIt_Mapping",
+      "source": "go",
+      "sourceName": "RNA binding",
+      "sourceCode": "GO:0003723",
+      "sourceTerminology": "GO",
+      "type": "mapsTo",
+      "rank": "1",
+      "target": "ncit",
+      "targetName": "RNA Binding",
+      "targetCode": "C20737",
+      "targetTerminology": "NCI_Thesaurus",
+      "targetTerminologyVersion": "23.02d",
+      "sortKey": "1000022"
+    },
+    {
+      "mapsetCode": "GO_to_NCIt_Mapping",
+      "source": "go",
+      "sourceName": "RNA polyadenylation",
+      "sourceCode": "GO:0043631",
+      "sourceTerminology": "GO",
+      "type": "mapsTo",
+      "rank": "1",
+      "target": "ncit",
+      "targetName": "RNA Polyadenylation",
+      "targetCode": "C18947",
+      "targetTerminology": "NCI_Thesaurus",
+      "targetTerminologyVersion": "23.02d",
+      "sortKey": "1000026"
+    }
+  ]
 }
+
