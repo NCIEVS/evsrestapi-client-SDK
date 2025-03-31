@@ -1,0 +1,320 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 102 STANDARD_ERROR
+    Mar 24, 2025 4:39:07 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 20 tests were Method or class mismatch
+
+MetadataEndpointsApiTest > getSynonymTypesTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all synonym types for ncit
+    [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonym types = [class Concept {
+        uri: null
+        ct: null
+        code: P107
+        name: Display_Name
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Display Name
+            highlight: null
+            termType: null
+            type: Display_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Display Name
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Display_Name
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Display_Name
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: [class Definition {
+            uri: null
+            ct: null
+            definition: A property representing an alternative Preferred Name for use in some NCI systems.
+            highlight: null
+            type: DEFINITION
+            source: null
+            qualifiers: []
+        }]
+        properties: [class Property {
+            uri: null
+            ct: null
+            type: Semantic_Type
+            value: Conceptual Entity
+            highlight: null
+            qualifiers: []
+            source: null
+        }]
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: P108
+        name: Preferred_Name
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Preferred Name
+            highlight: null
+            termType: null
+            type: Display_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Preferred Name
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Preferred Term
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Preferred_Name
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Preferred_Name
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: [class Definition {
+            uri: null
+            ct: null
+            definition: A property representing the word or phrase that NCI uses by preference to refer to the concept.
+            highlight: null
+            type: DEFINITION
+            source: null
+            qualifiers: []
+        }]
+        properties: [class Property {
+            uri: null
+            ct: null
+            type: Semantic_Type
+            value: Conceptual Entity
+            highlight: null
+            qualifiers: []
+            source: null
+        }]
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: P90
+        name: FULL_SYN
+        terminology: ncit
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: [class Synonym {
+            uri: null
+            ct: null
+            name: Term & Source Data
+            highlight: null
+            termType: null
+            type: Display_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: FULL_SYN
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Synonym with Source Data
+            highlight: null
+            termType: null
+            type: FULL_SYN
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: FULL_SYN
+            highlight: null
+            termType: null
+            type: Preferred_Name
+            source: null
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }]
+        definitions: [class Definition {
+            uri: null
+            ct: null
+            definition: A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.
+            highlight: null
+            type: DEFINITION
+            source: null
+            qualifiers: []
+        }]
+        properties: [class Property {
+            uri: null
+            ct: null
+            type: Semantic_Type
+            value: Conceptual Entity
+            highlight: null
+            qualifiers: []
+            source: null
+        }]
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }]
+
+MetadataEndpointsApiTest > getSynonymTypesTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

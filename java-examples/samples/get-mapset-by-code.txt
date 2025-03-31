@@ -1,0 +1,58 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+Gradle Test Executor 130 STANDARD_ERROR
+    Mar 24, 2025 4:40:39 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
+    INFO: 0 containers and 2 tests were Method or class mismatch
+
+MapsetEndpointsApiTest > getMapsetByCodeTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mapset for code - NCIt_Maps_To_ICDO3
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -  mapset = class Concept {
+        uri: null
+        ct: null
+        code: NCIt_Maps_To_ICDO3
+        name: NCIt_Maps_To_ICDO3
+        terminology: null
+        version: 25.02d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }
+
+MapsetEndpointsApiTest > getMapsetByCodeTest() PASSED
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+
