@@ -1,826 +1,818 @@
 {
-  "info": {
-    "_postman_id": "8d2a2d54-b634-487d-b6f3-27b7a3d9a271",
-    "name": "EVSRESTAPI FHIR R5",
-    "description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/).",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "_exporter_id": "11076096"
-  },
-  "item": [
-    {
-      "name": "CodeSystem",
-      "item": [
-        {
-          "name": "Get all code systems",
-          "request": {
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "addTokenTo",
-                  "value": "header",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem"
-              ],
-              "query": [
-                {
-                  "key": "_count",
-                  "value": "100",
-                  "disabled": true
-                },
-                {
-                  "key": "_offset",
-                  "value": "0",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get code systems by id",
-          "request": {
-            "auth": {
-              "type": "oauth2",
-              "oauth2": [
-                {
-                  "key": "addTokenTo",
-                  "value": "header",
-                  "type": "string"
-                }
-              ]
-            },
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/umlssemnet_2023aa",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "umlssemnet_2023aa"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Find code systems by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem?_id=umlssemnet_2023aa",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem"
-              ],
-              "query": [
-                {
-                  "key": "_id",
-                  "value": "umlssemnet_2023aa"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Find code systems by url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Lookup an NCIt code",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/$lookup?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl&code=C3224",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "$lookup"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
-                },
-                {
-                  "key": "code",
-                  "value": "C3224"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Lookup a LOINC code",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/$lookup?system=http://loinc.org&code=10191-5",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "$lookup"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://loinc.org"
-                },
-                {
-                  "key": "code",
-                  "value": "10191-5"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Test for NCIt concept subsumption",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/$subsumes?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl&codeA=C43431&codeB=C25404",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "$subsumes"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
-                },
-                {
-                  "key": "version",
-                  "value": "",
-                  "disabled": true
-                },
-                {
-                  "key": "codeA",
-                  "value": "C43431"
-                },
-                {
-                  "key": "codeB",
-                  "value": "C25404"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Validate an NCIt code with code system url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/$validate-code?code=C3224&url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "$validate-code"
-              ],
-              "query": [
-                {
-                  "key": "code",
-                  "value": "C3224"
-                },
-                {
-                  "key": "url",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Validate a UMLSSEMNET code with code system id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/CodeSystem/umlssemnet_2023aa/$validate-code?code=T042",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "CodeSystem",
-                "umlssemnet_2023aa",
-                "$validate-code"
-              ],
-              "query": [
-                {
-                  "key": "code",
-                  "value": "T042"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "ValueSet",
-      "item": [
-        {
-          "name": "Get all value sets",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet"
-              ],
-              "query": [
-                {
-                  "key": "_count",
-                  "value": "100",
-                  "disabled": true
-                },
-                {
-                  "key": "_offset",
-                  "value": "0",
-                  "disabled": true
-                }
-              ]
-            },
-            "description": "List all the value sets on the server instance"
-          },
-          "response": []
-        },
-        {
-          "name": "Get value set by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet",
-                "ncit_c54585"
-              ],
-              "query": [
-                {
-                  "key": "",
-                  "value": null,
-                  "disabled": true
-                }
-              ]
-            },
-            "description": "List all the value sets on the server instance"
-          },
-          "response": []
-        },
-        {
-          "name": "Find value sets by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet?_id=ncit_c54585",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet"
-              ],
-              "query": [
-                {
-                  "key": "",
-                  "value": null,
-                  "disabled": true
-                },
-                {
-                  "key": "_id",
-                  "value": "ncit_c54585"
-                }
-              ]
-            },
-            "description": "List all the value sets on the server instance"
-          },
-          "response": []
-        },
-        {
-          "name": "Find value set by url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
-                }
-              ]
-            },
-            "description": "List all the value sets on the server instance"
-          },
-          "response": []
-        },
-        {
-          "name": "Validate NCIt code with value set id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585/$validate-code?code=C20821",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet",
-                "ncit_c54585",
-                "$validate-code"
-              ],
-              "query": [
-                {
-                  "key": "code",
-                  "value": "c20821"
-                }
-              ]
-            },
-            "description": "Lists all the reference sets available on the instance of the terminology server"
-          },
-          "response": []
-        },
-        {
-          "name": "Validate NCIt code with value set url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/$validate-code?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585&code=c20821",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet",
-                "$validate-code"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
-                },
-                {
-                  "key": "code",
-                  "value": "c20821"
-                }
-              ]
-            },
-            "description": "Lists all the reference sets available on the instance of the terminology server"
-          },
-          "response": []
-        },
-        {
-          "name": "Expand NCIt value set with value set url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ValueSet/$expand?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ValueSet",
-                "$expand"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
-                }
-              ]
-            },
-            "description": "Lists all the reference sets available on the instance of the terminology server"
-          },
-          "response": []
-        }
-      ],
-      "description": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    },
-    {
-      "name": "ConceptMap",
-      "item": [
-        {
-          "name": "Get all concept maps",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap"
-              ],
-              "query": [
-                {
-                  "key": "_count",
-                  "value": "100",
-                  "disabled": true
-                },
-                {
-                  "key": "_offset",
-                  "value": "0",
-                  "disabled": true
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Get concept map by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap",
-                "go_to_ncit_mapping_february2020"
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Find concept map by id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap?_id=go_to_ncit_mapping_february2020",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap"
-              ],
-              "query": [
-                {
-                  "key": "_id",
-                  "value": "go_to_ncit_mapping_february2020"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Find concept map by url",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Translate GO code no id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/$translate?code=GO:0016887",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap",
-                "$translate"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
-                },
-                {
-                  "key": "code",
-                  "value": "GO:0016887"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Translate GO code with id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?code=GO:0016887",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap",
-                "go_to_ncit_mapping_february2020",
-                "$translate"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
-                },
-                {
-                  "key": "code",
-                  "value": "GO:0016887"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Translate GO code in reverse",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/$translate?code=C19939&reverse=true",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap",
-                "$translate"
-              ],
-              "query": [
-                {
-                  "key": "system",
-                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
-                },
-                {
-                  "key": "code",
-                  "value": "C19939"
-                },
-                {
-                  "key": "reverse",
-                  "value": "true"
-                }
-              ]
-            }
-          },
-          "response": []
-        },
-        {
-          "name": "Translate GO code in reverse with id",
-          "request": {
-            "method": "GET",
-            "header": [],
-            "url": {
-              "raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?code=C19939&reverse=true",
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "path": [
-                "fhir",
-                "r5",
-                "ConceptMap",
-                "go_to_ncit_mapping_february2020",
-                "$translate"
-              ],
-              "query": [
-                {
-                  "key": "url",
-                  "value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
-                },
-                {
-                  "key": "code",
-                  "value": "C19939"
-                },
-                {
-                  "key": "reverse",
-                  "value": "true"
-                }
-              ]
-            }
-          },
-          "response": []
-        }
-      ],
-      "description": "Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server",
-      "event": [
-        {
-          "listen": "prerequest",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        },
-        {
-          "listen": "test",
-          "script": {
-            "type": "text/javascript",
-            "exec": [
-              ""
-            ]
-          }
-        }
-      ]
-    }
-  ],
-  "event": [
-    {
-      "listen": "prerequest",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    },
-    {
-      "listen": "test",
-      "script": {
-        "type": "text/javascript",
-        "exec": [
-          ""
-        ]
-      }
-    }
-  ],
-  "variable": [
-    {
-      "key": "baseUrl",
-      "value": "https://api-evsrest.nci.nih.gov"
-    }
-  ]
+	"info": {
+		"_postman_id": "0998f46b-5885-40ef-94ec-fb556c939c9d",
+		"name": "EVSRESTAPI FHIR R5",
+		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/).",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7218027"
+	},
+	"item": [
+		{
+			"name": "CodeSystem",
+			"item": [
+				{
+					"name": "Get all code systems",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "_count",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "_offset",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get code systems by id",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/umlssemnet_2023aa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"umlssemnet_2023aa"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem?_id=umlssemnet_2023aa",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "umlssemnet_2023aa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find code systems by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup an NCIt code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/$lookup?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl&code=C3224",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"$lookup"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+								},
+								{
+									"key": "code",
+									"value": "C3224"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Lookup a LOINC code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/$lookup?system=http://loinc.org&code=10191-5",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"$lookup"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://loinc.org"
+								},
+								{
+									"key": "code",
+									"value": "10191-5"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Test for NCIt concept subsumption",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/$subsumes?system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl&codeA=C43431&codeB=C25404",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"$subsumes"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+								},
+								{
+									"key": "version",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "codeA",
+									"value": "C43431"
+								},
+								{
+									"key": "codeB",
+									"value": "C25404"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate an NCIt code with code system url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/$validate-code?code=C3224&url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "C3224"
+								},
+								{
+									"key": "url",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Validate a UMLSSEMNET code with code system id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/umlssemnet_2023aa/$validate-code?code=T042",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"umlssemnet_2023aa",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "T042"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ValueSet",
+			"item": [
+				{
+					"name": "Get all value sets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "_count",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "_offset",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Get value set by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet",
+								"ncit_c54585"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find value sets by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet?_id=ncit_c54585",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "_id",
+									"value": "ncit_c54585"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Find value set by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
+								}
+							]
+						},
+						"description": "List all the value sets on the server instance"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate NCIt code with value set id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585/$validate-code?code=c20821",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet",
+								"ncit_c54585",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "code",
+									"value": "c20821"
+								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Validate NCIt code with value set url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet/$validate-code?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585&code=c20821",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet",
+								"$validate-code"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
+								},
+								{
+									"key": "code",
+									"value": "c20821"
+								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Expand NCIt value set with value set url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet/$expand?url=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet",
+								"$expand"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
+								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				}
+			],
+			"description": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "ConceptMap",
+			"item": [
+				{
+					"name": "Get all concept maps",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "_count",
+									"value": "100",
+									"disabled": true
+								},
+								{
+									"key": "_offset",
+									"value": "0",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get concept map by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find concept map by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap?_id=go_to_ncit_mapping_february2020",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "_id",
+									"value": "go_to_ncit_mapping_february2020"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Find concept map by url",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Translate GO code no id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&sourceCode=GO:0016887",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+								},
+								{
+									"key": "sourceCode",
+									"value": "GO:0016887"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Translate GO code with id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&sourceCode=GO:0016887",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+								},
+								{
+									"key": "sourceCode",
+									"value": "GO:0016887"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Translate GO code in reverse",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&targetCode=C19939",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "system",
+									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+								},
+								{
+									"key": "targetCode",
+									"value": "C19939"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Translate GO code in reverse with id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&targetCode=C19939",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020",
+								"$translate"
+							],
+							"query": [
+								{
+									"key": "url",
+									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
+								},
+								{
+									"key": "targetCode",
+									"value": "C19939"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Translate a code from one value set to another, based on the existing value set and concept maps resources, and/or other additional knowledge available to the server",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "https://api-evsrest.nci.nih.gov"
+		}
+	]
 }
