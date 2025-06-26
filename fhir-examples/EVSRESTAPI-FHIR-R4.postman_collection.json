@@ -1,12 +1,110 @@
 {
 	"info": {
-		"_postman_id": "c0148857-781e-46f9-a77d-1fe330020690",
+		"_postman_id": "0f68149a-6f8b-45f9-bebe-d08fc441cce6",
 		"name": "EVSRESTAPI FHIR R4",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7218027"
 	},
 	"item": [
+		{
+			"name": "Metadata",
+			"item": [
+				{
+					"name": "Get server versions",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/$versions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"$versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CapabilityStatement",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/metadata",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TerminologyCapabilities",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/metadata?mode=terminology",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"metadata"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "terminology"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "CodeSystem",
 			"item": [
@@ -379,7 +477,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_C54585",
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_c54585",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -396,7 +494,7 @@
 								},
 								{
 									"key": "_id",
-									"value": "ncit_C54585"
+									"value": "ncit_c54585"
 								}
 							]
 						},
@@ -510,6 +608,28 @@
 									"key": "url",
 									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54585"
 								}
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Expand NCIt value set with value set iid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585/$expand",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ValueSet",
+								"ncit_c54585",
+								"$expand"
 							]
 						},
 						"description": "Lists all the reference sets available on the instance of the terminology server"
@@ -635,7 +755,7 @@
 							],
 							"query": [
 								{
-									"key": "system",
+									"key": "url",
 									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
 								}
 							]
