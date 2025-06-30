@@ -744,7 +744,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping",
 							"host": [
 								"{{baseUrl}}"
 							],
