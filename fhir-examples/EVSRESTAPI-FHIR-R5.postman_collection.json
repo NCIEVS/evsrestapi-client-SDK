@@ -860,7 +860,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&targetCode=C19939&targetSystem=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/$translate?url=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&targetCode=C19939&system=http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -881,7 +881,7 @@
 									"value": "C19939"
 								},
 								{
-									"key": "targetSystem",
+									"key": "system",
 									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
 								}
 							]
