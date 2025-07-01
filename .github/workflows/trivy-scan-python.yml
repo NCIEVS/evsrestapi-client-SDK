@@ -29,11 +29,13 @@ jobs:
     - name: Run Trivy scan and check Python vulnerabilities
       working-directory: ./python-examples
       run: |
-        # Make sure lock file exists
+        # Make sure dependencies file exists
         if [ -f requirements.txt ]; then
           target=requirements.txt
+          echo "Using requirements.txt for scanning"
         elif [ -f poetry.lock ]; then
           target=poetry.lock
+          echo "Using poetry.lock for scanning"
         else
           echo "No supported Python dependency file found (requirements.txt or poetry.lock)"
           exit 1
