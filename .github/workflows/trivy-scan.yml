@@ -34,29 +34,27 @@ jobs:
         sudo dpkg -i trivy_${TRIVY_LATEST_VERSION#v}_Linux-64bit.deb
     
     # Run Trivy to scan the repository or container image
-    - name: Run Trivy scan
+    - name: Run Trivy scan and check vulnerabilities
       working-directory: ./java-examples
-      id: trivy-scan
       run: |
         ./gradlew dependencies --write-locks
-        trivy fs gradle.lockfile --format json --output trivy_report.json --severity HIGH,CRITICAL
-        /bin/rm -rf gradle/dependency-locks
-        /bin/rm gradle.lockfile
-      env:
-        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
-        TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
 
-    # Check for high or critical vulnerabilities
-    - name: Check & Output vulnerabilities
-      run: |
-        vuln_json=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")]' trivy_report.json)
-        vuln_count=$(echo "$vuln_json" | jq 'length')
+        trivy fs gradle.lockfile --format json --severity HIGH,CRITICAL \
+        | tee /dev/tty \
+        | jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")]' > filtered.json
+
+        vuln_count=$(jq 'length' filtered.json)
         echo "Vulnerability count: $vuln_count"
 
         if [ "$vuln_count" -gt 0 ]; then
-          echo "$vuln_json" | jq -r '.[] | "\(.VulnerabilityID): \(.PkgName) - Severity: \(.Severity) - Fixed Version: \(.FixedVersion)"'
+          jq -r '.[] | "\(.VulnerabilityID): \(.PkgName) - Severity: \(.Severity) - Fixed Version: \(.FixedVersion)"' filtered.json
           echo "High or Critical vulnerabilities found!"
           exit 1
         else
           echo "No high or critical vulnerabilities found."
         fi
+
+        /bin/rm -rf gradle/dependency-locks gradle.lockfile
+      env:
+        TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
+        TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
