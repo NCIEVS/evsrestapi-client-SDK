@@ -39,7 +39,7 @@ jobs:
       id: trivy-scan
       run: |
         ./gradlew dependencies --write-locks
-        trivy fs gradle.lockfile --format json --output trivy_report.json --severity HIGH,CRITICAL
+        trivy sbom gradle.lockfile --format json --output trivy_report.json --severity HIGH,CRITICAL
         /bin/rm -rf gradle/dependency-locks
         /bin/rm gradle.lockfile
       env:
@@ -47,20 +47,16 @@ jobs:
         TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
 
     # Check for high or critical vulnerabilities
-    - name: Check vulnerabilities
-      id: check-vulns
+    - name: Check & Output vulnerabilities
       run: |
-        vuln_count=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")] | length' trivy_report.json)
+        vuln_json=$(jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")]' trivy_report.json)
+        vuln_count=$(echo "$vuln_json" | jq 'length')
         echo "Vulnerability count: $vuln_count"
+
         if [ "$vuln_count" -gt 0 ]; then
+          echo "$vuln_json" | jq -r '.[] | "\(.VulnerabilityID): \(.PkgName) - Severity: \(.Severity) - Fixed Version: \(.FixedVersion)"'
           echo "High or Critical vulnerabilities found!"
           exit 1
         else
           echo "No high or critical vulnerabilities found."
         fi
-    
-    # Output the vulnerabilities in a human-readable format
-    - name: Output vulnerabilities
-      if: failure()  # Run only if the previous step fails
-      run: |
-        jq '.Results[]?.Vulnerabilities[] | select(.Severity == "HIGH" or .Severity == "CRITICAL") | "\(.VulnerabilityID): \(.PkgName) - Severity: \(.Severity) - Fixed Version: \(.FixedVersion)"' trivy_report.json
