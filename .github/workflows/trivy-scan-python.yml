@@ -56,7 +56,8 @@ jobs:
         else
           echo "No high or critical vulnerabilities found."
         fi
+        
+        /bin/rm -f filtered.json
       env:
         TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
-        TRIVY_PYTHON_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-python-db
 

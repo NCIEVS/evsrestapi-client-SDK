@@ -33,7 +33,7 @@ jobs:
 
         trivy fs gradle.lockfile --format json --severity HIGH,CRITICAL \
         | tee /dev/tty \
-        | jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")]' > filtered.json
+        | jq '[.Results[]?.Vulnerabilities[]?]' > filtered.json
 
         vuln_count=$(jq 'length' filtered.json)
         echo "Vulnerability count: $vuln_count"
@@ -46,7 +46,7 @@ jobs:
           echo "No high or critical vulnerabilities found."
         fi
 
-        /bin/rm -rf gradle/dependency-locks gradle.lockfile
+        /bin/rm -rf gradle/dependency-locks gradle.lockfile filtered.json
       env:
         TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
         TRIVY_JAVA_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-java-db
