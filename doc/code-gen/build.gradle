@@ -47,7 +47,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
     invokerPackage.set("gov.nih.nci.evs.api.invoker")
     modelPackage.set("gov.nih.nci.evs.api.model")
     configOptions.set([
-        "dateLibrary": "java8",
+        "dateLibrary": "java17",
         "serializationLibrary": "jackson",
         "hideGenerationTimestamp": "false",
         // if there are unknown properties present, ignore them
