@@ -1,0 +1,56 @@
+name: Trivy Vulnerability Scan - Go
+
+on:
+  pull_request:
+    branches:
+      - develop
+      - develop-*
+      - master
+
+  workflow_dispatch:  # Allows manual runs from the GitHub UI
+
+jobs:
+  trivy-scan-go:
+    runs-on: ubuntu-latest
+      
+  steps:
+  # Checkout the pull request code
+  - name: Checkout code
+    uses: actions/checkout@v4
+
+  # Install Trivy if not cached
+  - name: Install Trivy
+    run: |
+      TRIVY_LATEST_VERSION=$(curl --silent "https://api.github.com/repos/aquasecurity/trivy/releases/latest" | jq -r .tag_name)
+      wget https://github.com/aquasecurity/trivy/releases/download/${TRIVY_LATEST_VERSION}/trivy_${TRIVY_LATEST_VERSION#v}_Linux-64bit.deb
+      sudo dpkg -i trivy_${TRIVY_LATEST_VERSION#v}_Linux-64bit.deb
+
+  # Run Trivy scan and check Go vulnerabilities
+  - name: Run Trivy scan and check Go vulnerabilities
+    working-directory: ./go-examples
+    run: |
+      if [ ! -f go.sum ]; then
+        echo "go.sum not found — cannot scan dependencies"
+        exit 1
+      fi
+
+      trivy fs go.sum --format json --severity HIGH,CRITICAL \
+      | tee trivy_raw.json \
+      | jq '[.Results[]?.Vulnerabilities[]?]' > filtered.json
+      /bin/rm -f trivy_raw.json
+
+      vuln_count=$(jq 'length' filtered.json)
+      echo "Vulnerability count: $vuln_count"
+
+      if [ "$vuln_count" -gt 0 ]; then
+        jq -r '.[] | "\(.VulnerabilityID): \(.PkgName) - Severity: \(.Severity) - Fixed Version: \(.FixedVersion)"' filtered.json
+        echo "High or Critical vulnerabilities found!"
+        exit 1
+      else
+        echo "No high or critical vulnerabilities found."
+      fi
+      
+      /bin/rm -f filtered.json
+    env:
+      TRIVY_DB_REPOSITORY: public.ecr.aws/aquasecurity/trivy-db
+
