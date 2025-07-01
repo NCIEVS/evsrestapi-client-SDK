@@ -1,4 +1,4 @@
-name: Trivy Vulnerability Scan
+name: Trivy Vulnerability Scan - Java
 
 on:
   pull_request:
@@ -13,7 +13,6 @@ jobs:
   trivy-scan-java:
     runs-on: ubuntu-latest
       
-
     steps:
     # Checkout the pull request code
     - name: Checkout code

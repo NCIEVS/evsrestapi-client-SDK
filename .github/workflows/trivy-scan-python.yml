@@ -1,4 +1,4 @@
-name: Trivy Vulnerability Scan
+name: Trivy Vulnerability Scan - Python
 
 on:
   pull_request:
@@ -10,10 +10,10 @@ on:
   workflow_dispatch:  # Allows manual runs from the GitHub UI
 
 jobs:
-  trivy-scan:
+  trivy-scan-python:
     runs-on: ubuntu-latest
       
-  steps:
+    steps:
     # Checkout the pull request code
     - name: Checkout code
       uses: actions/checkout@v4
@@ -25,6 +25,7 @@ jobs:
         wget https://github.com/aquasecurity/trivy/releases/download/${TRIVY_LATEST_VERSION}/trivy_${TRIVY_LATEST_VERSION#v}_Linux-64bit.deb
         sudo dpkg -i trivy_${TRIVY_LATEST_VERSION#v}_Linux-64bit.deb
     
+    # Run Trivy to scan the repository or container image
     - name: Run Trivy scan and check Python vulnerabilities
       working-directory: ./python-examples
       run: |
