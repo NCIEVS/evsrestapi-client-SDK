@@ -170,3 +170,7 @@ test {
         showStandardStreams = true
     }
 }
+
+dependencyLocking {
+  lockAllConfigurations()
+}
