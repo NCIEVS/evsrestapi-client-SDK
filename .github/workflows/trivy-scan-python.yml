@@ -40,8 +40,9 @@ jobs:
         fi
 
         trivy fs "$target" --format json --severity HIGH,CRITICAL \
-        | tee /dev/tty \
+        | tee trivy_raw.json \
         | jq '[.Results[]?.Vulnerabilities[]? | select(.Severity == "HIGH" or .Severity == "CRITICAL")]' > filtered.json
+        /bin/rm -f trivy_raw.json
 
         vuln_count=$(jq 'length' filtered.json)
         echo "Vulnerability count: $vuln_count"
