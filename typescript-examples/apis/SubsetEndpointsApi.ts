@@ -216,19 +216,19 @@ export class SubsetEndpointsApiResponseProcessor {
      */
      public async getSubsetMembersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
