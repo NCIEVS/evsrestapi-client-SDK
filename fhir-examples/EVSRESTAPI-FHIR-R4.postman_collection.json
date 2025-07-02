@@ -4,7 +4,7 @@
 		"name": "EVSRESTAPI FHIR R4",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "7218027"
 	},
 	"item": [
 		{
