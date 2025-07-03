@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "ef277f7c-f1e1-44b3-bf09-4ac66b5e0f79",
+		"_postman_id": "5ed550b1-71f3-419c-9a47-f0254002da3c",
 		"name": "EVSRESTAPI FHIR R5",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r5/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "7218027"
 	},
 	"item": [
 		{
@@ -384,6 +384,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get code system history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/CodeSystem/umlssemnet_2023aa/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"CodeSystem",
+								"umlssemnet_2023aa",
+								"_history"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
@@ -635,6 +656,27 @@
 						"description": "Lists all the reference sets available on the instance of the terminology server"
 					},
 					"response": []
+				},
+				{
+					"name": "Get value set history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ValueSet/ncit_c54585/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ValueSet",
+								"ncit_c54585",
+								"_history"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "The definition of a value set is used to create a simple collection of codes suitable for use for data entry or validation.",
@@ -879,7 +921,32 @@
 								{
 									"key": "targetCode",
 									"value": "C19939"
+								},
+								{
+									"key": "system",
+									"value": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get concept  map history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r5/ConceptMap/go_to_ncit_mapping_february2020/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r5",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020",
+								"_history"
 							]
 						}
 					},
