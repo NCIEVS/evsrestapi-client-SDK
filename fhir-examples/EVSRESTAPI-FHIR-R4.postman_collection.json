@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0f68149a-6f8b-45f9-bebe-d08fc441cce6",
+		"_postman_id": "9117dbcf-5825-4093-94fe-4496b330507f",
 		"name": "EVSRESTAPI FHIR R4",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
@@ -384,6 +384,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get code system history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/CodeSystem/umlssemnet_2023aa/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"CodeSystem",
+								"umlssemnet_2023aa",
+								"_history"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
@@ -633,6 +654,27 @@
 							]
 						},
 						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Get value set history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ValueSet",
+								"ncit_c54585",
+								"_history"
+							]
+						}
 					},
 					"response": []
 				}
@@ -889,6 +931,27 @@
 									"key": "reverse",
 									"value": "true"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get concept  map history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/go_to_ncit_mapping_february2020/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020",
+								"_history"
 							]
 						}
 					},
