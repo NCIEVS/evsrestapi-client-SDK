@@ -34,6 +34,115 @@ Use an API_URL setting like the one below.
 
 `export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
 
+
+### ValueSet expand with definitions and designations
+
+This query is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
+
+```
+cat << EOF > parameters.txt
+{
+	"resourceType": "Parameters",
+	"parameter": [
+		{
+			"name": "valueSet",
+			"resource": {
+				"resourceType": "ValueSet",
+				"id": "nci-filter-test",
+				"url": "http://example.org/fhir/ValueSet/nci-filter-test",
+				"version": "1.0.0",
+				"name": "NCIGeneralizesFilterTest",
+				"title": "NCI Thesaurus Filter Test",
+				"status": "active",
+				"description": "Test ValueSet expand with definitions and designations requested.",
+				"compose": {
+					"include": [
+						{
+							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+							"concept": [
+								{
+									"code": "C14225",
+									"display": "Human"
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "includeDefinition",
+			"valueBoolean": true
+		},
+		{
+			"name": "includeDesignations",
+			"valueBoolean": true
+		}
+	]
+}
+EOF
+
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+  
+
+    
+```
+### ValueSet expand with 'child-of' filter operation
+
+This query is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
+
+```
+cat << EOF > parameters.txt
+{
+	"resourceType": "Parameters",
+	"parameter": [
+		{
+			"name": "valueSet",
+			"resource": {
+				"resourceType": "ValueSet",
+				"id": "nci-child-of-filter-test",
+				"url": "http://example.org/fhir/ValueSet/nci-child-of-filter-test",
+				"version": "1.0.0",
+				"name": "NCIChildOfFilterTest",
+				"title": "NCI Thesaurus Child-Of Filter Test",
+				"status": "active",
+				"description": "Test ValueSet with child-of filter for Lyase Gene",
+				"compose": {
+					"include": [
+						{
+							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+							"filter": [
+								{
+									"property": "concept",
+									"op": "child-of",
+									"value": "C21282"
+								}
+							]
+						}
+					]
+				}
+			}
+		},
+		{
+			"name": "activeOnly",
+			"valueBoolean": true
+		}
+	]
+}
+EOF
+
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+  
+
+    
+```
+
 ### ValueSet expand with 'generalizes' filter operation
 
 This query is appropriate for NCI Thesaurus and finds ancestors of ADCY5 Gene, adds the Human concept and excludes the concept Enzyme Gene.
@@ -169,58 +278,6 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     
 ```
 
-### ValueSet expand with 'child-of' filter operation
-
-This query is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
-
-```
-cat << EOF > parameters.txt
-{
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-child-of-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-child-of-filter-test",
-				"version": "1.0.0",
-				"name": "NCIChildOfFilterTest",
-				"title": "NCI Thesaurus Child-Of Filter Test",
-				"status": "active",
-				"description": "Test ValueSet with child-of filter for Lyase Gene",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"filter": [
-								{
-									"property": "concept",
-									"op": "child-of",
-									"value": "C21282"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "activeOnly",
-			"valueBoolean": true
-		}
-	]
-}
-EOF
-
-curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-  -H 'accept: application/fhir+json' \
-  -H 'Content-Type: application/fhir+json' \
-  -d "@parameters.txt" | jq '.'
-  
-
-    
-```
 
 ### ValueSet expand with 'in' filter operation
 
@@ -284,62 +341,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     
 ```
 
-### ValueSet expand with definitions and designations
-
-This query is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
-
-```
-cat << EOF > parameters.txt
-{
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-filter-test",
-				"version": "1.0.0",
-				"name": "NCIGeneralizesFilterTest",
-				"title": "NCI Thesaurus Filter Test",
-				"status": "active",
-				"description": "Test ValueSet expand with definitions and designations requested.",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C14225",
-									"display": "Human"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "includeDefinition",
-			"valueBoolean": true
-		},
-		{
-			"name": "includeDesignations",
-			"valueBoolean": true
-		}
-	]
-}
-EOF
-
-curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-  -H 'accept: application/fhir+json' \
-  -H 'Content-Type: application/fhir+json' \
-  -d "@parameters.txt" | jq '.'
-  
-
-    
-```
 
 
 
-[Back to Top](#using-fhir-valueset-$expand-in-evsrestapi)
+[Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
