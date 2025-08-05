@@ -34,12 +34,12 @@ Supported operations on a compose:include:filter with property 'concept' are:
 
 Use an API_URL setting like the one below.
 
-`export API_URL=https://api-evsrest.nci.nih.gov/api/v1`
+`export API_URL=https://api-evsrest.nci.nih.gov`
 
 
 ### ValueSet expand with definitions and designations
 
-This query is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
+This request is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
 
 ```
 cat << EOF > parameters.txt
@@ -94,7 +94,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 ```
 ### ValueSet expand with 'child-of' filter operation (R5 only)
 
-This query is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
+This request is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
 
 ```
 cat << EOF > parameters.txt
@@ -147,7 +147,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 ### ValueSet expand with 'generalizes' filter operation
 
-This query is appropriate for NCI Thesaurus and finds ancestors of ADCY5 Gene, adds the Human concept and excludes the concept Enzyme Gene.
+This request is appropriate for NCI Thesaurus and finds ancestors of ADCY5 Gene, adds the Human concept and excludes the concept Enzyme Gene.
 
 ```
 cat << EOF > parameters.txt
@@ -220,7 +220,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 ### ValueSet expand with 'descendent-leaf' filter operation (R5 only)
 
-This query is appropriate for NCI Thesaurus and finds the leaf node descendents of Lyase Gene.
+This request is appropriate for NCI Thesaurus and finds the leaf node descendents of Lyase Gene.
 
 ```
 cat << EOF > parameters.txt
@@ -283,7 +283,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 ### ValueSet expand with 'in' filter operation
 
-This query is appropriate for NCI Thesaurus and expands the concepts provided in the filter 'in' listing as well as the direct includes concept.
+This request is appropriate for NCI Thesaurus and expands the concepts provided in the filter 'in' listing as well as the direct includes concept.
 
 ```
 cat << EOF > parameters.txt
