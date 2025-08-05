@@ -5,6 +5,8 @@ ValueSets can be requested with a POST call defining a .compose definition.  Thi
 ValueSets with the $expand operation are documented at https://hl7.org/fhir/R5/valueset-operation-expand.html.
 Definitions using filter operators are documented at https://hl7.org/fhir/R5/valueset-filter-operator.html.
 
+NOTE: Most of the functionality will work for R4 as it does for R5.  Exceptions are noted below.
+
 ## ValueSet expand with parameter and filter operations
 
 Supported ValueSet $expand parameters are:
@@ -16,7 +18,7 @@ Supported ValueSet $expand parameters are:
 5. includeDesignations
 6. includeDefinition
 7. activeOnly
-8. property
+8. property (R5 only)
 
 Supported operations on a compose:include:filter with property 'concept' are:
 
@@ -24,8 +26,8 @@ Supported operations on a compose:include:filter with property 'concept' are:
 2. descendent-of
 3. in
 4. generalizes
-5. child-of
-6. descendent-leaf
+5. child-of (R5 only)
+6. descendent-leaf (R5 only)
 
 
 ## ValueSet expand requests via curl calls
@@ -90,7 +92,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
     
 ```
-### ValueSet expand with 'child-of' filter operation
+### ValueSet expand with 'child-of' filter operation (R5 only)
 
 This query is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
 
@@ -216,7 +218,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     
 ```
 
-### ValueSet expand with 'descendent-leaf' filter operation
+### ValueSet expand with 'descendent-leaf' filter operation (R5 only)
 
 This query is appropriate for NCI Thesaurus and finds the leaf node descendents of Lyase Gene.
 
