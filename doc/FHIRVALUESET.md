@@ -449,7 +449,138 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
     
 ```
+  ### ValueSet expand with 'is-not-a' filter operation
 
+  This request is appropriate for NCI Thesaurus and excludes concepts that have an is-a relationship with the specified concept, keeping only those that are not descendants of the target concept.
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-is-not-a-filter-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-is-not-a-filter-test",
+                  "version": "1.0.0",
+                  "name": "NCIIsNotAFilterTest",
+                  "title": "NCI Thesaurus Is-Not-A Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'is-not-a' filter to exclude gene concepts",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "concept": [
+                                  {
+                                      "code": "C21282",
+                                      "display": "Lyase Gene"
+                                  },
+                                  {
+                                      "code": "C16612",
+                                      "display": "Gene"
+                                  },
+                                  {
+                                      "code": "C48672",
+                                      "display": "Schedule I Substance"
+                                  },
+                                  {
+                                      "code": "C2991",
+                                      "display": "Disease or Disorder"
+                                  },
+                                  {
+                                      "code": "C48670",
+                                      "display": "Controlled Substance"
+                                  }
+                              ],
+                              "filter": [
+                                  {
+                                      "property": "concept",
+                                      "op": "is-not-a",
+                                      "value": "C16612"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+```
+
+
+  ### ValueSet expand with 'not-in' filter operation
+
+  This request is appropriate for NCI Thesaurus and excludes specific concepts from the included list, keeping only those not specified in the filter value.
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-not-in-filter-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-not-in-filter-test",
+                  "version": "1.0.0",
+                  "name": "NCINotInFilterTest",
+                  "title": "NCI Thesaurus Not-In Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'not-in' filter to exclude specific concepts",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "concept": [
+                                  {
+                                      "code": "C48670",
+                                      "display": "Controlled Substance"
+                                  },
+                                  {
+                                      "code": "C2991",
+                                      "display": "Disease or Disorder"
+                                  },
+                                  {
+                                      "code": "C48672",
+                                      "display": "Schedule I Substance"
+                                  },
+                                  {
+                                      "code": "C16612",
+                                      "display": "Gene"
+                                  }
+                              ],
+                              "filter": [
+                                  {
+                                      "property": "concept",
+                                      "op": "not-in",
+                                      "value": "C2991,C48672"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+```
   ### ValueSet expand with property '=' filter operation
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property equal to "FDA".
