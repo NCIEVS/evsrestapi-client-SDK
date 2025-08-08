@@ -40,7 +40,6 @@ Use an API_URL setting like the one below.
 
 `export API_URL=https://api-evsrest.nci.nih.gov`
 
-
 ### ValueSet expand with definitions and designations
 
 This request is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
@@ -96,6 +95,110 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
     
 ```
+###   ValueSet expand with 'is-a' filter operation
+
+  This request is appropriate for NCI Thesaurus and finds the concept Lyase Gene and all of its descendants (children, grandchildren, etc.).
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-is-a-filter-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-is-a-filter-test",
+                  "version": "1.0.0",
+                  "name": "NCIIsAFilterTest",
+                  "title": "NCI Thesaurus Is-A Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'is-a' filter for Lyase Gene and its descendants",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "filter": [
+                                  {
+                                      "property": "concept",
+                                      "op": "is-a",
+                                      "value": "C21282"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
+    
+
+  ```    
+
+###   ValueSet expand with 'descendent-of' filter operation
+
+  This request is appropriate for NCI Thesaurus and finds all descendants of Gene (excluding the Gene concept itself).
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-descendent-of-filter-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-descendent-of-filter-test",
+                  "version": "1.0.0",
+                  "name": "NCIDescendentOfFilterTest",
+                  "title": "NCI Thesaurus Descendent-Of Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'descendent-of' filter for all descendants of Gene",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "filter": [
+                                  {
+                                      "property": "concept",
+                                      "op": "descendent-of",
+                                      "value": "C16612"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          },
+          {
+              "name": "count",
+              "valueInteger": 20
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
+```
+
 ### ValueSet expand with 'child-of' filter operation (R5 only)
 
 This request is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
@@ -350,7 +453,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   ### ValueSet expand with property '=' filter operation
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property equal to "FDA".
-
+```
   cat << EOF > parameters.txt
   {
       "resourceType": "Parameters",
@@ -407,10 +510,10 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
 
 ```
-  ### ValueSet expand with property 'exists' filter operation (value=true) (R5 only)
+  ### ValueSet expand with property 'exists' filter operation (value=true) 
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property (regardless of its value).
-
+```
   cat << EOF > parameters.txt
   {
       "resourceType": "Parameters",
@@ -471,10 +574,10 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
 ```
 
-  ### ValueSet expand with property 'exists' filter operation (value=false) (R5 only)
+  ### ValueSet expand with property 'exists' filter operation (value=false)
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that do NOT have the Contributing_Source property.
-
+```
   cat << EOF > parameters.txt
   {
       "resourceType": "Parameters",
@@ -534,6 +637,6 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
 
-
+```
 
 [Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
