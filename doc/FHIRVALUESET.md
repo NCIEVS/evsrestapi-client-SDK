@@ -29,6 +29,10 @@ Supported operations on a compose:include:filter with property 'concept' are:
 5. child-of (R5 only)
 6. descendent-leaf (R5 only)
 
+Supported property operations on a compose:include:filter are:
+1. =
+2. exists (value=true or value=false)
+
 
 ## ValueSet expand requests via curl calls
 
@@ -343,6 +347,192 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     
 ```
 
+  ### ValueSet expand with property '=' filter operation
+
+  This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property equal to "FDA".
+
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-property-equals-filter-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-property-equals-filter-test",
+                  "version": "1.0.0",
+                  "name": "NCIPropertyEqualsFilterTest",
+                  "title": "NCI Thesaurus Property Equals Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with '=' filter for Contributing_Source property",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "concept": [
+                                  {
+                                      "code": "C48672",
+                                      "display": "Schedule I Substance"
+                                  },
+                                  {
+                                      "code": "C2991",
+                                      "display": "Disease or Disorder"
+                                  },
+                                  {
+                                      "code": "C48670",
+                                      "display": "Controlled Substance"
+                                  }
+                              ],
+                              "filter": [
+                                  {
+                                      "property": "Contributing_Source",
+                                      "op": "=",
+                                      "value": "FDA"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+
+```
+  ### ValueSet expand with property 'exists' filter operation (value=true) (R5 only)
+
+  This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property (regardless of its value).
+
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-property-exists-true-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-property-exists-true-test",
+                  "version": "1.0.0",
+                  "name": "NCIPropertyExistsTrueTest",
+                  "title": "NCI Thesaurus Property Exists True Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'exists' filter for Contributing_Source property (value=true)",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "concept": [
+                                  {
+                                      "code": "C48672",
+                                      "display": "Schedule I Substance"
+                                  },
+                                  {
+                                      "code": "C2991",
+                                      "display": "Disease or Disorder"
+                                  },
+                                  {
+                                      "code": "C48670",
+                                      "display": "Controlled Substance"
+                                  },
+                                  {
+                                      "code": "C21282",
+                                      "display": "Lyase Gene"
+                                  }
+                              ],
+                              "filter": [
+                                  {
+                                      "property": "Contributing_Source",
+                                      "op": "exists",
+                                      "value": "true"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+```
+
+  ### ValueSet expand with property 'exists' filter operation (value=false) (R5 only)
+
+  This request is appropriate for NCI Thesaurus and finds concepts from the included list that do NOT have the Contributing_Source property.
+
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-property-exists-false-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-property-exists-false-test",
+                  "version": "1.0.0",
+                  "name": "NCIPropertyExistsFalseTest",
+                  "title": "NCI Thesaurus Property Exists False Filter Test",
+                  "status": "active",
+                  "description": "Test ValueSet with 'exists' filter for Contributing_Source property (value=false)",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "concept": [
+                                  {
+                                      "code": "C48672",
+                                      "display": "Schedule I Substance"
+                                  },
+                                  {
+                                      "code": "C2991",
+                                      "display": "Disease or Disorder"
+                                  },
+                                  {
+                                      "code": "C48670",
+                                      "display": "Controlled Substance"
+                                  },
+                                  {
+                                      "code": "C21282",
+                                      "display": "Lyase Gene"
+                                  }
+                              ],
+                              "filter": [
+                                  {
+                                      "property": "Contributing_Source",
+                                      "op": "exists",
+                                      "value": "false"
+                                  }
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
 
 
 
