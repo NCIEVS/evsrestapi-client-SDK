@@ -24,11 +24,13 @@ Supported operations on a compose:include:filter with property 'concept' are:
 
 1. is-a
 2. descendent-of
-3. in
+3. child-of (R5 only)
 4. generalizes
-5. child-of (R5 only)
-6. descendent-leaf (R5 only)
-
+5. descendent-leaf (R5 only)
+6. in
+7. is-not-a
+8. not-in
+   
 Supported property operations on a compose:include:filter are:
 1. =
 2. exists (value=true or value=false)
