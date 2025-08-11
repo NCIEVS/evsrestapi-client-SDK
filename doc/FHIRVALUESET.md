@@ -24,9 +24,9 @@ Supported operations on a compose:include:filter with property 'concept' are:
 
 1. [is-a](#valueset-expand-with-is-a-filter-operation)
 2. [descendent-of](#valueset-expand-with-descendent-of-filter-operation)
-3. [child-of](#valueset-expand-with-child-of-filter-operation) (R5 only)
+3. [child-of](#valueset-expand-with-child-of-filter-operation-r5-only) (R5 only)
 4. [generalizes](#valueset-expand-with-generalizes-filter-operation)
-5. [descendent-leaf](#valueset-expand-with-descendent-leaf-filter-operation) (R5 only)
+5. [descendent-leaf](#valueset-expand-with-descendent-leaf-filter-operation-r5-only) (R5 only)
 6. [in](#valueset-expand-with-in-filter-operation)
 7. [is-not-a](#valueset-expand-with-is-not-a-filter-operation)
 8. [not-in](#valueset-expand-with-not-in-filter-operation)
