@@ -22,7 +22,7 @@ Supported ValueSet $expand parameters are:
 
 Supported operations on a compose:include:filter with property 'concept' are:
 
-1. is-a
+1. is-a  [is-a](#ValueSet-expand-with-'is-a'-filter-operation)
 2. descendent-of
 3. child-of (R5 only)
 4. generalizes
@@ -454,6 +454,9 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   ### ValueSet expand with 'is-not-a' filter operation
 
   This request is appropriate for NCI Thesaurus and excludes concepts that have an is-a relationship with the specified concept, keeping only those that are not descendants of the target concept.
+  
+The expected result will include C48672 (Schedule I Substance), C2991 (Disease or Disorder), and C48670 (Controlled Substance), while excluding C21282 (Lyase Gene) and C16612 (Gene) since they have an is-a relationship with Gene (C16612).
+
 ```
   cat << EOF > parameters.txt
   {
@@ -523,6 +526,8 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   ### ValueSet expand with 'not-in' filter operation
 
   This request is appropriate for NCI Thesaurus and excludes specific concepts from the included list, keeping only those not specified in the filter value.
+  
+  The expected result will include only C48670 (Controlled Substance) and C16612 (Gene), while excluding C2991 (Disease or Disorder) and C48672 (Schedule I Substance) as specified in the filter value.
 ```
   cat << EOF > parameters.txt
   {
