@@ -46,6 +46,7 @@ Use an API_URL setting like the one below.
 
 This request is appropriate for NCI Thesaurus and finds the included concepts with their definitions and designations.
 
+The expected result will include the C14225 (Human) concept with its complete definition text, all synonym designations (PT, SY, etc.), and term type information, providing comprehensive concept details beyond just the basic code and display name.
 ```
 cat << EOF > parameters.txt
 {
@@ -100,6 +101,8 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 ###   ValueSet expand with 'is-a' filter operation
 
   This request is appropriate for NCI Thesaurus and finds the concept Lyase Gene and all of its descendants (children, grandchildren, etc.).
+
+The expected result will include C21282 (Lyase Gene) itself plus all its hierarchical descendants in the NCI Thesaurus, such as specific lyase gene types like ADCY5 Gene, PLCG1 Gene, and other enzyme genes classified under the Lyase Gene category.  
 ```
   cat << EOF > parameters.txt
   {
@@ -151,6 +154,8 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 ###   ValueSet expand with 'descendent-of' filter operation
 
   This request is appropriate for NCI Thesaurus and finds all descendants of Gene (excluding the Gene concept itself).
+
+  The expected result will include all gene subtypes like Lyase Gene, Enzyme Gene, ADCY5 Gene, etc., but will exclude C16612 (Gene) itself, returning only the hierarchical children and grandchildren concepts with count limited to 20 as specified in the request.
 ```
   cat << EOF > parameters.txt
   {
@@ -205,6 +210,8 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 This request is appropriate for NCI Thesaurus and finds the children of Lyase Gene.
 
+The expected result will include only the direct child concepts of C21282 (Lyase Gene), such as specific lyase enzyme subtypes, but will not include grandchildren or deeper descendants, providing a single-level hierarchical expansion.
+
 ```
 cat << EOF > parameters.txt
 {
@@ -258,6 +265,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 This request is appropriate for NCI Thesaurus and finds ancestors of ADCY5 Gene, adds the Human concept and excludes the concept Enzyme Gene.
 
+The expected result will include the ancestral hierarchy of C213888 (ADCY5 Gene) such as Gene, Lyase Gene, plus the directly included C14225 (Human) concept, but will exclude C21281 (Enzyme Gene) from the final result set, demonstrating the combination of filter-based inclusion, direct inclusion, and exclusion operations.
 ```
 cat << EOF > parameters.txt
 {
@@ -331,6 +339,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 This request is appropriate for NCI Thesaurus and finds the leaf node descendents of Lyase Gene.
 
+The expected result will include only the terminal/leaf concepts under C21282 (Lyase Gene) that have no further children in the hierarchy, plus the directly included C16612 (Gene) concept, providing the most specific enzyme gene concepts without intermediate classification levels.
 ```
 cat << EOF > parameters.txt
 {
@@ -394,6 +403,7 @@ curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
 
 This request is appropriate for NCI Thesaurus and expands the concepts provided in the filter 'in' listing as well as the direct includes concept.
 
+The expected result will include exactly C21282 (Lyase Gene), C3262 (Neoplasm), and C2991 (Disease or Disorder) from the filter list, plus the directly included C2991 (Disease or Disorder) concept, with C2991 appearing only once due to deduplication.
 ```
 cat << EOF > parameters.txt
 {
@@ -591,6 +601,8 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   ### ValueSet expand with property '=' filter operation
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property equal to "FDA".
+
+  The expected result will include only C48672 (Schedule I Substance) from the concept list, as it has the Contributing_Source property with value "FDA", while C2991 (Disease or Disorder) and C48670 (Controlled Substance) will be excluded because they either lack this property or have different Contributing_Source values.
 ```
   cat << EOF > parameters.txt
   {
@@ -651,6 +663,8 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   ### ValueSet expand with property 'exists' filter operation (value=true) 
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that have the Contributing_Source property (regardless of its value).
+
+  The expected result will include C48672 (Schedule I Substance) and C2991 (Disease or Disorder) which both have Contributing_Source properties with various values, while excluding C48670 (Controlled Substance) and C21282 (Lyase Gene) which do not have any Contributing_Source property. 
 ```
   cat << EOF > parameters.txt
   {
@@ -715,6 +729,9 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   ### ValueSet expand with property 'exists' filter operation (value=false)
 
   This request is appropriate for NCI Thesaurus and finds concepts from the included list that do NOT have the Contributing_Source property.
+
+The expected result will include C48670 (Controlled Substance) and C21282 (Lyase Gene) which lack the Contributing_Source property, while excluding C48672
+  (Schedule I Substance) and C2991 (Disease or Disorder) which do have Contributing_Source properties with various values.
 ```
   cat << EOF > parameters.txt
   {
