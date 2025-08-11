@@ -22,7 +22,7 @@ Supported ValueSet $expand parameters are:
 
 Supported operations on a compose:include:filter with property 'concept' are:
 
-1. is-a  [is-a](#ValueSet-expand-with-'is-a'-filter-operation)
+1. is-a  [is-a](#valueset-expand-with-is-a-filter-operation)
 2. descendent-of
 3. child-of (R5 only)
 4. generalizes
