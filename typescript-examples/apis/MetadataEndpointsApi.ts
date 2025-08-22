@@ -949,19 +949,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getAssociationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -992,19 +992,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getAssociationsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
@@ -1107,19 +1107,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getDefinitionTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -1150,19 +1150,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getDefinitionTypesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
@@ -1193,19 +1193,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getPropertiesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
@@ -1236,19 +1236,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getPropertyWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -1279,19 +1279,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getQualifierWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -1358,19 +1358,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getQualifiersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
@@ -1401,19 +1401,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -1480,19 +1480,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSourceStatsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<{ [key: string]: Array<StatisticsEntry>; } >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: { [key: string]: Array<StatisticsEntry>; } = ObjectSerializer.deserialize(
@@ -1523,19 +1523,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSubset1WithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Concept = ObjectSerializer.deserialize(
@@ -1566,19 +1566,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSubsets1WithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
@@ -1645,14 +1645,14 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSynonymTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
+        if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
-        if (isCodeInRange("417", response.httpStatusCode)) {
+        if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
@@ -1688,19 +1688,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSynonymTypesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("404", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(

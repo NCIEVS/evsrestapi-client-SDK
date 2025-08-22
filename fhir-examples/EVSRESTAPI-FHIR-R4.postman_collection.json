@@ -1,12 +1,110 @@
 {
 	"info": {
-		"_postman_id": "8d2a2d54-b634-487d-b6f3-27b7a3d9a271",
+		"_postman_id": "9117dbcf-5825-4093-94fe-4496b330507f",
 		"name": "EVSRESTAPI FHIR R4",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "11076096"
+		"_exporter_id": "7218027"
 	},
 	"item": [
+		{
+			"name": "Metadata",
+			"item": [
+				{
+					"name": "Get server versions",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/$versions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"$versions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get CapabilityStatement",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/metadata",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"metadata"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get TerminologyCapabilities",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/metadata?mode=terminology",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"metadata"
+							],
+							"query": [
+								{
+									"key": "mode",
+									"value": "terminology"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
 		{
 			"name": "CodeSystem",
 			"item": [
@@ -286,6 +384,27 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get code system history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/CodeSystem/umlssemnet_2023aa/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"CodeSystem",
+								"umlssemnet_2023aa",
+								"_history"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"description": "Given a code/system, or a Coding, get additional details about the concept, including definition, status, designations, and properties",
@@ -351,7 +470,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_C54585",
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -359,7 +478,7 @@
 								"fhir",
 								"r4",
 								"ValueSet",
-								"ncit_C54585"
+								"ncit_c54585"
 							],
 							"query": [
 								{
@@ -379,7 +498,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_C54585",
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet?_id=ncit_c54585",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -396,7 +515,7 @@
 								},
 								{
 									"key": "_id",
-									"value": "ncit_C54585"
+									"value": "ncit_c54585"
 								}
 							]
 						},
@@ -513,6 +632,49 @@
 							]
 						},
 						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Expand NCIt value set with value set iid",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585/$expand",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ValueSet",
+								"ncit_c54585",
+								"$expand"
+							]
+						},
+						"description": "Lists all the reference sets available on the instance of the terminology server"
+					},
+					"response": []
+				},
+				{
+					"name": "Get value set history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ValueSet/ncit_c54585/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ValueSet",
+								"ncit_c54585",
+								"_history"
+							]
+						}
 					},
 					"response": []
 				}
@@ -635,7 +797,7 @@
 							],
 							"query": [
 								{
-									"key": "system",
+									"key": "url",
 									"value": "http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping"
 								}
 							]
@@ -649,7 +811,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?code=GO:0016887",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&code=GO:0016887",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -679,7 +841,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/GO_to_NCIt_Mapping_February2020/$translate?code=GO:0016887",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/GO_to_NCIt_Mapping_February2020/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&code=GO:0016887",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -710,7 +872,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?code=c19939&reverse=true",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&code=C19939&reverse=true",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -727,7 +889,7 @@
 								},
 								{
 									"key": "code",
-									"value": "c19939"
+									"value": "C19939"
 								},
 								{
 									"key": "reverse",
@@ -744,7 +906,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{baseUrl}}/fhir/r4/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?code=c19939&reverse=true",
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap//GO_to_NCIt_Mapping_February2020/$translate?system=http://purl.obolibrary.org/obo/go.owl?fhir_cm=GO_to_NCIt_Mapping&code=C19939&reverse=true",
 							"host": [
 								"{{baseUrl}}"
 							],
@@ -763,12 +925,33 @@
 								},
 								{
 									"key": "code",
-									"value": "c19939"
+									"value": "C19939"
 								},
 								{
 									"key": "reverse",
 									"value": "true"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get concept  map history",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/fhir/r4/ConceptMap/go_to_ncit_mapping_february2020/_history",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"fhir",
+								"r4",
+								"ConceptMap",
+								"go_to_ncit_mapping_february2020",
+								"_history"
 							]
 						}
 					},

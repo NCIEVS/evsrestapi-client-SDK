@@ -3,8 +3,6 @@ export * from '../models/Association';
 export * from '../models/AssociationEntry';
 export * from '../models/AssociationEntryResultList';
 export * from '../models/Concept';
-export * from '../models/ConceptMap';
-export * from '../models/ConceptMapResultList';
 export * from '../models/ConceptMinimal';
 export * from '../models/ConceptResultList';
 export * from '../models/Definition';
@@ -12,6 +10,8 @@ export * from '../models/DisjointWith';
 export * from '../models/HierarchyNode';
 export * from '../models/History';
 export * from '../models/MapResultList';
+export * from '../models/Mapping';
+export * from '../models/MappingResultList';
 export * from '../models/Path';
 export * from '../models/Paths';
 export * from '../models/Property';
@@ -29,8 +29,6 @@ import { Association } from '../models/Association';
 import { AssociationEntry } from '../models/AssociationEntry';
 import { AssociationEntryResultList } from '../models/AssociationEntryResultList';
 import { Concept } from '../models/Concept';
-import { ConceptMap } from '../models/ConceptMap';
-import { ConceptMapResultList } from '../models/ConceptMapResultList';
 import { ConceptMinimal } from '../models/ConceptMinimal';
 import { ConceptResultList } from '../models/ConceptResultList';
 import { Definition } from '../models/Definition';
@@ -38,6 +36,8 @@ import { DisjointWith } from '../models/DisjointWith';
 import { HierarchyNode } from '../models/HierarchyNode';
 import { History } from '../models/History';
 import { MapResultList } from '../models/MapResultList';
+import { Mapping } from '../models/Mapping';
+import { MappingResultList } from '../models/MappingResultList';
 import { Path } from '../models/Path';
 import { Paths } from '../models/Paths';
 import { Property } from '../models/Property';
@@ -71,8 +71,6 @@ let typeMap: {[index: string]: any} = {
     "AssociationEntry": AssociationEntry,
     "AssociationEntryResultList": AssociationEntryResultList,
     "Concept": Concept,
-    "ConceptMap": ConceptMap,
-    "ConceptMapResultList": ConceptMapResultList,
     "ConceptMinimal": ConceptMinimal,
     "ConceptResultList": ConceptResultList,
     "Definition": Definition,
@@ -80,6 +78,8 @@ let typeMap: {[index: string]: any} = {
     "HierarchyNode": HierarchyNode,
     "History": History,
     "MapResultList": MapResultList,
+    "Mapping": Mapping,
+    "MappingResultList": MappingResultList,
     "Path": Path,
     "Paths": Paths,
     "Property": Property,

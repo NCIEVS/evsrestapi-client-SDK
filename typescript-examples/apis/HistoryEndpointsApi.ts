@@ -111,19 +111,19 @@ export class HistoryEndpointsApiResponseProcessor {
      */
      public async getReplacementsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<History> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("400", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<History> = ObjectSerializer.deserialize(
@@ -154,19 +154,19 @@ export class HistoryEndpointsApiResponseProcessor {
      */
      public async getReplacementsFromListWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<History> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("400", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
-        }
         if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+        }
+        if (isCodeInRange("400", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
         }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<History> = ObjectSerializer.deserialize(
