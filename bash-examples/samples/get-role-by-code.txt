@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:32 PM
+Starting ...Mon Aug 25 10:29:08 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,10 +12,10 @@ include =
       "code": "R156",
       "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
       "terminology": "ncit",
-      "version": "25.02d"
+      "version": "25.07d"
     }
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:33 PM
+Finished ...Mon Aug 25 10:29:09 PDT 2025
 -----------------------------------------------------
 

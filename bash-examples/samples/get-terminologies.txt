@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:18 PM
+Starting ...Mon Aug 25 10:28:55 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,18 +12,18 @@ latest = true
     [
       {
         "terminology": "ncit",
-        "version": "25.02d",
-        "date": "February 24, 2025",
-        "name": "NCI Thesaurus 25.02d",
+        "version": "25.07d",
+        "date": "July 28, 2025",
+        "name": "NCI Thesaurus 25.07d",
         "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.",
-        "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus25.02d.owl",
-        "terminologyVersion": "ncit_25.02d",
+        "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_25.07d.owl",
+        "terminologyVersion": "ncit_25.07d",
         "latest": true,
         "tags": {
           "monthly": "true"
         },
-        "indexName": "concept_ncit_2502d",
-        "objectIndexName": "evs_object_ncit_2502d",
+        "indexName": "concept_ncit_2507d",
+        "objectIndexName": "evs_object_ncit_2507d",
         "metadata": {
           "uiLabel": "NCI Thesaurus",
           "maxVersions": 3,
@@ -32,8 +32,8 @@ latest = true
             "Obsolete_Concept",
             "Header_Concept",
             "Retired_Concept",
-            "Concept_Pending_Approval",
-            "Provisional_Concept"
+            "Provisional_Concept",
+            "Concept_Pending_Approval"
           ],
           "retiredStatusValue": "Retired_Concept",
           "detailsColumns": {
@@ -48,12 +48,18 @@ latest = true
           "history": false,
           "sourceCt": 74,
           "subsetLink": "P374",
-          "codeLabel": "NCI Thesaurus Code"
+          "codeLabel": "NCI Thesaurus Code",
+          "extraSubsets": {
+            "C6283": "C143048",
+            "C190573": "C6283",
+            "C4005": "C6283"
+          },
+          "historyVersion": "25.07d"
         }
       }
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:19 PM
+Finished ...Mon Aug 25 10:28:56 PDT 2025
 -----------------------------------------------------
 

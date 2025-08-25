@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:21 PM
+Starting ...Mon Aug 25 10:28:57 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -35,6 +35,16 @@ part = children
         "leaf": false
       },
       {
+        "code": "C217198",
+        "name": "Localized Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C215044",
+        "name": "Melanoma In Situ",
+        "leaf": false
+      },
+      {
         "code": "C8925",
         "name": "Metastatic Melanoma",
         "leaf": false
@@ -52,11 +62,6 @@ part = children
       {
         "code": "C8711",
         "name": "Non-Cutaneous Melanoma",
-        "leaf": false
-      },
-      {
-        "code": "C8562",
-        "name": "Ocular Melanoma",
         "leaf": false
       },
       {
@@ -102,6 +107,6 @@ part = children
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:21 PM
+Finished ...Mon Aug 25 10:28:58 PDT 2025
 -----------------------------------------------------
 

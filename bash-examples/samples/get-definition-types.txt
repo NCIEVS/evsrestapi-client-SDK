@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:42 PM
+Starting ...Mon Aug 25 10:29:17 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -13,17 +13,17 @@ include =
         "code": "P325",
         "name": "ALT_DEFINITION",
         "terminology": "ncit",
-        "version": "25.02d"
+        "version": "25.07d"
       },
       {
         "code": "P97",
         "name": "DEFINITION",
         "terminology": "ncit",
-        "version": "25.02d"
+        "version": "25.07d"
       }
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:42 PM
+Finished ...Mon Aug 25 10:29:18 PDT 2025
 -----------------------------------------------------
 

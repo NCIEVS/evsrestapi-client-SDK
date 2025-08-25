@@ -1,12 +1,12 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:25 PM
+Starting ...Mon Aug 25 10:29:02 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
 code = C3224
 
   Get subtree children for ncit C3224:
-    count = 18
+    count = 19
 
     [
       {
@@ -35,6 +35,16 @@ code = C3224
         "leaf": false
       },
       {
+        "code": "C217198",
+        "label": "Localized Melanoma",
+        "leaf": false
+      },
+      {
+        "code": "C215044",
+        "label": "Melanoma In Situ",
+        "leaf": false
+      },
+      {
         "code": "C8925",
         "label": "Metastatic Melanoma",
         "leaf": false
@@ -52,11 +62,6 @@ code = C3224
       {
         "code": "C8711",
         "label": "Non-Cutaneous Melanoma",
-        "leaf": false
-      },
-      {
-        "code": "C8562",
-        "label": "Ocular Melanoma",
         "leaf": false
       },
       {
@@ -102,6 +107,6 @@ code = C3224
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:26 PM
+Finished ...Mon Aug 25 10:29:02 PDT 2025
 -----------------------------------------------------
 
