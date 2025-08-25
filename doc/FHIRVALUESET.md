@@ -35,6 +35,8 @@ Supported property operations on a compose:include:filter are:
 1. =
 2. exists (value=true or value=false)
 
+ValueSets in the compose definition
+1. [ValueSet expand with include.valueSet and exclude.valueSet operations](#valueset-expand-with-includevalueset-and-excludevalueset-operations)
 
 ## ValueSet expand requests via curl calls
 
@@ -793,5 +795,120 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
   curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
 
 ```
+### ValueSet expand with include.valueSet and exclude.valueSet operations
 
+  The FHIR ValueSet compose definition supports referencing other ValueSets through include.valueSet and exclude.valueSet elements. This enables composition of ValueSets from existing
+  ValueSet definitions.
+
+
+###  ValueSet expand with include.valueSet and paging
+
+  This request demonstrates paging functionality with include.valueSet, retrieving the first 50 concepts from the referenced ValueSet.
+
+  The expected result will include the first 50 concepts from the C54459 subset with proper expansion metadata showing the offset, count, and total number of available concepts, enabling
+  efficient pagination through large ValueSet expansions.
+  
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-include-valueset-paging-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-include-valueset-paging-test",
+                  "version": "1.0.0",
+                  "name": "NCIIncludeValueSetPagingTest",
+                  "title": "NCI Thesaurus Include ValueSet Paging Test",
+                  "status": "active",
+                  "description": "Test ValueSet with include.valueSet paging functionality",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "valueSet": [
+                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54459"
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "offset",
+              "valueInteger": 0
+          },
+          {
+              "name": "count",
+              "valueInteger": 50
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
+```
+
+  ###  ValueSet expand with include.valueSet and exclude.valueSet
+
+  This request demonstrates combining include.valueSet and exclude.valueSet operations, including all concepts from C54452 and excluding overlapping concepts from C54459.
+
+  The expected result will include all concepts from the C54452 subset but remove any concepts that also exist in the C54459 subset, demonstrating set subtraction behavior where the total count should decrease by exactly 5 concepts due to the overlap between these two ValueSets.
+  
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-include-exclude-valueset-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-include-exclude-valueset-test",
+                  "version": "1.0.0",
+                  "name": "NCIIncludeExcludeValueSetTest",
+                  "title": "NCI Thesaurus Include and Exclude ValueSet Test",
+                  "status": "active",
+                  "description": "Test ValueSet with include C54452 and exclude C54459 ValueSets",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "valueSet": [
+                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54452"
+                              ]
+                          }
+                      ],
+                      "exclude": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "valueSet": [
+                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54459"
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "activeOnly",
+              "valueBoolean": true
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
+
+```
+ 
 [Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
