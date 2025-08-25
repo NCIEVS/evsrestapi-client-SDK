@@ -3,7 +3,7 @@
     "code": "C12913",
     "name": "Abnormal Cell",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -12,7 +12,7 @@
     "code": "C43431",
     "name": "Activity",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -21,7 +21,7 @@
     "code": "C12219",
     "name": "Anatomic Structure, System, or Substance",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -30,7 +30,7 @@
     "code": "C20633",
     "name": "Biochemical Pathway",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -39,7 +39,7 @@
     "code": "C17828",
     "name": "Biological Process",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -48,7 +48,7 @@
     "code": "C12218",
     "name": "Chemotherapy Regimen or Agent Combination",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -57,7 +57,7 @@
     "code": "C20181",
     "name": "Conceptual Entity",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -66,7 +66,7 @@
     "code": "C20047",
     "name": "Diagnostic or Prognostic Factor",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -75,7 +75,7 @@
     "code": "C7057",
     "name": "Disease, Disorder or Finding",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -84,7 +84,7 @@
     "code": "C1908",
     "name": "Drug, Food, Chemical or Biomedical Material",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -93,7 +93,7 @@
     "code": "C22188",
     "name": "Experimental Organism Anatomical Concept",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -102,7 +102,7 @@
     "code": "C22187",
     "name": "Experimental Organism Diagnosis",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -111,7 +111,7 @@
     "code": "C16612",
     "name": "Gene",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -120,7 +120,7 @@
     "code": "C26548",
     "name": "Gene Product",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -129,7 +129,7 @@
     "code": "C97325",
     "name": "Manufactured Object",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -138,7 +138,7 @@
     "code": "C3910",
     "name": "Molecular Abnormality",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -147,7 +147,7 @@
     "code": "C14250",
     "name": "Organism",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -156,7 +156,7 @@
     "code": "C20189",
     "name": "Property or Attribute",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true
@@ -165,7 +165,7 @@
     "code": "C28428",
     "name": "Retired Concept",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "conceptStatus": "DEFAULT",
     "leaf": false,
     "active": true

@@ -1,6 +1,6 @@
 {
-  "total": 1462,
-  "timeTaken": 46,
+  "total": 1558,
+  "timeTaken": 47,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -19,7 +19,7 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -28,7 +28,7 @@
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -37,7 +37,7 @@
       "code": "C157920",
       "name": "Melanoma Surgery",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -46,7 +46,7 @@
       "code": "C1830",
       "name": "Melanoma Theraccine",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -55,7 +55,7 @@
       "code": "C46091",
       "name": "Melanoma Biomarker",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true

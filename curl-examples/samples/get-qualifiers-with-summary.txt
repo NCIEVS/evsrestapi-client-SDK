@@ -3,7 +3,7 @@
     "code": "P383",
     "name": "term-group",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "term-group",
@@ -39,7 +39,7 @@
     "code": "P384",
     "name": "term-source",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "term-source",
@@ -76,78 +76,10 @@
     ]
   },
   {
-    "code": "P378",
-    "name": "Definition Source",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "Definition Source",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "Definition Source",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing the organization that is the supplier or owner of each DEFINITION or ALT_DEFINITION associated with a concept.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
-      },
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      },
-      {
-        "type": "remodeled",
-        "value": "true"
-      },
-      {
-        "type": "remodeledDescription",
-        "value": "Remodeled as a definition source"
-      }
-    ]
-  },
-  {
-    "code": "P381",
-    "name": "attribution",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "attribution",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "attribution",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property indicating that some of the information in a DEFINITION or ALT_DEFINITION was derived from a source other than the def-source.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      }
-    ]
-  },
-  {
     "code": "P385",
     "name": "Source Code",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Source Code",
@@ -187,7 +119,7 @@
     "code": "P386",
     "name": "Subsource Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Subsource Name",
@@ -224,10 +156,174 @@
     ]
   },
   {
+    "code": "P378",
+    "name": "Definition Source",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "Definition Source",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "Definition Source",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the organization that is the supplier or owner of each DEFINITION or ALT_DEFINITION associated with a concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "required",
+        "value": "true"
+      },
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a definition source"
+      }
+    ]
+  },
+  {
+    "code": "P381",
+    "name": "attribution",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "attribution",
+        "type": "FULL_SYN"
+      },
+      {
+        "name": "attribution",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating that some of the information in a DEFINITION or ALT_DEFINITION was derived from a source other than the def-source.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P387",
+    "name": "go-id",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "go-id",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "required",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "code": "P389",
+    "name": "go-evi",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "go-evi",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a three letter code that indicates the type of supporting evidence for each GO_Annotation associated with a concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "required",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "code": "P390",
+    "name": "go-source",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "go-source",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the organization that is the supplier or owner of each GO_Annotation associated with a concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "required",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "code": "P391",
+    "name": "source-date",
+    "terminology": "ncit",
+    "version": "25.07d",
+    "synonyms": [
+      {
+        "name": "source-date",
+        "type": "Preferred_Name"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the date each GO_Annotation was added to a concept.",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "type": "required",
+        "value": "true"
+      }
+    ]
+  },
+  {
     "code": "P393",
     "name": "Relationship_to_Target",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Relationship_to_Target",
@@ -267,7 +363,7 @@
     "code": "P394",
     "name": "Target_Term_Type",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Target_Term_Type",
@@ -307,7 +403,7 @@
     "code": "P395",
     "name": "Target_Code",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Target_Code",
@@ -351,7 +447,7 @@
     "code": "P396",
     "name": "Target_Terminology",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Target_Terminology",
@@ -391,7 +487,7 @@
     "code": "P397",
     "name": "Target_Terminology_Version",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Target_Terminology_Version",
@@ -420,102 +516,6 @@
       {
         "type": "remodeledDescription",
         "value": "Remodeled as a map target terminology version"
-      }
-    ]
-  },
-  {
-    "code": "P387",
-    "name": "go-id",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "go-id",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "code": "P389",
-    "name": "go-evi",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "go-evi",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing a three letter code that indicates the type of supporting evidence for each GO_Annotation associated with a concept.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "code": "P390",
-    "name": "go-source",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "go-source",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing the organization that is the supplier or owner of each GO_Annotation associated with a concept.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
-      }
-    ]
-  },
-  {
-    "code": "P391",
-    "name": "source-date",
-    "terminology": "ncit",
-    "version": "25.02d",
-    "synonyms": [
-      {
-        "name": "source-date",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing the date each GO_Annotation was added to a concept.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
       }
     ]
   }

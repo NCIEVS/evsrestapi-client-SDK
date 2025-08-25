@@ -261,6 +261,11 @@
                         "leaf": false
                       },
                       {
+                        "code": "C2947",
+                        "label": "Chordoma",
+                        "leaf": false
+                      },
+                      {
                         "code": "C4992",
                         "label": "Environment-Related Malignant Neoplasm",
                         "leaf": false

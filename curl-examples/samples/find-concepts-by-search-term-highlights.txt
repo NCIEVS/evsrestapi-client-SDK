@@ -1,6 +1,6 @@
 {
-  "total": 1531,
-  "timeTaken": 44,
+  "total": 1625,
+  "timeTaken": 55,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -16,7 +16,7 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "highlight": "<em>Melanoma</em>",
       "conceptStatus": "DEFAULT",
       "leaf": false,
@@ -66,14 +66,14 @@
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termType": "DN",
+          "termType": "PT",
           "type": "FULL_SYN",
           "source": "CTRP"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "termType": "PT",
+          "termType": "DN",
           "type": "FULL_SYN",
           "source": "CTRP"
         },
@@ -134,7 +134,7 @@
       "code": "C91477",
       "name": "Melanoma Pathway",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "highlight": "<em>Melanoma</em> Pathway",
       "conceptStatus": "DEFAULT",
       "leaf": true,
@@ -165,7 +165,7 @@
       "code": "C21790",
       "name": "Mouse Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "highlight": "Mouse <em>Melanoma</em>",
       "conceptStatus": "DEFAULT",
       "leaf": false,
@@ -201,7 +201,7 @@
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
       "conceptStatus": "DEFAULT",
       "leaf": true,
@@ -237,33 +237,32 @@
       ]
     },
     {
-      "code": "C2517",
-      "name": "Melanoma Vaccine",
+      "code": "C157920",
+      "name": "Melanoma Surgery",
       "terminology": "ncit",
-      "version": "25.02d",
-      "highlight": "<em>Melanoma</em> Vaccine",
+      "version": "25.07d",
+      "highlight": "<em>Melanoma</em> Surgery",
       "conceptStatus": "DEFAULT",
-      "leaf": false,
+      "leaf": true,
       "active": true,
       "synonyms": [
         {
-          "name": "melanoma vaccine",
-          "highlight": "<em>melanoma vaccine</em>",
+          "name": "Surgery for Melanoma",
+          "highlight": "Surgery for <em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
-          "source": "NCI-GLOSS",
-          "code": "CDR0000046293"
+          "source": "CPTAC"
         },
         {
-          "name": "Melanoma Vaccine",
-          "highlight": "<em>Melanoma</em> Vaccine",
+          "name": "Melanoma Surgery",
+          "highlight": "<em>Melanoma</em> Surgery",
           "termType": "PT",
           "type": "FULL_SYN",
           "source": "NCI"
         },
         {
-          "name": "Melanoma Vaccine",
-          "highlight": "<em>Melanoma</em> Vaccine",
+          "name": "Melanoma Surgery",
+          "highlight": "<em>Melanoma</em> Surgery",
           "type": "Preferred_Name"
         }
       ]

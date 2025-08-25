@@ -1,6 +1,6 @@
 {
   "total": 49,
-  "timeTaken": 32,
+  "timeTaken": 59,
   "parameters": {
     "term": "enzyme",
     "type": "startsWith",
@@ -16,45 +16,45 @@
       "code": "C16554",
       "name": "Enzyme",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
     },
     {
-      "code": "C147466",
-      "name": "Enzyme-Linked Lectin Assay",
+      "code": "C154856",
+      "name": "Enzyme Unit per Gram Hemoglobin",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
     },
     {
-      "code": "C156467",
-      "name": "Enzyme Unit per Meter Squared",
+      "code": "C17455",
+      "name": "Enzyme Immunoassay",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C208421",
+      "name": "Enzyme Unit per 10 Billion",
+      "terminology": "ncit",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
     },
     {
-      "code": "C208420",
-      "name": "Enzyme Unit per 10 Billion Cells",
+      "code": "C21281",
+      "name": "Enzyme Gene",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C40500",
-      "name": "Enzyme Uncoupling",
-      "terminology": "ncit",
-      "version": "25.02d",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
+      "leaf": false,
       "active": true
     }
   ]

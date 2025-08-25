@@ -16,11 +16,6 @@
   },
   {
     "type": "Concept_In_Subset",
-    "relatedCode": "C192842",
-    "relatedName": "Cellosaurus Terminology"
-  },
-  {
-    "type": "Concept_In_Subset",
     "relatedCode": "C61410",
     "relatedName": "Clinical Data Interchange Standards Consortium Terminology"
   },

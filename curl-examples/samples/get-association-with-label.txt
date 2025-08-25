@@ -2,7 +2,7 @@
   "code": "A16",
   "name": "Has_INC_Parent",
   "terminology": "ncit",
-  "version": "25.02d",
+  "version": "25.07d",
   "synonyms": [
     {
       "name": "Has_INC_Parent",
