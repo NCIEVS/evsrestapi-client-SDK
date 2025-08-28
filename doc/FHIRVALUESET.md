@@ -37,6 +37,7 @@ Supported property operations on a compose:include:filter are:
 
 ValueSets in the compose definition
 1. [ValueSet expand with include.valueSet and exclude.valueSet operations](#valueset-expand-with-includevalueset-and-excludevalueset-operations)
+2. [ValueSet expand with _sort parameter](#valueset-expand-with-_sort-parameter)
 
 ## ValueSet expand requests via curl calls
 
@@ -910,5 +911,51 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
     -d "@parameters.txt" | jq '.'
 
 ```
- 
+  ### ValueSet expand with _sort parameter
+
+  This request demonstrates sorting functionality in ValueSet expansion, allowing results to be ordered by display name or code.
+
+  The expected result will include concepts from the C54459 subset sorted alphabetically by their display names in ascending order, with proper expansion metadata and pagination support for large sorted result sets.
+```
+  cat << EOF > parameters.txt
+  {
+      "resourceType": "Parameters",
+      "parameter": [
+          {
+              "name": "valueSet",
+              "resource": {
+                  "resourceType": "ValueSet",
+                  "id": "nci-sort-display-test",
+                  "url": "http://example.org/fhir/ValueSet/nci-sort-display-test",
+                  "version": "1.0.0",
+                  "name": "NCISortDisplayTest",
+                  "title": "NCI Thesaurus Sort by Display Test",
+                  "status": "active",
+                  "description": "Test ValueSet with _sort parameter for sorting by display name",
+                  "compose": {
+                      "include": [
+                          {
+                              "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                              "valueSet": [
+                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54459"
+                              ]
+                          }
+                      ]
+                  }
+              }
+          },
+          {
+              "name": "_sort",
+              "valueString": "display"
+          },
+          {
+              "name": "count",
+              "valueInteger": 20
+          }
+      ]
+  }
+  EOF
+
+  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+```
 [Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
