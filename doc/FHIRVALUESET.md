@@ -53,43 +53,43 @@ The expected result will include the C14225 (Human) concept with its complete de
 ```
 cat << EOF > parameters.txt
 {
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-filter-test",
-				"version": "1.0.0",
-				"name": "NCIGeneralizesFilterTest",
-				"title": "NCI Thesaurus Filter Test",
-				"status": "active",
-				"description": "Test ValueSet expand with definitions and designations requested.",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C14225",
-									"display": "Human"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "includeDefinition",
-			"valueBoolean": true
-		},
-		{
-			"name": "includeDesignations",
-			"valueBoolean": true
-		}
-	]
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "id": "nci-filter-test",
+                "url": "http://example.org/fhir/ValueSet/nci-filter-test",
+                "version": "1.0.0",
+                "name": "NCIGeneralizesFilterTest",
+                "title": "NCI Thesaurus Filter Test",
+                "status": "active",
+                "description": "Test ValueSet expand with definitions and designations requested.",
+                "compose": {
+                    "include": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "concept": [
+                                {
+                                    "code": "C14225",
+                                    "display": "Human"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "includeDefinition",
+            "valueBoolean": true
+        },
+        {
+            "name": "includeDesignations",
+            "valueBoolean": true
+        }
+    ]
 }
 EOF
 
@@ -237,40 +237,40 @@ The expected result will include only the direct child concepts of C21282 (Lyase
 ```
 cat << EOF > parameters.txt
 {
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-child-of-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-child-of-filter-test",
-				"version": "1.0.0",
-				"name": "NCIChildOfFilterTest",
-				"title": "NCI Thesaurus Child-Of Filter Test",
-				"status": "active",
-				"description": "Test ValueSet with child-of filter for Lyase Gene",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"filter": [
-								{
-									"property": "concept",
-									"op": "child-of",
-									"value": "C21282"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "activeOnly",
-			"valueBoolean": true
-		}
-	]
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "id": "nci-child-of-filter-test",
+                "url": "http://example.org/fhir/ValueSet/nci-child-of-filter-test",
+                "version": "1.0.0",
+                "name": "NCIChildOfFilterTest",
+                "title": "NCI Thesaurus Child-Of Filter Test",
+                "status": "active",
+                "description": "Test ValueSet with child-of filter for Lyase Gene",
+                "compose": {
+                    "include": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "filter": [
+                                {
+                                    "property": "concept",
+                                    "op": "child-of",
+                                    "value": "C21282"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "activeOnly",
+            "valueBoolean": true
+        }
+    ]
 }
 EOF
 
@@ -291,60 +291,60 @@ The expected result will include the ancestral hierarchy of C213888 (ADCY5 Gene)
 ```
 cat << EOF > parameters.txt
 {
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-generalizes-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-generalizes-filter-test",
-				"version": "1.0.0",
-				"name": "NCIGeneralizesFilterTest",
-				"title": "NCI Thesaurus Generalizes Filter Test",
-				"status": "active",
-				"description": "Test ValueSet with 'generalizes' filter for ADCY5 Gene ancestors plus direct includes and excludes",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"filter": [
-								{
-									"property": "concept",
-									"op": "generalizes",
-									"value": "C213888"
-								}
-							]
-						},
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C14225",
-									"display": "Human"
-								}
-							]
-						}
-					],
-					"exclude": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C21281",
-									"display": "Enzyme Gene"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "activeOnly",
-			"valueBoolean": true
-		}
-	]
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "id": "nci-generalizes-filter-test",
+                "url": "http://example.org/fhir/ValueSet/nci-generalizes-filter-test",
+                "version": "1.0.0",
+                "name": "NCIGeneralizesFilterTest",
+                "title": "NCI Thesaurus Generalizes Filter Test",
+                "status": "active",
+                "description": "Test ValueSet with 'generalizes' filter for ADCY5 Gene ancestors plus direct includes and excludes",
+                "compose": {
+                    "include": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "filter": [
+                                {
+                                    "property": "concept",
+                                    "op": "generalizes",
+                                    "value": "C213888"
+                                }
+                            ]
+                        },
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "concept": [
+                                {
+                                    "code": "C14225",
+                                    "display": "Human"
+                                }
+                            ]
+                        }
+                    ],
+                    "exclude": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "concept": [
+                                {
+                                    "code": "C21281",
+                                    "display": "Enzyme Gene"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "activeOnly",
+            "valueBoolean": true
+        }
+    ]
 }
 EOF
 
@@ -370,49 +370,49 @@ The expected result will include only the terminal/leaf concepts under C21282 (L
 ```
 cat << EOF > parameters.txt
 {
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
 "resourceType": "ValueSet",
-				"id": "nci-descendant-leaf-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-descendant-leaf-filter-test",
-				"version": "1.0.0",
-				"name": "NCIDescendantLeafFilterTest",
-				"title": "NCI Thesaurus Descendant-Leaf Filter Test",
-				"status": "active",
-				"description": "Test ValueSet with descendant-leaf filter for Lyase Gene leaf descendants plus direct includes and excludes",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"filter": [
-								{
-									"property": "concept",
-									"op": "descendent-leaf",
-									"value": "C21282"
-								}
-							]
-						},
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C16612",
-									"display": "Gene"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "activeOnly",
-			"valueBoolean": true
-		}
-	]
+                "id": "nci-descendant-leaf-filter-test",
+                "url": "http://example.org/fhir/ValueSet/nci-descendant-leaf-filter-test",
+                "version": "1.0.0",
+                "name": "NCIDescendantLeafFilterTest",
+                "title": "NCI Thesaurus Descendant-Leaf Filter Test",
+                "status": "active",
+                "description": "Test ValueSet with descendant-leaf filter for Lyase Gene leaf descendants plus direct includes and excludes",
+                "compose": {
+                    "include": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "filter": [
+                                {
+                                    "property": "concept",
+                                    "op": "descendent-leaf",
+                                    "value": "C21282"
+                                }
+                            ]
+                        },
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "concept": [
+                                {
+                                    "code": "C16612",
+                                    "display": "Gene"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "activeOnly",
+            "valueBoolean": true
+        }
+    ]
 }
 EOF
 
@@ -435,49 +435,49 @@ The expected result will include exactly C21282 (Lyase Gene), C3262 (Neoplasm), 
 ```
 cat << EOF > parameters.txt
 {
-	"resourceType": "Parameters",
-	"parameter": [
-		{
-			"name": "valueSet",
-			"resource": {
-				"resourceType": "ValueSet",
-				"id": "nci-in-filter-test",
-				"url": "http://example.org/fhir/ValueSet/nci-in-filter-test",
-				"version": "1.0.0",
-				"name": "NCIInFilterTest",
-				"title": "NCI Thesaurus In Filter Test",
-				"status": "active",
-				"description": "Test ValueSet with 'in' filter for concepts in a specific 'in' listing plus direct includes",
-				"compose": {
-					"include": [
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"filter": [
-								{
-									"property": "concept",
-									"op": "in",
-									"value": "C21282,C3262,C2991"
-								}
-							]
-						},
-						{
-							"system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
-							"concept": [
-								{
-									"code": "C2991",
-									"display": "Disease or Disorder"
-								}
-							]
-						}
-					]
-				}
-			}
-		},
-		{
-			"name": "activeOnly",
-			"valueBoolean": true
-		}
-	]
+    "resourceType": "Parameters",
+    "parameter": [
+        {
+            "name": "valueSet",
+            "resource": {
+                "resourceType": "ValueSet",
+                "id": "nci-in-filter-test",
+                "url": "http://example.org/fhir/ValueSet/nci-in-filter-test",
+                "version": "1.0.0",
+                "name": "NCIInFilterTest",
+                "title": "NCI Thesaurus In Filter Test",
+                "status": "active",
+                "description": "Test ValueSet with 'in' filter for concepts in a specific 'in' listing plus direct includes",
+                "compose": {
+                    "include": [
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "filter": [
+                                {
+                                    "property": "concept",
+                                    "op": "in",
+                                    "value": "C21282,C3262,C2991"
+                                }
+                            ]
+                        },
+                        {
+                            "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
+                            "concept": [
+                                {
+                                    "code": "C2991",
+                                    "display": "Disease or Disorder"
+                                }
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        {
+            "name": "activeOnly",
+            "valueBoolean": true
+        }
+    ]
 }
 EOF
 
