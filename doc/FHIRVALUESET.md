@@ -532,7 +532,10 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
 ```
 
 
@@ -599,7 +602,10 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
 ```
   ### ValueSet expand with property '=' filter operation
 
@@ -660,7 +666,10 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
 
 ```
   ### ValueSet expand with property 'exists' filter operation (value=true) 
@@ -726,7 +735,10 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
 ```
 
   ### ValueSet expand with property 'exists' filter operation (value=false)
@@ -793,7 +805,10 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
 
 ```
 ### ValueSet expand with include.valueSet and exclude.valueSet operations
@@ -806,7 +821,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
 
   This request demonstrates paging functionality with include.valueSet, retrieving the first 50 concepts from the referenced ValueSet.
 
-  The expected result will include the first 50 concepts from the C54459 subset with proper expansion metadata showing the offset, count, and total number of available concepts, enabling
+  The expected result will include the first 50 concepts from the C54452 subset with proper expansion metadata showing the offset, count, and total number of available concepts, enabling
   efficient pagination through large ValueSet expansions.
   
 ```
@@ -830,7 +845,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
                           {
                               "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
                               "valueSet": [
-                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54459"
+                                  "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl?fhir_vs=C54452"
                               ]
                           }
                       ]
@@ -956,6 +971,10 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
   }
   EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/expand"   -H 'accept: application/fhir+json'   -H 'Content-Type: application/fhir+json'   -d "@parameters.txt" | jq '.'
+  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+    -H 'accept: application/fhir+json' \
+    -H 'Content-Type: application/fhir+json' \
+    -d "@parameters.txt" | jq '.'
+
 ```
 [Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
