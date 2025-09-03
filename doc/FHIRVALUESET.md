@@ -144,7 +144,7 @@ The expected result will include C21282 (Lyase Gene) itself plus all its hierarc
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -201,7 +201,7 @@ The expected result will include C21282 (Lyase Gene) itself plus all its hierarc
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -530,7 +530,7 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -600,7 +600,7 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -664,7 +664,7 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -733,7 +733,7 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -803,7 +803,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -862,7 +862,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -918,7 +918,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
@@ -969,7 +969,7 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
           }
       ]
   }
-  EOF
+EOF
 
   curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
     -H 'accept: application/fhir+json' \
