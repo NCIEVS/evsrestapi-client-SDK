@@ -93,12 +93,17 @@ cat << EOF > parameters.txt
 }
 EOF
 
+# For R5 use this curl call
 curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   -H 'accept: application/fhir+json' \
   -H 'Content-Type: application/fhir+json' \
   -d "@parameters.txt" | jq '.'
   
-
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
     
 ```
 ###   ValueSet expand with 'is-a' filter operation
@@ -146,11 +151,17 @@ The expected result will include C21282 (Lyase Gene) itself plus all its hierarc
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
-    
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'    
 
   ```    
 
@@ -203,10 +214,18 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
 ```
 
 ### ValueSet expand with 'child-of' filter operation (R5 only)
@@ -255,12 +274,12 @@ cat << EOF > parameters.txt
 }
 EOF
 
+# For R5 use this curl call
 curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   -H 'accept: application/fhir+json' \
   -H 'Content-Type: application/fhir+json' \
   -d "@parameters.txt" | jq '.'
   
-
     
 ```
 
@@ -329,12 +348,17 @@ cat << EOF > parameters.txt
 }
 EOF
 
+# For R5 use this curl call
 curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   -H 'accept: application/fhir+json' \
   -H 'Content-Type: application/fhir+json' \
   -d "@parameters.txt" | jq '.'
   
-
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
     
 ```
 
@@ -392,6 +416,7 @@ cat << EOF > parameters.txt
 }
 EOF
 
+# For R5 use this curl call
 curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   -H 'accept: application/fhir+json' \
   -H 'Content-Type: application/fhir+json' \
@@ -456,12 +481,17 @@ cat << EOF > parameters.txt
 }
 EOF
 
+# For R5 use this curl call
 curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
   -H 'accept: application/fhir+json' \
   -H 'Content-Type: application/fhir+json' \
   -d "@parameters.txt" | jq '.'
   
-
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
     
 ```
   ### ValueSet expand with 'is-not-a' filter operation
@@ -532,10 +562,18 @@ The expected result will include C48672 (Schedule I Substance), C2991 (Disease o
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
 ```
 
 
@@ -602,10 +640,18 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
 ```
   ### ValueSet expand with property '=' filter operation
 
@@ -666,10 +712,17 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 
 ```
   ### ValueSet expand with property 'exists' filter operation (value=true) 
@@ -735,10 +788,17 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 ```
 
   ### ValueSet expand with property 'exists' filter operation (value=false)
@@ -805,11 +865,17 @@ The expected result will include C48670 (Controlled Substance) and C21282 (Lyase
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 ```
 ### ValueSet expand with include.valueSet and exclude.valueSet operations
 
@@ -864,10 +930,17 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
+
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 ```
 
   ###  ValueSet expand with include.valueSet and exclude.valueSet
@@ -920,11 +993,17 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 ```
   ### ValueSet expand with _sort parameter
 
@@ -971,10 +1050,16 @@ EOF
   }
 EOF
 
-  curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
-    -H 'accept: application/fhir+json' \
-    -H 'Content-Type: application/fhir+json' \
-    -d "@parameters.txt" | jq '.'
+# For R5 use this curl call
+curl -X POST "$API_URL/fhir/r5/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 
+# For R4 use this curl call
+curl -X POST "$API_URL/fhir/r4/ValueSet/\$expand" \
+  -H 'accept: application/fhir+json' \
+  -H 'Content-Type: application/fhir+json' \
+  -d "@parameters.txt" | jq '.'
 ```
 [Back to Top](#using-fhir-valueset-expand-in-evsrestapi)
