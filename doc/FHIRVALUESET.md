@@ -312,7 +312,7 @@ cat << EOF > parameters.txt
                                 {
                                     "property": "concept",
                                     "op": "generalizes",
-                                    "value": "C213888"
+                                    "value": "C21282"
                                 }
                             ]
                         },
@@ -331,8 +331,8 @@ cat << EOF > parameters.txt
                             "system": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus.owl",
                             "concept": [
                                 {
-                                    "code": "C21281",
-                                    "display": "Enzyme Gene"
+                                    "code": "C16612",
+                                    "display": "Gene"
                                 }
                             ]
                         }
