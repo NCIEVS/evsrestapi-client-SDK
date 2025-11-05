@@ -110,7 +110,7 @@ public class MetadataEndpointsApiTest {
     // ASSERT
     assertFalse(response.isEmpty());
     assertEquals(5, response.size());
-    assertEquals("Obsolete_Concept", response.get(0));
+    assertEquals("Header_Concept", response.get(0));
 
     // LOG
     log.info("Get all statuses associated with terminology - ncit");

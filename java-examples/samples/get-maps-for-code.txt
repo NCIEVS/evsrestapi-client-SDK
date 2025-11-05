@@ -1,0 +1,173 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get maps for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     maps = [class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Related To
+        rank: null
+        group: null
+        rule: null
+        targetName: 8720/3
+        targetTermType: PT
+        targetCode: morphology
+        targetTerminology: GDC
+        targetTerminologyVersion: null
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Related To
+        rank: null
+        group: null
+        rule: null
+        targetName: Malignant melanoma, NOS
+        targetTermType: PT
+        targetCode: 8720/3
+        targetTerminology: ICDO3
+        targetTerminologyVersion: 3.2
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Related To
+        rank: null
+        group: null
+        rule: null
+        targetName: Malignant melanoma, NOS
+        targetTermType: PT
+        targetCode: 8720/3
+        targetTerminology: ICDO3
+        targetTerminologyVersion: 3.1
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Related To
+        rank: null
+        group: null
+        rule: null
+        targetName: Malignant melanoma, NOS
+        targetTermType: PT
+        targetCode: primary_diagnosis
+        targetTerminology: GDC
+        targetTerminologyVersion: null
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Has Synonym
+        rank: null
+        group: null
+        rule: null
+        targetName: Melanoma, NOS
+        targetTermType: PT
+        targetCode: primary_diagnosis
+        targetTerminology: GDC
+        targetTerminologyVersion: null
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Has Synonym
+        rank: null
+        group: null
+        rule: null
+        targetName: Melanoma
+        targetTermType: LLT
+        targetCode: 10053571
+        targetTerminology: MedDRA
+        targetTerminologyVersion: 18.1
+        targetLoaded: null
+        targetTermGroup: null
+    }, class ConceptMap {
+        uri: null
+        ct: null
+        source: null
+        sourceName: null
+        sourceTermType: null
+        sourceCode: null
+        sourceTerminology: null
+        sourceTerminologyVersion: null
+        sourceLoaded: null
+        type: Has Synonym
+        rank: null
+        group: null
+        rule: null
+        targetName: Melanoma
+        targetTermType: PT
+        targetCode: relationship_primary_diagnosis
+        targetTerminology: GDC
+        targetTerminologyVersion: null
+        targetLoaded: null
+        targetTermGroup: null
+    }]
+
+ConceptEndpointsApiTest > getMapsTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date

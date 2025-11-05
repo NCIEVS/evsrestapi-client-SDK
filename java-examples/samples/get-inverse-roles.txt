@@ -1,0 +1,530 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getInverseRolesTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get inverse roles for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     inverse roles = [class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C21390
+        relatedName: Beta/Gamma Crystallin Domain-Containing Protein 1
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_May_Have_Associated_Disease
+        relatedCode: C36101
+        relatedName: BRCA2-Related Hereditary Breast and Ovarian Cancer Syndrome
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C10303
+        relatedName: CDB Regimen
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C26083
+        relatedName: Chondroitin Sulfate Proteoglycan 4
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C21389
+        relatedName: CRYBG1 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C54321
+        relatedName: CRYBG1 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C21470
+        relatedName: CSAG2 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C54542
+        relatedName: CSAG2 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81903
+        relatedName: CSAG3 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81904
+        relatedName: CSAG3 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C24316
+        relatedName: CSPG4 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C52436
+        relatedName: CSPG4 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C63525
+        relatedName: CVD Regimen
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C63785
+        relatedName: CVD-Aldesleukin-Interferon Alfa-2b Regimen
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C17680
+        relatedName: Cyclin-Dependent Kinase 4
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C17786
+        relatedName: Cyclin-Dependent Kinase Inhibitor 2A
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C63782
+        relatedName: Dacarbazine/Interferon Alfa Regimen
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C63781
+        relatedName: Dartmouth Regimen
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C82885
+        relatedName: DCT Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C82886
+        relatedName: DCT wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C21569
+        relatedName: DNA Repair Protein XRCC3
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_May_Have_Associated_Disease
+        relatedCode: C8495
+        relatedName: Hereditary Retinoblastoma
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_May_Have_Associated_Disease
+        relatedCode: C192671
+        relatedName: Hereditary Tumor Syndrome Associated with Homologous Recombination Pathway Mutations
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C20765
+        relatedName: KISS1 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C54288
+        relatedName: KISS1 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C2646
+        relatedName: L-Dopachrome Tautomerase
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C26331
+        relatedName: Latent-Transforming Growth Factor Beta-Binding Protein 2
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C24561
+        relatedName: LTBP2 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C51270
+        relatedName: LTBP2 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C21261
+        relatedName: MCAM Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C54308
+        relatedName: MCAM wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Is_Biomarker_Of
+        relatedCode: C17513
+        relatedName: Melanoma-Associated Antigen 3
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C21141
+        relatedName: Metastasis-Suppressor KiSS-1
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81756
+        relatedName: MIR221 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C82171
+        relatedName: MIR221 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C80700
+        relatedName: MIRLET7A1 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81825
+        relatedName: MIRLET7A1 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C80701
+        relatedName: MIRLET7A3 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81826
+        relatedName: MIRLET7A3 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C80702
+        relatedName: MIRLET7B Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C81853
+        relatedName: MIRLET7B wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C28629
+        relatedName: MLANA Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C54313
+        relatedName: MLANA wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_Has_Associated_Disease
+        relatedCode: C40001
+        relatedName: Ovarian Dermoid Cyst with Melanoma
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C18336
+        relatedName: RAB8A Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C52547
+        relatedName: RAB8A wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_Has_Associated_Disease
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_May_Have_Associated_Disease
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Is_Biomarker_Of
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Regimen_Has_Accepted_Use_For_Disease
+        relatedCode: C36347
+        relatedName: t(8;14)(q24;q11)
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Product_Malfunction_Associated_With_Disease
+        relatedCode: C84349
+        relatedName: Tumor Suppressor ARF
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Disease_May_Have_Associated_Disease
+        relatedCode: C3447
+        relatedName: Werner Syndrome
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C20335
+        relatedName: XRCC3 Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Role {
+        uri: null
+        ct: null
+        type: Gene_Associated_With_Disease
+        relatedCode: C51014
+        relatedName: XRCC3 wt Allele
+        source: null
+        highlight: null
+        qualifiers: []
+    }]
+
+ConceptEndpointsApiTest > getInverseRolesTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
