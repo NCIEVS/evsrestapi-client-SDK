@@ -138,7 +138,7 @@ class TestSearchEndpointApi:
         definition_type: str = "DEFINITION"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 1462
+        expected_total: int = 1568
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,
@@ -307,7 +307,7 @@ class TestSearchEndpointApi:
         include: str = "minimal"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 273
+        expected_total: int = 284
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,
@@ -359,7 +359,7 @@ class TestSearchEndpointApi:
         include: str = "minimal"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 150
+        expected_total: int = 151
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,
@@ -464,7 +464,7 @@ class TestSearchEndpointApi:
         from_record: int = 0
         page_size: int = 5
         subset: str = "C165258"
-        expected_total: int = 35
+        expected_total: int = 36
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, None, None, ascending, include,
