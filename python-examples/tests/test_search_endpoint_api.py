@@ -46,7 +46,7 @@ class TestSearchEndpointApi:
         contains_expected_code: bool = False
         
         # ACT
-        response: ConceptResultList = search_api.search(None, self.terminology, None, None, None, ascending, include,
+        response: ConceptResultList = search_api.search(None, self.terminology, expected_code, None, None, ascending, include,
                                                         from_record, page_size, None, None, None, None, None, None,
                                                         None, None, None)
         
