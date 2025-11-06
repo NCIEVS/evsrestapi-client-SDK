@@ -12,15 +12,17 @@
 
 package gov.nih.nci.evs.api;
 
-import gov.nih.nci.evs.api.invoker.ApiException;
-import gov.nih.nci.evs.api.model.ConceptResultList;
-import gov.nih.nci.evs.api.model.MapResultList;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.*;
+import gov.nih.nci.evs.api.invoker.ApiException;
+import gov.nih.nci.evs.api.model.ConceptResultList;
+import gov.nih.nci.evs.api.model.MapResultList;
 
 /**
  * API tests for SearchEndpointApi. These tests will demonstrate how to call the API and log the
@@ -93,7 +95,7 @@ public class SearchEndpointApiTest {
     assertNotNull(response);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
-    assertEquals("C1000", response.getConcepts().get(0).getCode());
+    assertEquals("C100001", response.getConcepts().get(0).getCode());
 
     // LOG
     log.info("Get search results from NCIT for - " + terminology);
@@ -237,7 +239,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1462, response.getTotal());
+    assertEquals(1568, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -632,7 +634,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(150, response.getTotal());
+    assertEquals(151, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
@@ -821,7 +823,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(35, response.getTotal());
+    assertEquals(36, response.getTotal());
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 

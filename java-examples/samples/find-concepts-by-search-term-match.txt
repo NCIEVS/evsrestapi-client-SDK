@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 116 STANDARD_ERROR
-    Mar 24, 2025 4:39:53 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
 SearchEndpointApiTest > searchByTypeMatchTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = enzyme, type = match
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
@@ -48,7 +44,7 @@ SearchEndpointApiTest > searchByTypeMatchTest() STANDARD_ERROR
             code: C16554
             name: Enzyme
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -76,11 +72,13 @@ SearchEndpointApiTest > searchByTypeMatchTest() STANDARD_ERROR
 
 SearchEndpointApiTest > searchByTypeMatchTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

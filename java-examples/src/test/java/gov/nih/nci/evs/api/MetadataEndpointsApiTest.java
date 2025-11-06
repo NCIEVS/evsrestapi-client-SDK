@@ -12,18 +12,22 @@
 
 package gov.nih.nci.evs.api;
 
-import gov.nih.nci.evs.api.invoker.ApiException;
-import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.ConceptMinimal;
-import gov.nih.nci.evs.api.model.Terminology;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static org.junit.jupiter.api.Assertions.*;
+import gov.nih.nci.evs.api.invoker.ApiException;
+import gov.nih.nci.evs.api.model.Concept;
+import gov.nih.nci.evs.api.model.ConceptMinimal;
+import gov.nih.nci.evs.api.model.Terminology;
 
 /**
  * API tests for MetadataEndpointsApi. These tests will demonstrate how to call the API and log the
@@ -316,8 +320,8 @@ public class MetadataEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("P383", response.get(0).getCode());
-    assertEquals("P384", response.get(1).getCode());
+    assertEquals("P378", response.get(0).getCode());
+    assertEquals("P381", response.get(1).getCode());
 
     // LOG
     log.info("Get all qualifiers for ncit");

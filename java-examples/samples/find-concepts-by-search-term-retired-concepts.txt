@@ -8,17 +8,13 @@
 
 > Task :test
 
-Gradle Test Executor 110 STANDARD_ERROR
-    Mar 24, 2025 4:39:33 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
 SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term =  respiratory, concept status = Retired_Concept
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
         total: 19
-        timeTaken: 62
+        timeTaken: 48
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -48,7 +44,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
             code: C83505
             name: Respiratory Acidosis
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -77,7 +73,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
             code: C23710
             name: Murine Respiratory System
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -106,7 +102,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
             code: C87173
             name: Respiratory Rate Finding
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -135,7 +131,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
             code: C27561
             name: Respiratory Distress Syndrome
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -164,7 +160,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
             code: C4928
             name: Acute Respiratory Distress Syndrome
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -192,11 +188,13 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
 
 SearchEndpointApiTest > searchFilterByConceptStatusTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

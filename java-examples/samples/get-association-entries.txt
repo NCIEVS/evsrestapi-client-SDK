@@ -14,7 +14,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 2556
-        timeTaken: 144
+        timeTaken: 129
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -1453,3 +1453,4 @@ For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/comma
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date
+
