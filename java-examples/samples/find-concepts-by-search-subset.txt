@@ -8,27 +8,23 @@
 
 > Task :test
 
-Gradle Test Executor 124 STANDARD_ERROR
-    Mar 24, 2025 4:40:18 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
-SearchEndpointApiTest > searchConceptsBySubsetTest() STANDARD_ERROR
-    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = immune, subset = C165258
+SearchEndpointApiTest > findConceptsBySparqlCode() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get SPARQL search results from NCIT for query = SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma"} }
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
-        total: 35
-        timeTaken: 48
+        total: 1
+        timeTaken: 34
         parameters: class SearchCriteria {
             uri: null
             ct: null
-            term: immune
+            term: null
             type: contains
             include: minimal
             sort: null
             ascending: true
             fromRecord: 0
-            pageSize: 5
+            pageSize: 25
             conceptStatus: []
             property: []
             value: null
@@ -37,18 +33,18 @@ SearchEndpointApiTest > searchConceptsBySubsetTest() STANDARD_ERROR
             definitionSource: []
             definitionType: []
             synonymTermType: []
-            subset: [C165258]
-            codeList: []
+            subset: []
+            codeList: [C3224]
             terminology: [ncit]
-            sparql: null
+            sparql: SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . ?x :P108 "Melanoma"} }
         }
         concepts: [class Concept {
             uri: null
             ct: null
-            code: C3507
-            name: Immune System Disorder
+            code: C3224
+            name: Melanoma
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -71,132 +67,18 @@ SearchEndpointApiTest > searchConceptsBySubsetTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C3446
-            name: Primary Immune Thrombocytopenia
-            terminology: ncit
-            version: 25.02d
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: DEFAULT
-            source: null
-            leaf: true
-            active: true
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C152105
-            name: Inborn Error of Immunity
-            terminology: ncit
-            version: 25.02d
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: DEFAULT
-            source: null
-            leaf: true
-            active: true
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C2986
-            name: Type 1 Diabetes Mellitus
-            terminology: ncit
-            version: 25.02d
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: DEFAULT
-            source: null
-            leaf: true
-            active: true
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C3962
-            name: Adenosine Deaminase Deficiency
-            terminology: ncit
-            version: 25.02d
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: DEFAULT
-            source: null
-            leaf: true
-            active: true
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
         }]
     }
 
-SearchEndpointApiTest > searchConceptsBySubsetTest() PASSED
+SearchEndpointApiTest > findConceptsBySparqlCode() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

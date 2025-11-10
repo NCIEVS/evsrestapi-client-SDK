@@ -1,0 +1,351 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getDisjointWithTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of disjoint with for code - C3910
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    disjoint with = [class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12913
+        relatedName: Abnormal Cell
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12913
+        relatedName: Abnormal Cell
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C43431
+        relatedName: Activity
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C43431
+        relatedName: Activity
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12219
+        relatedName: Anatomic Structure, System, or Substance
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12219
+        relatedName: Anatomic Structure, System, or Substance
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20633
+        relatedName: Biochemical Pathway
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20633
+        relatedName: Biochemical Pathway
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C17828
+        relatedName: Biological Process
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C17828
+        relatedName: Biological Process
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12218
+        relatedName: Chemotherapy Regimen or Agent Combination
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C12218
+        relatedName: Chemotherapy Regimen or Agent Combination
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20181
+        relatedName: Conceptual Entity
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20181
+        relatedName: Conceptual Entity
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20047
+        relatedName: Diagnostic or Prognostic Factor
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20047
+        relatedName: Diagnostic or Prognostic Factor
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C7057
+        relatedName: Disease, Disorder or Finding
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C7057
+        relatedName: Disease, Disorder or Finding
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C1908
+        relatedName: Drug, Food, Chemical or Biomedical Material
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C1908
+        relatedName: Drug, Food, Chemical or Biomedical Material
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C22188
+        relatedName: Experimental Organism Anatomical Concept
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C22188
+        relatedName: Experimental Organism Anatomical Concept
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C22187
+        relatedName: Experimental Organism Diagnosis
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C22187
+        relatedName: Experimental Organism Diagnosis
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C26548
+        relatedName: Gene Product
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C26548
+        relatedName: Gene Product
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C16612
+        relatedName: Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C16612
+        relatedName: Gene
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C97325
+        relatedName: Manufactured Object
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C97325
+        relatedName: Manufactured Object
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C14250
+        relatedName: Organism
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C14250
+        relatedName: Organism
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20189
+        relatedName: Property or Attribute
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C20189
+        relatedName: Property or Attribute
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C28428
+        relatedName: Retired Concept
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class DisjointWith {
+        uri: null
+        ct: null
+        type: disjointWith
+        relatedCode: C28428
+        relatedName: Retired Concept
+        source: null
+        highlight: null
+        qualifiers: []
+    }]
+
+ConceptEndpointsApiTest > getDisjointWithTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

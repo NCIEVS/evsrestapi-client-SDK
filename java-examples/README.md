@@ -16,7 +16,7 @@ Building the java-examples should be as simple as running the following command 
 this directory.
 
 ```
-./gradlew clean build
+./gradlew clean build -x test
 ```
 
 This will invoke Gradle to build the model objects and the clients themselves and then
@@ -35,6 +35,17 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get concept by code (full information)](#get-concept-by-code-full-information)
 * [Get concept by code (custom include)](#get-concept-by-code-custom-information)
 * [Get concept part](#get-concept-part)
+* [Get association entries for code/label](#get-association-entries-for-codelabel)
+* [Get associations for code](#get-associations-for-code)
+* [Get "disjoint with" info for code](#get-disjoint-with)
+* [Get history for code](#get-history-for-code)
+* [Get inverse associations for code](#get-inverse-associations)
+* [Get inverse roles for code](#get-inverse-roles)
+* [Get maps for code](#get-maps-for-code)
+* [Get parents for code](#get-parents)
+* [Get roles for code](#get-roles-for-code)
+* [Get subset members for code](#get-subset-members-for-code)
+* [Get subtree children for code](#get-subtree-children-for-code)
 * [Get concept descendants](#get-descendants)
 * [Get all properties](#get-all-properties)
 * [Get property by code (or label)](#get-property-by-code-or-label)
@@ -44,6 +55,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all roles](#get-all-roles)
 * [Get role by code (or label)](#get-role-by-code-or-label)
 * [Get all associations](#get-all-associations)
+* [Get all concept statuses](#get-concept-statuses)
 * [Get association by code (or label)](#get-association-by-code-or-label)
 * [Get all term types](#get-all-term-types)
 * [Get all synonym sources](#get-all-synonym-sources)
@@ -160,6 +172,116 @@ See sample payload data from this call in [`samples/get-concept-by-code-children
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
+### Get association entries for code/label
+
+Run the gradle command in the terminal to return association entries for a specified terminology and code or label. Associations used to define subset membership are not resolved by this call.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getAssociationEntriesTest`
+
+See sample payload data from this call in [`samples/get-association-entries.txt`](samples/get-association-entries.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get associations for code
+
+Run the gradle command in the terminal to return associations for a given terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getAssociations1Test`
+
+See sample payload data from this call in [`samples/get-associations-for-code.txt`](samples/get-associations-for-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get "disjoint with" info for code
+
+Run the gradle command in the terminal to return concepts that are declared "disjoint with" the specified code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getDisjointWithTest`
+
+See sample payload data from this call in [`samples/get-disjoint-with.txt`](samples/get-disjoint-with.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get history for code
+
+Run the gradle command in the terminal to return history information for a specified terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getHistoryTest`
+
+See sample payload data from this call in [`samples/get-history-for-code.txt`](samples/get-history-for-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get inverse associations for code
+
+Run the gradle command in the terminal to return inverse associations for a given terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getInverseAssociationsTest`
+
+See sample payload data from this call in [`samples/get-inverse-associations.txt`](samples/get-inverse-associations.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get inverse roles for code
+
+Run the gradle command in the terminal to return inverse roles for a given terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getInverseRolesTest`
+
+See sample payload data from this call in [`samples/get-inverse-roles.txt`](samples/get-inverse-roles.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get maps for code
+
+Run the gradle command in the terminal to return map targets for a specified terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getMapsTest`
+
+See sample payload data from this call in [`samples/get-maps-for-code.txt`](samples/get-maps-for-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get parents for code
+
+Run the gradle command in the terminal to return parent concepts for a given terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getParentsTest`
+
+See sample payload data from this call in [`samples/get-parents.txt`](samples/get-parents.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get roles for code
+
+Run the gradle command in the terminal to return roles for a given terminology and code.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getRoles1Test`
+
+See sample payload data from this call in [`samples/get-roles-for-code.txt`](samples/get-roles-for-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get subset members for code
+
+Run the gradle command in the terminal to return subset members for a specified terminology and code. Note: this endpoint will be deprecated in v2 in favor of a top-level subset member endpoint.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getSubsetMembers1Test`
+
+See sample payload data from this call in [`samples/get-subset-members-for-code.txt`](samples/get-subset-members-for-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get subtree children for code
+
+Run the gradle command in the terminal to return the subtree children from the root node to the specified code. This call is useful for rendering partial tree views focused on the path to a node.
+
+`./gradlew test --tests gov.nih.nci.evs.api.ConceptEndpointsApiTest.getSubtreeChildrenTest`
+
+See sample payload data from this call in [`samples/get-subtree-children.txt`](samples/get-subtree-children.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
 ### Get descendants
 
 Run the gradle command in the terminal to return concept descendants information for a given terminology and code. The
@@ -256,6 +378,16 @@ Run the gradle command in the terminal to return all associations.
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getAssociationsTest`
 
 See sample payload data from this call in [`samples/get-associations.txt`](samples/get-associations.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get concept statuses
+
+Run the gradle command in the terminal to return all concept status values for the specified terminology
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getConceptStatusesTest`
+
+See sample payload data from this call in [`samples/get-concept-statuses.txt`](samples/get-concept-statuses.txt)
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 

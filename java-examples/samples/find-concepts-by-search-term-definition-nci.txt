@@ -8,17 +8,13 @@
 
 > Task :test
 
-Gradle Test Executor 111 STANDARD_ERROR
-    Mar 24, 2025 4:39:36 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
 SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = dsDNA, definition source =  NCI
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
         total: 13
-        timeTaken: 49
+        timeTaken: 45
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -48,7 +44,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
             code: C449
             name: DNA
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -77,7 +73,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
             code: C25832
             name: DNA Double Strand Break
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -106,7 +102,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
             code: C14348
             name: Double Stranded DNA Virus
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -135,7 +131,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
             code: C114565
             name: Anti-ds DNA Antibody
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -164,7 +160,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
             code: C211596
             name: Anti-ds DNA Antibody Positive
             terminology: ncit
-            version: 25.02d
+            version: 25.10d
             level: null
             highlight: null
             subsetLink: null
@@ -192,11 +188,13 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
 
 SearchEndpointApiTest > searchFilterByDefinitionSourceTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

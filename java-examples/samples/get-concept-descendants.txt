@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 88 STANDARD_ERROR
-    Mar 24, 2025 4:38:22 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 22 tests were Method or class mismatch
-
 ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get list of descendants for code - C3224
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    descendants = [class Concept {
@@ -282,7 +278,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Advanced Ocular Melanoma
         terminology: null
         version: null
-        level: 3
+        level: 4
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -365,8 +361,8 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
-        code: C4639
-        name: Anal Melanoma
+        code: C215226
+        name: Anorectal Melanoma
         terminology: null
         version: null
         level: 4
@@ -375,7 +371,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         mapsetLink: null
         conceptStatus: null
         source: null
-        leaf: true
+        leaf: false
         active: null
         synonyms: []
         definitions: []
@@ -514,7 +510,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Childhood Meningeal Melanoma
         terminology: null
         version: null
-        level: 2
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -543,7 +539,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Choroid Epithelioid Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -630,7 +626,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Choroid Mixed Epithelioid and Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -688,13 +684,71 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Choroid Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
         conceptStatus: null
         source: null
         leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C6861
+        name: Choroid Spindle Cell Type A Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C6862
+        name: Choroid Spindle Cell Type B Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
         active: null
         synonyms: []
         definitions: []
@@ -746,7 +800,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Ciliary Body Epithelioid Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -833,7 +887,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Ciliary Body Mixed Epithelioid and Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -862,13 +916,71 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Ciliary Body Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
         conceptStatus: null
         source: null
         leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C6864
+        name: Ciliary Body Spindle Cell Type A Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C6863
+        name: Ciliary Body Spindle Cell Type B Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
         active: null
         synonyms: []
         definitions: []
@@ -1036,7 +1148,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Conjunctival Amelanotic Melanoma
         terminology: null
         version: null
-        level: 3
+        level: 2
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1065,7 +1177,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Conjunctival Melanoma In Situ
         terminology: null
         version: null
-        level: 3
+        level: 4
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1094,7 +1206,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Conjunctival Melanoma
         terminology: null
         version: null
-        level: 2
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1123,7 +1235,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Conjunctival Mixed Epithelioid and Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 3
+        level: 2
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1152,7 +1264,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Conjunctival Nodular Melanoma
         terminology: null
         version: null
-        level: 3
+        level: 2
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1181,7 +1293,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Corneal Melanoma
         terminology: null
         version: null
-        level: 2
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -1612,6 +1724,35 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
+        code: C7091
+        name: Digestive System Mucosal Melanoma
+        terminology: null
+        version: null
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
         code: C4236
         name: Epithelioid Cell Melanoma
         terminology: null
@@ -1699,6 +1840,35 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
+        code: C178437
+        name: Female Genital Tract Mucosal Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
         code: C5735
         name: Gallbladder Melanoma
         terminology: null
@@ -1739,6 +1909,64 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         conceptStatus: null
         source: null
         leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C178443
+        name: Genitourinary System Mucosal Melanoma
+        terminology: null
+        version: null
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C133186
+        name: Head and Neck Mucosal Melanoma by AJCC v7 Stage
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
         active: null
         synonyms: []
         definitions: []
@@ -1993,7 +2221,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Iris Epithelioid Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -2080,7 +2308,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Iris Mixed Epithelioid and Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -2109,7 +2337,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Iris Spindle Cell Melanoma
         terminology: null
         version: null
-        level: 4
+        level: 3
         highlight: null
         subsetLink: null
         mapsetLink: null
@@ -2250,6 +2478,64 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
+        code: C217198
+        name: Localized Melanoma
+        terminology: null
+        version: null
+        level: 1
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C217197
+        name: Localized Uveal Melanoma
+        terminology: null
+        version: null
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
         code: C171285
         name: Locally Advanced Cutaneous Melanoma
         terminology: null
@@ -2260,7 +2546,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         mapsetLink: null
         conceptStatus: null
         source: null
-        leaf: true
+        leaf: false
         active: null
         synonyms: []
         definitions: []
@@ -2318,7 +2604,7 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         mapsetLink: null
         conceptStatus: null
         source: null
-        leaf: true
+        leaf: false
         active: null
         synonyms: []
         definitions: []
@@ -2370,6 +2656,64 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         name: Locally Advanced Ocular Melanoma
         terminology: null
         version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C214939
+        name: Locally Advanced Unresectable Acral Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C214936
+        name: Locally Advanced Unresectable Cutaneous Melanoma
+        terminology: null
+        version: null
         level: 3
         highlight: null
         subsetLink: null
@@ -2395,8 +2739,37 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
-        code: C190138
-        name: Locally Advanced Unresectable Uveal Melanoma
+        code: C214937
+        name: Locally Advanced Unresectable Melanoma
+        terminology: null
+        version: null
+        level: 3
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C214938
+        name: Locally Advanced Unresectable Mucosal Melanoma
         terminology: null
         version: null
         level: 4
@@ -2406,6 +2779,64 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         conceptStatus: null
         source: null
         leaf: true
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C214950
+        name: Locally Advanced Unresectable Non-Cutaneous Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: C213952
+        name: Locally Advanced Uveal Melanoma
+        terminology: null
+        version: null
+        level: 4
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: false
         active: null
         synonyms: []
         definitions: []
@@ -2479,450 +2910,17 @@ ConceptEndpointsApiTest > getDescendantsTest() STANDARD_ERROR
         history: []
         maps: []
         paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C45652
-        name: Lung Melanoma
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C213491
-        name: Mediastinal Melanoma
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C9090
-        name: Medium/Large Size Posterior Uveal Melanoma
-        terminology: null
-        version: null
-        level: 3
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C4240
-        name: Melanoma Arising in Blue Nevus
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C48613
-        name: Melanoma Arising in Congenital Melanocytic Nevus
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C4235
-        name: Melanoma Arising in Giant Congenital Nevus
-        terminology: null
-        version: null
-        level: 3
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C204864
-        name: Melanoma in Chronically Sun-Exposed Skin
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C204840
-        name: Melanoma in Intermittently Sun-Exposed Skin
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C4232
-        name: Melanoma in Junctional Nevus
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C66753
-        name: Melanoma in Precancerous Melanosis
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C154473
-        name: Melanoma of Unknown Primary
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C5317
-        name: Meningeal Melanoma
-        terminology: null
-        version: null
-        level: 2
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C212032
-        name: Metastatic Acral Melanoma
-        terminology: null
-        version: null
-        level: 4
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: false
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C169085
-        name: Metastatic Choroid Melanoma
-        terminology: null
-        version: null
-        level: 4
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: C182127
-        name: Metastatic Conjunctival Melanoma
-        terminology: null
-        version: null
-        level: 3
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: true
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
     }]
 
 ConceptEndpointsApiTest > getDescendantsTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

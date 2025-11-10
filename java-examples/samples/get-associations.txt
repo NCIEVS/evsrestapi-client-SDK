@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 96 STANDARD_ERROR
-    Mar 24, 2025 4:38:48 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 20 tests were Method or class mismatch
-
 MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all associations for terminology - ncit
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -     associations = [class Concept {
@@ -20,7 +16,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A1
         name: Role_Has_Domain
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -49,7 +45,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A12
         name: Has_Data_Element
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -78,7 +74,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A13
         name: Related_To_Genetic_Biomarker
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -107,7 +103,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A14
         name: Neoplasm_Has_Special_Category
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -136,7 +132,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A15
         name: Has_CTCAE_5_Parent
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -165,7 +161,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A16
         name: Has_INC_Parent
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -194,7 +190,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A17
         name: Has_Pharmaceutical_State_Of_Matter
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -223,7 +219,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A18
         name: Has_Pharmaceutical_Basic_Dose_Form
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -252,7 +248,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A19
         name: Has_Pharmaceutical_Administration_Method
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -281,7 +277,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A2
         name: Role_Has_Range
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -310,7 +306,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A20
         name: Has_Pharmaceutical_Intended_Site
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -339,7 +335,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A21
         name: Has_Pharmaceutical_Release_Characteristics
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -368,7 +364,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A22
         name: Has_Pharmaceutical_Transformation
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -397,7 +393,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A23
         name: Has_PCDC_Data_Type
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -426,7 +422,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A24
         name: Is_PCDC_AML_Authorized_Value_For_Variable
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -455,7 +451,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A25
         name: Value_Set_Is_Paired_With
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -484,7 +480,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A26
         name: Has_PCDC_AML_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -513,7 +509,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A27
         name: Has_CTDC_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -542,7 +538,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A28
         name: Is_PCDC_EWS_Authorized_Value_For_Variable
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -571,7 +567,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A29
         name: Has_PCDC_EWS_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -600,7 +596,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A3
         name: Role_Has_Parent
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -629,7 +625,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A30
         name: Has_ICDC_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -658,7 +654,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A31
         name: Has_GDC_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -687,7 +683,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A32
         name: Is_Value_For_GDC_Property
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -716,7 +712,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A33
         name: Is_PCDC_GCT_Authorized_Value_For_Variable
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -745,7 +741,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A34
         name: Has_PCDC_GCT_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -774,7 +770,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A35
         name: Is_PCDC_ALL_Authorized_Value_For_Variable
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -803,7 +799,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A36
         name: Has_PCDC_ALL_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -832,7 +828,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A37
         name: Has_SeroNet_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -861,7 +857,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A38
         name: Has_PCDC_OS_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -890,7 +886,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A39
         name: Has_PCDC_HL_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -919,7 +915,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A4
         name: Qualifier_Applies_To
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -948,152 +944,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A40
         name: Has_DIPG_DMG_Authorized_Value
         terminology: ncit
-        version: 25.02d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: A5
-        name: Has_Salt_Form
-        terminology: ncit
-        version: 25.02d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: A6
-        name: Has_Free_Acid_Or_Base_Form
-        terminology: ncit
-        version: 25.02d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: A7
-        name: Has_Target
-        terminology: ncit
-        version: 25.02d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: A8
-        name: Concept_In_Subset
-        terminology: ncit
-        version: 25.02d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: A9
-        name: Is_Related_To_Endogenous_Product
-        terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1122,7 +973,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A42
         name: Has_OORO_PC_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1151,7 +1002,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A48
         name: Has_ACC-AHA_SARS2_Authorized_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1180,7 +1031,36 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A49
         name: Has_PRO-CTCAE_Attribute
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: A5
+        name: Has_Salt_Or_Ester_Form
+        terminology: ncit
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1209,7 +1089,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A50
         name: Has_Ped-PRO-CTCAE_Attribute
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1238,7 +1118,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A51
         name: Has_PRO-CTCAE_Attribute_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1267,7 +1147,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A52
         name: Has_Ped-PRO-CTCAE_Attribute_Value
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1296,7 +1176,7 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A53
         name: Has_PRO-CTCAE_Parent
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1325,7 +1205,123 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
         code: A54
         name: Has_Ped-PRO-CTCAE_Parent
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: A6
+        name: Has_Free_Acid_Or_Base_Form
+        terminology: ncit
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: A7
+        name: Has_Target
+        terminology: ncit
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: A8
+        name: Concept_In_Subset
+        terminology: ncit
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: A9
+        name: Is_Related_To_Endogenous_Product
+        terminology: ncit
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -1352,12 +1348,14 @@ MetadataEndpointsApiTest > getAssociationsTest() STANDARD_ERROR
 
 MetadataEndpointsApiTest > getAssociationsTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 3s
 5 actionable tasks: 2 executed, 3 up-to-date
 

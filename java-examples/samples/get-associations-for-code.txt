@@ -1,0 +1,315 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get associations for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    associations = [class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C77526
+        relatedName: CDISC SEND Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C88025
+        relatedName: CDISC SEND Tumor Findings Results Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C165258
+        relatedName: Cellosaurus Disease Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C61410
+        relatedName: Clinical Data Interchange Standards Consortium Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C138188
+        relatedName: Clinical Trials Search-Application Programming Interface Disease Category Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C156953
+        relatedName: CPTAC Baseline Medical Forms Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C158520
+        relatedName: CPTAC Codelists Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C159415
+        relatedName: CPTAC Melanoma Baseline Form
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C156966
+        relatedName: CPTAC Neoplasms Codelist
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C156952
+        relatedName: CPTAC Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C157534
+        relatedName: CPTAC Uveal Melanoma Baseline Form
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C118168
+        relatedName: CTRP Disease Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C116977
+        relatedName: CTRP Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C138190
+        relatedName: CTS-API Disease Main Type Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Is_Value_For_GDC_Property
+        relatedCode: C178243
+        relatedName: Family Cancer History Relative Primary Diagnosis Question
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C157711
+        relatedName: GDC Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C177537
+        relatedName: GDC Value Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Is_Value_For_GDC_Property
+        relatedCode: C176985
+        relatedName: Histology ICD-O Morphology Code
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Is_Value_For_GDC_Property
+        relatedCode: C177621
+        relatedName: ICD-O-3 Morphology Term Diagnosis Question
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168658
+        relatedName: Mapped ICDO3.1 Morphology PT Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168657
+        relatedName: Mapped ICDO3.1 Morphology Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168655
+        relatedName: Mapped ICDO3.1 Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168662
+        relatedName: Mapped ICDO3.2 Morphology PT Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168661
+        relatedName: Mapped ICDO3.2 Morphology Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C168656
+        relatedName: Mapped ICDO3.2 Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C103113
+        relatedName: NCI CTEP SDC Melanoma Sub-Category Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C102905
+        relatedName: NCI CTEP Simplified Disease Classification Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C126659
+        relatedName: NCIt Neoplasm Core Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C90259
+        relatedName: NICHD Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C189762
+        relatedName: Pediatric Adverse Events Terminology Mapped to MedDRA
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Concept_In_Subset
+        relatedCode: C118464
+        relatedName: Pediatric Adverse Events Terminology
+        source: null
+        highlight: null
+        qualifiers: []
+    }, class Association {
+        uri: null
+        ct: null
+        type: Neoplasm_Has_Special_Category
+        relatedCode: C9292
+        relatedName: Solid Neoplasm
+        source: null
+        highlight: null
+        qualifiers: []
+    }]
+
+ConceptEndpointsApiTest > getAssociations1Test() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+
