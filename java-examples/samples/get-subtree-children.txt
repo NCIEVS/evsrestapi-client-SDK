@@ -1,0 +1,198 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getSubtreeChildrenTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get all subtree children for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subtree children = [class HierarchyNode {
+        uri: null
+        ct: null
+        code: C3802
+        label: Amelanotic Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C8410
+        label: Breast Melanoma
+        level: null
+        leaf: true
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C131506
+        label: Childhood Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C3510
+        label: Cutaneous Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C4236
+        label: Epithelioid Cell Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C217198
+        label: Localized Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C215044
+        label: Melanoma In Situ
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C8925
+        label: Metastatic Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C66756
+        label: Mixed Epithelioid and Spindle Cell Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C205125
+        label: Nodular Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C8711
+        label: Non-Cutaneous Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C118828
+        label: Orbital Melanoma
+        level: null
+        leaf: true
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C162547
+        label: Penile Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C7087
+        label: Recurrent Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C147983
+        label: Refractory Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C4228
+        label: Regressing Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C190239
+        label: Resectable Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C4237
+        label: Spindle Cell Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }, class HierarchyNode {
+        uri: null
+        ct: null
+        code: C148517
+        label: Unresectable Melanoma
+        level: null
+        leaf: false
+        expanded: null
+        children: []
+    }]
+
+ConceptEndpointsApiTest > getSubtreeChildrenTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

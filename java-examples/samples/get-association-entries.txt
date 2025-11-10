@@ -1,0 +1,1456 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get association entries for code/label - A5
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    association entries = class AssociationEntryResultList {
+        uri: null
+        ct: null
+        total: 2556
+        timeTaken: 129
+        parameters: class SearchCriteria {
+            uri: null
+            ct: null
+            term: null
+            type: contains
+            include: minimal
+            sort: null
+            ascending: null
+            fromRecord: 0
+            pageSize: 100
+            conceptStatus: []
+            property: []
+            value: null
+            synonymSource: []
+            synonymType: []
+            definitionSource: []
+            definitionType: []
+            synonymTermType: []
+            subset: []
+            codeList: []
+            terminology: [ncit, Has_Salt_Or_Ester_Form, 0, 100]
+            sparql: null
+        }
+        associationEntries: [class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80580
+            type: null
+            relatedCode: C80581
+            relatedName: Fedotozine Tartrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Fedotozine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80583
+            type: null
+            relatedCode: C101535
+            relatedName: Ketobemidone Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ketobemidone
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80585
+            type: null
+            relatedCode: C80586
+            relatedName: Nalfurafine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Nalfurafine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80589
+            type: null
+            relatedCode: C61103
+            relatedName: Noscapine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Noscapine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80592
+            type: null
+            relatedCode: C76856
+            relatedName: Piridicillin Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Piridicillin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80560
+            type: null
+            relatedCode: C81931
+            relatedName: Lofemizole Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lofemizole
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80570
+            type: null
+            relatedCode: C80587
+            relatedName: Quadazocine Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Quadazocine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80574
+            type: null
+            relatedCode: C77280
+            relatedName: Carfentanil Citrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Carfentanil
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80576
+            type: null
+            relatedCode: C80577
+            relatedName: Enadoline Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Enadoline
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80578
+            type: null
+            relatedCode: C83705
+            relatedName: Etorphine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Etorphine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80579
+            type: null
+            relatedCode: C81387
+            relatedName: Faxeladol Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Faxeladol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80527
+            type: null
+            relatedCode: C80528
+            relatedName: Sofinicline Benzenesulfonate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sofinicline
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80784
+            type: null
+            relatedCode: C80803
+            relatedName: Estriol Sodium Succinate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Estriol Succinate
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80792
+            type: null
+            relatedCode: C84591
+            relatedName: Sulfabromomethazine Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sulfabromomethazine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80765
+            type: null
+            relatedCode: C81081
+            relatedName: Pardoprunox Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Pardoprunox
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80770
+            type: null
+            relatedCode: C80771
+            relatedName: Fonazine Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Fonazine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80772
+            type: null
+            relatedCode: C95285
+            relatedName: Indisetron Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Indisetron
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80775
+            type: null
+            relatedCode: C80763
+            relatedName: Naluzotan Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Naluzotan
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80801
+            type: null
+            relatedCode: C152244
+            relatedName: Rolitetracycline Nitrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Rolitetracycline
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80670
+            type: null
+            relatedCode: C81585
+            relatedName: Clomacran Phosphate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Clomacran
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80679
+            type: null
+            relatedCode: C80680
+            relatedName: Lasofoxifene Tartrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lasofoxifene
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80629
+            type: null
+            relatedCode: C78123
+            relatedName: Sugammadex Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sugammadex
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80630
+            type: null
+            relatedCode: C80631
+            relatedName: Sotrastaurin Acetate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sotrastaurin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80636
+            type: null
+            relatedCode: C403
+            relatedName: Ancitabine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ancitabine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80642
+            type: null
+            relatedCode: C76234
+            relatedName: Tosufloxacin Tosylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Tosufloxacin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203038
+            type: null
+            relatedCode: C213391
+            relatedName: Opemalirsen Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Opemalirsen
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203039
+            type: null
+            relatedCode: C203036
+            relatedName: Sefaxersen Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sefaxersen
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203019
+            type: null
+            relatedCode: C179693
+            relatedName: Emilumenib Succinate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Emilumenib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80153
+            type: null
+            relatedCode: C81016
+            relatedName: Cocaine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Cocaine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203106
+            type: null
+            relatedCode: C203105
+            relatedName: Olgotrelvir Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Olgotrelvir
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203108
+            type: null
+            relatedCode: C216334
+            relatedName: Crozbaciclib Fumarate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Crozbaciclib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203175
+            type: null
+            relatedCode: C216538
+            relatedName: Bevemipretide Trihydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Bevemipretide
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203143
+            type: null
+            relatedCode: C203138
+            relatedName: Lepodisiran Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lepodisiran
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203134
+            type: null
+            relatedCode: C203141
+            relatedName: Imdusiran Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Imdusiran
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C203136
+            type: null
+            relatedCode: C203144
+            relatedName: Lefelsiran Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lefelsiran
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80063
+            type: null
+            relatedCode: C170287
+            relatedName: Patidegib Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Patidegib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80086
+            type: null
+            relatedCode: C78763
+            relatedName: Sodium 1,2-Ethanedisulfonate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: 1,2-Ethanedisulfonic Acid
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80089
+            type: null
+            relatedCode: C47948
+            relatedName: Amrubicin Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Amrubicin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80094
+            type: null
+            relatedCode: C74049
+            relatedName: Iobenguane Sulfate I-123
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Iobenguane I-123
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80053
+            type: null
+            relatedCode: C91759
+            relatedName: Eritoran Tetrasodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Eritoran
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80059
+            type: null
+            relatedCode: C133238
+            relatedName: Niraparib Tosylate Monohydrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Niraparib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80378
+            type: null
+            relatedCode: C48401
+            relatedName: Retaspimycin Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Retaspimycin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C119743
+            type: null
+            relatedCode: C141440
+            relatedName: Uproleselan Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Uproleselan
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80247
+            type: null
+            relatedCode: C216663
+            relatedName: Almecillin Potassium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Almecillin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80247
+            type: null
+            relatedCode: C216651
+            relatedName: Almecillin Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Almecillin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C80257
+            type: null
+            relatedCode: C74356
+            relatedName: Pralmorelin Dihydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Pralmorelin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C130033
+            type: null
+            relatedCode: C216468
+            relatedName: Vamotinib Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Vamotinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217182
+            type: null
+            relatedCode: C98226
+            relatedName: Cefotiam Hexetil Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Cefotiam Hexetil
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217185
+            type: null
+            relatedCode: C47972
+            relatedName: Chloramphenicol Sodium Succinate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Chloramphenicol Succinate
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C60809
+            type: null
+            relatedCode: C154440
+            relatedName: Bosutinib Monohydrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Bosutinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C158093
+            type: null
+            relatedCode: C188255
+            relatedName: Zeteletinib Adipate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Zeteletinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C158086
+            type: null
+            relatedCode: C174596
+            relatedName: Pimodivir Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Pimodivir
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C158517
+            type: null
+            relatedCode: C199110
+            relatedName: Sabizabulin Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Sabizabulin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C60773
+            type: null
+            relatedCode: C29134
+            relatedName: Isosorbide Dinitrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Isosorbide
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C60773
+            type: null
+            relatedCode: C47575
+            relatedName: Isosorbide Mononitrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Isosorbide
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C60770
+            type: null
+            relatedCode: C62771
+            relatedName: Obatoclax Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Obatoclax
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217080
+            type: null
+            relatedCode: C152611
+            relatedName: Ticarcillin Cresyl Sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ticarcillin Cresyl
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C124995
+            type: null
+            relatedCode: C174591
+            relatedName: Lifirafenib Maleate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lifirafenib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217160
+            type: null
+            relatedCode: C153095
+            relatedName: Epitinib Succinate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Epitinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217162
+            type: null
+            relatedCode: C99130
+            relatedName: Dociparstat sodium
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Dociparstat
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217163
+            type: null
+            relatedCode: C65455
+            relatedName: Dodeclonium Bromide
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Dodeclonium
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74940
+            type: null
+            relatedCode: C1571
+            relatedName: Alvocidib Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Alvocidib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C150024
+            type: null
+            relatedCode: C167044
+            relatedName: Ceftolozane Sulfate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ceftolozane
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74270
+            type: null
+            relatedCode: C77424
+            relatedName: Histrelin Acetate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Histrelin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74265
+            type: null
+            relatedCode: C65661
+            relatedName: Fenoxazoline Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Fenoxazoline
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74261
+            type: null
+            relatedCode: C95604
+            relatedName: Brovanexine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Brovanexine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74262
+            type: null
+            relatedCode: C78113
+            relatedName: Ambroxol Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ambroxol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74372
+            type: null
+            relatedCode: C80637
+            relatedName: Clinafloxacin Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Clinafloxacin
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74162
+            type: null
+            relatedCode: C66115
+            relatedName: Methixene Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Methixene
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74141
+            type: null
+            relatedCode: C47405
+            relatedName: Atomoxetine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Atomoxetine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74198
+            type: null
+            relatedCode: C66496
+            relatedName: Protokylol Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Protokylol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74199
+            type: null
+            relatedCode: C77154
+            relatedName: Oxyfedrine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Oxyfedrine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74196
+            type: null
+            relatedCode: C47580
+            relatedName: Levalbuterol Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Levalbuterol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74196
+            type: null
+            relatedCode: C83873
+            relatedName: Levalbuterol Sulfate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Levalbuterol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74196
+            type: null
+            relatedCode: C66003
+            relatedName: Levalbuterol Tartrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Levalbuterol
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74191
+            type: null
+            relatedCode: C77259
+            relatedName: Amperozide Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Amperozide
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74193
+            type: null
+            relatedCode: C72795
+            relatedName: Gepirone Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Gepirone
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74188
+            type: null
+            relatedCode: C87494
+            relatedName: Ecopipam Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ecopipam
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74202
+            type: null
+            relatedCode: C72782
+            relatedName: Fingolimod Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Fingolimod
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74240
+            type: null
+            relatedCode: C73829
+            relatedName: Flubanilate Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Flubanilate
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74241
+            type: null
+            relatedCode: C79962
+            relatedName: Almitrine Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Almitrine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74226
+            type: null
+            relatedCode: C73828
+            relatedName: Bencyclane Fumarate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Bencyclane
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74547
+            type: null
+            relatedCode: C60779
+            relatedName: Pazopanib Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Pazopanib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74599
+            type: null
+            relatedCode: C75202
+            relatedName: Omoconazole Nitrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Omoconazole
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C150559
+            type: null
+            relatedCode: C142941
+            relatedName: Avatrombopag Maleate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Avatrombopag
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74393
+            type: null
+            relatedCode: C73841
+            relatedName: Piboserod Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Piboserod
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74394
+            type: null
+            relatedCode: C72813
+            relatedName: Lecozotan Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Lecozotan
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74391
+            type: null
+            relatedCode: C72812
+            relatedName: Ipsapirone Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Ipsapirone
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74389
+            type: null
+            relatedCode: C84140
+            relatedName: Romifidine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Romifidine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74421
+            type: null
+            relatedCode: C72709
+            relatedName: Azaclorzine Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Azaclorzine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C74428
+            type: null
+            relatedCode: C65351
+            relatedName: Conivaptan Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Conivaptan
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88302
+            type: null
+            relatedCode: C162568
+            relatedName: Infigratinib Mesylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Infigratinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88302
+            type: null
+            relatedCode: C175088
+            relatedName: Infigratinib Phosphate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Infigratinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88303
+            type: null
+            relatedCode: C170314
+            relatedName: Pexidartinib Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Pexidartinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88309
+            type: null
+            relatedCode: C188510
+            relatedName: Motixafortide Acetate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Motixafortide
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88311
+            type: null
+            relatedCode: C201546
+            relatedName: Momelotinib Dihydrochloride Monohydrate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Momelotinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88311
+            type: null
+            relatedCode: C170191
+            relatedName: Momelotinib Dihydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Momelotinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88314
+            type: null
+            relatedCode: C171761
+            relatedName: Tepotinib Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Tepotinib
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C88323
+            type: null
+            relatedCode: C130049
+            relatedName: Burixafor Hydrobromide
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Burixafor
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C49094
+            type: null
+            relatedCode: C136891
+            relatedName: Neratinib Maleate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 25.10d
+            association: Has_Salt_Or_Ester_Form
+            name: Neratinib
+        }]
+    }
+
+ConceptEndpointsApiTest > getAssociationEntriesTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+

@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 108 STANDARD_ERROR
-    Mar 24, 2025 4:39:26 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 22 tests were Method or class mismatch
-
 ConceptEndpointsApiTest > getSubtreeTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get the entire subtree from the root node of code - C3224
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    subtree = [class HierarchyNode {
@@ -462,6 +458,15 @@ ConceptEndpointsApiTest > getSubtreeTest() STANDARD_ERROR
                         }, class HierarchyNode {
                             uri: null
                             ct: null
+                            code: C2947
+                            label: Chordoma
+                            level: null
+                            leaf: false
+                            expanded: null
+                            children: []
+                        }, class HierarchyNode {
+                            uri: null
+                            ct: null
                             code: C4992
                             label: Environment-Related Malignant Neoplasm
                             level: null
@@ -848,16 +853,7 @@ ConceptEndpointsApiTest > getSubtreeTest() STANDARD_ERROR
                             children: []
                         }, class HierarchyNode {
                             uri: null
-                            ct: null
-                            code: C84270
-                            label: Myeloid/Lymphoid Neoplasms with Eosinophilia and Tyrosine Kinase Gene Fusions
-                            level: null
-                            leaf: false
-                            expanded: null
-                            children: []
-                        }, class HierarchyNode {
-                            uri: null
-                            ct: 71
+                            ct: 72
                             code: null
                             label: null
                             level: null
@@ -1260,12 +1256,14 @@ ConceptEndpointsApiTest > getSubtreeTest() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getSubtreeTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 3s
 5 actionable tasks: 2 executed, 3 up-to-date
 

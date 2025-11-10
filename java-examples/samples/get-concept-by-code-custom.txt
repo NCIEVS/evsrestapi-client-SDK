@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 86 STANDARD_ERROR
-    Mar 24, 2025 4:38:16 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 22 tests were Method or class mismatch
-
 ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a custom include concept for code - C3224
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
@@ -20,7 +16,7 @@ ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
         code: C3224
         name: Melanoma
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -372,6 +368,64 @@ ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
+            code: C217198
+            name: Localized Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C215044
+            name: Melanoma In Situ
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
             code: C8925
             name: Metastatic Melanoma
             terminology: null
@@ -461,35 +515,6 @@ ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
             ct: null
             code: C8711
             name: Non-Cutaneous Melanoma
-            terminology: null
-            version: null
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: null
-            source: null
-            leaf: false
-            active: null
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C8562
-            name: Ocular Melanoma
             terminology: null
             version: null
             level: null
@@ -935,11 +960,13 @@ ConceptEndpointsApiTest > getConceptCustomIncludeTest() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getConceptCustomIncludeTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

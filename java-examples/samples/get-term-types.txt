@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 98 STANDARD_ERROR
-    Mar 24, 2025 4:38:54 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 20 tests were Method or class mismatch
-
 MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all term types for ncit
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    term types = [class ConceptMinimal {
@@ -20,7 +16,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: AB
         name: Abbreviation
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -28,7 +24,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: AD
         name: Adjectival form (and other parts of grammar)
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -36,7 +32,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: AQ
         name: *Antiquated preferred term
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -44,7 +40,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: AQS
         name: Antiquated term, use when there are antiquated synonyms within a concept
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -52,7 +48,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: BR
         name: US brand name, which may be trademarked
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -60,7 +56,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CA2
         name: ISO 3166 alpha-2 country code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -68,7 +64,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CA3
         name: ISO 3166 alpha-3 country code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -76,7 +72,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CI
         name: ISO country code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -84,7 +80,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CN
         name: Drug study code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -92,7 +88,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CNU
         name: ISO 3166 numeric country code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -100,7 +96,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: CS
         name: US State Department country code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -108,7 +104,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: DN
         name: Display name
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -116,7 +112,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: FB
         name: Foreign brand name, which may be trademarked
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -124,7 +120,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: HD
         name: *Header (groups concepts, but not used for coding data)
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -132,7 +128,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: HT
         name: Hierarchical term
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -140,7 +136,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: LLT
         name: Lower level term
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -148,7 +144,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: PT
         name: *Preferred term
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -156,7 +152,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: RT
         name: Related term
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -164,7 +160,7 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: SN
         name: Chemical structure name
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -172,18 +168,20 @@ MetadataEndpointsApiTest > getTermTypesTest() STANDARD_ERROR
         code: SY
         name: Synonym
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }]
 
 MetadataEndpointsApiTest > getTermTypesTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 3s
 5 actionable tasks: 2 executed, 3 up-to-date
 

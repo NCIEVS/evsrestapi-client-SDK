@@ -1,0 +1,2189 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :cleanTest
+> Task :compileTestJava UP-TO-DATE
+> Task :processTestResources NO-SOURCE
+> Task :testClasses UP-TO-DATE
+
+> Task :test
+
+ConceptEndpointsApiTest > getHistoryTest() STANDARD_ERROR
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get history for code - C3224
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    history = class Concept {
+        uri: null
+        ct: null
+        code: C3224
+        name: Melanoma
+        terminology: ncit
+        version: 25.10d
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: DEFAULT
+        source: null
+        leaf: false
+        active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: [class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: create
+            date: 2003-08-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-09-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2003-12-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2004-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2004-09-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2005-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-01-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-01-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2006-09-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2007-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2007-04-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2009-10-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2009-11-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2010-06-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2010-06-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-02-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-04-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-11-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2011-12-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-01-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-02-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-03-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-04-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-05-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-06-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-07-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-08-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-09-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-11-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2012-12-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-02-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-03-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-04-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-05-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-06-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-07-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2013-07-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-02-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-03-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-08-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-09-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-10-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-10
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-11-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2014-12-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-01-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-02-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-04-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-05-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-06-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-07-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-07-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-08-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-09-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-10-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-02
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-11-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2015-12-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-04
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-01-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-04-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-04-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-16
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-05-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-13
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-06-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-18
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-07-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-01
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-08
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-15
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-08-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-06
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-20
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-11
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-10-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-07
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-14
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-21
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-11-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-05
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-12
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-19
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2016-12-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-03
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-09
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-17
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-01-23
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-07-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2017-12-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-02-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-07-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-10-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-10-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-11-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2018-12-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-03-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-04-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-05-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-06-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-07-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-09-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-10-28
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2019-11-25
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-02-24
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-03-30
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-04-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-08-31
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2020-09-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-02-22
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-03-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2021-11-29
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2022-09-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2023-02-27
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2023-12-26
+            replacementCode: null
+            replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2025-03-31
+            replacementCode: null
+            replacementName: null
+        }]
+        maps: []
+        paths: null
+    }
+
+ConceptEndpointsApiTest > getHistoryTest() PASSED
+
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+5 actionable tasks: 2 executed, 3 up-to-date
+
