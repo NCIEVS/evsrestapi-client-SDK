@@ -10,6 +10,23 @@ This tutorial shows how to use a Postman collection to access NCI Thesaurus cont
 
 - It is currently set to `https://api-evsrest.nci.nih.gov/api/v1`
 
+## Running the Postman Script
+
+A convenience script is included to help run the Postman collection using Newman.
+
+- Script: `postman.sh` (located in this directory)
+- Usage:
+	```bash
+	cd postman-examples
+	./postman.sh
+	```
+- To override the default API URL (the script uses a production default), set the `API_URL` environment variable before running the script:
+	```bash
+	export API_URL=https://api-test-evsrest.nci.nih.gov
+	./postman.sh
+	```
+- Requirements: `newman` (npm). The script will attempt to install `newman` if it is not found.
+
 ## Sample Postman Calls
 
 When the collection is loaded into Postman, you will see a number

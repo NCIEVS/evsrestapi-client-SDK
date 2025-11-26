@@ -23,6 +23,21 @@ This will invoke Gradle to build the model objects and the clients themselves an
 will also run the unit tests which demonstrate use of the client to make actual API
 calls against EVSRESTAPI.
 
+## Running the README Gradle test runner (java_check.py)
+
+This directory includes a helper script that scans this `README.md` for `./gradlew` commands (the sample commands shown) and executes them to capture output into the `samples/` directory.
+
+- Script: `java_check.py` (located in this directory)
+- Usage:
+    ```bash
+    cd java-examples
+    python java_check.py
+    ```
+- Requirements:
+    - Java must be installed and accessible (e.g. `java --version`).
+    - Gradle wrapper `./gradlew` must be executable from this directory (as the script runs gradle commands parsed from the README).
+- Output: The script will execute the `./gradlew test` commands found in the README and update files in the `samples/` directory with collected outputs; it also reports which commands succeeded or failed.
+
 ## Sample Java Calls
 
 The following examples are exhibited by various unit tests defined in the code in
