@@ -19,6 +19,24 @@ FHIR Swagger APIs are also available for these end points.
 
 - <https://api-evsrest.nci.nih.gov/fhir/swagger-ui/index.html>
 
+## Running the Postman FHIR Script
+
+A convenience script is included to help run the FHIR Postman collection using Newman.
+
+- Script: `postman_fhir.sh` (located in this directory)
+- Usage:
+  ```bash
+  cd fhir-examples
+  ./postman_fhir.sh R4
+  ```
+  Replace `R4` with `R5` to run the R5 collection.
+- To override the default API URL (the script uses a production default), set the environment variable `API_URL` and then run the script:
+  ```bash
+  export API_URL=https://api-test-evsrest.nci.nih.gov
+  ./postman_fhir.sh R4
+  ```
+- Requirements: `newman` (npm). The script will attempt to install `newman` if it is not found.
+
 ## Sample FHIR Calls
 
 Once loaded in, you will see the calls divided into four sections

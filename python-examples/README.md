@@ -19,6 +19,21 @@ ones shown.
 
 The various scripts make use of the `config.ini` file to load necessary information that is uniform across all tests.
 
+## Running the README pytest runner (python_check.py)
+
+This directory includes a small helper script that parses this `README.md` for backticked pytest commands and executes them with your Python interpreter.
+
+- Script: `python_check.py` (located in this directory)
+- Usage:
+  ```bash
+  cd python-examples
+  python python_check.py
+  ```
+- Requirements:
+  - Ensure `pytest` is installed in your current Python environment: `pip install pytest`.
+  - Project dependencies: `pip install -r requirements.txt`.
+- Output: The script runs the pytest commands it finds in this README and reports which executed successfully (and which did not).
+
 ## Sample Python Calls
 
 The following examples are exhibited by various unit tests defined in the code in `python-examples`.
