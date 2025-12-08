@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -32,7 +32,7 @@ type ApiGetAssociationRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetAssociationRequest) Include(include string) ApiGetAssociationRequest {
 	r.include = &include
 	return r
@@ -46,7 +46,7 @@ func (r ApiGetAssociationRequest) Execute() (*Concept, *http.Response, error) {
 GetAssociation Get the association for the specified terminology and code/name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Association code (or name), e.g. <ul><li>'A10' or 'Has_CDRH_Parent' for <i>ncit</i></li><li>'RB' or 'has a broader relationship' for <i>ncim</i></li></ul>
  @return ApiGetAssociationRequest
 */
@@ -169,7 +169,7 @@ type ApiGetAssociationsRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetAssociationsRequest) Include(include string) ApiGetAssociationsRequest {
 	r.include = &include
 	return r
@@ -189,7 +189,7 @@ func (r ApiGetAssociationsRequest) Execute() ([]Concept, *http.Response, error) 
 GetAssociations Get all associations (or those specified by list parameter) for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetAssociationsRequest
 */
 func (a *MetadataEndpointsAPIService) GetAssociations(ctx context.Context, terminology string) ApiGetAssociationsRequest {
@@ -430,7 +430,7 @@ func (r ApiGetDefinitionSourcesRequest) Execute() ([]ConceptMinimal, *http.Respo
 GetDefinitionSources Get all definition sources for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetDefinitionSourcesRequest
 */
 func (a *MetadataEndpointsAPIService) GetDefinitionSources(ctx context.Context, terminology string) ApiGetDefinitionSourcesRequest {
@@ -536,7 +536,7 @@ type ApiGetDefinitionTypeRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetDefinitionTypeRequest) Include(include string) ApiGetDefinitionTypeRequest {
 	r.include = &include
 	return r
@@ -550,7 +550,7 @@ func (r ApiGetDefinitionTypeRequest) Execute() (*Concept, *http.Response, error)
 GetDefinitionType Get the definition type for the specified terminology and code/name.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Definition type code (or name), e.g.<ul><li>'P325' or 'DEFINITION' for <i>ncit</i></li><li>'DEFINITION' for <i>ncim</i></li></ul>
  @return ApiGetDefinitionTypeRequest
 */
@@ -673,7 +673,7 @@ type ApiGetDefinitionTypesRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetDefinitionTypesRequest) Include(include string) ApiGetDefinitionTypesRequest {
 	r.include = &include
 	return r
@@ -693,7 +693,7 @@ func (r ApiGetDefinitionTypesRequest) Execute() ([]Concept, *http.Response, erro
 GetDefinitionTypes Get all definition types (or those specified by list parameter) for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetDefinitionTypesRequest
 */
 func (a *MetadataEndpointsAPIService) GetDefinitionTypes(ctx context.Context, terminology string) ApiGetDefinitionTypesRequest {
@@ -808,6 +808,129 @@ func (a *MetadataEndpointsAPIService) GetDefinitionTypesExecute(r ApiGetDefiniti
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetOverviewMetadataRequest struct {
+	ctx context.Context
+	ApiService *MetadataEndpointsAPIService
+	terminology string
+}
+
+func (r ApiGetOverviewMetadataRequest) Execute() (*map[string][]Concept, *http.Response, error) {
+	return r.ApiService.GetOverviewMetadataExecute(r)
+}
+
+/*
+GetOverviewMetadata Get some metadata (associations, properties, qualifiers, roles, term types, sources, definition types, synonym types) for the terminology overview tab in EVS-Explore
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @return ApiGetOverviewMetadataRequest
+*/
+func (a *MetadataEndpointsAPIService) GetOverviewMetadata(ctx context.Context, terminology string) ApiGetOverviewMetadataRequest {
+	return ApiGetOverviewMetadataRequest{
+		ApiService: a,
+		ctx: ctx,
+		terminology: terminology,
+	}
+}
+
+// Execute executes the request
+//  @return map[string][]Concept
+func (a *MetadataEndpointsAPIService) GetOverviewMetadataExecute(r ApiGetOverviewMetadataRequest) (*map[string][]Concept, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  *map[string][]Concept
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataEndpointsAPIService.GetOverviewMetadata")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/metadata/{terminology}"
+	localVarPath = strings.Replace(localVarPath, "{"+"terminology"+"}", url.PathEscape(parameterValueToString(r.terminology, "terminology")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetPropertiesRequest struct {
 	ctx context.Context
 	ApiService *MetadataEndpointsAPIService
@@ -816,7 +939,7 @@ type ApiGetPropertiesRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetPropertiesRequest) Include(include string) ApiGetPropertiesRequest {
 	r.include = &include
 	return r
@@ -836,7 +959,7 @@ func (r ApiGetPropertiesRequest) Execute() ([]Concept, *http.Response, error) {
 GetProperties Get all properties (or those specified by list parameter) for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetPropertiesRequest
 */
 func (a *MetadataEndpointsAPIService) GetProperties(ctx context.Context, terminology string) ApiGetPropertiesRequest {
@@ -959,7 +1082,7 @@ type ApiGetPropertyRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetPropertyRequest) Include(include string) ApiGetPropertyRequest {
 	r.include = &include
 	return r
@@ -973,7 +1096,7 @@ func (r ApiGetPropertyRequest) Execute() (*Concept, *http.Response, error) {
 GetProperty Get the property for the specified terminology and code/name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Property code (or name), e.g. <ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'BioCarta_ID' or ''BioCarta ID' for <i>ncim</i></li></ul>
  @return ApiGetPropertyRequest
 */
@@ -1088,6 +1211,122 @@ func (a *MetadataEndpointsAPIService) GetPropertyExecute(r ApiGetPropertyRequest
 	return localVarReturnValue, localVarHTTPResponse, nil
 }
 
+type ApiGetPropertyValuesRequest struct {
+	ctx context.Context
+	ApiService *MetadataEndpointsAPIService
+	terminology string
+	codeOrName string
+}
+
+func (r ApiGetPropertyValuesRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiService.GetPropertyValuesExecute(r)
+}
+
+/*
+GetPropertyValues Get property values for the specified terminology and code/name
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param codeOrName Property code (or name), e.g.<ul><li>'P216' or 'BioCarta_ID' for <i>ncit</i></li><li>'Semantic_Type' for <i>ncim</i></li></ul>
+ @return ApiGetPropertyValuesRequest
+*/
+func (a *MetadataEndpointsAPIService) GetPropertyValues(ctx context.Context, terminology string, codeOrName string) ApiGetPropertyValuesRequest {
+	return ApiGetPropertyValuesRequest{
+		ApiService: a,
+		ctx: ctx,
+		terminology: terminology,
+		codeOrName: codeOrName,
+	}
+}
+
+// Execute executes the request
+//  @return []string
+func (a *MetadataEndpointsAPIService) GetPropertyValuesExecute(r ApiGetPropertyValuesRequest) ([]string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MetadataEndpointsAPIService.GetPropertyValues")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/metadata/{terminology}/property/{codeOrName}/values"
+	localVarPath = strings.Replace(localVarPath, "{"+"terminology"+"}", url.PathEscape(parameterValueToString(r.terminology, "terminology")), -1)
+	localVarPath = strings.Replace(localVarPath, "{"+"codeOrName"+"}", url.PathEscape(parameterValueToString(r.codeOrName, "codeOrName")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
 type ApiGetQualifierRequest struct {
 	ctx context.Context
 	ApiService *MetadataEndpointsAPIService
@@ -1096,7 +1335,7 @@ type ApiGetQualifierRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetQualifierRequest) Include(include string) ApiGetQualifierRequest {
 	r.include = &include
 	return r
@@ -1110,7 +1349,7 @@ func (r ApiGetQualifierRequest) Execute() (*Concept, *http.Response, error) {
 GetQualifier Get the qualifier for the specified terminology and code/name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>
  @return ApiGetQualifierRequest
 */
@@ -1240,7 +1479,7 @@ func (r ApiGetQualifierValuesRequest) Execute() ([]string, *http.Response, error
 GetQualifierValues Get qualifier values for the specified terminology and code/name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Qualifier code (or name), e.g.<ul><li>'P390' or 'go-source' for <i>ncit</i></li><li>'RG' or 'Relationship group' for <i>ncim</i></li></ul>
  @return ApiGetQualifierValuesRequest
 */
@@ -1349,7 +1588,7 @@ type ApiGetQualifiersRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetQualifiersRequest) Include(include string) ApiGetQualifiersRequest {
 	r.include = &include
 	return r
@@ -1369,7 +1608,7 @@ func (r ApiGetQualifiersRequest) Execute() ([]Concept, *http.Response, error) {
 GetQualifiers Get all qualifiers (properties on properties) for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetQualifiersRequest
 */
 func (a *MetadataEndpointsAPIService) GetQualifiers(ctx context.Context, terminology string) ApiGetQualifiersRequest {
@@ -1492,7 +1731,7 @@ type ApiGetRoleRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetRoleRequest) Include(include string) ApiGetRoleRequest {
 	r.include = &include
 	return r
@@ -1629,7 +1868,7 @@ type ApiGetRolesRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetRolesRequest) Include(include string) ApiGetRolesRequest {
 	r.include = &include
 	return r
@@ -1890,7 +2129,7 @@ type ApiGetSubset1Request struct {
 	include *string
 }
 
-// Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubset1Request) Include(include string) ApiGetSubset1Request {
 	r.include = &include
 	return r
@@ -2029,7 +2268,7 @@ type ApiGetSubsets1Request struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubsets1Request) Include(include string) ApiGetSubsets1Request {
 	r.include = &include
 	return r
@@ -2180,7 +2419,7 @@ func (r ApiGetSynonymSourcesRequest) Execute() ([]ConceptMinimal, *http.Response
 GetSynonymSources Get all synonym sources for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetSynonymSourcesRequest
 */
 func (a *MetadataEndpointsAPIService) GetSynonymSources(ctx context.Context, terminology string) ApiGetSynonymSourcesRequest {
@@ -2286,7 +2525,7 @@ type ApiGetSynonymTypeRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSynonymTypeRequest) Include(include string) ApiGetSynonymTypeRequest {
 	r.include = &include
 	return r
@@ -2300,7 +2539,7 @@ func (r ApiGetSynonymTypeRequest) Execute() (*Concept, *http.Response, error) {
 GetSynonymType Get the synonym type for the specified terminology and code/name
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param codeOrName Synonym type code (or name), e.g.<ul><li>'P90' or 'FULL_SYN' for <i>ncit</i></li><li>'Preferred_Name' or 'Preferred name' for <i>ncim</i></li></ul>
  @return ApiGetSynonymTypeRequest
 */
@@ -2378,7 +2617,7 @@ func (a *MetadataEndpointsAPIService) GetSynonymTypeExecute(r ApiGetSynonymTypeR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 417 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2389,7 +2628,7 @@ func (a *MetadataEndpointsAPIService) GetSynonymTypeExecute(r ApiGetSynonymTypeR
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2423,7 +2662,7 @@ type ApiGetSynonymTypesRequest struct {
 	list *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSynonymTypesRequest) Include(include string) ApiGetSynonymTypesRequest {
 	r.include = &include
 	return r
@@ -2443,7 +2682,7 @@ func (r ApiGetSynonymTypesRequest) Execute() ([]Concept, *http.Response, error) 
 GetSynonymTypes Get all synonym types (or those specified by list parameter) for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetSynonymTypesRequest
 */
 func (a *MetadataEndpointsAPIService) GetSynonymTypes(ctx context.Context, terminology string) ApiGetSynonymTypesRequest {
@@ -2572,7 +2811,7 @@ func (r ApiGetTermTypesRequest) Execute() ([]ConceptMinimal, *http.Response, err
 GetTermTypes Get all term types for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetTermTypesRequest
 */
 func (a *MetadataEndpointsAPIService) GetTermTypes(ctx context.Context, terminology string) ApiGetTermTypesRequest {
@@ -2690,7 +2929,7 @@ func (r ApiGetTerminologiesRequest) Tag(tag string) ApiGetTerminologiesRequest {
 	return r
 }
 
-// Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+// Return entries with matching terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
 func (r ApiGetTerminologiesRequest) Terminology(terminology string) ApiGetTerminologiesRequest {
 	r.terminology = &terminology
 	return r
@@ -2822,7 +3061,7 @@ func (r ApiGetWelcomeTextRequest) Execute() (string, *http.Response, error) {
 GetWelcomeText Get welcome text for the specified terminology
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetWelcomeTextRequest
 */
 func (a *MetadataEndpointsAPIService) GetWelcomeText(ctx context.Context, terminology string) ApiGetWelcomeTextRequest {
