@@ -37,12 +37,9 @@ If you need to rebuild all the clients for all languages, typically after a big 
 
 ## How to Build Client jar
 
-If you don't need the generated source but only a jar file to use in your project, then follow these steps:
-
 1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk/doc/code-gen`
 2. Execute `./gradlew makeGeneratedJavaSdkJar`
-3. The generated JAR will be in the `build/libs` folder. 
-   - `evsrestapi-java-client-2.3.0-SNAPSHOT.jar`: A self-contained "fat" JAR containing the client classes, all required dependencies, and Maven metadata. This is sufficient to be dropped into any Java project and used immediately.
+3. The generated JAR will be in the `build/libs` folder: `evsrestapi-java-client-2.3.0-SNAPSHOT.jar` (A self-contained "fat" JAR containing the client classes, all required dependencies, and Maven metadata. This is sufficient to be dropped into any Java project and used immediately.)
 
 ## To add file to Maven Repository
 
@@ -52,7 +49,7 @@ If you don't need the generated source but only a jar file to use in your projec
 mvn install:install-file -Dfile=build/libs/evsrestapi-java-client-2.3.0-SNAPSHOT.jar
 ```
 
-### Remote
+### Deployed Environments
 
 ```bash
 mvn deploy:deploy-file \
