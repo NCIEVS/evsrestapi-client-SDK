@@ -7,7 +7,9 @@ plugins {
 }
 
 group = 'gov.nih.nci.evs.api'
-version = '0.0.1-SNAPSHOT'
+version = '2.3.0-SNAPSHOT'
+
+final artifactId = 'evsrestapi-java-client'
 
 // Input Specification locations.
 def inputURL = "https://api-evsrest.nci.nih.gov/v3/api-docs"
@@ -19,8 +21,24 @@ repositories {
 
 sourceCompatibility = 17
 targetCompatibility = 17
+sourceSets.main.java.srcDirs += "$buildDir/java/src/main/java"
 
 dependencies {
+    // Dependencies for the generated Java client
+    implementation 'io.swagger:swagger-annotations:1.6.8'
+    implementation "com.google.code.findbugs:jsr305:3.0.2"
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
+    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'io.gsonfire:gson-fire:1.9.0'
+    implementation 'javax.ws.rs:jsr311-api:1.1.1'
+    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
+    implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
+    implementation "jakarta.annotation:jakarta.annotation-api:1.3.5"
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+    
     testImplementation platform(Testing.junit.bom)
     testImplementation Testing.junit.jupiter
 }
@@ -54,8 +72,76 @@ tasks.register('buildJavaSdk', GenerateTask) {
         "ignoreUnknown": "true"
     ])
     dependsOn tasks.named('clearBuildDir')
-
 }
+
+tasks.register("generateMavenMetadata") {
+    doLast {
+        def groupPath = project.group.toString().replace('.', '/')
+        def metaInfDir = file("$buildDir/maven-metadata/META-INF/maven/${groupPath}/${artifactId}")
+        metaInfDir.mkdirs()
+
+        // pom.properties
+        file("$metaInfDir/pom.properties").text = """\
+groupId=${project.group}
+artifactId=${artifactId}
+version=${project.version}
+"""
+
+        // pom.xml
+        file("$metaInfDir/pom.xml").text = """\
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>${project.group}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${project.version}</version>
+    <packaging>jar</packaging>
+</project>
+"""
+    }
+}
+
+/**
+ * Task to create a JAR file with the compiled classes and Maven metadata.
+ */
+tasks.register("makeGeneratedJavaSdkJar", Jar) {
+    dependsOn('buildJavaSdk', 'generateMavenMetadata', 'compileJava')
+
+    archiveBaseName.set(artifactId)
+    archiveVersion.set(version)
+    destinationDirectory = layout.buildDirectory.dir("libs")
+
+    // Include the compiled classes from our own code and the generated code
+    from sourceSets.main.output
+
+    // "Fat JAR" logic: Unpack all dependency JARs and include their classes.
+    from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
+        // SECRECY/SIGNATURE REMOVAL: remove the original security signatures 
+        // (*.SF, *.DSA, *.RSA) from META-INF.
+        exclude "META-INF/*.SF"
+        exclude "META-INF/*.DSA"
+        exclude "META-INF/*.RSA"
+    }
+    
+    from("$buildDir/maven-metadata") {
+        into ""
+    }
+
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    manifest {
+        attributes(
+            'Implementation-Title': artifactId,
+            'Implementation-Version': version,
+            'Implementation-Vendor-Id': project.group.toString(),
+            'Built-By': System.getProperty('user.name'),
+            'Main-Class': 'gov.nih.nci.evs.api.ClientDemo'
+        )
+    }
+}
+
 
 tasks.register('buildPythonSdk', GenerateTask) {
     generatorName.set("python")
@@ -118,7 +204,7 @@ tasks.register("buildClients") {
 
 compileJava.dependsOn tasks.named("buildJavaSdk")
 build.dependsOn('buildClients')
-publishToMavenLocal.dependsOn = ["buildJavaSdk`",
+publishToMavenLocal.dependsOn = ["buildJavaSdk",
                                  "buildPythonSdk",
                                  "buildGoSdk",
                                  "buildTypescriptSdk",
