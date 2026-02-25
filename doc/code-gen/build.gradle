@@ -27,13 +27,11 @@ dependencies {
     // Dependencies for the generated Java client
     implementation 'io.swagger:swagger-annotations:1.6.8'
     implementation "com.google.code.findbugs:jsr305:3.0.2"
-    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-    implementation 'com.squareup.okhttp3:logging-interceptor:4.12.0'
-    implementation 'com.google.code.gson:gson:2.9.1'
-    implementation 'io.gsonfire:gson-fire:1.9.0'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.4'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.15.4'
+    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
     implementation 'javax.ws.rs:jsr311-api:1.1.1'
     implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
-    implementation 'org.openapitools:jackson-databind-nullable:0.2.6'
     implementation group: 'org.apache.commons', name: 'commons-lang3', version: '3.12.0'
     implementation "jakarta.annotation:jakarta.annotation-api:1.3.5"
     implementation 'org.slf4j:slf4j-api:2.0.9'
@@ -66,7 +64,8 @@ tasks.register('buildJavaSdk', GenerateTask) {
     modelPackage.set("gov.nih.nci.evs.api.model")
     configOptions.set([
         "dateLibrary": "java17",
-        "serializationLibrary": "jackson",
+        "serializationLibrary": "gson",
+        "library": "native",
         "hideGenerationTimestamp": "false",
         // if there are unknown properties present, ignore them
         "ignoreUnknown": "true"
@@ -123,6 +122,18 @@ tasks.register("makeGeneratedJavaSdkJar", Jar) {
         exclude "META-INF/*.SF"
         exclude "META-INF/*.DSA"
         exclude "META-INF/*.RSA"
+        
+        // AGGRESSIVE OPTIMIZATION: remove non-essential metadata and clutter
+        exclude "META-INF/maven/**"
+        exclude "META-INF/LICENSE*"
+        exclude "META-INF/NOTICE*"
+        exclude "META-INF/*.txt"
+        exclude "META-INF/proguard/**"
+        exclude "META-INF/*.kotlin_module"
+        exclude "**/module-info.class"
+        exclude "kotlin/**"
+        exclude "org/intellij/**"
+        exclude "org/jetbrains/**"
     }
     
     from("$buildDir/maven-metadata") {

@@ -19,7 +19,7 @@ public class ClientDemo {
             // Initialize the API client
             ApiClient apiClient = new ApiClient();
             // Default base path is usually set in the generated ApiClient or can be overridden
-            log.info("API Base Path: {}", apiClient.getBasePath());
+            log.info("API Base Path: {}", apiClient.getBaseUri());
 
             // Instantiate the ConceptEndpointsApi
             ConceptEndpointsApi api = new ConceptEndpointsApi(apiClient);
