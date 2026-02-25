@@ -64,6 +64,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get concept descendants](#get-descendants)
 * [Get all properties](#get-all-properties)
 * [Get property by code (or label)](#get-property-by-code-or-label)
+* [Get property values by code (or label)](#get-property-values-by-code-or-label)
 * [Get all qualifiers](#get-all-qualifiers)
 * [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
@@ -329,6 +330,17 @@ set to full
 `./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getPropertyTest`
 
 See sample payload data from this call in [`samples/get-property-with-code.txt`](samples/get-property-with-code.txt)
+
+[Back to Top](#evsrestapi-client-sdk-java-tutorial)
+
+### Get property values by code (or label)
+
+Run the gradle command in the terminal to return distinct value set for the property with the specified code or
+label.
+
+`./gradlew test --tests gov.nih.nci.evs.api.MetadataEndpointsApiTest.getPropertyValuesTest`
+
+See sample payload data from this call in [`samples/get-property-values-with-code.txt`](samples/get-property-values-with-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 

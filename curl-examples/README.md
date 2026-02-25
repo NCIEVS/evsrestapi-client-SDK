@@ -32,6 +32,7 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-all-properties)
 - [Get property by code (or label)](#get-property-by-code-or-label)
+- [Get property values by code (or label)](#get-property-values-by-code-or-label)
 - [Get all qualifiers](#get-all-qualifiers)
 - [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
 - [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
@@ -241,6 +242,20 @@ curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For?include=summa
 See sample payload data from this call in:
 - [`samples/get-property-with-code.txt`](samples/get-property-with-code.txt)
 - [`samples/get-property-with-name.txt`](samples/get-property-with-name.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get property values by code (or label)
+
+Return distinct value set for the property with the specified code or label.
+
+```
+curl "$API_URL/metadata/ncit/property/P204/values" | jq .
+curl "$API_URL/metadata/ncit/property/Accepted_Therapeutic_Use_For/values" | jq .
+```
+
+See sample payload data from this call in:
+- [`samples/get-property-values-with-code.txt`](samples/get-property-values-with-code.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 

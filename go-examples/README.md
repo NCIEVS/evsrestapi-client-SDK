@@ -112,6 +112,7 @@ All commands to run these tests should be run from that directory.
 * [Get concept descendants](#get-concept-descendants)
 * [Get all properties](#get-all-properties)
 * [Get property by code (or label)](#get-property-by-code-or-label)
+* [Get property values by code (or label)](#get-property-values-by-code-or-label)
 * [Get all qualifiers](#get-all-qualifiers)
 * [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
@@ -261,6 +262,14 @@ Return property for the specified code or label.
 [See output here](outputs/GetProperty.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
+
+### Get property values by code (or label)
+
+Return distinct value set for the property with the specified code or label.
+
+`go test -run "^TestMetadataEndpointsAPIService/GetPropertyValues$" -v`
+
+[See output here](outputs/GetPropertyValues.txt)
 
 ### Get all qualifiers
 

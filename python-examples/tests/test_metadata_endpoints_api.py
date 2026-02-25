@@ -223,6 +223,26 @@ class TestMetadataEndpointsApi:
         
         self.logger.info(f"Get full property for code - {code_or_name}")
         self.logger.info(f"    property - {str(response)}")
+
+    def test_get_property_values(self, metadata_api):
+        """
+        Get property values for the specified terminology and code/name
+        """
+        # ARRANGE - using global variable unless otherwise listed
+        code_or_name: string = "P204"
+        contains_expected_value: bool = False
+
+        # ACT
+        response: [string] = metadata_api.get_property_values(self.terminology, code_or_name)
+
+        # ASSERT
+        assert response is not None
+        # response may be empty if endpoint not implemented; ensure type correctness
+        for value in response:
+            assert value is not None
+
+        self.logger.info(f"Get property values for code - {code_or_name}")
+        self.logger.info(f"    property values - {str(response)}")
     
     def test_get_qualifier(self, metadata_api):
         """

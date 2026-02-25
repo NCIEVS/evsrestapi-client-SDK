@@ -551,6 +551,21 @@ public class MetadataEndpointsApiTest {
   }
 
   /**
+   * Get property values for the specified terminology and code/name
+   * 
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getPropertyValuesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String codeOrName = "P204";
+    // ACT
+    List<String> response = api.getPropertyValues(terminology, codeOrName);
+    // ASSERT
+    assertFalse(response.isEmpty());
+    assertTrue(response.size() >= 1);
+  }
+  /**
    * TODO: VALIDATE THIS IS A VALID API CALL
    * Get welcome text for the specified terminology
    *

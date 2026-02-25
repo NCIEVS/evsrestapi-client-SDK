@@ -60,6 +60,7 @@ All commands to run these tests should be run from that directory.
 * [Get concept descendants](#get-concept-descendants)
 * [Get all properties](#get-all-properties)
 * [Get property by code (or label)](#get-property-by-code-or-label)
+* [Get property values by code (or label)](#get-property-values-by-code-or-label)
 * [Get all qualifiers](#get-all-qualifiers)
 * [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
@@ -393,6 +394,19 @@ Return property for the specified code or label.
 ```
 2024-07-03T16:31:33.529 INFO : Get full property for code - P216
 2024-07-03T16:31:33.529 INFO :     property - uri=None ct=None code='P216' name='BioCarta_ID' terminology='ncit' version='21.06e' level=None highlight=None subset_link=None mapset_link=None concept_status=None source=None leaf=None active=None synonyms=[Synonym(uri=None, ct=None, name='BioCarta ID', highlight=None, term_type=None, type='Display_Name', source=None, code=None, sub_source=None, qualifiers=None, active=None), Synonym(uri=None, ct=None, name='BioCarta_ID', highlight=None, term_type=None, type='FULL_SYN', source=None, code=None, sub_source=None, qualifiers=None, active=None), Synonym(uri=None, ct=None, name='BioCarta_ID', highlight=None, term_type=None, type='Preferred_Name', source=None, code=None, sub_source=None, qualifiers=None, active=None)] definitions=[Definition(uri=None, ct=None, definition='A property representing the BioCarta ID code for a pathway. It can be used to link a BioCarta pathway reference to the primary pathway information.', highlight=None, type='DEFINITION', source=None, qualifiers=None)] history=None properties=[ModelProperty(uri=None, ct=None, type='Semantic_Type', value='Conceptual Entity', highlight=None, qualifiers=None, source=None)] children=None parents=None descendants=None associations=None inverse_associations=None roles=None disjoint_with=None inverse_roles=None maps=None paths=None
+```
+
+[Back to Top](#evsrestapi-client-sdk-python-tutorial)
+
+### Get property values by code (or label)
+
+Return distinct value set for the property with the specified code or label.
+
+`pytest tests/test_metadata_endpoints_api.py::TestMetadataEndpointsApi::test_get_property_values`
+
+```
+2024-07-03T16:31:33.646 INFO : Get property values for code - P204
+2024-07-03T16:31:33.646 INFO :     property values - []
 ```
 
 [Back to Top](#evsrestapi-client-sdk-python-tutorial)
