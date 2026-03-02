@@ -41,16 +41,13 @@ test {
     useJUnitPlatform()
 }
 
-/**
- * Deletes existing build directory
- */
+// Deletes existing build directory
 tasks.register('clearBuildDir', Delete) {
     delete buildDir
 }
 
-/**
- * Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
- * Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
+// Builds a Java client by default: https://openapi-generator.tech/docs/generators/java/
+// Before the code is generated, all previous code in the src folder is deleted with the `cleanJavaSdk` task*/
 tasks.register('buildJavaSdk', GenerateTask) {
     generatorName.set("java")
     remoteInputSpec.set(inputURL)
@@ -69,6 +66,7 @@ tasks.register('buildJavaSdk', GenerateTask) {
     dependsOn tasks.named('clearBuildDir')
 }
 
+// Generates pom.xml in specified path below
 tasks.register("generateMavenMetadata") {
     doLast {
         def groupPath = project.group.toString().replace('.', '/')
@@ -98,53 +96,26 @@ version=${project.version}
     }
 }
 
-/**
- * Task to create a JAR file with the compiled classes and Maven metadata.
- */
+// Generate pom.xml and class files and combine everything into a jar file with coordinates
 tasks.register("makeGeneratedJavaSdkJar", Jar) {
-    dependsOn('buildJavaSdk', 'generateMavenMetadata', 'compileJava')
+    dependsOn('generateMavenMetadata', 'compileJava')
+
+    from("$buildDir/java/src/main/java")
+    from("$buildDir/classes/java/main")
+    from("$buildDir/maven-metadata") {
+        into ""  // Include META-INF at root
+    }
 
     archiveBaseName.set(artifactId)
     archiveVersion.set(version)
-    destinationDirectory = layout.buildDirectory.dir("libs")
-
-    // Include the compiled classes from our own code and the generated code
-    from sourceSets.main.output
-
-    // "Fat JAR" logic: Unpack all dependency JARs and include their classes.
-    from(configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }) {
-        // SECRECY/SIGNATURE REMOVAL: remove the original security signatures 
-        // (*.SF, *.DSA, *.RSA) from META-INF.
-        exclude "META-INF/*.SF"
-        exclude "META-INF/*.DSA"
-        exclude "META-INF/*.RSA"
-        
-        // AGGRESSIVE OPTIMIZATION: remove non-essential metadata and clutter
-        exclude "META-INF/maven/**"
-        exclude "META-INF/LICENSE*"
-        exclude "META-INF/NOTICE*"
-        exclude "META-INF/*.txt"
-        exclude "META-INF/proguard/**"
-        exclude "META-INF/*.kotlin_module"
-        exclude "**/module-info.class"
-        exclude "kotlin/**"
-        exclude "org/intellij/**"
-        exclude "org/jetbrains/**"
-    }
-    
-    from("$buildDir/maven-metadata") {
-        into ""
-    }
-
-    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    destinationDirectory = layout.buildDirectory.dir("libs").get().asFile
 
     manifest {
         attributes(
             'Implementation-Title': artifactId,
             'Implementation-Version': version,
             'Implementation-Vendor-Id': project.group.toString(),
-            'Built-By': System.getProperty('user.name'),
-            'Main-Class': 'gov.nih.nci.evs.api.ClientDemo'
+            'Built-By': System.getProperty('user.name')
         )
     }
 }
@@ -197,11 +168,11 @@ tasks.register('buildGoSdk', GenerateTask) {
 /** Runs all code-gen tasks for each language to generate the clients */
 tasks.register("buildClients") {
     dependsOn("buildJavaSdk",
-                "buildPythonSdk",
-            "buildGoSdk",
+              "buildPythonSdk",
+              "buildGoSdk",
 //            "buildKotlinSdk",
 //            "buildBashSdk",
-           "buildTypescriptSdk"
+              "buildTypescriptSdk"
     )
     doLast {
         println 'All client sdk generated. They can be found in the code-gen/build folder.'
