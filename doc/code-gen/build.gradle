@@ -107,7 +107,7 @@ version=${project.version}
 tasks.register("makeGeneratedJavaSdkJar", Jar) {
     dependsOn("generateMavenMetadata", "compileJava")
 
-    from("$buildDir/java/src/main/java")
+    //from("$buildDir/java/src/main/java")
     from("$buildDir/classes/java/main")
     from("$buildDir/maven-metadata") {
         into ""  // Include META-INF at root
