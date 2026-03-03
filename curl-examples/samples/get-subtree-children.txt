@@ -25,6 +25,16 @@
     "leaf": false
   },
   {
+    "code": "C217198",
+    "label": "Localized Melanoma",
+    "leaf": false
+  },
+  {
+    "code": "C215044",
+    "label": "Melanoma In Situ",
+    "leaf": false
+  },
+  {
     "code": "C8925",
     "label": "Metastatic Melanoma",
     "leaf": false
@@ -42,11 +52,6 @@
   {
     "code": "C8711",
     "label": "Non-Cutaneous Melanoma",
-    "leaf": false
-  },
-  {
-    "code": "C8562",
-    "label": "Ocular Melanoma",
     "leaf": false
   },
   {

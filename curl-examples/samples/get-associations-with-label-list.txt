@@ -3,7 +3,7 @@
     "code": "A1",
     "name": "Role_Has_Domain",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Role Has Domain",
@@ -35,7 +35,7 @@
     "code": "A2",
     "name": "Role_Has_Range",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Role Has Range",
@@ -67,7 +67,7 @@
     "code": "A3",
     "name": "Role_Has_Parent",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Role Has Parent",

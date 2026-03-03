@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:28 PM
+Starting ...Mon Aug 25 10:29:04 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -15,7 +15,7 @@ include =
           "code": "C3224",
           "name": "Melanoma",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 0,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -25,7 +25,7 @@ include =
           "code": "C7058",
           "name": "Melanocytic Neoplasm",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 1,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -35,7 +35,7 @@ include =
           "code": "C4741",
           "name": "Neoplasm by Morphology",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 2,
           "conceptStatus": "Header_Concept",
           "leaf": false,
@@ -45,7 +45,7 @@ include =
           "code": "C3262",
           "name": "Neoplasm",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 3,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -55,7 +55,7 @@ include =
           "code": "C2991",
           "name": "Disease or Disorder",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 4,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -67,7 +67,7 @@ include =
           "code": "C3224",
           "name": "Melanoma",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 0,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -77,7 +77,7 @@ include =
           "code": "C9305",
           "name": "Malignant Neoplasm",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 1,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -87,7 +87,7 @@ include =
           "code": "C7062",
           "name": "Neoplasm by Special Category",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 2,
           "conceptStatus": "Header_Concept",
           "leaf": false,
@@ -97,7 +97,7 @@ include =
           "code": "C3262",
           "name": "Neoplasm",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 3,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -107,7 +107,7 @@ include =
           "code": "C2991",
           "name": "Disease or Disorder",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "level": 4,
           "conceptStatus": "DEFAULT",
           "leaf": false,
@@ -117,6 +117,6 @@ include =
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:29 PM
+Finished ...Mon Aug 25 10:29:05 PDT 2025
 -----------------------------------------------------
 

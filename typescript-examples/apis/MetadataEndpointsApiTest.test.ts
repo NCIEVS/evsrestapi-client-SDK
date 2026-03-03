@@ -57,6 +57,21 @@ describe("TestMetadataEndpointsApi", () => {
     console.log(`    associations = ${JSON.stringify(response)}`);
   });
 
+      test('test_get_property_values', async () => {
+        // ARRANGE
+        const codeOrName = 'P204';
+
+        // ACT
+        const resp = await metadataApi.getPropertyValues(terminology, codeOrName);
+
+        // ASSERT
+        expect(resp).toBeDefined();
+        expect(Array.isArray(resp)).toBeTruthy();
+
+        // LOG
+        // console.log(JSON.stringify(resp, null, 2));
+      });
+
   test("test_get_concept_statuses", async () => {
     // ARRANGE
     const expectedStatus: string = "Obsolete_Concept";

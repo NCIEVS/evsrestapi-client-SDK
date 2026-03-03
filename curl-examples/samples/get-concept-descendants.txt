@@ -62,7 +62,7 @@
   {
     "code": "C190137",
     "name": "Advanced Ocular Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": false
   },
   {
@@ -80,8 +80,14 @@
   {
     "code": "C4639",
     "name": "Anal Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C215226",
+    "name": "Anorectal Melanoma",
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C4227",
@@ -122,7 +128,7 @@
   {
     "code": "C5318",
     "name": "Childhood Meningeal Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": true
   },
   {
@@ -284,37 +290,37 @@
   {
     "code": "C213201",
     "name": "Conjunctival Amelanotic Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C204981",
     "name": "Conjunctival Melanoma In Situ",
-    "level": 3,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C4550",
     "name": "Conjunctival Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": false
   },
   {
     "code": "C213202",
     "name": "Conjunctival Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C213200",
     "name": "Conjunctival Nodular Melanoma",
-    "level": 3,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C4553",
     "name": "Corneal Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": true
   },
   {
@@ -392,14 +398,20 @@
   {
     "code": "C37257",
     "name": "Desmoplastic Melanoma",
-    "level": 2,
+    "level": 4,
     "leaf": false
   },
   {
     "code": "C48614",
     "name": "Desmoplastic Neurotropic Melanoma",
-    "level": 3,
+    "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C7091",
+    "name": "Digestive System Mucosal Melanoma",
+    "level": 3,
+    "leaf": false
   },
   {
     "code": "C4236",
@@ -420,6 +432,12 @@
     "leaf": true
   },
   {
+    "code": "C178437",
+    "name": "Female Genital Tract Mucosal Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
     "code": "C5735",
     "name": "Gallbladder Melanoma",
     "level": 4,
@@ -430,6 +448,18 @@
     "name": "Gastric Melanoma",
     "level": 4,
     "leaf": true
+  },
+  {
+    "code": "C178443",
+    "name": "Genitourinary System Mucosal Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C133186",
+    "name": "Head and Neck Mucosal Melanoma by AJCC v7 Stage",
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C133187",
@@ -534,10 +564,34 @@
     "leaf": true
   },
   {
+    "code": "C217198",
+    "name": "Localized Melanoma",
+    "level": 1,
+    "leaf": false
+  },
+  {
+    "code": "C217197",
+    "name": "Localized Uveal Melanoma",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C214940",
+    "name": "Locally Advanced Acral Melanoma",
+    "level": 5,
+    "leaf": false
+  },
+  {
+    "code": "C214941",
+    "name": "Locally Advanced Conjunctival Melanoma",
+    "level": 5,
+    "leaf": false
+  },
+  {
     "code": "C171285",
     "name": "Locally Advanced Cutaneous Melanoma",
     "level": 3,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C148494",
@@ -549,7 +603,7 @@
     "code": "C209346",
     "name": "Locally Advanced Mucosal Melanoma",
     "level": 4,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C171297",
@@ -560,14 +614,62 @@
   {
     "code": "C171296",
     "name": "Locally Advanced Ocular Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C214939",
+    "name": "Locally Advanced Unresectable Acral Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C214943",
+    "name": "Locally Advanced Unresectable Conjunctival Melanoma",
+    "level": 6,
+    "leaf": true
+  },
+  {
+    "code": "C214936",
+    "name": "Locally Advanced Unresectable Cutaneous Melanoma",
     "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C214937",
+    "name": "Locally Advanced Unresectable Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C214938",
+    "name": "Locally Advanced Unresectable Mucosal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C214950",
+    "name": "Locally Advanced Unresectable Non-Cutaneous Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C214949",
+    "name": "Locally Advanced Unresectable Ocular Melanoma",
+    "level": 5,
     "leaf": false
   },
   {
     "code": "C190138",
     "name": "Locally Advanced Unresectable Uveal Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C213952",
+    "name": "Locally Advanced Uveal Melanoma",
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C204843",
@@ -642,6 +744,12 @@
     "leaf": true
   },
   {
+    "code": "C215044",
+    "name": "Melanoma In Situ",
+    "level": 1,
+    "leaf": false
+  },
+  {
     "code": "C154473",
     "name": "Melanoma of Unknown Primary",
     "level": 2,
@@ -674,8 +782,8 @@
   {
     "code": "C182127",
     "name": "Metastatic Conjunctival Melanoma",
-    "level": 3,
-    "leaf": true
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C212038",
@@ -708,9 +816,21 @@
     "leaf": false
   },
   {
+    "code": "C215392",
+    "name": "Metastatic Melanoma in the Heart",
+    "level": 2,
+    "leaf": false
+  },
+  {
     "code": "C205131",
     "name": "Metastatic Melanoma in the Lymph Nodes",
     "level": 2,
+    "leaf": true
+  },
+  {
+    "code": "C215389",
+    "name": "Metastatic Melanoma in the Myocardium",
+    "level": 3,
     "leaf": true
   },
   {
@@ -758,7 +878,7 @@
   {
     "code": "C171295",
     "name": "Metastatic Ocular Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": false
   },
   {
@@ -786,36 +906,6 @@
     "leaf": true
   },
   {
-    "code": "C7091",
-    "name": "Mucosal Melanoma of the Digestive System",
-    "level": 3,
-    "leaf": false
-  },
-  {
-    "code": "C178437",
-    "name": "Mucosal Melanoma of the Female Genital Tract",
-    "level": 4,
-    "leaf": false
-  },
-  {
-    "code": "C178443",
-    "name": "Mucosal Melanoma of the Genitourinary System",
-    "level": 3,
-    "leaf": false
-  },
-  {
-    "code": "C133186",
-    "name": "Mucosal Melanoma of the Head and Neck by AJCC v7 Stage",
-    "level": 4,
-    "leaf": false
-  },
-  {
-    "code": "C178453",
-    "name": "Mucosal Melanoma of the Urinary System",
-    "level": 4,
-    "leaf": false
-  },
-  {
     "code": "C114828",
     "name": "Mucosal Melanoma",
     "level": 2,
@@ -824,7 +914,7 @@
   {
     "code": "C166405",
     "name": "Mucosal Nodular Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": true
   },
   {
@@ -866,13 +956,13 @@
   {
     "code": "C7913",
     "name": "Ocular Melanoma with Extraocular Extension",
-    "level": 2,
+    "level": 3,
     "leaf": true
   },
   {
     "code": "C8562",
     "name": "Ocular Melanoma",
-    "level": 1,
+    "level": 2,
     "leaf": false
   },
   {
@@ -1010,7 +1100,7 @@
   {
     "code": "C178517",
     "name": "Penile Mucosal Melanoma",
-    "level": 2,
+    "level": 4,
     "leaf": true
   },
   {
@@ -1028,18 +1118,30 @@
   {
     "code": "C188079",
     "name": "Rectal Epithelioid Cell Melanoma",
-    "level": 2,
+    "level": 6,
     "leaf": true
   },
   {
     "code": "C4640",
     "name": "Rectal Melanoma",
-    "level": 4,
+    "level": 5,
     "leaf": false
   },
   {
     "code": "C175435",
     "name": "Recurrent Acral Lentiginous Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
+    "code": "C214951",
+    "name": "Recurrent Acral Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
+    "code": "C214944",
+    "name": "Recurrent Conjunctival Melanoma",
     "level": 4,
     "leaf": true
   },
@@ -1088,7 +1190,7 @@
   {
     "code": "C171294",
     "name": "Recurrent Ocular Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": false
   },
   {
@@ -1130,7 +1232,7 @@
   {
     "code": "C173329",
     "name": "Refractory Ocular Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": false
   },
   {
@@ -1158,6 +1260,12 @@
     "leaf": true
   },
   {
+    "code": "C215228",
+    "name": "Resectable Anorectal Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
     "code": "C190240",
     "name": "Resectable Cutaneous Melanoma",
     "level": 2,
@@ -1170,9 +1278,15 @@
     "leaf": false
   },
   {
+    "code": "C215234",
+    "name": "Resectable Sinonasal Mucosal Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
     "code": "C8601",
     "name": "Retinal Melanoma",
-    "level": 2,
+    "level": 3,
     "leaf": true
   },
   {
@@ -1191,7 +1305,7 @@
     "code": "C166399",
     "name": "Sinonasal Mucosal Melanoma",
     "level": 4,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C9089",
@@ -1226,7 +1340,7 @@
   {
     "code": "C8781",
     "name": "Stage I Acral Lentiginous Melanoma AJCC v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1250,7 +1364,7 @@
   {
     "code": "C8786",
     "name": "Stage I Lentigo Maligna Melanoma AJCC v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1280,7 +1394,7 @@
   {
     "code": "C8782",
     "name": "Stage II Acral Lentiginous Melanoma AJCC v6 and v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1298,7 +1412,7 @@
   {
     "code": "C8787",
     "name": "Stage II Lentigo Maligna Melanoma AJCC v6 and v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1358,7 +1472,7 @@
   {
     "code": "C8783",
     "name": "Stage III Acral Lentiginous Melanoma AJCC v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1380,21 +1494,21 @@
     "leaf": false
   },
   {
+    "code": "C87532",
+    "name": "Stage III Head and Neck Mucosal Melanoma AJCC v7",
+    "level": 5,
+    "leaf": true
+  },
+  {
     "code": "C8788",
     "name": "Stage III Lentigo Maligna Melanoma AJCC v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
     "code": "C8792",
     "name": "Stage III Low-CSD Melanoma AJCC v7",
     "level": 4,
-    "leaf": true
-  },
-  {
-    "code": "C87532",
-    "name": "Stage III Mucosal Melanoma of the Head and Neck AJCC v7",
-    "level": 5,
     "leaf": true
   },
   {
@@ -1460,7 +1574,7 @@
   {
     "code": "C8784",
     "name": "Stage IV Acral Lentiginous Melanoma AJCC v6 and v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1478,7 +1592,7 @@
   {
     "code": "C8789",
     "name": "Stage IV Lentigo Maligna Melanoma AJCC v6 and v7",
-    "level": 4,
+    "level": 5,
     "leaf": true
   },
   {
@@ -1495,19 +1609,19 @@
   },
   {
     "code": "C87533",
-    "name": "Stage IVA Mucosal Melanoma of the Head and Neck AJCC v7",
+    "name": "Stage IVA Head and Neck Mucosal Melanoma AJCC v7",
     "level": 5,
     "leaf": true
   },
   {
     "code": "C87534",
-    "name": "Stage IVB Mucosal Melanoma of the Head and Neck AJCC v7",
+    "name": "Stage IVB Head and Neck Mucosal Melanoma AJCC v7",
     "level": 5,
     "leaf": true
   },
   {
     "code": "C87535",
-    "name": "Stage IVC Mucosal Melanoma of the Head and Neck AJCC v7",
+    "name": "Stage IVC Head and Neck Mucosal Melanoma AJCC v7",
     "level": 5,
     "leaf": true
   },
@@ -1548,6 +1662,18 @@
     "leaf": false
   },
   {
+    "code": "C215227",
+    "name": "Unresectable Anorectal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C214942",
+    "name": "Unresectable Conjunctival Melanoma",
+    "level": 4,
+    "leaf": false
+  },
+  {
     "code": "C148245",
     "name": "Unresectable Cutaneous Melanoma",
     "level": 2,
@@ -1562,13 +1688,31 @@
   {
     "code": "C165536",
     "name": "Unresectable Mucosal Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C214948",
+    "name": "Unresectable Non-Cutaneous Melanoma",
     "level": 2,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C213775",
     "name": "Unresectable Non-Sun Exposed Skin Melanoma",
     "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C214947",
+    "name": "Unresectable Ocular Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C215231",
+    "name": "Unresectable Sinonasal Mucosal Melanoma",
+    "level": 5,
     "leaf": true
   },
   {
@@ -1582,6 +1726,12 @@
     "name": "Urethral Melanoma",
     "level": 5,
     "leaf": true
+  },
+  {
+    "code": "C178453",
+    "name": "Urinary System Mucosal Melanoma",
+    "level": 4,
+    "leaf": false
   },
   {
     "code": "C111020",

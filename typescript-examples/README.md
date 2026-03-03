@@ -71,6 +71,7 @@ All commands to run these tests should be run from that directory.
 * [Get concept descendants](#get-concept-descendants)
 * [Get all properties](#get-all-properties)
 * [Get property by code (or label)](#get-property-by-code-or-label)
+* [Get property values by code (or label)](#get-property-values-by-code-or-label)
 * [Get all qualifiers](#get-all-qualifiers)
 * [Get qualifier by code (or label)](#get-qualifier-by-code-or-label)
 * [Get qualifier values by code (or label)](#get-qualifier-values-by-code-or-label)
@@ -220,6 +221,16 @@ Return property for the specified code or label.
 `jest apis/MetadataEndpointsApiTest.test.ts -t test_get_property`
 
 [See output here](outputs/test_get_property.txt)
+
+[Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
+
+### Get property values by code (or label)
+
+Return distinct value set for the property with the specified code or label.
+
+`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_property_values`
+
+[See output here](outputs/test_get_property_values.txt)
 
 [Back to Top](#evsrestapi-client-sdk-typescript-tutorial)
 

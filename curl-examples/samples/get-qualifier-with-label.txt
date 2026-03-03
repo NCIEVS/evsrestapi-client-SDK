@@ -2,7 +2,7 @@
   "code": "P387",
   "name": "go-id",
   "terminology": "ncit",
-  "version": "25.02d",
+  "version": "25.07d",
   "synonyms": [
     {
       "name": "go-id",

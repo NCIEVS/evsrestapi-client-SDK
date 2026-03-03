@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 103 STANDARD_ERROR
-    Mar 24, 2025 4:39:10 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 20 tests were Method or class mismatch
-
 MetadataEndpointsApiTest > getSynonymTypeByCodeTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get synonym for code/name - P90
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonym = class Concept {
@@ -20,7 +16,7 @@ MetadataEndpointsApiTest > getSynonymTypeByCodeTest() STANDARD_ERROR
         code: P90
         name: FULL_SYN
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
         highlight: null
         subsetLink: null
@@ -47,11 +43,13 @@ MetadataEndpointsApiTest > getSynonymTypeByCodeTest() STANDARD_ERROR
 
 MetadataEndpointsApiTest > getSynonymTypeByCodeTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

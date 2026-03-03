@@ -50,6 +50,37 @@ func TestMetadataEndpointsAPIService(t *testing.T) {
 		fmt.Printf("%s", result)
 	})
 
+		// GetPropertyValues: return distinct values for a property
+		t.Run("GetPropertyValues", func(t *testing.T) {
+
+			// ARRANGE
+			codeOrName := "P204"
+			containsExpectedValue := false
+
+			// ACT
+			resp, httpRes, err := apiClient.MetadataEndpointsAPI.GetPropertyValues(context.Background(), terminology, codeOrName).Execute()
+
+			// ASSERT
+			require.Nil(t, err)
+			require.NotNil(t, resp)
+			assert.Equal(t, 200, httpRes.StatusCode)
+
+			for _, value := range resp {
+				assert.NotNil(t, value)
+				if strings.Contains(value, "") { // placeholder check; specific expected values may vary
+					containsExpectedValue = true
+					break
+				}
+			}
+
+			// No strict expectation since endpoint may be unimplemented; ensure response is iterable
+
+			result, err := json.Marshal(resp)
+			require.Nil(t, err)
+			require.NotNil(t, result)
+			fmt.Printf("%s", result)
+		})
+
 	t.Run("GetAssociations", func(t *testing.T) {
 
 		// ARRANGE

@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "9117dbcf-5825-4093-94fe-4496b330507f",
+		"_postman_id": "747adee5-918d-442c-80b5-b9d41e36f455",
 		"name": "EVSRESTAPI FHIR R4",
 		"description": "EVSRESTAPI FHIR Terminology Services API, [https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/](https://api-evsrest.nci.nih.gov/fhir/r4/swagger-ui/).",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "7218027"
+		"_exporter_id": "11076096"
 	},
 	"item": [
 		{
@@ -142,6 +142,11 @@
 								{
 									"key": "_offset",
 									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "name",
 									"disabled": true
 								}
 							]
@@ -457,6 +462,11 @@
 									"key": "_offset",
 									"value": "0",
 									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "name",
+									"disabled": true
 								}
 							]
 						},
@@ -728,6 +738,11 @@
 								{
 									"key": "_offset",
 									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "_sort",
+									"value": "name",
 									"disabled": true
 								}
 							]

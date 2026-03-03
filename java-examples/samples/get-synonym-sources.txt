@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 99 STANDARD_ERROR
-    Mar 24, 2025 4:38:57 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 20 tests were Method or class mismatch
-
 MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all synonyms for ncit
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    synonyms = [class ConceptMinimal {
@@ -20,7 +16,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ACC/AHA
         name: American College of Cardiology / American Heart Association
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -28,7 +24,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: BIOCARTA
         name: BioCarta online maps of molecular pathways, adapted for NCI use
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -36,7 +32,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: BRIDG
         name: Biomedical Research Integrated Domain Model Group
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -44,7 +40,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: BRIDG 3.0.3
         name: Biomedical Research Integrated Domain Model Group, version 3.0.3
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -52,7 +48,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: BRIDG 5.3
         name: Biomedical Research Integrated Domain Model Group, version 5.3
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -60,7 +56,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CBDD
         name: Chemical Biology and Drug Development
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -68,7 +64,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CCPS
         name: Childhood Cancer Predisposition Study
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -76,7 +72,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CDC
         name: U.S. Centers for Disease Control and Prevention
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -84,7 +80,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CDISC
         name: Clinical Data Interchange Standards Consortium
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -92,7 +88,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CDISC-GLOSS
         name: CDISC Glossary Terminology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -100,7 +96,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CPTAC
         name: Clinical Proteomic Tumor Analysis Consortium
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -108,7 +104,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CRCH
         name: Cancer Research Center of Hawaii Nutrition Terminology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -116,7 +112,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTCAE
         name: Common Terminology Criteria for Adverse Events
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -124,7 +120,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTCAE 3.0
         name: Common Terminology Criteria for Adverse Events, version 3.0
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -132,7 +128,15 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTCAE 5.0
         name: Common Terminology Criteria for Adverse Events, version 5.0
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: CTCAE 6.0
+        name: Common Terminology Criteria for Adverse Events, version 6.0
+        terminology: ncit
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -140,7 +144,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTDC
         name: Clinical Trials Data Commons
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -148,7 +152,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTEP
         name: Cancer Therapy Evaluation Program
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -156,7 +160,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CTRP
         name: Clinical Trials Reporting Program
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -164,7 +168,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: CareLex
         name: CareLex electronic Trial Master File Terminology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -172,7 +176,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: Cellosaurus
         name: Cellosaurus - a knowledge resource on cell lines
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -180,7 +184,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: DCP
         name: NCI Division of Cancer Prevention Program
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -188,7 +192,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: DICOM
         name: Digital Imaging Communications in Medicine
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -196,7 +200,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: DIPG/DMG
         name: Diffuse Intrinsic Pontine Glioma/Diffuse Midline Glioma
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -204,7 +208,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: DTP
         name: NCI Developmental Therapeutics Program
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -212,7 +216,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: EDQM-HC
         name: European Directorate for the Quality of Medicines & Healthcare
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -220,7 +224,15 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: FDA
         name: U.S. Food and Drug Administration
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
+        level: null
+    }, class ConceptMinimal {
+        uri: null
+        ct: null
+        code: FDA-NIH-MoRE
+        name: FDA-NIH-Modernizing Research and Evidence
+        terminology: ncit
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -228,7 +240,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: GAIA
         name: Global Alignment of Immunization safety Assessment in pregnancy Terminology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -236,7 +248,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: GDC
         name: Genomic Data Commons
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -244,7 +256,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: GENC
         name: Geopolitical Entities, Names, and Codes Terminology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -252,7 +264,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: HGNC
         name: HUGO Gene Nomenclature Committee
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -260,7 +272,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: HL7
         name: Health Level Seven International
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -268,7 +280,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: HemOnc
         name: HemOnc.org (A Free Hematology/Oncology Reference)
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -276,7 +288,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ICD-10
         name: International Classification of Diseases, Tenth Revision
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -284,7 +296,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ICDC
         name: International Cancer Genome Consortium
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -292,7 +304,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ICH
         name: International Conference on Harmonization
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -300,7 +312,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: INC
         name: International Neonatal Consortium
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -308,7 +320,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: JAX
         name: Jackson Laboratories Mouse Terminology, adapted for NCI use
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -316,15 +328,15 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: KEGG
         name: KEGG Pathway Database
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
         ct: null
         code: MRCT-Ctr
-        name: null
+        name: MRCT Center Clinical Research Plain Language Glossary at Harvard and Brigham and Women's Hospital
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -332,7 +344,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: NCI
         name: National Cancer Institute Thesaurus
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -340,7 +352,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: NCI-GLOSS
         name: NCI Dictionary of Cancer Terms
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -348,7 +360,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: NCPDP
         name: National Council for Prescription Drug Programs
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -356,7 +368,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: NDC
         name: National Drug Code
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -364,7 +376,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: NICHD
         name: National Institute of Child Health and Human Development
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -372,7 +384,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: OORO
         name: Operational Ontology for Radiation Oncology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -380,7 +392,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ORCHESTRA
         name: Multinational project funded by the European Commission to advance the knowledge of the SARS-CoV-2 infection and its long-term effects
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -388,7 +400,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: PCDC
         name: Pediatric Cancer Data Commons
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -396,7 +408,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: PI-RADS
         name: Prostate Imaging-Reporting and Data System
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -404,7 +416,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: PID
         name: NCI Nature Pathway Interaction Database
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -412,7 +424,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: PRO-CTCAE
         name: PRO-CTCAE (Patient Reported Outcomes version of Common Terminology Criteria for Adverse Events)
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -420,7 +432,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: RENI
         name: Registry Nomenclature Information System
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -428,7 +440,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: SEER
         name: Surveillance, Epidemiology, and End Results Program
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -436,7 +448,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: SeroNet
         name: NCI Serological Sciences Network for COVID-19
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -444,7 +456,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: UBERON
         name: Uber-anatomy Ontology
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -452,7 +464,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: UCUM
         name: Unified Code for Units of Measure
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -460,7 +472,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: WHO
         name: World Health Organization
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -468,7 +480,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: ZFin
         name: Zebrafish Information Network
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -476,7 +488,7 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: caDSR
         name: Cancer Data Standards Registry and Repository
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }, class ConceptMinimal {
         uri: null
@@ -484,17 +496,19 @@ MetadataEndpointsApiTest > getSynonymSourcesTest() STANDARD_ERROR
         code: mCode
         name: Minimal Common Oncology Data Elements
         terminology: ncit
-        version: 25.02d
+        version: 25.10d
         level: null
     }]
 
 MetadataEndpointsApiTest > getSynonymSourcesTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

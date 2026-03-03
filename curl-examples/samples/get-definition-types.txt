@@ -3,7 +3,7 @@
     "code": "P325",
     "name": "ALT_DEFINITION",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "[source] Definition",
@@ -35,7 +35,7 @@
     "code": "P97",
     "name": "DEFINITION",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Definition",

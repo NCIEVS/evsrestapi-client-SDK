@@ -3,7 +3,7 @@
     "code": "oboInOwl:hasDbXref",
     "name": "xRef",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "xRef",
@@ -27,7 +27,7 @@
     "code": "NHC0",
     "name": "code",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "code",
@@ -67,7 +67,7 @@
     "code": "P100",
     "name": "OMIM_Number",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OMIM Number",
@@ -99,7 +99,7 @@
     "code": "P101",
     "name": "Homologous_Gene",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Homologous Gene",
@@ -131,7 +131,7 @@
     "code": "P102",
     "name": "GenBank_Accession_Number",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "GenBank Accession Number",
@@ -163,7 +163,7 @@
     "code": "P106",
     "name": "Semantic_Type",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Semantic Type",
@@ -199,7 +199,7 @@
     "code": "P107",
     "name": "Display_Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Display Name",
@@ -243,7 +243,7 @@
     "code": "P108",
     "name": "Preferred_Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Preferred Name",
@@ -291,7 +291,7 @@
     "code": "P167",
     "name": "Image_Link",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Image Link",
@@ -323,7 +323,7 @@
     "code": "P171",
     "name": "PubMedID_Primary_Reference",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "PubMedID Primary Reference",
@@ -355,7 +355,7 @@
     "code": "P175",
     "name": "NSC Number",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "NSC Number",
@@ -399,7 +399,7 @@
     "code": "P200",
     "name": "OLD_PARENT",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OLD PARENT",
@@ -431,7 +431,7 @@
     "code": "P201",
     "name": "OLD_CHILD",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OLD CHILD",
@@ -463,7 +463,7 @@
     "code": "P203",
     "name": "OLD_KIND",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OLD KIND",
@@ -495,7 +495,7 @@
     "code": "P204",
     "name": "OLD_ROLE",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OLD ROLE",
@@ -527,7 +527,7 @@
     "code": "P207",
     "name": "UMLS_CUI",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "UMLS CUI",
@@ -559,7 +559,7 @@
     "code": "P208",
     "name": "NCI_META_CUI",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "NCI Metathesaurus CUI",
@@ -591,7 +591,7 @@
     "code": "P210",
     "name": "CAS_Registry",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "CAS Registry Number",
@@ -623,7 +623,7 @@
     "code": "P211",
     "name": "GO_Annotation",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "GO Annotation",
@@ -655,7 +655,7 @@
     "code": "P215",
     "name": "KEGG_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "KEGG ID",
@@ -687,7 +687,7 @@
     "code": "P216",
     "name": "BioCarta_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "BioCarta ID",
@@ -719,7 +719,7 @@
     "code": "P302",
     "name": "Accepted_Therapeutic_Use_For",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Accepted Therapeutic Use For",
@@ -751,7 +751,7 @@
     "code": "P310",
     "name": "Concept_Status",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Concept Status",
@@ -783,7 +783,7 @@
     "code": "P315",
     "name": "SNP_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "SNP ID",
@@ -815,7 +815,7 @@
     "code": "P316",
     "name": "Relative_Enzyme_Activity",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Relative Enzyme Activity",
@@ -847,7 +847,7 @@
     "code": "P317",
     "name": "FDA_Table",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "FDA Table",
@@ -879,7 +879,7 @@
     "code": "P319",
     "name": "FDA_UNII_Code",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "FDA UNII Code",
@@ -911,7 +911,7 @@
     "code": "P320",
     "name": "OID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OID",
@@ -943,7 +943,7 @@
     "code": "P321",
     "name": "EntrezGene_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "EntrezGene ID",
@@ -987,7 +987,7 @@
     "code": "P322",
     "name": "Contributing_Source",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Contributing Source",
@@ -1019,7 +1019,7 @@
     "code": "P325",
     "name": "ALT_DEFINITION",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "[source] Definition",
@@ -1059,7 +1059,7 @@
     "code": "P329",
     "name": "PDQ_Open_Trial_Search_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "PDQ Open Trial Search ID",
@@ -1091,7 +1091,7 @@
     "code": "P330",
     "name": "PDQ_Closed_Trial_Search_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "PDQ Closed Trial Search ID",
@@ -1123,7 +1123,7 @@
     "code": "P331",
     "name": "NCBI_Taxon_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "NCBI Taxon ID",
@@ -1155,7 +1155,7 @@
     "code": "P332",
     "name": "MGI_Accession_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "MGI Accession ID",
@@ -1187,7 +1187,7 @@
     "code": "P333",
     "name": "Use_For",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Use For",
@@ -1219,7 +1219,7 @@
     "code": "P334",
     "name": "ICD-O-3_Code",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "ICD-O-3 Code",
@@ -1251,7 +1251,7 @@
     "code": "P350",
     "name": "Chemical_Formula",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Chemical Formula",
@@ -1291,7 +1291,7 @@
     "code": "P351",
     "name": "US_Recommended_Intake",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "US FNB Recommends Intake",
@@ -1335,7 +1335,7 @@
     "code": "P352",
     "name": "Tolerable_Level",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Tolerable Level",
@@ -1375,7 +1375,7 @@
     "code": "P353",
     "name": "INFOODS",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "INFOODS Tag Name",
@@ -1411,7 +1411,7 @@
     "code": "P354",
     "name": "USDA_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "USDA ID",
@@ -1451,7 +1451,7 @@
     "code": "P355",
     "name": "Unit",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Unit Used",
@@ -1487,7 +1487,7 @@
     "code": "P356",
     "name": "Essential_Amino_Acid",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Is An Essential Amino Acid",
@@ -1519,7 +1519,7 @@
     "code": "P357",
     "name": "Essential_Fatty_Acid",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Is An Essential Fatty Acid",
@@ -1559,7 +1559,7 @@
     "code": "P358",
     "name": "Nutrient",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Is A Nutrient",
@@ -1595,7 +1595,7 @@
     "code": "P359",
     "name": "Micronutrient",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Is A Micronutrient",
@@ -1635,7 +1635,7 @@
     "code": "P360",
     "name": "Macronutrient",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Macronutrient",
@@ -1675,7 +1675,7 @@
     "code": "P361",
     "name": "Extensible_List",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Extensible_List",
@@ -1707,7 +1707,7 @@
     "code": "P362",
     "name": "miRBase_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "miRBase_ID",
@@ -1735,7 +1735,7 @@
     "code": "P363",
     "name": "Neoplastic_Status",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Neoplastic Status",
@@ -1771,7 +1771,7 @@
     "code": "P364",
     "name": "OLD_ASSOCIATION",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "OLD_ASSOCIATION",
@@ -1799,7 +1799,7 @@
     "code": "P366",
     "name": "Legacy Concept Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Legacy Concept Name",
@@ -1835,7 +1835,7 @@
     "code": "P367",
     "name": "PID_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "PID_ID",
@@ -1863,7 +1863,7 @@
     "code": "P368",
     "name": "CHEBI_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "CHEBI_ID",
@@ -1891,7 +1891,7 @@
     "code": "P369",
     "name": "HGNC_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "HGNC_ID",
@@ -1923,7 +1923,7 @@
     "code": "P371",
     "name": "NICHD_Hierarchy_Term",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "NICHD_Hierarchy_Term",
@@ -1955,7 +1955,7 @@
     "code": "P372",
     "name": "Publish_Value_Set",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Publish_Value_Set",
@@ -1983,7 +1983,7 @@
     "code": "P374",
     "name": "Value_Set_Location",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Value_Set_Location",
@@ -2019,7 +2019,7 @@
     "code": "P375",
     "name": "Maps_To",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Maps_To",
@@ -2047,7 +2047,7 @@
     "code": "P376",
     "name": "Term_Browser_Value_Set_Description",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Term_Browser_Value_Set_Description",
@@ -2075,7 +2075,7 @@
     "code": "P398",
     "name": "Value_Set_Pair",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Value_Set_Pair",
@@ -2107,7 +2107,7 @@
     "code": "P399",
     "name": "NCI_Drug_Dictionary_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "NCI_Drug_Dictionary_ID",
@@ -2135,7 +2135,7 @@
     "code": "P400",
     "name": "ClinVar_Variation_ID",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "ClinVar_Variation_ID",
@@ -2163,7 +2163,7 @@
     "code": "P90",
     "name": "FULL_SYN",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Term & Source Data",
@@ -2207,7 +2207,7 @@
     "code": "P92",
     "name": "Subsource",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Subsource",
@@ -2239,7 +2239,7 @@
     "code": "P93",
     "name": "Swiss_Prot",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Swiss Prot",
@@ -2271,7 +2271,7 @@
     "code": "P96",
     "name": "Gene_Encodes_Product",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Gene Encodes Product",
@@ -2307,7 +2307,7 @@
     "code": "P97",
     "name": "DEFINITION",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Definition",
@@ -2347,7 +2347,7 @@
     "code": "P98",
     "name": "DesignNote",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "DesignNote",

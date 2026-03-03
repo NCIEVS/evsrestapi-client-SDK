@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:22 PM
+Starting ...Mon Aug 25 10:28:59 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -11,7 +11,7 @@ sparql = ../curl-examples/sparql-queries/code-query.txt
 
     {
       "total": 1,
-      "timeTaken": 31,
+      "timeTaken": 59,
       "parameters": {
         "term": "melanoma",
         "type": "contains",
@@ -31,7 +31,7 @@ sparql = ../curl-examples/sparql-queries/code-query.txt
           "code": "C3224",
           "name": "Melanoma",
           "terminology": "ncit",
-          "version": "25.02d",
+          "version": "25.07d",
           "conceptStatus": "DEFAULT",
           "leaf": false,
           "active": true
@@ -40,6 +40,6 @@ sparql = ../curl-examples/sparql-queries/code-query.txt
     }
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:23 PM
+Finished ...Mon Aug 25 10:29:00 PDT 2025
 -----------------------------------------------------
 

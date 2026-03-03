@@ -3,7 +3,7 @@
     "code": "P107",
     "name": "Display_Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Display Name",
@@ -39,7 +39,7 @@
     "code": "P108",
     "name": "Preferred_Name",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Preferred Name",
@@ -79,7 +79,7 @@
     "code": "P90",
     "name": "FULL_SYN",
     "terminology": "ncit",
-    "version": "25.02d",
+    "version": "25.07d",
     "synonyms": [
       {
         "name": "Term & Source Data",

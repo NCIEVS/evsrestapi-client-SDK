@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:19 PM
+Starting ...Mon Aug 25 10:28:56 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,13 +12,13 @@ include  = minimal
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
     }
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:20 PM
+Finished ...Mon Aug 25 10:28:57 PDT 2025
 -----------------------------------------------------
 

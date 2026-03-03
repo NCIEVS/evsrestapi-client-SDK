@@ -1,6 +1,6 @@
 {
-  "total": 1394,
-  "timeTaken": 44,
+  "total": 1482,
+  "timeTaken": 67,
   "parameters": {
     "term": "lentiginous melanoma",
     "type": "OR",
@@ -16,7 +16,7 @@
       "code": "C48622",
       "name": "Mucosal Lentiginous Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -25,7 +25,7 @@
       "code": "C165535",
       "name": "Unresectable Acral Lentiginous Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -34,7 +34,7 @@
       "code": "C4022",
       "name": "Acral Lentiginous Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -43,7 +43,7 @@
       "code": "C175435",
       "name": "Recurrent Acral Lentiginous Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -52,7 +52,7 @@
       "code": "C179427",
       "name": "Metastatic Acral Lentiginous Melanoma",
       "terminology": "ncit",
-      "version": "25.02d",
+      "version": "25.07d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true

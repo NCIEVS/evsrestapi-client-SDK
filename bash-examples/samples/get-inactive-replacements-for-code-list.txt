@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Wed, Mar 12, 2025  4:12:52 PM
+Starting ...Mon Aug 25 10:29:27 PDT 2025
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -10,22 +10,16 @@ list = C12658,C13320
       {
         "code": "C12658",
         "name": "Prokaryotic Cell",
-        "action": "retire",
-        "date": "2003-08-22",
-        "replacementCode": "C19157",
-        "replacementName": "Specimen"
+        "action": "active"
       },
       {
         "code": "C13320",
         "name": "Nose, Nasal Passages",
-        "action": "merge",
-        "date": "2003-08-22",
-        "replacementCode": "C12756",
-        "replacementName": "Nose"
+        "action": "active"
       }
     ]
 
 -----------------------------------------------------
-Finished ...Wed, Mar 12, 2025  4:12:53 PM
+Finished ...Mon Aug 25 10:29:28 PDT 2025
 -----------------------------------------------------
 

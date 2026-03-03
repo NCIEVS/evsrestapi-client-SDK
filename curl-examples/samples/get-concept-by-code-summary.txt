@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "25.02d",
+  "version": "25.07d",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true,
@@ -47,13 +47,13 @@
     },
     {
       "name": "Melanoma",
-      "termType": "DN",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
-      "termType": "PT",
+      "termType": "DN",
       "type": "FULL_SYN",
       "source": "CTRP"
     },
@@ -127,70 +127,87 @@
   ],
   "properties": [
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "CDISC"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "Cellosaurus"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "CPTAC"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "CTEP"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "CTRP"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "GDC"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "MedDRA"
     },
     {
+      "code": "P322",
       "type": "Contributing_Source",
       "value": "NICHD"
     },
     {
+      "code": "P334",
       "type": "ICD-O-3_Code",
       "value": "8720/3"
     },
     {
+      "code": "P366",
       "type": "Legacy Concept Name",
       "value": "Melanoma"
     },
     {
+      "code": "P375",
       "type": "Maps_To",
       "value": "8720/3"
     },
     {
+      "code": "P375",
       "type": "Maps_To",
       "value": "Malignant melanoma, NOS"
     },
     {
+      "code": "P375",
       "type": "Maps_To",
       "value": "Melanoma"
     },
     {
+      "code": "P375",
       "type": "Maps_To",
       "value": "Melanoma, NOS"
     },
     {
+      "code": "P363",
       "type": "Neoplastic_Status",
       "value": "Malignant"
     },
     {
+      "code": "P106",
       "type": "Semantic_Type",
       "value": "Neoplastic Process"
     },
     {
+      "code": "P207",
       "type": "UMLS_CUI",
       "value": "C0025202"
     }

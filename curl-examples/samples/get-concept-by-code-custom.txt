@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "25.02d",
+  "version": "25.07d",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true,
@@ -47,13 +47,13 @@
     },
     {
       "name": "Melanoma",
-      "termType": "DN",
+      "termType": "PT",
       "type": "FULL_SYN",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
-      "termType": "PT",
+      "termType": "DN",
       "type": "FULL_SYN",
       "source": "CTRP"
     },
@@ -130,6 +130,16 @@
       "leaf": false
     },
     {
+      "code": "C217198",
+      "name": "Localized Melanoma",
+      "leaf": false
+    },
+    {
+      "code": "C215044",
+      "name": "Melanoma In Situ",
+      "leaf": false
+    },
+    {
       "code": "C8925",
       "name": "Metastatic Melanoma",
       "leaf": false
@@ -147,11 +157,6 @@
     {
       "code": "C8711",
       "name": "Non-Cutaneous Melanoma",
-      "leaf": false
-    },
-    {
-      "code": "C8562",
-      "name": "Ocular Melanoma",
       "leaf": false
     },
     {

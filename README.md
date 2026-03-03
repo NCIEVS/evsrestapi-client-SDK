@@ -21,6 +21,34 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 - [Click for Python examples.](../master/python-examples/ "Python Examples")
 - [Click for Swagger API documentation](https://api-evsrest.nci.nih.gov/swagger-ui/index.html)
 
+## Automation scripts for examples
+
+A set of convenience scripts is provided in some of the example directories to help you run the example collections/tests and capture outputs quickly. These scripts are optional helpers and use the examples' local files and tooling.
+
+- `postman-examples/postman.sh` — Runs the Postman collection via Newman. Example:
+	```bash
+	cd postman-examples
+	./postman.sh
+	```
+- `fhir-examples/postman_fhir.sh` — Runs the FHIR collections (R4 or R5) via Newman. Example:
+	```bash
+	cd fhir-examples
+	./postman_fhir.sh R4
+	```
+	You can override the API URL used by these Postman scripts by setting the `API_URL` environment variable before running them.
+- `python-examples/python_check.py` — Scans `python-examples/README.md` for backticked pytest commands and runs them using your Python environment. Example:
+	```bash
+	cd python-examples
+	python python_check.py
+	```
+- `java-examples/java_check.py` — Scans `java-examples/README.md` for `./gradlew` commands, executes them, and writes captured outputs to the `samples/` folder. Example:
+	```bash
+	cd java-examples
+	python java_check.py
+	```
+
+Requirements: `newman` (npm) for Postman scripts; `pytest` (pip) for the Python helper; Java (JDK) and a working `./gradlew` (Gradle wrapper) for the Java helper.
+
 **[Back to top](#table-of-contents)**
 
 ## Use Cases
