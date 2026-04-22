@@ -3,14 +3,10 @@ BUILD_DIR=./build
 
 resample:
 	@echo "Remake samples"
-	 cd postman-examples
-	./postman.sh
-	cd ../fhir-examples
-	./postman_fhir.sh R4
-	cd ../python-examples
-	python python_check.py
-	cd ../java-examples
-	python java_check.py
+	cd postman-examples && sh postman.sh
+	cd fhir-examples && sh postman_fhir.sh R4
+	cd python-examples && python python_check.py
+	cd java-examples && python java_check.py
 
 clean:
 	@echo "Cleaning ${BUILD_DIR} directory if it exists"
