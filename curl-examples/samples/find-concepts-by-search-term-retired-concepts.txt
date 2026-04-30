@@ -1,6 +1,6 @@
 {
-  "total": 17,
-  "timeTaken": 52,
+  "total": 18,
+  "timeTaken": 60,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -19,7 +19,7 @@
       "code": "C4224",
       "name": "Melanoma In Situ",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "Retired_Concept",
       "leaf": true,
       "active": false
@@ -28,7 +28,7 @@
       "code": "C5505",
       "name": "Central Nervous System Melanoma",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "Retired_Concept",
       "leaf": true,
       "active": false
@@ -37,7 +37,7 @@
       "code": "C60471",
       "name": "Rat Malignant Uveal Melanoma",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "Retired_Concept",
       "leaf": true,
       "active": false
@@ -46,7 +46,7 @@
       "code": "C9342",
       "name": "Spindle Cell Intraocular Melanoma",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "Retired_Concept",
       "leaf": true,
       "active": false
@@ -55,7 +55,7 @@
       "code": "C37815",
       "name": "Incomplete Freund's Adjuvant/Peptide 946 Melanoma Vaccine/Tetanus Peptide Melanoma Vaccine",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "Retired_Concept",
       "leaf": true,
       "active": false

@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon Aug 25 10:29:18 PDT 2025
+Starting ...Thu Apr 30 11:15:11 PDT 2026
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,29 +12,34 @@ include = summary
       "code": "P325",
       "name": "ALT_DEFINITION",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "synonyms": [
         {
           "name": "[source] Definition",
-          "type": "Display_Name"
+          "type": "Display_Name",
+          "typeCode": "P107"
         },
         {
           "name": "ALT_DEFINITION",
-          "type": "FULL_SYN"
+          "type": "FULL_SYN",
+          "typeCode": "P90"
         },
         {
           "name": "ALT_DEFINITION",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ],
       "definitions": [
         {
           "definition": "A property representing the English language definition of a concept from a source other than NCI.",
+          "code": "P97",
           "type": "DEFINITION"
         }
       ],
       "properties": [
         {
+          "code": "P106",
           "type": "Semantic_Type",
           "value": "Conceptual Entity"
         }
@@ -42,6 +47,6 @@ include = summary
     }
 
 -----------------------------------------------------
-Finished ...Mon Aug 25 10:29:19 PDT 2025
+Finished ...Thu Apr 30 11:15:11 PDT 2026
 -----------------------------------------------------
 

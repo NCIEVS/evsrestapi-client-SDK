@@ -1,12 +1,18 @@
 VERSION=2.4.0
 BUILD_DIR=./build
 
+# Generate updated samples
 resample:
 	@echo "Remake samples"
+	cd curl-examples && python3 curl_check.py
+	cd bash-examples && python3 bash_check.py
+
+# Re-run tests across other cases
+test:
 	cd postman-examples && sh postman.sh
 	cd fhir-examples && sh postman_fhir.sh R4
-	cd python-examples && python python_check.py
-	cd java-examples && python java_check.py
+	cd python-examples && python3 python_check.py
+	cd java-examples && python3 java_check.py
 
 clean:
 	@echo "Cleaning ${BUILD_DIR} directory if it exists"

@@ -2,25 +2,29 @@
   "code": "A16",
   "name": "Has_INC_Parent",
   "terminology": "ncit",
-  "version": "25.07d",
+  "version": "26.03e",
   "synonyms": [
     {
       "name": "Has_INC_Parent",
-      "type": "FULL_SYN"
+      "type": "FULL_SYN",
+      "typeCode": "P90"
     },
     {
       "name": "Has_INC_Parent",
-      "type": "Preferred_Name"
+      "type": "Preferred_Name",
+      "typeCode": "P108"
     }
   ],
   "definitions": [
     {
       "definition": "An association created to allow the source INC to assign a parent to each concept with the intent of creating a hierarchy that includes only terms in which they are the contributing source.",
+      "code": "P97",
       "type": "DEFINITION"
     }
   ],
   "properties": [
     {
+      "code": "P106",
       "type": "Semantic_Type",
       "value": "Conceptual Entity"
     }

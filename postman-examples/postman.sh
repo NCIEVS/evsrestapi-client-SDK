@@ -5,9 +5,9 @@
 # TODO: Calculate or fetch the API_URL
 # Replace this local URL with the actual method to determine API_URL.
 # API_URL="http://localhost:8082/api/v1"  # local URL; update as needed.
-API_URL="https://api-evsrest.nci.nih.gov" # Prod API_URL
-# API_URL="https://api-test-evsrest.nci.nih.gov" # Test API_URL
-# API_URL="https://api-qa-evsrest.nci.nih.gov" # QA API_URL
+API_URL="https://api-evsrest.nci.nih.gov/api/v1" # Prod API_URL
+# API_URL="https://api-test-evsrest.nci.nih.gov/api/v1" # Test API_URL
+# API_URL="https://api-qa-evsrest.nci.nih.gov/api/v1" # QA API_URL
 
 # Ensure API_URL is set in the environment
 if [ -z "$API_URL" ]; then
@@ -47,7 +47,9 @@ fi
 # Run the Postman collection using newman and track the exit status
 echo "Running the Postman collection with API_URL=$API_URL..."
 
-newman run "$COLLECTION_FILE" --global-var "API_URL=$API_URL"
+# add --verbose for more info
+# NODE_OPTIONS require using ipv4 instead of ipv6 (default on mac)
+NODE_OPTIONS="--dns-result-order=ipv4first" newman run "$COLLECTION_FILE" --env-var "API_URL=$API_URL"
 newman_status=$?
 
 # Check if newman run succeeded
