@@ -177,6 +177,11 @@ class Configuration:
         """Options to pass down to the underlying urllib3 socket
         """
 
+        self.request_timeout = (3.05, 30.0)
+        """Default request timeout used when a call does not pass
+           `_request_timeout`. Tuple is `(connect_timeout, read_timeout)`.
+        """
+
         self.datetime_format = "%Y-%m-%dT%H:%M:%S.%f%z"
         """datetime format
         """

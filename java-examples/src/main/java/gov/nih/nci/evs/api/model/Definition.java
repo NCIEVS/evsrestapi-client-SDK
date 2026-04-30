@@ -70,6 +70,10 @@ public class Definition {
   @SerializedName(SERIALIZED_NAME_HIGHLIGHT)
   private String highlight;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -161,6 +165,25 @@ public class Definition {
   }
 
 
+  public Definition code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Definition type code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
+  }
+
+
   public Definition type(String type) {
     this.type = type;
     return this;
@@ -240,6 +263,7 @@ public class Definition {
         Objects.equals(this.ct, definition.ct) &&
         Objects.equals(this.definition, definition.definition) &&
         Objects.equals(this.highlight, definition.highlight) &&
+        Objects.equals(this.code, definition.code) &&
         Objects.equals(this.type, definition.type) &&
         Objects.equals(this.source, definition.source) &&
         Objects.equals(this.qualifiers, definition.qualifiers);
@@ -247,7 +271,7 @@ public class Definition {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, definition, highlight, type, source, qualifiers);
+    return Objects.hash(uri, ct, definition, highlight, code, type, source, qualifiers);
   }
 
   @Override
@@ -258,6 +282,7 @@ public class Definition {
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
     sb.append("    definition: ").append(toIndentedString(definition)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    qualifiers: ").append(toIndentedString(qualifiers)).append("\n");
@@ -287,6 +312,7 @@ public class Definition {
     openapiFields.add("ct");
     openapiFields.add("definition");
     openapiFields.add("highlight");
+    openapiFields.add("code");
     openapiFields.add("type");
     openapiFields.add("source");
     openapiFields.add("qualifiers");
@@ -324,6 +350,9 @@ public class Definition {
       }
       if ((jsonObj.get("highlight") != null && !jsonObj.get("highlight").isJsonNull()) && !jsonObj.get("highlight").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `highlight` to be a primitive type in the JSON string but got `%s`", jsonObj.get("highlight").toString()));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -396,4 +425,3 @@ public class Definition {
     return JSON.getGson().toJson(this);
   }
 }
-

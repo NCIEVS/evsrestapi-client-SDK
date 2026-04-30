@@ -2,33 +2,39 @@
   "code": "P90",
   "name": "FULL_SYN",
   "terminology": "ncit",
-  "version": "25.07d",
+  "version": "26.03e",
   "synonyms": [
     {
       "name": "Term & Source Data",
-      "type": "Display_Name"
+      "type": "Display_Name",
+      "typeCode": "P107"
     },
     {
       "name": "FULL_SYN",
-      "type": "FULL_SYN"
+      "type": "FULL_SYN",
+      "typeCode": "P90"
     },
     {
       "name": "Synonym with Source Data",
-      "type": "FULL_SYN"
+      "type": "FULL_SYN",
+      "typeCode": "P90"
     },
     {
       "name": "FULL_SYN",
-      "type": "Preferred_Name"
+      "type": "Preferred_Name",
+      "typeCode": "P108"
     }
   ],
   "definitions": [
     {
       "definition": "A property representing a fully qualified synonym, contains the string, term type, source, and an optional source code if appropriate. Each subfield is deliniated to facilitate interpretation by software.",
+      "code": "P97",
       "type": "DEFINITION"
     }
   ],
   "properties": [
     {
+      "code": "P106",
       "type": "Semantic_Type",
       "value": "Conceptual Entity"
     }

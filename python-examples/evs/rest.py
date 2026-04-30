@@ -16,9 +16,11 @@
 import io
 import json
 import re
+import socket
 import ssl
 
 import urllib3
+from urllib3.util import connection as urllib3_connection
 
 from evs.exceptions import ApiException, ApiValueError
 
@@ -61,6 +63,12 @@ class RESTResponse(io.IOBase):
 class RESTClientObject:
 
     def __init__(self, configuration) -> None:
+        self.configuration = configuration
+
+        # Prefer IPv4 in this SDK process to avoid long stalls when the host
+        # advertises IPv6 but the local network cannot reach it reliably.
+        urllib3_connection.allowed_gai_family = lambda: socket.AF_INET
+
         # urllib3.PoolManager will pass all kw parameters to connectionpool
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/poolmanager.py#L75  # noqa: E501
         # https://github.com/shazow/urllib3/blob/f9409436f83aeb79fbaf090181cd81b784f1b8ce/urllib3/connectionpool.py#L680  # noqa: E501
@@ -155,6 +163,9 @@ class RESTClientObject:
         headers = headers or {}
 
         timeout = None
+        if _request_timeout is None:
+            _request_timeout = self.configuration.request_timeout
+
         if _request_timeout:
             if isinstance(_request_timeout, (int, float)):
                 timeout = urllib3.Timeout(total=_request_timeout)

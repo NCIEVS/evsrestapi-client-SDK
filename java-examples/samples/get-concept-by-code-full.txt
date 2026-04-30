@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 85 STANDARD_ERROR
-    Mar 24, 2025 4:38:12 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 22 tests were Method or class mismatch
-
 ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get a full concept for code - C3224
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    concept = class Concept {
@@ -20,7 +16,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         code: C3224
         name: Melanoma
         terminology: ncit
-        version: 25.02d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -36,6 +32,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: SY
             type: FULL_SYN
+            typeCode: P90
             source: caDSR
             code: null
             subSource: null
@@ -48,6 +45,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: SY
             type: FULL_SYN
+            typeCode: P90
             source: CDISC
             code: null
             subSource: null
@@ -60,6 +58,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: CDISC
             code: null
             subSource: null
@@ -72,6 +71,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: Cellosaurus
             code: null
             subSource: null
@@ -84,6 +84,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: CPTAC
             code: null
             subSource: null
@@ -96,6 +97,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: CTEP
             code: 10053571
             subSource: SDC
@@ -106,8 +108,22 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             name: Melanoma
             highlight: null
+            termType: PT
+            type: FULL_SYN
+            typeCode: P90
+            source: CTRP
+            code: null
+            subSource: null
+            qualifiers: []
+            active: null
+        }, class Synonym {
+            uri: null
+            ct: null
+            name: Melanoma
+            highlight: null
             termType: DN
             type: FULL_SYN
+            typeCode: P90
             source: CTRP
             code: null
             subSource: null
@@ -120,18 +136,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
-            source: CTRP
-            code: null
-            subSource: null
-            qualifiers: []
-            active: null
-        }, class Synonym {
-            uri: null
-            ct: null
-            name: Melanoma
-            highlight: null
-            termType: PT
-            type: FULL_SYN
+            typeCode: P90
             source: GDC
             code: null
             subSource: null
@@ -144,6 +149,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: SY
             type: FULL_SYN
+            typeCode: P90
             source: GDC
             code: null
             subSource: null
@@ -156,6 +162,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: NCI-GLOSS
             code: CDR0000045135
             subSource: null
@@ -168,6 +175,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: SY
             type: FULL_SYN
+            typeCode: P90
             source: NCI
             code: null
             subSource: null
@@ -180,6 +188,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: NCI
             code: null
             subSource: null
@@ -192,6 +201,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: NICHD
             code: null
             subSource: null
@@ -204,6 +214,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: Display_Name
+            typeCode: P107
             source: null
             code: null
             subSource: null
@@ -216,6 +227,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: Preferred_Name
+            typeCode: P108
             source: null
             code: null
             subSource: null
@@ -227,6 +239,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             definition: A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.
             highlight: null
+            code: P325
             type: ALT_DEFINITION
             source: NCI-GLOSS
             qualifiers: []
@@ -235,6 +248,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             definition: A malignant neoplasm composed of melanocytes.
             highlight: null
+            code: P325
             type: ALT_DEFINITION
             source: CDISC
             qualifiers: []
@@ -243,6 +257,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             definition: A malignant neoplasm comprised of melanocytes typically arising in the skin.
             highlight: null
+            code: P325
             type: ALT_DEFINITION
             source: NICHD
             qualifiers: []
@@ -251,6 +266,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             definition: A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.
             highlight: null
+            code: P97
             type: DEFINITION
             source: NCI
             qualifiers: []
@@ -258,6 +274,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         properties: [class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: CDISC
             highlight: null
@@ -266,6 +283,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: Cellosaurus
             highlight: null
@@ -274,6 +292,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: CPTAC
             highlight: null
@@ -282,6 +301,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: CTEP
             highlight: null
@@ -290,6 +310,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: CTRP
             highlight: null
@@ -298,6 +319,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: GDC
             highlight: null
@@ -306,6 +328,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: MedDRA
             highlight: null
@@ -314,6 +337,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: NICHD
             highlight: null
@@ -322,6 +346,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P334
             type: ICD-O-3_Code
             value: 8720/3
             highlight: null
@@ -330,6 +355,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P366
             type: Legacy Concept Name
             value: Melanoma
             highlight: null
@@ -338,6 +364,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P375
             type: Maps_To
             value: 8720/3
             highlight: null
@@ -346,6 +373,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P375
             type: Maps_To
             value: Malignant melanoma, NOS
             highlight: null
@@ -354,6 +382,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P375
             type: Maps_To
             value: Melanoma
             highlight: null
@@ -362,6 +391,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P375
             type: Maps_To
             value: Melanoma, NOS
             highlight: null
@@ -370,6 +400,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P363
             type: Neoplastic_Status
             value: Malignant
             highlight: null
@@ -378,6 +409,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P106
             type: Semantic_Type
             value: Neoplastic Process
             highlight: null
@@ -386,6 +418,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P207
             type: UMLS_CUI
             value: C0025202
             highlight: null
@@ -540,6 +573,64 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
+            code: C217198
+            name: Localized Melanoma
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
+            code: C215044
+            name: Melanoma In Situ
+            terminology: null
+            version: null
+            level: null
+            highlight: null
+            subsetLink: null
+            mapsetLink: null
+            conceptStatus: null
+            source: null
+            leaf: false
+            active: null
+            synonyms: []
+            definitions: []
+            properties: []
+            children: []
+            parents: []
+            descendants: []
+            associations: []
+            inverseAssociations: []
+            roles: []
+            disjointWith: []
+            inverseRoles: []
+            history: []
+            maps: []
+            paths: null
+        }, class Concept {
+            uri: null
+            ct: null
             code: C8925
             name: Metastatic Melanoma
             terminology: null
@@ -629,35 +720,6 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             code: C8711
             name: Non-Cutaneous Melanoma
-            terminology: null
-            version: null
-            level: null
-            highlight: null
-            subsetLink: null
-            mapsetLink: null
-            conceptStatus: null
-            source: null
-            leaf: false
-            active: null
-            synonyms: []
-            definitions: []
-            properties: []
-            children: []
-            parents: []
-            descendants: []
-            associations: []
-            inverseAssociations: []
-            roles: []
-            disjointWith: []
-            inverseRoles: []
-            history: []
-            maps: []
-            paths: null
-        }, class Concept {
-            uri: null
-            ct: null
-            code: C8562
-            name: Ocular Melanoma
             terminology: null
             version: null
             level: null
@@ -978,6 +1040,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         associations: [class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C77526
             relatedName: CDISC SEND Terminology
@@ -987,6 +1050,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C88025
             relatedName: CDISC SEND Tumor Findings Results Terminology
@@ -996,6 +1060,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C165258
             relatedName: Cellosaurus Disease Terminology
@@ -1005,15 +1070,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
-            type: Concept_In_Subset
-            relatedCode: C192842
-            relatedName: Cellosaurus Terminology
-            source: null
-            highlight: null
-            qualifiers: []
-        }, class Association {
-            uri: null
-            ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C61410
             relatedName: Clinical Data Interchange Standards Consortium Terminology
@@ -1023,6 +1080,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C138188
             relatedName: Clinical Trials Search-Application Programming Interface Disease Category Terminology
@@ -1032,6 +1090,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C156953
             relatedName: CPTAC Baseline Medical Forms Terminology
@@ -1041,6 +1100,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C158520
             relatedName: CPTAC Codelists Terminology
@@ -1050,6 +1110,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C159415
             relatedName: CPTAC Melanoma Baseline Form
@@ -1059,6 +1120,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C156966
             relatedName: CPTAC Neoplasms Codelist
@@ -1068,6 +1130,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C156952
             relatedName: CPTAC Terminology
@@ -1077,6 +1140,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C157534
             relatedName: CPTAC Uveal Melanoma Baseline Form
@@ -1086,6 +1150,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C118168
             relatedName: CTRP Disease Terminology
@@ -1095,6 +1160,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C116977
             relatedName: CTRP Terminology
@@ -1104,6 +1170,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C138190
             relatedName: CTS-API Disease Main Type Terminology
@@ -1113,6 +1180,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A32
             type: Is_Value_For_GDC_Property
             relatedCode: C178243
             relatedName: Family Cancer History Relative Primary Diagnosis Question
@@ -1122,6 +1190,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C157711
             relatedName: GDC Terminology
@@ -1131,6 +1200,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C177537
             relatedName: GDC Value Terminology
@@ -1140,6 +1210,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A32
             type: Is_Value_For_GDC_Property
             relatedCode: C176985
             relatedName: Histology ICD-O Morphology Code
@@ -1149,6 +1220,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A32
             type: Is_Value_For_GDC_Property
             relatedCode: C177621
             relatedName: ICD-O-3 Morphology Term Diagnosis Question
@@ -1158,6 +1230,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168658
             relatedName: Mapped ICDO3.1 Morphology PT Terminology
@@ -1167,6 +1240,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168657
             relatedName: Mapped ICDO3.1 Morphology Terminology
@@ -1176,6 +1250,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168655
             relatedName: Mapped ICDO3.1 Terminology
@@ -1185,6 +1260,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168662
             relatedName: Mapped ICDO3.2 Morphology PT Terminology
@@ -1194,6 +1270,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168661
             relatedName: Mapped ICDO3.2 Morphology Terminology
@@ -1203,6 +1280,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C168656
             relatedName: Mapped ICDO3.2 Terminology
@@ -1212,6 +1290,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C103113
             relatedName: NCI CTEP SDC Melanoma Sub-Category Terminology
@@ -1221,6 +1300,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C102905
             relatedName: NCI CTEP Simplified Disease Classification Terminology
@@ -1230,6 +1310,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C126659
             relatedName: NCIt Neoplasm Core Terminology
@@ -1239,6 +1320,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C90259
             relatedName: NICHD Terminology
@@ -1248,6 +1330,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C189762
             relatedName: Pediatric Adverse Events Terminology Mapped to MedDRA
@@ -1257,6 +1340,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A8
             type: Concept_In_Subset
             relatedCode: C118464
             relatedName: Pediatric Adverse Events Terminology
@@ -1266,6 +1350,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A14
             type: Neoplasm_Has_Special_Category
             relatedCode: C9292
             relatedName: Solid Neoplasm
@@ -1276,6 +1361,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         inverseAssociations: [class Association {
             uri: null
             ct: null
+            code: A31
             type: Has_GDC_Value
             relatedCode: C178243
             relatedName: Family Cancer History Relative Primary Diagnosis Question
@@ -1285,6 +1371,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A31
             type: Has_GDC_Value
             relatedCode: C176985
             relatedName: Histology ICD-O Morphology Code
@@ -1294,6 +1381,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Association {
             uri: null
             ct: null
+            code: A31
             type: Has_GDC_Value
             relatedCode: C177621
             relatedName: ICD-O-3 Morphology Term Diagnosis Question
@@ -1304,6 +1392,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         roles: [class Role {
             uri: null
             ct: null
+            code: R142
             type: Disease_Excludes_Finding
             relatedCode: C36122
             relatedName: Benign Cellular Infiltrate
@@ -1313,6 +1402,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R115
             type: Disease_May_Have_Finding
             relatedCode: C43268
             relatedName: HMB-45-Positive Neoplastic Cells Present
@@ -1322,6 +1412,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R105
             type: Disease_Has_Abnormal_Cell
             relatedCode: C12917
             relatedName: Malignant Cell
@@ -1331,6 +1422,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R108
             type: Disease_Has_Finding
             relatedCode: C36115
             relatedName: Malignant Cellular Infiltrate
@@ -1340,6 +1432,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R104
             type: Disease_Has_Normal_Cell_Origin
             relatedCode: C12591
             relatedName: Melanocyte
@@ -1349,6 +1442,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R105
             type: Disease_Has_Abnormal_Cell
             relatedCode: C36873
             relatedName: Melanoma Cell
@@ -1358,6 +1452,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R105
             type: Disease_Has_Abnormal_Cell
             relatedCode: C12922
             relatedName: Neoplastic Cell
@@ -1367,6 +1462,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R105
             type: Disease_Has_Abnormal_Cell
             relatedCode: C36862
             relatedName: Neoplastic Melanocyte
@@ -1376,6 +1472,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R115
             type: Disease_May_Have_Finding
             relatedCode: C40993
             relatedName: S-100-Positive Neoplastic Cells Present
@@ -1387,6 +1484,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         inverseRoles: [class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C21390
             relatedName: Beta/Gamma Crystallin Domain-Containing Protein 1
@@ -1396,15 +1494,17 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R116
             type: Disease_May_Have_Associated_Disease
             relatedCode: C36101
-            relatedName: BRCA2-Associated Hereditary Breast and Ovarian Cancer Syndrome
+            relatedName: BRCA2-Related Hereditary Breast and Ovarian Cancer Syndrome
             source: null
             highlight: null
             qualifiers: []
         }, class Role {
             uri: null
             ct: null
+            code: R172
             type: Regimen_Has_Accepted_Use_For_Disease
             relatedCode: C10303
             relatedName: CDB Regimen
@@ -1414,6 +1514,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C26083
             relatedName: Chondroitin Sulfate Proteoglycan 4
@@ -1423,6 +1524,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C21389
             relatedName: CRYBG1 Gene
@@ -1432,6 +1534,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C54321
             relatedName: CRYBG1 wt Allele
@@ -1441,6 +1544,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C21470
             relatedName: CSAG2 Gene
@@ -1450,6 +1554,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C54542
             relatedName: CSAG2 wt Allele
@@ -1459,6 +1564,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81903
             relatedName: CSAG3 Gene
@@ -1468,6 +1574,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81904
             relatedName: CSAG3 wt Allele
@@ -1477,6 +1584,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C24316
             relatedName: CSPG4 Gene
@@ -1486,6 +1594,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C52436
             relatedName: CSPG4 wt Allele
@@ -1495,6 +1604,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R172
             type: Regimen_Has_Accepted_Use_For_Disease
             relatedCode: C63525
             relatedName: CVD Regimen
@@ -1504,6 +1614,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R172
             type: Regimen_Has_Accepted_Use_For_Disease
             relatedCode: C63785
             relatedName: CVD-Aldesleukin-Interferon Alfa-2b Regimen
@@ -1513,6 +1624,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C17680
             relatedName: Cyclin-Dependent Kinase 4
@@ -1522,6 +1634,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C17786
             relatedName: Cyclin-Dependent Kinase Inhibitor 2A
@@ -1531,6 +1644,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R172
             type: Regimen_Has_Accepted_Use_For_Disease
             relatedCode: C63782
             relatedName: Dacarbazine/Interferon Alfa Regimen
@@ -1540,6 +1654,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R172
             type: Regimen_Has_Accepted_Use_For_Disease
             relatedCode: C63781
             relatedName: Dartmouth Regimen
@@ -1549,6 +1664,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C82885
             relatedName: DCT Gene
@@ -1558,6 +1674,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C82886
             relatedName: DCT wt Allele
@@ -1567,6 +1684,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C21569
             relatedName: DNA Repair Protein XRCC3
@@ -1576,15 +1694,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
-            type: Disease_May_Have_Associated_Disease
-            relatedCode: C27264
-            relatedName: Hereditary Atypical Mole Melanoma Syndrome
-            source: null
-            highlight: null
-            qualifiers: []
-        }, class Role {
-            uri: null
-            ct: null
+            code: R116
             type: Disease_May_Have_Associated_Disease
             relatedCode: C8495
             relatedName: Hereditary Retinoblastoma
@@ -1594,6 +1704,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R116
             type: Disease_May_Have_Associated_Disease
             relatedCode: C192671
             relatedName: Hereditary Tumor Syndrome Associated with Homologous Recombination Pathway Mutations
@@ -1603,6 +1714,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C20765
             relatedName: KISS1 Gene
@@ -1612,6 +1724,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C54288
             relatedName: KISS1 wt Allele
@@ -1621,6 +1734,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C2646
             relatedName: L-Dopachrome Tautomerase
@@ -1630,6 +1744,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C26331
             relatedName: Latent-Transforming Growth Factor Beta-Binding Protein 2
@@ -1639,6 +1754,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C24561
             relatedName: LTBP2 Gene
@@ -1648,6 +1764,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C51270
             relatedName: LTBP2 wt Allele
@@ -1657,6 +1774,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C21261
             relatedName: MCAM Gene
@@ -1666,6 +1784,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C54308
             relatedName: MCAM wt Allele
@@ -1675,6 +1794,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R47
             type: Gene_Product_Is_Biomarker_Of
             relatedCode: C17513
             relatedName: Melanoma-Associated Antigen 3
@@ -1684,24 +1804,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
-            type: Disease_May_Have_Associated_Disease
-            relatedCode: C176905
-            relatedName: Melanoma-Astrocytoma Syndrome
-            source: null
-            highlight: null
-            qualifiers: []
-        }, class Role {
-            uri: null
-            ct: null
-            type: Disease_May_Have_Associated_Disease
-            relatedCode: C176904
-            relatedName: Melanoma-Pancreatic Cancer Syndrome
-            source: null
-            highlight: null
-            qualifiers: []
-        }, class Role {
-            uri: null
-            ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C21141
             relatedName: Metastasis-Suppressor KiSS-1
@@ -1711,6 +1814,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81756
             relatedName: MIR221 Gene
@@ -1720,6 +1824,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C82171
             relatedName: MIR221 wt Allele
@@ -1729,6 +1834,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C80700
             relatedName: MIRLET7A1 Gene
@@ -1738,6 +1844,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81825
             relatedName: MIRLET7A1 wt Allele
@@ -1747,6 +1854,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C80701
             relatedName: MIRLET7A3 Gene
@@ -1756,6 +1864,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81826
             relatedName: MIRLET7A3 wt Allele
@@ -1765,6 +1874,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C80702
             relatedName: MIRLET7B Gene
@@ -1774,6 +1884,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C81853
             relatedName: MIRLET7B wt Allele
@@ -1783,6 +1894,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C28629
             relatedName: MLANA Gene
@@ -1792,6 +1904,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C54313
             relatedName: MLANA wt Allele
@@ -1801,6 +1914,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R126
             type: Disease_Has_Associated_Disease
             relatedCode: C40001
             relatedName: Ovarian Dermoid Cyst with Melanoma
@@ -1810,6 +1924,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C18336
             relatedName: RAB8A Gene
@@ -1819,6 +1934,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C52547
             relatedName: RAB8A wt Allele
@@ -1828,6 +1944,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R48
             type: Gene_Product_Malfunction_Associated_With_Disease
             relatedCode: C84349
             relatedName: Tumor Suppressor ARF
@@ -1837,6 +1954,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R116
             type: Disease_May_Have_Associated_Disease
             relatedCode: C3447
             relatedName: Werner Syndrome
@@ -1846,6 +1964,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C20335
             relatedName: XRCC3 Gene
@@ -1855,6 +1974,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         }, class Role {
             uri: null
             ct: null
+            code: R38
             type: Gene_Associated_With_Disease
             relatedCode: C51014
             relatedName: XRCC3 wt Allele
@@ -3986,6 +4106,15 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             date: 2023-12-26
             replacementCode: null
             replacementName: null
+        }, class History {
+            uri: null
+            ct: null
+            code: C3224
+            name: null
+            action: modify
+            date: 2025-03-31
+            replacementCode: null
+            replacementName: null
         }]
         maps: [class ConceptMap {
             uri: null
@@ -4140,11 +4269,13 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getConceptFullTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

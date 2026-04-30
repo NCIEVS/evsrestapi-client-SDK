@@ -1163,7 +1163,7 @@
 	"variable": [
 		{
 			"key": "API_URL",
-			"value": "https://api-evsrest.nci.nih.gov/api/v1/",
+			"value": "https://api-evsrest.nci.nih.gov/api/v1",
 			"type": "string"
 		}
 	]

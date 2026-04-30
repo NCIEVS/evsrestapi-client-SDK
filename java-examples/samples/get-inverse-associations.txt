@@ -13,6 +13,7 @@ ConceptEndpointsApiTest > getInverseAssociationsTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    inverse associates = [class Association {
         uri: null
         ct: null
+        code: A31
         type: Has_GDC_Value
         relatedCode: C178243
         relatedName: Family Cancer History Relative Primary Diagnosis Question
@@ -22,6 +23,7 @@ ConceptEndpointsApiTest > getInverseAssociationsTest() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A31
         type: Has_GDC_Value
         relatedCode: C176985
         relatedName: Histology ICD-O Morphology Code
@@ -31,6 +33,7 @@ ConceptEndpointsApiTest > getInverseAssociationsTest() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A31
         type: Has_GDC_Value
         relatedCode: C177621
         relatedName: ICD-O-3 Morphology Term Diagnosis Question
@@ -41,7 +44,7 @@ ConceptEndpointsApiTest > getInverseAssociationsTest() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getInverseAssociationsTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -49,6 +52,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

@@ -2,29 +2,34 @@
   "code": "R123",
   "name": "Chemotherapy_Regimen_Has_Component",
   "terminology": "ncit",
-  "version": "25.07d",
+  "version": "26.03e",
   "synonyms": [
     {
       "name": "Has Component",
-      "type": "Display_Name"
+      "type": "Display_Name",
+      "typeCode": "P107"
     },
     {
       "name": "Chemotherapy_Regimen_Has_Component",
-      "type": "FULL_SYN"
+      "type": "FULL_SYN",
+      "typeCode": "P90"
     },
     {
       "name": "Chemotherapy_Regimen_Has_Component",
-      "type": "Preferred_Name"
+      "type": "Preferred_Name",
+      "typeCode": "P108"
     }
   ],
   "definitions": [
     {
       "definition": "A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.",
+      "code": "P97",
       "type": "DEFINITION"
     }
   ],
   "properties": [
     {
+      "code": "P106",
       "type": "Semantic_Type",
       "value": "Conceptual Entity"
     }

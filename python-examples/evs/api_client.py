@@ -15,6 +15,7 @@
 """  # noqa: E501
 import configparser
 import datetime
+import os
 from dateutil.parser import parse
 from enum import Enum
 import json
@@ -110,7 +111,19 @@ class ApiClient:
         config = configparser.ConfigParser()
         config.read('config.ini')
         url = config['default']['Url']
-        return Configuration(host=url)
+        configuration = Configuration(host=url)
+
+        connect_timeout = os.getenv(
+            "EVS_CONNECT_TIMEOUT",
+            config['default'].get('ConnectTimeout', str(configuration.request_timeout[0]))
+        )
+        read_timeout = os.getenv(
+            "EVS_READ_TIMEOUT",
+            config['default'].get('ReadTimeout', str(configuration.request_timeout[1]))
+        )
+        configuration.request_timeout = (float(connect_timeout), float(read_timeout))
+
+        return configuration
     
     @property
     def user_agent(self):

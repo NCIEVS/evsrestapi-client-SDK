@@ -1,15 +1,18 @@
 [
   {
+    "code": "A31",
     "type": "Has_GDC_Value",
     "relatedCode": "C178243",
     "relatedName": "Family Cancer History Relative Primary Diagnosis Question"
   },
   {
+    "code": "A31",
     "type": "Has_GDC_Value",
     "relatedCode": "C176985",
     "relatedName": "Histology ICD-O Morphology Code"
   },
   {
+    "code": "A31",
     "type": "Has_GDC_Value",
     "relatedCode": "C177621",
     "relatedName": "ICD-O-3 Morphology Term Diagnosis Question"

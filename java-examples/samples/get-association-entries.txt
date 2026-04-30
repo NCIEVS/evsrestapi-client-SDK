@@ -13,8 +13,8 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    association entries = class AssociationEntryResultList {
         uri: null
         ct: null
-        total: 2556
-        timeTaken: 129
+        total: 2564
+        timeTaken: 204
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -49,7 +49,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Fedotozine
         }, class AssociationEntry {
@@ -63,7 +63,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ketobemidone
         }, class AssociationEntry {
@@ -77,7 +77,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Nalfurafine
         }, class AssociationEntry {
@@ -91,7 +91,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Noscapine
         }, class AssociationEntry {
@@ -105,7 +105,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Piridicillin
         }, class AssociationEntry {
@@ -119,7 +119,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lofemizole
         }, class AssociationEntry {
@@ -133,7 +133,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Quadazocine
         }, class AssociationEntry {
@@ -147,7 +147,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Carfentanil
         }, class AssociationEntry {
@@ -161,7 +161,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Enadoline
         }, class AssociationEntry {
@@ -175,7 +175,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Etorphine
         }, class AssociationEntry {
@@ -189,7 +189,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Faxeladol
         }, class AssociationEntry {
@@ -203,7 +203,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sofinicline
         }, class AssociationEntry {
@@ -217,7 +217,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Estriol Succinate
         }, class AssociationEntry {
@@ -231,7 +231,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sulfabromomethazine
         }, class AssociationEntry {
@@ -245,7 +245,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Pardoprunox
         }, class AssociationEntry {
@@ -259,7 +259,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Fonazine
         }, class AssociationEntry {
@@ -273,7 +273,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Indisetron
         }, class AssociationEntry {
@@ -287,7 +287,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Naluzotan
         }, class AssociationEntry {
@@ -301,7 +301,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Rolitetracycline
         }, class AssociationEntry {
@@ -315,7 +315,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Clomacran
         }, class AssociationEntry {
@@ -329,7 +329,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lasofoxifene
         }, class AssociationEntry {
@@ -343,7 +343,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sugammadex
         }, class AssociationEntry {
@@ -357,7 +357,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sotrastaurin
         }, class AssociationEntry {
@@ -371,7 +371,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ancitabine
         }, class AssociationEntry {
@@ -385,7 +385,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Tosufloxacin
         }, class AssociationEntry {
@@ -399,7 +399,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Opemalirsen
         }, class AssociationEntry {
@@ -413,7 +413,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sefaxersen
         }, class AssociationEntry {
@@ -427,7 +427,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Emilumenib
         }, class AssociationEntry {
@@ -441,9 +441,23 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Cocaine
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C217735
+            type: null
+            relatedCode: C223498
+            relatedName: Luvesilocin Hydrochloride
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 26.03e
+            association: Has_Salt_Or_Ester_Form
+            name: Luvesilocin
         }, class AssociationEntry {
             uri: null
             ct: null
@@ -455,7 +469,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Olgotrelvir
         }, class AssociationEntry {
@@ -469,7 +483,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Crozbaciclib
         }, class AssociationEntry {
@@ -483,7 +497,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Bevemipretide
         }, class AssociationEntry {
@@ -497,7 +511,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lepodisiran
         }, class AssociationEntry {
@@ -511,7 +525,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Imdusiran
         }, class AssociationEntry {
@@ -525,7 +539,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lefelsiran
         }, class AssociationEntry {
@@ -539,7 +553,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Patidegib
         }, class AssociationEntry {
@@ -553,7 +567,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: 1,2-Ethanedisulfonic Acid
         }, class AssociationEntry {
@@ -567,7 +581,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Amrubicin
         }, class AssociationEntry {
@@ -581,7 +595,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Iobenguane I-123
         }, class AssociationEntry {
@@ -595,7 +609,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Eritoran
         }, class AssociationEntry {
@@ -609,7 +623,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Niraparib
         }, class AssociationEntry {
@@ -623,7 +637,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Retaspimycin
         }, class AssociationEntry {
@@ -637,7 +651,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Uproleselan
         }, class AssociationEntry {
@@ -651,7 +665,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Almecillin
         }, class AssociationEntry {
@@ -665,7 +679,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Almecillin
         }, class AssociationEntry {
@@ -679,7 +693,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Pralmorelin
         }, class AssociationEntry {
@@ -693,7 +707,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Vamotinib
         }, class AssociationEntry {
@@ -707,7 +721,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Cefotiam Hexetil
         }, class AssociationEntry {
@@ -721,7 +735,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Chloramphenicol Succinate
         }, class AssociationEntry {
@@ -735,7 +749,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Bosutinib
         }, class AssociationEntry {
@@ -749,7 +763,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Zeteletinib
         }, class AssociationEntry {
@@ -763,7 +777,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Pimodivir
         }, class AssociationEntry {
@@ -777,7 +791,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Sabizabulin
         }, class AssociationEntry {
@@ -791,7 +805,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Isosorbide
         }, class AssociationEntry {
@@ -805,7 +819,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Isosorbide
         }, class AssociationEntry {
@@ -819,7 +833,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Obatoclax
         }, class AssociationEntry {
@@ -833,7 +847,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ticarcillin Cresyl
         }, class AssociationEntry {
@@ -847,7 +861,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lifirafenib
         }, class AssociationEntry {
@@ -861,7 +875,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Epitinib
         }, class AssociationEntry {
@@ -875,7 +889,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Dociparstat
         }, class AssociationEntry {
@@ -889,7 +903,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Dodeclonium
         }, class AssociationEntry {
@@ -903,7 +917,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Alvocidib
         }, class AssociationEntry {
@@ -917,7 +931,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ceftolozane
         }, class AssociationEntry {
@@ -931,7 +945,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Histrelin
         }, class AssociationEntry {
@@ -945,7 +959,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Fenoxazoline
         }, class AssociationEntry {
@@ -959,7 +973,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Brovanexine
         }, class AssociationEntry {
@@ -973,7 +987,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ambroxol
         }, class AssociationEntry {
@@ -987,7 +1001,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Clinafloxacin
         }, class AssociationEntry {
@@ -1001,7 +1015,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Methixene
         }, class AssociationEntry {
@@ -1015,7 +1029,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Atomoxetine
         }, class AssociationEntry {
@@ -1029,7 +1043,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Protokylol
         }, class AssociationEntry {
@@ -1043,7 +1057,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Oxyfedrine
         }, class AssociationEntry {
@@ -1057,7 +1071,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Levalbuterol
         }, class AssociationEntry {
@@ -1071,7 +1085,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Levalbuterol
         }, class AssociationEntry {
@@ -1085,7 +1099,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Levalbuterol
         }, class AssociationEntry {
@@ -1099,7 +1113,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Amperozide
         }, class AssociationEntry {
@@ -1113,7 +1127,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Gepirone
         }, class AssociationEntry {
@@ -1127,7 +1141,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ecopipam
         }, class AssociationEntry {
@@ -1141,7 +1155,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Fingolimod
         }, class AssociationEntry {
@@ -1155,7 +1169,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Flubanilate
         }, class AssociationEntry {
@@ -1169,7 +1183,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Almitrine
         }, class AssociationEntry {
@@ -1183,7 +1197,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Bencyclane
         }, class AssociationEntry {
@@ -1197,7 +1211,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Pazopanib
         }, class AssociationEntry {
@@ -1211,7 +1225,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Omoconazole
         }, class AssociationEntry {
@@ -1225,7 +1239,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Avatrombopag
         }, class AssociationEntry {
@@ -1239,7 +1253,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Piboserod
         }, class AssociationEntry {
@@ -1253,7 +1267,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Lecozotan
         }, class AssociationEntry {
@@ -1267,7 +1281,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Ipsapirone
         }, class AssociationEntry {
@@ -1281,7 +1295,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Romifidine
         }, class AssociationEntry {
@@ -1295,7 +1309,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Azaclorzine
         }, class AssociationEntry {
@@ -1309,9 +1323,23 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Conivaptan
+        }, class AssociationEntry {
+            uri: null
+            ct: null
+            code: C223166
+            type: null
+            relatedCode: C78199
+            relatedName: FAK Inhibitor PF-00562271 Besylate
+            source: null
+            highlight: null
+            qualifiers: []
+            terminology: ncit
+            version: 26.03e
+            association: Has_Salt_Or_Ester_Form
+            name: FAK Inhibitor PF-00562271
         }, class AssociationEntry {
             uri: null
             ct: null
@@ -1323,7 +1351,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Infigratinib
         }, class AssociationEntry {
@@ -1337,7 +1365,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Infigratinib
         }, class AssociationEntry {
@@ -1351,7 +1379,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Pexidartinib
         }, class AssociationEntry {
@@ -1365,7 +1393,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Motixafortide
         }, class AssociationEntry {
@@ -1379,7 +1407,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Momelotinib
         }, class AssociationEntry {
@@ -1393,7 +1421,7 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Momelotinib
         }, class AssociationEntry {
@@ -1407,43 +1435,15 @@ ConceptEndpointsApiTest > getAssociationEntriesTest() STANDARD_ERROR
             highlight: null
             qualifiers: []
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             association: Has_Salt_Or_Ester_Form
             name: Tepotinib
-        }, class AssociationEntry {
-            uri: null
-            ct: null
-            code: C88323
-            type: null
-            relatedCode: C130049
-            relatedName: Burixafor Hydrobromide
-            source: null
-            highlight: null
-            qualifiers: []
-            terminology: ncit
-            version: 25.10d
-            association: Has_Salt_Or_Ester_Form
-            name: Burixafor
-        }, class AssociationEntry {
-            uri: null
-            ct: null
-            code: C49094
-            type: null
-            relatedCode: C136891
-            relatedName: Neratinib Maleate
-            source: null
-            highlight: null
-            qualifiers: []
-            terminology: ncit
-            version: 25.10d
-            association: Has_Salt_Or_Ester_Form
-            name: Neratinib
         }]
     }
 
 ConceptEndpointsApiTest > getAssociationEntriesTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 

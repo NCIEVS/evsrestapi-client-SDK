@@ -8,17 +8,13 @@
 
 > Task :test
 
-Gradle Test Executor 109 STANDARD_ERROR
-    Mar 24, 2025 4:39:30 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
 SearchEndpointApiTest > searchTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for - ncit
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
-        total: 198932
-        timeTaken: 80
+        total: 211072
+        timeTaken: 98
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -45,10 +41,10 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
         concepts: [class Concept {
             uri: null
             ct: null
-            code: C1000
-            name: Recombinant Amphiregulin
+            code: C100001
+            name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable After Successful Full-Dose Thrombolytic Therapy
             terminology: ncit
-            version: 25.02d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -74,10 +70,10 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
-            code: C100000
-            name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Stable-Over 12 Hours From Symptom Onset
+            code: C100002
+            name: Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction-Unstable-Over 12 Hours From Symptom Onset
             terminology: ncit
-            version: 25.02d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -103,10 +99,10 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
-            code: C100003
-            name: Percutaneous Mitral Valve Repair
+            code: C100008
+            name: Rescue Percutaneous Coronary Intervention for ST Elevation Myocardial Infarction After Failed Full-Dose Thrombolytic Therapy
             terminology: ncit
-            version: 25.02d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -132,10 +128,10 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
-            code: C100006
-            name: Pre-Operative Evaluation for Non-Cardiovascular Surgery
+            code: C10001
+            name: CONPADRI-I Regimen
             terminology: ncit
-            version: 25.02d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -161,10 +157,10 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
         }, class Concept {
             uri: null
             ct: null
-            code: C100009
-            name: Reused Cardiac Lead
+            code: C100011
+            name: Right Cardiac Ventricle Pacing Malfunction
             terminology: ncit
-            version: 25.02d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -192,12 +188,14 @@ SearchEndpointApiTest > searchTest() STANDARD_ERROR
 
 SearchEndpointApiTest > searchTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

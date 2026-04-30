@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon Aug 25 10:29:26 PDT 2025
+Starting ...Thu Apr 30 11:15:19 PDT 2026
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -10,11 +10,14 @@ code = C12658
       {
         "code": "C12658",
         "name": "Prokaryotic Cell",
-        "action": "active"
+        "action": "retire",
+        "date": "2003-08-22",
+        "replacementCode": "C19157",
+        "replacementName": "Specimen"
       }
     ]
 
 -----------------------------------------------------
-Finished ...Mon Aug 25 10:29:27 PDT 2025
+Finished ...Thu Apr 30 11:15:20 PDT 2026
 -----------------------------------------------------
 
