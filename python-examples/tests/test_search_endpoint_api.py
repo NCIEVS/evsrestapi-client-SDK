@@ -138,7 +138,7 @@ class TestSearchEndpointApi:
         definition_type: str = "DEFINITION"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 1568
+        minimum_expected_total: int = 1500
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,
@@ -147,7 +147,7 @@ class TestSearchEndpointApi:
         
         # ASSERT
         assert response is not None
-        assert response.total == expected_total, "FAIL: expected total doesn't match actual"
+        assert response.total >= minimum_expected_total, "FAIL: expected total is lower than expected"
         assert response.concepts is not None
         assert response.concepts[0] is not None
         

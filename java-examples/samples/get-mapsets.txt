@@ -71,68 +71,10 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
-        code: SNOMEDCT_US_2025_03_01_to_ICD10CM_2025_Mappings
-        name: SNOMEDCT_US_2025_03_01 to ICD10CM_2025 Mappings
-        terminology: snomedct_us
-        version: 2025_03_01
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: NCIT_TO_SWISSPROT
-        name: NCIT_TO_SWISSPROT
-        terminology: null
-        version: Sept2025
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
         code: NCIt_Maps_To_GDC
         name: NCIt_Maps_To_GDC
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -161,7 +103,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICD9CM
         name: NCIt_Maps_To_ICD9CM
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -170,6 +112,35 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         source: null
         leaf: null
         active: true
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: NCIT_TO_SWISSPROT
+        name: NCIT_TO_SWISSPROT
+        terminology: null
+        version: Mar2026
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
         synonyms: []
         definitions: []
         properties: []
@@ -216,10 +187,10 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
-        code: SNOMEDCT_US_2025_03_01_to_ICD10_2016_Mappings
-        name: SNOMEDCT_US_2025_03_01 to ICD10_2016 Mappings
+        code: SNOMEDCT_US_2025_09_01_to_ICD10CM_2025_Mappings
+        name: SNOMEDCT_US_2025_09_01 to ICD10CM_2025 Mappings
         terminology: snomedct_us
-        version: 2025_03_01
+        version: 2025_09_01
         level: null
         highlight: null
         subsetLink: null
@@ -248,7 +219,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_MedDRA
         name: NCIt_Maps_To_MedDRA
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -277,7 +248,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICDO3
         name: NCIt_Maps_To_ICDO3
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -364,7 +335,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICD10CM
         name: NCIt_Maps_To_ICD10CM
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -393,7 +364,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICD10
         name: NCIt_Maps_To_ICD10
         terminology: null
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -422,7 +393,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_to_HGNC_Mapping
         name: NCIt_to_HGNC_Mapping
         terminology: null
-        version: Oct2025
+        version: Mar2026
         level: null
         highlight: null
         subsetLink: null
@@ -506,10 +477,39 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
-        code: PDQ_2016_07_31_to_NCI_2025_06E_Mappings
-        name: PDQ_2016_07_31 to NCI_2025_06E Mappings
+        code: PDQ_2016_07_31_to_NCI_2025_12E_Mappings
+        name: PDQ_2016_07_31 to NCI_2025_12E Mappings
         terminology: pdq
         version: 2016_07_31
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: SNOMEDCT_US_2025_09_01_to_ICD10_2016_Mappings
+        name: SNOMEDCT_US_2025_09_01 to ICD10_2016 Mappings
+        terminology: snomedct_us
+        version: 2025_09_01
         level: null
         highlight: null
         subsetLink: null
@@ -536,7 +536,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
 
 MapsetEndpointsApiTest > getMapsetsTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -544,6 +544,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 5s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

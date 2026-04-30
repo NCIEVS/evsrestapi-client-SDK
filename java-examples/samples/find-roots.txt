@@ -16,7 +16,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C12913
         name: Abnormal Cell
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -45,7 +45,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C43431
         name: Activity
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -74,7 +74,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C12219
         name: Anatomic Structure, System, or Substance
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -103,7 +103,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C20633
         name: Biochemical Pathway
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -132,7 +132,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C17828
         name: Biological Process
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -161,7 +161,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C12218
         name: Chemotherapy Regimen or Agent Combination
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -190,7 +190,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C20181
         name: Conceptual Entity
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -219,7 +219,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C20047
         name: Diagnostic or Prognostic Factor
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -248,7 +248,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C7057
         name: Disease, Disorder or Finding
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -277,7 +277,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C1908
         name: Drug, Food, Chemical or Biomedical Material
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -306,7 +306,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C22188
         name: Experimental Organism Anatomical Concept
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -335,7 +335,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C22187
         name: Experimental Organism Diagnosis
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -364,7 +364,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C16612
         name: Gene
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -393,7 +393,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C26548
         name: Gene Product
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -422,7 +422,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C97325
         name: Manufactured Object
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -451,7 +451,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C3910
         name: Molecular Abnormality
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -480,7 +480,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C14250
         name: Organism
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -509,7 +509,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C20189
         name: Property or Attribute
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -538,7 +538,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
         code: C28428
         name: Retired Concept
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -565,7 +565,7 @@ ConceptEndpointsApiTest > getRootsTest() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getRootsTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -573,6 +573,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 3s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

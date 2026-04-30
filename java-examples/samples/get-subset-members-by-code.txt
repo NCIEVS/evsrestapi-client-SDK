@@ -16,7 +16,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C16255
         name: Acetylation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -45,7 +45,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157214
         name: Acylation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -74,7 +74,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157206
         name: Adsorption
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -103,7 +103,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157210
         name: Amidation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -132,7 +132,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157220
         name: Antigen Cultivation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -161,7 +161,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C61471
         name: Attenuation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -190,7 +190,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C41544
         name: Catabolic Process
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -219,7 +219,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157211
         name: Cell Expansion
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -248,7 +248,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C40483
         name: Chelating Activity
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -277,7 +277,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C164238
         name: Chemical Attenuation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -306,7 +306,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C175901
         name: Chemical Inactivation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -335,7 +335,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157200
         name: Cold Adaptation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -364,7 +364,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157201
         name: Combustion
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -393,7 +393,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157202
         name: Conjugation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -422,7 +422,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C164241
         name: Cross-Linked Chemical Connection Points
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -451,7 +451,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C166360
         name: Crosslinking Process
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -480,7 +480,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157198
         name: Depolymerization
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -509,7 +509,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157215
         name: Epoxidation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -538,7 +538,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157216
         name: Esterification
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -567,7 +567,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C61575
         name: Extraction
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -596,7 +596,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157204
         name: Fermentation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -625,7 +625,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C21049
         name: Gene Expression Process
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -654,7 +654,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C28009
         name: Hydration
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -683,7 +683,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C157199
         name: Hydrogenation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -712,7 +712,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
         code: C16702
         name: Hydrolysis
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -739,7 +739,7 @@ SubsetEndpointsApiTest > getSubsetMembersTest() STANDARD_ERROR
 
 SubsetEndpointsApiTest > getSubsetMembersTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -747,6 +747,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 4s
+BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date
 

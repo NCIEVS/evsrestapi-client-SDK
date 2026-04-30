@@ -26,6 +26,12 @@ pip3 install -r requirements.txt
 ```
 
 The various scripts make use of the `config.ini` file to load necessary information that is uniform across all tests.
+You can also tune network behavior there:
+
+- `ConnectTimeout` controls how long the SDK waits to establish a connection.
+- `ReadTimeout` controls how long the SDK waits for the server response after connecting.
+
+These values can also be overridden per run with `EVS_CONNECT_TIMEOUT` and `EVS_READ_TIMEOUT`.
 
 ## Running the README pytest runner (python_check.py)
 
@@ -41,6 +47,8 @@ This directory includes a small helper script that parses this `README.md` for b
   - Ensure `pytest` is installed in your current Python environment: `pip install pytest`.
   - Project dependencies: `pip install -r requirements.txt`.
 - Output: The script runs the pytest commands it finds in this README and reports which executed successfully (and which did not).
+
+Note: `python_check.py` launches each README command in a separate `pytest` subprocess. Network fixes placed only in `python_check.py` do not propagate into those subprocesses; client networking defaults are defined in the SDK itself.
 
 ## Sample Python Calls
 

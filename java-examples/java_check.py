@@ -1,5 +1,6 @@
 import os
 import re
+import shlex
 import subprocess
 import sys
 
@@ -7,18 +8,30 @@ import sys
 
 healthy_scripts = []
 unhealthy_scripts = []
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+README_PATH = os.path.join(BASE_DIR, "README.md")
+GRADLE_USER_HOME = os.path.join(BASE_DIR, ".gradle-user-home")
 
 def check_java_installation():
     try:
         subprocess.run(["java", "--version"], capture_output=True, check=True)
-    except subprocess.CalledProcessError:
+    except (FileNotFoundError, subprocess.CalledProcessError):
         print("Java is not installed or not accessible.", file=sys.stderr)
         sys.exit(1)
 
 def execute_java(command):
     """Runs a java gradlew test command and returns the raw output."""
     try:
-        result = subprocess.run(command, shell=True, capture_output=True, text=True)
+        os.makedirs(GRADLE_USER_HOME, exist_ok=True)
+        gradle_env = os.environ.copy()
+        gradle_env.setdefault("GRADLE_USER_HOME", GRADLE_USER_HOME)
+        result = subprocess.run(
+            shlex.split(command),
+            cwd=BASE_DIR,
+            env=gradle_env,
+            capture_output=True,
+            text=True,
+        )
         if result.returncode == 0:
             healthy_scripts.append(command)
             return result.stdout
@@ -33,11 +46,11 @@ def execute_java(command):
 
 def process_markdown():
     """Parses README.md, extracts java commands and corresponding sample files."""
-    if not os.path.exists("README.md"):
+    if not os.path.exists(README_PATH):
         print("Error: README.md not found.")
         sys.exit(1)
     
-    with open("README.md", 'r', encoding='utf-8') as f:
+    with open(README_PATH, 'r', encoding='utf-8') as f:
         lines = f.readlines()
     
     sections = []
@@ -62,15 +75,16 @@ def process_markdown():
         if in_section:
             # found a java command
             if line.startswith("`./gradlew test "):
-                java_command = line.strip()
-                current_section["javas"].append(java_command[3:-1])
+                java_match = re.match(r'^`([^`]+)`$', line.strip())
+                if java_match:
+                    current_section["javas"].append(java_match.group(1))
             
             # all sample files are in the samples directory, so look for that
             file_matches = re.findall(r'`samples/([^`]+)`', line)
             for match in file_matches:
                 current_section["files"].append(f"samples/{match}")
-    
-    if current_section["javas"]:
+
+    if in_section and current_section["javas"]:
         sections.append(current_section)
     
     return sections
@@ -84,7 +98,8 @@ def run_sections(sections):
             response = execute_java(java_cmd)
             # ignore extra responses if there are more responses in a section than sample files
             if response and file_index < len(section["files"]):
-                with open(section["files"][file_index], 'w', encoding='utf-8') as f:
+                sample_path = os.path.join(BASE_DIR, section["files"][file_index])
+                with open(sample_path, 'w', encoding='utf-8') as f:
                    f.write(response + "\n")
                 print(f"Updated: {section['files'][file_index]}")
                 file_index += 1
