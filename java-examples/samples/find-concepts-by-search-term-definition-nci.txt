@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchFilterByDefinitionSourceTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 13
-        timeTaken: 58
+        timeTaken: 47
         parameters: class SearchCriteria {
             uri: null
             ct: null

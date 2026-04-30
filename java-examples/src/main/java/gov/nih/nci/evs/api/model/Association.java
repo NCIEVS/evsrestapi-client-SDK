@@ -62,6 +62,10 @@ public class Association {
   @SerializedName(SERIALIZED_NAME_CT)
   private Integer ct;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -124,6 +128,25 @@ public class Association {
 
   public void setCt(Integer ct) {
     this.ct = ct;
+  }
+
+
+  public Association code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Association code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
@@ -261,6 +284,7 @@ public class Association {
     Association association = (Association) o;
     return Objects.equals(this.uri, association.uri) &&
         Objects.equals(this.ct, association.ct) &&
+        Objects.equals(this.code, association.code) &&
         Objects.equals(this.type, association.type) &&
         Objects.equals(this.relatedCode, association.relatedCode) &&
         Objects.equals(this.relatedName, association.relatedName) &&
@@ -271,7 +295,7 @@ public class Association {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, type, relatedCode, relatedName, source, highlight, qualifiers);
+    return Objects.hash(uri, ct, code, type, relatedCode, relatedName, source, highlight, qualifiers);
   }
 
   @Override
@@ -280,6 +304,7 @@ public class Association {
     sb.append("class Association {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    relatedCode: ").append(toIndentedString(relatedCode)).append("\n");
     sb.append("    relatedName: ").append(toIndentedString(relatedName)).append("\n");
@@ -310,6 +335,7 @@ public class Association {
     openapiFields = new HashSet<String>();
     openapiFields.add("uri");
     openapiFields.add("ct");
+    openapiFields.add("code");
     openapiFields.add("type");
     openapiFields.add("relatedCode");
     openapiFields.add("relatedName");
@@ -342,12 +368,15 @@ public class Association {
         }
       }
         JsonObject jsonObj = jsonElement.getAsJsonObject();
-      if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
+    if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
-      }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+    }
+    if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
+    }
+    if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
+    }
       if ((jsonObj.get("relatedCode") != null && !jsonObj.get("relatedCode").isJsonNull()) && !jsonObj.get("relatedCode").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `relatedCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("relatedCode").toString()));
       }
@@ -425,4 +454,3 @@ public class Association {
     return JSON.getGson().toJson(this);
   }
 }
-

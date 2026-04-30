@@ -13,6 +13,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -    associations = [class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C77526
         relatedName: CDISC SEND Terminology
@@ -22,6 +23,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C88025
         relatedName: CDISC SEND Tumor Findings Results Terminology
@@ -31,6 +33,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C165258
         relatedName: Cellosaurus Disease Terminology
@@ -40,6 +43,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C61410
         relatedName: Clinical Data Interchange Standards Consortium Terminology
@@ -49,6 +53,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C138188
         relatedName: Clinical Trials Search-Application Programming Interface Disease Category Terminology
@@ -58,6 +63,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C156953
         relatedName: CPTAC Baseline Medical Forms Terminology
@@ -67,6 +73,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C158520
         relatedName: CPTAC Codelists Terminology
@@ -76,6 +83,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C159415
         relatedName: CPTAC Melanoma Baseline Form
@@ -85,6 +93,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C156966
         relatedName: CPTAC Neoplasms Codelist
@@ -94,6 +103,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C156952
         relatedName: CPTAC Terminology
@@ -103,6 +113,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C157534
         relatedName: CPTAC Uveal Melanoma Baseline Form
@@ -112,6 +123,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C118168
         relatedName: CTRP Disease Terminology
@@ -121,6 +133,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C116977
         relatedName: CTRP Terminology
@@ -130,6 +143,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C138190
         relatedName: CTS-API Disease Main Type Terminology
@@ -139,6 +153,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A32
         type: Is_Value_For_GDC_Property
         relatedCode: C178243
         relatedName: Family Cancer History Relative Primary Diagnosis Question
@@ -148,6 +163,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C157711
         relatedName: GDC Terminology
@@ -157,6 +173,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C177537
         relatedName: GDC Value Terminology
@@ -166,6 +183,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A32
         type: Is_Value_For_GDC_Property
         relatedCode: C176985
         relatedName: Histology ICD-O Morphology Code
@@ -175,6 +193,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A32
         type: Is_Value_For_GDC_Property
         relatedCode: C177621
         relatedName: ICD-O-3 Morphology Term Diagnosis Question
@@ -184,6 +203,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168658
         relatedName: Mapped ICDO3.1 Morphology PT Terminology
@@ -193,6 +213,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168657
         relatedName: Mapped ICDO3.1 Morphology Terminology
@@ -202,6 +223,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168655
         relatedName: Mapped ICDO3.1 Terminology
@@ -211,6 +233,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168662
         relatedName: Mapped ICDO3.2 Morphology PT Terminology
@@ -220,6 +243,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168661
         relatedName: Mapped ICDO3.2 Morphology Terminology
@@ -229,6 +253,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C168656
         relatedName: Mapped ICDO3.2 Terminology
@@ -238,6 +263,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C103113
         relatedName: NCI CTEP SDC Melanoma Sub-Category Terminology
@@ -247,6 +273,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C102905
         relatedName: NCI CTEP Simplified Disease Classification Terminology
@@ -256,6 +283,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C126659
         relatedName: NCIt Neoplasm Core Terminology
@@ -265,6 +293,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C90259
         relatedName: NICHD Terminology
@@ -274,6 +303,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C189762
         relatedName: Pediatric Adverse Events Terminology Mapped to MedDRA
@@ -283,6 +313,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A8
         type: Concept_In_Subset
         relatedCode: C118464
         relatedName: Pediatric Adverse Events Terminology
@@ -292,6 +323,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
     }, class Association {
         uri: null
         ct: null
+        code: A14
         type: Neoplasm_Has_Special_Category
         relatedCode: C9292
         relatedName: Solid Neoplasm
@@ -302,7 +334,7 @@ ConceptEndpointsApiTest > getAssociations1Test() STANDARD_ERROR
 
 ConceptEndpointsApiTest > getAssociations1Test() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -310,6 +342,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

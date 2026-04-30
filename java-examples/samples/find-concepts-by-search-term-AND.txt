@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchByTypeANDTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 151
-        timeTaken: 64
+        timeTaken: 35
         parameters: class SearchCriteria {
             uri: null
             ct: null

@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 2345
-        timeTaken: 49
+        timeTaken: 55
         parameters: class SearchCriteria {
             uri: null
             ct: null
