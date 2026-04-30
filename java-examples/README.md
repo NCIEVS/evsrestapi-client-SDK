@@ -31,9 +31,10 @@ This directory includes a helper script that scans this `README.md` for `./gradl
 - Usage:
     ```bash
     cd java-examples
-    python java_check.py
+    python3 java_check.py
     ```
 - Requirements:
+    - Python 3 must be installed and accessible as `python3` because this helper script is written in Python.
     - Java must be installed and accessible (e.g. `java --version`).
     - Gradle wrapper `./gradlew` must be executable from this directory (as the script runs gradle commands parsed from the README).
 - Output: The script will execute the `./gradlew test` commands found in the README and update files in the `samples/` directory with collected outputs; it also reports which commands succeeded or failed.

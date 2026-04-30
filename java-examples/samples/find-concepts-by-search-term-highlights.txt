@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchWithHighlightsTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 1
-        timeTaken: 50
+        timeTaken: 66
         parameters: class SearchCriteria {
             uri: null
             ct: null

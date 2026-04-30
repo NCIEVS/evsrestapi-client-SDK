@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchConceptsBySubsetTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 36
-        timeTaken: 65
+        timeTaken: 83
         parameters: class SearchCriteria {
             uri: null
             ct: null

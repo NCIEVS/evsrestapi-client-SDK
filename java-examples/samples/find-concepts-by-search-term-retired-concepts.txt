@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchFilterByConceptStatusTest() STANDARD_ERROR
         uri: null
         ct: null
         total: 19
-        timeTaken: 48
+        timeTaken: 69
         parameters: class SearchCriteria {
             uri: null
             ct: null

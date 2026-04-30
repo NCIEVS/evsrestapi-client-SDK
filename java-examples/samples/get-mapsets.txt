@@ -71,10 +71,39 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
+        code: NCIT_TO_SWISSPROT
+        name: NCIT_TO_SWISSPROT
+        terminology: null
+        version: Mar2026
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
         code: NCIt_Maps_To_GDC
         name: NCIt_Maps_To_GDC
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -103,7 +132,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICD9CM
         name: NCIt_Maps_To_ICD9CM
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -112,35 +141,6 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         source: null
         leaf: null
         active: true
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: NCIT_TO_SWISSPROT
-        name: NCIT_TO_SWISSPROT
-        terminology: null
-        version: Mar2026
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
         synonyms: []
         definitions: []
         properties: []
@@ -219,7 +219,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_MedDRA
         name: NCIt_Maps_To_MedDRA
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -248,7 +248,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICDO3
         name: NCIt_Maps_To_ICDO3
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -332,10 +332,39 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
     }, class Concept {
         uri: null
         ct: null
+        code: NCIt_to_HGNC_Mapping
+        name: NCIt_to_HGNC_Mapping
+        terminology: null
+        version: Mar2026
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
         code: NCIt_Maps_To_ICD10CM
         name: NCIt_Maps_To_ICD10CM
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -364,7 +393,7 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         code: NCIt_Maps_To_ICD10
         name: NCIt_Maps_To_ICD10
         terminology: null
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -373,35 +402,6 @@ MapsetEndpointsApiTest > getMapsetsTest() STANDARD_ERROR
         source: null
         leaf: null
         active: true
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
-        code: NCIt_to_HGNC_Mapping
-        name: NCIt_to_HGNC_Mapping
-        terminology: null
-        version: Mar2026
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
         synonyms: []
         definitions: []
         properties: []

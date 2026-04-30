@@ -10,20 +10,31 @@ ones shown.
 ## Prerequisites
 
 - Python 3.5 or higher must be installed. The latest version can be found [here](https://www.python.org/downloads/).
+- This README assumes Python is available as `python3`.
+  - On macOS, verify your installation with `python3 --version`.
+  - On Windows, install Python 3 and ensure it is added to `PATH` so `python3 --version` works in your terminal.
 
 - All libraries in 'requirements.txt' must be installed.
-    - Run the command 'pip install -r requirements.txt' in a console window to check these libraries and install any
+    - Run the command `python3 -m pip install -r requirements.txt` in a console window to check these libraries and install any
       that are not already installed.
-    - If pip itself is not installed, run the command 'curl <https://bootstrap.pypa.io/get-pip.py> -o get-pip.py; python
-      get-pip.py' to install it.
+    - Verify pip support with `python3 -m pip --version`.
 
-On Mac, it may be necessary to do this:
+If you want to isolate dependencies in a virtual environment, use:
 
 ```
 python3 -m venv .venv
-source .venv/bin/activate
-pip3 install -r requirements.txt
 ```
+
+- On macOS or Linux:
+  ```bash
+source .venv/bin/activate
+python3 -m pip install -r requirements.txt
+  ```
+- On Windows PowerShell:
+  ```powershell
+.venv\Scripts\Activate.ps1
+python3 -m pip install -r requirements.txt
+  ```
 
 The various scripts make use of the `config.ini` file to load necessary information that is uniform across all tests.
 You can also tune network behavior there:
@@ -41,11 +52,11 @@ This directory includes a small helper script that parses this `README.md` for b
 - Usage:
   ```bash
   cd python-examples
-  python python_check.py
+  python3 python_check.py
   ```
 - Requirements:
-  - Ensure `pytest` is installed in your current Python environment: `pip install pytest`.
-  - Project dependencies: `pip install -r requirements.txt`.
+  - Ensure `pytest` is installed in your current Python environment: `python3 -m pip install pytest`.
+  - Project dependencies: `python3 -m pip install -r requirements.txt`.
 - Output: The script runs the pytest commands it finds in this README and reports which executed successfully (and which did not).
 
 Note: `python_check.py` launches each README command in a separate `pytest` subprocess. Network fixes placed only in `python_check.py` do not propagate into those subprocesses; client networking defaults are defined in the SDK itself.

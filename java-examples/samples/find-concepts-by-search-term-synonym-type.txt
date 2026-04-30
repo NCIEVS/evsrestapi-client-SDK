@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchFilterBySynonymType() STANDARD_ERROR
         uri: null
         ct: null
         total: 14
-        timeTaken: 35
+        timeTaken: 42
         parameters: class SearchCriteria {
             uri: null
             ct: null

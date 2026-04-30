@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
         uri: null
         ct: null
         total: 14
-        timeTaken: 61
+        timeTaken: 94
         parameters: class SearchCriteria {
             uri: null
             ct: null
