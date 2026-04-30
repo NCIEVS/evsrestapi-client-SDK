@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon Aug 25 10:29:11 PDT 2025
+Starting ...Thu Apr 30 11:15:03 PDT 2026
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,24 +12,27 @@ include = synonyms
       "code": "P302",
       "name": "Accepted_Therapeutic_Use_For",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "synonyms": [
         {
           "name": "Accepted Therapeutic Use For",
-          "type": "Display_Name"
+          "type": "Display_Name",
+          "typeCode": "P107"
         },
         {
           "name": "Accepted_Therapeutic_Use_For",
-          "type": "FULL_SYN"
+          "type": "FULL_SYN",
+          "typeCode": "P90"
         },
         {
           "name": "Accepted_Therapeutic_Use_For",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Mon Aug 25 10:29:12 PDT 2025
+Finished ...Thu Apr 30 11:15:03 PDT 2026
 -----------------------------------------------------
 

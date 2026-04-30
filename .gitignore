@@ -22,3 +22,4 @@ doc/code-gen/build
 */node_modules
 typescript-examples/package-lock.json
 typescript-examples/package.json
+.gradle-user-home

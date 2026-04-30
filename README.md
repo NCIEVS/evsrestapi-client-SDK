@@ -25,6 +25,11 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 A set of convenience scripts is provided in some of the example directories to help you run the example collections/tests and capture outputs quickly. These scripts are optional helpers and use the examples' local files and tooling.
 
+For Python-based helper scripts in this repository, the documentation assumes a `python3` command is available on your machine.
+
+- On macOS, install Python 3 and verify it with `python3 --version`.
+- On Windows, install Python 3 and make sure the install adds Python to `PATH` so `python3 --version` works in your terminal.
+
 - `postman-examples/postman.sh` — Runs the Postman collection via Newman. Example:
 	```bash
 	cd postman-examples
@@ -39,15 +44,15 @@ A set of convenience scripts is provided in some of the example directories to h
 - `python-examples/python_check.py` — Scans `python-examples/README.md` for backticked pytest commands and runs them using your Python environment. Example:
 	```bash
 	cd python-examples
-	python python_check.py
+	python3 python_check.py
 	```
 - `java-examples/java_check.py` — Scans `java-examples/README.md` for `./gradlew` commands, executes them, and writes captured outputs to the `samples/` folder. Example:
 	```bash
 	cd java-examples
-	python java_check.py
+	python3 java_check.py
 	```
 
-Requirements: `newman` (npm) for Postman scripts; `pytest` (pip) for the Python helper; Java (JDK) and a working `./gradlew` (Gradle wrapper) for the Java helper.
+Requirements: `newman` (npm) for Postman scripts; Python 3 with `python3` on `PATH` plus `pytest` for the Python helper; Java (JDK) and a working `./gradlew` (Gradle wrapper) for the Java helper.
 
 **[Back to top](#table-of-contents)**
 

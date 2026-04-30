@@ -62,6 +62,10 @@ public class Property {
   @SerializedName(SERIALIZED_NAME_CT)
   private Integer ct;
 
+  public static final String SERIALIZED_NAME_CODE = "code";
+  @SerializedName(SERIALIZED_NAME_CODE)
+  private String code;
+
   public static final String SERIALIZED_NAME_TYPE = "type";
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
@@ -120,6 +124,25 @@ public class Property {
 
   public void setCt(Integer ct) {
     this.ct = ct;
+  }
+
+
+  public Property code(String code) {
+    this.code = code;
+    return this;
+  }
+
+   /**
+   * Property code
+   * @return code
+  **/
+  @javax.annotation.Nullable
+  public String getCode() {
+    return code;
+  }
+
+  public void setCode(String code) {
+    this.code = code;
   }
 
 
@@ -238,6 +261,7 @@ public class Property {
     Property property = (Property) o;
     return Objects.equals(this.uri, property.uri) &&
         Objects.equals(this.ct, property.ct) &&
+        Objects.equals(this.code, property.code) &&
         Objects.equals(this.type, property.type) &&
         Objects.equals(this.value, property.value) &&
         Objects.equals(this.highlight, property.highlight) &&
@@ -247,7 +271,7 @@ public class Property {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, type, value, highlight, qualifiers, source);
+    return Objects.hash(uri, ct, code, type, value, highlight, qualifiers, source);
   }
 
   @Override
@@ -256,6 +280,7 @@ public class Property {
     sb.append("class Property {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
+    sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    value: ").append(toIndentedString(value)).append("\n");
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
@@ -285,6 +310,7 @@ public class Property {
     openapiFields = new HashSet<String>();
     openapiFields.add("uri");
     openapiFields.add("ct");
+    openapiFields.add("code");
     openapiFields.add("type");
     openapiFields.add("value");
     openapiFields.add("highlight");
@@ -318,6 +344,9 @@ public class Property {
         JsonObject jsonObj = jsonElement.getAsJsonObject();
       if ((jsonObj.get("uri") != null && !jsonObj.get("uri").isJsonNull()) && !jsonObj.get("uri").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `uri` to be a primitive type in the JSON string but got `%s`", jsonObj.get("uri").toString()));
+      }
+      if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
       if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
@@ -396,4 +425,3 @@ public class Property {
     return JSON.getGson().toJson(this);
   }
 }
-

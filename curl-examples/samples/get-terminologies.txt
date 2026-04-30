@@ -1,26 +1,26 @@
 [
   {
     "terminology": "ncit",
-    "version": "25.07d",
-    "date": "July 28, 2025",
-    "name": "NCI Thesaurus 25.07d",
+    "version": "26.03e",
+    "date": "2026-03-30",
+    "name": "NCI Thesaurus 26.03e",
     "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.",
-    "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_25.07d.owl",
-    "terminologyVersion": "ncit_25.07d",
+    "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_26.03e.owl",
+    "terminologyVersion": "ncit_26.03e",
     "latest": true,
     "tags": {
       "monthly": "true"
     },
-    "indexName": "concept_ncit_2507d",
-    "objectIndexName": "evs_object_ncit_2507d",
+    "indexName": "concept_ncit_2603e",
+    "objectIndexName": "evs_object_ncit_2603e",
     "metadata": {
       "uiLabel": "NCI Thesaurus",
       "maxVersions": 3,
       "loader": "rdf",
       "conceptStatuses": [
-        "Obsolete_Concept",
         "Header_Concept",
         "Retired_Concept",
+        "Obsolete_Concept",
         "Provisional_Concept",
         "Concept_Pending_Approval"
       ],
@@ -35,15 +35,10 @@
       },
       "hierarchy": true,
       "history": false,
-      "sourceCt": 74,
+      "sourceCt": 76,
       "subsetLink": "P374",
       "codeLabel": "NCI Thesaurus Code",
-      "extraSubsets": {
-        "C6283": "C143048",
-        "C190573": "C6283",
-        "C4005": "C6283"
-      },
-      "historyVersion": "25.07d"
+      "historyVersion": "26.02d"
     }
   }
 ]

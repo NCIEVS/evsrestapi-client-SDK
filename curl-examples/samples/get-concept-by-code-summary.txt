@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "25.07d",
+  "version": "26.03e",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true,
@@ -11,36 +11,42 @@
       "name": "Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "caDSR"
     },
     {
       "name": "Malignant Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CDISC"
     },
     {
       "name": "MELANOMA, MALIGNANT",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CDISC"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "Cellosaurus"
     },
     {
       "name": "Malignant Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CPTAC"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTEP",
       "code": "10053571",
       "subSource": "SDC"
@@ -49,30 +55,35 @@
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
       "termType": "DN",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "GDC"
     },
     {
       "name": "Melanoma, NOS",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "GDC"
     },
     {
       "name": "melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     },
@@ -80,47 +91,56 @@
       "name": "Malignant Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NICHD"
     },
     {
       "name": "Melanoma",
-      "type": "Display_Name"
+      "type": "Display_Name",
+      "typeCode": "P107"
     },
     {
       "name": "Melanoma",
-      "type": "Preferred_Name"
+      "type": "Preferred_Name",
+      "typeCode": "P108"
     }
   ],
   "definitions": [
     {
       "definition": "A form of cancer that begins in melanocytes (cells that make the pigment melanin). It may begin in a mole (skin melanoma), but can also begin in other pigmented tissues, such as in the eye or in the intestines.",
+      "code": "P325",
       "type": "ALT_DEFINITION",
       "source": "NCI-GLOSS"
     },
     {
       "definition": "A malignant neoplasm composed of melanocytes.",
+      "code": "P325",
       "type": "ALT_DEFINITION",
       "source": "CDISC"
     },
     {
       "definition": "A malignant neoplasm comprised of melanocytes typically arising in the skin.",
+      "code": "P325",
       "type": "ALT_DEFINITION",
       "source": "NICHD"
     },
     {
       "definition": "A malignant, usually aggressive tumor composed of atypical, neoplastic melanocytes. Most often, melanomas arise in the skin (cutaneous melanomas) and include the following histologic subtypes: superficial spreading melanoma, nodular melanoma, acral lentiginous melanoma, and lentigo maligna melanoma. Cutaneous melanomas may arise from acquired or congenital melanocytic or dysplastic nevi. Melanomas may also arise in other anatomic sites including the gastrointestinal system, eye, urinary tract, and reproductive system. Melanomas frequently metastasize to lymph nodes, liver, lungs, and brain.",
+      "code": "P97",
       "type": "DEFINITION",
       "source": "NCI"
     }

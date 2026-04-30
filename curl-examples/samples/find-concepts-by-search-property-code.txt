@@ -19,7 +19,7 @@
       "code": "C61305",
       "name": "Sivifene",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true,

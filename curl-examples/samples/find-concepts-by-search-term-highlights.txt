@@ -1,6 +1,6 @@
 {
-  "total": 1625,
-  "timeTaken": 55,
+  "total": 1655,
+  "timeTaken": 56,
   "parameters": {
     "term": "melanoma",
     "type": "contains",
@@ -16,7 +16,7 @@
       "code": "C3224",
       "name": "Melanoma",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "highlight": "<em>Melanoma</em>",
       "conceptStatus": "DEFAULT",
       "leaf": false,
@@ -27,18 +27,21 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "SY",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "caDSR"
         },
         {
           "name": "Malignant Melanoma",
           "termType": "SY",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CDISC"
         },
         {
           "name": "MELANOMA, MALIGNANT",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CDISC"
         },
         {
@@ -46,12 +49,14 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "Cellosaurus"
         },
         {
           "name": "Malignant Melanoma",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CPTAC"
         },
         {
@@ -59,6 +64,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CTEP",
           "code": "10053571",
           "subSource": "SDC"
@@ -68,6 +74,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CTRP"
         },
         {
@@ -75,6 +82,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "DN",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CTRP"
         },
         {
@@ -82,12 +90,14 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "GDC"
         },
         {
           "name": "Melanoma, NOS",
           "termType": "SY",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "GDC"
         },
         {
@@ -95,6 +105,7 @@
           "highlight": "<em>melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI-GLOSS",
           "code": "CDR0000045135"
         },
@@ -102,6 +113,7 @@
           "name": "Malignant Melanoma",
           "termType": "SY",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
@@ -109,6 +121,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
@@ -116,17 +129,20 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NICHD"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "type": "Display_Name"
+          "type": "Display_Name",
+          "typeCode": "P107"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     },
@@ -134,7 +150,7 @@
       "code": "C91477",
       "name": "Melanoma Pathway",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "highlight": "<em>Melanoma</em> Pathway",
       "conceptStatus": "DEFAULT",
       "leaf": true,
@@ -145,6 +161,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "KEGG"
         },
         {
@@ -152,12 +169,14 @@
           "highlight": "<em>Melanoma</em> Pathway",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
           "name": "Melanoma Pathway",
           "highlight": "<em>Melanoma</em> Pathway",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     },
@@ -165,7 +184,7 @@
       "code": "C21790",
       "name": "Mouse Melanoma",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "highlight": "Mouse <em>Melanoma</em>",
       "conceptStatus": "DEFAULT",
       "leaf": false,
@@ -176,6 +195,7 @@
           "highlight": "Mouse <em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "Cellosaurus"
         },
         {
@@ -183,17 +203,20 @@
           "highlight": "Mouse <em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
           "name": "Melanoma",
           "highlight": "<em>Melanoma</em>",
-          "type": "Display_Name"
+          "type": "Display_Name",
+          "typeCode": "P107"
         },
         {
           "name": "Mouse Melanoma",
           "highlight": "Mouse <em>Melanoma</em>",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     },
@@ -201,7 +224,7 @@
       "code": "C103113",
       "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
       "conceptStatus": "DEFAULT",
       "leaf": true,
@@ -212,6 +235,7 @@
           "highlight": "<em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CTEP",
           "subSource": "SDC"
         },
@@ -220,6 +244,7 @@
           "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
@@ -227,12 +252,14 @@
           "highlight": "NCI CTEP Simple Disease Classification <em>Melanoma</em> Sub-Category Terminology",
           "termType": "SY",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
           "name": "NCI CTEP SDC Melanoma Sub-Category Terminology",
           "highlight": "NCI CTEP SDC <em>Melanoma</em> Sub-Category Terminology",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     },
@@ -240,7 +267,7 @@
       "code": "C157920",
       "name": "Melanoma Surgery",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "highlight": "<em>Melanoma</em> Surgery",
       "conceptStatus": "DEFAULT",
       "leaf": true,
@@ -251,6 +278,7 @@
           "highlight": "Surgery for <em>Melanoma</em>",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "CPTAC"
         },
         {
@@ -258,12 +286,14 @@
           "highlight": "<em>Melanoma</em> Surgery",
           "termType": "PT",
           "type": "FULL_SYN",
+          "typeCode": "P90",
           "source": "NCI"
         },
         {
           "name": "Melanoma Surgery",
           "highlight": "<em>Melanoma</em> Surgery",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     }

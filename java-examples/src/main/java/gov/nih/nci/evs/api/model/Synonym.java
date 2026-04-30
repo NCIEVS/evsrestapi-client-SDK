@@ -78,6 +78,10 @@ public class Synonym {
   @SerializedName(SERIALIZED_NAME_TYPE)
   private String type;
 
+  public static final String SERIALIZED_NAME_TYPE_CODE = "typeCode";
+  @SerializedName(SERIALIZED_NAME_TYPE_CODE)
+  private String typeCode;
+
   public static final String SERIALIZED_NAME_SOURCE = "source";
   @SerializedName(SERIALIZED_NAME_SOURCE)
   private String source;
@@ -215,6 +219,25 @@ public class Synonym {
   }
 
 
+  public Synonym typeCode(String typeCode) {
+    this.typeCode = typeCode;
+    return this;
+  }
+
+   /**
+   * Synonym type code
+   * @return typeCode
+  **/
+  @javax.annotation.Nullable
+  public String getTypeCode() {
+    return typeCode;
+  }
+
+  public void setTypeCode(String typeCode) {
+    this.typeCode = typeCode;
+  }
+
+
   public Synonym source(String source) {
     this.source = source;
     return this;
@@ -334,6 +357,7 @@ public class Synonym {
         Objects.equals(this.highlight, synonym.highlight) &&
         Objects.equals(this.termType, synonym.termType) &&
         Objects.equals(this.type, synonym.type) &&
+        Objects.equals(this.typeCode, synonym.typeCode) &&
         Objects.equals(this.source, synonym.source) &&
         Objects.equals(this.code, synonym.code) &&
         Objects.equals(this.subSource, synonym.subSource) &&
@@ -343,7 +367,7 @@ public class Synonym {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, name, highlight, termType, type, source, code, subSource, qualifiers, active);
+    return Objects.hash(uri, ct, name, highlight, termType, type, typeCode, source, code, subSource, qualifiers, active);
   }
 
   @Override
@@ -356,6 +380,7 @@ public class Synonym {
     sb.append("    highlight: ").append(toIndentedString(highlight)).append("\n");
     sb.append("    termType: ").append(toIndentedString(termType)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
+    sb.append("    typeCode: ").append(toIndentedString(typeCode)).append("\n");
     sb.append("    source: ").append(toIndentedString(source)).append("\n");
     sb.append("    code: ").append(toIndentedString(code)).append("\n");
     sb.append("    subSource: ").append(toIndentedString(subSource)).append("\n");
@@ -389,6 +414,7 @@ public class Synonym {
     openapiFields.add("highlight");
     openapiFields.add("termType");
     openapiFields.add("type");
+    openapiFields.add("typeCode");
     openapiFields.add("source");
     openapiFields.add("code");
     openapiFields.add("subSource");
@@ -432,12 +458,15 @@ public class Synonym {
       if ((jsonObj.get("termType") != null && !jsonObj.get("termType").isJsonNull()) && !jsonObj.get("termType").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `termType` to be a primitive type in the JSON string but got `%s`", jsonObj.get("termType").toString()));
       }
-      if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
+    if ((jsonObj.get("type") != null && !jsonObj.get("type").isJsonNull()) && !jsonObj.get("type").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `type` to be a primitive type in the JSON string but got `%s`", jsonObj.get("type").toString()));
-      }
-      if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
+    }
+    if ((jsonObj.get("typeCode") != null && !jsonObj.get("typeCode").isJsonNull()) && !jsonObj.get("typeCode").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `typeCode` to be a primitive type in the JSON string but got `%s`", jsonObj.get("typeCode").toString()));
+    }
+    if ((jsonObj.get("source") != null && !jsonObj.get("source").isJsonNull()) && !jsonObj.get("source").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `source` to be a primitive type in the JSON string but got `%s`", jsonObj.get("source").toString()));
-      }
+    }
       if ((jsonObj.get("code") != null && !jsonObj.get("code").isJsonNull()) && !jsonObj.get("code").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `code` to be a primitive type in the JSON string but got `%s`", jsonObj.get("code").toString()));
       }
@@ -509,4 +538,3 @@ public class Synonym {
     return JSON.getGson().toJson(this);
   }
 }
-

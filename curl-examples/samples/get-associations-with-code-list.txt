@@ -3,29 +3,34 @@
     "code": "A1",
     "name": "Role_Has_Domain",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Role Has Domain",
-        "type": "Display_Name"
+        "type": "Display_Name",
+        "typeCode": "P107"
       },
       {
         "name": "Role_Has_Domain",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Role_Has_Domain",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "An association that specifies the parent of the branch encompassing a role's domain.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       }
@@ -35,29 +40,34 @@
     "code": "A2",
     "name": "Role_Has_Range",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Role Has Range",
-        "type": "Display_Name"
+        "type": "Display_Name",
+        "typeCode": "P107"
       },
       {
         "name": "Role_Has_Range",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Role_Has_Range",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "An association that specifies  the parent of the branch encompassing the role's range.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       }
@@ -67,29 +77,34 @@
     "code": "A3",
     "name": "Role_Has_Parent",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Role Has Parent",
-        "type": "Display_Name"
+        "type": "Display_Name",
+        "typeCode": "P107"
       },
       {
         "name": "Role_Has_Parent",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Role_Has_Parent",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "An association that specifies that a role exists as part of a role hierarchy and specifies the role's parent, the role that this role specializes.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       }

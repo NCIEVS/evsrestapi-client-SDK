@@ -105,6 +105,10 @@ public class TerminologyMetadata {
   @SerializedName(SERIALIZED_NAME_HISTORY)
   private Boolean history;
 
+  public static final String SERIALIZED_NAME_HISTORY_VERSION = "historyVersion";
+  @SerializedName(SERIALIZED_NAME_HISTORY_VERSION)
+  private String historyVersion;
+
   public static final String SERIALIZED_NAME_SOURCE_CT = "sourceCt";
   @SerializedName(SERIALIZED_NAME_SOURCE_CT)
   private Integer sourceCt;
@@ -404,6 +408,25 @@ public class TerminologyMetadata {
   }
 
 
+  public TerminologyMetadata historyVersion(String historyVersion) {
+    this.historyVersion = historyVersion;
+    return this;
+  }
+
+   /**
+   * Historical version identifier, when present
+   * @return historyVersion
+  **/
+  @javax.annotation.Nullable
+  public String getHistoryVersion() {
+    return historyVersion;
+  }
+
+  public void setHistoryVersion(String historyVersion) {
+    this.historyVersion = historyVersion;
+  }
+
+
   public TerminologyMetadata sourceCt(Integer sourceCt) {
     this.sourceCt = sourceCt;
     return this;
@@ -613,6 +636,7 @@ public class TerminologyMetadata {
         Objects.equals(this.hierarchy, terminologyMetadata.hierarchy) &&
         Objects.equals(this.hierarchyRoles, terminologyMetadata.hierarchyRoles) &&
         Objects.equals(this.history, terminologyMetadata.history) &&
+        Objects.equals(this.historyVersion, terminologyMetadata.historyVersion) &&
         Objects.equals(this.sourceCt, terminologyMetadata.sourceCt) &&
         Objects.equals(this.subsetLink, terminologyMetadata.subsetLink) &&
         Objects.equals(this.licenseText, terminologyMetadata.licenseText) &&
@@ -626,7 +650,7 @@ public class TerminologyMetadata {
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, conceptStatuses, excludedProperties, retiredStatusValue, detailsColumns, hierarchy, hierarchyRoles, history, sourceCt, subsetLink, licenseText, metaConceptField, codeLabel, welcomeText, synonymTermGroup, termGroups, preferredTermGroups);
+    return Objects.hash(uri, ct, uiLabel, maxVersions, loader, conceptStatuses, excludedProperties, retiredStatusValue, detailsColumns, hierarchy, hierarchyRoles, history, historyVersion, sourceCt, subsetLink, licenseText, metaConceptField, codeLabel, welcomeText, synonymTermGroup, termGroups, preferredTermGroups);
   }
 
   @Override
@@ -645,6 +669,7 @@ public class TerminologyMetadata {
     sb.append("    hierarchy: ").append(toIndentedString(hierarchy)).append("\n");
     sb.append("    hierarchyRoles: ").append(toIndentedString(hierarchyRoles)).append("\n");
     sb.append("    history: ").append(toIndentedString(history)).append("\n");
+    sb.append("    historyVersion: ").append(toIndentedString(historyVersion)).append("\n");
     sb.append("    sourceCt: ").append(toIndentedString(sourceCt)).append("\n");
     sb.append("    subsetLink: ").append(toIndentedString(subsetLink)).append("\n");
     sb.append("    licenseText: ").append(toIndentedString(licenseText)).append("\n");
@@ -688,6 +713,7 @@ public class TerminologyMetadata {
     openapiFields.add("hierarchy");
     openapiFields.add("hierarchyRoles");
     openapiFields.add("history");
+    openapiFields.add("historyVersion");
     openapiFields.add("sourceCt");
     openapiFields.add("subsetLink");
     openapiFields.add("licenseText");
@@ -746,6 +772,9 @@ public class TerminologyMetadata {
       // ensure the optional json data is an array if present
       if (jsonObj.get("hierarchyRoles") != null && !jsonObj.get("hierarchyRoles").isJsonNull() && !jsonObj.get("hierarchyRoles").isJsonArray()) {
         throw new IllegalArgumentException(String.format("Expected the field `hierarchyRoles` to be an array in the JSON string but got `%s`", jsonObj.get("hierarchyRoles").toString()));
+      }
+      if ((jsonObj.get("historyVersion") != null && !jsonObj.get("historyVersion").isJsonNull()) && !jsonObj.get("historyVersion").isJsonPrimitive()) {
+        throw new IllegalArgumentException(String.format("Expected the field `historyVersion` to be a primitive type in the JSON string but got `%s`", jsonObj.get("historyVersion").toString()));
       }
       if ((jsonObj.get("subsetLink") != null && !jsonObj.get("subsetLink").isJsonNull()) && !jsonObj.get("subsetLink").isJsonPrimitive()) {
         throw new IllegalArgumentException(String.format("Expected the field `subsetLink` to be a primitive type in the JSON string but got `%s`", jsonObj.get("subsetLink").toString()));
@@ -820,4 +849,3 @@ public class TerminologyMetadata {
     return JSON.getGson().toJson(this);
   }
 }
-

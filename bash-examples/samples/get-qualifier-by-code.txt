@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon Aug 25 10:29:13 PDT 2025
+Starting ...Thu Apr 30 11:15:04 PDT 2026
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,10 +12,10 @@ include =
       "code": "P389",
       "name": "go-evi",
       "terminology": "ncit",
-      "version": "25.07d"
+      "version": "26.03e"
     }
 
 -----------------------------------------------------
-Finished ...Mon Aug 25 10:29:14 PDT 2025
+Finished ...Thu Apr 30 11:15:05 PDT 2026
 -----------------------------------------------------
 

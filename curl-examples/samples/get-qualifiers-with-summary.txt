@@ -1,187 +1,36 @@
 [
   {
-    "code": "P383",
-    "name": "term-group",
-    "terminology": "ncit",
-    "version": "25.07d",
-    "synonyms": [
-      {
-        "name": "term-group",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing a two or three character abbreviation that indicates the nature of each FULL_SYN term associated with a concept. (e.g., PT=Preferred Term; SY=Synonym)",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "required",
-        "value": "true"
-      },
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      },
-      {
-        "type": "remodeled",
-        "value": "true"
-      },
-      {
-        "type": "remodeledDescription",
-        "value": "Remodeled as a synonym term type"
-      }
-    ]
-  },
-  {
-    "code": "P384",
-    "name": "term-source",
-    "terminology": "ncit",
-    "version": "25.07d",
-    "synonyms": [
-      {
-        "name": "term-source",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing the organization that is the supplier or owner of each FULL_SYN term.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "Definition Source",
-        "value": "NCI"
-      },
-      {
-        "type": "required",
-        "value": "true"
-      },
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      },
-      {
-        "type": "remodeled",
-        "value": "true"
-      },
-      {
-        "type": "remodeledDescription",
-        "value": "Remodeled as a synonym source"
-      }
-    ]
-  },
-  {
-    "code": "P385",
-    "name": "Source Code",
-    "terminology": "ncit",
-    "version": "25.07d",
-    "synonyms": [
-      {
-        "name": "Source Code",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "source-code",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "Source Code",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property representing an identifier associated with a FULL_SYN term that is supplied by the term-source.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      },
-      {
-        "type": "remodeled",
-        "value": "true"
-      },
-      {
-        "type": "remodeledDescription",
-        "value": "Remodeled as a synonym code"
-      }
-    ]
-  },
-  {
-    "code": "P386",
-    "name": "Subsource Name",
-    "terminology": "ncit",
-    "version": "25.07d",
-    "synonyms": [
-      {
-        "name": "Subsource Name",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "subsource-name",
-        "type": "FULL_SYN"
-      },
-      {
-        "name": "Subsource Name",
-        "type": "Preferred_Name"
-      }
-    ],
-    "definitions": [
-      {
-        "definition": "A property indicating that a subgroup within the term-source is the supplier or owner of a FULL_SYN term.",
-        "type": "DEFINITION"
-      }
-    ],
-    "properties": [
-      {
-        "type": "Semantic_Type",
-        "value": "Conceptual Entity"
-      },
-      {
-        "type": "remodeled",
-        "value": "true"
-      },
-      {
-        "type": "remodeledDescription",
-        "value": "Remodeled as a synonym subsource"
-      }
-    ]
-  },
-  {
     "code": "P378",
     "name": "Definition Source",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Definition Source",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Definition Source",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the organization that is the supplier or owner of each DEFINITION or ALT_DEFINITION associated with a concept.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       },
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },
@@ -199,27 +48,206 @@
     "code": "P381",
     "name": "attribution",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "attribution",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "attribution",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property indicating that some of the information in a DEFINITION or ALT_DEFINITION was derived from a source other than the def-source.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
+      }
+    ]
+  },
+  {
+    "code": "P383",
+    "name": "term-group",
+    "terminology": "ncit",
+    "version": "26.03e",
+    "synonyms": [
+      {
+        "name": "term-group",
+        "type": "Preferred_Name",
+        "typeCode": "P108"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing a two or three character abbreviation that indicates the nature of each FULL_SYN term associated with a concept. (e.g., PT=Preferred Term; SY=Synonym)",
+        "code": "P97",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "code": "required",
+        "type": "required",
+        "value": "true"
+      },
+      {
+        "code": "P106",
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym term type"
+      }
+    ]
+  },
+  {
+    "code": "P384",
+    "name": "term-source",
+    "terminology": "ncit",
+    "version": "26.03e",
+    "synonyms": [
+      {
+        "name": "term-source",
+        "type": "Preferred_Name",
+        "typeCode": "P108"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing the organization that is the supplier or owner of each FULL_SYN term.",
+        "code": "P97",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "code": "P378",
+        "type": "Definition Source",
+        "value": "NCI"
+      },
+      {
+        "code": "required",
+        "type": "required",
+        "value": "true"
+      },
+      {
+        "code": "P106",
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym source"
+      }
+    ]
+  },
+  {
+    "code": "P385",
+    "name": "Source Code",
+    "terminology": "ncit",
+    "version": "26.03e",
+    "synonyms": [
+      {
+        "name": "Source Code",
+        "type": "FULL_SYN",
+        "typeCode": "P90"
+      },
+      {
+        "name": "source-code",
+        "type": "FULL_SYN",
+        "typeCode": "P90"
+      },
+      {
+        "name": "Source Code",
+        "type": "Preferred_Name",
+        "typeCode": "P108"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property representing an identifier associated with a FULL_SYN term that is supplied by the term-source.",
+        "code": "P97",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "code": "P106",
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym code"
+      }
+    ]
+  },
+  {
+    "code": "P386",
+    "name": "Subsource Name",
+    "terminology": "ncit",
+    "version": "26.03e",
+    "synonyms": [
+      {
+        "name": "Subsource Name",
+        "type": "FULL_SYN",
+        "typeCode": "P90"
+      },
+      {
+        "name": "subsource-name",
+        "type": "FULL_SYN",
+        "typeCode": "P90"
+      },
+      {
+        "name": "Subsource Name",
+        "type": "Preferred_Name",
+        "typeCode": "P108"
+      }
+    ],
+    "definitions": [
+      {
+        "definition": "A property indicating that a subgroup within the term-source is the supplier or owner of a FULL_SYN term.",
+        "code": "P97",
+        "type": "DEFINITION"
+      }
+    ],
+    "properties": [
+      {
+        "code": "P106",
+        "type": "Semantic_Type",
+        "value": "Conceptual Entity"
+      },
+      {
+        "type": "remodeled",
+        "value": "true"
+      },
+      {
+        "type": "remodeledDescription",
+        "value": "Remodeled as a synonym subsource"
       }
     ]
   },
@@ -227,21 +255,24 @@
     "code": "P387",
     "name": "go-id",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "go-id",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing a unique zero-padded seven digit identifier supplied by the Gene Ontology (GO) that has no inherent meaning or relation to the position of the term in GO and is prefixed by \"GO:\".",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       }
@@ -251,21 +282,24 @@
     "code": "P389",
     "name": "go-evi",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "go-evi",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing a three letter code that indicates the type of supporting evidence for each GO_Annotation associated with a concept.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       }
@@ -275,21 +309,24 @@
     "code": "P390",
     "name": "go-source",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "go-source",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the organization that is the supplier or owner of each GO_Annotation associated with a concept.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       }
@@ -299,21 +336,24 @@
     "code": "P391",
     "name": "source-date",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "source-date",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the date each GO_Annotation was added to a concept.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       }
@@ -323,29 +363,34 @@
     "code": "P393",
     "name": "Relationship_to_Target",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Relationship_to_Target",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Relationship_to_Target",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the relationship of the NCI Thesaurus (NCIt) concept to the term from the outside source. There are four possibilities: 1) Has Synonym: the two terms are synonymous; 2) Broader Than: the NCIt concept is broader than the mapped (target) term; 3) Narrower Than: the NCIt concept is narrower than the mapped (target) term; 4) Related To: the NCIt concept is somehow related to the mapped (target) term.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       },
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },
@@ -363,29 +408,34 @@
     "code": "P394",
     "name": "Target_Term_Type",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Target_Term_Type",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Target_Term_Type",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the term type designation in the mapped (target) database.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       },
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },
@@ -403,33 +453,39 @@
     "code": "P395",
     "name": "Target_Code",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Target_Code",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Target_Code",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the code assigned to the target term in the mapped (target) database. Some databases may not have codes.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P378",
         "type": "Definition Source",
         "value": "NCI"
       },
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       },
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },
@@ -447,29 +503,34 @@
     "code": "P396",
     "name": "Target_Terminology",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Target_Terminology",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Target_Terminology",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the name of the terminology to which the NCI Thesaurus term is being mapped.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "required",
         "type": "required",
         "value": "true"
       },
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },
@@ -487,25 +548,29 @@
     "code": "P397",
     "name": "Target_Terminology_Version",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "Target_Terminology_Version",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "Target_Terminology_Version",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property representing the version of the terminology to which the NCI Thesaurus term is being mapped.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       },

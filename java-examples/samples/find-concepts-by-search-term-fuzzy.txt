@@ -13,8 +13,8 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
-        total: 2307
-        timeTaken: 48
+        total: 2345
+        timeTaken: 61
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -44,7 +44,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
             code: C16554
             name: Enzyme
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -73,7 +73,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
             code: C41564
             name: Enzyme Induction
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -102,7 +102,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
             code: C40500
             name: Enzyme Uncoupling
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -131,7 +131,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
             code: C21281
             name: Enzyme Gene
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -160,7 +160,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
             code: C17455
             name: Enzyme Immunoassay
             terminology: ncit
-            version: 25.10d
+            version: 26.03e
             level: null
             highlight: null
             subsetLink: null
@@ -188,7 +188,7 @@ SearchEndpointApiTest > searchByTypeFuzzyTest() STANDARD_ERROR
 
 SearchEndpointApiTest > searchByTypeFuzzyTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -196,6 +196,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 
