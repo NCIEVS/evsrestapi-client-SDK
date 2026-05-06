@@ -27,7 +27,7 @@ If you need to regenerate a single client for a given language:
 If you need to rebuild all the clients for all languages, typically after a big update to the `.yaml` file:
 
 1. Open your terminal and cd to the project directory. e.g. `evsrestapi-client-sdk/doc/code-gen`
-2. Execute `gradle buildClients`
+2. Execute `./gradlew buildClients`
 3. All generated projects will be in a `build` folder. Navigate to the `build` folder to see the generated code
 4. From the `build` folder, copy the generated code files and additional files needs to build/compile the project to the
    corresponding `-examples` folder.
