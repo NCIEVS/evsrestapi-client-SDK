@@ -134,7 +134,7 @@
   {
     "code": "C6102",
     "name": "Choroid Epithelioid Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -152,7 +152,7 @@
   {
     "code": "C35782",
     "name": "Choroid Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -164,19 +164,19 @@
   {
     "code": "C6099",
     "name": "Choroid Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": false
   },
   {
     "code": "C6861",
     "name": "Choroid Spindle Cell Type A Melanoma",
-    "level": 5,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C6862",
     "name": "Choroid Spindle Cell Type B Melanoma",
-    "level": 5,
+    "level": 4,
     "leaf": true
   },
   {
@@ -188,7 +188,7 @@
   {
     "code": "C6119",
     "name": "Ciliary Body Epithelioid Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -206,25 +206,25 @@
   {
     "code": "C35783",
     "name": "Ciliary Body Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
     "code": "C6117",
     "name": "Ciliary Body Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": false
   },
   {
     "code": "C6864",
     "name": "Ciliary Body Spindle Cell Type A Melanoma",
-    "level": 5,
+    "level": 4,
     "leaf": true
   },
   {
     "code": "C6863",
     "name": "Ciliary Body Spindle Cell Type B Melanoma",
-    "level": 5,
+    "level": 4,
     "leaf": true
   },
   {
@@ -290,7 +290,7 @@
   {
     "code": "C213201",
     "name": "Conjunctival Amelanotic Melanoma",
-    "level": 4,
+    "level": 2,
     "leaf": true
   },
   {
@@ -308,13 +308,13 @@
   {
     "code": "C213202",
     "name": "Conjunctival Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 4,
+    "level": 2,
     "leaf": true
   },
   {
     "code": "C213200",
     "name": "Conjunctival Nodular Melanoma",
-    "level": 4,
+    "level": 2,
     "leaf": true
   },
   {
@@ -398,13 +398,13 @@
   {
     "code": "C37257",
     "name": "Desmoplastic Melanoma",
-    "level": 4,
+    "level": 2,
     "leaf": false
   },
   {
     "code": "C48614",
     "name": "Desmoplastic Neurotropic Melanoma",
-    "level": 5,
+    "level": 3,
     "leaf": true
   },
   {
@@ -512,7 +512,7 @@
   {
     "code": "C174498",
     "name": "Iris Epithelioid Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -530,13 +530,13 @@
   {
     "code": "C174506",
     "name": "Iris Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
     "code": "C6098",
     "name": "Iris Spindle Cell Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": true
   },
   {
@@ -672,6 +672,36 @@
     "leaf": false
   },
   {
+    "code": "C226281",
+    "name": "Locoregionally Advanced Acral Melanoma",
+    "level": 5,
+    "leaf": true
+  },
+  {
+    "code": "C226280",
+    "name": "Locoregionally Advanced Cutaneous Melanoma",
+    "level": 3,
+    "leaf": false
+  },
+  {
+    "code": "C226283",
+    "name": "Locoregionally Advanced Melanoma of Unknown Primary",
+    "level": 3,
+    "leaf": true
+  },
+  {
+    "code": "C226289",
+    "name": "Locoregionally Advanced Melanoma",
+    "level": 2,
+    "leaf": false
+  },
+  {
+    "code": "C226282",
+    "name": "Locoregionally Advanced Mucosal Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
     "code": "C204843",
     "name": "Low-CSD Melanoma, Superficial Spreading Melanoma Subtype",
     "level": 4,
@@ -753,7 +783,7 @@
     "code": "C154473",
     "name": "Melanoma of Unknown Primary",
     "level": 2,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C5317",
@@ -914,7 +944,7 @@
   {
     "code": "C166405",
     "name": "Mucosal Nodular Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": true
   },
   {
@@ -1118,7 +1148,7 @@
   {
     "code": "C188079",
     "name": "Rectal Epithelioid Cell Melanoma",
-    "level": 6,
+    "level": 2,
     "leaf": true
   },
   {
@@ -1200,10 +1230,22 @@
     "leaf": true
   },
   {
+    "code": "C226286",
+    "name": "Refractory Acral Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
+    "code": "C226285",
+    "name": "Refractory Cutaneous Melanoma of the Extremity",
+    "level": 3,
+    "leaf": false
+  },
+  {
     "code": "C150544",
     "name": "Refractory Cutaneous Melanoma",
     "level": 2,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C147983",
@@ -1260,6 +1302,12 @@
     "leaf": true
   },
   {
+    "code": "C226284",
+    "name": "Resectable Acral Melanoma",
+    "level": 4,
+    "leaf": true
+  },
+  {
     "code": "C215228",
     "name": "Resectable Anorectal Melanoma",
     "level": 5,
@@ -1269,12 +1317,18 @@
     "code": "C190240",
     "name": "Resectable Cutaneous Melanoma",
     "level": 2,
-    "leaf": true
+    "leaf": false
   },
   {
     "code": "C190239",
     "name": "Resectable Melanoma",
     "level": 1,
+    "leaf": false
+  },
+  {
+    "code": "C226288",
+    "name": "Resectable Mucosal Melanoma",
+    "level": 3,
     "leaf": false
   },
   {
@@ -1760,7 +1814,7 @@
   {
     "code": "C35780",
     "name": "Uveal Epithelioid Cell Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
@@ -1796,7 +1850,7 @@
   {
     "code": "C35781",
     "name": "Uveal Mixed Epithelioid and Spindle Cell Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
@@ -1808,19 +1862,19 @@
   {
     "code": "C7986",
     "name": "Uveal Spindle Cell Melanoma",
-    "level": 3,
+    "level": 2,
     "leaf": false
   },
   {
     "code": "C7987",
     "name": "Uveal Spindle Cell Type A Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": false
   },
   {
     "code": "C7988",
     "name": "Uveal Spindle Cell Type B Melanoma",
-    "level": 4,
+    "level": 3,
     "leaf": false
   },
   {

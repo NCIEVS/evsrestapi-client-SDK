@@ -16,7 +16,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
         code: R123
         name: Chemotherapy_Regimen_Has_Component
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -32,6 +32,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: Display_Name
+            typeCode: P107
             source: null
             code: null
             subSource: null
@@ -44,6 +45,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: FULL_SYN
+            typeCode: P90
             source: null
             code: null
             subSource: null
@@ -56,6 +58,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: Preferred_Name
+            typeCode: P108
             source: null
             code: null
             subSource: null
@@ -67,6 +70,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
             ct: null
             definition: A role used to specify the component agents which are used in a particular chemotherapy regimen or agent combination. The domain and the range for this role are 'Chemotherapy Regimen or Agent Combination' and 'Drug, Food, Chemical or Biomedical Material', respectively.
             highlight: null
+            code: P97
             type: DEFINITION
             source: null
             qualifiers: []
@@ -74,6 +78,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
         properties: [class Property {
             uri: null
             ct: null
+            code: P106
             type: Semantic_Type
             value: Conceptual Entity
             highlight: null
@@ -95,7 +100,7 @@ MetadataEndpointsApiTest > getRoleTest() STANDARD_ERROR
 
 MetadataEndpointsApiTest > getRoleTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -103,6 +108,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 3s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 

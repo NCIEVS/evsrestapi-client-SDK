@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "25.07d",
+  "version": "26.03e",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true,
@@ -11,36 +11,42 @@
       "name": "Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "caDSR"
     },
     {
       "name": "Malignant Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CDISC"
     },
     {
       "name": "MELANOMA, MALIGNANT",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CDISC"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "Cellosaurus"
     },
     {
       "name": "Malignant Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CPTAC"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTEP",
       "code": "10053571",
       "subSource": "SDC"
@@ -49,30 +55,35 @@
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
       "termType": "DN",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "GDC"
     },
     {
       "name": "Melanoma, NOS",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "GDC"
     },
     {
       "name": "melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI-GLOSS",
       "code": "CDR0000045135"
     },
@@ -80,27 +91,32 @@
       "name": "Malignant Melanoma",
       "termType": "SY",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NCI"
     },
     {
       "name": "Melanoma",
       "termType": "PT",
       "type": "FULL_SYN",
+      "typeCode": "P90",
       "source": "NICHD"
     },
     {
       "name": "Melanoma",
-      "type": "Display_Name"
+      "type": "Display_Name",
+      "typeCode": "P107"
     },
     {
       "name": "Melanoma",
-      "type": "Preferred_Name"
+      "type": "Preferred_Name",
+      "typeCode": "P108"
     }
   ],
   "children": [
@@ -202,16 +218,19 @@
   ],
   "inverseAssociations": [
     {
+      "code": "A31",
       "type": "Has_GDC_Value",
       "relatedCode": "C178243",
       "relatedName": "Family Cancer History Relative Primary Diagnosis Question"
     },
     {
+      "code": "A31",
       "type": "Has_GDC_Value",
       "relatedCode": "C176985",
       "relatedName": "Histology ICD-O Morphology Code"
     },
     {
+      "code": "A31",
       "type": "Has_GDC_Value",
       "relatedCode": "C177621",
       "relatedName": "ICD-O-3 Morphology Term Diagnosis Question"

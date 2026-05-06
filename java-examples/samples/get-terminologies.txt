@@ -8,40 +8,37 @@
 
 > Task :test
 
-Gradle Test Executor 81 STANDARD_ERROR
-    Mar 24, 2025 4:37:59 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 20 tests were Method or class mismatch
-
 MetadataEndpointsApiTest > getTerminologiesTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest - Get all terminologies for ncit
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    terminologies = [class Terminology {
         uri: null
         ct: null
         terminology: ncit
-        version: 25.02d
-        date: February 24, 2025
-        name: NCI Thesaurus 25.02d
+        version: 26.03e
+        date: 2026-03-30
+        name: NCI Thesaurus 26.03e
         description: NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.
-        graph: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus25.02d.owl
-        terminologyVersion: ncit_25.02d
+        graph: http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_26.03e.owl
+        terminologyVersion: ncit_26.03e
         latest: true
         tags: {monthly=true}
-        indexName: concept_ncit_2502d
-        objectIndexName: evs_object_ncit_2502d
+        indexName: concept_ncit_2603e
+        objectIndexName: evs_object_ncit_2603e
         metadata: class TerminologyMetadata {
             uri: null
             ct: null
             uiLabel: NCI Thesaurus
             maxVersions: 3
             loader: rdf
-            conceptStatuses: [Obsolete_Concept, Header_Concept, Retired_Concept, Concept_Pending_Approval, Provisional_Concept]
+            conceptStatuses: [Header_Concept, Retired_Concept, Obsolete_Concept, Provisional_Concept, Concept_Pending_Approval]
             excludedProperties: []
             retiredStatusValue: Retired_Concept
             detailsColumns: {synonyms-termType=true, synonyms-code=true, synonyms-subSource=true, synonyms-source=true, definitions-attribution=true, definitions-source=true}
             hierarchy: true
             hierarchyRoles: []
             history: false
-            sourceCt: 74
+            historyVersion: 26.02d
+            sourceCt: 76
             subsetLink: P374
             licenseText: null
             metaConceptField: null
@@ -56,11 +53,13 @@ MetadataEndpointsApiTest > getTerminologiesTest() STANDARD_ERROR
 
 MetadataEndpointsApiTest > getTerminologiesTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

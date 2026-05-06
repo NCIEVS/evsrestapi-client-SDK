@@ -12,25 +12,19 @@
   {
     "code": "NCIt_Maps_To_GDC",
     "name": "NCIt_Maps_To_GDC",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
   },
   {
     "code": "NCIt_Maps_To_ICD9CM",
     "name": "NCIt_Maps_To_ICD9CM",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
   },
   {
     "code": "NCIT_TO_SWISSPROT",
     "name": "NCIT_TO_SWISSPROT",
-    "version": "Jul2025"
-  },
-  {
-    "code": "SNOMEDCT_US_2025_03_01_to_ICD10CM_2025_Mappings",
-    "name": "SNOMEDCT_US_2025_03_01 to ICD10CM_2025 Mappings",
-    "terminology": "snomedct_us",
-    "version": "2025_03_01"
+    "version": "Mar2026"
   },
   {
     "code": "ICDO_TO_NCI_MORPHOLOGY",
@@ -38,22 +32,22 @@
     "version": "2017-12-21"
   },
   {
+    "code": "SNOMEDCT_US_2025_09_01_to_ICD10CM_2025_Mappings",
+    "name": "SNOMEDCT_US_2025_09_01 to ICD10CM_2025 Mappings",
+    "terminology": "snomedct_us",
+    "version": "2025_09_01"
+  },
+  {
     "code": "NCIt_Maps_To_MedDRA",
     "name": "NCIt_Maps_To_MedDRA",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
   },
   {
     "code": "NCIt_Maps_To_ICDO3",
     "name": "NCIt_Maps_To_ICDO3",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
-  },
-  {
-    "code": "SNOMEDCT_US_2025_03_01_to_ICD10_2016_Mappings",
-    "name": "SNOMEDCT_US_2025_03_01 to ICD10_2016 Mappings",
-    "terminology": "snomedct_us",
-    "version": "2025_03_01"
   },
   {
     "code": "NCIt_to_ChEBI_Mapping",
@@ -68,19 +62,19 @@
   {
     "code": "NCIt_Maps_To_ICD10CM",
     "name": "NCIt_Maps_To_ICD10CM",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
   },
   {
     "code": "NCIt_Maps_To_ICD10",
     "name": "NCIt_Maps_To_ICD10",
-    "version": "25.07d",
+    "version": "26.03e",
     "active": true
   },
   {
     "code": "NCIt_to_HGNC_Mapping",
     "name": "NCIt_to_HGNC_Mapping",
-    "version": "Jul2025"
+    "version": "Mar2026"
   },
   {
     "code": "ICDO_TO_NCI_TOPOGRAPHY",
@@ -93,10 +87,16 @@
     "version": "2017-12-21"
   },
   {
-    "code": "PDQ_2016_07_31_to_NCI_2025_06E_Mappings",
-    "name": "PDQ_2016_07_31 to NCI_2025_06E Mappings",
+    "code": "PDQ_2016_07_31_to_NCI_2025_12E_Mappings",
+    "name": "PDQ_2016_07_31 to NCI_2025_12E Mappings",
     "terminology": "pdq",
     "version": "2016_07_31"
+  },
+  {
+    "code": "SNOMEDCT_US_2025_09_01_to_ICD10_2016_Mappings",
+    "name": "SNOMEDCT_US_2025_09_01 to ICD10_2016 Mappings",
+    "terminology": "snomedct_us",
+    "version": "2025_09_01"
   }
 ]
 

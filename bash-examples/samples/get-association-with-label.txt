@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Mon Aug 25 10:29:07 PDT 2025
+Starting ...Thu Apr 30 11:14:58 PDT 2026
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,24 +12,27 @@ include = synonyms
       "code": "A1",
       "name": "Role_Has_Domain",
       "terminology": "ncit",
-      "version": "25.07d",
+      "version": "26.03e",
       "synonyms": [
         {
           "name": "Role Has Domain",
-          "type": "Display_Name"
+          "type": "Display_Name",
+          "typeCode": "P107"
         },
         {
           "name": "Role_Has_Domain",
-          "type": "FULL_SYN"
+          "type": "FULL_SYN",
+          "typeCode": "P90"
         },
         {
           "name": "Role_Has_Domain",
-          "type": "Preferred_Name"
+          "type": "Preferred_Name",
+          "typeCode": "P108"
         }
       ]
     }
 
 -----------------------------------------------------
-Finished ...Mon Aug 25 10:29:07 PDT 2025
+Finished ...Thu Apr 30 11:14:59 PDT 2026
 -----------------------------------------------------
 

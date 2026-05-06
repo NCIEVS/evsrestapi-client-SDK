@@ -1,45 +1,54 @@
 [
   {
+    "code": "R142",
     "type": "Disease_Excludes_Finding",
     "relatedCode": "C36122",
     "relatedName": "Benign Cellular Infiltrate"
   },
   {
+    "code": "R115",
     "type": "Disease_May_Have_Finding",
     "relatedCode": "C43268",
     "relatedName": "HMB-45-Positive Neoplastic Cells Present"
   },
   {
+    "code": "R105",
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C12917",
     "relatedName": "Malignant Cell"
   },
   {
+    "code": "R108",
     "type": "Disease_Has_Finding",
     "relatedCode": "C36115",
     "relatedName": "Malignant Cellular Infiltrate"
   },
   {
+    "code": "R104",
     "type": "Disease_Has_Normal_Cell_Origin",
     "relatedCode": "C12591",
     "relatedName": "Melanocyte"
   },
   {
+    "code": "R105",
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C36873",
     "relatedName": "Melanoma Cell"
   },
   {
+    "code": "R105",
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C12922",
     "relatedName": "Neoplastic Cell"
   },
   {
+    "code": "R105",
     "type": "Disease_Has_Abnormal_Cell",
     "relatedCode": "C36862",
     "relatedName": "Neoplastic Melanocyte"
   },
   {
+    "code": "R115",
     "type": "Disease_May_Have_Finding",
     "relatedCode": "C40993",
     "relatedName": "S-100-Positive Neoplastic Cells Present"

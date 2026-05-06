@@ -31,9 +31,10 @@ This directory includes a helper script that scans this `README.md` for `./gradl
 - Usage:
     ```bash
     cd java-examples
-    python java_check.py
+    python3 java_check.py
     ```
 - Requirements:
+    - Python 3 must be installed and accessible as `python3` because this helper script is written in Python.
     - Java must be installed and accessible (e.g. `java --version`).
     - Gradle wrapper `./gradlew` must be executable from this directory (as the script runs gradle commands parsed from the README).
 - Output: The script will execute the `./gradlew test` commands found in the README and update files in the `samples/` directory with collected outputs; it also reports which commands succeeded or failed.
@@ -50,14 +51,14 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get concept by code (full information)](#get-concept-by-code-full-information)
 * [Get concept by code (custom include)](#get-concept-by-code-custom-information)
 * [Get concept part](#get-concept-part)
-* [Get association entries for code/label](#get-association-entries-for-codelabel)
+* [Get association entries for code/label](#get-association-entries-for-code-label)
 * [Get associations for code](#get-associations-for-code)
-* [Get "disjoint with" info for code](#get-disjoint-with)
+* [Get "disjoint with" info for code](#get-disjoint-with-info-for-code)
 * [Get history for code](#get-history-for-code)
-* [Get inverse associations for code](#get-inverse-associations)
-* [Get inverse roles for code](#get-inverse-roles)
+* [Get inverse associations for code](#get-inverse-associations-for-code)
+* [Get inverse roles for code](#get-inverse-roles-for-code)
 * [Get maps for code](#get-maps-for-code)
-* [Get parents for code](#get-parents)
+* [Get parents for code](#get-parents-for-code)
 * [Get roles for code](#get-roles-for-code)
 * [Get subset members for code](#get-subset-members-for-code)
 * [Get subtree children for code](#get-subtree-children-for-code)
@@ -80,7 +81,7 @@ The following examples are exhibited by various unit tests defined in the code i
 * [Get all synonym types](#get-all-synonym-types)
 * [Get synonym type by code](#get-synonym-type-by-code)
 * [Find root concepts](#find-root-concepts)
-* [Get paths to/from root from a code](#get-paths-tofrom-root-from-a-code)
+* [Get paths to/from root from a code](#get-paths-to-from-root-from-a-code)
 * [Get paths to an ancestor code from a code](#get-paths-to-an-ancestor-code-from-a-code)
 * [Get subtree for code](#get-subtree-for-code)
 * [Find concepts by search term (use paging to get only first 5 results)](#find-concepts-by-search-term)
@@ -584,7 +585,7 @@ See sample payload data from this call in [`samples/find-concepts-by-search-term
 
 [Back to Top](#evsrestapi-client-sdk-java-tutorial)
 
-### Find concepts by search term (restrict by synonym source and term type)
+### Find concepts by search term (restrict by synonym source and termgroup)
 
 Run the gradle command in the terminal to find concepts matching a search term within a specified
 terminology and restrict the search results by a synonym source of "NCI" and synonymTermType of "PT".

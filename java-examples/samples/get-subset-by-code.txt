@@ -8,10 +8,6 @@
 
 > Task :test
 
-Gradle Test Executor 127 STANDARD_ERROR
-    Mar 24, 2025 4:40:29 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 2 tests were Method or class mismatch
-
 SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest - Get the subset for code - C116978
     [Test worker] INFO gov.nih.nci.evs.api.SubsetEndpointsApiTest -     subets = class Concept {
@@ -20,7 +16,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         code: C116978
         name: CTRP Agent Terminology
         terminology: ncit
-        version: 25.02d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: https://evs.nci.nih.gov/ftp1/CTRP
@@ -36,6 +32,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
             highlight: null
             termType: SY
             type: FULL_SYN
+            typeCode: P90
             source: NCI
             code: null
             subSource: null
@@ -48,6 +45,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
             highlight: null
             termType: PT
             type: FULL_SYN
+            typeCode: P90
             source: NCI
             code: null
             subSource: null
@@ -60,6 +58,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
             highlight: null
             termType: null
             type: Preferred_Name
+            typeCode: P108
             source: null
             code: null
             subSource: null
@@ -71,6 +70,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
             ct: null
             definition: A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects.
             highlight: null
+            code: P97
             type: DEFINITION
             source: NCI
             qualifiers: []
@@ -78,6 +78,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         properties: [class Property {
             uri: null
             ct: null
+            code: P322
             type: Contributing_Source
             value: CTRP
             highlight: null
@@ -86,6 +87,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P372
             type: Publish_Value_Set
             value: Yes
             highlight: null
@@ -94,6 +96,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P106
             type: Semantic_Type
             value: Intellectual Product
             highlight: null
@@ -102,6 +105,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P376
             type: Term_Browser_Value_Set_Description
             value: A subset of terminology about pharmacologic substances and formulations that are currently being used or tested in clinical trials for the treatment of cancer, cancer-related conditions and chemo/radiotherapy-related side effects. This data is available for viewing and download at the <a href="https://evs.nci.nih.gov/ftp1/CTRP/NCIt-CTRP_Subsets.xls">NCI FTP</a> site.
             highlight: null
@@ -110,6 +114,7 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
         }, class Property {
             uri: null
             ct: null
+            code: P207
             type: UMLS_CUI
             value: C3899744
             highlight: null
@@ -131,11 +136,13 @@ SubsetEndpointsApiTest > getSubsetTest() STANDARD_ERROR
 
 SubsetEndpointsApiTest > getSubsetTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

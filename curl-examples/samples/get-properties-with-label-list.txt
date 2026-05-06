@@ -3,29 +3,34 @@
     "code": "P201",
     "name": "OLD_CHILD",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "OLD CHILD",
-        "type": "Display_Name"
+        "type": "Display_Name",
+        "typeCode": "P107"
       },
       {
         "name": "OLD_CHILD",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "OLD_CHILD",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "A property used to store the name of children concepts present at the time a concept was retired.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       }
@@ -35,29 +40,34 @@
     "code": "P203",
     "name": "OLD_KIND",
     "terminology": "ncit",
-    "version": "25.07d",
+    "version": "26.03e",
     "synonyms": [
       {
         "name": "OLD KIND",
-        "type": "Display_Name"
+        "type": "Display_Name",
+        "typeCode": "P107"
       },
       {
         "name": "OLD_KIND",
-        "type": "FULL_SYN"
+        "type": "FULL_SYN",
+        "typeCode": "P90"
       },
       {
         "name": "OLD_KIND",
-        "type": "Preferred_Name"
+        "type": "Preferred_Name",
+        "typeCode": "P108"
       }
     ],
     "definitions": [
       {
         "definition": "Used to store the name of the concept's kind at the time a concept was retired.",
+        "code": "P97",
         "type": "DEFINITION"
       }
     ],
     "properties": [
       {
+        "code": "P106",
         "type": "Semantic_Type",
         "value": "Conceptual Entity"
       }

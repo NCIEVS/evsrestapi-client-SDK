@@ -13,39 +13,10 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MetadataEndpointsApiTest -    properties = [class Concept {
         uri: null
         ct: null
-        code: oboInOwl:hasDbXref
-        name: xRef
-        terminology: ncit
-        version: 25.10d
-        level: null
-        highlight: null
-        subsetLink: null
-        mapsetLink: null
-        conceptStatus: null
-        source: null
-        leaf: null
-        active: null
-        synonyms: []
-        definitions: []
-        properties: []
-        children: []
-        parents: []
-        descendants: []
-        associations: []
-        inverseAssociations: []
-        roles: []
-        disjointWith: []
-        inverseRoles: []
-        history: []
-        maps: []
-        paths: null
-    }, class Concept {
-        uri: null
-        ct: null
         code: NHC0
         name: code
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -74,7 +45,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P100
         name: OMIM_Number
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -103,7 +74,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P101
         name: Homologous_Gene
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -132,7 +103,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P102
         name: GenBank_Accession_Number
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -161,7 +132,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P106
         name: Semantic_Type
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -190,7 +161,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P107
         name: Display_Name
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -219,7 +190,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P108
         name: Preferred_Name
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -248,7 +219,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P167
         name: Image_Link
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -277,7 +248,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P171
         name: PubMedID_Primary_Reference
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -306,7 +277,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P175
         name: NSC Number
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -335,7 +306,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P200
         name: OLD_PARENT
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -364,7 +335,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P201
         name: OLD_CHILD
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -393,7 +364,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P203
         name: OLD_KIND
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -422,7 +393,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P204
         name: OLD_ROLE
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -451,7 +422,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P207
         name: UMLS_CUI
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -480,7 +451,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P208
         name: NCI_META_CUI
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -509,7 +480,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P210
         name: CAS_Registry
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -538,7 +509,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P211
         name: GO_Annotation
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -567,7 +538,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P215
         name: KEGG_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -596,7 +567,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P216
         name: BioCarta_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -625,7 +596,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P302
         name: Accepted_Therapeutic_Use_For
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -654,7 +625,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P310
         name: Concept_Status
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -683,7 +654,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P315
         name: SNP_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -712,7 +683,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P316
         name: Relative_Enzyme_Activity
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -741,7 +712,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P317
         name: FDA_Table
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -770,7 +741,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P319
         name: FDA_UNII_Code
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -799,7 +770,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P320
         name: OID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -828,7 +799,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P321
         name: EntrezGene_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -857,7 +828,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P322
         name: Contributing_Source
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -886,7 +857,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P325
         name: ALT_DEFINITION
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -915,7 +886,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P329
         name: PDQ_Open_Trial_Search_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -944,7 +915,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P330
         name: PDQ_Closed_Trial_Search_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -973,7 +944,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P331
         name: NCBI_Taxon_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1002,7 +973,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P332
         name: MGI_Accession_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1031,7 +1002,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P333
         name: Use_For
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1060,7 +1031,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P334
         name: ICD-O-3_Code
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1089,7 +1060,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P350
         name: Chemical_Formula
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1118,7 +1089,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P351
         name: US_Recommended_Intake
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1147,7 +1118,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P352
         name: Tolerable_Level
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1176,7 +1147,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P353
         name: INFOODS
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1205,7 +1176,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P354
         name: USDA_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1234,7 +1205,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P355
         name: Unit
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1263,7 +1234,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P356
         name: Essential_Amino_Acid
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1292,7 +1263,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P357
         name: Essential_Fatty_Acid
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1321,7 +1292,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P358
         name: Nutrient
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1350,7 +1321,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P359
         name: Micronutrient
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1379,7 +1350,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P360
         name: Macronutrient
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1408,7 +1379,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P361
         name: Extensible_List
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1437,7 +1408,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P362
         name: miRBase_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1466,7 +1437,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P363
         name: Neoplastic_Status
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1495,7 +1466,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P364
         name: OLD_ASSOCIATION
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1524,7 +1495,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P366
         name: Legacy Concept Name
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1553,7 +1524,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P367
         name: PID_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1582,7 +1553,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P368
         name: CHEBI_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1611,7 +1582,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P369
         name: HGNC_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1640,7 +1611,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P371
         name: NICHD_Hierarchy_Term
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1669,7 +1640,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P372
         name: Publish_Value_Set
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1698,7 +1669,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P374
         name: Value_Set_Location
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1727,7 +1698,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P375
         name: Maps_To
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1756,7 +1727,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P376
         name: Term_Browser_Value_Set_Description
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1785,7 +1756,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P398
         name: Value_Set_Pair
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1814,7 +1785,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P399
         name: NCI_Drug_Dictionary_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1843,7 +1814,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P400
         name: ClinVar_Variation_ID
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1872,7 +1843,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P90
         name: FULL_SYN
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1901,7 +1872,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P92
         name: Subsource
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1930,7 +1901,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P93
         name: Swiss_Prot
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1959,7 +1930,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P96
         name: Gene_Encodes_Product
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -1988,7 +1959,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P97
         name: DEFINITION
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -2017,7 +1988,65 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
         code: P98
         name: DesignNote
         terminology: ncit
-        version: 25.10d
+        version: 26.03e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: oboInOwl:hasDbXref
+        name: xRef
+        terminology: ncit
+        version: 26.03e
+        level: null
+        highlight: null
+        subsetLink: null
+        mapsetLink: null
+        conceptStatus: null
+        source: null
+        leaf: null
+        active: null
+        synonyms: []
+        definitions: []
+        properties: []
+        children: []
+        parents: []
+        descendants: []
+        associations: []
+        inverseAssociations: []
+        roles: []
+        disjointWith: []
+        inverseRoles: []
+        history: []
+        maps: []
+        paths: null
+    }, class Concept {
+        uri: null
+        ct: null
+        code: owl:deprecated
+        name: deprecated
+        terminology: ncit
+        version: 26.03e
         level: null
         highlight: null
         subsetLink: null
@@ -2044,7 +2073,7 @@ MetadataEndpointsApiTest > getPropertiesTest() STANDARD_ERROR
 
 MetadataEndpointsApiTest > getPropertiesTest() PASSED
 
-[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -2052,6 +2081,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 1s
 5 actionable tasks: 2 executed, 3 up-to-date
 
