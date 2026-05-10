@@ -25,8 +25,16 @@ def execute_java(command):
         os.makedirs(GRADLE_USER_HOME, exist_ok=True)
         gradle_env = os.environ.copy()
         gradle_env.setdefault("GRADLE_USER_HOME", GRADLE_USER_HOME)
+        
+        cmd_args = shlex.split(command)
+        if sys.platform == "win32" and cmd_args and cmd_args[0] == "./gradlew":
+            if os.path.exists(os.path.join(BASE_DIR, "gradlew.bat")):
+                cmd_args[0] = "gradlew.bat"
+            else:
+                cmd_args = ["sh"] + cmd_args
+                
         result = subprocess.run(
-            shlex.split(command),
+            cmd_args,
             cwd=BASE_DIR,
             env=gradle_env,
             capture_output=True,

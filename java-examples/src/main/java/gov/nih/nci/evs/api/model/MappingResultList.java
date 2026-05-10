@@ -24,7 +24,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import gov.nih.nci.evs.api.model.ConceptMinimal;
+import gov.nih.nci.evs.api.model.Mapping;
+import gov.nih.nci.evs.api.model.SearchCriteria;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -32,32 +33,40 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 
 /**
- * Represents a path (or partial path) in a hierarchy
+ * Represents a list of maps returned from a search or find call
  */
 @JsonPropertyOrder({
-  Path.JSON_PROPERTY_URI,
-  Path.JSON_PROPERTY_CT,
-  Path.JSON_PROPERTY_DIRECTION,
-  Path.JSON_PROPERTY_CONCEPTS
+  MappingResultList.JSON_PROPERTY_URI,
+  MappingResultList.JSON_PROPERTY_CT,
+  MappingResultList.JSON_PROPERTY_TOTAL,
+  MappingResultList.JSON_PROPERTY_TIME_TAKEN,
+  MappingResultList.JSON_PROPERTY_PARAMETERS,
+  MappingResultList.JSON_PROPERTY_MAPS
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2026-05-09T19:13:16.571423-07:00[America/Los_Angeles]", comments = "Generator version: 7.5.0")
-public class Path {
+public class MappingResultList {
   public static final String JSON_PROPERTY_URI = "uri";
   private String uri;
 
   public static final String JSON_PROPERTY_CT = "ct";
   private Integer ct;
 
-  public static final String JSON_PROPERTY_DIRECTION = "direction";
-  private Integer direction;
+  public static final String JSON_PROPERTY_TOTAL = "total";
+  private Long total;
 
-  public static final String JSON_PROPERTY_CONCEPTS = "concepts";
-  private List<ConceptMinimal> concepts = new ArrayList<>();
+  public static final String JSON_PROPERTY_TIME_TAKEN = "timeTaken";
+  private Long timeTaken;
 
-  public Path() { 
+  public static final String JSON_PROPERTY_PARAMETERS = "parameters";
+  private SearchCriteria parameters;
+
+  public static final String JSON_PROPERTY_MAPS = "maps";
+  private List<Mapping> maps = new ArrayList<>();
+
+  public MappingResultList() { 
   }
 
-  public Path uri(String uri) {
+  public MappingResultList uri(String uri) {
     this.uri = uri;
     return this;
   }
@@ -82,7 +91,7 @@ public class Path {
   }
 
 
-  public Path ct(Integer ct) {
+  public MappingResultList ct(Integer ct) {
     this.ct = ct;
     return this;
   }
@@ -107,66 +116,116 @@ public class Path {
   }
 
 
-  public Path direction(Integer direction) {
-    this.direction = direction;
+  public MappingResultList total(Long total) {
+    this.total = total;
     return this;
   }
 
    /**
-   * Direction of the map (1 means node-to-root, -1 means root-to-node)
-   * @return direction
+   * Total nubmer of results (if paging is not considered)
+   * @return total
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Integer getDirection() {
-    return direction;
+  public Long getTotal() {
+    return total;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DIRECTION)
+  @JsonProperty(JSON_PROPERTY_TOTAL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDirection(Integer direction) {
-    this.direction = direction;
+  public void setTotal(Long total) {
+    this.total = total;
   }
 
 
-  public Path concepts(List<ConceptMinimal> concepts) {
-    this.concepts = concepts;
+  public MappingResultList timeTaken(Long timeTaken) {
+    this.timeTaken = timeTaken;
     return this;
   }
 
-  public Path addConceptsItem(ConceptMinimal conceptsItem) {
-    if (this.concepts == null) {
-      this.concepts = new ArrayList<>();
+   /**
+   * Total time taken to compute the result
+   * @return timeTaken
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_TIME_TAKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Long getTimeTaken() {
+    return timeTaken;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_TIME_TAKEN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setTimeTaken(Long timeTaken) {
+    this.timeTaken = timeTaken;
+  }
+
+
+  public MappingResultList parameters(SearchCriteria parameters) {
+    this.parameters = parameters;
+    return this;
+  }
+
+   /**
+   * Get parameters
+   * @return parameters
+  **/
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public SearchCriteria getParameters() {
+    return parameters;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_PARAMETERS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setParameters(SearchCriteria parameters) {
+    this.parameters = parameters;
+  }
+
+
+  public MappingResultList maps(List<Mapping> maps) {
+    this.maps = maps;
+    return this;
+  }
+
+  public MappingResultList addMapsItem(Mapping mapsItem) {
+    if (this.maps == null) {
+      this.maps = new ArrayList<>();
     }
-    this.concepts.add(conceptsItem);
+    this.maps.add(mapsItem);
     return this;
   }
 
    /**
-   * Concepts on the path
-   * @return concepts
+   * List of maps
+   * @return maps
   **/
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_CONCEPTS)
+  @JsonProperty(JSON_PROPERTY_MAPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public List<ConceptMinimal> getConcepts() {
-    return concepts;
+  public List<Mapping> getMaps() {
+    return maps;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_CONCEPTS)
+  @JsonProperty(JSON_PROPERTY_MAPS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setConcepts(List<ConceptMinimal> concepts) {
-    this.concepts = concepts;
+  public void setMaps(List<Mapping> maps) {
+    this.maps = maps;
   }
 
 
   /**
-   * Return true if this Path object is equal to o.
+   * Return true if this MappingResultList object is equal to o.
    */
   @Override
   public boolean equals(Object o) {
@@ -176,26 +235,30 @@ public class Path {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    Path path = (Path) o;
-    return Objects.equals(this.uri, path.uri) &&
-        Objects.equals(this.ct, path.ct) &&
-        Objects.equals(this.direction, path.direction) &&
-        Objects.equals(this.concepts, path.concepts);
+    MappingResultList mappingResultList = (MappingResultList) o;
+    return Objects.equals(this.uri, mappingResultList.uri) &&
+        Objects.equals(this.ct, mappingResultList.ct) &&
+        Objects.equals(this.total, mappingResultList.total) &&
+        Objects.equals(this.timeTaken, mappingResultList.timeTaken) &&
+        Objects.equals(this.parameters, mappingResultList.parameters) &&
+        Objects.equals(this.maps, mappingResultList.maps);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(uri, ct, direction, concepts);
+    return Objects.hash(uri, ct, total, timeTaken, parameters, maps);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class Path {\n");
+    sb.append("class MappingResultList {\n");
     sb.append("    uri: ").append(toIndentedString(uri)).append("\n");
     sb.append("    ct: ").append(toIndentedString(ct)).append("\n");
-    sb.append("    direction: ").append(toIndentedString(direction)).append("\n");
-    sb.append("    concepts: ").append(toIndentedString(concepts)).append("\n");
+    sb.append("    total: ").append(toIndentedString(total)).append("\n");
+    sb.append("    timeTaken: ").append(toIndentedString(timeTaken)).append("\n");
+    sb.append("    parameters: ").append(toIndentedString(parameters)).append("\n");
+    sb.append("    maps: ").append(toIndentedString(maps)).append("\n");
     sb.append("}");
     return sb.toString();
   }
@@ -253,16 +316,26 @@ public class Path {
       joiner.add(String.format("%sct%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getCt()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `direction` to the URL query string
-    if (getDirection() != null) {
-      joiner.add(String.format("%sdirection%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getDirection()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    // add `total` to the URL query string
+    if (getTotal() != null) {
+      joiner.add(String.format("%stotal%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTotal()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
     }
 
-    // add `concepts` to the URL query string
-    if (getConcepts() != null) {
-      for (int i = 0; i < getConcepts().size(); i++) {
-        if (getConcepts().get(i) != null) {
-          joiner.add(getConcepts().get(i).toUrlQueryString(String.format("%sconcepts%s%s", prefix, suffix,
+    // add `timeTaken` to the URL query string
+    if (getTimeTaken() != null) {
+      joiner.add(String.format("%stimeTaken%s=%s", prefix, suffix, URLEncoder.encode(String.valueOf(getTimeTaken()), StandardCharsets.UTF_8).replaceAll("\\+", "%20")));
+    }
+
+    // add `parameters` to the URL query string
+    if (getParameters() != null) {
+      joiner.add(getParameters().toUrlQueryString(prefix + "parameters" + suffix));
+    }
+
+    // add `maps` to the URL query string
+    if (getMaps() != null) {
+      for (int i = 0; i < getMaps().size(); i++) {
+        if (getMaps().get(i) != null) {
+          joiner.add(getMaps().get(i).toUrlQueryString(String.format("%smaps%s%s", prefix, suffix,
           "".equals(suffix) ? "" : String.format("%s%d%s", containerPrefix, i, containerSuffix))));
         }
       }

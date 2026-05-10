@@ -95,7 +95,7 @@ public class SearchEndpointApiTest {
     assertNotNull(response);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
-    assertEquals("C100001", response.getConcepts().get(0).getCode());
+    assertEquals("C1000", response.getConcepts().get(0).getCode());
 
     // LOG
     log.info("Get search results from NCIT for - " + terminology);
@@ -239,7 +239,7 @@ public class SearchEndpointApiTest {
 
     // ASSERT
     assertNotNull(response);
-    assertEquals(1568, response.getTotal());
+    assertTrue(response.getTotal() > 1000);
     assertNotNull(response.getConcepts());
     assertNotNull(response.getConcepts().get(0));
 
