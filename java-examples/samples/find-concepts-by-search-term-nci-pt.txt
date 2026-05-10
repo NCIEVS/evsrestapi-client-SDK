@@ -8,17 +8,13 @@
 
 > Task :test
 
-Gradle Test Executor 112 STANDARD_ERROR
-    Mar 24, 2025 4:39:40 PM org.junit.platform.launcher.core.EngineDiscoveryOrchestrator lambda$logTestDescriptorExclusionReasons$7
-    INFO: 0 containers and 17 tests were Method or class mismatch
-
 SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest - Get search results from NCIT for term = melanoma, definition type =  DEFINITION
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class ConceptResultList {
         uri: null
         ct: null
-        total: 1462
-        timeTaken: 40
+        total: 1588
+        timeTaken: 48
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -48,7 +44,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             code: C3224
             name: Melanoma
             terminology: ncit
-            version: 25.02d
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -63,6 +59,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -71,13 +68,14 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C103113
             name: NCI CTEP SDC Melanoma Sub-Category Terminology
             terminology: ncit
-            version: 25.02d
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -92,6 +90,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -100,13 +99,14 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C157920
             name: Melanoma Surgery
             terminology: ncit
-            version: 25.02d
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -121,6 +121,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -129,13 +130,14 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C1830
             name: Melanoma Theraccine
             terminology: ncit
-            version: 25.02d
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -150,6 +152,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -158,13 +161,14 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C46091
             name: Melanoma Biomarker
             terminology: ncit
-            version: 25.02d
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -179,6 +183,7 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -187,16 +192,19 @@ SearchEndpointApiTest > searchFilterByDefinitionTypeTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }]
     }
 
 SearchEndpointApiTest > searchFilterByDefinitionTypeTest() PASSED
 
-Deprecated Gradle features were used in this build, making it incompatible with Gradle 8.0.
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
 You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
 
-See https://docs.gradle.org/7.3/userguide/command_line_interface.html#sec:command_line_warnings
+For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
 BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date

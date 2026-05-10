@@ -854,12 +854,13 @@ public class SearchEndpointApiTest {
         api.searchSingleTerminologySparql(
             terminology,
             query,
-            include,
+            null,
             null,
             null,
             type,
             null,
             ascending,
+            include,
             fromRecord,
             pageSize,
             null,
@@ -897,6 +898,7 @@ public class SearchEndpointApiTest {
         api.getSparqlBindings(
             terminology,
             query,
+            null,
             null,
             null,
             null);

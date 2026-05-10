@@ -18,8 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 import gov.nih.nci.evs.api.invoker.ApiException;
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.ConceptMapResultList;
-import gov.nih.nci.evs.api.model.MapResultList;
+import gov.nih.nci.evs.api.model.MappingResultList;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -86,8 +85,8 @@ public class MapsetEndpointsApiTest {
     Boolean ascending = true;
 
     // ACT
-    ConceptMapResultList response =
-        api.getMapsetMappingsByCode(code, fromRecord, pageSize, null, ascending, null);
+    MappingResultList response =
+        api.getMapsetMappingsByCode(code, null, fromRecord, pageSize, null, ascending);
 
     // ASSERT
     assertNotNull(response);

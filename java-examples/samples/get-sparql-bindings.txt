@@ -13,7 +13,7 @@ SearchEndpointApiTest > getSPARQLBindingsTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.SearchEndpointApiTest -    search results = class MapResultList {
         uri: null
         ct: null
-        total: 211072
+        total: 211661
         timeTaken: null
         parameters: class SearchCriteria {
             uri: null
@@ -43,7 +43,7 @@ SearchEndpointApiTest > getSPARQLBindingsTest() STANDARD_ERROR
 
 SearchEndpointApiTest > getSPARQLBindingsTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
