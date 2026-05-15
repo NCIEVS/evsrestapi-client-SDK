@@ -10,13 +10,13 @@
  * Do not edit the class manually.
  */
 
-import { Qualifier } from '../models/Qualifier';
+import { Paths } from '../models/Paths';
 import { HttpFile } from '../http/http';
 
 /**
-* Represents a non-defining (in a logical sense) relationship between two concepts
+* Generally unset, this is used for certain special cases
 */
-export class Association {
+export class Extensions {
     /**
     * URI for this element in an rdf-based source file
     */
@@ -25,38 +25,14 @@ export class Association {
     * Used to indicate the total amount of data in cases where a limit is being applied
     */
     'ct'?: number;
-    /**
-    * Relationship code
-    */
-    'code'?: string;
-    /**
-    * Relationship type
-    */
-    'type'?: string;
-    /**
-    * Related code (the code on the other side of the relationship)
-    */
-    'relatedCode'?: string;
-    /**
-    * Preferred name of the related code
-    */
-    'relatedName'?: string;
-    /**
-    * Relationship source
-    */
-    'source'?: string;
-    /**
-    * Role group number for grouping related roles
-    */
-    'group'?: string;
-    /**
-    * Used by search calls to provide information for highlighting a view of results
-    */
-    'highlight'?: string;
-    /**
-    * Type/value qualifiers on the relationship
-    */
-    'qualifiers'?: Array<Qualifier>;
+    'isDisease'?: boolean;
+    'isDiseaseGrade'?: boolean;
+    'isDiseaseStage'?: boolean;
+    'isMainType'?: boolean;
+    'isSubtype'?: boolean;
+    'isBiomarker'?: boolean;
+    'isReferenceGene'?: boolean;
+    'mainMenuAncestors'?: Array<Paths>;
 
     static readonly discriminator: string | undefined = undefined;
 
@@ -74,56 +50,56 @@ export class Association {
             "format": "int32"
         },
         {
-            "name": "code",
-            "baseName": "code",
-            "type": "string",
+            "name": "isDisease",
+            "baseName": "isDisease",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "type",
-            "baseName": "type",
-            "type": "string",
+            "name": "isDiseaseGrade",
+            "baseName": "isDiseaseGrade",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "relatedCode",
-            "baseName": "relatedCode",
-            "type": "string",
+            "name": "isDiseaseStage",
+            "baseName": "isDiseaseStage",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "relatedName",
-            "baseName": "relatedName",
-            "type": "string",
+            "name": "isMainType",
+            "baseName": "isMainType",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "source",
-            "baseName": "source",
-            "type": "string",
+            "name": "isSubtype",
+            "baseName": "isSubtype",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "group",
-            "baseName": "group",
-            "type": "string",
+            "name": "isBiomarker",
+            "baseName": "isBiomarker",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "highlight",
-            "baseName": "highlight",
-            "type": "string",
+            "name": "isReferenceGene",
+            "baseName": "isReferenceGene",
+            "type": "boolean",
             "format": ""
         },
         {
-            "name": "qualifiers",
-            "baseName": "qualifiers",
-            "type": "Array<Qualifier>",
+            "name": "mainMenuAncestors",
+            "baseName": "mainMenuAncestors",
+            "type": "Array<Paths>",
             "format": ""
         }    ];
 
     static getAttributeTypeMap() {
-        return Association.attributeTypeMap;
+        return Extensions.attributeTypeMap;
     }
 
     public constructor() {
