@@ -20,22 +20,25 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from evs.models.paths import Paths
 from typing import Optional, Set
 from typing_extensions import Self
 
-class HierarchyNode(BaseModel):
+class Extensions(BaseModel):
     """
-    Represents a node in a subtree rendering of the hierarchy
+    Generally unset, this is used for certain special cases
     """ # noqa: E501
     uri: Optional[StrictStr] = Field(default=None, description="URI for this element in an rdf-based source file")
     ct: Optional[StrictInt] = Field(default=None, description="Used to indicate the total amount of data in cases where a limit is being applied")
-    code: Optional[StrictStr] = Field(default=None, description="Code of the hierarchy node")
-    label: Optional[StrictStr] = Field(default=None, description="Code label for the hierarchy node")
-    level: Optional[StrictInt] = Field(default=None, description="Indicates level of depth in the (respective) hierarchy")
-    leaf: Optional[StrictBool] = Field(default=None, description="Indicates whether the code has children")
-    expanded: Optional[StrictBool] = Field(default=None, description="Indicates whether the node has been expanded")
-    children: Optional[List[HierarchyNode]] = Field(default=None, description="Child nodes")
-    __properties: ClassVar[List[str]] = ["uri", "ct", "code", "label", "level", "leaf", "expanded", "children"]
+    is_disease: Optional[StrictBool] = Field(default=None, alias="isDisease")
+    is_disease_grade: Optional[StrictBool] = Field(default=None, alias="isDiseaseGrade")
+    is_disease_stage: Optional[StrictBool] = Field(default=None, alias="isDiseaseStage")
+    is_main_type: Optional[StrictBool] = Field(default=None, alias="isMainType")
+    is_subtype: Optional[StrictBool] = Field(default=None, alias="isSubtype")
+    is_biomarker: Optional[StrictBool] = Field(default=None, alias="isBiomarker")
+    is_reference_gene: Optional[StrictBool] = Field(default=None, alias="isReferenceGene")
+    main_menu_ancestors: Optional[List[Paths]] = Field(default=None, alias="mainMenuAncestors")
+    __properties: ClassVar[List[str]] = ["uri", "ct", "isDisease", "isDiseaseGrade", "isDiseaseStage", "isMainType", "isSubtype", "isBiomarker", "isReferenceGene", "mainMenuAncestors"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -55,7 +58,7 @@ class HierarchyNode(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of HierarchyNode from a JSON string"""
+        """Create an instance of Extensions from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -76,18 +79,18 @@ class HierarchyNode(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of each item in children (list)
+        # override the default output from pydantic by calling `to_dict()` of each item in main_menu_ancestors (list)
         _items = []
-        if self.children:
-            for _item in self.children:
+        if self.main_menu_ancestors:
+            for _item in self.main_menu_ancestors:
                 if _item:
                     _items.append(_item.to_dict())
-            _dict['children'] = _items
+            _dict['mainMenuAncestors'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of HierarchyNode from a dict"""
+        """Create an instance of Extensions from a dict"""
         if obj is None:
             return None
 
@@ -97,15 +100,15 @@ class HierarchyNode(BaseModel):
         _obj = cls.model_validate({
             "uri": obj.get("uri"),
             "ct": obj.get("ct"),
-            "code": obj.get("code"),
-            "label": obj.get("label"),
-            "level": obj.get("level"),
-            "leaf": obj.get("leaf"),
-            "expanded": obj.get("expanded"),
-            "children": [HierarchyNode.from_dict(_item) for _item in obj["children"]] if obj.get("children") is not None else None
+            "isDisease": obj.get("isDisease"),
+            "isDiseaseGrade": obj.get("isDiseaseGrade"),
+            "isDiseaseStage": obj.get("isDiseaseStage"),
+            "isMainType": obj.get("isMainType"),
+            "isSubtype": obj.get("isSubtype"),
+            "isBiomarker": obj.get("isBiomarker"),
+            "isReferenceGene": obj.get("isReferenceGene"),
+            "mainMenuAncestors": [Paths.from_dict(_item) for _item in obj["mainMenuAncestors"]] if obj.get("mainMenuAncestors") is not None else None
         })
         return _obj
 
-# TODO: Rewrite to not use raise_errors
-HierarchyNode.model_rebuild(raise_errors=False)
 
