@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -24,6 +24,7 @@ type Property struct {
 	Uri *string `json:"uri,omitempty"`
 	// Used to indicate the total amount of data in cases where a limit is being applied
 	Ct *int32 `json:"ct,omitempty"`
+	Code *string `json:"code,omitempty"`
 	// Property type
 	Type *string `json:"type,omitempty"`
 	// Property value
@@ -115,6 +116,38 @@ func (o *Property) HasCt() bool {
 // SetCt gets a reference to the given int32 and assigns it to the Ct field.
 func (o *Property) SetCt(v int32) {
 	o.Ct = &v
+}
+
+// GetCode returns the Code field value if set, zero value otherwise.
+func (o *Property) GetCode() string {
+	if o == nil || IsNil(o.Code) {
+		var ret string
+		return ret
+	}
+	return *o.Code
+}
+
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Property) GetCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.Code) {
+		return nil, false
+	}
+	return o.Code, true
+}
+
+// HasCode returns a boolean if a field has been set.
+func (o *Property) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given string and assigns it to the Code field.
+func (o *Property) SetCode(v string) {
+	o.Code = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -292,6 +325,9 @@ func (o Property) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Ct) {
 		toSerialize["ct"] = o.Ct
+	}
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type

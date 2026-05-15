@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -34,6 +34,8 @@ type AssociationEntry struct {
 	RelatedName *string `json:"relatedName,omitempty"`
 	// Relationship source
 	Source *string `json:"source,omitempty"`
+	// Role group number for grouping related roles
+	Group *string `json:"group,omitempty"`
 	// Used by search calls to provide information for highlighting a view of results
 	Highlight *string `json:"highlight,omitempty"`
 	// Type/value qualifiers on the relationship
@@ -289,6 +291,38 @@ func (o *AssociationEntry) SetSource(v string) {
 	o.Source = &v
 }
 
+// GetGroup returns the Group field value if set, zero value otherwise.
+func (o *AssociationEntry) GetGroup() string {
+	if o == nil || IsNil(o.Group) {
+		var ret string
+		return ret
+	}
+	return *o.Group
+}
+
+// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *AssociationEntry) GetGroupOk() (*string, bool) {
+	if o == nil || IsNil(o.Group) {
+		return nil, false
+	}
+	return o.Group, true
+}
+
+// HasGroup returns a boolean if a field has been set.
+func (o *AssociationEntry) HasGroup() bool {
+	if o != nil && !IsNil(o.Group) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroup gets a reference to the given string and assigns it to the Group field.
+func (o *AssociationEntry) SetGroup(v string) {
+	o.Group = &v
+}
+
 // GetHighlight returns the Highlight field value if set, zero value otherwise.
 func (o *AssociationEntry) GetHighlight() string {
 	if o == nil || IsNil(o.Highlight) {
@@ -511,6 +545,9 @@ func (o AssociationEntry) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Source) {
 		toSerialize["source"] = o.Source
+	}
+	if !IsNil(o.Group) {
+		toSerialize["group"] = o.Group
 	}
 	if !IsNil(o.Highlight) {
 		toSerialize["highlight"] = o.Highlight

@@ -53,8 +53,8 @@ func TestSubsetEndpointsAPIService(t *testing.T) {
 
 		// ARRANGE
 		code := "C157225"
-		fromRecord := "0"
-		pageSize := "25"
+		fromRecord := int32(0)
+		pageSize := int32(25)
 		include := "minimal"
 		expectedCode := "C16255"
 		expectedName := "Acetylation"
