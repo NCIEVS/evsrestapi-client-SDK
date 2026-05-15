@@ -1,6 +1,6 @@
 {
   "total": 79,
-  "timeTaken": 36,
+  "timeTaken": 35,
   "parameters": {
     "term": "malignant melanoma",
     "type": "phrase",
@@ -16,7 +16,7 @@
       "code": "C16835",
       "name": "Experimental Malignant Melanoma",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -25,16 +25,25 @@
       "code": "C60451",
       "name": "Rat Malignant Melanoma",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
       "active": true
     },
     {
       "code": "C194143",
       "name": "Malignant Melanoma of Lip",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -43,16 +52,7 @@
       "code": "C64123",
       "name": "Malignant Melanoma of the Rat Skin",
       "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C16444",
-      "name": "Cloudman S91 Malignant Melanoma",
-      "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
