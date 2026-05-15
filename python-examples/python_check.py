@@ -1,5 +1,6 @@
 import os
 import re
+import shlex
 import subprocess
 import sys
 
@@ -14,6 +15,8 @@ This mirrors the behavior of `java-examples/java_check.py` but for pytest comman
 
 healthy_scripts = []
 unhealthy_scripts = []
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+README_PATH = os.path.join(BASE_DIR, "README.md")
 
 
 def check_pytest_installation():
@@ -27,15 +30,12 @@ def check_pytest_installation():
 
 def execute_pytest(command):
     """Execute a pytest command string and return stdout (or None on failure)."""
-    # If the captured command begins with 'pytest', run it via the current interpreter
-    run_cmd = command
-    if command.strip().startswith("pytest ") or command.strip() == "pytest":
-        # Prepend: <python> -m pytest <rest>
-        # Use shell invocation to preserve any extra args the README might include.
-        run_cmd = f'"{sys.executable}" -m {command}'
+    cmd_args = shlex.split(command)
+    if cmd_args and cmd_args[0] == "pytest":
+        cmd_args = [sys.executable, "-m", "pytest"] + cmd_args[1:]
 
     try:
-        result = subprocess.run(run_cmd, shell=True, capture_output=True, text=True)
+        result = subprocess.run(cmd_args, cwd=BASE_DIR, capture_output=True, text=True)
         if result.returncode == 0:
             healthy_scripts.append(command)
             return result.stdout
@@ -51,11 +51,11 @@ def execute_pytest(command):
 
 def process_markdown():
     """Parse README.md and extract pytest commands and their associated sample files."""
-    if not os.path.exists("README.md"):
+    if not os.path.exists(README_PATH):
         print(f"Error: README.md not found.")
         sys.exit(1)
 
-    with open("README.md", "r", encoding="utf-8") as f:
+    with open(README_PATH, "r", encoding="utf-8") as f:
         lines = f.readlines()
 
     sections = []

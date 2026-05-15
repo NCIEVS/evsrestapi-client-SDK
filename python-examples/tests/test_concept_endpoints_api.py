@@ -3,7 +3,7 @@ from typing import List
 import pytest
 import logging
 
-from evs import Association, AssociationEntryResultList, Concept, ConceptEndpointsApi, ConceptMap, DisjointWith, \
+from evs import Association, AssociationEntryResultList, Concept, ConceptEndpointsApi, DisjointWith, Mapping, \
     HierarchyNode, Role
 
 
@@ -341,7 +341,7 @@ class TestConceptEndpointsApi:
         contains_expected_name: bool = False
         
         # ACT
-        response: [ConceptMap] = concept_api.get_maps(self.terminology, self.code, None)
+        response: [Mapping] = concept_api.get_maps(self.terminology, self.code, None)
         
         # ASSERT
         assert response is not None
