@@ -1,6 +1,7 @@
 import os
 import re
 import shlex
+import shutil
 import subprocess
 import sys
 
@@ -28,8 +29,11 @@ def execute_java(command):
         
         cmd_args = shlex.split(command)
         if sys.platform == "win32" and cmd_args and cmd_args[0] == "./gradlew":
+            gradle_path = shutil.which("gradle")
             if os.path.exists(os.path.join(BASE_DIR, "gradlew.bat")):
                 cmd_args[0] = "gradlew.bat"
+            elif gradle_path:
+                cmd_args[0] = gradle_path
             else:
                 cmd_args = ["sh"] + cmd_args
                 
