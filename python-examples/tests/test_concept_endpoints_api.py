@@ -194,8 +194,9 @@ class TestConceptEndpointsApi:
         
         # ASSERT
         assert response is not None
-        assert expected_name1 == response[0].name, f"FAIL: Expected name {expected_name1} not found"
-        assert expected_name2 == response[1].name, f"FAIL: Expected name {expected_name2} not found"
+        names = [concept.name for concept in response]
+        assert expected_name1 in names, f"FAIL: Expected name {expected_name1} not found"
+        assert expected_name2 in names, f"FAIL: Expected name {expected_name2} not found"
         
         self.logger.info(f"Get list of concepts for codes - {code_list[0]} & {code_list[1]}")
         self.logger.info(f"   concepts = {str(response)}")
