@@ -878,6 +878,86 @@ public class MetadataEndpointsApi {
   }
 
   /**
+   * Get property values for the specified terminology and code/name
+   * 
+   * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+   * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+   * @return List&lt;String&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public List<String> getPropertyValues(String terminology, String codeOrName) throws ApiException {
+    ApiResponse<List<String>> localVarResponse = getPropertyValuesWithHttpInfo(terminology, codeOrName);
+    return localVarResponse.getData();
+  }
+
+  /**
+   * Get property values for the specified terminology and code/name
+   * 
+   * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)
+   * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;&#39;P216&#39; or &#39;BioCarta_ID&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;&#39;BioCarta_ID&#39; or &#39;&#39;BioCarta ID&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt; (required)
+   * @return ApiResponse&lt;List&lt;String&gt;&gt;
+   * @throws ApiException if fails to make API call
+   */
+  public ApiResponse<List<String>> getPropertyValuesWithHttpInfo(String terminology, String codeOrName) throws ApiException {
+    HttpRequest.Builder localVarRequestBuilder = getPropertyValuesRequestBuilder(terminology, codeOrName);
+    try {
+      HttpResponse<InputStream> localVarResponse = memberVarHttpClient.send(
+          localVarRequestBuilder.build(),
+          HttpResponse.BodyHandlers.ofInputStream());
+      if (memberVarResponseInterceptor != null) {
+        memberVarResponseInterceptor.accept(localVarResponse);
+      }
+      try {
+        if (localVarResponse.statusCode()/ 100 != 2) {
+          throw getApiException("getPropertyValues", localVarResponse);
+        }
+        return new ApiResponse<List<String>>(
+          localVarResponse.statusCode(),
+          localVarResponse.headers().map(),
+          localVarResponse.body() == null ? null : memberVarObjectMapper.readValue(localVarResponse.body(), new TypeReference<List<String>>() {}) // closes the InputStream
+        );
+      } finally {
+      }
+    } catch (IOException e) {
+      throw new ApiException(e);
+    }
+    catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+      throw new ApiException(e);
+    }
+  }
+
+  private HttpRequest.Builder getPropertyValuesRequestBuilder(String terminology, String codeOrName) throws ApiException {
+    // verify the required parameter 'terminology' is set
+    if (terminology == null) {
+      throw new ApiException(400, "Missing the required parameter 'terminology' when calling getPropertyValues");
+    }
+    // verify the required parameter 'codeOrName' is set
+    if (codeOrName == null) {
+      throw new ApiException(400, "Missing the required parameter 'codeOrName' when calling getPropertyValues");
+    }
+
+    HttpRequest.Builder localVarRequestBuilder = HttpRequest.newBuilder();
+
+    String localVarPath = "/api/v1/metadata/{terminology}/property/{codeOrName}/values"
+        .replace("{terminology}", ApiClient.urlEncode(terminology.toString()))
+        .replace("{codeOrName}", ApiClient.urlEncode(codeOrName.toString()));
+
+    localVarRequestBuilder.uri(URI.create(memberVarBaseUri + localVarPath));
+
+    localVarRequestBuilder.header("Accept", "application/json");
+
+    localVarRequestBuilder.method("GET", HttpRequest.BodyPublishers.noBody());
+    if (memberVarReadTimeout != null) {
+      localVarRequestBuilder.timeout(memberVarReadTimeout);
+    }
+    if (memberVarInterceptor != null) {
+      memberVarInterceptor.accept(localVarRequestBuilder);
+    }
+    return localVarRequestBuilder;
+  }
+
+  /**
    * Get the qualifier for the specified terminology and code/name
    * 
    * @param terminology Terminology, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;) (required)

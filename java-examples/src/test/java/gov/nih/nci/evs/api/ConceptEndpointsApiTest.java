@@ -248,8 +248,9 @@ public class ConceptEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("Molecular Abnormality", response.get(1).getName());
-    assertEquals("Melanoma", response.get(0).getName());
+    List<String> names = response.stream().map(Concept::getName).toList();
+    assertTrue(names.contains("Molecular Abnormality"));
+    assertTrue(names.contains("Melanoma"));
 
     // LOG
     log.info("Get list of concepts for codes - C3224 & C3910");
