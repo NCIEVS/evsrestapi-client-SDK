@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -31,10 +31,11 @@ type ApiGetSparqlBindingsRequest struct {
 	body *string
 	fromRecord *int32
 	pageSize *int32
+	prefixes *bool
 	xEVSRESTAPILicenseKey *string
 }
 
-// SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+// SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
 func (r ApiGetSparqlBindingsRequest) Body(body string) ApiGetSparqlBindingsRequest {
 	r.body = &body
 	return r
@@ -52,7 +53,13 @@ func (r ApiGetSparqlBindingsRequest) PageSize(pageSize int32) ApiGetSparqlBindin
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Use &#39;true&#39; to use queries with declared prefixes
+func (r ApiGetSparqlBindingsRequest) Prefixes(prefixes bool) ApiGetSparqlBindingsRequest {
+	r.prefixes = &prefixes
+	return r
+}
+
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSparqlBindingsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetSparqlBindingsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -68,7 +75,7 @@ GetSparqlBindings Get SPARQL query results
 Perform a SPARQL query for a specified terminology.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetSparqlBindingsRequest
 */
 func (a *SearchEndpointAPIService) GetSparqlBindings(ctx context.Context, terminology string) ApiGetSparqlBindingsRequest {
@@ -109,6 +116,9 @@ func (a *SearchEndpointAPIService) GetSparqlBindingsExecute(r ApiGetSparqlBindin
 	}
 	if r.pageSize != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "pageSize", r.pageSize, "")
+	}
+	if r.prefixes != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "prefixes", r.prefixes, "")
 	}
 	// to determine the Content-Type header
 	localVarHTTPContentTypes := []string{"text/plain"}
@@ -174,7 +184,128 @@ func (a *SearchEndpointAPIService) GetSparqlBindingsExecute(r ApiGetSparqlBindin
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
+
+type ApiGetSparqlPrefixesRequest struct {
+	ctx context.Context
+	ApiService *SearchEndpointAPIService
+	terminology string
+}
+
+func (r ApiGetSparqlPrefixesRequest) Execute() (string, *http.Response, error) {
+	return r.ApiService.GetSparqlPrefixesExecute(r)
+}
+
+/*
+GetSparqlPrefixes Get default prefixes used by SPARQL queries
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param terminology Single terminology to find prefixes for, e.g. 'ncit' or 'hgnc' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @return ApiGetSparqlPrefixesRequest
+*/
+func (a *SearchEndpointAPIService) GetSparqlPrefixes(ctx context.Context, terminology string) ApiGetSparqlPrefixesRequest {
+	return ApiGetSparqlPrefixesRequest{
+		ApiService: a,
+		ctx: ctx,
+		terminology: terminology,
+	}
+}
+
+// Execute executes the request
+//  @return string
+func (a *SearchEndpointAPIService) GetSparqlPrefixesExecute(r ApiGetSparqlPrefixesRequest) (string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "SearchEndpointAPIService.GetSparqlPrefixes")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/sparql/{terminology}/prefixes"
+	localVarPath = strings.Replace(localVarPath, "{"+"terminology"+"}", url.PathEscape(parameterValueToString(r.terminology, "terminology")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 400 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -214,13 +345,13 @@ type ApiSearchRequest struct {
 	subset *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiSearchRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiSearchRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
 }
 
-// Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+// Comma-separated list of terminologies to search, e.g. &#39;ncit&#39; or &#39;ncim&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
 func (r ApiSearchRequest) Terminology(terminology string) ApiSearchRequest {
 	r.terminology = &terminology
 	return r
@@ -250,7 +381,7 @@ func (r ApiSearchRequest) Ascending(ascending bool) ApiSearchRequest {
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiSearchRequest) Include(include string) ApiSearchRequest {
 	r.include = &include
 	return r
@@ -455,6 +586,17 @@ func (a *SearchEndpointAPIService) SearchExecute(r ApiSearchRequest) (*ConceptRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -475,18 +617,6 @@ func (a *SearchEndpointAPIService) SearchExecute(r ApiSearchRequest) (*ConceptRe
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -526,7 +656,7 @@ type ApiSearchSingleTerminologyRequest struct {
 	subset *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiSearchSingleTerminologyRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiSearchSingleTerminologyRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -556,7 +686,7 @@ func (r ApiSearchSingleTerminologyRequest) Ascending(ascending bool) ApiSearchSi
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiSearchSingleTerminologyRequest) Include(include string) ApiSearchSingleTerminologyRequest {
 	r.include = &include
 	return r
@@ -638,7 +768,7 @@ SearchSingleTerminology Get concept search results for a specified terminology
 Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href='https://github.com/NCIEVS/evsrestapi-client-SDK' target='_blank'>Github client SDK library created for the NCI EVS Rest API</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiSearchSingleTerminologyRequest
 */
 func (a *SearchEndpointAPIService) SearchSingleTerminology(ctx context.Context, terminology string) ApiSearchSingleTerminologyRequest {
@@ -781,7 +911,6 @@ func (a *SearchEndpointAPIService) SearchSingleTerminologyExecute(r ApiSearchSin
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -803,12 +932,13 @@ type ApiSearchSingleTerminologySparqlRequest struct {
 	ApiService *SearchEndpointAPIService
 	terminology string
 	body *string
-	include *string
+	prefixes *bool
 	xEVSRESTAPILicenseKey *string
 	term *string
 	type_ *string
 	sort *string
 	ascending *bool
+	include *string
 	fromRecord *int32
 	pageSize *int32
 	conceptStatus *string
@@ -822,19 +952,19 @@ type ApiSearchSingleTerminologySparqlRequest struct {
 	subset *string
 }
 
-// SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+// SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
 func (r ApiSearchSingleTerminologySparqlRequest) Body(body string) ApiSearchSingleTerminologySparqlRequest {
 	r.body = &body
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
-func (r ApiSearchSingleTerminologySparqlRequest) Include(include string) ApiSearchSingleTerminologySparqlRequest {
-	r.include = &include
+// Use &#39;true&#39; to use queries with declared prefixes
+func (r ApiSearchSingleTerminologySparqlRequest) Prefixes(prefixes bool) ApiSearchSingleTerminologySparqlRequest {
+	r.prefixes = &prefixes
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiSearchSingleTerminologySparqlRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiSearchSingleTerminologySparqlRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -861,6 +991,12 @@ func (r ApiSearchSingleTerminologySparqlRequest) Sort(sort string) ApiSearchSing
 // Sort ascending (if true) or descending (if false)
 func (r ApiSearchSingleTerminologySparqlRequest) Ascending(ascending bool) ApiSearchSingleTerminologySparqlRequest {
 	r.ascending = &ascending
+	return r
+}
+
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+func (r ApiSearchSingleTerminologySparqlRequest) Include(include string) ApiSearchSingleTerminologySparqlRequest {
+	r.include = &include
 	return r
 }
 
@@ -940,7 +1076,7 @@ SearchSingleTerminologySparql Get concept search results for a specified termino
 Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href='https://github.com/NCIEVS/evsrestapi-client-SDK' target='_blank'>Github client SDK library created for the NCI EVS Rest API</a>.
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Single terminology to search, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiSearchSingleTerminologySparqlRequest
 */
 func (a *SearchEndpointAPIService) SearchSingleTerminologySparql(ctx context.Context, terminology string) ApiSearchSingleTerminologySparqlRequest {
@@ -976,8 +1112,8 @@ func (a *SearchEndpointAPIService) SearchSingleTerminologySparqlExecute(r ApiSea
 		return localVarReturnValue, nil, reportError("body is required and must be specified")
 	}
 
-	if r.include != nil {
-		parameterAddToHeaderOrQuery(localVarQueryParams, "include", r.include, "")
+	if r.prefixes != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "prefixes", r.prefixes, "")
 	}
 	if r.term != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "term", r.term, "")
@@ -990,6 +1126,9 @@ func (a *SearchEndpointAPIService) SearchSingleTerminologySparqlExecute(r ApiSea
 	}
 	if r.ascending != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "ascending", r.ascending, "")
+	}
+	if r.include != nil {
+		parameterAddToHeaderOrQuery(localVarQueryParams, "include", r.include, "")
 	}
 	if r.fromRecord != nil {
 		parameterAddToHeaderOrQuery(localVarQueryParams, "fromRecord", r.fromRecord, "")
@@ -1088,7 +1227,6 @@ func (a *SearchEndpointAPIService) SearchSingleTerminologySparqlExecute(r ApiSea
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

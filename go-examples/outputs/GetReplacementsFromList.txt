@@ -2,7 +2,8 @@
 === RUN   TestHistoryEndpointsAPIService/GetReplacementsFromList
 C19157 Specimen active
 C12756 Nose active
---- PASS: TestHistoryEndpointsAPIService (0.71s)
-    --- PASS: TestHistoryEndpointsAPIService/GetReplacementsFromList (0.71s)
+--- PASS: TestHistoryEndpointsAPIService (0.87s)
+    --- PASS: TestHistoryEndpointsAPIService/GetReplacementsFromList (0.87s)
 PASS
-ok  	command-line-arguments	0.725s
+ok  	command-line-arguments	0.889s
+

@@ -1,6 +1,6 @@
 {
   "total": 14,
-  "timeTaken": 70,
+  "timeTaken": 69,
   "parameters": {
     "term": "dsDNA",
     "type": "contains",
@@ -19,7 +19,7 @@
       "code": "C449",
       "name": "DNA",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -28,7 +28,7 @@
       "code": "C25832",
       "name": "DNA Double Strand Break",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -37,34 +37,16 @@
       "code": "C14348",
       "name": "Double Stranded DNA Virus",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
-      "active": true
-    },
-    {
-      "code": "C114565",
-      "name": "Anti-ds DNA Antibody",
-      "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C211596",
-      "name": "Anti-ds DNA Antibody Positive",
-      "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
       "active": true
     },
     {
       "code": "C151958",
       "name": "HPV16-E7-T512",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -73,16 +55,34 @@
       "code": "C20064",
       "name": "Conformation Dependent Mutation Detection",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C211596",
+      "name": "Anti-ds DNA Antibody Positive",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C114565",
+      "name": "Anti-ds DNA Antibody",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
       "active": true
     },
     {
       "code": "C148186",
       "name": "TALEN-edited HPV16/18 E6/E7 Plasmid",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -91,7 +91,7 @@
       "code": "C16517",
       "name": "DNA Helicase",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -100,7 +100,7 @@
       "code": "C158432",
       "name": "PicoGreen Dye",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true

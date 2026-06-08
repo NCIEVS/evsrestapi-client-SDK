@@ -3,7 +3,7 @@ from typing import List
 import pytest
 import logging
 
-from evs import Association, AssociationEntryResultList, Concept, ConceptEndpointsApi, ConceptMap, DisjointWith, \
+from evs import Association, AssociationEntryResultList, Concept, ConceptEndpointsApi, DisjointWith, Mapping, \
     HierarchyNode, Role
 
 
@@ -194,8 +194,9 @@ class TestConceptEndpointsApi:
         
         # ASSERT
         assert response is not None
-        assert expected_name1 == response[0].name, f"FAIL: Expected name {expected_name1} not found"
-        assert expected_name2 == response[1].name, f"FAIL: Expected name {expected_name2} not found"
+        names = [concept.name for concept in response]
+        assert expected_name1 in names, f"FAIL: Expected name {expected_name1} not found"
+        assert expected_name2 in names, f"FAIL: Expected name {expected_name2} not found"
         
         self.logger.info(f"Get list of concepts for codes - {code_list[0]} & {code_list[1]}")
         self.logger.info(f"   concepts = {str(response)}")
@@ -341,7 +342,7 @@ class TestConceptEndpointsApi:
         contains_expected_name: bool = False
         
         # ACT
-        response: [ConceptMap] = concept_api.get_maps(self.terminology, self.code, None)
+        response: [Mapping] = concept_api.get_maps(self.terminology, self.code, None)
         
         # ASSERT
         assert response is not None

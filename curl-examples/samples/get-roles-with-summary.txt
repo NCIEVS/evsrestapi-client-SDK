@@ -3,7 +3,7 @@
     "code": "R100",
     "name": "Disease_Has_Associated_Anatomic_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated Anatomic Site",
@@ -45,7 +45,7 @@
     "code": "R101",
     "name": "Disease_Has_Primary_Anatomic_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Primary Anatomic Site",
@@ -87,7 +87,7 @@
     "code": "R102",
     "name": "Disease_Has_Metastatic_Anatomic_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Metastatic Anatomic Site",
@@ -129,7 +129,7 @@
     "code": "R103",
     "name": "Disease_Has_Normal_Tissue_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Normal Tissue Origin",
@@ -171,7 +171,7 @@
     "code": "R104",
     "name": "Disease_Has_Normal_Cell_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Normal Cell Origin",
@@ -208,7 +208,7 @@
     "code": "R105",
     "name": "Disease_Has_Abnormal_Cell",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Abnormal Cell",
@@ -245,7 +245,7 @@
     "code": "R106",
     "name": "Disease_Has_Molecular_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Molecular Abnormality",
@@ -282,7 +282,7 @@
     "code": "R107",
     "name": "Disease_Has_Cytogenetic_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Cytogenetic Abnormality",
@@ -319,7 +319,7 @@
     "code": "R108",
     "name": "Disease_Has_Finding",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Finding",
@@ -356,7 +356,7 @@
     "code": "R110",
     "name": "Disease_Is_Grade",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Grade",
@@ -393,7 +393,7 @@
     "code": "R111",
     "name": "Disease_May_Have_Normal_Tissue_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Normal Tissue Origin",
@@ -430,7 +430,7 @@
     "code": "R112",
     "name": "Disease_May_Have_Normal_Cell_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Normal Cell Origin",
@@ -467,7 +467,7 @@
     "code": "R113",
     "name": "Disease_May_Have_Abnormal_Cell",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Abnormal Cell",
@@ -504,7 +504,7 @@
     "code": "R114",
     "name": "Disease_May_Have_Cytogenetic_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Cytogenetic Abnormality",
@@ -541,7 +541,7 @@
     "code": "R115",
     "name": "Disease_May_Have_Finding",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Finding",
@@ -578,7 +578,7 @@
     "code": "R116",
     "name": "Disease_May_Have_Associated_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Associated Disease",
@@ -615,7 +615,7 @@
     "code": "R122",
     "name": "Chemical_Or_Drug_Is_Metabolized_By_Enzyme",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Metabolized By Enzyme",
@@ -652,7 +652,7 @@
     "code": "R123",
     "name": "Chemotherapy_Regimen_Has_Component",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Component",
@@ -689,7 +689,7 @@
     "code": "R124",
     "name": "Chemical_Or_Drug_Has_Mechanism_Of_Action",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Mechanism Of Action",
@@ -726,7 +726,7 @@
     "code": "R125",
     "name": "Chemical_Or_Drug_Has_Physiologic_Effect",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Physiologic Effect",
@@ -763,7 +763,7 @@
     "code": "R126",
     "name": "Disease_Has_Associated_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated Disease",
@@ -800,7 +800,7 @@
     "code": "R130",
     "name": "Gene_Is_Element_In_Pathway",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Element In Pathway",
@@ -842,7 +842,7 @@
     "code": "R131",
     "name": "Gene_Product_Is_Element_In_Pathway",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Element In Pathway",
@@ -884,7 +884,7 @@
     "code": "R132",
     "name": "Gene_Has_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Abnormality",
@@ -921,7 +921,7 @@
     "code": "R133",
     "name": "Gene_Product_Has_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Abnormality",
@@ -958,7 +958,7 @@
     "code": "R135",
     "name": "Disease_Excludes_Primary_Anatomic_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Primary Anatomic Site",
@@ -995,7 +995,7 @@
     "code": "R136",
     "name": "Disease_Excludes_Metastatic_Anatomic_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Metastatic Anatomic Site",
@@ -1032,7 +1032,7 @@
     "code": "R137",
     "name": "Disease_Excludes_Normal_Tissue_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Normal Tissue Origin",
@@ -1069,7 +1069,7 @@
     "code": "R138",
     "name": "Disease_Excludes_Normal_Cell_Origin",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Normal Cell Origin",
@@ -1106,7 +1106,7 @@
     "code": "R139",
     "name": "Disease_Excludes_Abnormal_Cell",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Abnormal Cell",
@@ -1143,7 +1143,7 @@
     "code": "R140",
     "name": "Disease_Excludes_Molecular_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Molecular Abnormality",
@@ -1180,7 +1180,7 @@
     "code": "R141",
     "name": "Disease_Excludes_Cytogenetic_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Cytogenetic Abnormality",
@@ -1217,7 +1217,7 @@
     "code": "R142",
     "name": "Disease_Excludes_Finding",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Excludes Finding",
@@ -1254,7 +1254,7 @@
     "code": "R145",
     "name": "Gene_Has_Physical_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Physical Location",
@@ -1296,7 +1296,7 @@
     "code": "R146",
     "name": "Chemical_Or_Drug_Affects_Gene_Product",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Affects Gene Product",
@@ -1333,7 +1333,7 @@
     "code": "R150",
     "name": "Chemical_Or_Drug_Affects_Abnormal_Cell",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Affects Abnormal Cell",
@@ -1370,7 +1370,7 @@
     "code": "R153",
     "name": "Allele_Has_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Abnormality",
@@ -1407,7 +1407,7 @@
     "code": "R155",
     "name": "Allele_In_Chromosomal_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "In Chromosomal Location",
@@ -1444,7 +1444,7 @@
     "code": "R156",
     "name": "Allele_Absent_From_Wild-type_Chromosomal_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Absent From Wild-type Chromosomal Location",
@@ -1481,7 +1481,7 @@
     "code": "R158",
     "name": "Allele_Plays_Altered_Role_In_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Plays Altered Role In Process",
@@ -1518,7 +1518,7 @@
     "code": "R159",
     "name": "Allele_Has_Activity",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Activity",
@@ -1555,7 +1555,7 @@
     "code": "R160",
     "name": "Allele_Plays_Role_In_Metabolism_Of_Chemical_Or_Drug",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Plays Role In Metabolism Of Chemical Or Drug",
@@ -1592,7 +1592,7 @@
     "code": "R163",
     "name": "Procedure_Has_Target_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Target Anatomy",
@@ -1629,7 +1629,7 @@
     "code": "R165",
     "name": "Procedure_Has_Imaged_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Imaged Anatomy",
@@ -1666,7 +1666,7 @@
     "code": "R166",
     "name": "Procedure_May_Have_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Excised Anatomy",
@@ -1703,7 +1703,7 @@
     "code": "R167",
     "name": "Procedure_Has_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Excised Anatomy",
@@ -1740,7 +1740,7 @@
     "code": "R168",
     "name": "Procedure_May_Have_Partially_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Partially Excised Anatomy",
@@ -1777,7 +1777,7 @@
     "code": "R169",
     "name": "Procedure_Has_Partially_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Partially Excised Anatomy",
@@ -1814,7 +1814,7 @@
     "code": "R170",
     "name": "Procedure_May_Have_Completely_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Completely Excised Anatomy",
@@ -1851,7 +1851,7 @@
     "code": "R171",
     "name": "Procedure_Has_Completely_Excised_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Completely Excised Anatomy",
@@ -1888,7 +1888,7 @@
     "code": "R172",
     "name": "Regimen_Has_Accepted_Use_For_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Accepted Use For Disease",
@@ -1925,7 +1925,7 @@
     "code": "R173",
     "name": "Cytogenetic_Abnormality_Involves_Chromosome",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Cytogenetic_Abnormality_Involves_Chromosome",
@@ -1957,7 +1957,7 @@
     "code": "R174",
     "name": "Disease_Mapped_To_Chromosome",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Disease_Mapped_To_Chromosome",
@@ -1989,7 +1989,7 @@
     "code": "R175",
     "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Gene_Involved_In_Pathogenesis_Of_Disease",
@@ -2021,7 +2021,7 @@
     "code": "R176",
     "name": "Disease_Mapped_To_Gene",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Disease_Mapped_To_Gene",
@@ -2053,7 +2053,7 @@
     "code": "R177",
     "name": "Molecular_Abnormality_Involves_Gene",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Molecular_Abnormality_Involves_Gene",
@@ -2085,7 +2085,7 @@
     "code": "R178",
     "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Gene_Mutant_Encodes_Gene_Product_Sequence_Variation",
@@ -2117,7 +2117,7 @@
     "code": "R179",
     "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Gene_Product_Sequence_Variation_Encoded_By_Gene_Mutant",
@@ -2149,7 +2149,7 @@
     "code": "R182",
     "name": "Gene_Product_Variant_Of_Gene_Product",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Gene_Product_Variant_Of_Gene_Product",
@@ -2181,7 +2181,7 @@
     "code": "R23",
     "name": "EO_Disease_Has_Associated_Cell_Type",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated Cell Type",
@@ -2218,7 +2218,7 @@
     "code": "R24",
     "name": "EO_Disease_Maps_To_Human_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Maps To Human Disease",
@@ -2255,7 +2255,7 @@
     "code": "R25",
     "name": "EO_Disease_Has_Associated_EO_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated EO Anatomy",
@@ -2292,7 +2292,7 @@
     "code": "R26",
     "name": "EO_Disease_Has_Property_Or_Attribute",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Property Or Attribute",
@@ -2329,7 +2329,7 @@
     "code": "R27",
     "name": "Conceptual_Part_Of",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Part Of",
@@ -2366,7 +2366,7 @@
     "code": "R28",
     "name": "Biological_Process_Has_Initiator_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Initiator Process",
@@ -2403,7 +2403,7 @@
     "code": "R29",
     "name": "Biological_Process_Has_Result_Chemical_Or_Drug",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Result Chemical Or Drug",
@@ -2440,7 +2440,7 @@
     "code": "R30",
     "name": "Biological_Process_Has_Associated_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated Location",
@@ -2477,7 +2477,7 @@
     "code": "R31",
     "name": "Biological_Process_Has_Result_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Result Anatomy",
@@ -2514,7 +2514,7 @@
     "code": "R32",
     "name": "Biological_Process_Has_Initiator_Chemical_Or_Drug",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Initiator Chemical Or Drug",
@@ -2551,7 +2551,7 @@
     "code": "R34",
     "name": "Biological_Process_Has_Result_Biological_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Result Biological Process",
@@ -2588,7 +2588,7 @@
     "code": "R35",
     "name": "Biological_Process_Is_Part_Of_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Part Of Process",
@@ -2625,7 +2625,7 @@
     "code": "R36",
     "name": "Gene_Is_Biomarker_Type",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Biomarker Type",
@@ -2662,7 +2662,7 @@
     "code": "R37",
     "name": "Gene_Plays_Role_In_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Plays Role In Process",
@@ -2699,7 +2699,7 @@
     "code": "R38",
     "name": "Gene_Associated_With_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Associated With Disease",
@@ -2736,7 +2736,7 @@
     "code": "R39",
     "name": "Gene_Is_Biomarker_Of",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Gene_Is_Biomarker_Of",
@@ -2768,7 +2768,7 @@
     "code": "R40",
     "name": "Gene_In_Chromosomal_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "In Chromosomal Location",
@@ -2805,7 +2805,7 @@
     "code": "R41",
     "name": "Gene_Found_In_Organism",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Found In Organism",
@@ -2847,7 +2847,7 @@
     "code": "R42",
     "name": "Gene_Product_Is_Biomarker_Type",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Biomarker Type",
@@ -2884,7 +2884,7 @@
     "code": "R44",
     "name": "Gene_Product_Has_Chemical_Classification",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Chemical Classification",
@@ -2926,7 +2926,7 @@
     "code": "R45",
     "name": "Gene_Product_Has_Organism_Source",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Organism Source",
@@ -2963,7 +2963,7 @@
     "code": "R46",
     "name": "Gene_Product_Has_Associated_Anatomy",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Associated Anatomy",
@@ -3000,7 +3000,7 @@
     "code": "R47",
     "name": "Gene_Product_Is_Biomarker_Of",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Biomarker Of",
@@ -3042,7 +3042,7 @@
     "code": "R48",
     "name": "Gene_Product_Malfunction_Associated_With_Disease",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Malfunction Associated With Disease",
@@ -3079,7 +3079,7 @@
     "code": "R49",
     "name": "Gene_Product_Expressed_In_Tissue",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Expressed In Tissue",
@@ -3121,7 +3121,7 @@
     "code": "R50",
     "name": "Gene_Product_Has_Structural_Domain_Or_Motif",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Structural Domain Or Motif",
@@ -3163,7 +3163,7 @@
     "code": "R51",
     "name": "Gene_Product_Is_Physical_Part_Of",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Physical Part Of",
@@ -3200,7 +3200,7 @@
     "code": "R52",
     "name": "Gene_Product_Has_Biochemical_Function",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Biochemical Function",
@@ -3237,7 +3237,7 @@
     "code": "R53",
     "name": "Gene_Product_Plays_Role_In_Biological_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Plays Role In Biological Process",
@@ -3279,7 +3279,7 @@
     "code": "R54",
     "name": "Gene_Product_Encoded_By_Gene",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Encoded By Gene",
@@ -3321,7 +3321,7 @@
     "code": "R66",
     "name": "Chemical_Or_Drug_Plays_Role_In_Biological_Process",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Plays Role In Biological Process",
@@ -3363,7 +3363,7 @@
     "code": "R72",
     "name": "Chemical_Or_Drug_Affects_Cell_Type_Or_Tissue",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Affects Cell Type Or Tissue",
@@ -3400,7 +3400,7 @@
     "code": "R81",
     "name": "Anatomic_Structure_Has_Location",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Location",
@@ -3437,7 +3437,7 @@
     "code": "R82",
     "name": "Anatomic_Structure_Is_Physical_Part_Of",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Physical Part Of",
@@ -3474,7 +3474,7 @@
     "code": "R88",
     "name": "Disease_Is_Stage",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Stage",
@@ -3511,7 +3511,7 @@
     "code": "R89",
     "name": "Disease_May_Have_Molecular_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Molecular Abnormality",

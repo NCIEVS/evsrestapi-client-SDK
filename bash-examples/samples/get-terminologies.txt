@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu Apr 30 11:14:47 PDT 2026
+Starting ...Thu, May 14, 2026 10:38:20 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,18 +12,18 @@ latest = true
     [
       {
         "terminology": "ncit",
-        "version": "26.03e",
-        "date": "2026-03-30",
-        "name": "NCI Thesaurus 26.03e",
+        "version": "26.04d",
+        "date": "2026-04-27",
+        "name": "NCI Thesaurus 26.04d",
         "description": "NCI Thesaurus, a controlled vocabulary in support of NCI administrative and scientific activities. Produced by the Enterprise Vocabulary System (EVS), a project by the NCI Center for Biomedical Informatics and Information Technology. National Cancer Institute, National Institutes of Health, Bethesda, MD 20892, U.S.A.",
-        "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_26.03e.owl",
-        "terminologyVersion": "ncit_26.03e",
+        "graph": "http://ncicb.nci.nih.gov/xml/owl/EVS/Thesaurus_26.04d.owl",
+        "terminologyVersion": "ncit_26.04d",
         "latest": true,
         "tags": {
           "monthly": "true"
         },
-        "indexName": "concept_ncit_2603e",
-        "objectIndexName": "evs_object_ncit_2603e",
+        "indexName": "concept_ncit_2604d",
+        "objectIndexName": "evs_object_ncit_2604d",
         "metadata": {
           "uiLabel": "NCI Thesaurus",
           "maxVersions": 3,
@@ -49,12 +49,12 @@ latest = true
           "sourceCt": 76,
           "subsetLink": "P374",
           "codeLabel": "NCI Thesaurus Code",
-          "historyVersion": "26.02d"
+          "historyVersion": "26.03e"
         }
       }
     ]
 
 -----------------------------------------------------
-Finished ...Thu Apr 30 11:14:47 PDT 2026
+Finished ...Thu, May 14, 2026 10:38:22 PM
 -----------------------------------------------------
 

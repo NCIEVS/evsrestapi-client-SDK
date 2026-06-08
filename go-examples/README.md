@@ -645,7 +645,7 @@ Find concepts for a specified SPARQL query that returns a ?code field.
 
 Get all subsets for a specified terminology.
 
-`go test -run "^TestMetadataEndpointsAPIService/GetSubsets$" api_metadatas_endpoint_test.go -v`
+`go test -run "^TestSubsetEndpointsAPIService/GetSubsets$" api_subset_endpoints_test.go -v`
 
 [See output here](outputs/GetSubsets.txt)
 
@@ -656,9 +656,9 @@ Get all subsets for a specified terminology.
 
 Get subset for a specified terminology and code.
 
-`go test -run "^TestMetadataEndpointsAPIService/GetSubset1$" api_metadatas_endpoint_test.go -v`
+`go test -run "^TestSubsetEndpointsAPIService/GetSubset$" api_subset_endpoints_test.go -v`
 
-[See output here](outputs/GetSubset1.txt)
+[See output here](outputs/GetSubset.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 
@@ -666,9 +666,9 @@ Get subset for a specified terminology and code.
 
 Get subset members for a specified terminology and code.
 
-`go test -run "^TestMetadataEndpointsAPIService/GetSubsetMembers1$" api_metadatas_endpoint_test.go -v`
+`go test -run "^TestSubsetEndpointsAPIService/GetSubsetMembers$" api_subset_endpoints_test.go -v`
 
-[See output here](outputs/GetSubsetMembers1.txt)
+[See output here](outputs/GetSubsetMembers.txt)
 
 [Back to Top](#evsrestapi-client-sdk-go-tutorial)
 

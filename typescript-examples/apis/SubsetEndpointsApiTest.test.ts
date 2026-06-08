@@ -33,8 +33,8 @@ describe("TestSubsetEndpointsApi", () => {
   test("test_get_subset_members", async () => {
     // ARRANGE
     const code: string = "C157225";
-    const fromRecord: string = "0";
-    const pageSize: string = "25";
+    const fromRecord: number = 0;
+    const pageSize: number = 25;
     const include: string = "minimal";
     const expectedCode: string = "C16255";
     const expectedName: string = "Acetylation";

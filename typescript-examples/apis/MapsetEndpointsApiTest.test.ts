@@ -1,4 +1,4 @@
-import { Concept, ConceptMapResultList, MapsetEndpointsApi, server1 } from "..";
+import { Concept, MapsetEndpointsApi, server1 } from "..";
 import { createConfiguration } from "..";
 import { Logger } from "tslog";
 
