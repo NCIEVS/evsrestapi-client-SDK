@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "26.03e",
+  "version": "26.04d",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true,
@@ -53,14 +53,14 @@
     },
     {
       "name": "Melanoma",
-      "termType": "PT",
+      "termType": "DN",
       "type": "FULL_SYN",
       "typeCode": "P90",
       "source": "CTRP"
     },
     {
       "name": "Melanoma",
-      "termType": "DN",
+      "termType": "PT",
       "type": "FULL_SYN",
       "typeCode": "P90",
       "source": "CTRP"

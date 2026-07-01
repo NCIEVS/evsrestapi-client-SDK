@@ -1,4 +1,4 @@
-import { Association, Concept, ConceptEndpointsApi, ConceptMap, DisjointWith, HierarchyNode, Role } from "..";
+import { Association, Concept, ConceptEndpointsApi, DisjointWith, HierarchyNode, Mapping, Role } from "..";
 import { createConfiguration } from "..";
 import { AssociationEntryResultList } from "../models/AssociationEntryResultList";
 import { server1 } from "..";
@@ -298,7 +298,7 @@ describe("TestConceptEndpointsApi", () => {
     let containsExpectedName: boolean = false;
 
     // ACT
-    const response: ConceptMap[] = await conceptApi.getMaps(terminology, code, undefined);
+    const response: Mapping[] = await conceptApi.getMaps(terminology, code, undefined);
 
     // ASSERT
     expect(response).not.toBeNull();

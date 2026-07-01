@@ -7,15 +7,16 @@ import { Association } from '../models/Association';
 import { AssociationEntry } from '../models/AssociationEntry';
 import { AssociationEntryResultList } from '../models/AssociationEntryResultList';
 import { Concept } from '../models/Concept';
-import { ConceptMap } from '../models/ConceptMap';
-import { ConceptMapResultList } from '../models/ConceptMapResultList';
 import { ConceptMinimal } from '../models/ConceptMinimal';
 import { ConceptResultList } from '../models/ConceptResultList';
 import { Definition } from '../models/Definition';
 import { DisjointWith } from '../models/DisjointWith';
+import { Extensions } from '../models/Extensions';
 import { HierarchyNode } from '../models/HierarchyNode';
 import { History } from '../models/History';
 import { MapResultList } from '../models/MapResultList';
+import { Mapping } from '../models/Mapping';
+import { MappingResultList } from '../models/MappingResultList';
 import { Path } from '../models/Path';
 import { Paths } from '../models/Paths';
 import { Property } from '../models/Property';
@@ -73,37 +74,6 @@ export class ObservableApplicationVersionEndpointApi {
         return this.getApplicationVersionWithHttpInfo(_options).pipe(map((apiResponse: HttpInfo<ApplicationVersion>) => apiResponse.data));
     }
 
-    /**
-     * Rewrite the specified LexEVS URL to EVS Explore
-     * @param url 
-     */
-    public rewriteUrlWithHttpInfo(url: string, _options?: Configuration): Observable<HttpInfo<string>> {
-        const requestContextPromise = this.requestFactory.rewriteUrl(url, _options);
-
-        // build promise chain
-        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
-        for (let middleware of this.configuration.middleware) {
-            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
-        }
-
-        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
-            pipe(mergeMap((response: ResponseContext) => {
-                let middlewarePostObservable = of(response);
-                for (let middleware of this.configuration.middleware) {
-                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
-                }
-                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.rewriteUrlWithHttpInfo(rsp)));
-            }));
-    }
-
-    /**
-     * Rewrite the specified LexEVS URL to EVS Explore
-     * @param url 
-     */
-    public rewriteUrl(url: string, _options?: Configuration): Observable<string> {
-        return this.rewriteUrlWithHttpInfo(url, _options).pipe(map((apiResponse: HttpInfo<string>) => apiResponse.data));
-    }
-
 }
 
 import { ConceptEndpointsApiRequestFactory, ConceptEndpointsApiResponseProcessor} from "../apis/ConceptEndpointsApi";
@@ -123,12 +93,45 @@ export class ObservableConceptEndpointsApi {
     }
 
     /**
+     * Get all codes for the specified terminology
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39;
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     */
+    public getAllCodesForTerminologyWithHttpInfo(terminology: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<string>>> {
+        const requestContextPromise = this.requestFactory.getAllCodesForTerminology(terminology, xEVSRESTAPILicenseKey, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getAllCodesForTerminologyWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Get all codes for the specified terminology
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39;
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     */
+    public getAllCodesForTerminology(terminology: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<string>> {
+        return this.getAllCodesForTerminologyWithHttpInfo(terminology, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<string>>) => apiResponse.data));
+    }
+
+    /**
      * Get the association entries for the specified terminology and code. Associations used to define subset membership are not resolved by this call
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param codeOrLabel Code/label in the specified terminology, e.g. \&#39;A5\&#39; or \&#39;Has_Salt_Form\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociationEntriesWithHttpInfo(terminology: string, codeOrLabel: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<AssociationEntryResultList>> {
         const requestContextPromise = this.requestFactory.getAssociationEntries(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options);
@@ -155,7 +158,7 @@ export class ObservableConceptEndpointsApi {
      * @param codeOrLabel Code/label in the specified terminology, e.g. \&#39;A5\&#39; or \&#39;Has_Salt_Form\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociationEntries(terminology: string, codeOrLabel: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<AssociationEntryResultList> {
         return this.getAssociationEntriesWithHttpInfo(terminology, codeOrLabel, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<AssociationEntryResultList>) => apiResponse.data));
@@ -163,9 +166,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get the associations for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociations1WithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Association>>> {
         const requestContextPromise = this.requestFactory.getAssociations1(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -188,9 +191,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get the associations for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociations1(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Association>> {
         return this.getAssociations1WithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Association>>) => apiResponse.data));
@@ -198,9 +201,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get child concepts for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getChildrenWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getChildren(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -223,9 +226,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get child concepts for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getChildren(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getChildrenWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -233,11 +236,11 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get the concept for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getConceptWithHttpInfo(terminology: string, code: string, limit?: number, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getConcept(terminology, code, limit, include, xEVSRESTAPILicenseKey, _options);
@@ -260,11 +263,11 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get the concept for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), elements of the concept should be limited to that specified number of entries. Thus a user interface can quickly retrieve initial data for a concept (even with &lt;i&gt;include&#x3D;full&lt;/i&gt;) and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getConcept(terminology: string, code: string, limit?: number, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Concept> {
         return this.getConceptWithHttpInfo(terminology, code, limit, include, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -272,10 +275,10 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get concepts specified by list parameter
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C2291,C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0010137,C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getConceptsWithHttpInfo(terminology: string, list: string, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getConcepts(terminology, list, include, xEVSRESTAPILicenseKey, _options);
@@ -298,10 +301,10 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get concepts specified by list parameter
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param list List (comma-separated) of codes to return concepts for, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C2291,C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0010137,C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getConcepts(terminology: string, list: string, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getConceptsWithHttpInfo(terminology, list, include, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -314,7 +317,7 @@ export class ObservableConceptEndpointsApi {
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param maxLevel Max level of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDescendantsWithHttpInfo(terminology: string, code: string, fromRecord?: number, pageSize?: number, maxLevel?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getDescendants(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey, _options);
@@ -342,7 +345,7 @@ export class ObservableConceptEndpointsApi {
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param maxLevel Max level of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDescendants(terminology: string, code: string, fromRecord?: number, pageSize?: number, maxLevel?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getDescendantsWithHttpInfo(terminology, code, fromRecord, pageSize, maxLevel, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -352,7 +355,7 @@ export class ObservableConceptEndpointsApi {
      * Get \"disjoint with\" info for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3910\&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDisjointWithWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<DisjointWith>>> {
         const requestContextPromise = this.requestFactory.getDisjointWith(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -377,7 +380,7 @@ export class ObservableConceptEndpointsApi {
      * Get \"disjoint with\" info for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3910\&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDisjointWith(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<DisjointWith>> {
         return this.getDisjointWithWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<DisjointWith>>) => apiResponse.data));
@@ -387,7 +390,7 @@ export class ObservableConceptEndpointsApi {
      * Get history for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getHistoryWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getHistory(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -412,7 +415,7 @@ export class ObservableConceptEndpointsApi {
      * Get history for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt; and &lt;i&gt;ncim&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getHistory(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Concept> {
         return this.getHistoryWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -420,9 +423,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get inverse associations for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getInverseAssociationsWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Association>>> {
         const requestContextPromise = this.requestFactory.getInverseAssociations(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -445,9 +448,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get inverse associations for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g.&lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getInverseAssociations(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Association>> {
         return this.getInverseAssociationsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Association>>) => apiResponse.data));
@@ -457,7 +460,7 @@ export class ObservableConceptEndpointsApi {
      * Get inverse roles for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getInverseRolesWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Role>>> {
         const requestContextPromise = this.requestFactory.getInverseRoles(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -482,7 +485,7 @@ export class ObservableConceptEndpointsApi {
      * Get inverse roles for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getInverseRoles(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Role>> {
         return this.getInverseRolesWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Role>>) => apiResponse.data));
@@ -492,9 +495,9 @@ export class ObservableConceptEndpointsApi {
      * Get maps for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getMapsWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<ConceptMap>>> {
+    public getMapsWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Mapping>>> {
         const requestContextPromise = this.requestFactory.getMaps(terminology, code, xEVSRESTAPILicenseKey, _options);
 
         // build promise chain
@@ -517,17 +520,17 @@ export class ObservableConceptEndpointsApi {
      * Get maps for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getMaps(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<ConceptMap>> {
-        return this.getMapsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<ConceptMap>>) => apiResponse.data));
+    public getMaps(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Mapping>> {
+        return this.getMapsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Mapping>>) => apiResponse.data));
     }
 
     /**
      * Get parent concepts for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getParentsWithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getParents(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -550,9 +553,9 @@ export class ObservableConceptEndpointsApi {
 
     /**
      * Get parent concepts for the specified terminology and code
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0025202\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getParents(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getParentsWithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -562,10 +565,10 @@ export class ObservableConceptEndpointsApi {
      * Get paths from the hierarchy root to the specified concept.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsFromRootWithHttpInfo(terminology: string, code: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Array<Concept>>>> {
         const requestContextPromise = this.requestFactory.getPathsFromRoot(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options);
@@ -590,10 +593,10 @@ export class ObservableConceptEndpointsApi {
      * Get paths from the hierarchy root to the specified concept.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsFromRoot(terminology: string, code: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Array<Concept>>> {
         return this.getPathsFromRootWithHttpInfo(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Array<Concept>>>) => apiResponse.data));
@@ -604,10 +607,10 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param ancestorCode Ancestor code of the other specified code, e.g. \&#39;C2991\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsToAncestorWithHttpInfo(terminology: string, code: string, ancestorCode: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Array<Concept>>>> {
         const requestContextPromise = this.requestFactory.getPathsToAncestor(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options);
@@ -633,10 +636,10 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param ancestorCode Ancestor code of the other specified code, e.g. \&#39;C2991\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsToAncestor(terminology: string, code: string, ancestorCode: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Array<Concept>>> {
         return this.getPathsToAncestorWithHttpInfo(terminology, code, ancestorCode, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Array<Concept>>>) => apiResponse.data));
@@ -646,10 +649,10 @@ export class ObservableConceptEndpointsApi {
      * Get paths to the hierarchy root from the specified code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsToRootWithHttpInfo(terminology: string, code: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Array<Concept>>>> {
         const requestContextPromise = this.requestFactory.getPathsToRoot(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options);
@@ -674,10 +677,10 @@ export class ObservableConceptEndpointsApi {
      * Get paths to the hierarchy root from the specified code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPathsToRoot(terminology: string, code: string, include?: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Array<Concept>>> {
         return this.getPathsToRootWithHttpInfo(terminology, code, include, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Array<Concept>>>) => apiResponse.data));
@@ -687,7 +690,7 @@ export class ObservableConceptEndpointsApi {
      * Get roles for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRoles1WithHttpInfo(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Role>>> {
         const requestContextPromise = this.requestFactory.getRoles1(terminology, code, xEVSRESTAPILicenseKey, _options);
@@ -712,7 +715,7 @@ export class ObservableConceptEndpointsApi {
      * Get roles for the specified terminology and code
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRoles1(terminology: string, code: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Role>> {
         return this.getRoles1WithHttpInfo(terminology, code, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Role>>) => apiResponse.data));
@@ -721,8 +724,8 @@ export class ObservableConceptEndpointsApi {
     /**
      * Get root concepts for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRootsWithHttpInfo(terminology: string, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getRoots(terminology, include, xEVSRESTAPILicenseKey, _options);
@@ -746,8 +749,8 @@ export class ObservableConceptEndpointsApi {
     /**
      * Get root concepts for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRoots(terminology: string, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getRootsWithHttpInfo(terminology, include, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -760,8 +763,8 @@ export class ObservableConceptEndpointsApi {
      * @param code Code for a subset concept in the specified terminology, e.g. \&#39;C157225\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubsetMembers1WithHttpInfo(terminology: string, code: string, fromRecord?: number, pageSize?: number, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getSubsetMembers1(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey, _options);
@@ -789,8 +792,8 @@ export class ObservableConceptEndpointsApi {
      * @param code Code for a subset concept in the specified terminology, e.g. \&#39;C157225\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubsetMembers1(terminology: string, code: string, fromRecord?: number, pageSize?: number, include?: string, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getSubsetMembers1WithHttpInfo(terminology, code, fromRecord, pageSize, include, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -801,7 +804,7 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubtreeWithHttpInfo(terminology: string, code: string, limit?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<HierarchyNode>>> {
         const requestContextPromise = this.requestFactory.getSubtree(terminology, code, limit, xEVSRESTAPILicenseKey, _options);
@@ -827,7 +830,7 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), subtrees and siblings at each level will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubtree(terminology: string, code: string, limit?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<HierarchyNode>> {
         return this.getSubtreeWithHttpInfo(terminology, code, limit, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<HierarchyNode>>) => apiResponse.data));
@@ -838,7 +841,7 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubtreeChildrenWithHttpInfo(terminology: string, code: string, limit?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<Array<HierarchyNode>>> {
         const requestContextPromise = this.requestFactory.getSubtreeChildren(terminology, code, limit, xEVSRESTAPILicenseKey, _options);
@@ -864,7 +867,7 @@ export class ObservableConceptEndpointsApi {
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param code Code in the specified terminology, e.g. \&#39;C3224\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param limit If set to an integer (between &lt;i&gt;1&lt;/i&gt; and &lt;i&gt;100&lt;/i&gt;), children will be limited to the specified number of entries. Thus a user interface can quickly retrieve initial data for a subtree and then call back for more data. An extra placeholder entry with just a &lt;i&gt;ct&lt;/i&gt; field will be included to indicate the total count.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubtreeChildren(terminology: string, code: string, limit?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<Array<HierarchyNode>> {
         return this.getSubtreeChildrenWithHttpInfo(terminology, code, limit, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<Array<HierarchyNode>>) => apiResponse.data));
@@ -890,7 +893,7 @@ export class ObservableHistoryEndpointsApi {
 
     /**
      * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C4654\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0000733\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;.
      */
     public getReplacementsWithHttpInfo(terminology: string, code: string, _options?: Configuration): Observable<HttpInfo<Array<History>>> {
@@ -914,7 +917,7 @@ export class ObservableHistoryEndpointsApi {
 
     /**
      * Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param code Code in the specified terminology, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C4654\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0000733\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;.
      */
     public getReplacements(terminology: string, code: string, _options?: Configuration): Observable<Array<History>> {
@@ -923,7 +926,7 @@ export class ObservableHistoryEndpointsApi {
 
     /**
      * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C4654,C40117\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0000733,C3551741\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;.
      */
     public getReplacementsFromListWithHttpInfo(terminology: string, list: string, _options?: Configuration): Observable<HttpInfo<Array<History>>> {
@@ -947,7 +950,7 @@ export class ObservableHistoryEndpointsApi {
 
     /**
      * Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param list Comma-separated list of codes, e.g. &lt;ul&gt;&lt;li&gt;\&#39;C4654,C40117\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;C0000733,C3551741\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;.
      */
     public getReplacementsFromList(terminology: string, list: string, _options?: Configuration): Observable<Array<History>> {
@@ -975,7 +978,7 @@ export class ObservableMapsetEndpointsApi {
     /**
      * Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
      * @param code Mapset code
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getMapsetByCodeWithHttpInfo(code: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getMapsetByCode(code, include, _options);
@@ -999,7 +1002,7 @@ export class ObservableMapsetEndpointsApi {
     /**
      * Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
      * @param code Mapset code
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getMapsetByCode(code: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getMapsetByCodeWithHttpInfo(code, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1014,7 +1017,7 @@ export class ObservableMapsetEndpointsApi {
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
      */
-    public getMapsetMappingsByCodeWithHttpInfo(code: string, term?: string, fromRecord?: number, pageSize?: number, sort?: string, ascending?: boolean, _options?: Configuration): Observable<HttpInfo<ConceptMapResultList>> {
+    public getMapsetMappingsByCodeWithHttpInfo(code: string, term?: string, fromRecord?: number, pageSize?: number, sort?: string, ascending?: boolean, _options?: Configuration): Observable<HttpInfo<MappingResultList>> {
         const requestContextPromise = this.requestFactory.getMapsetMappingsByCode(code, term, fromRecord, pageSize, sort, ascending, _options);
 
         // build promise chain
@@ -1042,13 +1045,13 @@ export class ObservableMapsetEndpointsApi {
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
      */
-    public getMapsetMappingsByCode(code: string, term?: string, fromRecord?: number, pageSize?: number, sort?: string, ascending?: boolean, _options?: Configuration): Observable<ConceptMapResultList> {
-        return this.getMapsetMappingsByCodeWithHttpInfo(code, term, fromRecord, pageSize, sort, ascending, _options).pipe(map((apiResponse: HttpInfo<ConceptMapResultList>) => apiResponse.data));
+    public getMapsetMappingsByCode(code: string, term?: string, fromRecord?: number, pageSize?: number, sort?: string, ascending?: boolean, _options?: Configuration): Observable<MappingResultList> {
+        return this.getMapsetMappingsByCodeWithHttpInfo(code, term, fromRecord, pageSize, sort, ascending, _options).pipe(map((apiResponse: HttpInfo<MappingResultList>) => apiResponse.data));
     }
 
     /**
      * Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getMapsetsWithHttpInfo(include?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getMapsets(include, _options);
@@ -1071,7 +1074,7 @@ export class ObservableMapsetEndpointsApi {
 
     /**
      * Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getMapsets(include?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getMapsetsWithHttpInfo(include, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
@@ -1097,9 +1100,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the association for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;\&#39;A10\&#39; or \&#39;Has_CDRH_Parent\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RB\&#39; or \&#39;has a broader relationship\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociationWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getAssociation(terminology, codeOrName, include, _options);
@@ -1122,9 +1125,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the association for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Association code (or name), e.g. &lt;ul&gt;&lt;li&gt;\&#39;A10\&#39; or \&#39;Has_CDRH_Parent\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RB\&#39; or \&#39;has a broader relationship\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getAssociation(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getAssociationWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1132,8 +1135,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all associations (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getAssociationsWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1157,8 +1160,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all associations (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return associations for (or leave blank for all). If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getAssociations(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1198,7 +1201,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all definition sources for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getDefinitionSourcesWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<Array<ConceptMinimal>>> {
         const requestContextPromise = this.requestFactory.getDefinitionSources(terminology, _options);
@@ -1221,7 +1224,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all definition sources for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getDefinitionSources(terminology: string, _options?: Configuration): Observable<Array<ConceptMinimal>> {
         return this.getDefinitionSourcesWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<Array<ConceptMinimal>>) => apiResponse.data));
@@ -1229,9 +1232,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the definition type for the specified terminology and code/name.
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P325\&#39; or \&#39;DEFINITION\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;DEFINITION\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDefinitionTypeWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getDefinitionType(terminology, codeOrName, include, _options);
@@ -1254,9 +1257,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the definition type for the specified terminology and code/name.
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Definition type code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P325\&#39; or \&#39;DEFINITION\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;DEFINITION\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getDefinitionType(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getDefinitionTypeWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1264,8 +1267,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all definition types (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getDefinitionTypesWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1289,8 +1292,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all definition types (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return definition types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getDefinitionTypes(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1298,9 +1301,40 @@ export class ObservableMetadataEndpointsApi {
     }
 
     /**
+     * Get some metadata (associations, properties, qualifiers, roles, term types, sources, definition types, synonym types) for the terminology overview tab in EVS-Explore
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     */
+    public getOverviewMetadataWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<{ [key: string]: Array<Concept>; }>> {
+        const requestContextPromise = this.requestFactory.getOverviewMetadata(terminology, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getOverviewMetadataWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Get some metadata (associations, properties, qualifiers, roles, term types, sources, definition types, synonym types) for the terminology overview tab in EVS-Explore
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     */
+    public getOverviewMetadata(terminology: string, _options?: Configuration): Observable<{ [key: string]: Array<Concept>; }> {
+        return this.getOverviewMetadataWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<{ [key: string]: Array<Concept>; }>) => apiResponse.data));
+    }
+
+    /**
      * Get all properties (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getPropertiesWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1324,8 +1358,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all properties (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return properties for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getProperties(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1334,9 +1368,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the property for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;\&#39;P216\&#39; or \&#39;BioCarta_ID\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;BioCarta_ID\&#39; or \&#39;\&#39;BioCarta ID\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getPropertyWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getProperty(terminology, codeOrName, include, _options);
@@ -1359,19 +1393,52 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the property for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Property code (or name), e.g. &lt;ul&gt;&lt;li&gt;\&#39;P216\&#39; or \&#39;BioCarta_ID\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;BioCarta_ID\&#39; or \&#39;\&#39;BioCarta ID\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getProperty(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getPropertyWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
     }
 
     /**
+     * Get property values for the specified terminology and code/name
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param codeOrName Property code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P216\&#39; or \&#39;BioCarta_ID\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;Semantic_Type\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
+     */
+    public getPropertyValuesWithHttpInfo(terminology: string, codeOrName: string, _options?: Configuration): Observable<HttpInfo<Array<string>>> {
+        const requestContextPromise = this.requestFactory.getPropertyValues(terminology, codeOrName, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getPropertyValuesWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Get property values for the specified terminology and code/name
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param codeOrName Property code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P216\&#39; or \&#39;BioCarta_ID\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;Semantic_Type\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
+     */
+    public getPropertyValues(terminology: string, codeOrName: string, _options?: Configuration): Observable<Array<string>> {
+        return this.getPropertyValuesWithHttpInfo(terminology, codeOrName, _options).pipe(map((apiResponse: HttpInfo<Array<string>>) => apiResponse.data));
+    }
+
+    /**
      * Get the qualifier for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P390\&#39; or \&#39;go-source\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RG\&#39; or \&#39;Relationship group\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getQualifierWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getQualifier(terminology, codeOrName, include, _options);
@@ -1394,9 +1461,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the qualifier for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P390\&#39; or \&#39;go-source\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RG\&#39; or \&#39;Relationship group\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getQualifier(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getQualifierWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1404,7 +1471,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get qualifier values for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P390\&#39; or \&#39;go-source\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RG\&#39; or \&#39;Relationship group\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
      */
     public getQualifierValuesWithHttpInfo(terminology: string, codeOrName: string, _options?: Configuration): Observable<HttpInfo<Array<string>>> {
@@ -1428,7 +1495,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get qualifier values for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Qualifier code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P390\&#39; or \&#39;go-source\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;RG\&#39; or \&#39;Relationship group\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
      */
     public getQualifierValues(terminology: string, codeOrName: string, _options?: Configuration): Observable<Array<string>> {
@@ -1437,8 +1504,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all qualifiers (properties on properties) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return qualifiers for (or leave blank for all)
      */
     public getQualifiersWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1462,8 +1529,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all qualifiers (properties on properties) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return qualifiers for (or leave blank for all)
      */
     public getQualifiers(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1474,7 +1541,7 @@ export class ObservableMetadataEndpointsApi {
      * Get the role for the specified terminology and code/name
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param codeOrName Role code (or name), e.g. \&#39;R123\&#39; or \&#39;Chemotherapy_Regimen_Has_Component\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRoleWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getRole(terminology, codeOrName, include, _options);
@@ -1499,7 +1566,7 @@ export class ObservableMetadataEndpointsApi {
      * Get the role for the specified terminology and code/name
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;
      * @param codeOrName Role code (or name), e.g. \&#39;R123\&#39; or \&#39;Chemotherapy_Regimen_Has_Component\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getRole(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getRoleWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1508,7 +1575,7 @@ export class ObservableMetadataEndpointsApi {
     /**
      * Get all roles (or those specified by list parameter) for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getRolesWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1533,7 +1600,7 @@ export class ObservableMetadataEndpointsApi {
     /**
      * Get all roles (or those specified by list parameter) for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return roles for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getRoles(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1580,7 +1647,7 @@ export class ObservableMetadataEndpointsApi {
      * Get the subset for the specified terminology and code.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.
      * @param code Subset code, e.g. \&#39;C116978\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubset1WithHttpInfo(terminology: string, code: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getSubset1(terminology, code, include, _options);
@@ -1606,7 +1673,7 @@ export class ObservableMetadataEndpointsApi {
      * Get the subset for the specified terminology and code.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.
      * @param code Subset code, e.g. \&#39;C116978\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubset1(terminology: string, code: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getSubset1WithHttpInfo(terminology, code, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1616,7 +1683,7 @@ export class ObservableMetadataEndpointsApi {
      * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
      * Get all subsets (or those specified by list parameter) for the specified terminology.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSubsets1WithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1642,7 +1709,7 @@ export class ObservableMetadataEndpointsApi {
      * This endpoint will be deprecated in v2 in favor of top level subset endpoints.
      * Get all subsets (or those specified by list parameter) for the specified terminology.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSubsets1(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1651,7 +1718,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all synonym sources for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getSynonymSourcesWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<Array<ConceptMinimal>>> {
         const requestContextPromise = this.requestFactory.getSynonymSources(terminology, _options);
@@ -1674,7 +1741,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all synonym sources for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getSynonymSources(terminology: string, _options?: Configuration): Observable<Array<ConceptMinimal>> {
         return this.getSynonymSourcesWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<Array<ConceptMinimal>>) => apiResponse.data));
@@ -1682,9 +1749,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the synonym type for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P90\&#39; or \&#39;FULL_SYN\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;Preferred_Name\&#39; or \&#39;Preferred name\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSynonymTypeWithHttpInfo(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getSynonymType(terminology, codeOrName, include, _options);
@@ -1707,9 +1774,9 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get the synonym type for the specified terminology and code/name
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param codeOrName Synonym type code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P90\&#39; or \&#39;FULL_SYN\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;Preferred_Name\&#39; or \&#39;Preferred name\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSynonymType(terminology: string, codeOrName: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getSynonymTypeWithHttpInfo(terminology, codeOrName, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -1717,8 +1784,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all synonym types (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSynonymTypesWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -1742,8 +1809,8 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all synonym types (or those specified by list parameter) for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return synonym types for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSynonymTypes(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {
@@ -1752,7 +1819,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all term types for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getTermTypesWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<Array<ConceptMinimal>>> {
         const requestContextPromise = this.requestFactory.getTermTypes(terminology, _options);
@@ -1775,7 +1842,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get all term types for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getTermTypes(terminology: string, _options?: Configuration): Observable<Array<ConceptMinimal>> {
         return this.getTermTypesWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<Array<ConceptMinimal>>) => apiResponse.data));
@@ -1785,7 +1852,7 @@ export class ObservableMetadataEndpointsApi {
      * Get all available terminologies
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false
      * @param tag Return terminologies with matching tag. e.g. \&#39;monthly\&#39; or \&#39;weekly\&#39; for &lt;i&gt;ncit&lt;/i&gt;
-     * @param terminology Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getTerminologiesWithHttpInfo(latest?: boolean, tag?: string, terminology?: string, _options?: Configuration): Observable<HttpInfo<Array<Terminology>>> {
         const requestContextPromise = this.requestFactory.getTerminologies(latest, tag, terminology, _options);
@@ -1810,7 +1877,7 @@ export class ObservableMetadataEndpointsApi {
      * Get all available terminologies
      * @param latest Return terminologies with matching &lt;i&gt;latest&lt;/i&gt; value. e.g. true or false
      * @param tag Return terminologies with matching tag. e.g. \&#39;monthly\&#39; or \&#39;weekly\&#39; for &lt;i&gt;ncit&lt;/i&gt;
-     * @param terminology Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getTerminologies(latest?: boolean, tag?: string, terminology?: string, _options?: Configuration): Observable<Array<Terminology>> {
         return this.getTerminologiesWithHttpInfo(latest, tag, terminology, _options).pipe(map((apiResponse: HttpInfo<Array<Terminology>>) => apiResponse.data));
@@ -1818,7 +1885,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get welcome text for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getWelcomeTextWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<string>> {
         const requestContextPromise = this.requestFactory.getWelcomeText(terminology, _options);
@@ -1841,7 +1908,7 @@ export class ObservableMetadataEndpointsApi {
 
     /**
      * Get welcome text for the specified terminology
-     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public getWelcomeText(terminology: string, _options?: Configuration): Observable<string> {
         return this.getWelcomeTextWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<string>) => apiResponse.data));
@@ -1868,14 +1935,15 @@ export class ObservableSearchEndpointApi {
     /**
      * Perform a SPARQL query for a specified terminology.
      * Get SPARQL query results
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getSparqlBindingsWithHttpInfo(terminology: string, body: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<MapResultList>> {
-        const requestContextPromise = this.requestFactory.getSparqlBindings(terminology, body, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options);
+    public getSparqlBindingsWithHttpInfo(terminology: string, body: string, fromRecord?: number, pageSize?: number, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<HttpInfo<MapResultList>> {
+        const requestContextPromise = this.requestFactory.getSparqlBindings(terminology, body, fromRecord, pageSize, prefixes, xEVSRESTAPILicenseKey, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -1896,26 +1964,58 @@ export class ObservableSearchEndpointApi {
     /**
      * Perform a SPARQL query for a specified terminology.
      * Get SPARQL query results
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getSparqlBindings(terminology: string, body: string, fromRecord?: number, pageSize?: number, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<MapResultList> {
-        return this.getSparqlBindingsWithHttpInfo(terminology, body, fromRecord, pageSize, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<MapResultList>) => apiResponse.data));
+    public getSparqlBindings(terminology: string, body: string, fromRecord?: number, pageSize?: number, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Observable<MapResultList> {
+        return this.getSparqlBindingsWithHttpInfo(terminology, body, fromRecord, pageSize, prefixes, xEVSRESTAPILicenseKey, _options).pipe(map((apiResponse: HttpInfo<MapResultList>) => apiResponse.data));
+    }
+
+    /**
+     * Get default prefixes used by SPARQL queries
+     * @param terminology Single terminology to find prefixes for, e.g. \&#39;ncit\&#39; or \&#39;hgnc\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     */
+    public getSparqlPrefixesWithHttpInfo(terminology: string, _options?: Configuration): Observable<HttpInfo<string>> {
+        const requestContextPromise = this.requestFactory.getSparqlPrefixes(terminology, _options);
+
+        // build promise chain
+        let middlewarePreObservable = from<RequestContext>(requestContextPromise);
+        for (let middleware of this.configuration.middleware) {
+            middlewarePreObservable = middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => middleware.pre(ctx)));
+        }
+
+        return middlewarePreObservable.pipe(mergeMap((ctx: RequestContext) => this.configuration.httpApi.send(ctx))).
+            pipe(mergeMap((response: ResponseContext) => {
+                let middlewarePostObservable = of(response);
+                for (let middleware of this.configuration.middleware) {
+                    middlewarePostObservable = middlewarePostObservable.pipe(mergeMap((rsp: ResponseContext) => middleware.post(rsp)));
+                }
+                return middlewarePostObservable.pipe(map((rsp: ResponseContext) => this.responseProcessor.getSparqlPrefixesWithHttpInfo(rsp)));
+            }));
+    }
+
+    /**
+     * Get default prefixes used by SPARQL queries
+     * @param terminology Single terminology to find prefixes for, e.g. \&#39;ncit\&#39; or \&#39;hgnc\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     */
+    public getSparqlPrefixes(terminology: string, _options?: Configuration): Observable<string> {
+        return this.getSparqlPrefixesWithHttpInfo(terminology, _options).pipe(map((apiResponse: HttpInfo<string>) => apiResponse.data));
     }
 
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -1950,13 +2050,13 @@ export class ObservableSearchEndpointApi {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -1976,13 +2076,13 @@ export class ObservableSearchEndpointApi {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -2017,13 +2117,13 @@ export class ObservableSearchEndpointApi {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -2043,14 +2143,15 @@ export class ObservableSearchEndpointApi {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -2063,8 +2164,8 @@ export class ObservableSearchEndpointApi {
      * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncim/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt;
      * @param subset Comma-separated list of subsets to restrict search results by, e.g. \&#39;C157225\&#39;. The value \&#39;*\&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;
      */
-    public searchSingleTerminologySparqlWithHttpInfo(terminology: string, body: string, include?: string, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Observable<HttpInfo<ConceptResultList>> {
-        const requestContextPromise = this.requestFactory.searchSingleTerminologySparql(terminology, body, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _options);
+    public searchSingleTerminologySparqlWithHttpInfo(terminology: string, body: string, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, include?: string, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Observable<HttpInfo<ConceptResultList>> {
+        const requestContextPromise = this.requestFactory.searchSingleTerminologySparql(terminology, body, prefixes, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _options);
 
         // build promise chain
         let middlewarePreObservable = from<RequestContext>(requestContextPromise);
@@ -2085,14 +2186,15 @@ export class ObservableSearchEndpointApi {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -2105,8 +2207,8 @@ export class ObservableSearchEndpointApi {
      * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncim/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt;
      * @param subset Comma-separated list of subsets to restrict search results by, e.g. \&#39;C157225\&#39;. The value \&#39;*\&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;
      */
-    public searchSingleTerminologySparql(terminology: string, body: string, include?: string, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Observable<ConceptResultList> {
-        return this.searchSingleTerminologySparqlWithHttpInfo(terminology, body, include, xEVSRESTAPILicenseKey, term, type, sort, ascending, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _options).pipe(map((apiResponse: HttpInfo<ConceptResultList>) => apiResponse.data));
+    public searchSingleTerminologySparql(terminology: string, body: string, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, include?: string, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Observable<ConceptResultList> {
+        return this.searchSingleTerminologySparqlWithHttpInfo(terminology, body, prefixes, xEVSRESTAPILicenseKey, term, type, sort, ascending, include, fromRecord, pageSize, conceptStatus, property, value, definitionSource, definitionType, synonymSource, synonymType, synonymTermType, subset, _options).pipe(map((apiResponse: HttpInfo<ConceptResultList>) => apiResponse.data));
     }
 
 }
@@ -2131,7 +2233,7 @@ export class ObservableSubsetEndpointsApi {
      * Get the subset for the specified terminology and code.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.
      * @param code Subset code, e.g. \&#39;C116978\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubsetWithHttpInfo(terminology: string, code: string, include?: string, _options?: Configuration): Observable<HttpInfo<Concept>> {
         const requestContextPromise = this.requestFactory.getSubset(terminology, code, include, _options);
@@ -2156,7 +2258,7 @@ export class ObservableSubsetEndpointsApi {
      * Get the subset for the specified terminology and code.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.
      * @param code Subset code, e.g. \&#39;C116978\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public getSubset(terminology: string, code: string, include?: string, _options?: Configuration): Observable<Concept> {
         return this.getSubsetWithHttpInfo(terminology, code, include, _options).pipe(map((apiResponse: HttpInfo<Concept>) => apiResponse.data));
@@ -2168,9 +2270,9 @@ export class ObservableSubsetEndpointsApi {
      * @param code Code for a subset concept in the specified terminology, e.g. \&#39;C157225\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getSubsetMembersWithHttpInfo(terminology: string, code: string, fromRecord?: string, pageSize?: string, include?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
+    public getSubsetMembersWithHttpInfo(terminology: string, code: string, fromRecord?: number, pageSize?: number, include?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
         const requestContextPromise = this.requestFactory.getSubsetMembers(terminology, code, fromRecord, pageSize, include, _options);
 
         // build promise chain
@@ -2195,16 +2297,16 @@ export class ObservableSubsetEndpointsApi {
      * @param code Code for a subset concept in the specified terminology, e.g. \&#39;C157225\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public getSubsetMembers(terminology: string, code: string, fromRecord?: string, pageSize?: string, include?: string, _options?: Configuration): Observable<Array<Concept>> {
+    public getSubsetMembers(terminology: string, code: string, fromRecord?: number, pageSize?: number, include?: string, _options?: Configuration): Observable<Array<Concept>> {
         return this.getSubsetMembersWithHttpInfo(terminology, code, fromRecord, pageSize, include, _options).pipe(map((apiResponse: HttpInfo<Array<Concept>>) => apiResponse.data));
     }
 
     /**
      * Get all subsets (or those specified by list parameter) for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSubsetsWithHttpInfo(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<HttpInfo<Array<Concept>>> {
@@ -2229,7 +2331,7 @@ export class ObservableSubsetEndpointsApi {
     /**
      * Get all subsets (or those specified by list parameter) for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public getSubsets(terminology: string, include?: string, list?: string, _options?: Configuration): Observable<Array<Concept>> {

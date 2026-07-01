@@ -16,7 +16,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
         code: C3224
         name: Melanoma
         terminology: ncit
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -108,7 +108,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             name: Melanoma
             highlight: null
-            termType: PT
+            termType: DN
             type: FULL_SYN
             typeCode: P90
             source: CTRP
@@ -121,7 +121,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             ct: null
             name: Melanoma
             highlight: null
-            termType: DN
+            termType: PT
             type: FULL_SYN
             typeCode: P90
             source: CTRP
@@ -446,6 +446,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -454,6 +455,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -475,6 +477,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -483,6 +486,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -504,6 +508,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -512,6 +517,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -533,6 +539,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -541,6 +548,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -562,6 +570,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -570,6 +579,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -591,6 +601,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -599,6 +610,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -620,6 +632,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -628,6 +641,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -649,6 +663,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -657,6 +672,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -678,6 +694,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -686,6 +703,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -707,6 +725,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -715,6 +734,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -736,6 +756,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -744,6 +765,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -765,6 +787,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -773,6 +796,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -794,6 +818,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -802,6 +827,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -823,6 +849,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -831,6 +858,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -852,6 +880,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -860,6 +889,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -881,6 +911,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -889,6 +920,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -910,6 +942,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -918,6 +951,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -939,6 +973,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -947,6 +982,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -968,6 +1004,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -976,6 +1013,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }]
         parents: [class Concept {
             uri: null
@@ -998,6 +1036,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -1006,6 +1045,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
@@ -1027,6 +1067,7 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -1035,8 +1076,10 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             history: []
             maps: []
             paths: null
+            extensions: null
         }]
         descendants: []
+        qualifiers: []
         associations: [class Association {
             uri: null
             ct: null
@@ -4116,9 +4159,10 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             replacementCode: null
             replacementName: null
         }]
-        maps: [class ConceptMap {
+        maps: [class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4130,16 +4174,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: 8720/3
             targetTermType: PT
             targetCode: morphology
             targetTerminology: GDC
             targetTerminologyVersion: null
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4151,16 +4198,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Malignant melanoma, NOS
             targetTermType: PT
             targetCode: 8720/3
             targetTerminology: ICDO3
             targetTerminologyVersion: 3.2
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4172,16 +4222,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Malignant melanoma, NOS
             targetTermType: PT
             targetCode: 8720/3
             targetTerminology: ICDO3
             targetTerminologyVersion: 3.1
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4193,16 +4246,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Malignant melanoma, NOS
             targetTermType: PT
             targetCode: primary_diagnosis
             targetTerminology: GDC
             targetTerminologyVersion: null
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4214,16 +4270,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Melanoma, NOS
             targetTermType: PT
             targetCode: primary_diagnosis
             targetTerminology: GDC
             targetTerminologyVersion: null
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4235,16 +4294,19 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Melanoma
             targetTermType: LLT
             targetCode: 10053571
             targetTerminology: MedDRA
             targetTerminologyVersion: 18.1
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: null
             source: null
             sourceName: null
             sourceTermType: null
@@ -4256,20 +4318,23 @@ ConceptEndpointsApiTest > getConceptFullTest() STANDARD_ERROR
             rank: null
             group: null
             rule: null
+            target: null
             targetName: Melanoma
             targetTermType: PT
             targetCode: relationship_primary_diagnosis
             targetTerminology: GDC
             targetTerminologyVersion: null
             targetLoaded: null
+            sortKey: null
             targetTermGroup: null
         }]
         paths: null
+        extensions: null
     }
 
 ConceptEndpointsApiTest > getConceptFullTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 

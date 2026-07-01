@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu Apr 30 11:14:57 PDT 2026
+Starting ...Thu, May 14, 2026 10:38:35 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,10 +12,10 @@ include =
       "code": "A16",
       "name": "Has_INC_Parent",
       "terminology": "ncit",
-      "version": "26.03e"
+      "version": "26.04d"
     }
 
 -----------------------------------------------------
-Finished ...Thu Apr 30 11:14:58 PDT 2026
+Finished ...Thu, May 14, 2026 10:38:36 PM
 -----------------------------------------------------
 

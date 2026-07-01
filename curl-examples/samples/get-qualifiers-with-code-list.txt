@@ -3,7 +3,7 @@
     "code": "P381",
     "name": "attribution",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "attribution",
@@ -35,7 +35,7 @@
     "code": "P387",
     "name": "go-id",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "go-id",

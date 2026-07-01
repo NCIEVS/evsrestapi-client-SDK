@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -31,7 +31,7 @@ type ApiGetMapsetByCodeRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetMapsetByCodeRequest) Include(include string) ApiGetMapsetByCodeRequest {
 	r.include = &include
 	return r
@@ -120,17 +120,6 @@ func (a *MapsetEndpointsAPIService) GetMapsetByCodeExecute(r ApiGetMapsetByCodeR
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -141,6 +130,16 @@ func (a *MapsetEndpointsAPIService) GetMapsetByCodeExecute(r ApiGetMapsetByCodeR
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -198,7 +197,7 @@ func (r ApiGetMapsetMappingsByCodeRequest) Ascending(ascending bool) ApiGetMapse
 	return r
 }
 
-func (r ApiGetMapsetMappingsByCodeRequest) Execute() (*ConceptMapResultList, *http.Response, error) {
+func (r ApiGetMapsetMappingsByCodeRequest) Execute() (*MappingResultList, *http.Response, error) {
 	return r.ApiService.GetMapsetMappingsByCodeExecute(r)
 }
 
@@ -218,13 +217,13 @@ func (a *MapsetEndpointsAPIService) GetMapsetMappingsByCode(ctx context.Context,
 }
 
 // Execute executes the request
-//  @return ConceptMapResultList
-func (a *MapsetEndpointsAPIService) GetMapsetMappingsByCodeExecute(r ApiGetMapsetMappingsByCodeRequest) (*ConceptMapResultList, *http.Response, error) {
+//  @return MappingResultList
+func (a *MapsetEndpointsAPIService) GetMapsetMappingsByCodeExecute(r ApiGetMapsetMappingsByCodeRequest) (*MappingResultList, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  *ConceptMapResultList
+		localVarReturnValue  *MappingResultList
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "MapsetEndpointsAPIService.GetMapsetMappingsByCode")
@@ -293,17 +292,6 @@ func (a *MapsetEndpointsAPIService) GetMapsetMappingsByCodeExecute(r ApiGetMapse
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -314,6 +302,16 @@ func (a *MapsetEndpointsAPIService) GetMapsetMappingsByCodeExecute(r ApiGetMapse
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -336,7 +334,7 @@ type ApiGetMapsetsRequest struct {
 	include *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetMapsetsRequest) Include(include string) ApiGetMapsetsRequest {
 	r.include = &include
 	return r

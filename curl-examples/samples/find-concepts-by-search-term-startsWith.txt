@@ -1,6 +1,6 @@
 {
   "total": 67,
-  "timeTaken": 54,
+  "timeTaken": 37,
   "parameters": {
     "term": "enzyme",
     "type": "startsWith",
@@ -16,45 +16,45 @@
       "code": "C16554",
       "name": "Enzyme",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
     },
     {
-      "code": "C154856",
-      "name": "Enzyme Unit per Gram Hemoglobin",
+      "code": "C147466",
+      "name": "Enzyme-Linked Lectin Assay",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
     },
     {
-      "code": "C17455",
-      "name": "Enzyme Immunoassay",
+      "code": "C156467",
+      "name": "Enzyme Unit per Meter Squared",
       "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": false,
-      "active": true
-    },
-    {
-      "code": "C208421",
-      "name": "Enzyme Unit per 10 Billion",
-      "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
     },
     {
-      "code": "C21281",
-      "name": "Enzyme Gene",
+      "code": "C208420",
+      "name": "Enzyme Unit per 10 Billion Cells",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
-      "leaf": false,
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C222966",
+      "name": "Enzyme Unit per One Hour",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
       "active": true
     }
   ]

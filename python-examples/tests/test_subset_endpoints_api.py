@@ -54,15 +54,21 @@ class TestSubsetEndpointsApi:
         """
         # ARRANGE - using global variable unless otherwise listed
         code: str = "C157225"
-        from_record: str = "0"
-        page_size: str = "25"
+        from_record: int = 0
+        page_size: int = 25
         include: str = "minimal"
         expected_code: str = "C16255"
         expected_name: str = "Acetylation"
         contains_expected_values: bool = False
         
         # ACT
-        response: [Concept] = subset_api.get_subset_members(self.terminology, code, from_record, page_size, include)
+        response: [Concept] = subset_api.get_subset_members(
+            self.terminology,
+            code,
+            from_record=from_record,
+            page_size=page_size,
+            include=include,
+        )
         
         # ASSERT
         assert response is not None

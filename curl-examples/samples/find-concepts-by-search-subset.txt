@@ -1,6 +1,6 @@
 {
   "total": 36,
-  "timeTaken": 52,
+  "timeTaken": 50,
   "parameters": {
     "term": "immune",
     "type": "contains",
@@ -19,7 +19,7 @@
       "code": "C3507",
       "name": "Immune System Disorder",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -28,7 +28,7 @@
       "code": "C3446",
       "name": "Primary Immune Thrombocytopenia",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -37,7 +37,7 @@
       "code": "C152105",
       "name": "Inborn Error of Immunity",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
@@ -46,34 +46,7 @@
       "code": "C2986",
       "name": "Type 1 Diabetes Mellitus",
       "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": false,
-      "active": true
-    },
-    {
-      "code": "C3962",
-      "name": "Adenosine Deaminase Deficiency",
-      "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": true,
-      "active": true
-    },
-    {
-      "code": "C26725",
-      "name": "Common Variable Immunodeficiency",
-      "terminology": "ncit",
-      "version": "26.03e",
-      "conceptStatus": "DEFAULT",
-      "leaf": false,
-      "active": true
-    },
-    {
-      "code": "C118844",
-      "name": "Ectodermal Dysplasia and Immunodeficiency",
-      "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true
@@ -82,25 +55,52 @@
       "code": "C198610",
       "name": "VISS Syndrome",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": true,
       "active": true
     },
     {
-      "code": "C3472",
-      "name": "Severe Combined Immunodeficiency",
+      "code": "C3962",
+      "name": "Adenosine Deaminase Deficiency",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
-      "leaf": false,
+      "leaf": true,
       "active": true
     },
     {
       "code": "C129867",
       "name": "Growth Hormone Insensitivity Syndrome",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true
+    },
+    {
+      "code": "C135087",
+      "name": "Schimke Immunoosseous Dysplasia",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C156424",
+      "name": "Hereditary Folate Malabsorption",
+      "terminology": "ncit",
+      "version": "26.04d",
+      "conceptStatus": "DEFAULT",
+      "leaf": true,
+      "active": true
+    },
+    {
+      "code": "C26931",
+      "name": "Hypogammaglobulinemia",
+      "terminology": "ncit",
+      "version": "26.04d",
       "conceptStatus": "DEFAULT",
       "leaf": false,
       "active": true

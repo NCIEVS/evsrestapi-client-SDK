@@ -104,9 +104,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -180,9 +180,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -256,9 +256,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -396,9 +396,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -472,9 +472,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -548,9 +548,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1204,9 +1204,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1280,9 +1280,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1356,9 +1356,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1496,9 +1496,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1572,9 +1572,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1648,9 +1648,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1782,9 +1782,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[Concept]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1850,9 +1850,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[Concept]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -1918,9 +1918,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[Concept]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2050,9 +2050,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2126,9 +2126,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2202,9 +2202,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2344,9 +2344,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2420,9 +2420,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2496,9 +2496,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2908,9 +2908,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -2984,9 +2984,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3060,9 +3060,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3472,9 +3472,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3548,9 +3548,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3624,9 +3624,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3766,9 +3766,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3842,9 +3842,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -3918,9 +3918,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4058,8 +4058,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4133,8 +4133,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4208,8 +4208,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4346,9 +4346,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[StatisticsEntry]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4419,9 +4419,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[StatisticsEntry]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4492,9 +4492,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Dict[str, List[StatisticsEntry]]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4628,9 +4628,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4705,9 +4705,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4782,9 +4782,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "Concept",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -4923,9 +4923,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5000,9 +5000,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5077,9 +5077,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5476,8 +5476,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
+            '417': "RestException",
             '200': "Concept",
         }
         response_data = self.api_client.call_api(
@@ -5552,8 +5552,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
+            '417': "RestException",
             '200': "Concept",
         }
         response_data = self.api_client.call_api(
@@ -5628,8 +5628,8 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
+            '417': "RestException",
             '200': "Concept",
         }
         response_data = self.api_client.call_api(
@@ -5768,9 +5768,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5844,9 +5844,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,
@@ -5920,9 +5920,9 @@ class MetadataEndpointsApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '417': "RestException",
             '404': "RestException",
             '200': "List[Concept]",
+            '417': "RestException",
         }
         response_data = self.api_client.call_api(
             *_param,

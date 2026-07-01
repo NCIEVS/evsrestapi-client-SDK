@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -28,6 +28,8 @@ type Definition struct {
 	Definition *string `json:"definition,omitempty"`
 	// Used by search calls to provide information for highlighting a view of results
 	Highlight *string `json:"highlight,omitempty"`
+	// Definition code
+	Code *string `json:"code,omitempty"`
 	// Definition type
 	Type *string `json:"type,omitempty"`
 	// Definition source
@@ -181,6 +183,38 @@ func (o *Definition) SetHighlight(v string) {
 	o.Highlight = &v
 }
 
+// GetCode returns the Code field value if set, zero value otherwise.
+func (o *Definition) GetCode() string {
+	if o == nil || IsNil(o.Code) {
+		var ret string
+		return ret
+	}
+	return *o.Code
+}
+
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Definition) GetCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.Code) {
+		return nil, false
+	}
+	return o.Code, true
+}
+
+// HasCode returns a boolean if a field has been set.
+func (o *Definition) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given string and assigns it to the Code field.
+func (o *Definition) SetCode(v string) {
+	o.Code = &v
+}
+
 // GetType returns the Type field value if set, zero value otherwise.
 func (o *Definition) GetType() string {
 	if o == nil || IsNil(o.Type) {
@@ -298,6 +332,9 @@ func (o Definition) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Highlight) {
 		toSerialize["highlight"] = o.Highlight
+	}
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
