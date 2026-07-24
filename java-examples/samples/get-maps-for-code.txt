@@ -10,9 +10,10 @@
 
 ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest - Get maps for code - C3224
-    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     maps = [class ConceptMap {
+    [Test worker] INFO gov.nih.nci.evs.api.ConceptEndpointsApiTest -     maps = [class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -24,16 +25,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: 8720/3
         targetTermType: PT
         targetCode: morphology
         targetTerminology: GDC
         targetTerminologyVersion: null
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -45,16 +49,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Malignant melanoma, NOS
         targetTermType: PT
         targetCode: 8720/3
         targetTerminology: ICDO3
         targetTerminologyVersion: 3.2
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -66,16 +73,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Malignant melanoma, NOS
         targetTermType: PT
         targetCode: 8720/3
         targetTerminology: ICDO3
         targetTerminologyVersion: 3.1
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -87,16 +97,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Malignant melanoma, NOS
         targetTermType: PT
         targetCode: primary_diagnosis
         targetTerminology: GDC
         targetTerminologyVersion: null
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -108,16 +121,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Melanoma, NOS
         targetTermType: PT
         targetCode: primary_diagnosis
         targetTerminology: GDC
         targetTerminologyVersion: null
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -129,16 +145,19 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Melanoma
         targetTermType: LLT
         targetCode: 10053571
         targetTerminology: MedDRA
         targetTerminologyVersion: 18.1
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
-    }, class ConceptMap {
+    }, class Mapping {
         uri: null
         ct: null
+        mapsetCode: null
         source: null
         sourceName: null
         sourceTermType: null
@@ -150,18 +169,20 @@ ConceptEndpointsApiTest > getMapsTest() STANDARD_ERROR
         rank: null
         group: null
         rule: null
+        target: null
         targetName: Melanoma
         targetTermType: PT
         targetCode: relationship_primary_diagnosis
         targetTerminology: GDC
         targetTerminologyVersion: null
         targetLoaded: null
+        sortKey: null
         targetTermGroup: null
     }]
 
 ConceptEndpointsApiTest > getMapsTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -169,6 +190,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1s
+BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date
 

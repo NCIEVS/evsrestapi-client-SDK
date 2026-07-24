@@ -1,7 +1,7 @@
 import pytest
 import logging
 
-from evs import Concept, ConceptMapResultList, MapsetEndpointsApi
+from evs import Concept, MappingResultList, MapsetEndpointsApi
 
 
 @pytest.fixture
@@ -55,8 +55,9 @@ class TestMapsetEndpointsApi:
         expected_total: int = 305
         
         # ACT
-        response: ConceptMapResultList = mapset_api.get_mapset_mappings_by_code(code, from_record, page_size, None,
-                                                                                ascending, None)
+        response: MappingResultList = mapset_api.get_mapset_mappings_by_code(
+            code, None, from_record, page_size, None, ascending
+        )
         
         # ASSERT
         assert response is not None

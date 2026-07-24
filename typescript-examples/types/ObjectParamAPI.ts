@@ -6,15 +6,16 @@ import { Association } from '../models/Association';
 import { AssociationEntry } from '../models/AssociationEntry';
 import { AssociationEntryResultList } from '../models/AssociationEntryResultList';
 import { Concept } from '../models/Concept';
-import { ConceptMap } from '../models/ConceptMap';
-import { ConceptMapResultList } from '../models/ConceptMapResultList';
 import { ConceptMinimal } from '../models/ConceptMinimal';
 import { ConceptResultList } from '../models/ConceptResultList';
 import { Definition } from '../models/Definition';
 import { DisjointWith } from '../models/DisjointWith';
+import { Extensions } from '../models/Extensions';
 import { HierarchyNode } from '../models/HierarchyNode';
 import { History } from '../models/History';
 import { MapResultList } from '../models/MapResultList';
+import { Mapping } from '../models/Mapping';
+import { MappingResultList } from '../models/MappingResultList';
 import { Path } from '../models/Path';
 import { Paths } from '../models/Paths';
 import { Property } from '../models/Property';
@@ -31,15 +32,6 @@ import { ObservableApplicationVersionEndpointApi } from "./ObservableAPI";
 import { ApplicationVersionEndpointApiRequestFactory, ApplicationVersionEndpointApiResponseProcessor} from "../apis/ApplicationVersionEndpointApi";
 
 export interface ApplicationVersionEndpointApiGetApplicationVersionRequest {
-}
-
-export interface ApplicationVersionEndpointApiRewriteUrlRequest {
-    /**
-     * 
-     * @type string
-     * @memberof ApplicationVersionEndpointApirewriteUrl
-     */
-    url: string
 }
 
 export class ObjectApplicationVersionEndpointApi {
@@ -65,26 +57,25 @@ export class ObjectApplicationVersionEndpointApi {
         return this.api.getApplicationVersion( options).toPromise();
     }
 
-    /**
-     * Rewrite the specified LexEVS URL to EVS Explore
-     * @param param the request object
-     */
-    public rewriteUrlWithHttpInfo(param: ApplicationVersionEndpointApiRewriteUrlRequest, options?: Configuration): Promise<HttpInfo<string>> {
-        return this.api.rewriteUrlWithHttpInfo(param.url,  options).toPromise();
-    }
-
-    /**
-     * Rewrite the specified LexEVS URL to EVS Explore
-     * @param param the request object
-     */
-    public rewriteUrl(param: ApplicationVersionEndpointApiRewriteUrlRequest, options?: Configuration): Promise<string> {
-        return this.api.rewriteUrl(param.url,  options).toPromise();
-    }
-
 }
 
 import { ObservableConceptEndpointsApi } from "./ObservableAPI";
 import { ConceptEndpointsApiRequestFactory, ConceptEndpointsApiResponseProcessor} from "../apis/ConceptEndpointsApi";
+
+export interface ConceptEndpointsApiGetAllCodesForTerminologyRequest {
+    /**
+     * Terminology, e.g. \&#39;ncit\&#39;
+     * @type string
+     * @memberof ConceptEndpointsApigetAllCodesForTerminology
+     */
+    terminology: string
+    /**
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @type string
+     * @memberof ConceptEndpointsApigetAllCodesForTerminology
+     */
+    xEVSRESTAPILicenseKey?: string
+}
 
 export interface ConceptEndpointsApiGetAssociationEntriesRequest {
     /**
@@ -112,7 +103,7 @@ export interface ConceptEndpointsApiGetAssociationEntriesRequest {
      */
     pageSize?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetAssociationEntries
      */
@@ -121,7 +112,7 @@ export interface ConceptEndpointsApiGetAssociationEntriesRequest {
 
 export interface ConceptEndpointsApiGetAssociations1Request {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetAssociations1
      */
@@ -133,7 +124,7 @@ export interface ConceptEndpointsApiGetAssociations1Request {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetAssociations1
      */
@@ -142,7 +133,7 @@ export interface ConceptEndpointsApiGetAssociations1Request {
 
 export interface ConceptEndpointsApiGetChildrenRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetChildren
      */
@@ -154,7 +145,7 @@ export interface ConceptEndpointsApiGetChildrenRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetChildren
      */
@@ -163,7 +154,7 @@ export interface ConceptEndpointsApiGetChildrenRequest {
 
 export interface ConceptEndpointsApiGetConceptRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetConcept
      */
@@ -181,13 +172,13 @@ export interface ConceptEndpointsApiGetConceptRequest {
      */
     limit?: number
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetConcept
      */
     include?: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetConcept
      */
@@ -196,7 +187,7 @@ export interface ConceptEndpointsApiGetConceptRequest {
 
 export interface ConceptEndpointsApiGetConceptsRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetConcepts
      */
@@ -208,13 +199,13 @@ export interface ConceptEndpointsApiGetConceptsRequest {
      */
     list: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetConcepts
      */
     include?: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetConcepts
      */
@@ -253,7 +244,7 @@ export interface ConceptEndpointsApiGetDescendantsRequest {
      */
     maxLevel?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetDescendants
      */
@@ -274,7 +265,7 @@ export interface ConceptEndpointsApiGetDisjointWithRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetDisjointWith
      */
@@ -295,7 +286,7 @@ export interface ConceptEndpointsApiGetHistoryRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetHistory
      */
@@ -304,7 +295,7 @@ export interface ConceptEndpointsApiGetHistoryRequest {
 
 export interface ConceptEndpointsApiGetInverseAssociationsRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetInverseAssociations
      */
@@ -316,7 +307,7 @@ export interface ConceptEndpointsApiGetInverseAssociationsRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetInverseAssociations
      */
@@ -337,7 +328,7 @@ export interface ConceptEndpointsApiGetInverseRolesRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetInverseRoles
      */
@@ -358,7 +349,7 @@ export interface ConceptEndpointsApiGetMapsRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetMaps
      */
@@ -367,7 +358,7 @@ export interface ConceptEndpointsApiGetMapsRequest {
 
 export interface ConceptEndpointsApiGetParentsRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot; target&#x3D;\&quot;_blank\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof ConceptEndpointsApigetParents
      */
@@ -379,7 +370,7 @@ export interface ConceptEndpointsApiGetParentsRequest {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetParents
      */
@@ -400,7 +391,7 @@ export interface ConceptEndpointsApiGetPathsFromRootRequest {
      */
     code: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @type string
      * @memberof ConceptEndpointsApigetPathsFromRoot
      */
@@ -418,7 +409,7 @@ export interface ConceptEndpointsApiGetPathsFromRootRequest {
      */
     pageSize?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetPathsFromRoot
      */
@@ -445,7 +436,7 @@ export interface ConceptEndpointsApiGetPathsToAncestorRequest {
      */
     ancestorCode: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @type string
      * @memberof ConceptEndpointsApigetPathsToAncestor
      */
@@ -463,7 +454,7 @@ export interface ConceptEndpointsApiGetPathsToAncestorRequest {
      */
     pageSize?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetPathsToAncestor
      */
@@ -484,7 +475,7 @@ export interface ConceptEndpointsApiGetPathsToRootRequest {
      */
     code: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than \&#39;minimal\&#39; may produce very large payload results. 
      * @type string
      * @memberof ConceptEndpointsApigetPathsToRoot
      */
@@ -502,7 +493,7 @@ export interface ConceptEndpointsApiGetPathsToRootRequest {
      */
     pageSize?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetPathsToRoot
      */
@@ -523,7 +514,7 @@ export interface ConceptEndpointsApiGetRoles1Request {
      */
     code: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetRoles1
      */
@@ -538,13 +529,13 @@ export interface ConceptEndpointsApiGetRootsRequest {
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetRoots
      */
     include?: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetRoots
      */
@@ -577,13 +568,13 @@ export interface ConceptEndpointsApiGetSubsetMembers1Request {
      */
     pageSize?: number
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetSubsetMembers1
      */
     include?: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetSubsetMembers1
      */
@@ -610,7 +601,7 @@ export interface ConceptEndpointsApiGetSubtreeRequest {
      */
     limit?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetSubtree
      */
@@ -637,7 +628,7 @@ export interface ConceptEndpointsApiGetSubtreeChildrenRequest {
      */
     limit?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof ConceptEndpointsApigetSubtreeChildren
      */
@@ -649,6 +640,22 @@ export class ObjectConceptEndpointsApi {
 
     public constructor(configuration: Configuration, requestFactory?: ConceptEndpointsApiRequestFactory, responseProcessor?: ConceptEndpointsApiResponseProcessor) {
         this.api = new ObservableConceptEndpointsApi(configuration, requestFactory, responseProcessor);
+    }
+
+    /**
+     * Get all codes for the specified terminology
+     * @param param the request object
+     */
+    public getAllCodesForTerminologyWithHttpInfo(param: ConceptEndpointsApiGetAllCodesForTerminologyRequest, options?: Configuration): Promise<HttpInfo<Array<string>>> {
+        return this.api.getAllCodesForTerminologyWithHttpInfo(param.terminology, param.xEVSRESTAPILicenseKey,  options).toPromise();
+    }
+
+    /**
+     * Get all codes for the specified terminology
+     * @param param the request object
+     */
+    public getAllCodesForTerminology(param: ConceptEndpointsApiGetAllCodesForTerminologyRequest, options?: Configuration): Promise<Array<string>> {
+        return this.api.getAllCodesForTerminology(param.terminology, param.xEVSRESTAPILicenseKey,  options).toPromise();
     }
 
     /**
@@ -815,7 +822,7 @@ export class ObjectConceptEndpointsApi {
      * Get maps for the specified terminology and code
      * @param param the request object
      */
-    public getMapsWithHttpInfo(param: ConceptEndpointsApiGetMapsRequest, options?: Configuration): Promise<HttpInfo<Array<ConceptMap>>> {
+    public getMapsWithHttpInfo(param: ConceptEndpointsApiGetMapsRequest, options?: Configuration): Promise<HttpInfo<Array<Mapping>>> {
         return this.api.getMapsWithHttpInfo(param.terminology, param.code, param.xEVSRESTAPILicenseKey,  options).toPromise();
     }
 
@@ -823,7 +830,7 @@ export class ObjectConceptEndpointsApi {
      * Get maps for the specified terminology and code
      * @param param the request object
      */
-    public getMaps(param: ConceptEndpointsApiGetMapsRequest, options?: Configuration): Promise<Array<ConceptMap>> {
+    public getMaps(param: ConceptEndpointsApiGetMapsRequest, options?: Configuration): Promise<Array<Mapping>> {
         return this.api.getMaps(param.terminology, param.code, param.xEVSRESTAPILicenseKey,  options).toPromise();
     }
 
@@ -980,7 +987,7 @@ import { HistoryEndpointsApiRequestFactory, HistoryEndpointsApiResponseProcessor
 
 export interface HistoryEndpointsApiGetReplacementsRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof HistoryEndpointsApigetReplacements
      */
@@ -995,7 +1002,7 @@ export interface HistoryEndpointsApiGetReplacementsRequest {
 
 export interface HistoryEndpointsApiGetReplacementsFromListRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof HistoryEndpointsApigetReplacementsFromList
      */
@@ -1060,7 +1067,7 @@ export interface MapsetEndpointsApiGetMapsetByCodeRequest {
      */
     code: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MapsetEndpointsApigetMapsetByCode
      */
@@ -1108,7 +1115,7 @@ export interface MapsetEndpointsApiGetMapsetMappingsByCodeRequest {
 
 export interface MapsetEndpointsApiGetMapsetsRequest {
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MapsetEndpointsApigetMapsets
      */
@@ -1142,7 +1149,7 @@ export class ObjectMapsetEndpointsApi {
      * Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
      * @param param the request object
      */
-    public getMapsetMappingsByCodeWithHttpInfo(param: MapsetEndpointsApiGetMapsetMappingsByCodeRequest, options?: Configuration): Promise<HttpInfo<ConceptMapResultList>> {
+    public getMapsetMappingsByCodeWithHttpInfo(param: MapsetEndpointsApiGetMapsetMappingsByCodeRequest, options?: Configuration): Promise<HttpInfo<MappingResultList>> {
         return this.api.getMapsetMappingsByCodeWithHttpInfo(param.code, param.term, param.fromRecord, param.pageSize, param.sort, param.ascending,  options).toPromise();
     }
 
@@ -1150,7 +1157,7 @@ export class ObjectMapsetEndpointsApi {
      * Get the maps for the mapset specified by the code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
      * @param param the request object
      */
-    public getMapsetMappingsByCode(param: MapsetEndpointsApiGetMapsetMappingsByCodeRequest, options?: Configuration): Promise<ConceptMapResultList> {
+    public getMapsetMappingsByCode(param: MapsetEndpointsApiGetMapsetMappingsByCodeRequest, options?: Configuration): Promise<MappingResultList> {
         return this.api.getMapsetMappingsByCode(param.code, param.term, param.fromRecord, param.pageSize, param.sort, param.ascending,  options).toPromise();
     }
 
@@ -1177,7 +1184,7 @@ import { MetadataEndpointsApiRequestFactory, MetadataEndpointsApiResponseProcess
 
 export interface MetadataEndpointsApiGetAssociationRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetAssociation
      */
@@ -1189,7 +1196,7 @@ export interface MetadataEndpointsApiGetAssociationRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetAssociation
      */
@@ -1198,13 +1205,13 @@ export interface MetadataEndpointsApiGetAssociationRequest {
 
 export interface MetadataEndpointsApiGetAssociationsRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetAssociations
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetAssociations
      */
@@ -1228,7 +1235,7 @@ export interface MetadataEndpointsApiGetConceptStatusesRequest {
 
 export interface MetadataEndpointsApiGetDefinitionSourcesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetDefinitionSources
      */
@@ -1237,7 +1244,7 @@ export interface MetadataEndpointsApiGetDefinitionSourcesRequest {
 
 export interface MetadataEndpointsApiGetDefinitionTypeRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetDefinitionType
      */
@@ -1249,7 +1256,7 @@ export interface MetadataEndpointsApiGetDefinitionTypeRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetDefinitionType
      */
@@ -1258,13 +1265,13 @@ export interface MetadataEndpointsApiGetDefinitionTypeRequest {
 
 export interface MetadataEndpointsApiGetDefinitionTypesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetDefinitionTypes
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetDefinitionTypes
      */
@@ -1277,15 +1284,24 @@ export interface MetadataEndpointsApiGetDefinitionTypesRequest {
     list?: string
 }
 
+export interface MetadataEndpointsApiGetOverviewMetadataRequest {
+    /**
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @type string
+     * @memberof MetadataEndpointsApigetOverviewMetadata
+     */
+    terminology: string
+}
+
 export interface MetadataEndpointsApiGetPropertiesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetProperties
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetProperties
      */
@@ -1300,7 +1316,7 @@ export interface MetadataEndpointsApiGetPropertiesRequest {
 
 export interface MetadataEndpointsApiGetPropertyRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetProperty
      */
@@ -1312,16 +1328,31 @@ export interface MetadataEndpointsApiGetPropertyRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetProperty
      */
     include?: string
 }
 
+export interface MetadataEndpointsApiGetPropertyValuesRequest {
+    /**
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @type string
+     * @memberof MetadataEndpointsApigetPropertyValues
+     */
+    terminology: string
+    /**
+     * Property code (or name), e.g.&lt;ul&gt;&lt;li&gt;\&#39;P216\&#39; or \&#39;BioCarta_ID\&#39; for &lt;i&gt;ncit&lt;/i&gt;&lt;/li&gt;&lt;li&gt;\&#39;Semantic_Type\&#39; for &lt;i&gt;ncim&lt;/i&gt;&lt;/li&gt;&lt;/ul&gt;
+     * @type string
+     * @memberof MetadataEndpointsApigetPropertyValues
+     */
+    codeOrName: string
+}
+
 export interface MetadataEndpointsApiGetQualifierRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetQualifier
      */
@@ -1333,7 +1364,7 @@ export interface MetadataEndpointsApiGetQualifierRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetQualifier
      */
@@ -1342,7 +1373,7 @@ export interface MetadataEndpointsApiGetQualifierRequest {
 
 export interface MetadataEndpointsApiGetQualifierValuesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetQualifierValues
      */
@@ -1357,13 +1388,13 @@ export interface MetadataEndpointsApiGetQualifierValuesRequest {
 
 export interface MetadataEndpointsApiGetQualifiersRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetQualifiers
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetQualifiers
      */
@@ -1390,7 +1421,7 @@ export interface MetadataEndpointsApiGetRoleRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetRole
      */
@@ -1405,7 +1436,7 @@ export interface MetadataEndpointsApiGetRolesRequest {
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetRoles
      */
@@ -1447,7 +1478,7 @@ export interface MetadataEndpointsApiGetSubset1Request {
      */
     code: string
     /**
-     * Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetSubset1
      */
@@ -1462,7 +1493,7 @@ export interface MetadataEndpointsApiGetSubsets1Request {
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetSubsets1
      */
@@ -1477,7 +1508,7 @@ export interface MetadataEndpointsApiGetSubsets1Request {
 
 export interface MetadataEndpointsApiGetSynonymSourcesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetSynonymSources
      */
@@ -1486,7 +1517,7 @@ export interface MetadataEndpointsApiGetSynonymSourcesRequest {
 
 export interface MetadataEndpointsApiGetSynonymTypeRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetSynonymType
      */
@@ -1498,7 +1529,7 @@ export interface MetadataEndpointsApiGetSynonymTypeRequest {
      */
     codeOrName: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetSynonymType
      */
@@ -1507,13 +1538,13 @@ export interface MetadataEndpointsApiGetSynonymTypeRequest {
 
 export interface MetadataEndpointsApiGetSynonymTypesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetSynonymTypes
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof MetadataEndpointsApigetSynonymTypes
      */
@@ -1528,7 +1559,7 @@ export interface MetadataEndpointsApiGetSynonymTypesRequest {
 
 export interface MetadataEndpointsApiGetTermTypesRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetTermTypes
      */
@@ -1549,7 +1580,7 @@ export interface MetadataEndpointsApiGetTerminologiesRequest {
      */
     tag?: string
     /**
-     * Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Return entries with matching terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetTerminologies
      */
@@ -1558,7 +1589,7 @@ export interface MetadataEndpointsApiGetTerminologiesRequest {
 
 export interface MetadataEndpointsApiGetWelcomeTextRequest {
     /**
-     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Terminology, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof MetadataEndpointsApigetWelcomeText
      */
@@ -1669,6 +1700,22 @@ export class ObjectMetadataEndpointsApi {
     }
 
     /**
+     * Get some metadata (associations, properties, qualifiers, roles, term types, sources, definition types, synonym types) for the terminology overview tab in EVS-Explore
+     * @param param the request object
+     */
+    public getOverviewMetadataWithHttpInfo(param: MetadataEndpointsApiGetOverviewMetadataRequest, options?: Configuration): Promise<HttpInfo<{ [key: string]: Array<Concept>; }>> {
+        return this.api.getOverviewMetadataWithHttpInfo(param.terminology,  options).toPromise();
+    }
+
+    /**
+     * Get some metadata (associations, properties, qualifiers, roles, term types, sources, definition types, synonym types) for the terminology overview tab in EVS-Explore
+     * @param param the request object
+     */
+    public getOverviewMetadata(param: MetadataEndpointsApiGetOverviewMetadataRequest, options?: Configuration): Promise<{ [key: string]: Array<Concept>; }> {
+        return this.api.getOverviewMetadata(param.terminology,  options).toPromise();
+    }
+
+    /**
      * Get all properties (or those specified by list parameter) for the specified terminology
      * @param param the request object
      */
@@ -1698,6 +1745,22 @@ export class ObjectMetadataEndpointsApi {
      */
     public getProperty(param: MetadataEndpointsApiGetPropertyRequest, options?: Configuration): Promise<Concept> {
         return this.api.getProperty(param.terminology, param.codeOrName, param.include,  options).toPromise();
+    }
+
+    /**
+     * Get property values for the specified terminology and code/name
+     * @param param the request object
+     */
+    public getPropertyValuesWithHttpInfo(param: MetadataEndpointsApiGetPropertyValuesRequest, options?: Configuration): Promise<HttpInfo<Array<string>>> {
+        return this.api.getPropertyValuesWithHttpInfo(param.terminology, param.codeOrName,  options).toPromise();
+    }
+
+    /**
+     * Get property values for the specified terminology and code/name
+     * @param param the request object
+     */
+    public getPropertyValues(param: MetadataEndpointsApiGetPropertyValuesRequest, options?: Configuration): Promise<Array<string>> {
+        return this.api.getPropertyValues(param.terminology, param.codeOrName,  options).toPromise();
     }
 
     /**
@@ -1937,13 +2000,13 @@ import { SearchEndpointApiRequestFactory, SearchEndpointApiResponseProcessor} fr
 
 export interface SearchEndpointApiGetSparqlBindingsRequest {
     /**
-     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof SearchEndpointApigetSparqlBindings
      */
     terminology: string
     /**
-     * SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApigetSparqlBindings
      */
@@ -1961,22 +2024,37 @@ export interface SearchEndpointApiGetSparqlBindingsRequest {
      */
     pageSize?: number
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Use \&#39;true\&#39; to use queries with declared prefixes
+     * @type boolean
+     * @memberof SearchEndpointApigetSparqlBindings
+     */
+    prefixes?: boolean
+    /**
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApigetSparqlBindings
      */
     xEVSRESTAPILicenseKey?: string
 }
 
+export interface SearchEndpointApiGetSparqlPrefixesRequest {
+    /**
+     * Single terminology to find prefixes for, e.g. \&#39;ncit\&#39; or \&#39;hgnc\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @type string
+     * @memberof SearchEndpointApigetSparqlPrefixes
+     */
+    terminology: string
+}
+
 export interface SearchEndpointApiSearchRequest {
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearch
      */
     xEVSRESTAPILicenseKey?: string
     /**
-     * Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof SearchEndpointApisearch
      */
@@ -2006,7 +2084,7 @@ export interface SearchEndpointApiSearchRequest {
      */
     ascending?: boolean
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearch
      */
@@ -2081,13 +2159,13 @@ export interface SearchEndpointApiSearchRequest {
 
 export interface SearchEndpointApiSearchSingleTerminologyRequest {
     /**
-     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminology
      */
     terminology: string
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminology
      */
@@ -2117,7 +2195,7 @@ export interface SearchEndpointApiSearchSingleTerminologyRequest {
      */
     ascending?: boolean
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminology
      */
@@ -2192,25 +2270,25 @@ export interface SearchEndpointApiSearchSingleTerminologyRequest {
 
 export interface SearchEndpointApiSearchSingleTerminologySparqlRequest {
     /**
-     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminologySparql
      */
     terminology: string
     /**
-     * SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminologySparql
      */
     body: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @type string
+     * Use \&#39;true\&#39; to use queries with declared prefixes
+     * @type boolean
      * @memberof SearchEndpointApisearchSingleTerminologySparql
      */
-    include?: string
+    prefixes?: boolean
     /**
-     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SearchEndpointApisearchSingleTerminologySparql
      */
@@ -2239,6 +2317,12 @@ export interface SearchEndpointApiSearchSingleTerminologySparqlRequest {
      * @memberof SearchEndpointApisearchSingleTerminologySparql
      */
     ascending?: boolean
+    /**
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @type string
+     * @memberof SearchEndpointApisearchSingleTerminologySparql
+     */
+    include?: string
     /**
      * Start index of the search results
      * @type number
@@ -2320,7 +2404,7 @@ export class ObjectSearchEndpointApi {
      * @param param the request object
      */
     public getSparqlBindingsWithHttpInfo(param: SearchEndpointApiGetSparqlBindingsRequest, options?: Configuration): Promise<HttpInfo<MapResultList>> {
-        return this.api.getSparqlBindingsWithHttpInfo(param.terminology, param.body, param.fromRecord, param.pageSize, param.xEVSRESTAPILicenseKey,  options).toPromise();
+        return this.api.getSparqlBindingsWithHttpInfo(param.terminology, param.body, param.fromRecord, param.pageSize, param.prefixes, param.xEVSRESTAPILicenseKey,  options).toPromise();
     }
 
     /**
@@ -2329,7 +2413,23 @@ export class ObjectSearchEndpointApi {
      * @param param the request object
      */
     public getSparqlBindings(param: SearchEndpointApiGetSparqlBindingsRequest, options?: Configuration): Promise<MapResultList> {
-        return this.api.getSparqlBindings(param.terminology, param.body, param.fromRecord, param.pageSize, param.xEVSRESTAPILicenseKey,  options).toPromise();
+        return this.api.getSparqlBindings(param.terminology, param.body, param.fromRecord, param.pageSize, param.prefixes, param.xEVSRESTAPILicenseKey,  options).toPromise();
+    }
+
+    /**
+     * Get default prefixes used by SPARQL queries
+     * @param param the request object
+     */
+    public getSparqlPrefixesWithHttpInfo(param: SearchEndpointApiGetSparqlPrefixesRequest, options?: Configuration): Promise<HttpInfo<string>> {
+        return this.api.getSparqlPrefixesWithHttpInfo(param.terminology,  options).toPromise();
+    }
+
+    /**
+     * Get default prefixes used by SPARQL queries
+     * @param param the request object
+     */
+    public getSparqlPrefixes(param: SearchEndpointApiGetSparqlPrefixesRequest, options?: Configuration): Promise<string> {
+        return this.api.getSparqlPrefixes(param.terminology,  options).toPromise();
     }
 
     /**
@@ -2374,7 +2474,7 @@ export class ObjectSearchEndpointApi {
      * @param param the request object
      */
     public searchSingleTerminologySparqlWithHttpInfo(param: SearchEndpointApiSearchSingleTerminologySparqlRequest, options?: Configuration): Promise<HttpInfo<ConceptResultList>> {
-        return this.api.searchSingleTerminologySparqlWithHttpInfo(param.terminology, param.body, param.include, param.xEVSRESTAPILicenseKey, param.term, param.type, param.sort, param.ascending, param.fromRecord, param.pageSize, param.conceptStatus, param.property, param.value, param.definitionSource, param.definitionType, param.synonymSource, param.synonymType, param.synonymTermType, param.subset,  options).toPromise();
+        return this.api.searchSingleTerminologySparqlWithHttpInfo(param.terminology, param.body, param.prefixes, param.xEVSRESTAPILicenseKey, param.term, param.type, param.sort, param.ascending, param.include, param.fromRecord, param.pageSize, param.conceptStatus, param.property, param.value, param.definitionSource, param.definitionType, param.synonymSource, param.synonymType, param.synonymTermType, param.subset,  options).toPromise();
     }
 
     /**
@@ -2383,7 +2483,7 @@ export class ObjectSearchEndpointApi {
      * @param param the request object
      */
     public searchSingleTerminologySparql(param: SearchEndpointApiSearchSingleTerminologySparqlRequest, options?: Configuration): Promise<ConceptResultList> {
-        return this.api.searchSingleTerminologySparql(param.terminology, param.body, param.include, param.xEVSRESTAPILicenseKey, param.term, param.type, param.sort, param.ascending, param.fromRecord, param.pageSize, param.conceptStatus, param.property, param.value, param.definitionSource, param.definitionType, param.synonymSource, param.synonymType, param.synonymTermType, param.subset,  options).toPromise();
+        return this.api.searchSingleTerminologySparql(param.terminology, param.body, param.prefixes, param.xEVSRESTAPILicenseKey, param.term, param.type, param.sort, param.ascending, param.include, param.fromRecord, param.pageSize, param.conceptStatus, param.property, param.value, param.definitionSource, param.definitionType, param.synonymSource, param.synonymType, param.synonymTermType, param.subset,  options).toPromise();
     }
 
 }
@@ -2405,7 +2505,7 @@ export interface SubsetEndpointsApiGetSubsetRequest {
      */
     code: string
     /**
-     * Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SubsetEndpointsApigetSubset
      */
@@ -2427,18 +2527,18 @@ export interface SubsetEndpointsApiGetSubsetMembersRequest {
     code: string
     /**
      * Start index of the search results
-     * @type string
+     * @type number
      * @memberof SubsetEndpointsApigetSubsetMembers
      */
-    fromRecord?: string
+    fromRecord?: number
     /**
      * Max number of results to return
-     * @type string
+     * @type number
      * @memberof SubsetEndpointsApigetSubsetMembers
      */
-    pageSize?: string
+    pageSize?: number
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SubsetEndpointsApigetSubsetMembers
      */
@@ -2453,7 +2553,7 @@ export interface SubsetEndpointsApiGetSubsetsRequest {
      */
     terminology: string
     /**
-     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @type string
      * @memberof SubsetEndpointsApigetSubsets
      */

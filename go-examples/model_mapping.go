@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the ConceptMap type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ConceptMap{}
+// checks if the Mapping type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &Mapping{}
 
-// ConceptMap Represents a map from a concept to concepts in other terminologies
-type ConceptMap struct {
+// Mapping Represents a map from a concept to concepts in other terminologies
+type Mapping struct {
 	// URI for this element in an rdf-based source file
 	Uri *string `json:"uri,omitempty"`
 	// Used to indicate the total amount of data in cases where a limit is being applied
@@ -59,25 +59,25 @@ type ConceptMap struct {
 	TargetTermGroup *string `json:"targetTermGroup,omitempty"`
 }
 
-// NewConceptMap instantiates a new ConceptMap object
+// NewMapping instantiates a new Mapping object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConceptMap() *ConceptMap {
-	this := ConceptMap{}
+func NewMapping() *Mapping {
+	this := Mapping{}
 	return &this
 }
 
-// NewConceptMapWithDefaults instantiates a new ConceptMap object
+// NewMappingWithDefaults instantiates a new Mapping object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewConceptMapWithDefaults() *ConceptMap {
-	this := ConceptMap{}
+func NewMappingWithDefaults() *Mapping {
+	this := Mapping{}
 	return &this
 }
 
 // GetUri returns the Uri field value if set, zero value otherwise.
-func (o *ConceptMap) GetUri() string {
+func (o *Mapping) GetUri() string {
 	if o == nil || IsNil(o.Uri) {
 		var ret string
 		return ret
@@ -87,7 +87,7 @@ func (o *ConceptMap) GetUri() string {
 
 // GetUriOk returns a tuple with the Uri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetUriOk() (*string, bool) {
+func (o *Mapping) GetUriOk() (*string, bool) {
 	if o == nil || IsNil(o.Uri) {
 		return nil, false
 	}
@@ -95,7 +95,7 @@ func (o *ConceptMap) GetUriOk() (*string, bool) {
 }
 
 // HasUri returns a boolean if a field has been set.
-func (o *ConceptMap) HasUri() bool {
+func (o *Mapping) HasUri() bool {
 	if o != nil && !IsNil(o.Uri) {
 		return true
 	}
@@ -104,12 +104,12 @@ func (o *ConceptMap) HasUri() bool {
 }
 
 // SetUri gets a reference to the given string and assigns it to the Uri field.
-func (o *ConceptMap) SetUri(v string) {
+func (o *Mapping) SetUri(v string) {
 	o.Uri = &v
 }
 
 // GetCt returns the Ct field value if set, zero value otherwise.
-func (o *ConceptMap) GetCt() int32 {
+func (o *Mapping) GetCt() int32 {
 	if o == nil || IsNil(o.Ct) {
 		var ret int32
 		return ret
@@ -119,7 +119,7 @@ func (o *ConceptMap) GetCt() int32 {
 
 // GetCtOk returns a tuple with the Ct field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetCtOk() (*int32, bool) {
+func (o *Mapping) GetCtOk() (*int32, bool) {
 	if o == nil || IsNil(o.Ct) {
 		return nil, false
 	}
@@ -127,7 +127,7 @@ func (o *ConceptMap) GetCtOk() (*int32, bool) {
 }
 
 // HasCt returns a boolean if a field has been set.
-func (o *ConceptMap) HasCt() bool {
+func (o *Mapping) HasCt() bool {
 	if o != nil && !IsNil(o.Ct) {
 		return true
 	}
@@ -136,12 +136,12 @@ func (o *ConceptMap) HasCt() bool {
 }
 
 // SetCt gets a reference to the given int32 and assigns it to the Ct field.
-func (o *ConceptMap) SetCt(v int32) {
+func (o *Mapping) SetCt(v int32) {
 	o.Ct = &v
 }
 
 // GetMapsetCode returns the MapsetCode field value if set, zero value otherwise.
-func (o *ConceptMap) GetMapsetCode() string {
+func (o *Mapping) GetMapsetCode() string {
 	if o == nil || IsNil(o.MapsetCode) {
 		var ret string
 		return ret
@@ -151,7 +151,7 @@ func (o *ConceptMap) GetMapsetCode() string {
 
 // GetMapsetCodeOk returns a tuple with the MapsetCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetMapsetCodeOk() (*string, bool) {
+func (o *Mapping) GetMapsetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.MapsetCode) {
 		return nil, false
 	}
@@ -159,7 +159,7 @@ func (o *ConceptMap) GetMapsetCodeOk() (*string, bool) {
 }
 
 // HasMapsetCode returns a boolean if a field has been set.
-func (o *ConceptMap) HasMapsetCode() bool {
+func (o *Mapping) HasMapsetCode() bool {
 	if o != nil && !IsNil(o.MapsetCode) {
 		return true
 	}
@@ -168,12 +168,12 @@ func (o *ConceptMap) HasMapsetCode() bool {
 }
 
 // SetMapsetCode gets a reference to the given string and assigns it to the MapsetCode field.
-func (o *ConceptMap) SetMapsetCode(v string) {
+func (o *Mapping) SetMapsetCode(v string) {
 	o.MapsetCode = &v
 }
 
 // GetSource returns the Source field value if set, zero value otherwise.
-func (o *ConceptMap) GetSource() string {
+func (o *Mapping) GetSource() string {
 	if o == nil || IsNil(o.Source) {
 		var ret string
 		return ret
@@ -183,7 +183,7 @@ func (o *ConceptMap) GetSource() string {
 
 // GetSourceOk returns a tuple with the Source field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceOk() (*string, bool) {
+func (o *Mapping) GetSourceOk() (*string, bool) {
 	if o == nil || IsNil(o.Source) {
 		return nil, false
 	}
@@ -191,7 +191,7 @@ func (o *ConceptMap) GetSourceOk() (*string, bool) {
 }
 
 // HasSource returns a boolean if a field has been set.
-func (o *ConceptMap) HasSource() bool {
+func (o *Mapping) HasSource() bool {
 	if o != nil && !IsNil(o.Source) {
 		return true
 	}
@@ -200,12 +200,12 @@ func (o *ConceptMap) HasSource() bool {
 }
 
 // SetSource gets a reference to the given string and assigns it to the Source field.
-func (o *ConceptMap) SetSource(v string) {
+func (o *Mapping) SetSource(v string) {
 	o.Source = &v
 }
 
 // GetSourceName returns the SourceName field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceName() string {
+func (o *Mapping) GetSourceName() string {
 	if o == nil || IsNil(o.SourceName) {
 		var ret string
 		return ret
@@ -215,7 +215,7 @@ func (o *ConceptMap) GetSourceName() string {
 
 // GetSourceNameOk returns a tuple with the SourceName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceNameOk() (*string, bool) {
+func (o *Mapping) GetSourceNameOk() (*string, bool) {
 	if o == nil || IsNil(o.SourceName) {
 		return nil, false
 	}
@@ -223,7 +223,7 @@ func (o *ConceptMap) GetSourceNameOk() (*string, bool) {
 }
 
 // HasSourceName returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceName() bool {
+func (o *Mapping) HasSourceName() bool {
 	if o != nil && !IsNil(o.SourceName) {
 		return true
 	}
@@ -232,12 +232,12 @@ func (o *ConceptMap) HasSourceName() bool {
 }
 
 // SetSourceName gets a reference to the given string and assigns it to the SourceName field.
-func (o *ConceptMap) SetSourceName(v string) {
+func (o *Mapping) SetSourceName(v string) {
 	o.SourceName = &v
 }
 
 // GetSourceTermType returns the SourceTermType field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceTermType() string {
+func (o *Mapping) GetSourceTermType() string {
 	if o == nil || IsNil(o.SourceTermType) {
 		var ret string
 		return ret
@@ -247,7 +247,7 @@ func (o *ConceptMap) GetSourceTermType() string {
 
 // GetSourceTermTypeOk returns a tuple with the SourceTermType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceTermTypeOk() (*string, bool) {
+func (o *Mapping) GetSourceTermTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.SourceTermType) {
 		return nil, false
 	}
@@ -255,7 +255,7 @@ func (o *ConceptMap) GetSourceTermTypeOk() (*string, bool) {
 }
 
 // HasSourceTermType returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceTermType() bool {
+func (o *Mapping) HasSourceTermType() bool {
 	if o != nil && !IsNil(o.SourceTermType) {
 		return true
 	}
@@ -264,12 +264,12 @@ func (o *ConceptMap) HasSourceTermType() bool {
 }
 
 // SetSourceTermType gets a reference to the given string and assigns it to the SourceTermType field.
-func (o *ConceptMap) SetSourceTermType(v string) {
+func (o *Mapping) SetSourceTermType(v string) {
 	o.SourceTermType = &v
 }
 
 // GetSourceCode returns the SourceCode field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceCode() string {
+func (o *Mapping) GetSourceCode() string {
 	if o == nil || IsNil(o.SourceCode) {
 		var ret string
 		return ret
@@ -279,7 +279,7 @@ func (o *ConceptMap) GetSourceCode() string {
 
 // GetSourceCodeOk returns a tuple with the SourceCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceCodeOk() (*string, bool) {
+func (o *Mapping) GetSourceCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.SourceCode) {
 		return nil, false
 	}
@@ -287,7 +287,7 @@ func (o *ConceptMap) GetSourceCodeOk() (*string, bool) {
 }
 
 // HasSourceCode returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceCode() bool {
+func (o *Mapping) HasSourceCode() bool {
 	if o != nil && !IsNil(o.SourceCode) {
 		return true
 	}
@@ -296,12 +296,12 @@ func (o *ConceptMap) HasSourceCode() bool {
 }
 
 // SetSourceCode gets a reference to the given string and assigns it to the SourceCode field.
-func (o *ConceptMap) SetSourceCode(v string) {
+func (o *Mapping) SetSourceCode(v string) {
 	o.SourceCode = &v
 }
 
 // GetSourceTerminology returns the SourceTerminology field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceTerminology() string {
+func (o *Mapping) GetSourceTerminology() string {
 	if o == nil || IsNil(o.SourceTerminology) {
 		var ret string
 		return ret
@@ -311,7 +311,7 @@ func (o *ConceptMap) GetSourceTerminology() string {
 
 // GetSourceTerminologyOk returns a tuple with the SourceTerminology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceTerminologyOk() (*string, bool) {
+func (o *Mapping) GetSourceTerminologyOk() (*string, bool) {
 	if o == nil || IsNil(o.SourceTerminology) {
 		return nil, false
 	}
@@ -319,7 +319,7 @@ func (o *ConceptMap) GetSourceTerminologyOk() (*string, bool) {
 }
 
 // HasSourceTerminology returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceTerminology() bool {
+func (o *Mapping) HasSourceTerminology() bool {
 	if o != nil && !IsNil(o.SourceTerminology) {
 		return true
 	}
@@ -328,12 +328,12 @@ func (o *ConceptMap) HasSourceTerminology() bool {
 }
 
 // SetSourceTerminology gets a reference to the given string and assigns it to the SourceTerminology field.
-func (o *ConceptMap) SetSourceTerminology(v string) {
+func (o *Mapping) SetSourceTerminology(v string) {
 	o.SourceTerminology = &v
 }
 
 // GetSourceTerminologyVersion returns the SourceTerminologyVersion field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceTerminologyVersion() string {
+func (o *Mapping) GetSourceTerminologyVersion() string {
 	if o == nil || IsNil(o.SourceTerminologyVersion) {
 		var ret string
 		return ret
@@ -343,7 +343,7 @@ func (o *ConceptMap) GetSourceTerminologyVersion() string {
 
 // GetSourceTerminologyVersionOk returns a tuple with the SourceTerminologyVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceTerminologyVersionOk() (*string, bool) {
+func (o *Mapping) GetSourceTerminologyVersionOk() (*string, bool) {
 	if o == nil || IsNil(o.SourceTerminologyVersion) {
 		return nil, false
 	}
@@ -351,7 +351,7 @@ func (o *ConceptMap) GetSourceTerminologyVersionOk() (*string, bool) {
 }
 
 // HasSourceTerminologyVersion returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceTerminologyVersion() bool {
+func (o *Mapping) HasSourceTerminologyVersion() bool {
 	if o != nil && !IsNil(o.SourceTerminologyVersion) {
 		return true
 	}
@@ -360,12 +360,12 @@ func (o *ConceptMap) HasSourceTerminologyVersion() bool {
 }
 
 // SetSourceTerminologyVersion gets a reference to the given string and assigns it to the SourceTerminologyVersion field.
-func (o *ConceptMap) SetSourceTerminologyVersion(v string) {
+func (o *Mapping) SetSourceTerminologyVersion(v string) {
 	o.SourceTerminologyVersion = &v
 }
 
 // GetSourceLoaded returns the SourceLoaded field value if set, zero value otherwise.
-func (o *ConceptMap) GetSourceLoaded() bool {
+func (o *Mapping) GetSourceLoaded() bool {
 	if o == nil || IsNil(o.SourceLoaded) {
 		var ret bool
 		return ret
@@ -375,7 +375,7 @@ func (o *ConceptMap) GetSourceLoaded() bool {
 
 // GetSourceLoadedOk returns a tuple with the SourceLoaded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSourceLoadedOk() (*bool, bool) {
+func (o *Mapping) GetSourceLoadedOk() (*bool, bool) {
 	if o == nil || IsNil(o.SourceLoaded) {
 		return nil, false
 	}
@@ -383,7 +383,7 @@ func (o *ConceptMap) GetSourceLoadedOk() (*bool, bool) {
 }
 
 // HasSourceLoaded returns a boolean if a field has been set.
-func (o *ConceptMap) HasSourceLoaded() bool {
+func (o *Mapping) HasSourceLoaded() bool {
 	if o != nil && !IsNil(o.SourceLoaded) {
 		return true
 	}
@@ -392,12 +392,12 @@ func (o *ConceptMap) HasSourceLoaded() bool {
 }
 
 // SetSourceLoaded gets a reference to the given bool and assigns it to the SourceLoaded field.
-func (o *ConceptMap) SetSourceLoaded(v bool) {
+func (o *Mapping) SetSourceLoaded(v bool) {
 	o.SourceLoaded = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
-func (o *ConceptMap) GetType() string {
+func (o *Mapping) GetType() string {
 	if o == nil || IsNil(o.Type) {
 		var ret string
 		return ret
@@ -407,7 +407,7 @@ func (o *ConceptMap) GetType() string {
 
 // GetTypeOk returns a tuple with the Type field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTypeOk() (*string, bool) {
+func (o *Mapping) GetTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.Type) {
 		return nil, false
 	}
@@ -415,7 +415,7 @@ func (o *ConceptMap) GetTypeOk() (*string, bool) {
 }
 
 // HasType returns a boolean if a field has been set.
-func (o *ConceptMap) HasType() bool {
+func (o *Mapping) HasType() bool {
 	if o != nil && !IsNil(o.Type) {
 		return true
 	}
@@ -424,12 +424,12 @@ func (o *ConceptMap) HasType() bool {
 }
 
 // SetType gets a reference to the given string and assigns it to the Type field.
-func (o *ConceptMap) SetType(v string) {
+func (o *Mapping) SetType(v string) {
 	o.Type = &v
 }
 
 // GetRank returns the Rank field value if set, zero value otherwise.
-func (o *ConceptMap) GetRank() string {
+func (o *Mapping) GetRank() string {
 	if o == nil || IsNil(o.Rank) {
 		var ret string
 		return ret
@@ -439,7 +439,7 @@ func (o *ConceptMap) GetRank() string {
 
 // GetRankOk returns a tuple with the Rank field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetRankOk() (*string, bool) {
+func (o *Mapping) GetRankOk() (*string, bool) {
 	if o == nil || IsNil(o.Rank) {
 		return nil, false
 	}
@@ -447,7 +447,7 @@ func (o *ConceptMap) GetRankOk() (*string, bool) {
 }
 
 // HasRank returns a boolean if a field has been set.
-func (o *ConceptMap) HasRank() bool {
+func (o *Mapping) HasRank() bool {
 	if o != nil && !IsNil(o.Rank) {
 		return true
 	}
@@ -456,12 +456,12 @@ func (o *ConceptMap) HasRank() bool {
 }
 
 // SetRank gets a reference to the given string and assigns it to the Rank field.
-func (o *ConceptMap) SetRank(v string) {
+func (o *Mapping) SetRank(v string) {
 	o.Rank = &v
 }
 
 // GetGroup returns the Group field value if set, zero value otherwise.
-func (o *ConceptMap) GetGroup() string {
+func (o *Mapping) GetGroup() string {
 	if o == nil || IsNil(o.Group) {
 		var ret string
 		return ret
@@ -471,7 +471,7 @@ func (o *ConceptMap) GetGroup() string {
 
 // GetGroupOk returns a tuple with the Group field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetGroupOk() (*string, bool) {
+func (o *Mapping) GetGroupOk() (*string, bool) {
 	if o == nil || IsNil(o.Group) {
 		return nil, false
 	}
@@ -479,7 +479,7 @@ func (o *ConceptMap) GetGroupOk() (*string, bool) {
 }
 
 // HasGroup returns a boolean if a field has been set.
-func (o *ConceptMap) HasGroup() bool {
+func (o *Mapping) HasGroup() bool {
 	if o != nil && !IsNil(o.Group) {
 		return true
 	}
@@ -488,12 +488,12 @@ func (o *ConceptMap) HasGroup() bool {
 }
 
 // SetGroup gets a reference to the given string and assigns it to the Group field.
-func (o *ConceptMap) SetGroup(v string) {
+func (o *Mapping) SetGroup(v string) {
 	o.Group = &v
 }
 
 // GetRule returns the Rule field value if set, zero value otherwise.
-func (o *ConceptMap) GetRule() string {
+func (o *Mapping) GetRule() string {
 	if o == nil || IsNil(o.Rule) {
 		var ret string
 		return ret
@@ -503,7 +503,7 @@ func (o *ConceptMap) GetRule() string {
 
 // GetRuleOk returns a tuple with the Rule field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetRuleOk() (*string, bool) {
+func (o *Mapping) GetRuleOk() (*string, bool) {
 	if o == nil || IsNil(o.Rule) {
 		return nil, false
 	}
@@ -511,7 +511,7 @@ func (o *ConceptMap) GetRuleOk() (*string, bool) {
 }
 
 // HasRule returns a boolean if a field has been set.
-func (o *ConceptMap) HasRule() bool {
+func (o *Mapping) HasRule() bool {
 	if o != nil && !IsNil(o.Rule) {
 		return true
 	}
@@ -520,12 +520,12 @@ func (o *ConceptMap) HasRule() bool {
 }
 
 // SetRule gets a reference to the given string and assigns it to the Rule field.
-func (o *ConceptMap) SetRule(v string) {
+func (o *Mapping) SetRule(v string) {
 	o.Rule = &v
 }
 
 // GetTarget returns the Target field value if set, zero value otherwise.
-func (o *ConceptMap) GetTarget() string {
+func (o *Mapping) GetTarget() string {
 	if o == nil || IsNil(o.Target) {
 		var ret string
 		return ret
@@ -535,7 +535,7 @@ func (o *ConceptMap) GetTarget() string {
 
 // GetTargetOk returns a tuple with the Target field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetOk() (*string, bool) {
+func (o *Mapping) GetTargetOk() (*string, bool) {
 	if o == nil || IsNil(o.Target) {
 		return nil, false
 	}
@@ -543,7 +543,7 @@ func (o *ConceptMap) GetTargetOk() (*string, bool) {
 }
 
 // HasTarget returns a boolean if a field has been set.
-func (o *ConceptMap) HasTarget() bool {
+func (o *Mapping) HasTarget() bool {
 	if o != nil && !IsNil(o.Target) {
 		return true
 	}
@@ -552,12 +552,12 @@ func (o *ConceptMap) HasTarget() bool {
 }
 
 // SetTarget gets a reference to the given string and assigns it to the Target field.
-func (o *ConceptMap) SetTarget(v string) {
+func (o *Mapping) SetTarget(v string) {
 	o.Target = &v
 }
 
 // GetTargetName returns the TargetName field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetName() string {
+func (o *Mapping) GetTargetName() string {
 	if o == nil || IsNil(o.TargetName) {
 		var ret string
 		return ret
@@ -567,7 +567,7 @@ func (o *ConceptMap) GetTargetName() string {
 
 // GetTargetNameOk returns a tuple with the TargetName field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetNameOk() (*string, bool) {
+func (o *Mapping) GetTargetNameOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetName) {
 		return nil, false
 	}
@@ -575,7 +575,7 @@ func (o *ConceptMap) GetTargetNameOk() (*string, bool) {
 }
 
 // HasTargetName returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetName() bool {
+func (o *Mapping) HasTargetName() bool {
 	if o != nil && !IsNil(o.TargetName) {
 		return true
 	}
@@ -584,12 +584,12 @@ func (o *ConceptMap) HasTargetName() bool {
 }
 
 // SetTargetName gets a reference to the given string and assigns it to the TargetName field.
-func (o *ConceptMap) SetTargetName(v string) {
+func (o *Mapping) SetTargetName(v string) {
 	o.TargetName = &v
 }
 
 // GetTargetTermType returns the TargetTermType field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetTermType() string {
+func (o *Mapping) GetTargetTermType() string {
 	if o == nil || IsNil(o.TargetTermType) {
 		var ret string
 		return ret
@@ -599,7 +599,7 @@ func (o *ConceptMap) GetTargetTermType() string {
 
 // GetTargetTermTypeOk returns a tuple with the TargetTermType field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetTermTypeOk() (*string, bool) {
+func (o *Mapping) GetTargetTermTypeOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetTermType) {
 		return nil, false
 	}
@@ -607,7 +607,7 @@ func (o *ConceptMap) GetTargetTermTypeOk() (*string, bool) {
 }
 
 // HasTargetTermType returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetTermType() bool {
+func (o *Mapping) HasTargetTermType() bool {
 	if o != nil && !IsNil(o.TargetTermType) {
 		return true
 	}
@@ -616,12 +616,12 @@ func (o *ConceptMap) HasTargetTermType() bool {
 }
 
 // SetTargetTermType gets a reference to the given string and assigns it to the TargetTermType field.
-func (o *ConceptMap) SetTargetTermType(v string) {
+func (o *Mapping) SetTargetTermType(v string) {
 	o.TargetTermType = &v
 }
 
 // GetTargetCode returns the TargetCode field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetCode() string {
+func (o *Mapping) GetTargetCode() string {
 	if o == nil || IsNil(o.TargetCode) {
 		var ret string
 		return ret
@@ -631,7 +631,7 @@ func (o *ConceptMap) GetTargetCode() string {
 
 // GetTargetCodeOk returns a tuple with the TargetCode field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetCodeOk() (*string, bool) {
+func (o *Mapping) GetTargetCodeOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetCode) {
 		return nil, false
 	}
@@ -639,7 +639,7 @@ func (o *ConceptMap) GetTargetCodeOk() (*string, bool) {
 }
 
 // HasTargetCode returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetCode() bool {
+func (o *Mapping) HasTargetCode() bool {
 	if o != nil && !IsNil(o.TargetCode) {
 		return true
 	}
@@ -648,12 +648,12 @@ func (o *ConceptMap) HasTargetCode() bool {
 }
 
 // SetTargetCode gets a reference to the given string and assigns it to the TargetCode field.
-func (o *ConceptMap) SetTargetCode(v string) {
+func (o *Mapping) SetTargetCode(v string) {
 	o.TargetCode = &v
 }
 
 // GetTargetTerminology returns the TargetTerminology field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetTerminology() string {
+func (o *Mapping) GetTargetTerminology() string {
 	if o == nil || IsNil(o.TargetTerminology) {
 		var ret string
 		return ret
@@ -663,7 +663,7 @@ func (o *ConceptMap) GetTargetTerminology() string {
 
 // GetTargetTerminologyOk returns a tuple with the TargetTerminology field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetTerminologyOk() (*string, bool) {
+func (o *Mapping) GetTargetTerminologyOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetTerminology) {
 		return nil, false
 	}
@@ -671,7 +671,7 @@ func (o *ConceptMap) GetTargetTerminologyOk() (*string, bool) {
 }
 
 // HasTargetTerminology returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetTerminology() bool {
+func (o *Mapping) HasTargetTerminology() bool {
 	if o != nil && !IsNil(o.TargetTerminology) {
 		return true
 	}
@@ -680,12 +680,12 @@ func (o *ConceptMap) HasTargetTerminology() bool {
 }
 
 // SetTargetTerminology gets a reference to the given string and assigns it to the TargetTerminology field.
-func (o *ConceptMap) SetTargetTerminology(v string) {
+func (o *Mapping) SetTargetTerminology(v string) {
 	o.TargetTerminology = &v
 }
 
 // GetTargetTerminologyVersion returns the TargetTerminologyVersion field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetTerminologyVersion() string {
+func (o *Mapping) GetTargetTerminologyVersion() string {
 	if o == nil || IsNil(o.TargetTerminologyVersion) {
 		var ret string
 		return ret
@@ -695,7 +695,7 @@ func (o *ConceptMap) GetTargetTerminologyVersion() string {
 
 // GetTargetTerminologyVersionOk returns a tuple with the TargetTerminologyVersion field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetTerminologyVersionOk() (*string, bool) {
+func (o *Mapping) GetTargetTerminologyVersionOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetTerminologyVersion) {
 		return nil, false
 	}
@@ -703,7 +703,7 @@ func (o *ConceptMap) GetTargetTerminologyVersionOk() (*string, bool) {
 }
 
 // HasTargetTerminologyVersion returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetTerminologyVersion() bool {
+func (o *Mapping) HasTargetTerminologyVersion() bool {
 	if o != nil && !IsNil(o.TargetTerminologyVersion) {
 		return true
 	}
@@ -712,12 +712,12 @@ func (o *ConceptMap) HasTargetTerminologyVersion() bool {
 }
 
 // SetTargetTerminologyVersion gets a reference to the given string and assigns it to the TargetTerminologyVersion field.
-func (o *ConceptMap) SetTargetTerminologyVersion(v string) {
+func (o *Mapping) SetTargetTerminologyVersion(v string) {
 	o.TargetTerminologyVersion = &v
 }
 
 // GetTargetLoaded returns the TargetLoaded field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetLoaded() bool {
+func (o *Mapping) GetTargetLoaded() bool {
 	if o == nil || IsNil(o.TargetLoaded) {
 		var ret bool
 		return ret
@@ -727,7 +727,7 @@ func (o *ConceptMap) GetTargetLoaded() bool {
 
 // GetTargetLoadedOk returns a tuple with the TargetLoaded field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetLoadedOk() (*bool, bool) {
+func (o *Mapping) GetTargetLoadedOk() (*bool, bool) {
 	if o == nil || IsNil(o.TargetLoaded) {
 		return nil, false
 	}
@@ -735,7 +735,7 @@ func (o *ConceptMap) GetTargetLoadedOk() (*bool, bool) {
 }
 
 // HasTargetLoaded returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetLoaded() bool {
+func (o *Mapping) HasTargetLoaded() bool {
 	if o != nil && !IsNil(o.TargetLoaded) {
 		return true
 	}
@@ -744,12 +744,12 @@ func (o *ConceptMap) HasTargetLoaded() bool {
 }
 
 // SetTargetLoaded gets a reference to the given bool and assigns it to the TargetLoaded field.
-func (o *ConceptMap) SetTargetLoaded(v bool) {
+func (o *Mapping) SetTargetLoaded(v bool) {
 	o.TargetLoaded = &v
 }
 
 // GetSortKey returns the SortKey field value if set, zero value otherwise.
-func (o *ConceptMap) GetSortKey() string {
+func (o *Mapping) GetSortKey() string {
 	if o == nil || IsNil(o.SortKey) {
 		var ret string
 		return ret
@@ -759,7 +759,7 @@ func (o *ConceptMap) GetSortKey() string {
 
 // GetSortKeyOk returns a tuple with the SortKey field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetSortKeyOk() (*string, bool) {
+func (o *Mapping) GetSortKeyOk() (*string, bool) {
 	if o == nil || IsNil(o.SortKey) {
 		return nil, false
 	}
@@ -767,7 +767,7 @@ func (o *ConceptMap) GetSortKeyOk() (*string, bool) {
 }
 
 // HasSortKey returns a boolean if a field has been set.
-func (o *ConceptMap) HasSortKey() bool {
+func (o *Mapping) HasSortKey() bool {
 	if o != nil && !IsNil(o.SortKey) {
 		return true
 	}
@@ -776,12 +776,12 @@ func (o *ConceptMap) HasSortKey() bool {
 }
 
 // SetSortKey gets a reference to the given string and assigns it to the SortKey field.
-func (o *ConceptMap) SetSortKey(v string) {
+func (o *Mapping) SetSortKey(v string) {
 	o.SortKey = &v
 }
 
 // GetTargetTermGroup returns the TargetTermGroup field value if set, zero value otherwise.
-func (o *ConceptMap) GetTargetTermGroup() string {
+func (o *Mapping) GetTargetTermGroup() string {
 	if o == nil || IsNil(o.TargetTermGroup) {
 		var ret string
 		return ret
@@ -791,7 +791,7 @@ func (o *ConceptMap) GetTargetTermGroup() string {
 
 // GetTargetTermGroupOk returns a tuple with the TargetTermGroup field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMap) GetTargetTermGroupOk() (*string, bool) {
+func (o *Mapping) GetTargetTermGroupOk() (*string, bool) {
 	if o == nil || IsNil(o.TargetTermGroup) {
 		return nil, false
 	}
@@ -799,7 +799,7 @@ func (o *ConceptMap) GetTargetTermGroupOk() (*string, bool) {
 }
 
 // HasTargetTermGroup returns a boolean if a field has been set.
-func (o *ConceptMap) HasTargetTermGroup() bool {
+func (o *Mapping) HasTargetTermGroup() bool {
 	if o != nil && !IsNil(o.TargetTermGroup) {
 		return true
 	}
@@ -808,11 +808,11 @@ func (o *ConceptMap) HasTargetTermGroup() bool {
 }
 
 // SetTargetTermGroup gets a reference to the given string and assigns it to the TargetTermGroup field.
-func (o *ConceptMap) SetTargetTermGroup(v string) {
+func (o *Mapping) SetTargetTermGroup(v string) {
 	o.TargetTermGroup = &v
 }
 
-func (o ConceptMap) MarshalJSON() ([]byte, error) {
+func (o Mapping) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -820,7 +820,7 @@ func (o ConceptMap) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ConceptMap) ToMap() (map[string]interface{}, error) {
+func (o Mapping) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Uri) {
 		toSerialize["uri"] = o.Uri
@@ -894,38 +894,38 @@ func (o ConceptMap) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableConceptMap struct {
-	value *ConceptMap
+type NullableMapping struct {
+	value *Mapping
 	isSet bool
 }
 
-func (v NullableConceptMap) Get() *ConceptMap {
+func (v NullableMapping) Get() *Mapping {
 	return v.value
 }
 
-func (v *NullableConceptMap) Set(val *ConceptMap) {
+func (v *NullableMapping) Set(val *Mapping) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableConceptMap) IsSet() bool {
+func (v NullableMapping) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableConceptMap) Unset() {
+func (v *NullableMapping) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableConceptMap(val *ConceptMap) *NullableConceptMap {
-	return &NullableConceptMap{value: val, isSet: true}
+func NewNullableMapping(val *Mapping) *NullableMapping {
+	return &NullableMapping{value: val, isSet: true}
 }
 
-func (v NullableConceptMap) MarshalJSON() ([]byte, error) {
+func (v NullableMapping) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableConceptMap) UnmarshalJSON(src []byte) error {
+func (v *NullableMapping) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

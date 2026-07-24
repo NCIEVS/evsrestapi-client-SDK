@@ -3,7 +3,7 @@
     "code": "A1",
     "name": "Role_Has_Domain",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Role Has Domain",
@@ -40,7 +40,7 @@
     "code": "A12",
     "name": "Has_Data_Element",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Data Element",
@@ -77,7 +77,7 @@
     "code": "A13",
     "name": "Related_To_Genetic_Biomarker",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Related_To_Genetic_Biomarker",
@@ -109,7 +109,7 @@
     "code": "A14",
     "name": "Neoplasm_Has_Special_Category",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Neoplasm_Has_Special_Category",
@@ -141,7 +141,7 @@
     "code": "A15",
     "name": "Has_CTCAE_5_Parent",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_CTCAE_5_Parent",
@@ -173,7 +173,7 @@
     "code": "A16",
     "name": "Has_INC_Parent",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_INC_Parent",
@@ -205,7 +205,7 @@
     "code": "A17",
     "name": "Has_Pharmaceutical_State_Of_Matter",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Pharmaceutical_State_Of_Matter",
@@ -242,7 +242,7 @@
     "code": "A18",
     "name": "Has_Pharmaceutical_Basic_Dose_Form",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Basic Dose Form",
@@ -279,7 +279,7 @@
     "code": "A19",
     "name": "Has_Pharmaceutical_Administration_Method",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Administration Method",
@@ -316,7 +316,7 @@
     "code": "A2",
     "name": "Role_Has_Range",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Role Has Range",
@@ -353,7 +353,7 @@
     "code": "A20",
     "name": "Has_Pharmaceutical_Intended_Site",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Pharmaceutical_Intended_Site",
@@ -390,7 +390,7 @@
     "code": "A21",
     "name": "Has_Pharmaceutical_Release_Characteristics",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Pharmaceutical_Release_Characteristics",
@@ -427,7 +427,7 @@
     "code": "A22",
     "name": "Has_Pharmaceutical_Transformation",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Pharmaceutical_Transformation",
@@ -464,7 +464,7 @@
     "code": "A23",
     "name": "Has_PCDC_Data_Type",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_Data_Type",
@@ -496,7 +496,7 @@
     "code": "A24",
     "name": "Is_PCDC_AML_Authorized_Value_For_Variable",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is_PCDC_AML_Authorized_Value_For_Variable",
@@ -528,7 +528,7 @@
     "code": "A25",
     "name": "Value_Set_Is_Paired_With",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Value_Set_Is_Paired_With",
@@ -560,7 +560,7 @@
     "code": "A26",
     "name": "Has_PCDC_AML_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_AML_Authorized_Value",
@@ -592,7 +592,7 @@
     "code": "A27",
     "name": "Has_CTDC_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_CTDC_Value",
@@ -624,7 +624,7 @@
     "code": "A28",
     "name": "Is_PCDC_EWS_Authorized_Value_For_Variable",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is_PCDC_EWS_Authorized_Value_For_Variable",
@@ -656,7 +656,7 @@
     "code": "A29",
     "name": "Has_PCDC_EWS_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_EWS_Authorized_Value",
@@ -688,7 +688,7 @@
     "code": "A3",
     "name": "Role_Has_Parent",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Role Has Parent",
@@ -725,7 +725,7 @@
     "code": "A30",
     "name": "Has_ICDC_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_ICDC_Value",
@@ -757,7 +757,7 @@
     "code": "A31",
     "name": "Has_GDC_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_GDC_Value",
@@ -789,7 +789,7 @@
     "code": "A32",
     "name": "Is_Value_For_GDC_Property",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is_Value_For_GDC_Property",
@@ -821,7 +821,7 @@
     "code": "A33",
     "name": "Is_PCDC_GCT_Authorized_Value_For_Variable",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is_PCDC_GCT_Authorized_Value_For_Variable",
@@ -853,7 +853,7 @@
     "code": "A34",
     "name": "Has_PCDC_GCT_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_GCT_Authorized_Value",
@@ -885,7 +885,7 @@
     "code": "A35",
     "name": "Is_PCDC_ALL_Authorized_Value_For_Variable",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is_PCDC_ALL_Authorized_Value_For_Variable",
@@ -917,7 +917,7 @@
     "code": "A36",
     "name": "Has_PCDC_ALL_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_ALL_Authorized_Value",
@@ -949,7 +949,7 @@
     "code": "A37",
     "name": "Has_SeroNet_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_SeroNet_Authorized_Value",
@@ -981,7 +981,7 @@
     "code": "A38",
     "name": "Has_PCDC_OS_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_OS_Authorized_Value",
@@ -1013,7 +1013,7 @@
     "code": "A39",
     "name": "Has_PCDC_HL_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PCDC_HL_Authorized_Value",
@@ -1045,7 +1045,7 @@
     "code": "A4",
     "name": "Qualifier_Applies_To",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Qualifier Applies To",
@@ -1082,7 +1082,7 @@
     "code": "A40",
     "name": "Has_DIPG_DMG_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_DIPG_DMG_Authorized_Value",
@@ -1114,7 +1114,7 @@
     "code": "A42",
     "name": "Has_OORO_PC_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_OORO_PC_Value",
@@ -1146,7 +1146,7 @@
     "code": "A48",
     "name": "Has_ACC-AHA_SARS2_Authorized_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_ACC-AHA_SARS2_Authorized_Value",
@@ -1178,7 +1178,7 @@
     "code": "A49",
     "name": "Has_PRO-CTCAE_Attribute",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PRO-CTCAE_Attribute",
@@ -1210,7 +1210,7 @@
     "code": "A5",
     "name": "Has_Salt_Or_Ester_Form",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Salt or Ester Form",
@@ -1252,7 +1252,7 @@
     "code": "A50",
     "name": "Has_Ped-PRO-CTCAE_Attribute",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Ped-PRO-CTCAE_Attribute",
@@ -1284,7 +1284,7 @@
     "code": "A51",
     "name": "Has_PRO-CTCAE_Attribute_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PRO-CTCAE_Attribute_Value",
@@ -1316,7 +1316,7 @@
     "code": "A52",
     "name": "Has_Ped-PRO-CTCAE_Attribute_Value",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Ped-PRO-CTCAE_Attribute_Value",
@@ -1348,7 +1348,7 @@
     "code": "A53",
     "name": "Has_PRO-CTCAE_Parent",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_PRO-CTCAE_Parent",
@@ -1380,7 +1380,7 @@
     "code": "A54",
     "name": "Has_Ped-PRO-CTCAE_Parent",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has_Ped-PRO-CTCAE_Parent",
@@ -1412,7 +1412,7 @@
     "code": "A6",
     "name": "Has_Free_Acid_Or_Base_Form",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Free Acid Or Base Form",
@@ -1454,7 +1454,7 @@
     "code": "A7",
     "name": "Has_Target",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Has Target",
@@ -1491,7 +1491,7 @@
     "code": "A8",
     "name": "Concept_In_Subset",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Concept Is In Subset",
@@ -1528,7 +1528,7 @@
     "code": "A9",
     "name": "Is_Related_To_Endogenous_Product",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "Is Related To Endogenous Product",

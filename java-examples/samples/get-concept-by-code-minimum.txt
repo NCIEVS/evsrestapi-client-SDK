@@ -16,7 +16,7 @@ ConceptEndpointsApiTest > getConceptTest() STANDARD_ERROR
         code: C3224
         name: Melanoma
         terminology: ncit
-        version: 26.03e
+        version: 26.04d
         level: null
         highlight: null
         subsetLink: null
@@ -31,6 +31,7 @@ ConceptEndpointsApiTest > getConceptTest() STANDARD_ERROR
         children: []
         parents: []
         descendants: []
+        qualifiers: []
         associations: []
         inverseAssociations: []
         roles: []
@@ -39,11 +40,12 @@ ConceptEndpointsApiTest > getConceptTest() STANDARD_ERROR
         history: []
         maps: []
         paths: null
+        extensions: null
     }
 
 ConceptEndpointsApiTest > getConceptTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 

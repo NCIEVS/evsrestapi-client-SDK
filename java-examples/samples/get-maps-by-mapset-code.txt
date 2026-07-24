@@ -10,7 +10,7 @@
 
 MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
     [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest - Get mappings for mapsets by code
-    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class ConceptMapResultList {
+    [Test worker] INFO gov.nih.nci.evs.api.MapsetEndpointsApiTest -    mappings = class MappingResultList {
         uri: null
         ct: null
         total: 305
@@ -38,9 +38,10 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             terminology: []
             sparql: null
         }
-        maps: [class ConceptMap {
+        maps: [class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: DNA integration
             sourceTermType: null
@@ -52,16 +53,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: DNA Integration
             targetTermType: null
             targetCode: C18855
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000006
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: DNA modification
             sourceTermType: null
@@ -73,16 +77,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: DNA Modification Process
             targetTermType: null
             targetCode: C19449
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000008
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: DNA recombination
             sourceTermType: null
@@ -94,16 +101,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: DNA Recombination Process
             targetTermType: null
             targetCode: C17082
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000009
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: RNA binding
             sourceTermType: null
@@ -115,16 +125,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: RNA Binding
             targetTermType: null
             targetCode: C20737
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000022
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: RNA polyadenylation
             sourceTermType: null
@@ -136,16 +149,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: RNA Polyadenylation
             targetTermType: null
             targetCode: C18947
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000026
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: RNA splicing
             sourceTermType: null
@@ -157,16 +173,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: RNA Splicing
             targetTermType: null
             targetCode: C17106
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000028
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: T cell activation
             sourceTermType: null
@@ -178,16 +197,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: T-Cell Activation
             targetTermType: null
             targetCode: C19053
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000031
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: antibody-dependent cellular cytotoxicity
             sourceTermType: null
@@ -199,16 +221,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Antibody-Dependent Cellular Cytotoxicity
             targetTermType: null
             targetCode: C16298
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000046
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: biogenic amine metabolic process
             sourceTermType: null
@@ -220,16 +245,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Biogenic Amine Metabolic Process
             targetTermType: null
             targetCode: C40625
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000053
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: catabolic process
             sourceTermType: null
@@ -241,16 +269,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Catabolic Process
             targetTermType: null
             targetCode: C41544
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000063
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: cytokinesis
             sourceTermType: null
@@ -262,16 +293,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Cytokinesis
             targetTermType: null
             targetCode: C16489
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000092
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: depurination
             sourceTermType: null
@@ -283,16 +317,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Depurination
             targetTermType: null
             targetCode: C41574
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000097
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: dorsal/ventral pattern formation
             sourceTermType: null
@@ -304,16 +341,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Dorsal-Ventral Pattern Formation
             targetTermType: null
             targetCode: C19971
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000100
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: double-strand break repair via nonhomologous end joining
             sourceTermType: null
@@ -325,16 +365,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Nonhomologous DNA End Joining
             targetTermType: null
             targetCode: C20207
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000102
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: glucagon receptor binding
             sourceTermType: null
@@ -346,16 +389,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Glucagon Receptor Binding
             targetTermType: null
             targetCode: C40506
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000122
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: growth factor binding
             sourceTermType: null
@@ -367,16 +413,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Growth Factor Binding
             targetTermType: null
             targetCode: C40508
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000126
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: inflammatory response
             sourceTermType: null
@@ -388,16 +437,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Inflammatory Response
             targetTermType: null
             targetCode: C20151
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000135
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: intracellular transport
             sourceTermType: null
@@ -409,16 +461,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Intracellular Transport
             targetTermType: null
             targetCode: C18146
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000139
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: leukocyte migration
             sourceTermType: null
@@ -430,16 +485,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Leukocyte Trafficking
             targetTermType: null
             targetCode: C19438
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000143
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: lipid metabolic process
             sourceTermType: null
@@ -451,16 +509,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Lipid Metabolic Process
             targetTermType: null
             targetCode: C19405
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000148
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: lung development
             sourceTermType: null
@@ -472,16 +533,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Lung Development
             targetTermType: null
             targetCode: C19443
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000150
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: lymphocyte activation
             sourceTermType: null
@@ -493,16 +557,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Lymphocyte Activation Process
             targetTermType: null
             targetCode: C40833
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000151
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: menarche
             sourceTermType: null
@@ -514,16 +581,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Menarche
             targetTermType: null
             targetCode: C3228
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000154
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: mitotic cell cycle
             sourceTermType: null
@@ -535,16 +605,19 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Cell Cycle Process
             targetTermType: null
             targetCode: C16397
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000164
             targetTermGroup: null
-        }, class ConceptMap {
+        }, class Mapping {
             uri: null
             ct: null
+            mapsetCode: GO_to_NCIt_Mapping
             source: go
             sourceName: mitotic telophase
             sourceTermType: null
@@ -556,19 +629,21 @@ MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() STANDARD_ERROR
             rank: 1
             group: null
             rule: null
+            target: ncit
             targetName: Telophase
             targetTermType: null
             targetCode: C17189
             targetTerminology: NCI_Thesaurus
             targetTerminologyVersion: 23.02d
             targetLoaded: null
+            sortKey: 1000170
             targetTermGroup: null
         }]
     }
 
 MapsetEndpointsApiTest > getMapsetMappingsByCodeTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -576,6 +651,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1s
+BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date
 

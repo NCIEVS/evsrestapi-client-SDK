@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu Apr 30 11:15:00 PDT 2026
+Starting ...Thu, May 14, 2026 10:38:39 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -12,7 +12,7 @@ include = synonyms
       "code": "R153",
       "name": "Allele_Has_Abnormality",
       "terminology": "ncit",
-      "version": "26.03e",
+      "version": "26.04d",
       "synonyms": [
         {
           "name": "Has Abnormality",
@@ -33,6 +33,6 @@ include = synonyms
     }
 
 -----------------------------------------------------
-Finished ...Thu Apr 30 11:15:01 PDT 2026
+Finished ...Thu, May 14, 2026 10:38:40 PM
 -----------------------------------------------------
 

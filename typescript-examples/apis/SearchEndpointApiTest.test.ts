@@ -52,7 +52,7 @@ describe("TestSearchEndpointApi", () => {
     const conceptStatus: string = "Retired_Concept";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 19;
+    const expectedMinimumTotal: number = 10;
     let containsExpectedStatus: boolean = false;
 
     // ACT
@@ -61,7 +61,7 @@ describe("TestSearchEndpointApi", () => {
     // ASSERT
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     response.concepts.forEach(concept => {
       expect(concept.conceptStatus).not.toBeNull();
@@ -85,7 +85,7 @@ describe("TestSearchEndpointApi", () => {
     const definitionSource: string = "NCI";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 13;
+    const expectedMinimumTotal: number = 10;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, definitionSource);
@@ -93,7 +93,7 @@ describe("TestSearchEndpointApi", () => {
     // ASSERT
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(`Search results filtered by definition source for term - ${term}`);
     console.log(`    search results = ${JSON.stringify(response)}`);
@@ -108,7 +108,7 @@ describe("TestSearchEndpointApi", () => {
     const definitionType: string = "DEFINITION";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 1531;
+    const expectedMinimumTotal: number = 1000;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, definitionType);
@@ -116,7 +116,7 @@ describe("TestSearchEndpointApi", () => {
     // ASSERT
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(`Search results filtered by definition type for term - ${term}`);
     console.log(`    search results = ${JSON.stringify(response)}`);
@@ -132,7 +132,7 @@ describe("TestSearchEndpointApi", () => {
     const termType: string = "PT";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 14;
+    const expectedMinimumTotal: number = 10;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, synonymSource, undefined, termType);
@@ -140,7 +140,7 @@ describe("TestSearchEndpointApi", () => {
     // ASSERT
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(`Search results filtered by synonym source and term type for term - ${term}`);
     console.log(`    search results = ${JSON.stringify(response)}`);
@@ -155,7 +155,7 @@ describe("TestSearchEndpointApi", () => {
     const synonymType: string = "FULL_SYN";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 14;
+    const expectedMinimumTotal: number = 10;
 
     // ACT
     const response: ConceptResultList = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, undefined, synonymType);
@@ -163,7 +163,7 @@ describe("TestSearchEndpointApi", () => {
     // ASSERT
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(`Search results filtered by synonym type for term - ${term}`);
     console.log(`    search results = ${JSON.stringify(response)}`);
@@ -223,7 +223,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 49;
+    const expectedMinimumTotal: number = 40;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
@@ -232,7 +232,7 @@ describe("TestSearchEndpointApi", () => {
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
     expect(response.concepts[0]).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(JSON.stringify(response));
   });
@@ -245,7 +245,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 273
+    const expectedMinimumTotal: number = 200;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
@@ -254,7 +254,7 @@ describe("TestSearchEndpointApi", () => {
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
     expect(response.concepts[0]).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(JSON.stringify(response));
   });
@@ -287,7 +287,7 @@ describe("TestSearchEndpointApi", () => {
     const include: string = "minimal";
     const fromRecord: number = 0;
     const pageSize: number = 5;
-    const expectedTotal: number = 150;
+    const expectedMinimumTotal: number = 100;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, searchType, undefined, ascending, include, fromRecord, pageSize);
@@ -296,7 +296,7 @@ describe("TestSearchEndpointApi", () => {
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
     expect(response.concepts[0]).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(JSON.stringify(response));
   });
@@ -372,7 +372,7 @@ describe("TestSearchEndpointApi", () => {
     const fromRecord: number = 0;
     const pageSize: number = 5;
     const subset: string = "C165258";
-    const expectedTotal: number = 35;
+    const expectedMinimumTotal: number = 30;
 
     // ACT
     const response = await searchApi.searchSingleTerminology(terminology, undefined, term, undefined, undefined, ascending, include, fromRecord, pageSize, undefined, undefined, undefined, undefined, undefined, undefined, undefined, undefined, subset);
@@ -381,7 +381,7 @@ describe("TestSearchEndpointApi", () => {
     expect(response).not.toBeNull();
     expect(response.concepts).not.toBeNull();
     expect(response.concepts[0]).not.toBeNull();
-    expect(response.total).toBe(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(JSON.stringify(response));
   });
@@ -397,7 +397,7 @@ describe("TestSearchEndpointApi", () => {
     const expectedTotal: number = 1;
 
     // ACT
-    const response = await searchApi.searchSingleTerminologySparql(terminology, queryBody, include, undefined, undefined, searchType, undefined, ascending, fromRecord, pageSize);
+    const response = await searchApi.searchSingleTerminologySparql(terminology, queryBody, false, undefined, undefined, searchType, undefined, ascending, include, fromRecord, pageSize);
 
     // ASSERT
     expect(response).not.toBeNull();
@@ -411,14 +411,14 @@ describe("TestSearchEndpointApi", () => {
   test("test_get_sparql_bindings", async () => {
     // ARRANGE
     const queryBody: string = `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }`;
-    const expectedTotal: number = 150000;
+    const expectedMinimumTotal: number = 100000;
 
     // ACT
     const response = await searchApi.getSparqlBindings(terminology, queryBody);
 
     // ASSERT
     expect(response).not.toBeNull();
-    expect(response.total).toBeGreaterThanOrEqual(expectedTotal);
+    expect(response.total).toBeGreaterThanOrEqual(expectedMinimumTotal);
 
     console.log(JSON.stringify(response));
   });

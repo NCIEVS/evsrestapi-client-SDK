@@ -1019,13 +1019,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getAssociationWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1039,6 +1032,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1062,13 +1062,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getAssociationsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1082,6 +1075,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1177,13 +1177,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getDefinitionTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1197,6 +1190,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1220,13 +1220,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getDefinitionTypesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1240,6 +1233,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1263,13 +1263,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getOverviewMetadataWithHttpInfo(response: ResponseContext): Promise<HttpInfo<{ [key: string]: Array<Concept>; } >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1283,6 +1276,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "{ [key: string]: Array<Concept>; }", ""
             ) as { [key: string]: Array<Concept>; };
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1306,13 +1306,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getPropertiesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1326,6 +1319,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1349,13 +1349,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getPropertyWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1369,6 +1362,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1428,13 +1428,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getQualifierWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1448,6 +1441,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1507,13 +1507,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getQualifiersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1527,6 +1520,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1550,13 +1550,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getRoleWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1570,6 +1563,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1593,19 +1593,19 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getRolesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: Array<Concept> = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1629,13 +1629,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSourceStatsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<{ [key: string]: Array<StatisticsEntry>; } >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1649,6 +1642,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "{ [key: string]: Array<StatisticsEntry>; }", ""
             ) as { [key: string]: Array<StatisticsEntry>; };
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1672,13 +1672,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSubset1WithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1692,6 +1685,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1715,13 +1715,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSubsets1WithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1735,6 +1728,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -1794,14 +1794,14 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSynonymTypeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
+        if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
-        if (isCodeInRange("404", response.httpStatusCode)) {
+        if (isCodeInRange("417", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
@@ -1837,13 +1837,6 @@ export class MetadataEndpointsApiResponseProcessor {
      */
      public async getSynonymTypesWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -1857,6 +1850,13 @@ export class MetadataEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

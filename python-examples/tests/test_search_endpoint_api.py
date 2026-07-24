@@ -494,11 +494,15 @@ class TestSearchEndpointApi:
         expected_total: int = 1
         
         # ACT
-        response: ConceptResultList = search_api.search_single_terminology_sparql(self.terminology, query, include,
-                                                                                  None, None, type, None,
-                                                                                  ascending, from_record, page_size, None,
-                                                                                  None, None, None, None,
-                                                                                  None, None, None, None)
+        response: ConceptResultList = search_api.search_single_terminology_sparql(
+            self.terminology,
+            query,
+            type=type,
+            ascending=ascending,
+            include=include,
+            from_record=from_record,
+            page_size=page_size,
+        )
         
         # ASSERT
         assert response is not None

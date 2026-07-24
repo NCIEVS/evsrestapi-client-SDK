@@ -20,7 +20,7 @@ export class MapsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get the mapset for the specified code (no terminology parameter is needed as mapsets connect codes in one terminology to another)
      * @param code Mapset code
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public async getMapsetByCode(code: string, include?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -123,7 +123,7 @@ export class MapsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get all mapsets (no terminology parameter is needed as mapsets connect codes in one terminology to another)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public async getMapsets(include?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -164,13 +164,6 @@ export class MapsetEndpointsApiResponseProcessor {
      */
      public async getMapsetByCodeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Concept >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -184,6 +177,13 @@ export class MapsetEndpointsApiResponseProcessor {
                 "Concept", ""
             ) as Concept;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -207,13 +207,6 @@ export class MapsetEndpointsApiResponseProcessor {
      */
      public async getMapsetMappingsByCodeWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MappingResultList >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -227,6 +220,13 @@ export class MapsetEndpointsApiResponseProcessor {
                 "MappingResultList", ""
             ) as MappingResultList;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

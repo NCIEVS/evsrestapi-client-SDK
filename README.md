@@ -51,6 +51,10 @@ For Python-based helper scripts in this repository, the documentation assumes a 
 	cd java-examples
 	python3 java_check.py
 	```
+- `sdk_check.py` — Runs the Java, Go, Python, and TypeScript SDK check scripts in sequence, then reports how many tests worked or did not work in each SDK and lists any failing commands. Example:
+	```bash
+	python3 sdk_check.py
+	```
 
 Requirements: `newman` (npm) for Postman scripts; Python 3 with `python3` on `PATH` plus `pytest` for the Python helper; Java (JDK) and a working `./gradlew` (Gradle wrapper) for the Java helper.
 

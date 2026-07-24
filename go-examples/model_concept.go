@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -48,6 +48,8 @@ type Concept struct {
 	Leaf *bool `json:"leaf,omitempty"`
 	// Indicates whether the concept is active
 	Active *bool `json:"active,omitempty"`
+	// Indicates whether the concept is defining
+	Defining *bool `json:"defining,omitempty"`
 	// Synonyms, or all of the names for this concept, including the preferred name
 	Synonyms []Synonym `json:"synonyms,omitempty"`
 	// Text definitions
@@ -75,8 +77,9 @@ type Concept struct {
 	// History records
 	History []History `json:"history,omitempty"`
 	// Maps from this concept to concepts in other terminologies
-	Maps []ConceptMap `json:"maps,omitempty"`
+	Maps []Mapping `json:"maps,omitempty"`
 	Paths *Paths `json:"paths,omitempty"`
+	Extensions *Extensions `json:"extensions,omitempty"`
 }
 
 // NewConcept instantiates a new Concept object
@@ -544,6 +547,38 @@ func (o *Concept) SetActive(v bool) {
 	o.Active = &v
 }
 
+// GetDefining returns the Defining field value if set, zero value otherwise.
+func (o *Concept) GetDefining() bool {
+	if o == nil || IsNil(o.Defining) {
+		var ret bool
+		return ret
+	}
+	return *o.Defining
+}
+
+// GetDefiningOk returns a tuple with the Defining field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Concept) GetDefiningOk() (*bool, bool) {
+	if o == nil || IsNil(o.Defining) {
+		return nil, false
+	}
+	return o.Defining, true
+}
+
+// HasDefining returns a boolean if a field has been set.
+func (o *Concept) HasDefining() bool {
+	if o != nil && !IsNil(o.Defining) {
+		return true
+	}
+
+	return false
+}
+
+// SetDefining gets a reference to the given bool and assigns it to the Defining field.
+func (o *Concept) SetDefining(v bool) {
+	o.Defining = &v
+}
+
 // GetSynonyms returns the Synonyms field value if set, zero value otherwise.
 func (o *Concept) GetSynonyms() []Synonym {
 	if o == nil || IsNil(o.Synonyms) {
@@ -961,9 +996,9 @@ func (o *Concept) SetHistory(v []History) {
 }
 
 // GetMaps returns the Maps field value if set, zero value otherwise.
-func (o *Concept) GetMaps() []ConceptMap {
+func (o *Concept) GetMaps() []Mapping {
 	if o == nil || IsNil(o.Maps) {
-		var ret []ConceptMap
+		var ret []Mapping
 		return ret
 	}
 	return o.Maps
@@ -971,7 +1006,7 @@ func (o *Concept) GetMaps() []ConceptMap {
 
 // GetMapsOk returns a tuple with the Maps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *Concept) GetMapsOk() ([]ConceptMap, bool) {
+func (o *Concept) GetMapsOk() ([]Mapping, bool) {
 	if o == nil || IsNil(o.Maps) {
 		return nil, false
 	}
@@ -987,8 +1022,8 @@ func (o *Concept) HasMaps() bool {
 	return false
 }
 
-// SetMaps gets a reference to the given []ConceptMap and assigns it to the Maps field.
-func (o *Concept) SetMaps(v []ConceptMap) {
+// SetMaps gets a reference to the given []Mapping and assigns it to the Maps field.
+func (o *Concept) SetMaps(v []Mapping) {
 	o.Maps = v
 }
 
@@ -1022,6 +1057,38 @@ func (o *Concept) HasPaths() bool {
 // SetPaths gets a reference to the given Paths and assigns it to the Paths field.
 func (o *Concept) SetPaths(v Paths) {
 	o.Paths = &v
+}
+
+// GetExtensions returns the Extensions field value if set, zero value otherwise.
+func (o *Concept) GetExtensions() Extensions {
+	if o == nil || IsNil(o.Extensions) {
+		var ret Extensions
+		return ret
+	}
+	return *o.Extensions
+}
+
+// GetExtensionsOk returns a tuple with the Extensions field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Concept) GetExtensionsOk() (*Extensions, bool) {
+	if o == nil || IsNil(o.Extensions) {
+		return nil, false
+	}
+	return o.Extensions, true
+}
+
+// HasExtensions returns a boolean if a field has been set.
+func (o *Concept) HasExtensions() bool {
+	if o != nil && !IsNil(o.Extensions) {
+		return true
+	}
+
+	return false
+}
+
+// SetExtensions gets a reference to the given Extensions and assigns it to the Extensions field.
+func (o *Concept) SetExtensions(v Extensions) {
+	o.Extensions = &v
 }
 
 func (o Concept) MarshalJSON() ([]byte, error) {
@@ -1076,6 +1143,9 @@ func (o Concept) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Active) {
 		toSerialize["active"] = o.Active
 	}
+	if !IsNil(o.Defining) {
+		toSerialize["defining"] = o.Defining
+	}
 	if !IsNil(o.Synonyms) {
 		toSerialize["synonyms"] = o.Synonyms
 	}
@@ -1120,6 +1190,9 @@ func (o Concept) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Paths) {
 		toSerialize["paths"] = o.Paths
+	}
+	if !IsNil(o.Extensions) {
+		toSerialize["extensions"] = o.Extensions
 	}
 	return toSerialize, nil
 }

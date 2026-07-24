@@ -58,7 +58,7 @@ npx jest test
 
 ## Sample Typescript Calls
 
-The following examples are exhibited by various unit tests defined in the code in `go-examples`.
+The following examples are exhibited by various unit tests defined in the code in `typescript-examples`.
 All commands to run these tests should be run from that directory.
 
 * [Get terminologies](#get-terminologies)
@@ -218,7 +218,7 @@ Return all properties for a given terminology with default include setting (mini
 
 Return property for the specified code or label.
 
-`jest apis/MetadataEndpointsApiTest.test.ts -t test_get_property`
+`jest apis/MetadataEndpointsApiTest.test.ts -t "^test_get_property$"`
 
 [See output here](outputs/test_get_property.txt)
 

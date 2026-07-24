@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -55,9 +55,11 @@ type TerminologyMetadata struct {
 	CodeLabel *string `json:"codeLabel,omitempty"`
 	// Metadata for landing page welcome text
 	WelcomeText *string `json:"welcomeText,omitempty"`
-	PreferredTermGroups []string `json:"preferredTermGroups,omitempty"`
+	IndexRuntime *int64 `json:"indexRuntime,omitempty"`
+	HistoryVersion *string `json:"historyVersion,omitempty"`
 	SynonymTermGroup *string `json:"synonymTermGroup,omitempty"`
 	TermGroups *map[string]string `json:"termGroups,omitempty"`
+	PreferredTermGroups []string `json:"preferredTermGroups,omitempty"`
 }
 
 // NewTerminologyMetadata instantiates a new TerminologyMetadata object
@@ -653,36 +655,68 @@ func (o *TerminologyMetadata) SetWelcomeText(v string) {
 	o.WelcomeText = &v
 }
 
-// GetPreferredTermGroups returns the PreferredTermGroups field value if set, zero value otherwise.
-func (o *TerminologyMetadata) GetPreferredTermGroups() []string {
-	if o == nil || IsNil(o.PreferredTermGroups) {
-		var ret []string
+// GetIndexRuntime returns the IndexRuntime field value if set, zero value otherwise.
+func (o *TerminologyMetadata) GetIndexRuntime() int64 {
+	if o == nil || IsNil(o.IndexRuntime) {
+		var ret int64
 		return ret
 	}
-	return o.PreferredTermGroups
+	return *o.IndexRuntime
 }
 
-// GetPreferredTermGroupsOk returns a tuple with the PreferredTermGroups field value if set, nil otherwise
+// GetIndexRuntimeOk returns a tuple with the IndexRuntime field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *TerminologyMetadata) GetPreferredTermGroupsOk() ([]string, bool) {
-	if o == nil || IsNil(o.PreferredTermGroups) {
+func (o *TerminologyMetadata) GetIndexRuntimeOk() (*int64, bool) {
+	if o == nil || IsNil(o.IndexRuntime) {
 		return nil, false
 	}
-	return o.PreferredTermGroups, true
+	return o.IndexRuntime, true
 }
 
-// HasPreferredTermGroups returns a boolean if a field has been set.
-func (o *TerminologyMetadata) HasPreferredTermGroups() bool {
-	if o != nil && !IsNil(o.PreferredTermGroups) {
+// HasIndexRuntime returns a boolean if a field has been set.
+func (o *TerminologyMetadata) HasIndexRuntime() bool {
+	if o != nil && !IsNil(o.IndexRuntime) {
 		return true
 	}
 
 	return false
 }
 
-// SetPreferredTermGroups gets a reference to the given []string and assigns it to the PreferredTermGroups field.
-func (o *TerminologyMetadata) SetPreferredTermGroups(v []string) {
-	o.PreferredTermGroups = v
+// SetIndexRuntime gets a reference to the given int64 and assigns it to the IndexRuntime field.
+func (o *TerminologyMetadata) SetIndexRuntime(v int64) {
+	o.IndexRuntime = &v
+}
+
+// GetHistoryVersion returns the HistoryVersion field value if set, zero value otherwise.
+func (o *TerminologyMetadata) GetHistoryVersion() string {
+	if o == nil || IsNil(o.HistoryVersion) {
+		var ret string
+		return ret
+	}
+	return *o.HistoryVersion
+}
+
+// GetHistoryVersionOk returns a tuple with the HistoryVersion field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerminologyMetadata) GetHistoryVersionOk() (*string, bool) {
+	if o == nil || IsNil(o.HistoryVersion) {
+		return nil, false
+	}
+	return o.HistoryVersion, true
+}
+
+// HasHistoryVersion returns a boolean if a field has been set.
+func (o *TerminologyMetadata) HasHistoryVersion() bool {
+	if o != nil && !IsNil(o.HistoryVersion) {
+		return true
+	}
+
+	return false
+}
+
+// SetHistoryVersion gets a reference to the given string and assigns it to the HistoryVersion field.
+func (o *TerminologyMetadata) SetHistoryVersion(v string) {
+	o.HistoryVersion = &v
 }
 
 // GetSynonymTermGroup returns the SynonymTermGroup field value if set, zero value otherwise.
@@ -749,6 +783,38 @@ func (o *TerminologyMetadata) SetTermGroups(v map[string]string) {
 	o.TermGroups = &v
 }
 
+// GetPreferredTermGroups returns the PreferredTermGroups field value if set, zero value otherwise.
+func (o *TerminologyMetadata) GetPreferredTermGroups() []string {
+	if o == nil || IsNil(o.PreferredTermGroups) {
+		var ret []string
+		return ret
+	}
+	return o.PreferredTermGroups
+}
+
+// GetPreferredTermGroupsOk returns a tuple with the PreferredTermGroups field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *TerminologyMetadata) GetPreferredTermGroupsOk() ([]string, bool) {
+	if o == nil || IsNil(o.PreferredTermGroups) {
+		return nil, false
+	}
+	return o.PreferredTermGroups, true
+}
+
+// HasPreferredTermGroups returns a boolean if a field has been set.
+func (o *TerminologyMetadata) HasPreferredTermGroups() bool {
+	if o != nil && !IsNil(o.PreferredTermGroups) {
+		return true
+	}
+
+	return false
+}
+
+// SetPreferredTermGroups gets a reference to the given []string and assigns it to the PreferredTermGroups field.
+func (o *TerminologyMetadata) SetPreferredTermGroups(v []string) {
+	o.PreferredTermGroups = v
+}
+
 func (o TerminologyMetadata) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
@@ -813,14 +879,20 @@ func (o TerminologyMetadata) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.WelcomeText) {
 		toSerialize["welcomeText"] = o.WelcomeText
 	}
-	if !IsNil(o.PreferredTermGroups) {
-		toSerialize["preferredTermGroups"] = o.PreferredTermGroups
+	if !IsNil(o.IndexRuntime) {
+		toSerialize["indexRuntime"] = o.IndexRuntime
+	}
+	if !IsNil(o.HistoryVersion) {
+		toSerialize["historyVersion"] = o.HistoryVersion
 	}
 	if !IsNil(o.SynonymTermGroup) {
 		toSerialize["synonymTermGroup"] = o.SynonymTermGroup
 	}
 	if !IsNil(o.TermGroups) {
 		toSerialize["termGroups"] = o.TermGroups
+	}
+	if !IsNil(o.PreferredTermGroups) {
+		toSerialize["preferredTermGroups"] = o.PreferredTermGroups
 	}
 	return toSerialize, nil
 }

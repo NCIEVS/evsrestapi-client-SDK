@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -39,7 +39,7 @@ func (r ApiGetReplacementsRequest) Execute() ([]History, *http.Response, error) 
 GetReplacements Gets suggested replacements for a specified terminology and retired code. Active codes will return entries as well with an action of \"active\".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g. <ul><li>'C4654' for <i>ncit</i></li><li>'C0000733' for <i>ncim</i></li></ul>.
  @return ApiGetReplacementsRequest
 */
@@ -134,7 +134,6 @@ func (a *HistoryEndpointsAPIService) GetReplacementsExecute(r ApiGetReplacements
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -172,7 +171,7 @@ func (r ApiGetReplacementsFromListRequest) Execute() ([]History, *http.Response,
 GetReplacementsFromList Gets suggested replacements for a specified terminology and a comma-separated list of retired codes.  Active codes will return entries as well with an action of \"active\".
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\">See here for complete list</a>)
  @return ApiGetReplacementsFromListRequest
 */
 func (a *HistoryEndpointsAPIService) GetReplacementsFromList(ctx context.Context, terminology string) ApiGetReplacementsFromListRequest {
@@ -268,7 +267,6 @@ func (a *HistoryEndpointsAPIService) GetReplacementsFromListExecute(r ApiGetRepl
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}

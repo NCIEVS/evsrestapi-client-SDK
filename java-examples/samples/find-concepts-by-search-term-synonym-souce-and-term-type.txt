@@ -14,7 +14,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
         uri: null
         ct: null
         total: 14
-        timeTaken: 94
+        timeTaken: 56
         parameters: class SearchCriteria {
             uri: null
             ct: null
@@ -44,7 +44,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             code: C449
             name: DNA
             terminology: ncit
-            version: 26.03e
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -59,6 +59,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -67,13 +68,14 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C25832
             name: DNA Double Strand Break
             terminology: ncit
-            version: 26.03e
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -88,6 +90,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -96,13 +99,14 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C14348
             name: Double Stranded DNA Virus
             terminology: ncit
-            version: 26.03e
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -117,6 +121,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -125,13 +130,14 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C114565
             name: Anti-ds DNA Antibody
             terminology: ncit
-            version: 26.03e
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -146,6 +152,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -154,13 +161,14 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             history: []
             maps: []
             paths: null
+            extensions: null
         }, class Concept {
             uri: null
             ct: null
             code: C211596
             name: Anti-ds DNA Antibody Positive
             terminology: ncit
-            version: 26.03e
+            version: 26.04d
             level: null
             highlight: null
             subsetLink: null
@@ -175,6 +183,7 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             children: []
             parents: []
             descendants: []
+            qualifiers: []
             associations: []
             inverseAssociations: []
             roles: []
@@ -183,12 +192,13 @@ SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() STANDARD_ER
             history: []
             maps: []
             paths: null
+            extensions: null
         }]
     }
 
 SearchEndpointApiTest > searchFilterBySynonymSourceAndTermTypeTest() PASSED
 
-[Incubating] Problems report is available at: file:///Users/bcarlsen/Desktop/workspace/nci/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
+[Incubating] Problems report is available at: file:///D:/WCI/Repos/evsrestapi-client-SDK/java-examples/build/reports/problems/problems-report.html
 
 Deprecated Gradle features were used in this build, making it incompatible with Gradle 9.0.
 
@@ -196,6 +206,6 @@ You can use '--warning-mode all' to show the individual deprecation warnings and
 
 For more on this, please refer to https://docs.gradle.org/8.14.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
 
-BUILD SUCCESSFUL in 1s
+BUILD SUCCESSFUL in 2s
 5 actionable tasks: 2 executed, 3 up-to-date
 

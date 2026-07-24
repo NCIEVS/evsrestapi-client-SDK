@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -105,17 +105,6 @@ func (a *ApplicationVersionEndpointAPIService) GetApplicationVersionExecute(r Ap
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -127,114 +116,7 @@ func (a *ApplicationVersionEndpointAPIService) GetApplicationVersionExecute(r Ap
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-	if err != nil {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: err.Error(),
-		}
-		return localVarReturnValue, localVarHTTPResponse, newErr
-	}
-
-	return localVarReturnValue, localVarHTTPResponse, nil
-}
-
-type ApiRewriteUrlRequest struct {
-	ctx context.Context
-	ApiService *ApplicationVersionEndpointAPIService
-	url *string
-}
-
-func (r ApiRewriteUrlRequest) Url(url string) ApiRewriteUrlRequest {
-	r.url = &url
-	return r
-}
-
-func (r ApiRewriteUrlRequest) Execute() (string, *http.Response, error) {
-	return r.ApiService.RewriteUrlExecute(r)
-}
-
-/*
-RewriteUrl Rewrite the specified LexEVS URL to EVS Explore
-
- @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @return ApiRewriteUrlRequest
-*/
-func (a *ApplicationVersionEndpointAPIService) RewriteUrl(ctx context.Context) ApiRewriteUrlRequest {
-	return ApiRewriteUrlRequest{
-		ApiService: a,
-		ctx: ctx,
-	}
-}
-
-// Execute executes the request
-//  @return string
-func (a *ApplicationVersionEndpointAPIService) RewriteUrlExecute(r ApiRewriteUrlRequest) (string, *http.Response, error) {
-	var (
-		localVarHTTPMethod   = http.MethodGet
-		localVarPostBody     interface{}
-		formFiles            []formFile
-		localVarReturnValue  string
-	)
-
-	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ApplicationVersionEndpointAPIService.RewriteUrl")
-	if err != nil {
-		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
-	}
-
-	localVarPath := localBasePath + "/api/v1/rewrite"
-
-	localVarHeaderParams := make(map[string]string)
-	localVarQueryParams := url.Values{}
-	localVarFormParams := url.Values{}
-	if r.url == nil {
-		return localVarReturnValue, nil, reportError("url is required and must be specified")
-	}
-
-	parameterAddToHeaderOrQuery(localVarQueryParams, "url", r.url, "")
-	// to determine the Content-Type header
-	localVarHTTPContentTypes := []string{}
-
-	// set Content-Type header
-	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
-	if localVarHTTPContentType != "" {
-		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
-	}
-
-	// to determine the Accept header
-	localVarHTTPHeaderAccepts := []string{"application/json", "text/plain"}
-
-	// set Accept header
-	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
-	if localVarHTTPHeaderAccept != "" {
-		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
-	}
-	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
-	if err != nil {
-		return localVarReturnValue, nil, err
-	}
-
-	localVarHTTPResponse, err := a.client.callAPI(req)
-	if err != nil || localVarHTTPResponse == nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
-	localVarHTTPResponse.Body.Close()
-	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
-	if err != nil {
-		return localVarReturnValue, localVarHTTPResponse, err
-	}
-
-	if localVarHTTPResponse.StatusCode >= 300 {
-		newErr := &GenericOpenAPIError{
-			body:  localVarBody,
-			error: localVarHTTPResponse.Status,
-		}
-		if localVarHTTPResponse.StatusCode == 500 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

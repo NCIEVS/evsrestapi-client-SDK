@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu Apr 30 11:14:48 PDT 2026
+Starting ...Thu, May 14, 2026 10:38:23 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 terminology = ncit
@@ -13,7 +13,7 @@ include  = minimal
         "code": "C3224",
         "name": "Melanoma",
         "terminology": "ncit",
-        "version": "26.03e",
+        "version": "26.04d",
         "conceptStatus": "DEFAULT",
         "leaf": false,
         "active": true
@@ -22,7 +22,7 @@ include  = minimal
         "code": "C3910",
         "name": "Molecular Abnormality",
         "terminology": "ncit",
-        "version": "26.03e",
+        "version": "26.04d",
         "conceptStatus": "DEFAULT",
         "leaf": false,
         "active": true
@@ -30,6 +30,6 @@ include  = minimal
     ]
 
 -----------------------------------------------------
-Finished ...Thu Apr 30 11:14:49 PDT 2026
+Finished ...Thu, May 14, 2026 10:38:24 PM
 -----------------------------------------------------
 

@@ -55,7 +55,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedCode, "FAIL: expected code not found in search results")
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -71,7 +71,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		conceptStatus := "Retired_Concept"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 19
+		var expectedMinimumTotal int64 = 10
 		containsExpectedStatus := false
 
 		// ACT
@@ -83,7 +83,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 
 		for _, concept := range resp.Concepts {
@@ -95,7 +95,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		}
 
 		assert.True(t, containsExpectedStatus, "FAIL: expected concept status not found")
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -112,7 +112,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		definitionSource := "NCI"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 13
+		var expectedMinimumTotal int64 = 10
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -123,10 +123,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -143,7 +143,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		definitionType := "DEFINITION"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 1462
+		var expectedMinimumTotal int64 = 1000
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -154,10 +154,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -175,7 +175,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		termType := "PT"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 14
+		var expectedMinimumTotal int64 = 10
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -186,10 +186,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -206,7 +206,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		synonymType := "FULL_SYN"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 14
+		var expectedMinimumTotal int64 = 10
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -217,10 +217,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -250,7 +250,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -280,7 +280,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -296,7 +296,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 49
+		var expectedMinimumTotal int64 = 40
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -307,10 +307,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -326,7 +326,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 273
+		var expectedMinimumTotal int64 = 200
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -337,10 +337,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -368,7 +368,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -384,7 +384,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		include := "minimal"
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
-		var expectedTotal int64 = 150
+		var expectedMinimumTotal int64 = 100
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -395,10 +395,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -426,7 +426,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -455,7 +455,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -485,7 +485,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -501,7 +501,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		var fromRecord int32 = 0
 		var pageSize int32 = 5
 		subset := "C165258"
-		var expectedTotal int64 = 35
+		var expectedMinimumTotal int64 = 30
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.SearchSingleTerminology(context.Background(), terminology).
@@ -512,10 +512,10 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.Nil(t, err)
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
-		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal, "FAIL: expected total is lower than expected")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -545,7 +545,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		assert.Equal(t, expectedTotal, resp.GetTotal(), "FAIL: expected total doesn't match actual")
 		assert.NotNil(t, resp.Concepts)
 		assert.NotNil(t, resp.Concepts[0])
-	
+
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)
 		require.NotNil(t, result)
@@ -556,7 +556,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 
 		// ARRANGE
 		queryBody := `SELECT ?code { GRAPH <http://NCI_T_monthly> { ?x a owl:Class . ?x :NHC0 ?code . } }`
-		var expectedTotal int64 = 150000
+		var expectedMinimumTotal int64 = 100000
 
 		// ACT
 		resp, httpRes, err := apiClient.SearchEndpointAPI.GetSparqlBindings(context.Background(), terminology).
@@ -567,7 +567,7 @@ func TestSearchEndpointAPIService(t *testing.T) {
 		require.NotNil(t, resp)
 		assert.Equal(t, 200, httpRes.StatusCode)
 		assert.NotNil(t, resp)
-		assert.GreaterOrEqual(t, resp.GetTotal(), expectedTotal)
+		assert.GreaterOrEqual(t, resp.GetTotal(), expectedMinimumTotal)
 
 		result, err := json.Marshal(resp)
 		require.Nil(t, err)

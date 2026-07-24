@@ -3,7 +3,7 @@
     "code": "R113",
     "name": "Disease_May_Have_Abnormal_Cell",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Abnormal Cell",
@@ -40,7 +40,7 @@
     "code": "R114",
     "name": "Disease_May_Have_Cytogenetic_Abnormality",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Cytogenetic Abnormality",
@@ -77,7 +77,7 @@
     "code": "R115",
     "name": "Disease_May_Have_Finding",
     "terminology": "ncit",
-    "version": "26.03e",
+    "version": "26.04d",
     "synonyms": [
       {
         "name": "May Have Finding",

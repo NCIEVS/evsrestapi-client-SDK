@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -24,6 +24,8 @@ type Role struct {
 	Uri *string `json:"uri,omitempty"`
 	// Used to indicate the total amount of data in cases where a limit is being applied
 	Ct *int32 `json:"ct,omitempty"`
+	// Relationship code
+	Code *string `json:"code,omitempty"`
 	// Relationship type
 	Type *string `json:"type,omitempty"`
 	// Related code (the code on the other side of the relationship)
@@ -32,6 +34,8 @@ type Role struct {
 	RelatedName *string `json:"relatedName,omitempty"`
 	// Relationship source
 	Source *string `json:"source,omitempty"`
+	// Role group number for grouping related roles
+	Group *string `json:"group,omitempty"`
 	// Used by search calls to provide information for highlighting a view of results
 	Highlight *string `json:"highlight,omitempty"`
 	// Type/value qualifiers on the relationship
@@ -117,6 +121,38 @@ func (o *Role) HasCt() bool {
 // SetCt gets a reference to the given int32 and assigns it to the Ct field.
 func (o *Role) SetCt(v int32) {
 	o.Ct = &v
+}
+
+// GetCode returns the Code field value if set, zero value otherwise.
+func (o *Role) GetCode() string {
+	if o == nil || IsNil(o.Code) {
+		var ret string
+		return ret
+	}
+	return *o.Code
+}
+
+// GetCodeOk returns a tuple with the Code field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Role) GetCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.Code) {
+		return nil, false
+	}
+	return o.Code, true
+}
+
+// HasCode returns a boolean if a field has been set.
+func (o *Role) HasCode() bool {
+	if o != nil && !IsNil(o.Code) {
+		return true
+	}
+
+	return false
+}
+
+// SetCode gets a reference to the given string and assigns it to the Code field.
+func (o *Role) SetCode(v string) {
+	o.Code = &v
 }
 
 // GetType returns the Type field value if set, zero value otherwise.
@@ -247,6 +283,38 @@ func (o *Role) SetSource(v string) {
 	o.Source = &v
 }
 
+// GetGroup returns the Group field value if set, zero value otherwise.
+func (o *Role) GetGroup() string {
+	if o == nil || IsNil(o.Group) {
+		var ret string
+		return ret
+	}
+	return *o.Group
+}
+
+// GetGroupOk returns a tuple with the Group field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Role) GetGroupOk() (*string, bool) {
+	if o == nil || IsNil(o.Group) {
+		return nil, false
+	}
+	return o.Group, true
+}
+
+// HasGroup returns a boolean if a field has been set.
+func (o *Role) HasGroup() bool {
+	if o != nil && !IsNil(o.Group) {
+		return true
+	}
+
+	return false
+}
+
+// SetGroup gets a reference to the given string and assigns it to the Group field.
+func (o *Role) SetGroup(v string) {
+	o.Group = &v
+}
+
 // GetHighlight returns the Highlight field value if set, zero value otherwise.
 func (o *Role) GetHighlight() string {
 	if o == nil || IsNil(o.Highlight) {
@@ -327,6 +395,9 @@ func (o Role) ToMap() (map[string]interface{}, error) {
 	if !IsNil(o.Ct) {
 		toSerialize["ct"] = o.Ct
 	}
+	if !IsNil(o.Code) {
+		toSerialize["code"] = o.Code
+	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
 	}
@@ -338,6 +409,9 @@ func (o Role) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Source) {
 		toSerialize["source"] = o.Source
+	}
+	if !IsNil(o.Group) {
+		toSerialize["group"] = o.Group
 	}
 	if !IsNil(o.Highlight) {
 		toSerialize["highlight"] = o.Highlight

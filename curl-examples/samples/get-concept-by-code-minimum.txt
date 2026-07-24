@@ -2,7 +2,7 @@
   "code": "C3224",
   "name": "Melanoma",
   "terminology": "ncit",
-  "version": "26.03e",
+  "version": "26.04d",
   "conceptStatus": "DEFAULT",
   "leaf": false,
   "active": true

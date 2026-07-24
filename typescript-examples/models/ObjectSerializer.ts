@@ -7,6 +7,7 @@ export * from '../models/ConceptMinimal';
 export * from '../models/ConceptResultList';
 export * from '../models/Definition';
 export * from '../models/DisjointWith';
+export * from '../models/Extensions';
 export * from '../models/HierarchyNode';
 export * from '../models/History';
 export * from '../models/MapResultList';
@@ -33,6 +34,7 @@ import { ConceptMinimal } from '../models/ConceptMinimal';
 import { ConceptResultList } from '../models/ConceptResultList';
 import { Definition } from '../models/Definition';
 import { DisjointWith } from '../models/DisjointWith';
+import { Extensions } from '../models/Extensions';
 import { HierarchyNode } from '../models/HierarchyNode';
 import { History } from '../models/History';
 import { MapResultList } from '../models/MapResultList';
@@ -75,6 +77,7 @@ let typeMap: {[index: string]: any} = {
     "ConceptResultList": ConceptResultList,
     "Definition": Definition,
     "DisjointWith": DisjointWith,
+    "Extensions": Extensions,
     "HierarchyNode": HierarchyNode,
     "History": History,
     "MapResultList": MapResultList,

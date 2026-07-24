@@ -20,12 +20,12 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Perform a SPARQL query for a specified terminology.
      * Get SPARQL query results
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query to execute on the graph for the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public async getSparqlBindings(terminology: string, body: string, fromRecord?: number, pageSize?: number, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -95,7 +95,7 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
 
     /**
      * Get default prefixes used by SPARQL queries
-     * @param terminology Single terminology to find prefixes for, e.g. \&#39;ncit\&#39; or \&#39;hgnc\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param terminology Single terminology to find prefixes for, e.g. \&#39;ncit\&#39; or \&#39;hgnc\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      */
     public async getSparqlPrefixes(terminology: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -127,13 +127,13 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
-     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Comma-separated list of terminologies to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -275,13 +275,13 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -424,15 +424,15 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Use cases for search range from very simple term searches, use of paging parameters, additional filters, searches properties, roles, and associations, and so on.  To further explore the range of search options, take a look at the <a href=\'https://github.com/NCIEVS/evsrestapi-client-SDK\' target=\'_blank\'>Github client SDK library created for the NCI EVS Rest API</a>.
      * Get concept search results for a specified terminology
-     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
-     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param terminology Single terminology to search, e.g. \&#39;ncit\&#39; or \&#39;ncim\&#39; (&lt;a href&#x3D;\&quot;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\&quot;&gt;See here for complete list&lt;/a&gt;)
+     * @param body SPARQL query that returns ?code identifying a valid code in the specified terminology. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/SPARQL.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for more information and examples of using SPARQL with EVSRESTAPI&lt;/a&gt;.
      * @param prefixes Use \&#39;true\&#39; to use queries with declared prefixes
-     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param xEVSRESTAPILicenseKey Required license information for restricted terminologies. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param term The term, phrase, or code to be searched, e.g. \&#39;melanoma\&#39;
      * @param type The match type, one of: contains, match, startsWith, phrase, AND, OR, fuzzy.
      * @param sort The search parameter to sort results by
      * @param ascending Sort ascending (if true) or descending (if false)
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
      * @param conceptStatus Comma-separated list of concept status values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/conceptStatuses\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;.&lt;/p&gt;
@@ -445,7 +445,7 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
      * @param synonymTermType Comma-separated list of synonym term type values to restrict search results by. &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncit/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Thesaurus values&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;&lt;a href&#x3D;\&#39;/api/v1/metadata/ncim/termTypes\&#39; target&#x3D;\&#39;_blank\&#39;&gt;Click here for a list of NCI Metathesaurus values&lt;/a&gt;.&lt;/p&gt;
      * @param subset Comma-separated list of subsets to restrict search results by, e.g. \&#39;C157225\&#39;. The value \&#39;*\&#39; can also be used to return results that participate in at least one subset. This parameter is only meaningful for &lt;i&gt;terminology&#x3D;ncit&lt;/i&gt;
      */
-    public async searchSingleTerminologySparql(terminology: string, body: string, include?: string, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Promise<RequestContext> {
+    public async searchSingleTerminologySparql(terminology: string, body: string, prefixes?: boolean, xEVSRESTAPILicenseKey?: string, term?: string, type?: string, sort?: string, ascending?: boolean, include?: string, fromRecord?: number, pageSize?: number, conceptStatus?: string, property?: string, value?: string, definitionSource?: string, definitionType?: string, synonymSource?: string, synonymType?: string, synonymTermType?: string, subset?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'terminology' is not null or undefined
@@ -487,11 +487,6 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
         requestContext.setHeaderParam("Accept", "application/json, */*;q=0.8")
 
         // Query Params
-        if (include !== undefined) {
-            requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "string", ""));
-        }
-
-        // Query Params
         if (prefixes !== undefined) {
             requestContext.setQueryParam("prefixes", ObjectSerializer.serialize(prefixes, "boolean", ""));
         }
@@ -514,6 +509,11 @@ export class SearchEndpointApiRequestFactory extends BaseAPIRequestFactory {
         // Query Params
         if (ascending !== undefined) {
             requestContext.setQueryParam("ascending", ObjectSerializer.serialize(ascending, "boolean", ""));
+        }
+
+        // Query Params
+        if (include !== undefined) {
+            requestContext.setQueryParam("include", ObjectSerializer.serialize(include, "string", ""));
         }
 
         // Query Params
@@ -608,13 +608,6 @@ export class SearchEndpointApiResponseProcessor {
      */
      public async getSparqlBindingsWithHttpInfo(response: ResponseContext): Promise<HttpInfo<MapResultList >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("400", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -628,6 +621,13 @@ export class SearchEndpointApiResponseProcessor {
                 "MapResultList", ""
             ) as MapResultList;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -658,19 +658,19 @@ export class SearchEndpointApiResponseProcessor {
             ) as string;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
         }
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("400", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -694,12 +694,12 @@ export class SearchEndpointApiResponseProcessor {
      */
      public async searchWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ConceptResultList >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
+        if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "RestException", ""
             ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
+            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
         }
         if (isCodeInRange("400", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
@@ -708,19 +708,19 @@ export class SearchEndpointApiResponseProcessor {
             ) as RestException;
             throw new ApiException<RestException>(response.httpStatusCode, "Bad request", body, response.headers);
         }
-        if (isCodeInRange("404", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Resource not found", body, response.headers);
-        }
         if (isCodeInRange("200", response.httpStatusCode)) {
             const body: ConceptResultList = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
                 "ConceptResultList", ""
             ) as ConceptResultList;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -744,13 +744,6 @@ export class SearchEndpointApiResponseProcessor {
      */
      public async searchSingleTerminologyWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ConceptResultList >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("400", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -764,6 +757,13 @@ export class SearchEndpointApiResponseProcessor {
                 "ConceptResultList", ""
             ) as ConceptResultList;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml
@@ -787,13 +787,6 @@ export class SearchEndpointApiResponseProcessor {
      */
      public async searchSingleTerminologySparqlWithHttpInfo(response: ResponseContext): Promise<HttpInfo<ConceptResultList >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("400", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -807,6 +800,13 @@ export class SearchEndpointApiResponseProcessor {
                 "ConceptResultList", ""
             ) as ConceptResultList;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

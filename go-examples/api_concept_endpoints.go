@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -23,6 +23,138 @@ import (
 
 // ConceptEndpointsAPIService ConceptEndpointsAPI service
 type ConceptEndpointsAPIService service
+
+type ApiGetAllCodesForTerminologyRequest struct {
+	ctx context.Context
+	ApiService *ConceptEndpointsAPIService
+	terminology string
+	xEVSRESTAPILicenseKey *string
+}
+
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+func (r ApiGetAllCodesForTerminologyRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetAllCodesForTerminologyRequest {
+	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
+	return r
+}
+
+func (r ApiGetAllCodesForTerminologyRequest) Execute() ([]string, *http.Response, error) {
+	return r.ApiService.GetAllCodesForTerminologyExecute(r)
+}
+
+/*
+GetAllCodesForTerminology Get all codes for the specified terminology
+
+ @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
+ @param terminology Terminology, e.g. 'ncit'
+ @return ApiGetAllCodesForTerminologyRequest
+*/
+func (a *ConceptEndpointsAPIService) GetAllCodesForTerminology(ctx context.Context, terminology string) ApiGetAllCodesForTerminologyRequest {
+	return ApiGetAllCodesForTerminologyRequest{
+		ApiService: a,
+		ctx: ctx,
+		terminology: terminology,
+	}
+}
+
+// Execute executes the request
+//  @return []string
+func (a *ConceptEndpointsAPIService) GetAllCodesForTerminologyExecute(r ApiGetAllCodesForTerminologyRequest) ([]string, *http.Response, error) {
+	var (
+		localVarHTTPMethod   = http.MethodGet
+		localVarPostBody     interface{}
+		formFiles            []formFile
+		localVarReturnValue  []string
+	)
+
+	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConceptEndpointsAPIService.GetAllCodesForTerminology")
+	if err != nil {
+		return localVarReturnValue, nil, &GenericOpenAPIError{error: err.Error()}
+	}
+
+	localVarPath := localBasePath + "/api/v1/concept/{terminology}/codes"
+	localVarPath = strings.Replace(localVarPath, "{"+"terminology"+"}", url.PathEscape(parameterValueToString(r.terminology, "terminology")), -1)
+
+	localVarHeaderParams := make(map[string]string)
+	localVarQueryParams := url.Values{}
+	localVarFormParams := url.Values{}
+
+	// to determine the Content-Type header
+	localVarHTTPContentTypes := []string{}
+
+	// set Content-Type header
+	localVarHTTPContentType := selectHeaderContentType(localVarHTTPContentTypes)
+	if localVarHTTPContentType != "" {
+		localVarHeaderParams["Content-Type"] = localVarHTTPContentType
+	}
+
+	// to determine the Accept header
+	localVarHTTPHeaderAccepts := []string{"application/json"}
+
+	// set Accept header
+	localVarHTTPHeaderAccept := selectHeaderAccept(localVarHTTPHeaderAccepts)
+	if localVarHTTPHeaderAccept != "" {
+		localVarHeaderParams["Accept"] = localVarHTTPHeaderAccept
+	}
+	if r.xEVSRESTAPILicenseKey != nil {
+		parameterAddToHeaderOrQuery(localVarHeaderParams, "X-EVSRESTAPI-License-Key", r.xEVSRESTAPILicenseKey, "")
+	}
+	req, err := a.client.prepareRequest(r.ctx, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, formFiles)
+	if err != nil {
+		return localVarReturnValue, nil, err
+	}
+
+	localVarHTTPResponse, err := a.client.callAPI(req)
+	if err != nil || localVarHTTPResponse == nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	localVarBody, err := io.ReadAll(localVarHTTPResponse.Body)
+	localVarHTTPResponse.Body.Close()
+	localVarHTTPResponse.Body = io.NopCloser(bytes.NewBuffer(localVarBody))
+	if err != nil {
+		return localVarReturnValue, localVarHTTPResponse, err
+	}
+
+	if localVarHTTPResponse.StatusCode >= 300 {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: localVarHTTPResponse.Status,
+		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	err = a.client.decode(&localVarReturnValue, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+	if err != nil {
+		newErr := &GenericOpenAPIError{
+			body:  localVarBody,
+			error: err.Error(),
+		}
+		return localVarReturnValue, localVarHTTPResponse, newErr
+	}
+
+	return localVarReturnValue, localVarHTTPResponse, nil
+}
 
 type ApiGetAssociationEntriesRequest struct {
 	ctx context.Context
@@ -46,7 +178,7 @@ func (r ApiGetAssociationEntriesRequest) PageSize(pageSize int32) ApiGetAssociat
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetAssociationEntriesRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetAssociationEntriesRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -144,17 +276,6 @@ func (a *ConceptEndpointsAPIService) GetAssociationEntriesExecute(r ApiGetAssoci
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -165,6 +286,16 @@ func (a *ConceptEndpointsAPIService) GetAssociationEntriesExecute(r ApiGetAssoci
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -189,7 +320,7 @@ type ApiGetAssociations1Request struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetAssociations1Request) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetAssociations1Request {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -203,7 +334,7 @@ func (r ApiGetAssociations1Request) Execute() ([]Association, *http.Response, er
 GetAssociations1 Get the associations for the specified terminology and code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>
  @return ApiGetAssociations1Request
 */
@@ -315,7 +446,7 @@ type ApiGetChildrenRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetChildrenRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetChildrenRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -329,7 +460,7 @@ func (r ApiGetChildrenRequest) Execute() ([]Concept, *http.Response, error) {
 GetChildren Get child concepts for the specified terminology and code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>
  @return ApiGetChildrenRequest
 */
@@ -449,13 +580,13 @@ func (r ApiGetConceptRequest) Limit(limit int32) ApiGetConceptRequest {
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetConceptRequest) Include(include string) ApiGetConceptRequest {
 	r.include = &include
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetConceptRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetConceptRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -469,7 +600,7 @@ func (r ApiGetConceptRequest) Execute() (*Concept, *http.Response, error) {
 GetConcept Get the concept for the specified terminology and code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>
  @return ApiGetConceptRequest
 */
@@ -553,6 +684,17 @@ func (a *ConceptEndpointsAPIService) GetConceptExecute(r ApiGetConceptRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -573,18 +715,6 @@ func (a *ConceptEndpointsAPIService) GetConceptExecute(r ApiGetConceptRequest) (
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -616,13 +746,13 @@ func (r ApiGetConceptsRequest) List(list string) ApiGetConceptsRequest {
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetConceptsRequest) Include(include string) ApiGetConceptsRequest {
 	r.include = &include
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetConceptsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetConceptsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -636,7 +766,7 @@ func (r ApiGetConceptsRequest) Execute() ([]Concept, *http.Response, error) {
 GetConcepts Get concepts specified by list parameter
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @return ApiGetConceptsRequest
 */
 func (a *ConceptEndpointsAPIService) GetConcepts(ctx context.Context, terminology string) ApiGetConceptsRequest {
@@ -718,6 +848,17 @@ func (a *ConceptEndpointsAPIService) GetConceptsExecute(r ApiGetConceptsRequest)
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
+		if localVarHTTPResponse.StatusCode == 404 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
+			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
 		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -738,18 +879,6 @@ func (a *ConceptEndpointsAPIService) GetConceptsExecute(r ApiGetConceptsRequest)
 			}
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
-		if localVarHTTPResponse.StatusCode == 404 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -795,7 +924,7 @@ func (r ApiGetDescendantsRequest) MaxLevel(maxLevel int32) ApiGetDescendantsRequ
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetDescendantsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetDescendantsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -896,17 +1025,6 @@ func (a *ConceptEndpointsAPIService) GetDescendantsExecute(r ApiGetDescendantsRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -917,6 +1035,16 @@ func (a *ConceptEndpointsAPIService) GetDescendantsExecute(r ApiGetDescendantsRe
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -941,7 +1069,7 @@ type ApiGetDisjointWithRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetDisjointWithRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetDisjointWithRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1067,7 +1195,7 @@ type ApiGetHistoryRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetHistoryRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetHistoryRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1193,7 +1321,7 @@ type ApiGetInverseAssociationsRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetInverseAssociationsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetInverseAssociationsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1207,7 +1335,7 @@ func (r ApiGetInverseAssociationsRequest) Execute() ([]Association, *http.Respon
 GetInverseAssociations Get inverse associations for the specified terminology and code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g.<ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>
  @return ApiGetInverseAssociationsRequest
 */
@@ -1319,7 +1447,7 @@ type ApiGetInverseRolesRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetInverseRolesRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetInverseRolesRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1445,13 +1573,13 @@ type ApiGetMapsRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetMapsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetMapsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
 }
 
-func (r ApiGetMapsRequest) Execute() ([]ConceptMap, *http.Response, error) {
+func (r ApiGetMapsRequest) Execute() ([]Mapping, *http.Response, error) {
 	return r.ApiService.GetMapsExecute(r)
 }
 
@@ -1473,13 +1601,13 @@ func (a *ConceptEndpointsAPIService) GetMaps(ctx context.Context, terminology st
 }
 
 // Execute executes the request
-//  @return []ConceptMap
-func (a *ConceptEndpointsAPIService) GetMapsExecute(r ApiGetMapsRequest) ([]ConceptMap, *http.Response, error) {
+//  @return []Mapping
+func (a *ConceptEndpointsAPIService) GetMapsExecute(r ApiGetMapsRequest) ([]Mapping, *http.Response, error) {
 	var (
 		localVarHTTPMethod   = http.MethodGet
 		localVarPostBody     interface{}
 		formFiles            []formFile
-		localVarReturnValue  []ConceptMap
+		localVarReturnValue  []Mapping
 	)
 
 	localBasePath, err := a.client.cfg.ServerURLWithContext(r.ctx, "ConceptEndpointsAPIService.GetMaps")
@@ -1571,7 +1699,7 @@ type ApiGetParentsRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetParentsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetParentsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1585,7 +1713,7 @@ func (r ApiGetParentsRequest) Execute() ([]Concept, *http.Response, error) {
 GetParents Get parent concepts for the specified terminology and code
 
  @param ctx context.Context - for authentication, logging, cancellation, deadlines, tracing, etc. Passed from http.Request or context.Background().
- @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/TERMINOLOGIES.md\">See here for complete list</a>)
+ @param terminology Terminology, e.g. 'ncit' or 'ncim' (<a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/TERMINOLOGIES.md\" target=\"_blank\">See here for complete list</a>)
  @param code Code in the specified terminology, e.g. <ul><li>'C3224' for <i>ncit</i></li><li>'C0025202' for <i>ncim</i></li></ul>
  @return ApiGetParentsRequest
 */
@@ -1700,7 +1828,7 @@ type ApiGetPathsFromRootRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
 func (r ApiGetPathsFromRootRequest) Include(include string) ApiGetPathsFromRootRequest {
 	r.include = &include
 	return r
@@ -1718,7 +1846,7 @@ func (r ApiGetPathsFromRootRequest) PageSize(pageSize int32) ApiGetPathsFromRoot
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetPathsFromRootRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetPathsFromRootRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1819,17 +1947,6 @@ func (a *ConceptEndpointsAPIService) GetPathsFromRootExecute(r ApiGetPathsFromRo
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -1840,6 +1957,16 @@ func (a *ConceptEndpointsAPIService) GetPathsFromRootExecute(r ApiGetPathsFromRo
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -1868,7 +1995,7 @@ type ApiGetPathsToAncestorRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
 func (r ApiGetPathsToAncestorRequest) Include(include string) ApiGetPathsToAncestorRequest {
 	r.include = &include
 	return r
@@ -1886,7 +2013,7 @@ func (r ApiGetPathsToAncestorRequest) PageSize(pageSize int32) ApiGetPathsToAnce
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetPathsToAncestorRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetPathsToAncestorRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -1990,17 +2117,6 @@ func (a *ConceptEndpointsAPIService) GetPathsToAncestorExecute(r ApiGetPathsToAn
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2011,6 +2127,16 @@ func (a *ConceptEndpointsAPIService) GetPathsToAncestorExecute(r ApiGetPathsToAn
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2038,7 +2164,7 @@ type ApiGetPathsToRootRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;. For this call, it is recommended to avoid using this parameter unless you need it for a specific use case.  Any value other than &#39;minimal&#39; may produce very large payload results. 
 func (r ApiGetPathsToRootRequest) Include(include string) ApiGetPathsToRootRequest {
 	r.include = &include
 	return r
@@ -2056,7 +2182,7 @@ func (r ApiGetPathsToRootRequest) PageSize(pageSize int32) ApiGetPathsToRootRequ
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetPathsToRootRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetPathsToRootRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2157,17 +2283,6 @@ func (a *ConceptEndpointsAPIService) GetPathsToRootExecute(r ApiGetPathsToRootRe
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2178,6 +2293,16 @@ func (a *ConceptEndpointsAPIService) GetPathsToRootExecute(r ApiGetPathsToRootRe
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2202,7 +2327,7 @@ type ApiGetRoles1Request struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetRoles1Request) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetRoles1Request {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2328,13 +2453,13 @@ type ApiGetRootsRequest struct {
 	xEVSRESTAPILicenseKey *string
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetRootsRequest) Include(include string) ApiGetRootsRequest {
 	r.include = &include
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetRootsRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetRootsRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2426,17 +2551,6 @@ func (a *ConceptEndpointsAPIService) GetRootsExecute(r ApiGetRootsRequest) ([]Co
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2447,6 +2561,16 @@ func (a *ConceptEndpointsAPIService) GetRootsExecute(r ApiGetRootsRequest) ([]Co
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2486,13 +2610,13 @@ func (r ApiGetSubsetMembers1Request) PageSize(pageSize int32) ApiGetSubsetMember
 	return r
 }
 
-// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubsetMembers1Request) Include(include string) ApiGetSubsetMembers1Request {
 	r.include = &include
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubsetMembers1Request) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetSubsetMembers1Request {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2595,17 +2719,6 @@ func (a *ConceptEndpointsAPIService) GetSubsetMembers1Execute(r ApiGetSubsetMemb
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 417 {
-			var v RestException
-			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
-			if err != nil {
-				newErr.error = err.Error()
-				return localVarReturnValue, localVarHTTPResponse, newErr
-			}
-					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
-					newErr.model = v
-			return localVarReturnValue, localVarHTTPResponse, newErr
-		}
 		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
@@ -2616,6 +2729,16 @@ func (a *ConceptEndpointsAPIService) GetSubsetMembers1Execute(r ApiGetSubsetMemb
 					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
+		}
+		if localVarHTTPResponse.StatusCode == 417 {
+			var v RestException
+			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
+			if err != nil {
+				newErr.error = err.Error()
+				return localVarReturnValue, localVarHTTPResponse, newErr
+			}
+					newErr.error = formatErrorMessage(localVarHTTPResponse.Status, &v)
+					newErr.model = v
 		}
 		return localVarReturnValue, localVarHTTPResponse, newErr
 	}
@@ -2647,7 +2770,7 @@ func (r ApiGetSubtreeRequest) Limit(limit int32) ApiGetSubtreeRequest {
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubtreeRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetSubtreeRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2742,7 +2865,7 @@ func (a *ConceptEndpointsAPIService) GetSubtreeExecute(r ApiGetSubtreeRequest) (
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2753,7 +2876,7 @@ func (a *ConceptEndpointsAPIService) GetSubtreeExecute(r ApiGetSubtreeRequest) (
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2794,7 +2917,7 @@ func (r ApiGetSubtreeChildrenRequest) Limit(limit int32) ApiGetSubtreeChildrenRe
 	return r
 }
 
-// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
+// Required license information for restricted terminologies. &lt;a href&#x3D;&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/LICENSE.md&#39; target&#x3D;&#39;_blank&#39;&gt;See here for detailed information&lt;/a&gt;.
 func (r ApiGetSubtreeChildrenRequest) XEVSRESTAPILicenseKey(xEVSRESTAPILicenseKey string) ApiGetSubtreeChildrenRequest {
 	r.xEVSRESTAPILicenseKey = &xEVSRESTAPILicenseKey
 	return r
@@ -2889,7 +3012,7 @@ func (a *ConceptEndpointsAPIService) GetSubtreeChildrenExecute(r ApiGetSubtreeCh
 			body:  localVarBody,
 			error: localVarHTTPResponse.Status,
 		}
-		if localVarHTTPResponse.StatusCode == 400 {
+		if localVarHTTPResponse.StatusCode == 404 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {
@@ -2900,7 +3023,7 @@ func (a *ConceptEndpointsAPIService) GetSubtreeChildrenExecute(r ApiGetSubtreeCh
 					newErr.model = v
 			return localVarReturnValue, localVarHTTPResponse, newErr
 		}
-		if localVarHTTPResponse.StatusCode == 404 {
+		if localVarHTTPResponse.StatusCode == 400 {
 			var v RestException
 			err = a.client.decode(&v, localVarBody, localVarHTTPResponse.Header.Get("Content-Type"))
 			if err != nil {

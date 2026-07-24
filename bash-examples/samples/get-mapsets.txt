@@ -1,5 +1,5 @@
 -----------------------------------------------------
-Starting ...Thu Apr 30 11:15:15 PDT 2026
+Starting ...Thu, May 14, 2026 10:38:58 PM
 -----------------------------------------------------
 url = https://api-evsrest.nci.nih.gov/api/v1
 include = minimal
@@ -18,21 +18,21 @@ include = minimal
         "version": "July2023"
       },
       {
+        "code": "NCIT_TO_SWISSPROT",
+        "name": "NCIT_TO_SWISSPROT",
+        "version": "Apr2026"
+      },
+      {
         "code": "NCIt_Maps_To_GDC",
         "name": "NCIt_Maps_To_GDC",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
       },
       {
         "code": "NCIt_Maps_To_ICD9CM",
         "name": "NCIt_Maps_To_ICD9CM",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
-      },
-      {
-        "code": "NCIT_TO_SWISSPROT",
-        "name": "NCIT_TO_SWISSPROT",
-        "version": "Mar2026"
       },
       {
         "code": "ICDO_TO_NCI_MORPHOLOGY",
@@ -48,13 +48,13 @@ include = minimal
       {
         "code": "NCIt_Maps_To_MedDRA",
         "name": "NCIt_Maps_To_MedDRA",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
       },
       {
         "code": "NCIt_Maps_To_ICDO3",
         "name": "NCIt_Maps_To_ICDO3",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
       },
       {
@@ -68,21 +68,21 @@ include = minimal
         "version": "November2011"
       },
       {
+        "code": "NCIt_to_HGNC_Mapping",
+        "name": "NCIt_to_HGNC_Mapping",
+        "version": "Apr2026"
+      },
+      {
         "code": "NCIt_Maps_To_ICD10CM",
         "name": "NCIt_Maps_To_ICD10CM",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
       },
       {
         "code": "NCIt_Maps_To_ICD10",
         "name": "NCIt_Maps_To_ICD10",
-        "version": "26.03e",
+        "version": "26.04d",
         "active": true
-      },
-      {
-        "code": "NCIt_to_HGNC_Mapping",
-        "name": "NCIt_to_HGNC_Mapping",
-        "version": "Mar2026"
       },
       {
         "code": "ICDO_TO_NCI_TOPOGRAPHY",
@@ -109,6 +109,6 @@ include = minimal
     ]
 
 -----------------------------------------------------
-Finished ...Thu Apr 30 11:15:16 PDT 2026
+Finished ...Thu, May 14, 2026 10:38:59 PM
 -----------------------------------------------------
 

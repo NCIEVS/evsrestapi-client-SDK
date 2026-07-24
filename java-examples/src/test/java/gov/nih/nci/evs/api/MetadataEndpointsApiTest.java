@@ -259,6 +259,34 @@ public class MetadataEndpointsApiTest {
   }
 
   /**
+   * Get property values for the specified terminology and code/name
+   *
+   * @throws ApiException if the Api call fails
+   */
+  @Test
+  public void getPropertyValuesTest() throws ApiException {
+    // ARRANGE - using global variable unless otherwise listed
+    String code = "P204";
+    String name = "Accepted_Therapeutic_Use_For";
+
+    // ACT
+    List<String> responseCode = api.getPropertyValues(terminology, code);
+    List<String> responseName = api.getPropertyValues(terminology, name);
+
+    // ASSERT
+    assertNotNull(responseCode);
+    assertFalse(responseCode.isEmpty());
+    assertNotNull(responseName);
+    assertFalse(responseName.isEmpty());
+
+    // LOG
+    log.info("Get property values for code - P204");
+    log.info("    property values = " + responseCode);
+    log.info("Get property values for name - Accepted_Therapeutic_Use_For");
+    log.info("    property values = " + responseName);
+  }
+
+  /**
    * Get the qualifier for the specified terminology and code/name
    *
    * @throws ApiException if the Api call fails
@@ -550,21 +578,6 @@ public class MetadataEndpointsApiTest {
     log.info("   terminologies = " + response);
   }
 
-  /**
-   * Get property values for the specified terminology and code/name
-   * 
-   * @throws ApiException if the Api call fails
-   */
-  @Test
-  public void getPropertyValuesTest() throws ApiException {
-    // ARRANGE - using global variable unless otherwise listed
-    String codeOrName = "P204";
-    // ACT
-    List<String> response = api.getPropertyValues(terminology, codeOrName);
-    // ASSERT
-    assertFalse(response.isEmpty());
-    assertTrue(response.size() >= 1);
-  }
   /**
    * TODO: VALIDATE THIS IS A VALID API CALL
    * Get welcome text for the specified terminology

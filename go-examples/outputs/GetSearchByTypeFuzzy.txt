@@ -1,6 +1,7 @@
 === RUN   TestSearchEndpointAPIService
 === RUN   TestSearchEndpointAPIService/GetSearchByTypeFuzzy
-{"concepts":[{"active":true,"code":"C16554","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C20626","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Kinetics","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C3492","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme Deficiency","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C21281","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme Gene","terminology":"ncit","version":"24.08d"},{"active":true,"code":"C17455","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme Immunoassay","terminology":"ncit","version":"24.08d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"term":"enzyme","terminology":["ncit"],"type":"fuzzy"},"timeTaken":44,"total":2231}--- PASS: TestSearchEndpointAPIService (0.79s)
-    --- PASS: TestSearchEndpointAPIService/GetSearchByTypeFuzzy (0.79s)
+{"concepts":[{"active":true,"code":"C16554","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme","terminology":"ncit","version":"26.04d"},{"active":true,"code":"C41564","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Induction","terminology":"ncit","version":"26.04d"},{"active":true,"code":"C40500","conceptStatus":"DEFAULT","leaf":true,"name":"Enzyme Uncoupling","terminology":"ncit","version":"26.04d"},{"active":true,"code":"C21281","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme Gene","terminology":"ncit","version":"26.04d"},{"active":true,"code":"C17455","conceptStatus":"DEFAULT","leaf":false,"name":"Enzyme Immunoassay","terminology":"ncit","version":"26.04d"}],"parameters":{"ascending":true,"fromRecord":0,"include":"minimal","pageSize":5,"term":"enzyme","terminology":["ncit"],"type":"fuzzy"},"timeTaken":78,"total":2433}--- PASS: TestSearchEndpointAPIService (0.81s)
+    --- PASS: TestSearchEndpointAPIService/GetSearchByTypeFuzzy (0.80s)
 PASS
-ok  	command-line-arguments	0.802s
+ok  	command-line-arguments	0.819s
+

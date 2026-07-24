@@ -1,6 +1,7 @@
 === RUN   TestConceptEndpointsAPIService
 === RUN   TestConceptEndpointsAPIService/GetConcept
-{"active":true,"code":"C3224","conceptStatus":"DEFAULT","leaf":false,"name":"Melanoma","terminology":"ncit","version":"24.08d"}--- PASS: TestConceptEndpointsAPIService (0.73s)
-    --- PASS: TestConceptEndpointsAPIService/GetConcept (0.73s)
+{"active":true,"code":"C3224","conceptStatus":"DEFAULT","leaf":false,"name":"Melanoma","terminology":"ncit","version":"26.04d"}--- PASS: TestConceptEndpointsAPIService (1.31s)
+    --- PASS: TestConceptEndpointsAPIService/GetConcept (1.31s)
 PASS
-ok  	command-line-arguments	0.747s
+ok  	command-line-arguments	1.319s
+

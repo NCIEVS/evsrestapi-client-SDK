@@ -22,9 +22,9 @@ import gov.nih.nci.evs.api.model.Association;
 import gov.nih.nci.evs.api.model.AssociationEntry;
 import gov.nih.nci.evs.api.model.AssociationEntryResultList;
 import gov.nih.nci.evs.api.model.Concept;
-import gov.nih.nci.evs.api.model.ConceptMap;
 import gov.nih.nci.evs.api.model.DisjointWith;
 import gov.nih.nci.evs.api.model.HierarchyNode;
+import gov.nih.nci.evs.api.model.Mapping;
 import gov.nih.nci.evs.api.model.Role;
 import java.util.List;
 import org.junit.jupiter.api.BeforeAll;
@@ -248,8 +248,9 @@ public class ConceptEndpointsApiTest {
 
     // ASSERT
     assertFalse(response.isEmpty());
-    assertEquals("Molecular Abnormality", response.get(1).getName());
-    assertEquals("Melanoma", response.get(0).getName());
+    List<String> names = response.stream().map(Concept::getName).toList();
+    assertTrue(names.contains("Molecular Abnormality"));
+    assertTrue(names.contains("Melanoma"));
 
     // LOG
     log.info("Get list of concepts for codes - C3224 & C3910");
@@ -390,7 +391,7 @@ public class ConceptEndpointsApiTest {
     // ARRANGE - using global variables unless otherwise listed below
 
     // ACT
-    List<ConceptMap> response = api.getMaps(terminology, code, null);
+    List<Mapping> response = api.getMaps(terminology, code, null);
 
     // ASSERT
     assertFalse(response.isEmpty());

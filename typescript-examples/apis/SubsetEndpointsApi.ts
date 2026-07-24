@@ -20,7 +20,7 @@ export class SubsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
      * Get the subset for the specified terminology and code.
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.
      * @param code Subset code, e.g. \&#39;C116978\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data tc return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
     public async getSubset(terminology: string, code: string, include?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
@@ -68,9 +68,9 @@ export class SubsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
      * @param code Code for a subset concept in the specified terminology, e.g. \&#39;C157225\&#39; for &lt;i&gt;ncit&lt;/i&gt;. This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
      * @param fromRecord Start index of the search results
      * @param pageSize Max number of results to return
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, history, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      */
-    public async getSubsetMembers(terminology: string, code: string, fromRecord?: string, pageSize?: string, include?: string, _options?: Configuration): Promise<RequestContext> {
+    public async getSubsetMembers(terminology: string, code: string, fromRecord?: number, pageSize?: number, include?: string, _options?: Configuration): Promise<RequestContext> {
         let _config = _options || this.configuration;
 
         // verify required parameter 'terminology' is not null or undefined
@@ -99,12 +99,12 @@ export class SubsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
 
         // Query Params
         if (fromRecord !== undefined) {
-            requestContext.setQueryParam("fromRecord", ObjectSerializer.serialize(fromRecord, "string", ""));
+            requestContext.setQueryParam("fromRecord", ObjectSerializer.serialize(fromRecord, "number", "int32"));
         }
 
         // Query Params
         if (pageSize !== undefined) {
-            requestContext.setQueryParam("pageSize", ObjectSerializer.serialize(pageSize, "string", ""));
+            requestContext.setQueryParam("pageSize", ObjectSerializer.serialize(pageSize, "number", "int32"));
         }
 
         // Query Params
@@ -125,7 +125,7 @@ export class SubsetEndpointsApiRequestFactory extends BaseAPIRequestFactory {
     /**
      * Get all subsets (or those specified by list parameter) for the specified terminology
      * @param terminology Terminology, e.g. \&#39;ncit\&#39;.  This call is only meaningful for &lt;i&gt;ncit&lt;/i&gt;.
-     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/master/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
+     * @param include Indicator of how much data to return. Comma-separated list of any of the following values: minimal, summary, full, associations, children, definitions, disjointWith, inverseAssociations, inverseRoles, maps, parents, properties, roles, synonyms. &lt;a href&#x3D;\&#39;https://github.com/NCIEVS/evsrestapi-client-SDK/blob/main/doc/INCLUDE.md\&#39; target&#x3D;\&#39;_blank\&#39;&gt;See here for detailed information&lt;/a&gt;.
      * @param list List of codes or labels to return subsets for (or leave blank for all).  If invalid values are passed, the result will simply include no entries for those invalid values.
      */
     public async getSubsets(terminology: string, include?: string, list?: string, _options?: Configuration): Promise<RequestContext> {
@@ -216,13 +216,6 @@ export class SubsetEndpointsApiResponseProcessor {
      */
      public async getSubsetMembersWithHttpInfo(response: ResponseContext): Promise<HttpInfo<Array<Concept> >> {
         const contentType = ObjectSerializer.normalizeMediaType(response.headers["content-type"]);
-        if (isCodeInRange("417", response.httpStatusCode)) {
-            const body: RestException = ObjectSerializer.deserialize(
-                ObjectSerializer.parse(await response.body.text(), contentType),
-                "RestException", ""
-            ) as RestException;
-            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
-        }
         if (isCodeInRange("404", response.httpStatusCode)) {
             const body: RestException = ObjectSerializer.deserialize(
                 ObjectSerializer.parse(await response.body.text(), contentType),
@@ -236,6 +229,13 @@ export class SubsetEndpointsApiResponseProcessor {
                 "Array<Concept>", ""
             ) as Array<Concept>;
             return new HttpInfo(response.httpStatusCode, response.headers, response.body, body);
+        }
+        if (isCodeInRange("417", response.httpStatusCode)) {
+            const body: RestException = ObjectSerializer.deserialize(
+                ObjectSerializer.parse(await response.body.text(), contentType),
+                "RestException", ""
+            ) as RestException;
+            throw new ApiException<RestException>(response.httpStatusCode, "Expectation failed", body, response.headers);
         }
 
         // Work around for missing responses in specification, e.g. for petstore.yaml

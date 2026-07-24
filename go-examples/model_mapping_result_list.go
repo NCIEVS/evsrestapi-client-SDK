@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -15,11 +15,11 @@ import (
 	"encoding/json"
 )
 
-// checks if the ConceptMapResultList type satisfies the MappedNullable interface at compile time
-var _ MappedNullable = &ConceptMapResultList{}
+// checks if the MappingResultList type satisfies the MappedNullable interface at compile time
+var _ MappedNullable = &MappingResultList{}
 
-// ConceptMapResultList Represents a list of maps returned from a search or find call
-type ConceptMapResultList struct {
+// MappingResultList Represents a list of maps returned from a search or find call
+type MappingResultList struct {
 	// URI for this element in an rdf-based source file
 	Uri *string `json:"uri,omitempty"`
 	// Used to indicate the total amount of data in cases where a limit is being applied
@@ -30,28 +30,28 @@ type ConceptMapResultList struct {
 	TimeTaken *int64 `json:"timeTaken,omitempty"`
 	Parameters *SearchCriteria `json:"parameters,omitempty"`
 	// List of maps
-	Maps []ConceptMap `json:"maps,omitempty"`
+	Maps []Mapping `json:"maps,omitempty"`
 }
 
-// NewConceptMapResultList instantiates a new ConceptMapResultList object
+// NewMappingResultList instantiates a new MappingResultList object
 // This constructor will assign default values to properties that have it defined,
 // and makes sure properties required by API are set, but the set of arguments
 // will change when the set of required properties is changed
-func NewConceptMapResultList() *ConceptMapResultList {
-	this := ConceptMapResultList{}
+func NewMappingResultList() *MappingResultList {
+	this := MappingResultList{}
 	return &this
 }
 
-// NewConceptMapResultListWithDefaults instantiates a new ConceptMapResultList object
+// NewMappingResultListWithDefaults instantiates a new MappingResultList object
 // This constructor will only assign default values to properties that have it defined,
 // but it doesn't guarantee that properties required by API are set
-func NewConceptMapResultListWithDefaults() *ConceptMapResultList {
-	this := ConceptMapResultList{}
+func NewMappingResultListWithDefaults() *MappingResultList {
+	this := MappingResultList{}
 	return &this
 }
 
 // GetUri returns the Uri field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetUri() string {
+func (o *MappingResultList) GetUri() string {
 	if o == nil || IsNil(o.Uri) {
 		var ret string
 		return ret
@@ -61,7 +61,7 @@ func (o *ConceptMapResultList) GetUri() string {
 
 // GetUriOk returns a tuple with the Uri field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetUriOk() (*string, bool) {
+func (o *MappingResultList) GetUriOk() (*string, bool) {
 	if o == nil || IsNil(o.Uri) {
 		return nil, false
 	}
@@ -69,7 +69,7 @@ func (o *ConceptMapResultList) GetUriOk() (*string, bool) {
 }
 
 // HasUri returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasUri() bool {
+func (o *MappingResultList) HasUri() bool {
 	if o != nil && !IsNil(o.Uri) {
 		return true
 	}
@@ -78,12 +78,12 @@ func (o *ConceptMapResultList) HasUri() bool {
 }
 
 // SetUri gets a reference to the given string and assigns it to the Uri field.
-func (o *ConceptMapResultList) SetUri(v string) {
+func (o *MappingResultList) SetUri(v string) {
 	o.Uri = &v
 }
 
 // GetCt returns the Ct field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetCt() int32 {
+func (o *MappingResultList) GetCt() int32 {
 	if o == nil || IsNil(o.Ct) {
 		var ret int32
 		return ret
@@ -93,7 +93,7 @@ func (o *ConceptMapResultList) GetCt() int32 {
 
 // GetCtOk returns a tuple with the Ct field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetCtOk() (*int32, bool) {
+func (o *MappingResultList) GetCtOk() (*int32, bool) {
 	if o == nil || IsNil(o.Ct) {
 		return nil, false
 	}
@@ -101,7 +101,7 @@ func (o *ConceptMapResultList) GetCtOk() (*int32, bool) {
 }
 
 // HasCt returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasCt() bool {
+func (o *MappingResultList) HasCt() bool {
 	if o != nil && !IsNil(o.Ct) {
 		return true
 	}
@@ -110,12 +110,12 @@ func (o *ConceptMapResultList) HasCt() bool {
 }
 
 // SetCt gets a reference to the given int32 and assigns it to the Ct field.
-func (o *ConceptMapResultList) SetCt(v int32) {
+func (o *MappingResultList) SetCt(v int32) {
 	o.Ct = &v
 }
 
 // GetTotal returns the Total field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetTotal() int64 {
+func (o *MappingResultList) GetTotal() int64 {
 	if o == nil || IsNil(o.Total) {
 		var ret int64
 		return ret
@@ -125,7 +125,7 @@ func (o *ConceptMapResultList) GetTotal() int64 {
 
 // GetTotalOk returns a tuple with the Total field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetTotalOk() (*int64, bool) {
+func (o *MappingResultList) GetTotalOk() (*int64, bool) {
 	if o == nil || IsNil(o.Total) {
 		return nil, false
 	}
@@ -133,7 +133,7 @@ func (o *ConceptMapResultList) GetTotalOk() (*int64, bool) {
 }
 
 // HasTotal returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasTotal() bool {
+func (o *MappingResultList) HasTotal() bool {
 	if o != nil && !IsNil(o.Total) {
 		return true
 	}
@@ -142,12 +142,12 @@ func (o *ConceptMapResultList) HasTotal() bool {
 }
 
 // SetTotal gets a reference to the given int64 and assigns it to the Total field.
-func (o *ConceptMapResultList) SetTotal(v int64) {
+func (o *MappingResultList) SetTotal(v int64) {
 	o.Total = &v
 }
 
 // GetTimeTaken returns the TimeTaken field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetTimeTaken() int64 {
+func (o *MappingResultList) GetTimeTaken() int64 {
 	if o == nil || IsNil(o.TimeTaken) {
 		var ret int64
 		return ret
@@ -157,7 +157,7 @@ func (o *ConceptMapResultList) GetTimeTaken() int64 {
 
 // GetTimeTakenOk returns a tuple with the TimeTaken field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetTimeTakenOk() (*int64, bool) {
+func (o *MappingResultList) GetTimeTakenOk() (*int64, bool) {
 	if o == nil || IsNil(o.TimeTaken) {
 		return nil, false
 	}
@@ -165,7 +165,7 @@ func (o *ConceptMapResultList) GetTimeTakenOk() (*int64, bool) {
 }
 
 // HasTimeTaken returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasTimeTaken() bool {
+func (o *MappingResultList) HasTimeTaken() bool {
 	if o != nil && !IsNil(o.TimeTaken) {
 		return true
 	}
@@ -174,12 +174,12 @@ func (o *ConceptMapResultList) HasTimeTaken() bool {
 }
 
 // SetTimeTaken gets a reference to the given int64 and assigns it to the TimeTaken field.
-func (o *ConceptMapResultList) SetTimeTaken(v int64) {
+func (o *MappingResultList) SetTimeTaken(v int64) {
 	o.TimeTaken = &v
 }
 
 // GetParameters returns the Parameters field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetParameters() SearchCriteria {
+func (o *MappingResultList) GetParameters() SearchCriteria {
 	if o == nil || IsNil(o.Parameters) {
 		var ret SearchCriteria
 		return ret
@@ -189,7 +189,7 @@ func (o *ConceptMapResultList) GetParameters() SearchCriteria {
 
 // GetParametersOk returns a tuple with the Parameters field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetParametersOk() (*SearchCriteria, bool) {
+func (o *MappingResultList) GetParametersOk() (*SearchCriteria, bool) {
 	if o == nil || IsNil(o.Parameters) {
 		return nil, false
 	}
@@ -197,7 +197,7 @@ func (o *ConceptMapResultList) GetParametersOk() (*SearchCriteria, bool) {
 }
 
 // HasParameters returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasParameters() bool {
+func (o *MappingResultList) HasParameters() bool {
 	if o != nil && !IsNil(o.Parameters) {
 		return true
 	}
@@ -206,14 +206,14 @@ func (o *ConceptMapResultList) HasParameters() bool {
 }
 
 // SetParameters gets a reference to the given SearchCriteria and assigns it to the Parameters field.
-func (o *ConceptMapResultList) SetParameters(v SearchCriteria) {
+func (o *MappingResultList) SetParameters(v SearchCriteria) {
 	o.Parameters = &v
 }
 
 // GetMaps returns the Maps field value if set, zero value otherwise.
-func (o *ConceptMapResultList) GetMaps() []ConceptMap {
+func (o *MappingResultList) GetMaps() []Mapping {
 	if o == nil || IsNil(o.Maps) {
-		var ret []ConceptMap
+		var ret []Mapping
 		return ret
 	}
 	return o.Maps
@@ -221,7 +221,7 @@ func (o *ConceptMapResultList) GetMaps() []ConceptMap {
 
 // GetMapsOk returns a tuple with the Maps field value if set, nil otherwise
 // and a boolean to check if the value has been set.
-func (o *ConceptMapResultList) GetMapsOk() ([]ConceptMap, bool) {
+func (o *MappingResultList) GetMapsOk() ([]Mapping, bool) {
 	if o == nil || IsNil(o.Maps) {
 		return nil, false
 	}
@@ -229,7 +229,7 @@ func (o *ConceptMapResultList) GetMapsOk() ([]ConceptMap, bool) {
 }
 
 // HasMaps returns a boolean if a field has been set.
-func (o *ConceptMapResultList) HasMaps() bool {
+func (o *MappingResultList) HasMaps() bool {
 	if o != nil && !IsNil(o.Maps) {
 		return true
 	}
@@ -237,12 +237,12 @@ func (o *ConceptMapResultList) HasMaps() bool {
 	return false
 }
 
-// SetMaps gets a reference to the given []ConceptMap and assigns it to the Maps field.
-func (o *ConceptMapResultList) SetMaps(v []ConceptMap) {
+// SetMaps gets a reference to the given []Mapping and assigns it to the Maps field.
+func (o *MappingResultList) SetMaps(v []Mapping) {
 	o.Maps = v
 }
 
-func (o ConceptMapResultList) MarshalJSON() ([]byte, error) {
+func (o MappingResultList) MarshalJSON() ([]byte, error) {
 	toSerialize,err := o.ToMap()
 	if err != nil {
 		return []byte{}, err
@@ -250,7 +250,7 @@ func (o ConceptMapResultList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(toSerialize)
 }
 
-func (o ConceptMapResultList) ToMap() (map[string]interface{}, error) {
+func (o MappingResultList) ToMap() (map[string]interface{}, error) {
 	toSerialize := map[string]interface{}{}
 	if !IsNil(o.Uri) {
 		toSerialize["uri"] = o.Uri
@@ -273,38 +273,38 @@ func (o ConceptMapResultList) ToMap() (map[string]interface{}, error) {
 	return toSerialize, nil
 }
 
-type NullableConceptMapResultList struct {
-	value *ConceptMapResultList
+type NullableMappingResultList struct {
+	value *MappingResultList
 	isSet bool
 }
 
-func (v NullableConceptMapResultList) Get() *ConceptMapResultList {
+func (v NullableMappingResultList) Get() *MappingResultList {
 	return v.value
 }
 
-func (v *NullableConceptMapResultList) Set(val *ConceptMapResultList) {
+func (v *NullableMappingResultList) Set(val *MappingResultList) {
 	v.value = val
 	v.isSet = true
 }
 
-func (v NullableConceptMapResultList) IsSet() bool {
+func (v NullableMappingResultList) IsSet() bool {
 	return v.isSet
 }
 
-func (v *NullableConceptMapResultList) Unset() {
+func (v *NullableMappingResultList) Unset() {
 	v.value = nil
 	v.isSet = false
 }
 
-func NewNullableConceptMapResultList(val *ConceptMapResultList) *NullableConceptMapResultList {
-	return &NullableConceptMapResultList{value: val, isSet: true}
+func NewNullableMappingResultList(val *MappingResultList) *NullableMappingResultList {
+	return &NullableMappingResultList{value: val, isSet: true}
 }
 
-func (v NullableConceptMapResultList) MarshalJSON() ([]byte, error) {
+func (v NullableMappingResultList) MarshalJSON() ([]byte, error) {
 	return json.Marshal(v.value)
 }
 
-func (v *NullableConceptMapResultList) UnmarshalJSON(src []byte) error {
+func (v *NullableMappingResultList) UnmarshalJSON(src []byte) error {
 	v.isSet = true
 	return json.Unmarshal(src, &v.value)
 }

@@ -3,7 +3,7 @@ NCI EVS Rest API
 
 Endpoints to support searching, metadata, and content retrieval for EVS terminologies. To learn more about how to interact with this api, see the <a href=\"https://github.com/NCIEVS/evsrestapi-client-SDK\">Github evsrestapi-client-SDK project.</a>
 
-API version: 1.7.2.RELEASE
+API version: 2.4.0.RELEASE
 Contact: NCIAppSupport@nih.gov
 */
 
@@ -32,6 +32,8 @@ type Synonym struct {
 	TermType *string `json:"termType,omitempty"`
 	// Synonym type
 	Type *string `json:"type,omitempty"`
+	// Synonym Type code
+	TypeCode *string `json:"typeCode,omitempty"`
 	// Synonym source
 	Source *string `json:"source,omitempty"`
 	// Code of the synonym, used in particular for Metathesaurus data where the source of the synonym is not the terminology itself
@@ -253,6 +255,38 @@ func (o *Synonym) SetType(v string) {
 	o.Type = &v
 }
 
+// GetTypeCode returns the TypeCode field value if set, zero value otherwise.
+func (o *Synonym) GetTypeCode() string {
+	if o == nil || IsNil(o.TypeCode) {
+		var ret string
+		return ret
+	}
+	return *o.TypeCode
+}
+
+// GetTypeCodeOk returns a tuple with the TypeCode field value if set, nil otherwise
+// and a boolean to check if the value has been set.
+func (o *Synonym) GetTypeCodeOk() (*string, bool) {
+	if o == nil || IsNil(o.TypeCode) {
+		return nil, false
+	}
+	return o.TypeCode, true
+}
+
+// HasTypeCode returns a boolean if a field has been set.
+func (o *Synonym) HasTypeCode() bool {
+	if o != nil && !IsNil(o.TypeCode) {
+		return true
+	}
+
+	return false
+}
+
+// SetTypeCode gets a reference to the given string and assigns it to the TypeCode field.
+func (o *Synonym) SetTypeCode(v string) {
+	o.TypeCode = &v
+}
+
 // GetSource returns the Source field value if set, zero value otherwise.
 func (o *Synonym) GetSource() string {
 	if o == nil || IsNil(o.Source) {
@@ -440,6 +474,9 @@ func (o Synonym) ToMap() (map[string]interface{}, error) {
 	}
 	if !IsNil(o.Type) {
 		toSerialize["type"] = o.Type
+	}
+	if !IsNil(o.TypeCode) {
+		toSerialize["typeCode"] = o.TypeCode
 	}
 	if !IsNil(o.Source) {
 		toSerialize["source"] = o.Source
