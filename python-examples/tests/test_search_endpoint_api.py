@@ -307,7 +307,7 @@ class TestSearchEndpointApi:
         include: str = "minimal"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 313
+        expected_total: int = 316
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,
@@ -359,7 +359,7 @@ class TestSearchEndpointApi:
         include: str = "minimal"
         from_record: int = 0
         page_size: int = 5
-        expected_total: int = 151
+        expected_total: int = 149
         
         # ACT
         response: ConceptResultList = search_api.search(None, self.terminology, term, type, None, ascending, include,

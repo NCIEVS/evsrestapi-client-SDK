@@ -9,6 +9,9 @@ on:
 
   workflow_dispatch:  # Allows manual runs from the GitHub UI
 
+permissions:
+  contents: read
+
 jobs:
   trivy-scan-go:
     runs-on: ubuntu-latest
