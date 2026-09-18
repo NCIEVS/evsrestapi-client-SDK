@@ -63,7 +63,19 @@ See sample payload data from this call in [`samples/get-concept.txt`](samples/ge
 
 ---
 
-This script can also retrieve concept information for a list of concept codes.  
+The logical definition can be explicitly included with the concept. Logical definitions
+are currently supported only for NCIt and are not implied by the `minimal`, `summary`,
+`full`, or `*` include values.
+
+```bash
+$ ./get-concept.sh ncit C3224 --include logicalDefinition
+```
+
+See sample payload data from this call in [`samples/get-concept-logical-definition.txt`](samples/get-concept-logical-definition.txt)
+
+---
+
+This script can also retrieve concept information for a list of concept codes.
 The "include" parameter can be used to specify the amount of information you
 want back. Try with "minimal", "summary", and "full".
 
@@ -79,14 +91,25 @@ See sample payload data from this call in [`samples/get-concept-list.txt`](sampl
 
 Used to call the APIs for the sub-parts of concepts. The supported list includes:
 children, parents, roles, associations, inverseRoles, inverseAssociations, maps,
-and disjointWith. The following examples shows the "children", but this parameter
-could be easily replaced by any of the options listed above.
+disjointWith, and logicalDefinition. The following example shows "children", but this
+parameter could be easily replaced by any of the options listed above.
 
 ```bash
 $ ./get-concept-part.sh ncit C3224 children
 ```
 
 See sample payload data from this call in [`samples/get-concept-part.txt`](samples/get-concept-part.txt)
+
+---
+
+This example returns the machine-readable logical definition for C3224. A concept
+without an indexed logical definition returns an empty JSON object.
+
+```bash
+$ ./get-concept-part.sh ncit C3224 logicalDefinition
+```
+
+See sample payload data from this call in [`samples/get-logical-definition.txt`](samples/get-logical-definition.txt)
 
 [Back to Top](#evsrestapi-ct-in-5-minutes-bash-tutorial)
 

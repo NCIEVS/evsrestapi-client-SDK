@@ -72,6 +72,8 @@ in the technology approach used by that tutorial.
 - Get concept by code (summary information)
 - Get concept by code (full information)
 - Get concept by code (custom include)
+- Get logical definition for an NCIt concept
+- Get concept by code with logical definition included
 - Get concept part
 - Get concept descendants
 - Get all properties

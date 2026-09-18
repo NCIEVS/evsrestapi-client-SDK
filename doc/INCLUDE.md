@@ -13,7 +13,7 @@ The following special "include" values are for convenience
 
 - **minimal**: indicates just concept level information, including "code", "name", "terminology", "version", "leaf", and "active" fields.
 - **summary**: indicates minimal information plus "synonyms", "definitions" and "properties" should be included. Equivalent to using "synonyms,definitions,properties" as the "include" value.
-- **full**: never used as a default, indicates to return all available concept parts listed below except for descendants and paths.
+- **full**: never used as a default, indicates to return all available concept parts listed below except for descendants, paths, and logical definitions.
 
 For most API calls, the default "include" value is "minimal" if not specified. The main exceptions are the "get concept", "get association", "get role", and "get property" calls, which by default provide "summary" information. For example:
 
@@ -38,6 +38,7 @@ The remaining supported "include" values represent individual parts of the conce
 - **history**: indicates history should be included.
 - **inverseAssociations**: indicates inverse associations should be included.
 - **inverseRoles**: indicates inverse roles should be included.
+- **logicalDefinition**: indicates the machine-readable logical definition should be included. This value is currently supported only for NCIt and must be requested explicitly; it is not implied by `minimal`, `summary`, `full`, or `*`. If a concept does not have an indexed logical definition, the field contains an empty JSON object.
 - **maps**: indicates maps should be included.
 - **parents**: indicates parents should be included.
 - **paths**: indicates all paths to root concept should be included (be careful may be a large amount of data).
@@ -57,3 +58,5 @@ The typical (and most useful) scenarios for the "include" parameter are as follo
 3. Combine "summary" with one or more of the relationship type features.
 
 - e.g. "summary,roles"
+- e.g. "definition,synonyms"
+- e.g. "logicalDefinition" (NCIt only)

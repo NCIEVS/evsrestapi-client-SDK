@@ -12,6 +12,7 @@ if [ $# -ne 3 ]; then
   echo "  e.g. $0 ncit C3224 inverseAssociations"
   echo "  e.g. $0 ncit C3224 maps"
   echo "  e.g. $0 ncit C3910 disjointWith"
+  echo "  e.g. $0 ncit C3224 logicalDefinition"
   exit 1
 fi
 terminology=$1
@@ -32,7 +33,7 @@ echo "part = $part"
 echo ""
 
 
-list="children parents roles associations inverseRoles inverseAssociations maps disjointWith"
+list="children parents roles associations inverseRoles inverseAssociations maps disjointWith logicalDefinition"
 if [[ ! $list =~ (^|[[:space:]])$part($|[[:space:]]) ]];  then
   echo "ERROR: part has an unexpected value = $part"
   echo "       valid values = $list"

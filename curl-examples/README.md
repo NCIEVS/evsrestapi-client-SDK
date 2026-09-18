@@ -28,6 +28,8 @@ The following examples can be types into the command line of any terminal that h
 - [Get concept by code (summary information)](#get-concept-by-code-summary-information)
 - [Get concept by code (full information)](#get-concept-by-code-full-information)
 - [Get concept by code (custom include)](#get-concept-by-code-custom-include)
+- [Get logical definition for an NCIt concept](#get-logical-definition-for-an-ncit-concept)
+- [Get concept by code with logical definition included](#get-concept-by-code-with-logical-definition-included)
 - [Get concept part](#get-concept-part)
 - [Get concept descendants](#get-descendants)
 - [Get all properties](#get-all-properties)
@@ -153,6 +155,35 @@ curl "$API_URL/concept/ncit/C3224?include=synonyms,children,maps,inverseAssociat
 ```
 
 See sample payload data from this call in [`samples/get-concept-by-code-custom.txt`](samples/get-concept-by-code-custom.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get logical definition for an NCIt concept
+
+Return the machine-readable logical definition for an NCIt concept. Logical definitions
+are currently supported only for NCIt. A concept without an indexed logical definition
+returns an empty JSON object.
+
+```
+curl "$API_URL/concept/ncit/C3224/logicalDefinition" | jq .
+```
+
+See sample payload data from this call in [`samples/get-logical-definition.txt`](samples/get-logical-definition.txt)
+
+[Back to Top](#evsrestapi-client-sdk-curl-tutorial)
+
+### Get concept by code with logical definition included
+
+Return the concept together with its machine-readable logical definition. The
+`logicalDefinition` value must be requested explicitly; it is not added by the
+`minimal`, `summary`, `full`, or `*` include values. It can be combined with other
+include values when additional concept parts are needed.
+
+```
+curl "$API_URL/concept/ncit/C3224?include=logicalDefinition" | jq .
+```
+
+See sample payload data from this call in [`samples/get-concept-by-code-logical-definition.txt`](samples/get-concept-by-code-logical-definition.txt)
 
 [Back to Top](#evsrestapi-client-sdk-curl-tutorial)
 
