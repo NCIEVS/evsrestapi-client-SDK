@@ -1,0 +1,56 @@
+-----------------------------------------------------
+Starting ...Fri Sep 18 10:14:18 PDT 2026
+-----------------------------------------------------
+url = http://localhost:8082/api/v1
+terminology = ncit
+code = C3224
+include  = logicalDefinition
+
+  Get concept for ncit C3224:
+
+    {
+      "code": "C3224",
+      "name": "Melanoma",
+      "terminology": "ncit",
+      "version": "25.11d",
+      "conceptStatus": "DEFAULT",
+      "leaf": false,
+      "active": true,
+      "logicalDefinition": {
+        "code": "C3224",
+        "label": "Melanoma",
+        "parents": [
+          {
+            "idx": 0,
+            "code": "C7058",
+            "label": "Melanocytic Neoplasm"
+          },
+          {
+            "idx": 1,
+            "code": "C9305",
+            "label": "Malignant Neoplasm"
+          }
+        ],
+        "elements": [
+          {
+            "range": "Abnormal Cell",
+            "roles": [
+              {
+                "sourceCode": "C3224",
+                "sourceLabel": "Melanoma",
+                "roleCode": "R105",
+                "roleLabel": "Disease_Has_Abnormal_Cell",
+                "targetCode": "C36873",
+                "targetLabel": "Melanoma Cell"
+              }
+            ],
+            "roleUnions": [],
+            "roleGroups": []
+          }
+        ]
+      }
+    }
+
+-----------------------------------------------------
+Finished ...Fri Sep 18 10:14:18 PDT 2026
+-----------------------------------------------------

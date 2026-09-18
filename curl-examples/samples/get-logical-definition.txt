@@ -1,0 +1,33 @@
+{
+  "code": "C3224",
+  "label": "Melanoma",
+  "parents": [
+    {
+      "idx": 0,
+      "code": "C7058",
+      "label": "Melanocytic Neoplasm"
+    },
+    {
+      "idx": 1,
+      "code": "C9305",
+      "label": "Malignant Neoplasm"
+    }
+  ],
+  "elements": [
+    {
+      "range": "Abnormal Cell",
+      "roles": [
+        {
+          "sourceCode": "C3224",
+          "sourceLabel": "Melanoma",
+          "roleCode": "R105",
+          "roleLabel": "Disease_Has_Abnormal_Cell",
+          "targetCode": "C36873",
+          "targetLabel": "Melanoma Cell"
+        }
+      ],
+      "roleUnions": [],
+      "roleGroups": []
+    }
+  ]
+}
