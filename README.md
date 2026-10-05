@@ -12,13 +12,13 @@ This is an easy-to-use tutorial for accessing EVSRESTAPI APIs.
 
 ## Tutorials by Language
 
-- [Click for Bash examples.](../master/bash-examples/ "Bash Examples")
-- [Click for Curl examples.](../master/curl-examples/ "Curl Examples")
-- [Click for FHIR examples](../master/fhir-examples/ "FHIR Examples")
-- [Click for Go examples.](../master/go-examples/ "Go Examples")
-- [Click for Java examples.](../master/java-examples/ "Java Examples")
-- [Click for Postman examples.](../master/postman-examples/ "Postman Examples")
-- [Click for Python examples.](../master/python-examples/ "Python Examples")
+- [Click for Bash examples.](../main/bash-examples/ "Bash Examples")
+- [Click for Curl examples.](../main/curl-examples/ "Curl Examples")
+- [Click for FHIR examples](../main/fhir-examples/ "FHIR Examples")
+- [Click for Go examples.](../main/go-examples/ "Go Examples")
+- [Click for Java examples.](../main/java-examples/ "Java Examples")
+- [Click for Postman examples.](../main/postman-examples/ "Postman Examples")
+- [Click for Python examples.](../main/python-examples/ "Python Examples")
 - [Click for Swagger API documentation](https://api-evsrest.nci.nih.gov/swagger-ui/index.html)
 
 ## Automation scripts for examples
@@ -128,8 +128,8 @@ All of the tutorials use an environment variable for the API URL of the deployme
 
 ## Resources
 
-- [Frequently Asked Questions (FAQ)](../master/doc/FAQ.md)
-- [Additional Documentation](../master/doc/)
+- [Frequently Asked Questions (FAQ)](../main/doc/FAQ.md)
+- [Additional Documentation](../main/doc/)
 - [For App Support from NCI](https://evsexplore.semantics.cancer.gov/evsexplore/contact)
 
 **[Back to top](#table-of-contents)**
